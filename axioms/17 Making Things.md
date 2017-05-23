@@ -1,7 +1,4 @@
-# Making Things
-
-Jerry R. Hobbs and ...
-
+# 17 Making Things
 
 ## Topology
 
@@ -11,13 +8,12 @@ to define them.
 A point is a 0-dimensional entity. A curve is a 1-dimensional entity,
 perhaps embedded in a higher dimensional space.
 
-`(point x)`: x is a point.
-
-`(curve c)`: c is a curve.
+- `(point x)`: x is a point.
+- `(curve c)`: c is a curve.
 
 A point can be inside a curve or it can be an endpoint of a curve.
 
-`(inside x c)`: Point x is inside curve c.
+- `(inside x c)`: Point x is inside curve c.
 
 ```
 (forall (x c)
@@ -38,9 +34,9 @@ It is generally safest to proceed as if they are not.
 
 Three important kinds of curves are lines, rays, and line segments.
 
-`(line l)`: l is a line.
-`(ray l)`: l is a ray.
-`(lineSegment l)`: l is a line segment.
+- `(line l)`: l is a line.
+- `(ray l)`: l is a ray.
+- `(lineSegment l)`: l is a line segment.
 
 A line does not have endpoints.
 
@@ -124,7 +120,7 @@ A line segment has a line it is part of.
 A region is a 2-dimensional entity embedded in a 2- or 3-dimensional
 space.
 
-`(region r)`: r is a region.
+- `(region r)`: r is a region.
 
 Regions can have a boundary, which is a curve.
 
@@ -434,11 +430,15 @@ intersection is a unique element we can call the origin.
 (forall (a1 f)
   (if (xAxis a1 f)
       (and (framework f) (horizontal2 a1 f))))
+```
 
+```
 (forall (a2 f)
   (if (yAxis a2 f)
       (and (framework f) (vertical2 a2 f))))
+```
 
+```
 (forall (f)
   (if (framework f)
       (exist (a1 a2)
@@ -446,7 +446,9 @@ intersection is a unique element we can call the origin.
              (forall (a)
                (and (if (nequal a a1) (not (xAxis a f)))
                     (if (nequal a a2) (not (yAxis a f)))))))))
+```
 
+```
 (forall (f a1 a2 s)
   (if (and (framework f) (xAxis a1 f) (yAxis a2 f)
            (intersection s a1 a2))
@@ -486,65 +488,78 @@ A y-coordinate can be defined similarly.
 *** from here to end of section, under construction
 
 To construct a three-dimensional framework, we introduce another
-relation "above3", which is independent from "above2" and "rightOf".
+relation `above3`, which is independent from "above2" and "rightOf".
 
 ```
-   (forall (f)
-      (if (and (framework f) (3D f))
-          (exist (x1 x2 x3 y1 y2 y3 z1 z2 z3 w1 w2 w3)
-             (and (above3 x1 x2 f) (above3 x1 x3 f)
-                  (rightOf x1 x2 f) (rightOf x3 x1 f)
-                  (rightOf y1 y2 f) (rightOf y1 y3 f)
-                  (above3 y1 y2 f) (above3 y3 y1 f)
-                  (above3 z1 z2 f) (above3 z1 z3 f)
-                  (above2 z1 z2 f) (above2 z3 z1 f)
-                  (above2 w1 w2 f) (above2 w1 w3 f)
-                  (above3 w1 w2 f) (above3 w3 w1 f)))))
-
-   (forall (s1 f)
-      (iff (vertical3 s1 f)
-           (exist (s)
-              (and (domain s f)(subset s1 s)(not (null s1))
-                   (not (exist (x1 x2)
-                           (and (member x1 s1)(member x2 s1)
-                                (or (rightOf x1 x2 f)
-                                    (above2 x1 x2 f)))))))))
-
-   (forall (a3 f)
-      (if (zAxis az f)
-          (and (framework f)(3D f)(vertical3 a3 f))))
-
-   (forall (f)
-      (if (and (framework f)(3D f))
-          (exist (a3)
-             (and (zAxis a3 f)
-                  (forall (a)
-                     (if (nequal a a3)(not (zAxis a f))))))))
-
-   (forall (f a1 a2 a3 s s1)
-      (if (and (framework f)(3D f)
-               (xAxis a1 f)(yAxis a2 f)(zAxis a3 f)
-               (intersection s1 a1 a2)(intersection s s1 a3))
-          (exist (o)
-             (and (singleton s o)(origin o f)))))
-
-   (forall (z1 x f)
-      (iff (xCoordinate z1 x f)
-           (exist (v a1)
-              (and (vertical3 v f)(member x v)(xAxis a1 f)
-                   (member x1 v)(member x1 a1)))))
+(forall (f)
+   (if (and (framework f) (3D f))
+       (exist (x1 x2 x3 y1 y2 y3 z1 z2 z3 w1 w2 w3)
+          (and (above3 x1 x2 f) (above3 x1 x3 f)
+               (rightOf x1 x2 f) (rightOf x3 x1 f)
+               (rightOf y1 y2 f) (rightOf y1 y3 f)
+               (above3 y1 y2 f) (above3 y3 y1 f)
+               (above3 z1 z2 f) (above3 z1 z3 f)
+               (above2 z1 z2 f) (above2 z3 z1 f)
+               (above2 w1 w2 f) (above2 w1 w3 f)
+               (above3 w1 w2 f) (above3 w3 w1 f)))))
 ```
+
+```
+(forall (s1 f)
+   (iff (vertical3 s1 f)
+        (exist (s)
+           (and (domain s f) (subset s1 s) (not (null s1))
+                (not (exist (x1 x2)
+                        (and (member x1 s1) (member x2 s1)
+                             (or (rightOf x1 x2 f)
+                                 (above2 x1 x2 f)))))))))
+```
+
+```
+(forall (a3 f)
+   (if (zAxis az f)
+       (and (framework f) (3D f) (vertical3 a3 f))))
+```
+
+```
+(forall (f)
+   (if (and (framework f) (3D f))
+       (exist (a3)
+          (and (zAxis a3 f)
+               (forall (a)
+                  (if (nequal a a3) (not (zAxis a f))))))))
+```
+
+```
+(forall (f a1 a2 a3 s s1)
+   (if (and (framework f) (3D f)
+            (xAxis a1 f) (yAxis a2 f) (zAxis a3 f)
+            (intersection s1 a1 a2) (intersection s s1 a3))
+       (exist (o)
+          (and (singleton s o) (origin o f)))))
+```
+
+```
+(forall (z1 x f)
+   (iff (xCoordinate z1 x f)
+        (exist (v a1)
+           (and (vertical3 v f) (member x v) (xAxis a1 f)
+                (member x1 v) (member x1 a1)))))
+```
+
 need plane
 
+```
+(forall (f)
+   (if (framework f)
+       (iff (3D f) (exist (a3) (zAxis a3 f)))))
+```
 
-   (forall (f)
-      (if (framework f)
-          (iff (3D f)(exist (a3) (zAxis a3 f)))))
-
-   (forall (f)
-      (if (framework f)
-          (iff (2D f)(not (exist (a3) (zAxis a3 f))))))
-
+```
+(forall (f)
+   (if (framework f)
+       (iff (2D f) (not (exist (a3) (zAxis a3 f))))))
+```
 
 above3, zAxis, horizontal3,
 
@@ -557,16 +572,16 @@ coord sys: axes numerical, hence linear; relations >
    framework w numeric scales
 
 ```
-   (forall (f)
-      (iff (coordinateSystem f)
-           (and (framework f)
-                (forall (a1)(if (xAxis a1 f)(numeric a1)))
-                (forall (a2)(if (yAxis a2 f)(numeric a2)))
-                (forall (a3)(if (zAxis a3 f)(numeric a3)))
-                (forall (o) (if (origin o f)(equal o 0)))
-                (forall (x1 x2) (iff (rightOf x1 x2 f)(gt x1 x2)))
-                (forall (y1 y2) (iff (above2 y1 y2 f)(gt y1 y2)))
-                (forall (z1 z2) (iff (above3 z1 z2 f)(gt z1 z2))))))
+(forall (f)
+   (iff (coordinateSystem f)
+        (and (framework f)
+             (forall (a1) (if (xAxis a1 f) (numeric a1)))
+             (forall (a2) (if (yAxis a2 f) (numeric a2)))
+             (forall (a3) (if (zAxis a3 f) (numeric a3)))
+             (forall (o) (if (origin o f) (equal o 0)))
+             (forall (x1 x2) (iff (rightOf x1 x2 f) (gt x1 x2)))
+             (forall (y1 y2) (iff (above2 y1 y2 f) (gt y1 y2)))
+             (forall (z1 z2) (iff (above3 z1 z2 f) (gt z1 z2))))))
 ```
 
 
@@ -616,10 +631,14 @@ reflexive, symmetric, and transitive.
 
 ```
 (forall (v) (equalAngle v v))
+```
 
+```
 (forall (v1 v2)
   (iff (equalAngle v1 v2) (equalAngle v2 v1)))
+```
 
+```
 (forall (v1 v2 v3)
   (if (and (equalAngle v1 v2) (equalAngle v2 v3))
       (equalAngle v1 v3)))
@@ -653,71 +672,71 @@ pick a point that is one distance unit out from the origin.
 Now we can characterize the size of angles in terms of the
 y-coordinate of the anchor point. First we define the greater-than
 relation on angles that are anchored in the same framework -- call
-this relation "gtAngle0".
+this relation `gtAngle0`.
 
 ```
-   (forall (v2 v3)
-      (iff (gtAngle0 v2 v3)
-           (exist (f x1 v f l1 l2 o u)
-              (and (anchorPoint x2 v2 f l1 l2 o u)
-                   (anchorPoint x3 v3 f l1 l3 o u)
-                   (yCoordinate y2 x2) (yCoordinate y3 x3)
-                   (yAxis a f) (gts y2 y3 a)))))
+(forall (v2 v3)
+   (iff (gtAngle0 v2 v3)
+        (exist (f x1 v f l1 l2 o u)
+           (and (anchorPoint x2 v2 f l1 l2 o u)
+                (anchorPoint x3 v3 f l1 l3 o u)
+                (yCoordinate y2 x2) (yCoordinate y3 x3)
+                (yAxis a f) (gts y2 y3 a)))))
 ```
 
-Recall that "(gts y2 y3 a)" says that y2 is greater than y3 on scale
+Recall that `(gts y2 y3 a)` says that y2 is greater than y3 on scale
 a. So this axiom says that one angle is greater than another when the
 y-coordinate of its anchor point is greater than the y-coordinate of
 the other.
 
 More generally, one angle is greater than another if it is equal to an
 angle with the same anchor framework and that angle is greater than
-("gtAngle0") the other.
+(`gtAngle0`) the other.
 
 ```
-   (forall (v1 v2)
-      (iff (gtAngle v1 v2)
-           (exist (v3)(and (equalAngle v1 v3) (gtAngle0 v3 v2)))))
+(forall (v1 v2)
+   (iff (gtAngle v1 v2)
+        (exist (v3)(and (equalAngle v1 v3) (gtAngle0 v3 v2)))))
 ```
 
 An angle is a right angle if the anchor point lies on the y-axis.
 
 ```
-   (forall (v l1 l2 o)
-      (iff (rightAngle v l1 l2 o)
-           (exist (a)
-              (and (anchorPoint x v f l1 l2 o u)
-                   (yAxis a f) (xCoordinate o x)))))
+(forall (v l1 l2 o)
+   (iff (rightAngle v l1 l2 o)
+        (exist (a)
+           (and (anchorPoint x v f l1 l2 o u)
+                (yAxis a f) (xCoordinate o x)))))
 ```
 
 An angle is acute if the x- and y-coordinates are both greater than
 the origin.
 
 ```
-   (forall (v)
-      (iff (acuteAngle v)
-           (exist (x f l1 l2 o u)
-              (and (anchorPoint x v f l1 l2 o u)
-                   (xCoordinate x1 x f) (yCoordinate y1 x f)
-                   (xAxis a1 f) (yAxis a2 f)
-                   (gts x1 o a1) (gts y1 o a2)))))
+(forall (v)
+   (iff (acuteAngle v)
+        (exist (x f l1 l2 o u)
+           (and (anchorPoint x v f l1 l2 o u)
+                (xCoordinate x1 x f) (yCoordinate y1 x f)
+                (xAxis a1 f) (yAxis a2 f)
+                (gts x1 o a1) (gts y1 o a2)))))
 ```
 
 In daily life and absent precise measuring instruments, we don't judge
 the size of angles down to the degree.  But we do make rough judgments
 in two ways that are more fine-grained than the four cardinal
 directions, and these can be characterized here. The first augments
-the north-east-south=west system with the four intermediate directions
+the north-east-south-west system with the four intermediate directions
 northeast, southeast, southwest and northwest.  This system is based
 on angles of 45 degrees.
 
 ```
-   (forall (v)
-      (iff (45Degrees v)
-           (exist (x f l1 l2 o u d)
-              (and (anchorPoint x v f l1 l2 o u)
-                   (xCoordinate x1 x f) (yCoordinate y1 x f)
-                   (distance d o x1 u) (distance d o y1 u)))))
+(forall (v)
+   (iff (45Degrees v)
+        (exist (x f l1 l2 o u d)
+           (and (anchorPoint x v f l1 l2 o u)
+                (xCoordinate x1 x f) (yCoordinate y1 x f)
+                (distance d o x1 u) (distance d o y1 u)))))
 ```
 
 The second fine-grained system is based on angles of 30 degrees and is
@@ -725,13 +744,13 @@ visualized as a clock -- "incoming at 2 o'clock," "exit the traffic
 circle at 11 o'clock."
 
 ```
-   (forall (v)
-      (iff (30Degrees v)
-           (exist (x f l1 l2 o u d1 d2)
-              (and (anchorPoint x v f l1 l2 o u)
-                   (xCoordinate x1 x f) (yCoordinate y1 x f)
-                   (distance d1 o y1 u) (distance d2 o x u)
-                   (product d2 d1 2)))))
+(forall (v)
+   (iff (30Degrees v)
+        (exist (x f l1 l2 o u d1 d2)
+           (and (anchorPoint x v f l1 l2 o u)
+                (xCoordinate x1 x f) (yCoordinate y1 x f)
+                (distance d1 o y1 u) (distance d2 o x u)
+                (product d2 d1 2)))))
 ```
 
 From here we could back into measurements of angles in terms of
