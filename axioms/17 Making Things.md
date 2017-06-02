@@ -142,6 +142,15 @@ the boundary.
        (exist (c) (and (boundary c r) (inside x c)))))
 ```
 
+We can also define
+- `(inob x r)`: x is inside or on the boundary of r.
+
+```
+(forall (x r)
+  (iff (inob x r)
+       (or (inside x r) (onBoundary x r))))
+```
+
 A volume is a 3-dimensional entity. It can have a surface, which is a
 region.
 
@@ -165,6 +174,40 @@ proper part" is as follows:
                   (or (inside x r2) (onBoundary x r2))))
             (exist (x)
               (and (onBoundary x r1) (onBoundary x r2))))))
+```
+
+```
+(forall (r1 r2)
+  (iff (DC r1 r2)
+       (forall (x)
+         (if (inob x r1)
+             (not (inob x r2))))))
+```
+
+```
+(forall (r1 r2)
+  (iff (NTPP r1 r2)
+       (forall (x)
+         (if (inob x r1) (inside x r2)))))
+```
+
+```
+(forall (r1 r2)
+  (iff (EC r1 r2)
+       (and (exists (x1)
+              (and (onBoundary x1 r1) (onBoundary x1 r2)))
+            (forall (x)
+              (if (inside x r1)
+                  (not (inside x r2)))))))
+```
+
+```
+(forall (r1 r2)
+  (iff (PO r1 r2)
+       (exists (x1 x2 x3)
+         (and (inside x1 r1) (inside x1 r2)
+              (inside x2 r1) (not (inside x2 r2))
+              (not (inside x3 r1)) (inside x3 r2)))))
 ```
 
 The definitions of the other RCC8 relations are left as an exercise to
