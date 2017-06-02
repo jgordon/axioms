@@ -139,12 +139,12 @@ The beginning and end of an instant is itself.
 OWL-T: The beginnings and ends of temporal entities, if they exist, are
 unique.
 ```
-(forall (t, t1, t2)
+(forall (t t1 t2)
   (if (and (temporalEntity t) (begins t1 t) (begins t2 t))
       (equal t1 t2)))
 ```
-````
-(forall (t, t1, t2)
+```
+(forall (t t1 t2)
   (if (and (temporalEntity t) (ends t1 t) (ends t2 t))
       (equal t1 t2)))
 ```
