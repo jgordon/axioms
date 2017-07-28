@@ -1,0 +1,193 @@
+#!/usr/bin/env python3
+
+import sys
+import re
+from nltk.corpus import wordnet as wn
+
+POS_MAPPING = {
+    'n': 'nn',
+    'v': 'vb',
+    'a': 'adj',
+    'r': 'rb'
+}
+
+
+def get_synset_pred(syn):
+    return 'wn.' + syn.name()
+
+
+def get_sense_pred(lemma, pos):
+    word = lemma.name()
+    for i, l in enumerate(wn.lemmas(word, pos)):
+        if l is lemma:
+            return 'wn.' + word + '.' + pos + '.' + format(i+1, '02')
+
+
+def get_lemma_pred(lemma, pos):
+    word = lemma.name()
+    return word + '-' + POS_MAPPING[pos]
+
+
+def synset_axioms(pos):
+    """Generate axioms linking senses to a synset."""
+
+    if pos not in ['n', 'a', 'v']:
+        return []
+
+    axioms = set()
+    for word in wn.all_lemma_names(pos):
+        for lemma1 in wn.lemmas(word, pos):
+            pred1 = get_sense_pred(lemma1, pos)
+            pred2 = get_synset_pred(lemma1.synset())
+            if pred1 == pred2:
+                continue
+            if pos in ['n', 'a']:
+                axioms.add('(forall (e x) (iff (' + pred1 + ' e x) ' +
+                           '(' +  pred2 + ' e x)))')
+            elif pos == 'v':
+                axioms.add('(forall (e x y u) (iff (' + pred1 + ' e x y u) ' +
+                           '(' + pred2 + ' e x y u)))')
+    return sorted(list(axioms))
+
+
+def sense_axioms(pos):
+    """Generate axioms mapping word senses to the bare words."""
+
+    if pos not in ['n', 'a', 'v']:
+        return []
+
+    axioms = set()
+    for word in wn.all_lemma_names(pos):
+        for lemma in wn.lemmas(word, pos):
+            pred1 = get_sense_pred(lemma, pos)
+            pred2 = get_lemma_pred(lemma, pos)
+            if pos in ['n', 'a']:
+                axioms.add('(forall (e x) (if (' + pred1 + ' e x) ' +
+                           '(' + pred2 +' e x)))')
+            elif pos == 'v':
+                axioms.add('(forall (e x y u) (if (' + pred1 + ' e x y u) ' +
+                           '(' + pred2 + ' e x y u)))')
+    return sorted(list(axioms))
+
+
+def hypernym_axioms(pos):
+    """Generate axioms mapping hyponyms to their hypernyms."""
+
+    if pos not in ['n', 'a', 'v']:
+        return []
+
+    axioms = set()
+    for syn1 in wn.all_synsets(pos):
+        pred1 = get_synset_pred(syn1)
+        for syn2 in syn1.hypernyms():
+            pred2 = get_synset_pred(syn2)
+            if pos in ['n', 'a']:
+                axioms.add('(forall (e x) (if (' + pred1 + ' e x) ' +
+                           '(' +  pred2 + ' e x)))')
+            elif pos == 'v':
+                axioms.add('(forall (e x y u) (if (' + pred1 + ' e x y u) ' +
+                           '(' + pred2 + ' e x y u)))')
+    return sorted(list(axioms))
+
+
+def instance_axioms(pos):
+    """Generate axioms mapping instances to their classes."""
+
+    if pos not in ['n', 'a', 'v']:
+        return []
+
+    axioms = set()
+    for syn1 in wn.all_synsets(pos):
+        pred1 = get_synset_pred(syn1)
+        for syn2 in syn1.instance_hypernyms():
+            pred2 = get_synset_pred(syn2)
+            if pos in ['n', 'a']:
+                axioms.add('(forall (e x) (if (' + pred1 + ' e x) ' +
+                           '(' +  pred2 + ' e x)))')
+            elif pos == 'v':
+                axioms.add('(forall (e x y u) (if (' + pred1 + ' e x y u) ' +
+                           '(' + pred2 + ' e x y u)))')
+            else:
+                sys.stderr.write(
+                    'POS %s is not currently supported.\n' % pos)
+    return sorted(list(axioms))
+
+
+def part_of_axioms(pos):
+    """Generate axioms concluding that when the whole exists, its parts
+    do too."""
+
+    if pos != 'n':
+        return []
+
+    axioms = set()
+    for syn1 in wn.all_synsets(pos):
+        pred1 = get_synset_pred(syn1)
+        for syn2 in syn1.part_meronyms():
+            pred2 = get_synset_pred(syn2)
+            axioms.add('(forall (e1 x1) (if (' + pred1 + ' e1 x1) ' +
+                       '(exists (e2 x2) (and (' + pred2 + ' e2 x2) ' +
+                       '(componentOf x2 x1)))))')
+    return sorted(list(axioms))
+
+
+def antonym_axioms(pos):
+    """Generate axioms for antonyms in WordNet."""
+
+    if pos not in ['n', 'a', 'v', 'r']:
+        return []
+
+    axioms = set()
+    for word in wn.all_lemma_names(pos):
+        for lemma1 in wn.lemmas(word, pos):
+            pred1 = get_sense_pred(lemma1, pos)
+            for lemma2 in lemma1.antonyms():
+                pred2 = get_sense_pred(lemma2, pos)
+                if pos in ['n', 'a']:
+                    axioms.add('(forall (e x) (if (' + pred1 + ' e x) ' +
+                               '(not (' +  pred2 + ' e x))))')
+                elif pos == 'v':
+                    axioms.add('(forall (e x y u) ' +
+                               '(if (' + pred1 + ' e x y u) ' +
+                               '(not (' + pred2 + ' e x y u))))')
+                elif pos == 'r':
+                    axioms.add('(forall (e1 e2) (if (' + pred1 + ' e1 e2) ' +
+                               '(not (exists (e3) (' + pred2 + ' e3 e2)))))')
+    return sorted(list(axioms))
+
+
+def entailment_axioms(pos):
+    """Generate axioms for lexical entailments in WordNet."""
+
+    if pos not in ['v']:
+        return []
+
+    axioms = set()
+    for syn1 in wn.all_synsets(pos):
+        pred1 = get_synset_pred(syn1)
+        for syn2 in syn1.entailments():
+            pred2 = get_synset_pred(syn2)
+            if pos == 'v':
+                axioms.add('(forall (e1 x1 y1 u1) ' +
+                           '(if (' + pred1 + ' e1 x1 y1 u1) ' +
+                           '(exists (e2 x2 y2 u1) ' +
+                           '(' + pred2 + ' e2 x2 y2 u2))))')
+    return sorted(list(axioms))
+
+
+def main():
+    axioms = []
+    for pos in ['n', 'v', 'a', 'r']:
+        axioms += synset_axioms(pos)
+        axioms += sense_axioms(pos)
+        axioms += hypernym_axioms(pos)
+        axioms += instance_axioms(pos)
+        axioms += part_of_axioms(pos)
+        axioms += antonym_axioms(pos)
+        axioms += entailment_axioms(pos)
+    for axiom in axioms:
+        print(axiom)
+
+
+if __name__ == '__main__':
+    main()
