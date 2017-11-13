@@ -12,7 +12,7 @@ with 'OWL-T:'.
 - `(begins t1 t2)`: Instant t1 is the beginning of t2.
 - `(ends t1 t2)`: Instant t1 is the end of t2.
 - `(insideTime t1 t2)`: Instant t1 is inside t2.
-- `(intervalBetweeen t t1 t2)`: t is the interval between t1 and t2.
+- `(intervalBetween t t1 t2)`: t is the interval between t1 and t2.
 - `(posInfInterval t)`: t is a positive infinite interval.
 - `(properInterval t)`: The beginning and end of interval t are
   distinct.
