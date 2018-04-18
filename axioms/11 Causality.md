@@ -33,8 +33,8 @@
   constraints c.
 - `(dcause e1 e2)`: Eventuality or agent e1 directly causes eventuality e2
   without any intermediate causes.
-- `(enabled s e)`: All the enabling conditions for causal complex s
-  resulting in eventuality e hold.
+- `(enabled s e t)`: All the enabling conditions for causal complex s
+  resulting in eventuality e hold at time t.
 - `(executable e a c)`: Action e is executable by agent a under
   constraints c.
 - `(difficultiesWith s e)`: s is the set of obstructions tending to
@@ -183,7 +183,7 @@ some s, then we can call z the source and w the goal (called the
 ```
 
 11.14 An eventuality e1 is causally involved in bringing about some
-effect e if it is in some causal complex for e.
+effect e2 if it is in some causal complex for e2.
 
 ```
 (forall (e1 e2)
@@ -202,7 +202,7 @@ used to bring about e2, but is not the cause of e2.
             (not (cause e1 e2)))))
 ```
 
-11.16 If an eventuality e1 is required for any way of bring about e2,
+11.16 If an eventuality e1 is required for any way of bringing about e2,
 then we can use the two-argument predicate `enable`.
 
 ```

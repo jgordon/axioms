@@ -2,7 +2,7 @@
 
 This could be expanded with reference to Hobbs & Pan: An Ontology of Time
 for the Semantic Web. A few axioms have been added from that paper (noted
-with 'OWL-T:'.
+with 'OWL-T:').
 
 ## Predicates
 
