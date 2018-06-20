@@ -365,7 +365,7 @@ endpoints that lie inside the figure.
        (exist (c1 c2 v1 v2 x1 x2)
          (and (vertex v1 c1 c x1) (vertex v2 c c2 x2)
               (nequal x1 x2)
-              (insideCurve v1 p) (insideCurve v2 p)))))
+              (subfigure v1 p) (subfigure v2 p)))))
 ```
 
 A polygon is then a closed curve that is made up of n sides.
@@ -1133,10 +1133,10 @@ vertex.
       (if (square p)
           (iff (diagonal d p)
                (exists (v1 v2 x1 x2 c1 c2 c3 c4)
-                  (and (vertex v1 c1 c2 x1)IvertexOf v1 p)
+                  (and (vertex v1 c1 c2 x1) (vertexOf v1 p)
                        (vertex v2 c3 c4 x2) (vertexOf v2 p)
                        (nequal c1 c3) (nequal c1 c4)
-                       (lineSegment d x1 x2))))))
+                       (lineSegmentFromTo d x1 x2))))))
 ```
 
 It can be shown that a diagonal of a square makes a 45-degree angle
