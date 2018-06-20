@@ -1,0 +1,25 @@
+body {
+    background: #efefef;
+    color: #4a4a4a;
+    font: 14pt/16pt 'Lato', 'Helvetica', sans-serif;
+    font-weight: 400;
+    width: 80%;
+    margin: 5em auto;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 14pt;
+    line-height: 26px;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 14pt;
+    line-height: 18pt;
+    font-weight: 400;
+}
+
+section {
+    margin: 3em 0;
+}
