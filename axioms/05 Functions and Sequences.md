@@ -26,7 +26,7 @@
 If `pair0`, it's an ordered pair, which has two elements.
 
 5.1
-````
+```
 (forall (p)
   (iff (pair0 p)
        (exists (x y) (pair p x y))))
