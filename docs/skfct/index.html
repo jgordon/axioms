@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Corresponding to the functional dependency, there is a skolem function that maps any element x1 of the set s into the corresponding y1, and that function has a range.</p>
 <pre>
 (forall (x x1 y y1 e)
   (iff (<a href="../skfct">skfct</a> y1 y x1 x e)
@@ -36,15 +38,22 @@
               (and (<a href="../subst2">subst2</a> x y e x1 y1 e1)
                    (if (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1)))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Corresponding to the functional dependency, there is a skolem function that maps any element x1 of the set s into the corresponding y1, and that function has a range.</p>
 <pre>
-(forall (c1 c x1 x y e e1)
-  (if (and (<a href="../skfct">skfct</a> c1 c x1 x e) (<a href="../fd">fd</a> c y e) (<a href="../nequal">nequal</a> x y)
-           (<a href="../subst2">subst2</a> c1 x1 e1 c x e))
-      (<a href="../fd">fd</a> c1 y e1)))
+(forall (x x1 y y1 e)
+  (iff (<a href="../skfct">skfct</a> y1 y x1 x e)
+       (and (<a href="../fd">fd</a> y x e)
+            (exists (e1)
+              (and (<a href="../subst2">subst2</a> x y e x1 y1 e1)
+                   (if (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1)))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The range of the functional dependency is then the set of all values of the skolem function.</p>
 <pre>
 (forall (s1 x y e)
   (iff (<a href="../rangeFd">rangeFd</a> s1 y x e)
@@ -52,14 +61,18 @@
          (iff (<a href="../member">member</a> y1 s1)
               (exists (x1) (<a href="../skfct">skfct</a> y1 y x1 x e))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Pass functional dependence relations down to partial instantiations.</p>
 <pre>
-(forall (x x1 y y1 e)
-  (iff (<a href="../skfct">skfct</a> y1 y x1 x e)
-       (and (<a href="../fd">fd</a> y x e)
-            (exists (e1)
-              (and (<a href="../subst2">subst2</a> x y e x1 y1 e1)
-                   (if (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1)))))))
+(forall (c1 c x1 x y e e1)
+  (if (and (<a href="../skfct">skfct</a> c1 c x1 x e) (<a href="../fd">fd</a> c y e) (<a href="../nequal">nequal</a> x y)
+           (<a href="../subst2">subst2</a> c1 x1 e1 c x e))
+      (<a href="../fd">fd</a> c1 y e1)))
 </pre>
+</div>
+<div class="axiom">
+<p>When we have a Skolem function or a functional dependency, we have a corresponding function.</p>
 <pre>
 (forall (y1 y x1 x e s1 s2)
   (if (and (<a href="../skfct">skfct</a> y1 y x1 x e) (<a href="../typelt">typelt</a> x s1) (<a href="../rangeFd">rangeFd</a> s2 y x e))
@@ -68,6 +81,7 @@
              (forall (p)
                (iff (<a href="../pair">pair</a> p x1 y1) (<a href="../member">member</a> p f)))))))
 </pre>
+</div>
 </section>
 
 </body>

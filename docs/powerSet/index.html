@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The power set of a set is the set of all its subsets.</p>
 <pre>
 (forall (s0 s)
   (iff (<a href="../powerSet">powerSet</a> s0 s)
@@ -35,9 +37,21 @@
          (iff (<a href="../member">member</a> s1 s0)
               (<a href="../subset">subset</a> s1 s)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The power set of a set is the set of all its subsets.</p>
+<pre>
+(forall (s0 s)
+  (iff (<a href="../powerSet">powerSet</a> s0 s)
+       (forall (s1)
+         (iff (<a href="../member">member</a> s1 s0)
+              (<a href="../subset">subset</a> s1 s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The primitive case of a rate is when there is a set S of events, a set T of time intervals, and a function mapping the intervals into a subset of S, namely those events that occur during that interval. When the concept of rate truly applies, the cardinalities of all these subsets are the same.</p>
 <pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)
@@ -51,13 +65,7 @@
                       (<a href="../card">card</a> n s1)))))
       (<a href="../rate">rate</a> n s t)))
 </pre>
-<pre>
-(forall (s0 s)
-  (iff (<a href="../powerSet">powerSet</a> s0 s)
-       (forall (s1)
-         (iff (<a href="../member">member</a> s1 s0)
-              (<a href="../subset">subset</a> s1 s)))))
-</pre>
+</div>
 </section>
 
 </body>

@@ -28,18 +28,42 @@
 </section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>A non-negative integer is a number.</p>
+<pre>
+(forall (n) (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../number">number</a> n)))
+</pre>
+</div>
+<div class="axiom">
+<p>A fraction is a number.</p>
+<pre>
+(forall (f a b)
+  (if (<a href="../fraction">fraction</a> f a b) (<a href="../number">number</a> f)))
+</pre>
+</div>
+<div class="axiom">
+<p>The arguments of <code>fraction</code> are a number and a non-zero number.</p>
 <pre>
 (forall (f a b)
   (if (<a href="../fraction">fraction</a> f a b)
       (and (<a href="../number">number</a> a) (<a href="../number">number</a> b) (<a href="../nequal">nequal</a> b 0))))
 </pre>
+</div>
+<div class="axiom">
+<p>If e is the <code>lt</code> relation between x and y and s1 is a set of numbers containing 0 but no smaller number, then there is a non-negative numeric scale s with s1 as its set and e as its partial ordering.</p>
 <pre>
-(forall (f a b)
-  (if (<a href="../fraction">fraction</a> f a b) (<a href="../number">number</a> f)))
+(forall (s1 e x y)
+  (if (and (<a href="../lt">lt</a>' e x y)
+           (forall (n)
+             (if (<a href="../member">member</a> n s1)
+                 (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
+           (<a href="../member">member</a> 0 s1))
+      (exists (s)
+        (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)))))
 </pre>
-<pre>
-(forall (n) (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../number">number</a> n)))
-</pre>
+</div>
+<div class="axiom">
+<p>Conversely, a non-negative numeric scale has the <code>lt</code> relation for its ordering and a set of numbers, including 0, as its set.</p>
 <pre>
 (forall (s)
   (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
@@ -51,16 +75,7 @@
              (<a href="../member">member</a> 0 s1)
              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
 </pre>
-<pre>
-(forall (s1 e x y)
-  (if (and (<a href="../lt">lt</a>' e x y)
-           (forall (n)
-             (if (<a href="../member">member</a> n s1)
-                 (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
-           (<a href="../member">member</a> 0 s1))
-      (exists (s)
-        (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)))))
-</pre>
+</div>
 </section>
 
 </body>

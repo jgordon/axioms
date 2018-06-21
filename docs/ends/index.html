@@ -28,26 +28,69 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (t1 t2)
   (if (<a href="../ends">ends</a> t1 t2)
       (and (<a href="../instant">instant</a> t1)
            (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
-(forall (e t)
-  (iff (<a href="../happensIn">happensIn</a> e t)
-       (exists (t1)
-         (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e)
-              (forall (t2)
-                (if (or (<a href="../begins">begins</a> t2 t1) (<a href="../insideTime">insideTime</a> t2 t1)
-                        (<a href="../ends">ends</a> t2 t1))
-                    (or (<a href="../begins">begins</a> t2 t) (<a href="../insideTime">insideTime</a> t2 t)
-                        (<a href="../ends">ends</a> t2 t))))))))
+(forall (t1 t2)
+  (if (<a href="../ends">ends</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (and (<a href="../instant">instant</a> t2) (<a href="../ends">ends</a> t1 t2))
+      (equal t1 t2)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t t1 t2)
+  (if (and (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../ends">ends</a> t1 t) (<a href="../ends">ends</a> t2 t))
+      (equal t1 t2)))
+</pre>
+</div>
+<div class="axiom">
+<p>An interval t between two instants t1 and t2 is an interval that begins at t1 and ends at t2. It will be useful to extend this to intervals and define it as the interval from the end of t1 to the beginning of t2.</p>
+<pre>
+(forall (t t1 t2)
+  (iff (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
+       (exists (t3 t4)
+         (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2)
+              (<a href="../begins">begins</a> t3 t) (<a href="../ends">ends</a> t4 t)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A positive infinite interval is one that has no end. It may or may not have a beginning.</p>
+<pre>
+(forall (t)
+  (iff (<a href="../posInfInterval">posInfInterval</a> t)
+       (and (<a href="../interval">interval</a> t)
+            (not (exists (t2) (<a href="../ends">ends</a> t2 t))))))
+</pre>
+</div>
+<div class="axiom">
+<p>When the beginning and end of an interval are distinct, we will call it a proper interval. Positive infinite intervals are regarded as proper intervals.</p>
+<pre>
+(forall (t)
+  (iff (<a href="../properInterval">properInterval</a> t)
+       (or (exists (t1 t2)
+             (and (<a href="../begins">begins</a> t1 t) (<a href="../ends">ends</a> t2 t) (<a href="../nequal">nequal</a> t1 t2)))
+           (<a href="../posInfInterval">posInfInterval</a> t))))
+</pre>
+</div>
+<div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
 <pre>
 (forall (s t1 t2 t3 t4)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t3 t1)
@@ -56,12 +99,30 @@
         (iff (<a href="../convexHull">convexHull</a> t s)
              (<a href="../intervalBetween">intervalBetween</a> t t3 t4)))))
 </pre>
+</div>
+<div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
 <pre>
-(forall (t e)
-  (if (<a href="../eventuality">eventuality</a> e)
-      (iff (<a href="../ends">ends</a> t e)
-           (exists (t1) (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../ends">ends</a> t t1))))))
+(forall (t s)
+  (if (<a href="../tseq">tseq</a> s)
+      (iff (<a href="../ends">ends</a> t s)
+           (exists (t1) (and (<a href="../last">last</a> t1 s) (<a href="../ends">ends</a> t t1))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<pre>
+(forall (t s)
+  (if (and (<a href="../tseq">tseq</a> s) (<a href="../insideTime">insideTime</a> t s))
+      (and (not (<a href="../begins">begins</a> t s)) (not (<a href="../ends">ends</a> t s))
+           (exists (t1)
+             (and (<a href="../member">member</a> t1 s)
+                  (or (equal t1 t) (<a href="../insideTime">insideTime</a> t t1)
+                      (<a href="../begins">begins</a> t t1) (<a href="../ends">ends</a> t t1)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The "time span of" an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
 <pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
@@ -89,21 +150,101 @@
                                      (<a href="../insideTime">insideTime</a> t1 t2)
                                      (<a href="../ends">ends</a> t1 t2)))))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>We will say that an eventuality happens in a temporal entity or sequence if its time span is entirely included in the temporal entity or sequence.</p>
 <pre>
-(forall (t s)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../ends">ends</a> t s)
-           (exists (t1) (and (<a href="../last">last</a> t1 s) (<a href="../ends">ends</a> t t1))))))
+(forall (e t)
+  (iff (<a href="../happensIn">happensIn</a> e t)
+       (exists (t1)
+         (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e)
+              (forall (t2)
+                (if (or (<a href="../begins">begins</a> t2 t1) (<a href="../insideTime">insideTime</a> t2 t1)
+                        (<a href="../ends">ends</a> t2 t1))
+                    (or (<a href="../begins">begins</a> t2 t) (<a href="../insideTime">insideTime</a> t2 t)
+                        (<a href="../ends">ends</a> t2 t))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>We will say that an eventuality happens in a temporal entity or sequence if its time span is entirely included in the temporal entity or sequence.</p>
 <pre>
-(forall (t s)
-  (if (and (<a href="../tseq">tseq</a> s) (<a href="../insideTime">insideTime</a> t s))
-      (and (not (<a href="../begins">begins</a> t s)) (not (<a href="../ends">ends</a> t s))
-           (exists (t1)
-             (and (<a href="../member">member</a> t1 s)
-                  (or (equal t1 t) (<a href="../insideTime">insideTime</a> t t1)
-                      (<a href="../begins">begins</a> t t1) (<a href="../ends">ends</a> t t1)))))))
+(forall (t e)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../ends">ends</a> t e)
+           (exists (t1) (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../ends">ends</a> t t1))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The beginning of a proper interval is before the instants inside, which are before the end.</p>
+<pre>
+(forall (t1 t2 t3 t)
+  (if (<a href="../properIntervalEv">properIntervalEv</a> t)
+      (and (if (and (<a href="../begins">begins</a> t1 t) (<a href="../ends">ends</a> t3 t))
+               (<a href="../before">before</a> t1 t3))
+           (if (and (<a href="../begins">begins</a> t1 t) (<a href="../insideTime">insideTime</a> t2 t))
+               (<a href="../before">before</a> t1 t2))
+           (if (and (<a href="../insideTime">insideTime</a> t2 t) (<a href="../ends">ends</a> t3 t))
+               (<a href="../before">before</a> t2 t3)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>intMeets</code> means that the end of one interval is the beginning of the other.</p>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../intMeets">intMeets</a> t1 t2)
+       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
+            (exists (t) (and (<a href="../ends">ends</a> t t1) (<a href="../begins">begins</a> t t2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>One interval finishes the other if it begins inside and ends the same place. We have to complicate this relation a bit to accommodate positive infinite intervals.</p>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../intFinishes">intFinishes</a> t1 t2)
+       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
+            (exists (t3 t4)
+              (and (<a href="../begins">begins</a> t3 t1) (<a href="../begins">begins</a> t4 t2) (<a href="../before">before</a> t4 t3)))
+            (or (exists (t)
+                  (and (<a href="../ends">ends</a> t t1) (<a href="../ends">ends</a> t t2)))
+                (and (<a href="../posInfIntervalEv">posInfIntervalEv</a> t1)
+                     (<a href="../posInfIntervalEv">posInfIntervalEv</a> t2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>One interval <code>t1</code> is during another <code>t2</code> if <code>t1</code> begins after <code>t2</code> and ends before <code>t2</code>. The conditional in the last line of the definition is to accommodate positive infinite intervals.</p>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../intDuring">intDuring</a> t1 t2)
+       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
+            (exists (t3 t4)
+              (and (<a href="../begins">begins</a> t3 t1) (<a href="../begins">begins</a> t4 t2) (<a href="../before">before</a> t4 t3)))
+            (exists (t5)
+              (and (<a href="../ends">ends</a> t5 t1)
+                   (forall (t6)
+                     (if (<a href="../ends">ends</a> t6 t2) (<a href="../before">before</a> t5 t6))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We can also extend the <code>before</code> relation from instants to intervals, temporal sequences, and eventualities; one of them is before another if the first's end is before the second's beginning.</p>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../before">before</a> t1 t2)
+       (exists (t3 t4)
+         (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2) (<a href="../before">before</a> t3 t4)))))
+</pre>
+</div>
+<div class="axiom">
+<p>We will sometimes have occasion to talk about one temporal entity being before or meeting another.  We will define the predicate <code>beforeOrMeets</code> as follows:</p>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../beforeOrMeets">beforeOrMeets</a> t1 t2)
+       (exists (t3 t4)
+         (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2)
+              (or (<a href="../before">before</a> t3 t4) (equal t3 t4))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A proper interval is a concatenation of a set of proper intervals if every instant inside the interval is inside, the beginning, or the end of some interval in the set, and the intervals in the set are non-overlapping.</p>
 <pre>
 (forall (t s)
   (iff (<a href="../concatenation">concatenation</a> t s)
@@ -123,93 +264,7 @@
               (if (and (<a href="../member">member</a> t1 s) (<a href="../member">member</a> t2 s))
                   (or (equal t1 t2) (not (<a href="../intOverlap">intOverlap</a> t1 t2))))))))
 </pre>
-<pre>
-(forall (t t1 t2)
-  (if (and (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../ends">ends</a> t1 t) (<a href="../ends">ends</a> t2 t))
-      (equal t1 t2)))
-</pre>
-<pre>
-(forall (t t1 t2)
-  (iff (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
-       (exists (t3 t4)
-         (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2)
-              (<a href="../begins">begins</a> t3 t) (<a href="../ends">ends</a> t4 t)))))
-</pre>
-<pre>
-(forall (t)
-  (iff (<a href="../posInfInterval">posInfInterval</a> t)
-       (and (<a href="../interval">interval</a> t)
-            (not (exists (t2) (<a href="../ends">ends</a> t2 t))))))
-</pre>
-<pre>
-(forall (t)
-  (iff (<a href="../properInterval">properInterval</a> t)
-       (or (exists (t1 t2)
-             (and (<a href="../begins">begins</a> t1 t) (<a href="../ends">ends</a> t2 t) (<a href="../nequal">nequal</a> t1 t2)))
-           (<a href="../posInfInterval">posInfInterval</a> t))))
-</pre>
-<pre>
-(forall (t1 t2 t3 t)
-  (if (<a href="../properIntervalEv">properIntervalEv</a> t)
-      (and (if (and (<a href="../begins">begins</a> t1 t) (<a href="../ends">ends</a> t3 t))
-               (<a href="../before">before</a> t1 t3))
-           (if (and (<a href="../begins">begins</a> t1 t) (<a href="../insideTime">insideTime</a> t2 t))
-               (<a href="../before">before</a> t1 t2))
-           (if (and (<a href="../insideTime">insideTime</a> t2 t) (<a href="../ends">ends</a> t3 t))
-               (<a href="../before">before</a> t2 t3)))))
-</pre>
-<pre>
-(forall (t1 t2)
-  (if (<a href="../ends">ends</a> t1 t2)
-      (and (<a href="../instant">instant</a> t1)
-           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
-</pre>
-<pre>
-(forall (t1 t2)
-  (if (and (<a href="../instant">instant</a> t2) (<a href="../ends">ends</a> t1 t2))
-      (equal t1 t2)))
-</pre>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../before">before</a> t1 t2)
-       (exists (t3 t4)
-         (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2) (<a href="../before">before</a> t3 t4)))))
-</pre>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../beforeOrMeets">beforeOrMeets</a> t1 t2)
-       (exists (t3 t4)
-         (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2)
-              (or (<a href="../before">before</a> t3 t4) (equal t3 t4))))))
-</pre>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../intDuring">intDuring</a> t1 t2)
-       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
-            (exists (t3 t4)
-              (and (<a href="../begins">begins</a> t3 t1) (<a href="../begins">begins</a> t4 t2) (<a href="../before">before</a> t4 t3)))
-            (exists (t5)
-              (and (<a href="../ends">ends</a> t5 t1)
-                   (forall (t6)
-                     (if (<a href="../ends">ends</a> t6 t2) (<a href="../before">before</a> t5 t6))))))))
-</pre>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../intFinishes">intFinishes</a> t1 t2)
-       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
-            (exists (t3 t4)
-              (and (<a href="../begins">begins</a> t3 t1) (<a href="../begins">begins</a> t4 t2) (<a href="../before">before</a> t4 t3)))
-            (or (exists (t)
-                  (and (<a href="../ends">ends</a> t t1) (<a href="../ends">ends</a> t t2)))
-                (and (<a href="../posInfIntervalEv">posInfIntervalEv</a> t1)
-                     (<a href="../posInfIntervalEv">posInfIntervalEv</a> t2))))))
-</pre>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../intMeets">intMeets</a> t1 t2)
-       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
-            (exists (t) (and (<a href="../ends">ends</a> t t1) (<a href="../begins">begins</a> t t2))))))
-</pre>
+</div>
 </section>
 
 </body>

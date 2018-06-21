@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>We define a scale by the set of its components and the relation that is the partial ordering of the scale.</p>
 <pre>
 (forall (s s1 e)
    (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
@@ -35,15 +37,75 @@
              (exists (x y)
                (<a href="../partialOrdering">partialOrdering</a> e x y s)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>We define a scale by the set of its components and the relation that is the partial ordering of the scale.</p>
 <pre>
-   (forall (s z)
-      (iff (<a href="../nearnessScale">nearnessScale</a> s z)
-           (exists (s0 e x y u)
-              (and (<a href="../nearer">nearer</a>' e x y z u) (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e)))))
+(forall (s s1 e)
+   (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+        (and (<a href="../scale">scale</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
+             (exists (x y)
+               (<a href="../partialOrdering">partialOrdering</a> e x y s)))))
 </pre>
+</div>
+<div class="axiom">
+<p>A sequence is a scale whose partial ordering is the <code>beforeInSeq</code> relation.</p>
+<pre>
+(forall (s s1 e x y)
+   (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
+            (<a href="../beforeInSeq">beforeInSeq</a>' e x y s))
+       (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+            (forall (z)
+              (if (<a href="../first">first</a> z s)
+                  (<a href="../bottom">bottom</a> z s))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A set of sets under the <code>subset</code> relation is a scale.</p>
+<pre>
+(forall (s1 e x y)
+  (if (and (forall (s2)
+             (if (<a href="../member">member</a> s2 s1)
+                 (<a href="../set">set</a> s2)))
+            (<a href="../subset">subset</a>' e x y))
+       (exists (s)
+          (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+               (forall (z)
+                 (if (and (<a href="../member">member</a> z s1) (<a href="../null">null</a> z))
+                     (<a href="../bottom">bottom</a> z s)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If e is the <code>lt</code> relation between x and y and s1 is a set of numbers containing 0 but no smaller number, then there is a non-negative numeric scale s with s1 as its set and e as its partial ordering.</p>
+<pre>
+(forall (s1 e x y)
+  (if (and (<a href="../lt">lt</a>' e x y)
+           (forall (n)
+             (if (<a href="../member">member</a> n s1)
+                 (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
+           (<a href="../member">member</a> 0 s1))
+      (exists (s)
+        (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Conversely, a non-negative numeric scale has the <code>lt</code> relation for its ordering and a set of numbers, including 0, as its set.</p>
+<pre>
+(forall (s)
+  (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
+      (exists (s1 e x y)
+        (and (<a href="../lt">lt</a>' e x y)
+             (forall (n)
+               (if (<a href="../member">member</a> n s1)
+                   (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
+             (<a href="../member">member</a> 0 s1)
+             (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If s1 is the scale whose set is a set of sets including the null set and whose partial ordering is <code>subset</code>, then cardinality is a measure.</p>
 <pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)
@@ -55,11 +117,41 @@
            (<a href="../card">card</a>' m n u))
       (<a href="../measure">measure</a> m s)))
 </pre>
+</div>
+<div class="axiom">
+<p>A temporal sequence is a scale whose ordering relation is <code>before</code>.</p>
 <pre>
 (forall (s e t1 t1)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../before">before</a>' e t1 t2))
       (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s e)))
 </pre>
+</div>
+<div class="axiom">
+<p>Time is a scale whose ordering relation is <code>before</code> and whose components are instants and intervals.</p>
+<pre>
+(forall (t)
+  (iff (<a href="../timeScale">timeScale</a> t)
+       (exists (s e t2 t3)
+         (and (forall (t1)
+                (iff (<a href="../member">member</a> t1 s)
+                     (or (<a href="../instant">instant</a> t1) (<a href="../interval">interval</a> t1))))
+              (<a href="../before">before</a>' e t2 t3)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> t s e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Then we can define a <code>scaleOrderedByDuration</code>.</p>
+<pre>
+(forall (s)
+  (iff (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s)
+       (exists (s1 e t1 t2)
+         (and (forall (t) (if (<a href="../member">member</a> t s1) (<a href="../interval">interval</a> t)))
+              (<a href="../shorterDuration">shorterDuration</a>' e t1 t2)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Rate defines a scale whose elements are the set of events whose rate is being measured and whose ordering is the less-than relation between rates.</p>
 <pre>
 (forall (s s0)
   (iff (<a href="../rateScale">rateScale</a> s s0)
@@ -73,33 +165,17 @@
                                  (<a href="../lt">lt</a> r1 r2)))))
                    (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
-(forall (s s1 e x y)
-   (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
-            (<a href="../beforeInSeq">beforeInSeq</a>' e x y s))
-       (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
-            (forall (z)
-              (if (<a href="../first">first</a> z s)
-                  (<a href="../bottom">bottom</a> z s))))))
+   (forall (s z)
+      (iff (<a href="../nearnessScale">nearnessScale</a> s z)
+           (exists (s0 e x y u)
+              (and (<a href="../nearer">nearer</a>' e x y z u) (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e)))))
 </pre>
-<pre>
-(forall (s s1 e)
-   (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
-        (and (<a href="../scale">scale</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
-             (exists (x y)
-               (<a href="../partialOrdering">partialOrdering</a> e x y s)))))
-</pre>
-<pre>
-(forall (s)
-  (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
-      (exists (s1 e x y)
-        (and (<a href="../lt">lt</a>' e x y)
-             (forall (n)
-               (if (<a href="../member">member</a> n s1)
-                   (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
-             (<a href="../member">member</a> 0 s1)
-             (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
-</pre>
+</div>
+<div class="axiom">
+<p>The <code>likelihoodScale</code> has likelihoods as its elements and the <code>lowerLikelihood</code> relation as its partial ordering.</p>
 <pre>
 (forall (s)
   (iff (<a href="../likelihoodScale">likelihoodScale</a> s)
@@ -109,46 +185,7 @@
               (<a href="../lowerLikelihood">lowerLikelihood</a>' r d1 d2)
               (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 r)))))
 </pre>
-<pre>
-(forall (s)
-  (iff (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s)
-       (exists (s1 e t1 t2)
-         (and (forall (t) (if (<a href="../member">member</a> t s1) (<a href="../interval">interval</a> t)))
-              (<a href="../shorterDuration">shorterDuration</a>' e t1 t2)
-              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
-</pre>
-<pre>
-(forall (s1 e x y)
-  (if (and (<a href="../lt">lt</a>' e x y)
-           (forall (n)
-             (if (<a href="../member">member</a> n s1)
-                 (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
-           (<a href="../member">member</a> 0 s1))
-      (exists (s)
-        (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)))))
-</pre>
-<pre>
-(forall (s1 e x y)
-  (if (and (forall (s2)
-             (if (<a href="../member">member</a> s2 s1)
-                 (<a href="../set">set</a> s2)))
-            (<a href="../subset">subset</a>' e x y))
-       (exists (s)
-          (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
-               (forall (z)
-                 (if (and (<a href="../member">member</a> z s1) (<a href="../null">null</a> z))
-                     (<a href="../bottom">bottom</a> z s)))))))
-</pre>
-<pre>
-(forall (t)
-  (iff (<a href="../timeScale">timeScale</a> t)
-       (exists (s e t2 t3)
-         (and (forall (t1)
-                (iff (<a href="../member">member</a> t1 s)
-                     (or (<a href="../instant">instant</a> t1) (<a href="../interval">interval</a> t1))))
-              (<a href="../before">before</a>' e t2 t3)
-              (<a href="../scaleDefinedBy">scaleDefinedBy</a> t s e)))))
-</pre>
+</div>
 </section>
 
 </body>

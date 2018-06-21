@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A measure is a monotone increasing function from a scale into a non-negative numeric scale in which the bottom of the domain scale, if there is one, maps into 0.</p>
 <pre>
 (forall (m s1)
   (iff (<a href="../measure">measure</a> m s1)
@@ -37,9 +39,23 @@
               (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
               (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>A measure is a monotone increasing function from a scale into a non-negative numeric scale in which the bottom of the domain scale, if there is one, maps into 0.</p>
+<pre>
+(forall (m s1)
+  (iff (<a href="../measure">measure</a> m s1)
+       (exists (s2)
+         (and (<a href="../scale">scale</a> s1) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s2)
+              (<a href="../functionInto">functionInto</a> m s1 s2)
+              (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
+              (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If s1 is the scale whose set is a set of sets including the null set and whose partial ordering is <code>subset</code>, then cardinality is a measure.</p>
 <pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)
@@ -51,11 +67,9 @@
            (<a href="../card">card</a>' m n u))
       (<a href="../measure">measure</a> m s)))
 </pre>
-<pre>
-(forall (f s)
-  (if (and (<a href="../nonNegNumericScale">nonNegNumericScale</a> s) (<a href="../identityFunction">identityFunction</a> f s))
-      (<a href="../measure">measure</a> f s)))
-</pre>
+</div>
+<div class="axiom">
+<p>Suppose we have two points x and y on a scale s1 which has a measure. Then the proportion of x to y is the fraction whose numerator and denominator are the numbers the measure maps x and y into, respectively.</p>
 <pre>
 (forall (f x y m s1)
   (if (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1))
@@ -64,37 +78,35 @@
              (and (<a href="../map">map</a> m x n1) (<a href="../map">map</a> m y n2)
                   (<a href="../fraction">fraction</a> f n1 n2))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Constraints on the arguments of <code>proportion</code>:</p>
 <pre>
 (forall (f x y m)
   (if (<a href="../proportion">proportion</a> f x y m)
       (exists (s1)
         (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)))))
 </pre>
+</div>
+<div class="axiom">
+<p>The identity function on a non-negative numeric scale is a measure.</p>
+<pre>
+(forall (f s)
+  (if (and (<a href="../nonNegNumericScale">nonNegNumericScale</a> s) (<a href="../identityFunction">identityFunction</a> f s))
+      (<a href="../measure">measure</a> f s)))
+</pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
 <pre>
 (forall (m s1 s2 x y)
   (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)
            (<a href="../map">map</a> m x y))
       (<a href="../at">at</a> x y s2)))
 </pre>
-<pre>
-(forall (m s1)
-  (iff (<a href="../measure">measure</a> m s1)
-       (exists (s2)
-         (and (<a href="../scale">scale</a> s1) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s2)
-              (<a href="../functionInto">functionInto</a> m s1 s2)
-              (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
-              (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
-</pre>
-<pre>
-(forall (x y s1 m)
-  (if (<a href="../sameHOM">sameHOM</a> x y s1 m)
-      (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1) (<a href="../measure">measure</a> m s1))))
-</pre>
-<pre>
-(forall (x y s1 m)
-  (if (and (<a href="../gts">gts</a> x y s1) (<a href="../measure">measure</a> m s1))
-      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m) (<a href="../sameHOM">sameHOM</a> y x s1 m))))
-</pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
@@ -103,6 +115,23 @@
              (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
                   (<a href="../leq">leq</a> f2 10))))))
 </pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<pre>
+(forall (x y s1 m)
+  (if (and (<a href="../gts">gts</a> x y s1) (<a href="../measure">measure</a> m s1))
+      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m) (<a href="../sameHOM">sameHOM</a> y x s1 m))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<pre>
+(forall (x y s1 m)
+  (if (<a href="../sameHOM">sameHOM</a> x y s1 m)
+      (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1) (<a href="../measure">measure</a> m s1))))
+</pre>
+</div>
 </section>
 
 </body>

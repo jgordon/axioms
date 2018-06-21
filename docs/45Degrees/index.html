@@ -24,11 +24,7 @@
 </header>
 <section>
 <h2>All Axioms</h2>
-<pre>
-   (forall (p d c v x)
-      (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
-          (<a href="../45Degrees">45Degrees</a> v)))
-</pre>
+<div class="axiom">
 <pre>
    (forall (v)
       (iff (<a href="../45Degrees">45Degrees</a> v)
@@ -37,6 +33,14 @@
                    (<a href="../xCoordinate">xCoordinate</a> x1 x f) (<a href="../yCoordinate">yCoordinate</a> y1 x f)
                    (<a href="../distance">distance</a> d o x1 u) (<a href="../distance">distance</a> d o y1 u)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (p d c v x)
+      (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
+          (<a href="../45Degrees">45Degrees</a> v)))
+</pre>
+</div>
 </section>
 
 </body>

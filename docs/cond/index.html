@@ -28,11 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
-<pre>
-(forall (e e1 e2)
-  (if (<a href="../cond">cond</a> e e1 e2)
-      (and (<a href="../subevent">subevent</a> e2 e) (<a href="../event">event</a> e))))
-</pre>
+<div class="axiom">
+<p>We will take a conditional event to be the implicational relation between some eventuality -- a state or an event -- and an event, with a further relation that the first eventuality must obtain at the beginning of the second.</p>
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../cond">cond</a> e e1 e2)
@@ -41,14 +38,18 @@
               (if (<a href="../begins">begins</a> t e2)
                   (<a href="../atTime">atTime</a> e1 t))))))
 </pre>
-</section>
+</div><div class="axiom">
+<p>The event <code>e2</code> is a subevent of <code>e</code> and hence <code>e</code> is also an event.</p>
+<pre>
+(forall (e e1 e2)
+  (if (<a href="../cond">cond</a> e e1 e2)
+      (and (<a href="../subevent">subevent</a> e2 e) (<a href="../event">event</a> e))))
+</pre>
+</div></section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-(forall (e e1 e2)
-  (if (<a href="../cond">cond</a> e e1 e2)
-      (and (<a href="../subevent">subevent</a> e2 e) (<a href="../event">event</a> e))))
-</pre>
+<div class="axiom">
+<p>We will take a conditional event to be the implicational relation between some eventuality -- a state or an event -- and an event, with a further relation that the first eventuality must obtain at the beginning of the second.</p>
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../cond">cond</a> e e1 e2)
@@ -57,13 +58,17 @@
               (if (<a href="../begins">begins</a> t e2)
                   (<a href="../atTime">atTime</a> e1 t))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The event <code>e2</code> is a subevent of <code>e</code> and hence <code>e</code> is also an event.</p>
 <pre>
 (forall (e e1 e2)
-  (iff (<a href="../repeatUntil">repeatUntil</a> e e1 e2)
-       (exists (e3 e4 e5)
-         (and (<a href="../eventSequence">eventSequence</a>' e e3 e4) (<a href="../instance">instance</a> e3 e1) (<a href="../cond">cond</a> e4 e2 e5)
-              (or (<a href="../repeatUntil">repeatUntil</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e1))))))
+  (if (<a href="../cond">cond</a> e e1 e2)
+      (and (<a href="../subevent">subevent</a> e2 e) (<a href="../event">event</a> e))))
 </pre>
+</div>
+<div class="axiom">
+<p>Some iterative processes have a termination condition, for which we define a predicate <code>whileDo</code> that says one event type <code>e2</code> is instantiated by successive instances as long as eventuality <code>e1</code> happens or holds.</p>
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../whileDo">whileDo</a> e e1 e2)
@@ -71,6 +76,17 @@
          (and (<a href="../cond">cond</a> e e1 e3) (<a href="../eventSequence">eventSequence</a>' e3 e4 e5) (<a href="../instance">instance</a> e4 e2)
               (or (<a href="../whileDo">whileDo</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e2))))))
 </pre>
+</div>
+<div class="axiom">
+<p>A <code>repeatUntil</code> can be defined similarly, but an instance <code>e3</code> of the body <code>e1</code> occurs before the condition <code>e2</code> is checked.</p>
+<pre>
+(forall (e e1 e2)
+  (iff (<a href="../repeatUntil">repeatUntil</a> e e1 e2)
+       (exists (e3 e4 e5)
+         (and (<a href="../eventSequence">eventSequence</a>' e e3 e4) (<a href="../instance">instance</a> e3 e1) (<a href="../cond">cond</a> e4 e2 e5)
+              (or (<a href="../repeatUntil">repeatUntil</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e1))))))
+</pre>
+</div>
 </section>
 
 </body>

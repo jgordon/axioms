@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The <code>rest</code> of a sequence is what remains after the first element is removed. The expression <code>(rest s1 s)</code> says that <code>s1</code> is the rest of <code>s</code> after the first is removed.</p>
 <pre>
 (forall (s1 s)
   (iff (<a href="../rest">rest</a> s1 s)
@@ -38,9 +40,24 @@
                      (and (<a href="../posInteger">posInteger</a> i) (<a href="../successor">successor</a> j i)
                           (<a href="../map">map</a> s j x))))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The <code>rest</code> of a sequence is what remains after the first element is removed. The expression <code>(rest s1 s)</code> says that <code>s1</code> is the rest of <code>s</code> after the first is removed.</p>
+<pre>
+(forall (s1 s)
+  (iff (<a href="../rest">rest</a> s1 s)
+       (and (<a href="../sequence">sequence</a> s) (<a href="../sequence">sequence</a> s1)
+            (forall (i x)
+              (iff (<a href="../map">map</a> s1 i x)
+                   (exists (j)
+                     (and (<a href="../posInteger">posInteger</a> i) (<a href="../successor">successor</a> j i)
+                          (<a href="../map">map</a> s j x))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The same event type happening to all the elements of a sequence in turn.</p>
 <pre>
 (forall (e s e1)
   (iff (<a href="../forAllOfSeq">forAllOfSeq</a> e s x e1)
@@ -50,16 +67,7 @@
                   (<a href="../eventSequence">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq">forAllOfSeq</a> e3 s1 x e1)
                   (<a href="../rest">rest</a> s1 s))))))
 </pre>
-<pre>
-(forall (s1 s)
-  (iff (<a href="../rest">rest</a> s1 s)
-       (and (<a href="../sequence">sequence</a> s) (<a href="../sequence">sequence</a> s1)
-            (forall (i x)
-              (iff (<a href="../map">map</a> s1 i x)
-                   (exists (j)
-                     (and (<a href="../posInteger">posInteger</a> i) (<a href="../successor">successor</a> j i)
-                          (<a href="../map">map</a> s j x))))))))
-</pre>
+</div>
 </section>
 
 </body>

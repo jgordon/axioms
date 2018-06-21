@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>We will sometimes have occasion to talk about one temporal entity being before or meeting another.  We will define the predicate <code>beforeOrMeets</code> as follows:</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../beforeOrMeets">beforeOrMeets</a> t1 t2)
@@ -35,21 +37,27 @@
          (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2)
               (or (<a href="../before">before</a> t3 t4) (equal t3 t4))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>We will sometimes have occasion to talk about one temporal entity being before or meeting another.  We will define the predicate <code>beforeOrMeets</code> as follows:</p>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../beforeOrMeets">beforeOrMeets</a> t1 t2)
+       (exists (t3 t4)
+         (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2)
+              (or (<a href="../before">before</a> t3 t4) (equal t3 t4))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Two events are in sequence if one is before the other, and the aggregate of the two events is just their reified conjunction.</p>
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../eventSequence">eventSequence</a> e e1 e2)
        (and (<a href="../event">event</a> e1) (<a href="../event">event</a> e2) (<a href="../and'">and'</a> e e1 e2) (<a href="../beforeOrMeets">beforeOrMeets</a> e1 e2))))
 </pre>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../beforeOrMeets">beforeOrMeets</a> t1 t2)
-       (exists (t3 t4)
-         (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2)
-              (or (<a href="../before">before</a> t3 t4) (equal t3 t4))))))
-</pre>
+</div>
 </section>
 
 </body>

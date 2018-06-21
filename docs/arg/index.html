@@ -28,21 +28,28 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Every argument is the argument of some eventuality.</p>
 <pre>
 (forall (e x)
   (iff (<a href="../arg">arg</a> x e)
        (exists (n)
          (<a href="../argn">argn</a> x n e))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Every argument is the argument of some eventuality.</p>
 <pre>
 (forall (e x)
   (iff (<a href="../arg">arg</a> x e)
        (exists (n)
          (<a href="../argn">argn</a> x n e))))
 </pre>
+</div>
+<div class="axiom">
+<p>An 'arg*' is something that is an argument of the eventuality or the argument of an argument of the eventuality or so on recursively.</p>
 <pre>
 (forall (x e1)
   (iff (<a href="../arg*">arg*</a> x e1)
@@ -50,6 +57,9 @@
            (exists (e2)
              (and (<a href="../arg">arg</a> e2 e1) (<a href="../arg*">arg*</a> x e2))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>onlyarg*</code> recurses through eventuality arguments and bottoms out in a single entity y.</p>
 <pre>
 (forall (y e)
   (iff (<a href="../onlyarg*">onlyarg*</a> y e)
@@ -59,6 +69,7 @@
                   (or (equal y1 y)
                       (<a href="../onlyarg*">onlyarg*</a> y y1)))))))
 </pre>
+</div>
 </section>
 
 </body>

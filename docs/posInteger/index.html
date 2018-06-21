@@ -28,19 +28,18 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A positive integer is any non-negative integer except 0.</p>
 <pre>
 (forall (n)
    (iff (<a href="../posInteger">posInteger</a> n)
         (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../nequal">nequal</a> n 0))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-(forall (a b)
-   (if (and (<a href="../nonNegInteger">nonNegInteger</a> a) (<a href="../posInteger">posInteger</a> b))
-       (exists (f) (<a href="../fraction">fraction</a> f a b))))
-</pre>
+<div class="axiom">
+<p>Eventualities all have a predicate p, an arity n, and arguments 1...n.</p>
 <pre>
 (forall (e)
   (iff (<a href="../eventuality">eventuality</a> e)
@@ -52,35 +51,9 @@
                     (exists (x)
                       (<a href="../argn">argn</a> x i e))))))))
 </pre>
-<pre>
-(forall (n)
-   (iff (<a href="../posInteger">posInteger</a> n)
-        (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../nequal">nequal</a> n 0))))
-</pre>
-<pre>
-(forall (n1 n2)
-   (if (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n2))
-       (iff (<a href="../lt">lt</a> n1 n2)
-            (exists (n3) (and (<a href="../posInteger">posInteger</a> n3) (<a href="../sum">sum</a> n2 n1 n3))))))
-</pre>
-<pre>
-(forall (s n1 n2)
-  (iff (<a href="../ints">ints</a> s n1 n2)
-       (and (<a href="../posInteger">posInteger</a> n1) (<a href="../posInteger">posInteger</a> n2) (<a href="../set">set</a> s)
-            (forall (n)
-              (iff (<a href="../member">member</a> n s)
-                   (and (<a href="../posInteger">posInteger</a> n) (<a href="../leq">leq</a> n1 n) (<a href="../leq">leq</a> n n2)))))))
-</pre>
-<pre>
-(forall (s1 s)
-  (iff (<a href="../rest">rest</a> s1 s)
-       (and (<a href="../sequence">sequence</a> s) (<a href="../sequence">sequence</a> s1)
-            (forall (i x)
-              (iff (<a href="../map">map</a> s1 i x)
-                   (exists (j)
-                     (and (<a href="../posInteger">posInteger</a> i) (<a href="../successor">successor</a> j i)
-                          (<a href="../map">map</a> s j x))))))))
-</pre>
+</div>
+<div class="axiom">
+<p>Two entities are subsitutable in their respective events if they play the same role.</p>
 <pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst">subst</a> x e1 y e2)
@@ -100,6 +73,56 @@
                          (if (<a href="../eventuality">eventuality</a> z1)
                              (<a href="../subst">subst</a> x z1 y z2)))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The expression <code>(ints s n1 n2)</code> says that <code>s</code> is the set of all positive integers from <code>n1</code> to <code>n2</code>, including <code>n1</code> and <code>n2</code>.</p>
+<pre>
+(forall (s n1 n2)
+  (iff (<a href="../ints">ints</a> s n1 n2)
+       (and (<a href="../posInteger">posInteger</a> n1) (<a href="../posInteger">posInteger</a> n2) (<a href="../set">set</a> s)
+            (forall (n)
+              (iff (<a href="../member">member</a> n s)
+                   (and (<a href="../posInteger">posInteger</a> n) (<a href="../leq">leq</a> n1 n) (<a href="../leq">leq</a> n n2)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The <code>rest</code> of a sequence is what remains after the first element is removed. The expression <code>(rest s1 s)</code> says that <code>s1</code> is the rest of <code>s</code> after the first is removed.</p>
+<pre>
+(forall (s1 s)
+  (iff (<a href="../rest">rest</a> s1 s)
+       (and (<a href="../sequence">sequence</a> s) (<a href="../sequence">sequence</a> s1)
+            (forall (i x)
+              (iff (<a href="../map">map</a> s1 i x)
+                   (exists (j)
+                     (and (<a href="../posInteger">posInteger</a> i) (<a href="../successor">successor</a> j i)
+                          (<a href="../map">map</a> s j x))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A positive integer is any non-negative integer except 0.</p>
+<pre>
+(forall (n)
+   (iff (<a href="../posInteger">posInteger</a> n)
+        (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../nequal">nequal</a> n 0))))
+</pre>
+</div>
+<div class="axiom">
+<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
+<pre>
+(forall (n1 n2)
+   (if (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n2))
+       (iff (<a href="../lt">lt</a> n1 n2)
+            (exists (n3) (and (<a href="../posInteger">posInteger</a> n3) (<a href="../sum">sum</a> n2 n1 n3))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Fractions will be characterized by a non-negative integer (the numerator) and a positive integer (the denominator). The prediction (fraction f a) says that f is the fraction a/b.</p>
+<pre>
+(forall (a b)
+   (if (and (<a href="../nonNegInteger">nonNegInteger</a> a) (<a href="../posInteger">posInteger</a> b))
+       (exists (f) (<a href="../fraction">fraction</a> f a b))))
+</pre>
+</div>
 </section>
 
 </body>

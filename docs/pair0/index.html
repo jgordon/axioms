@@ -28,14 +28,24 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (p)
   (iff (<a href="../pair0">pair0</a> p)
        (exists (x y) (<a href="../pair">pair</a> p x y))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (p)
+  (iff (<a href="../pair0">pair0</a> p)
+       (exists (x y) (<a href="../pair">pair</a> p x y))))
+</pre>
+</div>
+<div class="axiom">
+<p>Ordered pairs are composite entities where the components are the first and second elements, there are no properties other than the whole being a pair, and the relations are the <code>first</code> and <code>second</code> relations between the components and the whole.</p>
 <pre>
 (forall (p x y e1 e2 e3)
   (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
@@ -46,11 +56,7 @@
              (<a href="../singleton">singleton</a> s2 e1) (<a href="../propertiesOf">propertiesOf</a> s2 p)
              (<a href="../doubleton">doubleton</a> s3 e2 e3) (<a href="../relationsOf">relationsOf</a> s3 p)))))
 </pre>
-<pre>
-(forall (p)
-  (iff (<a href="../pair0">pair0</a> p)
-       (exists (x y) (<a href="../pair">pair</a> p x y))))
-</pre>
+</div>
 </section>
 
 </body>

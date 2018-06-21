@@ -28,16 +28,15 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
-<pre>
-(forall (e c)
-  (if (<a href="../possible">possible</a> e c)
-      (<a href="../PosMod">PosMod</a> e possible)))
-</pre>
+<div class="axiom">
+<p>The predicate <code>possible</code> has two arguments, an eventuality and a set of constraints.</p>
 <pre>
 (forall (e c)
   (if (<a href="../possible">possible</a> e c)
       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
 </pre>
+</div><div class="axiom">
+<p>An eventuality is possible iff the constraints do not imply a negation of the eventuality.</p>
 <pre>
 (forall (e c)
   (iff (<a href="../possible">possible</a> e c)
@@ -45,9 +44,18 @@
          (if (<a href="../not'">not'</a> e1 e)
              (not (<a href="../imply">imply</a> c e1))))))
 </pre>
-</section>
+</div><div class="axiom">
+<p>Possibility is a positive modality.</p>
+<pre>
+(forall (e c)
+  (if (<a href="../possible">possible</a> e c)
+      (<a href="../PosMod">PosMod</a> e possible)))
+</pre>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>We can say that an agent a is able to do e, given a set of constraints c, if the agent's causing e is possible with respect to c whenever the set s1 of all the events in a causal complex s for e that are beyond a's control really exists independently.</p>
 <pre>
 (forall (a e c)
   (iff (<a href="../able">able</a> a e c)
@@ -56,11 +64,9 @@
               (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
               (if (<a href="../Rexist">Rexist</a> s1) (<a href="../possible">possible</a> e1 c))))))
 </pre>
-<pre>
-(forall (d e c s)
-  (if (and (<a href="../likelihood">likelihood</a> d1 e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../bottom">bottom</a> d s))
-      (iff (<a href="../lts">lts</a> d d1 s) (<a href="../possible">possible</a> e c))))
-</pre>
+</div>
+<div class="axiom">
+<p>If an agent can directly cause an action that is enabled, then it is executable. Moreover, if the action can be caused by another executable action, then it is executable.</p>
 <pre>
 (forall (e a c t)
   (iff (<a href="../executable">executable</a> e a c t)
@@ -72,26 +78,17 @@
                     (and (<a href="../cause">cause</a> e2 e)
                          (<a href="../executable">executable</a> e2 a c t))))))))
 </pre>
-<pre>
-(forall (e c e1)
-  (if (and (<a href="../possible">possible</a> e c) (<a href="../not'">not'</a> e1 e))
-      (not (<a href="../necessary">necessary</a> e1 c))))
-</pre>
-<pre>
-(forall (e c)
-  (if (<a href="../possible">possible</a> e c)
-      (<a href="../PosMod">PosMod</a> e possible)))
-</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>possible</code> has two arguments, an eventuality and a set of constraints.</p>
 <pre>
 (forall (e c)
   (if (<a href="../possible">possible</a> e c)
       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
 </pre>
-<pre>
-(forall (e c)
-  (iff (<a href="../impossible">impossible</a> e c)
-       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c) (not (<a href="../possible">possible</a> e c)))))
-</pre>
+</div>
+<div class="axiom">
+<p>An eventuality is possible iff the constraints do not imply a negation of the eventuality.</p>
 <pre>
 (forall (e c)
   (iff (<a href="../possible">possible</a> e c)
@@ -99,6 +96,39 @@
          (if (<a href="../not'">not'</a> e1 e)
              (not (<a href="../imply">imply</a> c e1))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Possibility is a positive modality.</p>
+<pre>
+(forall (e c)
+  (if (<a href="../possible">possible</a> e c)
+      (<a href="../PosMod">PosMod</a> e possible)))
+</pre>
+</div>
+<div class="axiom">
+<p>It is a theorem that if an eventuality is possible, its negation is not necessary.</p>
+<pre>
+(forall (e c e1)
+  (if (and (<a href="../possible">possible</a> e c) (<a href="../not'">not'</a> e1 e))
+      (not (<a href="../necessary">necessary</a> e1 c))))
+</pre>
+</div>
+<div class="axiom">
+<p>Impossibility is the negation of possibility.</p>
+<pre>
+(forall (e c)
+  (iff (<a href="../impossible">impossible</a> e c)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c) (not (<a href="../possible">possible</a> e c)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If something has a likelihood above the bottom of the likelihood scale with respect to a set of constraints, it is possible with respect to those constraints.</p>
+<pre>
+(forall (d e c s)
+  (if (and (<a href="../likelihood">likelihood</a> d1 e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../bottom">bottom</a> d s))
+      (iff (<a href="../lts">lts</a> d d1 s) (<a href="../possible">possible</a> e c))))
+</pre>
+</div>
 </section>
 
 </body>

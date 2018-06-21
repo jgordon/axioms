@@ -28,15 +28,39 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A singleton set consists of one entity.</p>
 <pre>
 (forall (s x)
   (iff (<a href="../singleton">singleton</a> s x)
        (exists (s1)
          (and (<a href="../addElt">addElt</a> s s1 x) (<a href="../null">null</a> s1)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>A singleton set consists of one entity.</p>
+<pre>
+(forall (s x)
+  (iff (<a href="../singleton">singleton</a> s x)
+       (exists (s1)
+         (and (<a href="../addElt">addElt</a> s s1 x) (<a href="../null">null</a> s1)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A 'doubleton' set has exactly two members.</p>
+<pre>
+(forall (s x y)
+  (iff (<a href="../doubleton">doubleton</a> s x y)
+       (exists (s1)
+         (and (<a href="../nequal">nequal</a> x y)
+              (<a href="../addElt">addElt</a> s s1 x)
+              (<a href="../singleton">singleton</a> s1 y)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Sets are composite entities whose components are members and whose only property is being set.</p>
 <pre>
 (forall (e s s1 s2 s3)
   (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
@@ -44,6 +68,22 @@
       (and (<a href="../compositeEntity">compositeEntity</a> s) (<a href="../componentsOf">componentsOf</a> s s)
            (<a href="../propertiesOf">propertiesOf</a> s2 s) (<a href="../relationsOf">relationsOf</a> s3 s))))
 </pre>
+</div>
+<div class="axiom">
+<p>Ordered pairs are composite entities where the components are the first and second elements, there are no properties other than the whole being a pair, and the relations are the <code>first</code> and <code>second</code> relations between the components and the whole.</p>
+<pre>
+(forall (p x y e1 e2 e3)
+  (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
+           (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2) (<a href="../Rexist">Rexist</a> e3))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity">compositeEntity</a> p)
+             (<a href="../doubleton">doubleton</a> s1 x y) (<a href="../componentsOf">componentsOf</a> s1 p)
+             (<a href="../singleton">singleton</a> s2 e1) (<a href="../propertiesOf">propertiesOf</a> s2 p)
+             (<a href="../doubleton">doubleton</a> s3 e2 e3) (<a href="../relationsOf">relationsOf</a> s3 p)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A sequence can be viewed as a composite entity whose components are the elements of the sequence and whose relations are the ordering relations in the sequence.</p>
 <pre>
 (forall (e s)
   (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
@@ -60,6 +100,8 @@
                            (<a href="../Rexist">Rexist</a> e1)))))
              (<a href="../relationsOf">relationsOf</a> s3 s)))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (f a1 a2 s)
   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
@@ -67,30 +109,7 @@
         (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
              (<a href="../origin">origin</a> o f)))))
 </pre>
-<pre>
-(forall (p x y e1 e2 e3)
-  (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
-           (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2) (<a href="../Rexist">Rexist</a> e3))
-      (exists (s1 s2 s3)
-        (and (<a href="../compositeEntity">compositeEntity</a> p)
-             (<a href="../doubleton">doubleton</a> s1 x y) (<a href="../componentsOf">componentsOf</a> s1 p)
-             (<a href="../singleton">singleton</a> s2 e1) (<a href="../propertiesOf">propertiesOf</a> s2 p)
-             (<a href="../doubleton">doubleton</a> s3 e2 e3) (<a href="../relationsOf">relationsOf</a> s3 p)))))
-</pre>
-<pre>
-(forall (s x y)
-  (iff (<a href="../doubleton">doubleton</a> s x y)
-       (exists (s1)
-         (and (<a href="../nequal">nequal</a> x y)
-              (<a href="../addElt">addElt</a> s s1 x)
-              (<a href="../singleton">singleton</a> s1 y)))))
-</pre>
-<pre>
-(forall (s x)
-  (iff (<a href="../singleton">singleton</a> s x)
-       (exists (s1)
-         (and (<a href="../addElt">addElt</a> s s1 x) (<a href="../null">null</a> s1)))))
-</pre>
+</div>
 </section>
 
 </body>

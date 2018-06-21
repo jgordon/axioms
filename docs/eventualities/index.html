@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>We can have sets of eventualities.</p>
 <pre>
 (forall (s)
   (iff (<a href="../eventualities">eventualities</a> s)
@@ -36,35 +38,22 @@
               (if (<a href="../member">member</a> e s)
                   (<a href="../eventuality">eventuality</a> e))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>We can have sets of eventualities.</p>
 <pre>
-(forall (d e c)
-  (if (<a href="../likelihood">likelihood</a> d e c)
-      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
+(forall (s)
+  (iff (<a href="../eventualities">eventualities</a> s)
+       (and (<a href="../set">set</a> s)
+            (forall (e)
+              (if (<a href="../member">member</a> e s)
+                  (<a href="../eventuality">eventuality</a> e))))))
 </pre>
-<pre>
-(forall (e c)
-  (if (<a href="../necessary">necessary</a> e c)
-      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
-</pre>
-<pre>
-(forall (e c)
-  (if (<a href="../possible">possible</a> e c)
-      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
-</pre>
-<pre>
-(forall (e c)
-  (iff (<a href="../impossible">impossible</a> e c)
-       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c) (not (<a href="../possible">possible</a> e c)))))
-</pre>
-<pre>
-(forall (e e1 e2)
-  (if (<a href="../imply'">imply'</a> e e1 e2)
-      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventuality">eventuality</a> e2)
-           (or (<a href="../eventuality">eventuality</a> e1) (<a href="../eventualities">eventualities</a> e1)))))
-</pre>
+</div>
+<div class="axiom">
+<p>The disjunction of a set really exists exactly when one of the members of the set really exists.</p>
 <pre>
 (forall (e s)
   (if (<a href="../disjunction">disjunction</a> e s)
@@ -73,22 +62,28 @@
                 (exists (e1)
                   (and (<a href="../member">member</a> e1 s) (<a href="../Rexist">Rexist</a> e1)))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Implication is defined similarly to "or'", except that in addition to a single eventuality as the antecedent, we will alow a set of eventualities as well, which is interpreted as the conjunction.</p>
 <pre>
-(forall (n s t u)
-  (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
-           (forall (t1) (if (<a href="../member">member</a> t1 t) (<a href="../durationOf">durationOf</a> 1 t1 u)))
-           (<a href="../rate">rate</a> n s t))
-      (<a href="../rate">rate</a> n s u)))
+(forall (e e1 e2)
+  (if (<a href="../imply'">imply'</a> e e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventuality">eventuality</a> e2)
+           (or (<a href="../eventuality">eventuality</a> e1) (<a href="../eventualities">eventualities</a> e1)))))
 </pre>
+</div>
+<div class="axiom">
+<p>Two sets of eventualities are inconsistent if one implies an eventuality and the other implies its negation.</p>
 <pre>
-(forall (s e c)
-  (if (<a href="../eventuality">eventuality</a> e)
-      (iff (<a href="../alsoRequired">alsoRequired</a> s e c)
-           (and (<a href="../eventualities">eventualities</a> s) (<a href="../eventualities">eventualities</a> c)
-                (exists (s1 c1)
-                  (and (<a href="../union">union</a> s1 c1 s) (<a href="../subset">subset</a> c1 c)
-                       (<a href="../minimallyProves">minimallyProves</a> s1 e)))))))
+(forall (s1 s2)
+  (iff (<a href="../inconsistent">inconsistent</a> s1 s2)
+       (and (<a href="../eventualities">eventualities</a> s1) (<a href="../eventualities">eventualities</a> s2)
+            (exists (e1 e2)
+              (and (<a href="../imply">imply</a> s1 e1) (<a href="../imply">imply</a> s2 e2) (<a href="../not'">not'</a> e2 e1))))))
 </pre>
+</div>
+<div class="axiom">
+<p>An eventuality or set of eventualities, s, can be a causal complex for an effect e.</p>
 <pre>
 (forall (s e)
   (if (<a href="../causalComplex">causalComplex</a> s e)
@@ -96,6 +91,23 @@
            (or (<a href="../eventualities">eventualities</a> s)
                (<a href="../eventuality">eventuality</a> s)))))
 </pre>
+</div>
+<div class="axiom">
+<p>We define the eventualities beyond an agent a's control as the subset s1 of eventualities in a set s that a cannot bring about by a's efforts alone. That is, a is not the agent of actions in s1 nor the agent of an action that causes events in s1.</p>
+<pre>
+(forall (s1 s a)
+  (iff (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
+       (and (<a href="../eventualities">eventualities</a> s) (<a href="../subset">subset</a> s1 s) (<a href="../agent">agent</a> a)
+            (forall (e)
+              (iff (<a href="../member">member</a> e s1)
+                   (and (not (<a href="../agentOf">agentOf</a> a e))
+                        (not (exists (e1)
+                               (and (<a href="../agentOf">agentOf</a> a e1)
+                                    (<a href="../cause">cause</a> e1 e))))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The primitive case of a rate is when there is a set S of events, a set T of time intervals, and a function mapping the intervals into a subset of S, namely those events that occur during that interval. When the concept of rate truly applies, the cardinalities of all these subsets are the same.</p>
 <pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)
@@ -109,6 +121,19 @@
                       (<a href="../card">card</a> n s1)))))
       (<a href="../rate">rate</a> n s t)))
 </pre>
+</div>
+<div class="axiom">
+<p>When the third argument of <code>rate</code> is a temporal unit, we assume that the members of the set of time intervals all have a duration of one in that unit.</p>
+<pre>
+(forall (n s t u)
+  (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
+           (forall (t1) (if (<a href="../member">member</a> t1 t) (<a href="../durationOf">durationOf</a> 1 t1 u)))
+           (<a href="../rate">rate</a> n s t))
+      (<a href="../rate">rate</a> n s u)))
+</pre>
+</div>
+<div class="axiom">
+<p>Rate defines a scale whose elements are the set of events whose rate is being measured and whose ordering is the less-than relation between rates.</p>
 <pre>
 (forall (s s0)
   (iff (<a href="../rateScale">rateScale</a> s s0)
@@ -122,32 +147,51 @@
                                  (<a href="../lt">lt</a> r1 r2)))))
                    (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>possible</code> has two arguments, an eventuality and a set of constraints.</p>
 <pre>
-(forall (s)
-  (iff (<a href="../eventualities">eventualities</a> s)
-       (and (<a href="../set">set</a> s)
-            (forall (e)
-              (if (<a href="../member">member</a> e s)
-                  (<a href="../eventuality">eventuality</a> e))))))
+(forall (e c)
+  (if (<a href="../possible">possible</a> e c)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
 </pre>
+</div>
+<div class="axiom">
+<p>An eventuality is necessary if the set of constraints implies it. The predicate <code>necessary</code> has two arguments, an eventuality and a set of constraints.</p>
 <pre>
-(forall (s1 s a)
-  (iff (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
-       (and (<a href="../eventualities">eventualities</a> s) (<a href="../subset">subset</a> s1 s) (<a href="../agent">agent</a> a)
-            (forall (e)
-              (iff (<a href="../member">member</a> e s1)
-                   (and (not (<a href="../agentOf">agentOf</a> a e))
-                        (not (exists (e1)
-                               (and (<a href="../agentOf">agentOf</a> a e1)
-                                    (<a href="../cause">cause</a> e1 e))))))))))
+(forall (e c)
+  (if (<a href="../necessary">necessary</a> e c)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
 </pre>
+</div>
+<div class="axiom">
+<p>Impossibility is the negation of possibility.</p>
 <pre>
-(forall (s1 s2)
-  (iff (<a href="../inconsistent">inconsistent</a> s1 s2)
-       (and (<a href="../eventualities">eventualities</a> s1) (<a href="../eventualities">eventualities</a> s2)
-            (exists (e1 e2)
-              (and (<a href="../imply">imply</a> s1 e1) (<a href="../imply">imply</a> s2 e2) (<a href="../not'">not'</a> e2 e1))))))
+(forall (e c)
+  (iff (<a href="../impossible">impossible</a> e c)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c) (not (<a href="../possible">possible</a> e c)))))
 </pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>likelihood</code> will express a relation between likelihoods and eventualities. Likelihood is with respect to an implicit set of constraints that in a sense defines the sample space. Making the constraints an argument allows us to relate likelihood to possibility and to entailment.</p>
+<pre>
+(forall (d e c)
+  (if (<a href="../likelihood">likelihood</a> d e c)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
+</pre>
+</div>
+<div class="axiom">
+<p>Given an eventuality <code>e</code> and a set of constraints <code>c</code>, we can ask what other set <code>s</code> of eventualities would have to obtain in order to entail that <code>e</code> also obtains. The expression <code>(alsoRequired s e c)</code> says that <code>s</code> is a set of eventualities that will entail the real existence of <code>e</code>, over and above <code>c</code>.</p>
+<pre>
+(forall (s e c)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../alsoRequired">alsoRequired</a> s e c)
+           (and (<a href="../eventualities">eventualities</a> s) (<a href="../eventualities">eventualities</a> c)
+                (exists (s1 c1)
+                  (and (<a href="../union">union</a> s1 c1 s) (<a href="../subset">subset</a> c1 c)
+                       (<a href="../minimallyProves">minimallyProves</a> s1 e)))))))
+</pre>
+</div>
 </section>
 
 </body>

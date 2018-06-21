@@ -24,19 +24,77 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (d x1 x2 u)
   (if (<a href="../distance">distance</a> d x1 x2 u)
       (and (<a href="../nonNegativeNumber">nonNegativeNumber</a> d) (<a href="../point">point</a> x1) (<a href="../point">point</a> x2)
            (<a href="../spatialUnit">spatialUnit</a> u))))
 </pre>
+</div><div class="axiom">
 <pre>
 (forall (d x1 x2 u)
   (iff (<a href="../distance">distance</a> d x1 x2 u) (<a href="../distance">distance</a> d x2 x1 u)))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (d x1 x2 u)
+  (if (<a href="../distance">distance</a> d x1 x2 u)
+      (and (<a href="../nonNegativeNumber">nonNegativeNumber</a> d) (<a href="../point">point</a> x1) (<a href="../point">point</a> x2)
+           (<a href="../spatialUnit">spatialUnit</a> u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x u) (<a href="../distance">distance</a> 0 x x u))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (d x1 x2 u)
+  (iff (<a href="../distance">distance</a> d x1 x2 u) (<a href="../distance">distance</a> d x2 x1 u)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (d1 d2 d3 d4 x1 x2 x3 u)
+  (if (and (<a href="../distance">distance</a> d1 x1 x2 u) (<a href="../distance">distance</a> d2 x2 x3 u)
+           (<a href="../distance">distance</a> d3 x1 x3 u) (<a href="../sum">sum</a> d4 d1 d2))
+      (<a href="../leq">leq</a> d3 d4)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (c x1 x2 x3 d1 d2 d3 u)
+  (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x3)
+           (<a href="../inside">inside</a> x2 c) (<a href="../distance">distance</a> d1 x1 x2 u)
+           (<a href="../distance">distance</a> d2 x2 x3 u) (<a href="../distance">distance</a> d3 x1 x3 u))
+       (<a href="../sum">sum</a> d3 d1 d2)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (d c u)
+  (iff (<a href="../lineSegment">lineSegment</a> c)
+       (iff (<a href="../length">length</a> d c u)
+            (exists (x1 x2)
+              (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
+                   (<a href="../distance">distance</a> d x1 x2 u))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (x y z)
+      (iff (<a href="../nearer">nearer</a> x y z)
+           (exists (d1 d2)
+              (and (<a href="../distance">distance</a> d1 x z u) (<a href="../distance">distance</a> d2 y z u)
+                   (<a href="../lt">lt</a> d1 d2)))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (c v u)
       (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
@@ -46,6 +104,26 @@
                    (<a href="../endpoint">endpoint</a> x2 c2) (<a href="../distance">distance</a> 1 x0 x2 u)
                    (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x v f c1 c2 o u)
+  (iff (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
+       (and (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
+            (<a href="../inside">inside</a> x c2) (<a href="../distance">distance</a> 1 o x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (v)
+      (iff (<a href="../45Degrees">45Degrees</a> v)
+           (exists (v0 x f c1 c2 o u d)
+              (and (<a href="../equalAngle">equalAngle</a> v v0) (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
+                   (<a href="../xCoordinate">xCoordinate</a> x1 x f) (<a href="../yCoordinate">yCoordinate</a> y1 x f)
+                   (<a href="../distance">distance</a> d o x1 u) (<a href="../distance">distance</a> d o y1 u)))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (v)
       (iff (<a href="../30Degrees">30Degrees</a> v)
@@ -55,61 +133,7 @@
                    (<a href="../distance">distance</a> d1 o y1 u) (<a href="../distance">distance</a> d2 o x u)
                    (<a href="../product">product</a> d2 d1 2)))))
 </pre>
-<pre>
-   (forall (v)
-      (iff (<a href="../45Degrees">45Degrees</a> v)
-           (exists (v0 x f c1 c2 o u d)
-              (and (<a href="../equalAngle">equalAngle</a> v v0) (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
-                   (<a href="../xCoordinate">xCoordinate</a> x1 x f) (<a href="../yCoordinate">yCoordinate</a> y1 x f)
-                   (<a href="../distance">distance</a> d o x1 u) (<a href="../distance">distance</a> d o y1 u)))))
-</pre>
-<pre>
-   (forall (x y z)
-      (iff (<a href="../nearer">nearer</a> x y z)
-           (exists (d1 d2)
-              (and (<a href="../distance">distance</a> d1 x z u) (<a href="../distance">distance</a> d2 y z u)
-                   (<a href="../lt">lt</a> d1 d2)))))
-</pre>
-<pre>
-(forall (c x1 x2 x3 d1 d2 d3 u)
-  (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x3)
-           (<a href="../inside">inside</a> x2 c) (<a href="../distance">distance</a> d1 x1 x2 u)
-           (<a href="../distance">distance</a> d2 x2 x3 u) (<a href="../distance">distance</a> d3 x1 x3 u))
-       (<a href="../sum">sum</a> d3 d1 d2)))
-</pre>
-<pre>
-(forall (d c u)
-  (iff (<a href="../lineSegment">lineSegment</a> c)
-       (iff (<a href="../length">length</a> d c u)
-            (exists (x1 x2)
-              (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
-                   (<a href="../distance">distance</a> d x1 x2 u))))))
-</pre>
-<pre>
-(forall (d x1 x2 u)
-  (if (<a href="../distance">distance</a> d x1 x2 u)
-      (and (<a href="../nonNegativeNumber">nonNegativeNumber</a> d) (<a href="../point">point</a> x1) (<a href="../point">point</a> x2)
-           (<a href="../spatialUnit">spatialUnit</a> u))))
-</pre>
-<pre>
-(forall (d x1 x2 u)
-  (iff (<a href="../distance">distance</a> d x1 x2 u) (<a href="../distance">distance</a> d x2 x1 u)))
-</pre>
-<pre>
-(forall (d1 d2 d3 d4 x1 x2 x3 u)
-  (if (and (<a href="../distance">distance</a> d1 x1 x2 u) (<a href="../distance">distance</a> d2 x2 x3 u)
-           (<a href="../distance">distance</a> d3 x1 x3 u) (<a href="../sum">sum</a> d4 d1 d2))
-      (<a href="../leq">leq</a> d3 d4)))
-</pre>
-<pre>
-(forall (x u) (<a href="../distance">distance</a> 0 x x u))
-</pre>
-<pre>
-(forall (x v f c1 c2 o u)
-  (iff (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
-       (and (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
-            (<a href="../inside">inside</a> x c2) (<a href="../distance">distance</a> 1 o x u))))
-</pre>
+</div>
 </section>
 
 </body>

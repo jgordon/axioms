@@ -24,11 +24,19 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (c)
+  (iff (<a href="../linear">linear</a> c)
+       (or (<a href="../line">line</a> c) (<a href="../ray">ray</a> c) (<a href="../lineSegment">lineSegment</a> c))))
+</pre>
+</div><div class="axiom">
 <pre>
 (forall (c)
   (if (<a href="../linear">linear</a> c)
       (<a href="../curve">curve</a> c)))
 </pre>
+</div><div class="axiom">
 <pre>
 (forall (c)
   (if (<a href="../linear">linear</a> c)
@@ -38,19 +46,24 @@
                       (<a href="../subfigure">subfigure</a> c c1) (<a href="../subfigure">subfigure</a> c c2))
                   (equal c1 c2))))))
 </pre>
-<pre>
-(forall (c)
-  (iff (<a href="../linear">linear</a> c)
-       (or (<a href="../line">line</a> c) (<a href="../ray">ray</a> c) (<a href="../lineSegment">lineSegment</a> c))))
-</pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (c)
+  (iff (<a href="../linear">linear</a> c)
+       (or (<a href="../line">line</a> c) (<a href="../ray">ray</a> c) (<a href="../lineSegment">lineSegment</a> c))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (c)
   (if (<a href="../linear">linear</a> c)
       (<a href="../curve">curve</a> c)))
 </pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (c)
   (if (<a href="../linear">linear</a> c)
@@ -60,17 +73,15 @@
                       (<a href="../subfigure">subfigure</a> c c1) (<a href="../subfigure">subfigure</a> c c2))
                   (equal c1 c2))))))
 </pre>
-<pre>
-(forall (c)
-  (iff (<a href="../linear">linear</a> c)
-       (or (<a href="../line">line</a> c) (<a href="../ray">ray</a> c) (<a href="../lineSegment">lineSegment</a> c))))
-</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex">vertex</a> v c1 c2 x)
        (and (<a href="../linear">linear</a> c1) (<a href="../linear">linear</a> c2) (not (<a href="../linear">linear</a> v))
             (<a href="../joinedCurves">joinedCurves</a> v c1 c2 x))))
 </pre>
+</div>
 </section>
 
 </body>

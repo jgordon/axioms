@@ -28,18 +28,62 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The relation <code>before</code> is temporal.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../sameDuration">sameDuration</a> t1 t2)
       (and (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../temporalEntity">temporalEntity</a> t2))))
 </pre>
+</div><div class="axiom">
+<p>The relation <code>before</code> is temporal.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../sameDuration">sameDuration</a> t1 t2) (<a href="../sameDuration">sameDuration</a> t2 t1)))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The relation <code>before</code> is temporal.</p>
+<pre>
+(forall (t1 t2)
+  (if (<a href="../sameDuration">sameDuration</a> t1 t2)
+      (and (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../temporalEntity">temporalEntity</a> t2))))
+</pre>
+</div>
+<div class="axiom">
+<p>The relation <code>before</code> is temporal.</p>
+<pre>
+(forall (t1 t2)
+  (if (and (<a href="../instant">instant</a> t1) (<a href="../instant">instant</a> t2))
+      (<a href="../sameDuration">sameDuration</a> t1 t2)))
+</pre>
+</div>
+<div class="axiom">
+<p>The relation <code>before</code> is temporal.</p>
+<pre>
+(forall (t)
+  (if (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../sameDuration">sameDuration</a> t t)))
+</pre>
+</div>
+<div class="axiom">
+<p>The relation <code>before</code> is temporal.</p>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../sameDuration">sameDuration</a> t1 t2) (<a href="../sameDuration">sameDuration</a> t2 t1)))
+</pre>
+</div>
+<div class="axiom">
+<p>The relation <code>before</code> is temporal.</p>
+<pre>
+(forall (t1 t2 t3)
+  (if (and (<a href="../sameDuration">sameDuration</a> t1 t2) (<a href="../sameDuration">sameDuration</a> t2 t3))
+      (<a href="../sameDuration">sameDuration</a> t1 t3)))
+</pre>
+</div>
+<div class="axiom">
+<p>The duration of an interval is determined by concatenation.</p>
 <pre>
 (forall (d t u)
   (if (<a href="../interval">interval</a> t)
@@ -50,29 +94,7 @@
                     (if (<a href="../member">member</a> t1 s) (<a href="../sameDuration">sameDuration</a> t1 u)))
                   (<a href="../card">card</a> d s))))))
 </pre>
-<pre>
-(forall (t)
-  (if (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../sameDuration">sameDuration</a> t t)))
-</pre>
-<pre>
-(forall (t1 t2 t3)
-  (if (and (<a href="../sameDuration">sameDuration</a> t1 t2) (<a href="../sameDuration">sameDuration</a> t2 t3))
-      (<a href="../sameDuration">sameDuration</a> t1 t3)))
-</pre>
-<pre>
-(forall (t1 t2)
-  (if (<a href="../sameDuration">sameDuration</a> t1 t2)
-      (and (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../temporalEntity">temporalEntity</a> t2))))
-</pre>
-<pre>
-(forall (t1 t2)
-  (if (and (<a href="../instant">instant</a> t1) (<a href="../instant">instant</a> t2))
-      (<a href="../sameDuration">sameDuration</a> t1 t2)))
-</pre>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../sameDuration">sameDuration</a> t1 t2) (<a href="../sameDuration">sameDuration</a> t2 t1)))
-</pre>
+</div>
 </section>
 
 </body>

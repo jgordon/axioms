@@ -24,6 +24,7 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (p n)
   (iff (<a href="../polygon">polygon</a> p n)
@@ -38,9 +39,10 @@
               (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
               (<a href="../card">card</a> n s)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (p n)
   (iff (<a href="../polygon">polygon</a> p n)
@@ -55,15 +57,20 @@
               (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
               (<a href="../card">card</a> n s)))))
 </pre>
-<pre>
-(forall (p)
-  (iff (<a href="../quadrilateral">quadrilateral</a> p) (<a href="../polygon">polygon</a> p 4)))
-</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (r)
   (iff (<a href="../polygon2">polygon2</a> r)
        (exists (c) (and (<a href="../border">border</a> c r) (<a href="../polygon">polygon</a> c)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (p)
+  (iff (<a href="../quadrilateral">quadrilateral</a> p) (<a href="../polygon">polygon</a> p 4)))
+</pre>
+</div>
 </section>
 
 </body>

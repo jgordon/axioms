@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>An <code>event</code> can (1) directly be a change of state, (2) generate a change of state, or (3) have a subevent, which contains the change.</p>
 <pre>
 (forall (e)
    (iff (<a href="../event">event</a> e)
@@ -38,32 +40,75 @@
             (exists (e1)
               (<a href="../subevent">subevent</a> e1 e)))))
 </pre>
+</div><div class="axiom">
+<p>Where an event <code>e</code> generates a change of state, <code>e</code> is an eventuality because that's what the arguments of <code>gen</code> are.</p>
 <pre>
 (forall (e) (if (<a href="../event">event</a> e) (<a href="../eventuality">eventuality</a> e)))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>An <code>event</code> can (1) directly be a change of state, (2) generate a change of state, or (3) have a subevent, which contains the change.</p>
+<pre>
+(forall (e)
+   (iff (<a href="../event">event</a> e)
+        (or (exists (e1 e2)
+               (and (<a href="../nequal">nequal</a> e1 e2) (<a href="../change">change</a>' e e1 e2)))
+            (exists (e0 e1 e2)
+               (and (<a href="../nequal">nequal</a> e1 e2) (<a href="../change">change</a>' e0 e1 e2) (<a href="../gen">gen</a> e e0)))
+            (exists (e1)
+              (<a href="../subevent">subevent</a> e1 e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Where an event <code>e</code> generates a change of state, <code>e</code> is an eventuality because that's what the arguments of <code>gen</code> are.</p>
+<pre>
+(forall (e) (if (<a href="../event">event</a> e) (<a href="../eventuality">eventuality</a> e)))
+</pre>
+</div>
+<div class="axiom">
+<p>The arguments of <code>subevent</code> are events.</p>
+<pre>
+(forall (e1 e2)
+  (if (<a href="../subevent">subevent</a> e1 e2)
+      (and (<a href="../event">event</a> e1) (<a href="../event">event</a> e2))))
+</pre>
+</div>
+<div class="axiom">
+<p>An aggregate, or conjunction, that has an event as a conjunct is itself an event.</p>
 <pre>
 (forall (e e1 e2)
    (if (and (<a href="../and'">and'</a> e e1 e2) (<a href="../event">event</a> e1))
        (and (<a href="../subevent">subevent</a> e1 e) (<a href="../event">event</a> e))))
 </pre>
-<pre>
-(forall (e e1 e2)
-  (if (<a href="../cond">cond</a> e e1 e2)
-      (and (<a href="../subevent">subevent</a> e2 e) (<a href="../event">event</a> e))))
-</pre>
-<pre>
-(forall (e e1 e2)
-  (if (<a href="../eventSequence">eventSequence</a> e e1 e2)
-      (and (<a href="../event">event</a> e) (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))
-</pre>
+</div>
+<div class="axiom">
+<p><code>and'</code> is essentially commutative.</p>
 <pre>
 (forall (e e1 e2)
   (if (and (<a href="../and'">and'</a> e e1 e2) (<a href="../event">event</a> e2))
       (and (<a href="../subevent">subevent</a> e2 e) (<a href="../event">event</a> e))))
 </pre>
+</div>
+<div class="axiom">
+<p>Two events are in sequence if one is before the other, and the aggregate of the two events is just their reified conjunction.</p>
+<pre>
+(forall (e e1 e2)
+  (iff (<a href="../eventSequence">eventSequence</a> e e1 e2)
+       (and (<a href="../event">event</a> e1) (<a href="../event">event</a> e2) (<a href="../and'">and'</a> e e1 e2) (<a href="../beforeOrMeets">beforeOrMeets</a> e1 e2))))
+</pre>
+</div>
+<div class="axiom">
+<p>From 13.6 and 13.7, we see that the components of an event sequence are subevents and that the event sequence is itself an event.</p>
+<pre>
+(forall (e e1 e2)
+  (if (<a href="../eventSequence">eventSequence</a> e e1 e2)
+      (and (<a href="../event">event</a> e) (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))
+</pre>
+</div>
+<div class="axiom">
+<p>We will take a conditional event to be the implicational relation between some eventuality -- a state or an event -- and an event, with a further relation that the first eventuality must obtain at the beginning of the second.</p>
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../cond">cond</a> e e1 e2)
@@ -72,24 +117,17 @@
               (if (<a href="../begins">begins</a> t e2)
                   (<a href="../atTime">atTime</a> e1 t))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The event <code>e2</code> is a subevent of <code>e</code> and hence <code>e</code> is also an event.</p>
 <pre>
 (forall (e e1 e2)
-  (iff (<a href="../eventSequence">eventSequence</a> e e1 e2)
-       (and (<a href="../event">event</a> e1) (<a href="../event">event</a> e2) (<a href="../and'">and'</a> e e1 e2) (<a href="../beforeOrMeets">beforeOrMeets</a> e1 e2))))
+  (if (<a href="../cond">cond</a> e e1 e2)
+      (and (<a href="../subevent">subevent</a> e2 e) (<a href="../event">event</a> e))))
 </pre>
-<pre>
-(forall (e)
-   (iff (<a href="../event">event</a> e)
-        (or (exists (e1 e2)
-               (and (<a href="../nequal">nequal</a> e1 e2) (<a href="../change">change</a>' e e1 e2)))
-            (exists (e0 e1 e2)
-               (and (<a href="../nequal">nequal</a> e1 e2) (<a href="../change">change</a>' e0 e1 e2) (<a href="../gen">gen</a> e e0)))
-            (exists (e1)
-              (<a href="../subevent">subevent</a> e1 e)))))
-</pre>
-<pre>
-(forall (e) (if (<a href="../event">event</a> e) (<a href="../eventuality">eventuality</a> e)))
-</pre>
+</div>
+<div class="axiom">
+<p>A complex event is a composite entity whose components are its subevents, among whose properties are the <code>event</code> properties, and among whose relations are the <code>subevent</code> relations.</p>
 <pre>
 (forall (e1 e)
    (if (<a href="../subevent">subevent</a> e1 e)
@@ -109,11 +147,7 @@
                        (and (<a href="../subevent">subevent</a>' e3 e2 e)
                             (<a href="../member">member</a> e3 s3)))))))))
 </pre>
-<pre>
-(forall (e1 e2)
-  (if (<a href="../subevent">subevent</a> e1 e2)
-      (and (<a href="../event">event</a> e1) (<a href="../event">event</a> e2))))
-</pre>
+</div>
 </section>
 
 </body>

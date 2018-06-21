@@ -28,6 +28,7 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (c)
   (if (<a href="../lineSegment">lineSegment</a> c)
@@ -35,6 +36,7 @@
         (and (<a href="../endpoint">endpoint</a> x1 lc (<a href="../endpoint">endpoint</a> x2 c)
              (<a href="../nequal">nequal</a> x1 x2)))))
 </pre>
+</div><div class="axiom">
 <pre>
 (forall (d c u)
   (iff (<a href="../lineSegment">lineSegment</a> c)
@@ -43,9 +45,10 @@
               (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
                    (<a href="../distance">distance</a> d x1 x2 u))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (c)
   (if (<a href="../lineSegment">lineSegment</a> c)
@@ -53,6 +56,15 @@
         (and (<a href="../endpoint">endpoint</a> x1 lc (<a href="../endpoint">endpoint</a> x2 c)
              (<a href="../nequal">nequal</a> x1 x2)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (c)
+  (iff (<a href="../linear">linear</a> c)
+       (or (<a href="../line">line</a> c) (<a href="../ray">ray</a> c) (<a href="../lineSegment">lineSegment</a> c))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (c)
   (iff (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
@@ -60,11 +72,8 @@
             (<a href="../endpoint">endpoint</a> x1 c) (<a href="../endpoint">endpoint</a> x2 c)
             (<a href="../nequal">nequal</a> x1 x2))))
 </pre>
-<pre>
-(forall (c)
-  (iff (<a href="../linear">linear</a> c)
-       (or (<a href="../line">line</a> c) (<a href="../ray">ray</a> c) (<a href="../lineSegment">lineSegment</a> c))))
-</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (d c u)
   (iff (<a href="../lineSegment">lineSegment</a> c)
@@ -73,6 +82,7 @@
               (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
                    (<a href="../distance">distance</a> d x1 x2 u))))))
 </pre>
+</div>
 </section>
 
 </body>

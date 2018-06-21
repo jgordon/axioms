@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>For <code>changeTo</code>, the start state of the change must exclude any other instance of the type e2 instantiates.</p>
 <pre>
 (forall (e e2 e4)
   (if (<a href="../subst">subst</a> e4 e4 e2 e2)
@@ -35,6 +37,7 @@
            (exists (e1 e5)
              (and (<a href="../change">change</a>' e5 e1 e2) (<a href="../gen">gen</a> e5 e) (<a href="../inconsistent">inconsistent</a> e4 e1))))))
 </pre>
+</div>
 </section>
 
 </body>

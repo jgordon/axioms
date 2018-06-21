@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The range of the functional dependency is then the set of all values of the skolem function.</p>
 <pre>
 (forall (s1 x y e)
   (iff (<a href="../rangeFd">rangeFd</a> s1 y x e)
@@ -35,9 +37,11 @@
          (iff (<a href="../member">member</a> y1 s1)
               (exists (x1) (<a href="../skfct">skfct</a> y1 y x1 x e))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The range of the functional dependency is then the set of all values of the skolem function.</p>
 <pre>
 (forall (s1 x y e)
   (iff (<a href="../rangeFd">rangeFd</a> s1 y x e)
@@ -45,6 +49,9 @@
          (iff (<a href="../member">member</a> y1 s1)
               (exists (x1) (<a href="../skfct">skfct</a> y1 y x1 x e))))))
 </pre>
+</div>
+<div class="axiom">
+<p>When we have a Skolem function or a functional dependency, we have a corresponding function.</p>
 <pre>
 (forall (y1 y x1 x e s1 s2)
   (if (and (<a href="../skfct">skfct</a> y1 y x1 x e) (<a href="../typelt">typelt</a> x s1) (<a href="../rangeFd">rangeFd</a> s2 y x e))
@@ -53,6 +60,7 @@
              (forall (p)
                (iff (<a href="../pair">pair</a> p x1 y1) (<a href="../member">member</a> p f)))))))
 </pre>
+</div>
 </section>
 
 </body>

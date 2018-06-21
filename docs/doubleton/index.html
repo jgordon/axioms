@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A 'doubleton' set has exactly two members.</p>
 <pre>
 (forall (s x y)
   (iff (<a href="../doubleton">doubleton</a> s x y)
@@ -36,9 +38,32 @@
               (<a href="../addElt">addElt</a> s s1 x)
               (<a href="../singleton">singleton</a> s1 y)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>A 'doubleton' set has exactly two members.</p>
+<pre>
+(forall (s x y)
+  (iff (<a href="../doubleton">doubleton</a> s x y)
+       (exists (s1)
+         (and (<a href="../nequal">nequal</a> x y)
+              (<a href="../addElt">addElt</a> s s1 x)
+              (<a href="../singleton">singleton</a> s1 y)))))
+</pre>
+</div>
+<div class="axiom">
+<p>An aggregate of two entities is a composite entity with those two entities as its components.</p>
+<pre>
+(forall (x y z)
+  (iff (<a href="../aggregate">aggregate</a> x y z)
+       (and (<a href="../compositeEntity">compositeEntity</a> x)
+            (exists (s)
+              (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../doubleton">doubleton</a> s y z))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Ordered pairs are composite entities where the components are the first and second elements, there are no properties other than the whole being a pair, and the relations are the <code>first</code> and <code>second</code> relations between the components and the whole.</p>
 <pre>
 (forall (p x y e1 e2 e3)
   (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
@@ -49,21 +74,7 @@
              (<a href="../singleton">singleton</a> s2 e1) (<a href="../propertiesOf">propertiesOf</a> s2 p)
              (<a href="../doubleton">doubleton</a> s3 e2 e3) (<a href="../relationsOf">relationsOf</a> s3 p)))))
 </pre>
-<pre>
-(forall (s x y)
-  (iff (<a href="../doubleton">doubleton</a> s x y)
-       (exists (s1)
-         (and (<a href="../nequal">nequal</a> x y)
-              (<a href="../addElt">addElt</a> s s1 x)
-              (<a href="../singleton">singleton</a> s1 y)))))
-</pre>
-<pre>
-(forall (x y z)
-  (iff (<a href="../aggregate">aggregate</a> x y z)
-       (and (<a href="../compositeEntity">compositeEntity</a> x)
-            (exists (s)
-              (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../doubleton">doubleton</a> s y z))))))
-</pre>
+</div>
 </section>
 
 </body>

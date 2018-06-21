@@ -24,23 +24,41 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (r)
   (iff (<a href="../planar">planar</a> r)
        (exists (r1) (and (<a href="../plane">plane</a> r1) (<a href="../inside">inside</a> r r1)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
-   (forall (c r x u)
-      (iff (<a href="../circle">circle</a> c x)
-           (exists (r d)
-              (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
-                   (forall (c1 x1)
-                      (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
-                          (<a href="../length">length</a> d c1 u)))))))
+(forall (r)
+  (iff (<a href="../planar">planar</a> r)
+       (exists (r1) (and (<a href="../plane">plane</a> r1) (<a href="../inside">inside</a> r r1)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (r)
+  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
+      (iff (<a href="../convex">convex</a> r)
+           (forall (c x x1 x2)
+             (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
+                      (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
+                 (<a href="../subfigure">subfigure</a> x r))))))`
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (r)
+  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
+      (iff (<a href="../concave">concave</a> r) (not (<a href="../convex">convex</a> r)))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (p n)
   (iff (<a href="../polygon">polygon</a> p n)
@@ -55,25 +73,18 @@
               (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
               (<a href="../card">card</a> n s)))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
-(forall (r)
-  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
-      (iff (<a href="../concave">concave</a> r) (not (<a href="../convex">convex</a> r)))))
+   (forall (c r x u)
+      (iff (<a href="../circle">circle</a> c x)
+           (exists (r d)
+              (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
+                   (forall (c1 x1)
+                      (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                          (<a href="../length">length</a> d c1 u)))))))
 </pre>
-<pre>
-(forall (r)
-  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
-      (iff (<a href="../convex">convex</a> r)
-           (forall (c x x1 x2)
-             (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
-                      (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
-                 (<a href="../subfigure">subfigure</a> x r))))))`
-</pre>
-<pre>
-(forall (r)
-  (iff (<a href="../planar">planar</a> r)
-       (exists (r1) (and (<a href="../plane">plane</a> r1) (<a href="../inside">inside</a> r r1)))))
-</pre>
+</div>
 </section>
 
 </body>

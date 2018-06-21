@@ -24,21 +24,52 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (a1 f)
   (if (<a href="../xAxis">xAxis</a> a1 f)
       (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> a1 f))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
-   (forall (f v c1 c2 o)
-      (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
-           (and (<a href="../framework">framework</a> f) (<a href="../vertex">vertex</a> v c1 c2 o)
-                (forall (a1) (if (<a href="../xAxis">xAxis</a> a1 f) (<a href="../subfigure">subfigure</a> c1 a1)))
-                (<a href="../origin">origin</a> o f))))
+(forall (a1 f)
+  (if (<a href="../xAxis">xAxis</a> a1 f)
+      (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> a1 f))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f)
+  (if (<a href="../framework">framework</a> f)
+      (exists (a1 a2)
+        (and (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
+             (forall (a)
+               (and (if (<a href="../nequal">nequal</a> a a1) (not (<a href="../xAxis">xAxis</a> a f)))
+                    (if (<a href="../nequal">nequal</a> a a2) (not (<a href="../yAxis">yAxis</a> a f)))))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f a1 a2 s)
+  (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
+      (exists (s o)
+        (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
+             (<a href="../origin">origin</a> o f)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x1 x f)
+  (iff (<a href="../xCoordinate">xCoordinate</a> x1 x f)
+       (exists (v a1)
+         (and (<a href="../vertical2">vertical2</a> v f) (<a href="../member">member</a> x v) (<a href="../xAxis">xAxis</a> a1 f)
+              (<a href="../member">member</a> x1 v) (<a href="../member">member</a> x1 a1)))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (f)
       (iff (<a href="../coordinateSystem">coordinateSystem</a> f)
@@ -51,6 +82,17 @@
                 (forall (y1 y2) (iff (<a href="../above2">above2</a> y1 y2 f) (<a href="../gt">gt</a> y1 y2)))
                 (forall (z1 z2) (iff (<a href="../above3">above3</a> z1 z2 f) (<a href="../gt">gt</a> z1 z2))))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (f v c1 c2 o)
+      (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
+           (and (<a href="../framework">framework</a> f) (<a href="../vertex">vertex</a> v c1 c2 o)
+                (forall (a1) (if (<a href="../xAxis">xAxis</a> a1 f) (<a href="../subfigure">subfigure</a> c1 a1)))
+                (<a href="../origin">origin</a> o f))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (v)
       (iff (<a href="../acuteAngle">acuteAngle</a> v)
@@ -60,6 +102,8 @@
                    (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
                    (<a href="../gts">gts</a> x1 o a1) (<a href="../gts">gts</a> y1 o a2)))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (v)
       (iff (<a href="../obtuseAngle">obtuseAngle</a> v)
@@ -69,34 +113,7 @@
                    (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
                    (<a href="../gts">gts</a> o x1 a1) (<a href="../gts">gts</a> y1 o a2)))))
 </pre>
-<pre>
-(forall (a1 f)
-  (if (<a href="../xAxis">xAxis</a> a1 f)
-      (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> a1 f))))
-</pre>
-<pre>
-(forall (f a1 a2 s)
-  (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
-      (exists (s o)
-        (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
-             (<a href="../origin">origin</a> o f)))))
-</pre>
-<pre>
-(forall (f)
-  (if (<a href="../framework">framework</a> f)
-      (exists (a1 a2)
-        (and (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
-             (forall (a)
-               (and (if (<a href="../nequal">nequal</a> a a1) (not (<a href="../xAxis">xAxis</a> a f)))
-                    (if (<a href="../nequal">nequal</a> a a2) (not (<a href="../yAxis">yAxis</a> a f)))))))))
-</pre>
-<pre>
-(forall (x1 x f)
-  (iff (<a href="../xCoordinate">xCoordinate</a> x1 x f)
-       (exists (v a1)
-         (and (<a href="../vertical2">vertical2</a> v f) (<a href="../member">member</a> x v) (<a href="../xAxis">xAxis</a> a1 f)
-              (<a href="../member">member</a> x1 v) (<a href="../member">member</a> x1 a1)))))
-</pre>
+</div>
 </section>
 
 </body>

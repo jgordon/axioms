@@ -24,6 +24,7 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (f1 f2)
   (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
@@ -32,9 +33,10 @@
            (exists (b)
              (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (f1 f2)
   (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
@@ -43,20 +45,15 @@
            (exists (b)
              (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (f1 f2)
   (iff (<a href="../subfigure">subfigure</a> f1 f2)
        (or (<a href="../inside">inside</a> f1 f2) (<a href="../onBoundary">onBoundary</a> f1 f2))))
 </pre>
-<pre>
-(forall (r)
-  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
-      (iff (<a href="../convex">convex</a> r)
-           (forall (c x x1 x2)
-             (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
-                      (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
-                 (<a href="../subfigure">subfigure</a> x r))))))`
-</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (r1 r2)
   (iff (<a href="../tpp">tpp</a> r1 r2)
@@ -68,6 +65,18 @@
             (exists (x)
               (and (<a href="../onBoundary">onBoundary</a> x r1) (<a href="../onBoundary">onBoundary</a> x r2))))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (r)
+  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
+      (iff (<a href="../convex">convex</a> r)
+           (forall (c x x1 x2)
+             (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
+                      (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
+                 (<a href="../subfigure">subfigure</a> x r))))))`
+</pre>
+</div>
 </section>
 
 </body>

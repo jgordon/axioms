@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Functional dependencies:</p>
 <pre>
 (forall (x y e)
   (if (<a href="../fd">fd</a> y x e)
@@ -35,15 +37,30 @@
            (exists (s)
              (<a href="../typelt">typelt</a> x s)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Functional dependencies:</p>
 <pre>
-(forall (c1 c x1 x y e e1)
-  (if (and (<a href="../skfct">skfct</a> c1 c x1 x e) (<a href="../fd">fd</a> c y e) (<a href="../nequal">nequal</a> x y)
-           (<a href="../subst2">subst2</a> c1 x1 e1 c x e))
-      (<a href="../fd">fd</a> c1 y e1)))
+(forall (x y e)
+  (if (<a href="../fd">fd</a> y x e)
+      (and (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e)
+           (exists (s)
+             (<a href="../typelt">typelt</a> x s)))))
 </pre>
+</div>
+<div class="axiom">
+<p>The principal property of 'fd' is that when e holds and a real entity instantiates x, then there is a real entity that instantiates y and the corresponding eventuality holds.</p>
+<pre>
+(forall (x y e s)
+  (if (and (<a href="../fd">fd</a> y x e) (<a href="../Rexist">Rexist</a> e) (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> x1 s))
+      (exists (y1 e1)
+        (and (<a href="../subst2">subst2</a> x y e x1 y1 e1) (<a href="../Rexist">Rexist</a> e1)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Corresponding to the functional dependency, there is a skolem function that maps any element x1 of the set s into the corresponding y1, and that function has a range.</p>
 <pre>
 (forall (x x1 y y1 e)
   (iff (<a href="../skfct">skfct</a> y1 y x1 x e)
@@ -52,19 +69,18 @@
               (and (<a href="../subst2">subst2</a> x y e x1 y1 e1)
                    (if (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1)))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Pass functional dependence relations down to partial instantiations.</p>
 <pre>
-(forall (x y e s)
-  (if (and (<a href="../fd">fd</a> y x e) (<a href="../Rexist">Rexist</a> e) (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> x1 s))
-      (exists (y1 e1)
-        (and (<a href="../subst2">subst2</a> x y e x1 y1 e1) (<a href="../Rexist">Rexist</a> e1)))))
+(forall (c1 c x1 x y e e1)
+  (if (and (<a href="../skfct">skfct</a> c1 c x1 x e) (<a href="../fd">fd</a> c y e) (<a href="../nequal">nequal</a> x y)
+           (<a href="../subst2">subst2</a> c1 x1 e1 c x e))
+      (<a href="../fd">fd</a> c1 y e1)))
 </pre>
-<pre>
-(forall (x y e)
-  (if (<a href="../fd">fd</a> y x e)
-      (and (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e)
-           (exists (s)
-             (<a href="../typelt">typelt</a> x s)))))
-</pre>
+</div>
+<div class="axiom">
+<p>An entity that is a typical element of a set or functionally dependent on a typical element of a set is nonspecific.</p>
 <pre>
 (forall (x)
   (iff (<a href="../nonspecific">nonspecific</a> x)
@@ -72,6 +88,7 @@
            (exists (y s e)
              (and (<a href="../typelt">typelt</a> y s) (<a href="../fd">fd</a> x y e))))))
 </pre>
+</div>
 </section>
 
 </body>

@@ -28,27 +28,33 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The predicate <code>during</code> says that the eventuality really exists or obtains throughout an interval.</p>
 <pre>
 (forall (e t)
   (iff (<a href="../during">during</a> e t)
        (and (<a href="../eventuality">eventuality</a> e) (<a href="../properInterval">properInterval</a> t)
             (forall (t1) (if (<a href="../insideTime">insideTime</a> t1 t) (<a href="../atTime">atTime</a> e t1))))))
 </pre>
+</div><div class="axiom">
+<p>The predicate <code>properIntervalEv</code> says that its argument is either a proper interval or an eventuality whose time span is a proper interval.</p>
 <pre>
 (forall (e0 e t) (if (<a href="../during">during</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The predicate <code>during</code> says that the eventuality really exists or obtains throughout an interval.</p>
 <pre>
 (forall (e t)
   (iff (<a href="../during">during</a> e t)
        (and (<a href="../eventuality">eventuality</a> e) (<a href="../properInterval">properInterval</a> t)
             (forall (t1) (if (<a href="../insideTime">insideTime</a> t1 t) (<a href="../atTime">atTime</a> e t1))))))
 </pre>
-<pre>
-(forall (e0 e t) (if (<a href="../during">during</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
-</pre>
+</div>
+<div class="axiom">
+<p>The "time span of" an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
 <pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
@@ -76,6 +82,13 @@
                                      (<a href="../insideTime">insideTime</a> t1 t2)
                                      (<a href="../ends">ends</a> t1 t2)))))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>properIntervalEv</code> says that its argument is either a proper interval or an eventuality whose time span is a proper interval.</p>
+<pre>
+(forall (e0 e t) (if (<a href="../during">during</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
+</pre>
+</div>
 </section>
 
 </body>

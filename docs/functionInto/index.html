@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A function f is "into" a set or scale s3 if there is a subset or subscale s2 for which fi is a function "onto".</p>
 <pre>
 (forall (f s1 s3)
    (iff (<a href="../functionInto">functionInto</a> f s1 s3)
@@ -35,9 +37,11 @@
           (and (or (<a href="../subset">subset</a> s2 s3) (<a href="../subscale">subscale</a> s2 s3))
                (<a href="../function">function</a> f s1 s2)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>A function f is "into" a set or scale s3 if there is a subset or subscale s2 for which fi is a function "onto".</p>
 <pre>
 (forall (f s1 s3)
    (iff (<a href="../functionInto">functionInto</a> f s1 s3)
@@ -45,6 +49,9 @@
           (and (or (<a href="../subset">subset</a> s2 s3) (<a href="../subscale">subscale</a> s2 s3))
                (<a href="../function">function</a> f s1 s2)))))
 </pre>
+</div>
+<div class="axiom">
+<p>A measure is a monotone increasing function from a scale into a non-negative numeric scale in which the bottom of the domain scale, if there is one, maps into 0.</p>
 <pre>
 (forall (m s1)
   (iff (<a href="../measure">measure</a> m s1)
@@ -54,6 +61,7 @@
               (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
               (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
 </pre>
+</div>
 </section>
 
 </body>

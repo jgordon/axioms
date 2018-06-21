@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The union of two sets is defined in the standard way.</p>
 <pre>
 (forall (s s1 s2)
   (iff (<a href="../union">union</a> s s1 s2)
@@ -36,9 +38,30 @@
               (iff (<a href="../member">member</a> x s)
                    (or (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The union of two sets is defined in the standard way.</p>
+<pre>
+(forall (s s1 s2)
+  (iff (<a href="../union">union</a> s s1 s2)
+       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1) (<a href="../set">set</a> s2)
+            (forall (x)
+              (iff (<a href="../member">member</a> x s)
+                   (or (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The union of three sets.</p>
+<pre>
+(forall (s s1 s2 s3)
+  (iff (<a href="../union3">union3</a> s s1 s2 s3)
+       (exists (s4)
+         (and (<a href="../union">union</a> s s1 s4) (<a href="../union">union</a> s4 s2 s3)))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (x s0 s1)
       (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
@@ -48,6 +71,9 @@
                   (forall (z) (iff (<a href="../member">member</a> z s4) (<a href="../lts">lts</a> x z s0)))
                   (<a href="../card">card</a> n3 s3) (<a href="../card">card</a> n4 s4) (<a href="../lt">lt</a> n4 n3)))))
 </pre>
+</div>
+<div class="axiom">
+<p>Given an eventuality <code>e</code> and a set of constraints <code>c</code>, we can ask what other set <code>s</code> of eventualities would have to obtain in order to entail that <code>e</code> also obtains. The expression <code>(alsoRequired s e c)</code> says that <code>s</code> is a set of eventualities that will entail the real existence of <code>e</code>, over and above <code>c</code>.</p>
 <pre>
 (forall (s e c)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -57,20 +83,7 @@
                   (and (<a href="../union">union</a> s1 c1 s) (<a href="../subset">subset</a> c1 c)
                        (<a href="../minimallyProves">minimallyProves</a> s1 e)))))))
 </pre>
-<pre>
-(forall (s s1 s2 s3)
-  (iff (<a href="../union3">union3</a> s s1 s2 s3)
-       (exists (s4)
-         (and (<a href="../union">union</a> s s1 s4) (<a href="../union">union</a> s4 s2 s3)))))
-</pre>
-<pre>
-(forall (s s1 s2)
-  (iff (<a href="../union">union</a> s s1 s2)
-       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1) (<a href="../set">set</a> s2)
-            (forall (x)
-              (iff (<a href="../member">member</a> x s)
-                   (or (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
-</pre>
+</div>
 </section>
 
 </body>

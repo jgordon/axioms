@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>An eventuality or set of eventualities, s, can be a causal complex for an effect e.</p>
 <pre>
 (forall (s e)
   (if (<a href="../causalComplex">causalComplex</a> s e)
@@ -35,17 +37,11 @@
            (or (<a href="../eventualities">eventualities</a> s)
                (<a href="../eventuality">eventuality</a> s)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-(forall (a e c)
-  (iff (<a href="../able">able</a> a e c)
-       (exists (s s1 e1)
-         (and (<a href="../causalComplex">causalComplex</a> s e) (<a href="../cause">cause</a>' e1 a e) (<a href="../member">member</a> e1 s)
-              (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
-              (if (<a href="../Rexist">Rexist</a> s1) (<a href="../possible">possible</a> e1 c))))))
-</pre>
+<div class="axiom">
+<p>If something is in the <code>Hi</code> region of a scale, then that property plays a causal or enabling role in some agent's goal being achieved or not achieved.</p>
 <pre>
 (forall (e x y s1 s)
    (if (and (<a href="../at">at</a>' e x y s1) (<a href="../Hi">Hi</a> s1 s) (etc))
@@ -54,37 +50,62 @@
                (or (<a href="../causalComplex">causalComplex</a> c g)
                    (and (<a href="../not'">not'</a> g1 g) (<a href="../causalComplex">causalComplex</a> c g1)))))))
 </pre>
+</div>
+<div class="axiom">
+<p>An eventuality or set of eventualities, s, can be a causal complex for an effect e.</p>
 <pre>
-(forall (e1 e2 q c)
-  (iff (<a href="../tcauseq">tcauseq</a> e1 e2 q c)
-       (exists (s)
-         (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
-              (<a href="../deleteElt">deleteElt</a> s1 s e1) (<a href="../likelihood">likelihood</a> q s1 c)
-              (if (<a href="../Rexist">Rexist</a> s1) (<a href="../cause">cause</a> e1 e2))))))
+(forall (s e)
+  (if (<a href="../causalComplex">causalComplex</a> s e)
+      (and (<a href="../eventuality">eventuality</a> e)
+           (or (<a href="../eventualities">eventualities</a> s)
+               (<a href="../eventuality">eventuality</a> s)))))
 </pre>
+</div>
+<div class="axiom">
+<p>Each member of a causal complex is relevant: If it is removed from the set, the remainder is not a causal complex for the effect.</p>
 <pre>
-(forall (e1 e2 s)
-  (iff (<a href="../enable0">enable0</a> e1 e2 s)
-       (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
-            (not (<a href="../cause">cause</a> e1 e2)))))
+(forall (s s1 e1 e)
+  (if (and (<a href="../causalComplex">causalComplex</a> s e) (<a href="../member">member</a> e1 s) (<a href="../deleteElt">deleteElt</a> s1 s e1))
+      (not (<a href="../causalComplex">causalComplex</a> s1 e))))
 </pre>
+</div>
+<div class="axiom">
+<p>A <code>cause0</code> is an eventuality in a causal complex; a conjunction of the nonpresumable eventualities in a causal complex.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../cause0">cause0</a> e1 e2)
       (exists (s)
         (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)))))
 </pre>
+</div>
+<div class="axiom">
+<p>An eventuality e1 is causally involved in bringing about some effect e2 if it is in some causal complex for e2.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../causallyInvolved">causallyInvolved</a> e1 e2)
        (exists (s) (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)))))
 </pre>
+</div>
+<div class="axiom">
+<p>The expression (enable0 e1 e2 s) says that e1 is an enabling condition for e2 provided it is in the causal complex s that will be used to bring about e2, but is not the cause of e2.</p>
+<pre>
+(forall (e1 e2 s)
+  (iff (<a href="../enable0">enable0</a> e1 e2 s)
+       (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+            (not (<a href="../cause">cause</a> e1 e2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an eventuality e1 is required for any way of bringing about e2, then we can use the two-argument predicate <code>enable</code>.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../enable">enable</a> e1 e2)
        (forall (s)
          (if (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../enable0">enable0</a> e1 e2 s)))))
 </pre>
+</div>
+<div class="axiom">
+<p>The expression (tcause e1 e2) means that e1 tends to cause e2. If (tcause e1 e2) holds, the other eventualities in the causal complex for e2 are likely but not guaranteed to hold. Both <code>cause</code> and <code>tcause</code> are defeasible, but <code>tcause</code> is more likely to be defeated.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../tcause">tcause</a> e1 e2)
@@ -94,6 +115,31 @@
               (if (<a href="../Rexist">Rexist</a> s)
                   (<a href="../cause">cause</a> e1 e2))))))
 </pre>
+</div>
+<div class="axiom">
+<p>e1 tends to cause e2 with likelihood q if e1 is in a causal complex for e2, if the likelihood of the rest of s is q, and if e1 would be singled out as a cause of e2 provided the rest of s actually obtains.</p>
+<pre>
+(forall (e1 e2 q c)
+  (iff (<a href="../tcauseq">tcauseq</a> e1 e2 q c)
+       (exists (s)
+         (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+              (<a href="../deleteElt">deleteElt</a> s1 s e1) (<a href="../likelihood">likelihood</a> q s1 c)
+              (if (<a href="../Rexist">Rexist</a> s1) (<a href="../cause">cause</a> e1 e2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We can say that an agent a is able to do e, given a set of constraints c, if the agent's causing e is possible with respect to c whenever the set s1 of all the events in a causal complex s for e that are beyond a's control really exists independently.</p>
+<pre>
+(forall (a e c)
+  (iff (<a href="../able">able</a> a e c)
+       (exists (s s1 e1)
+         (and (<a href="../causalComplex">causalComplex</a> s e) (<a href="../cause">cause</a>' e1 a e) (<a href="../member">member</a> e1 s)
+              (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
+              (if (<a href="../Rexist">Rexist</a> s1) (<a href="../possible">possible</a> e1 c))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If all the eventualities in a causal complex happen or hold, then the effect will happen or hold. Moreover, the effect is not before the elements of the causal complex.</p>
 <pre>
 (forall (s e t1)
   (if (and (<a href="../causalComplex">causalComplex</a> s e)
@@ -101,18 +147,7 @@
       (exists (t2)
         (and (not (<a href="../before">before</a> t2 t1)) (<a href="../atTime">atTime</a> e t2)))))
 </pre>
-<pre>
-(forall (s e)
-  (if (<a href="../causalComplex">causalComplex</a> s e)
-      (and (<a href="../eventuality">eventuality</a> e)
-           (or (<a href="../eventualities">eventualities</a> s)
-               (<a href="../eventuality">eventuality</a> s)))))
-</pre>
-<pre>
-(forall (s s1 e1 e)
-  (if (and (<a href="../causalComplex">causalComplex</a> s e) (<a href="../member">member</a> e1 s) (<a href="../deleteElt">deleteElt</a> s1 s e1))
-      (not (<a href="../causalComplex">causalComplex</a> s1 e))))
-</pre>
+</div>
 </section>
 
 </body>

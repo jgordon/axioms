@@ -24,6 +24,7 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (c)
   (iff (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
@@ -31,9 +32,49 @@
             (<a href="../endpoint">endpoint</a> x1 c) (<a href="../endpoint">endpoint</a> x2 c)
             (<a href="../nequal">nequal</a> x1 x2))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (c)
+  (iff (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
+       (and (<a href="../lineSegment">lineSegment</a> c)
+            (<a href="../endpoint">endpoint</a> x1 c) (<a href="../endpoint">endpoint</a> x2 c)
+            (<a href="../nequal">nequal</a> x1 x2))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (r)
+  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
+      (iff (<a href="../convex">convex</a> r)
+           (forall (c x x1 x2)
+             (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
+                      (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
+                 (<a href="../subfigure">subfigure</a> x r))))))`
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (c x1 x2 x3 d1 d2 d3 u)
+  (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x3)
+           (<a href="../inside">inside</a> x2 c) (<a href="../distance">distance</a> d1 x1 x2 u)
+           (<a href="../distance">distance</a> d2 x2 x3 u) (<a href="../distance">distance</a> d3 x1 x3 u))
+       (<a href="../sum">sum</a> d3 d1 d2)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (d c u)
+  (iff (<a href="../lineSegment">lineSegment</a> c)
+       (iff (<a href="../length">length</a> d c u)
+            (exists (x1 x2)
+              (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
+                   (<a href="../distance">distance</a> d x1 x2 u))))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (c r x u)
       (iff (<a href="../circle">circle</a> c x)
@@ -43,15 +84,8 @@
                       (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
                           (<a href="../length">length</a> d c1 u)))))))
 </pre>
-<pre>
-   (forall (c r x u)
-      (iff (<a href="../sphere">sphere</a> p x)
-           (exists (r d)
-              (and (<a href="../boundary">boundary</a> r p) (<a href="../inside">inside</a> x p)
-                   (forall (c1 x1)
-                      (if (and (<a href="../inside">inside</a> x1 r) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
-                          (<a href="../length">length</a> d c1 u)))))))
-</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (c v u)
       (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
@@ -61,6 +95,8 @@
                    (<a href="../endpoint">endpoint</a> x2 c2) (<a href="../distance">distance</a> 1 x0 x2 u)
                    (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (p d)
       (if (<a href="../square">square</a> p)
@@ -71,6 +107,19 @@
                        (<a href="../nequal">nequal</a> c1 c3) (<a href="../nequal">nequal</a> c1 c4)
                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (c r x u)
+      (iff (<a href="../sphere">sphere</a> p x)
+           (exists (r d)
+              (and (<a href="../boundary">boundary</a> r p) (<a href="../inside">inside</a> x p)
+                   (forall (c1 x1)
+                      (if (and (<a href="../inside">inside</a> x1 r) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                          (<a href="../length">length</a> d c1 u)))))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (p)
       (if (<a href="../volume">volume</a> p)
@@ -80,37 +129,7 @@
                            (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c)
                       (<a href="../subfigure">subfigure</a> x p))))))
 </pre>
-<pre>
-(forall (c x1 x2 x3 d1 d2 d3 u)
-  (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x3)
-           (<a href="../inside">inside</a> x2 c) (<a href="../distance">distance</a> d1 x1 x2 u)
-           (<a href="../distance">distance</a> d2 x2 x3 u) (<a href="../distance">distance</a> d3 x1 x3 u))
-       (<a href="../sum">sum</a> d3 d1 d2)))
-</pre>
-<pre>
-(forall (c)
-  (iff (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
-       (and (<a href="../lineSegment">lineSegment</a> c)
-            (<a href="../endpoint">endpoint</a> x1 c) (<a href="../endpoint">endpoint</a> x2 c)
-            (<a href="../nequal">nequal</a> x1 x2))))
-</pre>
-<pre>
-(forall (d c u)
-  (iff (<a href="../lineSegment">lineSegment</a> c)
-       (iff (<a href="../length">length</a> d c u)
-            (exists (x1 x2)
-              (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
-                   (<a href="../distance">distance</a> d x1 x2 u))))))
-</pre>
-<pre>
-(forall (r)
-  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
-      (iff (<a href="../convex">convex</a> r)
-           (forall (c x x1 x2)
-             (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
-                      (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
-                 (<a href="../subfigure">subfigure</a> x r))))))`
-</pre>
+</div>
 </section>
 
 </body>

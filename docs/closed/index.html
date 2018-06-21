@@ -24,15 +24,41 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (c)
   (if (<a href="../closed">closed</a> c)
       (not (exists (x)
              (<a href="../endpoint">endpoint</a> x c)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (c)
+  (if (<a href="../closed">closed</a> c)
+      (not (exists (x)
+             (<a href="../endpoint">endpoint</a> x c)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (p n)
+  (iff (<a href="../polygon">polygon</a> p n)
+       (exists (s)
+         (and (forall (c)
+                (iff (<a href="../member">member</a> c s) (<a href="../sideOf">sideOf</a> c p)))
+              (forall (x)
+                (if (<a href="../inside">inside</a> x p)
+                    (exists (c)
+                      (and (<a href="../member">member</a> c s)
+                        (or (<a href="../inside">inside</a> x c) (<a href="../endpoint">endpoint</a> x l))))))
+              (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
+              (<a href="../card">card</a> n s)))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (c)
       (if (<a href="../curve">curve</a> c)
@@ -42,6 +68,8 @@
                        (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
                             (<a href="../inside">inside</a> c r)))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (p s)
       (iff (<a href="../polyhedron">polyhedron</a> p s)
@@ -58,26 +86,7 @@
                                (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
                           (equal f1 f2)))))))
 </pre>
-<pre>
-(forall (c)
-  (if (<a href="../closed">closed</a> c)
-      (not (exists (x)
-             (<a href="../endpoint">endpoint</a> x c)))))
-</pre>
-<pre>
-(forall (p n)
-  (iff (<a href="../polygon">polygon</a> p n)
-       (exists (s)
-         (and (forall (c)
-                (iff (<a href="../member">member</a> c s) (<a href="../sideOf">sideOf</a> c p)))
-              (forall (x)
-                (if (<a href="../inside">inside</a> x p)
-                    (exists (c)
-                      (and (<a href="../member">member</a> c s)
-                        (or (<a href="../inside">inside</a> x c) (<a href="../endpoint">endpoint</a> x l))))))
-              (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
-              (<a href="../card">card</a> n s)))))
-</pre>
+</div>
 </section>
 
 </body>

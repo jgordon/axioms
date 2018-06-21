@@ -28,25 +28,33 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Impossibility is the negation of possibility.</p>
 <pre>
 (forall (e c)
   (iff (<a href="../impossible">impossible</a> e c)
        (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c) (not (<a href="../possible">possible</a> e c)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Impossibility is the negation of possibility.</p>
+<pre>
+(forall (e c)
+  (iff (<a href="../impossible">impossible</a> e c)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c) (not (<a href="../possible">possible</a> e c)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the likelihood of an eventuality is the bottom of the likelihood scale, then it is impossible given the constraints.</p>
 <pre>
 (forall (d e c s)
   (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s))
       (iff (<a href="../bottom">bottom</a> d s)
            (<a href="../impossible">impossible</a> e c))))
 </pre>
-<pre>
-(forall (e c)
-  (iff (<a href="../impossible">impossible</a> e c)
-       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c) (not (<a href="../possible">possible</a> e c)))))
-</pre>
+</div>
 </section>
 
 </body>

@@ -28,14 +28,26 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>An entity is in a sequence if it is the <code>nth</code> element of the sequence for some <code>n</code>.</p>
 <pre>
 (forall (x s)
   (iff (<a href="../inSeq">inSeq</a> x s)
        (exists (n) (<a href="../nth">nth</a> x n s))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>An entity is in a sequence if it is the <code>nth</code> element of the sequence for some <code>n</code>.</p>
+<pre>
+(forall (x s)
+  (iff (<a href="../inSeq">inSeq</a> x s)
+       (exists (n) (<a href="../nth">nth</a> x n s))))
+</pre>
+</div>
+<div class="axiom">
+<p>A sequence can be viewed as a composite entity whose components are the elements of the sequence and whose relations are the ordering relations in the sequence.</p>
 <pre>
 (forall (e s)
   (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
@@ -52,11 +64,7 @@
                            (<a href="../Rexist">Rexist</a> e1)))))
              (<a href="../relationsOf">relationsOf</a> s3 s)))))
 </pre>
-<pre>
-(forall (x s)
-  (iff (<a href="../inSeq">inSeq</a> x s)
-       (exists (n) (<a href="../nth">nth</a> x n s))))
-</pre>
+</div>
 </section>
 
 </body>

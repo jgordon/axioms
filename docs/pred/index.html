@@ -28,24 +28,26 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The 'pred' of an eventuality is a predicate.</p>
 <pre>
 (forall (e p)
   (if (<a href="../pred">pred</a> p e)
       (and (<a href="../predicate">predicate</a> p) (<a href="../eventuality">eventuality</a> e))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The 'pred' of an eventuality is a predicate.</p>
 <pre>
 (forall (e p)
   (if (<a href="../pred">pred</a> p e)
       (and (<a href="../predicate">predicate</a> p) (<a href="../eventuality">eventuality</a> e))))
 </pre>
-<pre>
-(forall (e x y z)
-  (if (<a href="../give">give</a>' e x y z)
-      (<a href="../pred">pred</a> give e)))
-</pre>
+</div>
+<div class="axiom">
+<p>Eventualities all have a predicate p, an arity n, and arguments 1...n.</p>
 <pre>
 (forall (e)
   (iff (<a href="../eventuality">eventuality</a> e)
@@ -57,6 +59,17 @@
                     (exists (x)
                       (<a href="../argn">argn</a> x i e))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>'gen' is stronger than implication.</p>
+<pre>
+(forall (e x y z)
+  (if (<a href="../give">give</a>' e x y z)
+      (<a href="../pred">pred</a> give e)))
+</pre>
+</div>
+<div class="axiom">
+<p>Two entities are subsitutable in their respective events if they play the same role.</p>
 <pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst">subst</a> x e1 y e2)
@@ -76,6 +89,7 @@
                          (if (<a href="../eventuality">eventuality</a> z1)
                              (<a href="../subst">subst</a> x z1 y z2)))))))))
 </pre>
+</div>
 </section>
 
 </body>

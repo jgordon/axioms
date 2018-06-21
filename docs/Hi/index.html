@@ -28,48 +28,47 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>We can construct composite scales out of existing scales.</p>
+<pre>
+(forall (s1 s) (if (<a href="../Hi">Hi</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
+</pre>
+</div><div class="axiom">
+<p>The top of the scale is in the <code>Hi</code> region of the scale and is the top of the <code>Hi</code> region.</p>
 <pre>
 (forall (s1 s)
    (if (<a href="../Hi">Hi</a> s1 s)
        (forall (x)
          (iff (<a href="../top">top</a> x s) (<a href="../top">top</a> x s1)))))
 </pre>
+</div></section>
+<section>
+<h2>All Axioms</h2>
+<div class="axiom">
+<p>We can construct composite scales out of existing scales.</p>
 <pre>
 (forall (s1 s) (if (<a href="../Hi">Hi</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
 </pre>
-</section>
-<section>
-<h2>All Axioms</h2>
+</div>
+<div class="axiom">
+<p>The top of the scale is in the <code>Hi</code> region of the scale and is the top of the <code>Hi</code> region.</p>
 <pre>
-   (forall (x s0 s1)
-      (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
-          (exists (s2 s3 s4 n3 n4)
-             (and (<a href="../componentsOf">componentsOf</a> s2 s0) (<a href="../union">union</a> s2 s3 s4)
-                  (forall (y) (iff (<a href="../member">member</a> y s3) (<a href="../lts">lts</a> y x s0)))
-                  (forall (z) (iff (<a href="../member">member</a> z s4) (<a href="../lts">lts</a> x z s0)))
-                  (<a href="../card">card</a> n3 s3) (<a href="../card">card</a> n4 s4) (<a href="../lt">lt</a> n4 n3)))))
+(forall (s1 s)
+   (if (<a href="../Hi">Hi</a> s1 s)
+       (forall (x)
+         (iff (<a href="../top">top</a> x s) (<a href="../top">top</a> x s1)))))
 </pre>
+</div>
+<div class="axiom">
+<p>If a point is in the <code>Lo</code> region, then it is less than all the points in the <code>Hi</code> region.</p>
 <pre>
-   (forall (x z)
-      (iff (<a href="../far">far</a> x z)
-           (exists (s s2)
-              (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Hi">Hi</a> s2 s) (<a href="../onScale">onScale</a> x s2)))))
+(forall (s s1 s2 x y)
+   (if (and (<a href="../Hi">Hi</a> s1 s) (<a href="../Lo">Lo</a> s2 s) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s2))
+       (<a href="../lts">lts</a> y x s)))
 </pre>
-<pre>
-(forall (e c)
-  (iff (<a href="../likely">likely</a> e c)
-       (exists (s d s1)
-         (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../Hi">Hi</a> s1 s)
-              (<a href="../inScale">inScale</a> d s1)))))
-</pre>
-<pre>
-(forall (e x y s1 s)
-   (if (and (<a href="../at">at</a>' e x y s1) (<a href="../Hi">Hi</a> s1 s) (etc))
-       (exists (c a g g1)
-          (and (<a href="../member">member</a> e c) (<a href="../goal">goal</a> g a)
-               (or (<a href="../causalComplex">causalComplex</a> c g)
-                   (and (<a href="../not'">not'</a> g1 g) (<a href="../causalComplex">causalComplex</a> c g1)))))))
-</pre>
+</div>
+<div class="axiom">
+<p>The <code>scaleFor</code> predicate relates a scale and the absolute form of its adjective (e.g., 'tall').</p>
 <pre>
 (forall (s e)
    (iff (<a href="../scaleFor">scaleFor</a> s e)
@@ -79,20 +78,20 @@
                    (if (and (<a href="../at">at</a>' e1 x y s1) (<a href="../argn">argn</a> x 1 e))
                        (iff (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>If something is in the <code>Hi</code> region of a scale, then that property plays a causal or enabling role in some agent's goal being achieved or not achieved.</p>
 <pre>
-(forall (s s1 s2 x y)
-   (if (and (<a href="../Hi">Hi</a> s1 s) (<a href="../Lo">Lo</a> s2 s) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s2))
-       (<a href="../lts">lts</a> y x s)))
+(forall (e x y s1 s)
+   (if (and (<a href="../at">at</a>' e x y s1) (<a href="../Hi">Hi</a> s1 s) (etc))
+       (exists (c a g g1)
+          (and (<a href="../member">member</a> e c) (<a href="../goal">goal</a> g a)
+               (or (<a href="../causalComplex">causalComplex</a> c g)
+                   (and (<a href="../not'">not'</a> g1 g) (<a href="../causalComplex">causalComplex</a> c g1)))))))
 </pre>
-<pre>
-(forall (s1 s)
-   (if (<a href="../Hi">Hi</a> s1 s)
-       (forall (x)
-         (iff (<a href="../top">top</a> x s) (<a href="../top">top</a> x s1)))))
-</pre>
-<pre>
-(forall (s1 s) (if (<a href="../Hi">Hi</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
-</pre>
+</div>
+<div class="axiom">
+<p>A set of events is frequent if it is in the <code>Hi</code> region of a rate scale.</p>
 <pre>
 (forall (s1)
   (iff (<a href="../frequent">frequent</a> s1)
@@ -100,6 +99,36 @@
          (and (<a href="../member">member</a> s1 s0) (<a href="../rateScale">rateScale</a> s s0) (<a href="../Hi">Hi</a> s2 s)
               (<a href="../inScale">inScale</a> s1 s2)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (x z)
+      (iff (<a href="../far">far</a> x z)
+           (exists (s s2)
+              (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Hi">Hi</a> s2 s) (<a href="../onScale">onScale</a> x s2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (x s0 s1)
+      (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
+          (exists (s2 s3 s4 n3 n4)
+             (and (<a href="../componentsOf">componentsOf</a> s2 s0) (<a href="../union">union</a> s2 s3 s4)
+                  (forall (y) (iff (<a href="../member">member</a> y s3) (<a href="../lts">lts</a> y x s0)))
+                  (forall (z) (iff (<a href="../member">member</a> z s4) (<a href="../lts">lts</a> x z s0)))
+                  (<a href="../card">card</a> n3 s3) (<a href="../card">card</a> n4 s4) (<a href="../lt">lt</a> n4 n3)))))
+</pre>
+</div>
+<div class="axiom">
+<p>An eventuality is <code>likely</code> with respect to constraints <code>c</code> if its likelihood <code>d</code> is on the high end of the scale of likelihoods.</p>
+<pre>
+(forall (e c)
+  (iff (<a href="../likely">likely</a> e c)
+       (exists (s d s1)
+         (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../Hi">Hi</a> s1 s)
+              (<a href="../inScale">inScale</a> d s1)))))
+</pre>
+</div>
 </section>
 
 </body>

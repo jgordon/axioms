@@ -24,12 +24,7 @@
 </header>
 <section>
 <h2>All Axioms</h2>
-<pre>
-   (forall (s z)
-      (iff (<a href="../nearnessScale">nearnessScale</a> s z)
-           (exists (s0 e x y u)
-              (and (<a href="../nearer">nearer</a>' e x y z u) (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e)))))
-</pre>
+<div class="axiom">
 <pre>
    (forall (x y z)
       (iff (<a href="../nearer">nearer</a> x y z)
@@ -37,6 +32,15 @@
               (and (<a href="../distance">distance</a> d1 x z u) (<a href="../distance">distance</a> d2 y z u)
                    (<a href="../lt">lt</a> d1 d2)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (s z)
+      (iff (<a href="../nearnessScale">nearnessScale</a> s z)
+           (exists (s0 e x y u)
+              (and (<a href="../nearer">nearer</a>' e x y z u) (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e)))))
+</pre>
+</div>
 </section>
 
 </body>

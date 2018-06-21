@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The reverse of a scale is one in which the partial ordering is reversed.</p>
 <pre>
 (forall (s1 s)
    (iff (<a href="../reverse">reverse</a> s1 s)
@@ -36,9 +38,11 @@
                 (and (iff (<a href="../inScale">inScale</a> x s) (<a href="../inScale">inScale</a> x s1))
                      (iff (<a href="../lts">lts</a> x y s) (<a href="../lts">lts</a> y x s1)))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The reverse of a scale is one in which the partial ordering is reversed.</p>
 <pre>
 (forall (s1 s)
    (iff (<a href="../reverse">reverse</a> s1 s)
@@ -47,6 +51,7 @@
                 (and (iff (<a href="../inScale">inScale</a> x s) (<a href="../inScale">inScale</a> x s1))
                      (iff (<a href="../lts">lts</a> x y s) (<a href="../lts">lts</a> y x s1)))))))
 </pre>
+</div>
 </section>
 
 </body>

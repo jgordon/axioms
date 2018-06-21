@@ -24,6 +24,8 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Two intervals overlap if the beginning of one is inside the other.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intOverlap">intOverlap</a> t1 t2)
@@ -32,9 +34,22 @@
               (or (and (<a href="../begins">begins</a> t t1) (<a href="../insideTime">insideTime</a> t t2))
                   (and (<a href="../begins">begins</a> t t2) (<a href="../insideTime">insideTime</a> t t1)))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Two intervals overlap if the beginning of one is inside the other.</p>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../intOverlap">intOverlap</a> t1 t2)
+       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
+            (exists (t)
+              (or (and (<a href="../begins">begins</a> t t1) (<a href="../insideTime">insideTime</a> t t2))
+                  (and (<a href="../begins">begins</a> t t2) (<a href="../insideTime">insideTime</a> t t1)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A proper interval is a concatenation of a set of proper intervals if every instant inside the interval is inside, the beginning, or the end of some interval in the set, and the intervals in the set are non-overlapping.</p>
 <pre>
 (forall (t s)
   (iff (<a href="../concatenation">concatenation</a> t s)
@@ -54,14 +69,7 @@
               (if (and (<a href="../member">member</a> t1 s) (<a href="../member">member</a> t2 s))
                   (or (equal t1 t2) (not (<a href="../intOverlap">intOverlap</a> t1 t2))))))))
 </pre>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../intOverlap">intOverlap</a> t1 t2)
-       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
-            (exists (t)
-              (or (and (<a href="../begins">begins</a> t t1) (<a href="../insideTime">insideTime</a> t t2))
-                  (and (<a href="../begins">begins</a> t t2) (<a href="../insideTime">insideTime</a> t t1)))))))
-</pre>
+</div>
 </section>
 
 </body>

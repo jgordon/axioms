@@ -24,15 +24,32 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (p)
   (iff (<a href="../rectangle">rectangle</a> p)
        (and (<a href="../quadrilateral">quadrilateral</a> p)
             (forall (v) (iff (<a href="../vertexOf">vertexOf</a> v p) (<a href="../rightAngle">rightAngle</a> v))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (p)
+  (iff (<a href="../rectangle">rectangle</a> p)
+       (and (<a href="../quadrilateral">quadrilateral</a> p)
+            (forall (v) (iff (<a href="../vertexOf">vertexOf</a> v p) (<a href="../rightAngle">rightAngle</a> v))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (p)
+  (iff (<a href="../square">square</a> p)
+       (and (<a href="../rhombus">rhombus</a> p) (<a href="../rectangle">rectangle</a> p))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (p s)
       (iff (<a href="../rectangularParallelepiped">rectangularParallelepiped</a> p s)
@@ -40,17 +57,7 @@
                 (forall (f)
                    (if (<a href="../member">member</a> f s) (<a href="../rectangle">rectangle</a> f))))))
 </pre>
-<pre>
-(forall (p)
-  (iff (<a href="../rectangle">rectangle</a> p)
-       (and (<a href="../quadrilateral">quadrilateral</a> p)
-            (forall (v) (iff (<a href="../vertexOf">vertexOf</a> v p) (<a href="../rightAngle">rightAngle</a> v))))))
-</pre>
-<pre>
-(forall (p)
-  (iff (<a href="../square">square</a> p)
-       (and (<a href="../rhombus">rhombus</a> p) (<a href="../rectangle">rectangle</a> p))))
-</pre>
+</div>
 </section>
 
 </body>

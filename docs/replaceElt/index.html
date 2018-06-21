@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The predication (replaceElt s s1 x y) says that set s is obtained from set s1 by replacing element x with element y.</p>
 <pre>
 (forall (s s1 x y)
   (iff (<a href="../replaceElt">replaceElt</a> s s1 x y)
@@ -35,9 +37,11 @@
          (and (<a href="../deleteElt">deleteElt</a> s2 s1 x)
               (<a href="../addElt">addElt</a> s s2 y)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The predication (replaceElt s s1 x y) says that set s is obtained from set s1 by replacing element x with element y.</p>
 <pre>
 (forall (s s1 x y)
   (iff (<a href="../replaceElt">replaceElt</a> s s1 x y)
@@ -45,6 +49,7 @@
          (and (<a href="../deleteElt">deleteElt</a> s2 s1 x)
               (<a href="../addElt">addElt</a> s s2 y)))))
 </pre>
+</div>
 </section>
 
 </body>

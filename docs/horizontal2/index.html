@@ -24,6 +24,7 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (s1 f)
   (iff (<a href="../horizontal2">horizontal2</a> s1 f)
@@ -34,19 +35,10 @@
                           (or (<a href="../above2">above2</a> x1 x2 f)
                               (<a href="../above3">above3</a> x1 x2 f)))))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-   (forall (s f)
-      (iff (<a href="../horizontal3">horizontal3</a> s f)
-           (or (<a href="../horizontal2">horizontal2</a> s f) (<a href="../vertical2">vertical2</a> s f))))
-</pre>
-<pre>
-(forall (a1 f)
-  (if (<a href="../xAxis">xAxis</a> a1 f)
-      (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> a1 f))))
-</pre>
+<div class="axiom">
 <pre>
 (forall (s1 f)
   (iff (<a href="../horizontal2">horizontal2</a> s1 f)
@@ -57,11 +49,22 @@
                           (or (<a href="../above2">above2</a> x1 x2 f)
                               (<a href="../above3">above3</a> x1 x2 f)))))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (s1 s2 f)
   (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> s1 f) (<a href="../vertical2">vertical2</a> s2 f))
       (<a href="../independentScales">independentScales</a> s1 s2)))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (a1 f)
+  (if (<a href="../xAxis">xAxis</a> a1 f)
+      (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> a1 f))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (y1 x f)
   (iff (<a href="../yCoordinate">yCoordinate</a> y1 x f)
@@ -69,6 +72,14 @@
          (and (<a href="../horizontal2">horizontal2</a> h f) (<a href="../member">member</a> x h) (<a href="../yAxis">yAxis</a> a2 f)
               (<a href="../member">member</a> y1 h) (<a href="../member">member</a> y1 a2)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (s f)
+      (iff (<a href="../horizontal3">horizontal3</a> s f)
+           (or (<a href="../horizontal2">horizontal2</a> s f) (<a href="../vertical2">vertical2</a> s f))))
+</pre>
+</div>
 </section>
 
 </body>

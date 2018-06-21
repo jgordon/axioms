@@ -24,6 +24,7 @@
 </header>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
    (forall (v)
       (iff (<a href="../rightAngle">rightAngle</a> v)
@@ -31,12 +32,15 @@
               (and (<a href="../equalAngle">equalAngle</a> v v0) (<a href="../anchorPoint">anchorPoint</a> x v0 f c1 c2 o u)
                    (<a href="../xCoordinate">xCoordinate</a> o x f)))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (p)
   (iff (<a href="../rectangle">rectangle</a> p)
        (and (<a href="../quadrilateral">quadrilateral</a> p)
             (forall (v) (iff (<a href="../vertexOf">vertexOf</a> v p) (<a href="../rightAngle">rightAngle</a> v))))))
 </pre>
+</div>
 </section>
 
 </body>

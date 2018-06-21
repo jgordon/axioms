@@ -28,39 +28,26 @@
 </section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The length of a sequence is the number that defines its domain of consecutive integers.</p>
 <pre>
-   (forall (c r x u)
-      (iff (<a href="../circle">circle</a> c x)
-           (exists (r d)
-              (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
-                   (forall (c1 x1)
-                      (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
-                          (<a href="../length">length</a> d c1 u)))))))
+(forall (n s)
+  (if (<a href="../sequence">sequence</a> s)
+      (iff (<a href="../length">length</a> n s)
+           (exists (s1 s2)
+             (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The last element of a sequence is the <code>nth</code> element where <code>n</code> is the length of the sequence.</p>
 <pre>
-   (forall (c r x u)
-      (iff (<a href="../sphere">sphere</a> p x)
-           (exists (r d)
-              (and (<a href="../boundary">boundary</a> r p) (<a href="../inside">inside</a> x p)
-                   (forall (c1 x1)
-                      (if (and (<a href="../inside">inside</a> x1 r) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
-                          (<a href="../length">length</a> d c1 u)))))))
+(forall (s y n)
+  (if (and (<a href="../sequence">sequence</a> s) (<a href="../length">length</a> n s))
+      (iff (<a href="../last">last</a> y s) (<a href="../nth">nth</a> y n s))))
 </pre>
-<pre>
-   (forall (v1 v2)
-      (iff (<a href="../gtAngle">gtAngle</a> v1 v2)
-           (exists (c1 c2 d1 d2 u)
-              (and (<a href="../baseOfAngle">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle">baseOfAngle</a> c2 v2 u)
-                   (<a href="../length">length</a> d1 c1 u) (<a href="../length">length</a> d2 c2 u) (<a href="../gt">gt</a> d1 d2)))))
-</pre>
-<pre>
-(forall (d c u)
-  (iff (<a href="../lineSegment">lineSegment</a> c)
-       (iff (<a href="../length">length</a> d c u)
-            (exists (x1 x2)
-              (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
-                   (<a href="../distance">distance</a> d x1 x2 u))))))
-</pre>
+</div>
+<div class="axiom">
+<p>The same event type happening to all the elements of a sequence in turn.</p>
 <pre>
 (forall (e s e1)
   (iff (<a href="../forAllOfSeq">forAllOfSeq</a> e s x e1)
@@ -70,13 +57,18 @@
                   (<a href="../eventSequence">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq">forAllOfSeq</a> e3 s1 x e1)
                   (<a href="../rest">rest</a> s1 s))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
-(forall (n s)
-  (if (<a href="../sequence">sequence</a> s)
-      (iff (<a href="../length">length</a> n s)
-           (exists (s1 s2)
-             (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n))))))
+(forall (d c u)
+  (iff (<a href="../lineSegment">lineSegment</a> c)
+       (iff (<a href="../length">length</a> d c u)
+            (exists (x1 x2)
+              (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
+                   (<a href="../distance">distance</a> d x1 x2 u))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (p)
   (iff (<a href="../rhombus">rhombus</a> p)
@@ -85,11 +77,19 @@
               (forall (c)
                 (if (<a href="../sideOf">sideOf</a> c p) (<a href="../length">length</a> d c u)))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
-(forall (s y n)
-  (if (and (<a href="../sequence">sequence</a> s) (<a href="../length">length</a> n s))
-      (iff (<a href="../last">last</a> y s) (<a href="../nth">nth</a> y n s))))
+   (forall (c r x u)
+      (iff (<a href="../circle">circle</a> c x)
+           (exists (r d)
+              (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
+                   (forall (c1 x1)
+                      (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                          (<a href="../length">length</a> d c1 u)))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (v1 v2)
   (iff (<a href="../equalAngle">equalAngle</a> v1 v2)
@@ -97,6 +97,27 @@
          (and (<a href="../baseOfAngle">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle">baseOfAngle</a> c2 v2 u)
               (<a href="../length">length</a> d c1 u) (<a href="../length">length</a> d c2 u)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (v1 v2)
+      (iff (<a href="../gtAngle">gtAngle</a> v1 v2)
+           (exists (c1 c2 d1 d2 u)
+              (and (<a href="../baseOfAngle">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle">baseOfAngle</a> c2 v2 u)
+                   (<a href="../length">length</a> d1 c1 u) (<a href="../length">length</a> d2 c2 u) (<a href="../gt">gt</a> d1 d2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (c r x u)
+      (iff (<a href="../sphere">sphere</a> p x)
+           (exists (r d)
+              (and (<a href="../boundary">boundary</a> r p) (<a href="../inside">inside</a> x p)
+                   (forall (c1 x1)
+                      (if (and (<a href="../inside">inside</a> x1 r) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                          (<a href="../length">length</a> d c1 u)))))))
+</pre>
+</div>
 </section>
 
 </body>

@@ -28,13 +28,119 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Multiplication is commutative: n1 * n2 = n2 * n1</p>
 <pre>
 (forall (n n1 n2)
    (iff (<a href="../product">product</a> n n1 n2) (<a href="../product">product</a> n n2 n1)))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The product of a number n and 0 is 0.</p>
+<pre>
+(forall (n)
+   (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../product">product</a> 0 n 0)))
+</pre>
+</div>
+<div class="axiom">
+<p>Recursive definition of <code>product</code>: n1 * S(n2) = (n1 * n2) + n1</p>
+<pre>
+(forall (n n1 n2 n3 n4)
+   (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../product">product</a> n4 n1 n2))
+       (iff (<a href="../product">product</a> n n1 n3) (<a href="../sum">sum</a> n n4 n1))))
+</pre>
+</div>
+<div class="axiom">
+<p>The non-negative integers are closed under multiplication.</p>
+<pre>
+(forall (n1 n2 n3)
+   (if (and (<a href="../nonNegInteger">nonNegInteger</a> n2) (<a href="../nonNegInteger">nonNegInteger</a> n3)
+            (<a href="../product">product</a> n1 n2 n3))
+       (<a href="../nonNegInteger">nonNegInteger</a> n1)))
+</pre>
+</div>
+<div class="axiom">
+<p>The identity under multiplication is 1.</p>
+<pre>
+(forall (n)
+   (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../product">product</a> n n 1)))
+</pre>
+</div>
+<div class="axiom">
+<p>Multiplication is associative: n1 * (n2 * n3) = (n1 * n2) * n3</p>
+<pre>
+(forall (n n1 n2 n3 n4 n5)
+   (if (and (<a href="../product">product</a> n4 n2 n3) (<a href="../product">product</a> n5 n1 n2))
+       (iff (<a href="../product">product</a> n n1 n4) (<a href="../product">product</a> n n5 n3))))
+</pre>
+</div>
+<div class="axiom">
+<p>Multiplication is commutative: n1 * n2 = n2 * n1</p>
+<pre>
+(forall (n n1 n2)
+   (iff (<a href="../product">product</a> n n1 n2) (<a href="../product">product</a> n n2 n1)))
+</pre>
+</div>
+<div class="axiom">
+<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
+<pre>
+(forall (n n1 n2 n3 n4 n5 n6)
+   (if (and (<a href="../sum">sum</a> n4 n2 n3) (<a href="../product">product</a> n5 n1 n2) (<a href="../product">product</a> n6 n1 n3))
+       (iff (<a href="../product">product</a> n n1 n4) (<a href="../sum">sum</a> n n5 n6))))
+</pre>
+</div>
+<div class="axiom">
+<p>Fraction equality: <code>a1/b1 = a2/b2</code> when <code>a1*b2 = a2*b1</code>.</p>
+<pre>
+(forall (f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
+            (<a href="../product">product</a> c1 a1 b2) (<a href="../product">product</a> c2 a2 b1))
+       (iff (equal f1 f2) (equal c1 c2))))
+</pre>
+</div>
+<div class="axiom">
+<p>The <code>lt</code> relation can be extended to rational numbers: <code>a1/b1 < a2/b2</code> when <code>a1*b2 < a2*b1</code>. This also extends the other ordering relations, <code>leq</code>, <code>gt</code>, and <code>geq</code>.</p>
+<pre>
+(forall (f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
+            (<a href="../product">product</a> c1 a1 b2) (<a href="../product">product</a> c2 a2 b1))
+       (iff (<a href="../lt">lt</a> f1 f2) (<a href="../lt">lt</a> c1 c2))))
+</pre>
+</div>
+<div class="axiom">
+<p>The product of two fractions, <code>f1=a1/b1</code> and <code>f2=a2/b2</code> is <code>(a1*a2)/(b1*b2)</code>.</p>
+<pre>
+(forall (f f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
+            (<a href="../product">product</a> c1 a1 a2) (<a href="../product">product</a> c2 b1 b2))
+       (iff (<a href="../product">product</a> f f1 f2) (<a href="../fraction">fraction</a> f c1 c2))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<pre>
+(forall (x y s1 m)
+  (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
+      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m)
+           (exists (f f2)
+             (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
+                  (<a href="../leq">leq</a> f2 10))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We extend <code>rate</code> to units which are not the duration of the temporal intervals in which the events were measured, e.g., going 60 mph for 5 minutes.</p>
+<pre>
+(forall (r1 r2 s u1 u2 j)
+  (if (and (<a href="../rate">rate</a> r1 s u1) (<a href="../product">product</a> r2 j r1)
+           (forall (t n1 n2)
+             (iff (and (<a href="../durationOf">durationOf</a> n1 t u1) (<a href="../durationOf">durationOf</a> n2 t u2))
+                  (<a href="../product">product</a> n1 j n2))))
+      (<a href="../rate">rate</a> r2 s u2)))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (v)
       (iff (<a href="../30Degrees">30Degrees</a> v)
@@ -44,73 +150,7 @@
                    (<a href="../distance">distance</a> d1 o y1 u) (<a href="../distance">distance</a> d2 o x u)
                    (<a href="../product">product</a> d2 d1 2)))))
 </pre>
-<pre>
-(forall (f f1 f2 a1 a2 b1 b2 c1 c2)
-   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
-            (<a href="../product">product</a> c1 a1 a2) (<a href="../product">product</a> c2 b1 b2))
-       (iff (<a href="../product">product</a> f f1 f2) (<a href="../fraction">fraction</a> f c1 c2))))
-</pre>
-<pre>
-(forall (f1 f2 a1 a2 b1 b2 c1 c2)
-   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
-            (<a href="../product">product</a> c1 a1 b2) (<a href="../product">product</a> c2 a2 b1))
-       (iff (<a href="../lt">lt</a> f1 f2) (<a href="../lt">lt</a> c1 c2))))
-</pre>
-<pre>
-(forall (f1 f2 a1 a2 b1 b2 c1 c2)
-   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
-            (<a href="../product">product</a> c1 a1 b2) (<a href="../product">product</a> c2 a2 b1))
-       (iff (equal f1 f2) (equal c1 c2))))
-</pre>
-<pre>
-(forall (n n1 n2 n3 n4 n5 n6)
-   (if (and (<a href="../sum">sum</a> n4 n2 n3) (<a href="../product">product</a> n5 n1 n2) (<a href="../product">product</a> n6 n1 n3))
-       (iff (<a href="../product">product</a> n n1 n4) (<a href="../sum">sum</a> n n5 n6))))
-</pre>
-<pre>
-(forall (n n1 n2 n3 n4 n5)
-   (if (and (<a href="../product">product</a> n4 n2 n3) (<a href="../product">product</a> n5 n1 n2))
-       (iff (<a href="../product">product</a> n n1 n4) (<a href="../product">product</a> n n5 n3))))
-</pre>
-<pre>
-(forall (n n1 n2 n3 n4)
-   (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../product">product</a> n4 n1 n2))
-       (iff (<a href="../product">product</a> n n1 n3) (<a href="../sum">sum</a> n n4 n1))))
-</pre>
-<pre>
-(forall (n n1 n2)
-   (iff (<a href="../product">product</a> n n1 n2) (<a href="../product">product</a> n n2 n1)))
-</pre>
-<pre>
-(forall (n)
-   (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../product">product</a> 0 n 0)))
-</pre>
-<pre>
-(forall (n)
-   (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../product">product</a> n n 1)))
-</pre>
-<pre>
-(forall (n1 n2 n3)
-   (if (and (<a href="../nonNegInteger">nonNegInteger</a> n2) (<a href="../nonNegInteger">nonNegInteger</a> n3)
-            (<a href="../product">product</a> n1 n2 n3))
-       (<a href="../nonNegInteger">nonNegInteger</a> n1)))
-</pre>
-<pre>
-(forall (r1 r2 s u1 u2 j)
-  (if (and (<a href="../rate">rate</a> r1 s u1) (<a href="../product">product</a> r2 j r1)
-           (forall (t n1 n2)
-             (iff (and (<a href="../durationOf">durationOf</a> n1 t u1) (<a href="../durationOf">durationOf</a> n2 t u2))
-                  (<a href="../product">product</a> n1 j n2))))
-      (<a href="../rate">rate</a> r2 s u2)))
-</pre>
-<pre>
-(forall (x y s1 m)
-  (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
-      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m)
-           (exists (f f2)
-             (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
-                  (<a href="../leq">leq</a> f2 10))))))
-</pre>
+</div>
 </section>
 
 </body>

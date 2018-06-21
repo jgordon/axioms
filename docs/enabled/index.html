@@ -28,15 +28,28 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>We will say that a causal complex for an eventuality is enabled at time t if all its preconditions hold at time t.</p>
 <pre>
 (forall (s e t)
   (iff (<a href="../enabled">enabled</a> s e t)
        (forall (e1)
          (if (<a href="../enable0">enable0</a> e1 e s) (<a href="../atTime">atTime</a> e1 t)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>We will say that a causal complex for an eventuality is enabled at time t if all its preconditions hold at time t.</p>
+<pre>
+(forall (s e t)
+  (iff (<a href="../enabled">enabled</a> s e t)
+       (forall (e1)
+         (if (<a href="../enable0">enable0</a> e1 e s) (<a href="../atTime">atTime</a> e1 t)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an agent can directly cause an action that is enabled, then it is executable. Moreover, if the action can be caused by another executable action, then it is executable.</p>
 <pre>
 (forall (e a c t)
   (iff (<a href="../executable">executable</a> e a c t)
@@ -48,12 +61,7 @@
                     (and (<a href="../cause">cause</a> e2 e)
                          (<a href="../executable">executable</a> e2 a c t))))))))
 </pre>
-<pre>
-(forall (s e t)
-  (iff (<a href="../enabled">enabled</a> s e t)
-       (forall (e1)
-         (if (<a href="../enable0">enable0</a> e1 e s) (<a href="../atTime">atTime</a> e1 t)))))
-</pre>
+</div>
 </section>
 
 </body>

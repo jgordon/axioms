@@ -24,14 +24,23 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (r)
   (iff (<a href="../polygon2">polygon2</a> r)
        (exists (c) (and (<a href="../border">border</a> c r) (<a href="../polygon">polygon</a> c)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (r)
+  (iff (<a href="../polygon2">polygon2</a> r)
+       (exists (c) (and (<a href="../border">border</a> c r) (<a href="../polygon">polygon</a> c)))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (p s)
       (iff (<a href="../polyhedron">polyhedron</a> p s)
@@ -48,11 +57,7 @@
                                (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
                           (equal f1 f2)))))))
 </pre>
-<pre>
-(forall (r)
-  (iff (<a href="../polygon2">polygon2</a> r)
-       (exists (c) (and (<a href="../border">border</a> c r) (<a href="../polygon">polygon</a> c)))))
-</pre>
+</div>
 </section>
 
 </body>

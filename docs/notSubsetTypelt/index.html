@@ -28,27 +28,35 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>"Surgery" on the definition of "dset" to rule out problematic cases:</p>
 <pre>
 (forall (y s)
   (iff (<a href="../notSubsetTypelt">notSubsetTypelt</a> y s)
        (not (exists (s1)
               (and (<a href="../typelt">typelt</a> y s1) (<a href="../subset">subset</a> s1 s))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Real members of a set inherit all the properties of the typical element.</p>
 <pre>
 (forall (s x e y e1)
   (if (and (<a href="../dset">dset</a> s x e) (<a href="../subst">subst</a> x e y e1) (<a href="../Rexist">Rexist</a> e)
            (<a href="../notSubsetTypelt">notSubsetTypelt</a> y s))
       (iff (<a href="../member">member</a> y s) (<a href="../Rexist">Rexist</a> e1))))
 </pre>
+</div>
+<div class="axiom">
+<p>"Surgery" on the definition of "dset" to rule out problematic cases:</p>
 <pre>
 (forall (y s)
   (iff (<a href="../notSubsetTypelt">notSubsetTypelt</a> y s)
        (not (exists (s1)
               (and (<a href="../typelt">typelt</a> y s1) (<a href="../subset">subset</a> s1 s))))))
 </pre>
+</div>
 </section>
 
 </body>

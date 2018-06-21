@@ -28,21 +28,28 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>An entity x moves from y to z exactly when there is a change from x's being at y to its being at z.</p>
 <pre>
 (forall (e x y z)
   (iff (<a href="../move">move</a>' e x y z)
        (exists (e1 e2 e3 s)
          (and (<a href="../at">at</a>' e1 x y s) (<a href="../at">at</a>' e2 x z s) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>An entity x moves from y to z exactly when there is a change from x's being at y to its being at z.</p>
 <pre>
 (forall (e x y z)
   (iff (<a href="../move">move</a>' e x y z)
        (exists (e1 e2 e3 s)
          (and (<a href="../at">at</a>' e1 x y s) (<a href="../at">at</a>' e2 x z s) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
 </pre>
+</div>
+<div class="axiom">
+<p>Another subset of body parts can be directly controlled by a person's will. That is, the person's willing an event is the direct cause of the motion of the body part.</p>
 <pre>
 (forall (p s1)
   (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
@@ -54,6 +61,7 @@
                      (and (<a href="../move">move</a>' e2 x y z) (<a href="../will">will</a>' e1 p e2)
                           (<a href="../dcause">dcause</a> e1 e2)))))))))
 </pre>
+</div>
 </section>
 
 </body>

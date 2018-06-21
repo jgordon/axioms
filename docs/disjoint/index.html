@@ -28,12 +28,18 @@
 </section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Two sets are disjoint if they have no members in common.</p>
 <pre>
-(forall (m s1 s2 x y)
-  (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)
-           (<a href="../map">map</a> m x y))
-      (<a href="../at">at</a> x y s2)))
+(forall (s1 s2)
+  (if (and (<a href="../set">set</a> s1) (<a href="../set">set</a> s2))
+      (iff (<a href="../disjoint">disjoint</a> s1 s2)
+           (not (exists (x)
+                  (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Two scales are disjoint if their sets of components are disjoint.</p>
 <pre>
 (forall (s1 s2)
    (if (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
@@ -42,13 +48,16 @@
                (and (<a href="../componentsOf">componentsOf</a> s3 s1) (<a href="../componentsOf">componentsOf</a> s4 s2)
                     (<a href="../disjoint">disjoint</a> s3 s4))))))
 </pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
 <pre>
-(forall (s1 s2)
-  (if (and (<a href="../set">set</a> s1) (<a href="../set">set</a> s2))
-      (iff (<a href="../disjoint">disjoint</a> s1 s2)
-           (not (exists (x)
-                  (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
+(forall (m s1 s2 x y)
+  (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)
+           (<a href="../map">map</a> m x y))
+      (<a href="../at">at</a> x y s2)))
 </pre>
+</div>
 </section>
 
 </body>

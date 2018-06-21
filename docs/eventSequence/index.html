@@ -28,43 +28,41 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
-<pre>
-(forall (e e1 e2)
-  (if (<a href="../eventSequence">eventSequence</a> e e1 e2)
-      (and (<a href="../event">event</a> e) (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))
-</pre>
+<div class="axiom">
+<p>Two events are in sequence if one is before the other, and the aggregate of the two events is just their reified conjunction.</p>
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../eventSequence">eventSequence</a> e e1 e2)
        (and (<a href="../event">event</a> e1) (<a href="../event">event</a> e2) (<a href="../and'">and'</a> e e1 e2) (<a href="../beforeOrMeets">beforeOrMeets</a> e1 e2))))
 </pre>
-</section>
+</div><div class="axiom">
+<p>From 13.6 and 13.7, we see that the components of an event sequence are subevents and that the event sequence is itself an event.</p>
+<pre>
+(forall (e e1 e2)
+  (if (<a href="../eventSequence">eventSequence</a> e e1 e2)
+      (and (<a href="../event">event</a> e) (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))
+</pre>
+</div></section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-(forall (e e1 e2)
-  (if (<a href="../eventSequence">eventSequence</a> e e1 e2)
-      (and (<a href="../event">event</a> e) (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))
-</pre>
+<div class="axiom">
+<p>Two events are in sequence if one is before the other, and the aggregate of the two events is just their reified conjunction.</p>
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../eventSequence">eventSequence</a> e e1 e2)
        (and (<a href="../event">event</a> e1) (<a href="../event">event</a> e2) (<a href="../and'">and'</a> e e1 e2) (<a href="../beforeOrMeets">beforeOrMeets</a> e1 e2))))
 </pre>
+</div>
+<div class="axiom">
+<p>From 13.6 and 13.7, we see that the components of an event sequence are subevents and that the event sequence is itself an event.</p>
 <pre>
 (forall (e e1 e2)
-  (iff (<a href="../repeatUntil">repeatUntil</a> e e1 e2)
-       (exists (e3 e4 e5)
-         (and (<a href="../eventSequence">eventSequence</a>' e e3 e4) (<a href="../instance">instance</a> e3 e1) (<a href="../cond">cond</a> e4 e2 e5)
-              (or (<a href="../repeatUntil">repeatUntil</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e1))))))
+  (if (<a href="../eventSequence">eventSequence</a> e e1 e2)
+      (and (<a href="../event">event</a> e) (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))
 </pre>
-<pre>
-(forall (e e1 e2)
-  (iff (<a href="../whileDo">whileDo</a> e e1 e2)
-       (exists (e3 e4 e5)
-         (and (<a href="../cond">cond</a> e e1 e3) (<a href="../eventSequence">eventSequence</a>' e3 e4 e5) (<a href="../instance">instance</a> e4 e2)
-              (or (<a href="../whileDo">whileDo</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e2))))))
-</pre>
+</div>
+<div class="axiom">
+<p>A pure <code>iteration</code> is defined recursively for when there is no termination condition and no set of entities the iteration is over.</p>
 <pre>
 (forall (e e1)
   (iff (<a href="../iteration">iteration</a> e e1)
@@ -72,6 +70,29 @@
          (and (<a href="../eventSequence">eventSequence</a>' e e2 e3) (<a href="../instance">instance</a> e2 e1)
               (or (<a href="../iteration">iteration</a> e3 e1) (<a href="../instance">instance</a> e3 e1))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Some iterative processes have a termination condition, for which we define a predicate <code>whileDo</code> that says one event type <code>e2</code> is instantiated by successive instances as long as eventuality <code>e1</code> happens or holds.</p>
+<pre>
+(forall (e e1 e2)
+  (iff (<a href="../whileDo">whileDo</a> e e1 e2)
+       (exists (e3 e4 e5)
+         (and (<a href="../cond">cond</a> e e1 e3) (<a href="../eventSequence">eventSequence</a>' e3 e4 e5) (<a href="../instance">instance</a> e4 e2)
+              (or (<a href="../whileDo">whileDo</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A <code>repeatUntil</code> can be defined similarly, but an instance <code>e3</code> of the body <code>e1</code> occurs before the condition <code>e2</code> is checked.</p>
+<pre>
+(forall (e e1 e2)
+  (iff (<a href="../repeatUntil">repeatUntil</a> e e1 e2)
+       (exists (e3 e4 e5)
+         (and (<a href="../eventSequence">eventSequence</a>' e e3 e4) (<a href="../instance">instance</a> e3 e1) (<a href="../cond">cond</a> e4 e2 e5)
+              (or (<a href="../repeatUntil">repeatUntil</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e1))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The same event type happening to all the elements of a sequence in turn.</p>
 <pre>
 (forall (e s e1)
   (iff (<a href="../forAllOfSeq">forAllOfSeq</a> e s x e1)
@@ -81,6 +102,7 @@
                   (<a href="../eventSequence">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq">forAllOfSeq</a> e3 s1 x e1)
                   (<a href="../rest">rest</a> s1 s))))))
 </pre>
+</div>
 </section>
 
 </body>

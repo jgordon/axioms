@@ -28,38 +28,18 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Conditions on the arguments of <code>partialOrdering</code>:</p>
 <pre>
 (forall (e x y s)
    (if (<a href="../partialOrdering">partialOrdering</a> e x y s)
        (and (<a href="../scale">scale</a> s) (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-(forall (e t1 t2 s)
-  (if (and (<a href="../tseq">tseq</a> s) (<a href="../before">before</a>' e t1 t2))
-      (<a href="../partialOrdering">partialOrdering</a> e t1 t2 s)))
-</pre>
-<pre>
-(forall (e x y s)
-   (if (<a href="../partialOrdering">partialOrdering</a> e x y s)
-       (and (<a href="../scale">scale</a> s) (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e))))
-</pre>
-<pre>
-(forall (e x1 y1 s)
-   (iff (<a href="../lts">lts</a>' e1 x1 y1 s)
-        (exists (e x y e1)
-           (and (<a href="../partialOrdering">partialOrdering</a> e x y s)
-                (<a href="../subst2">subst2</a> x y e x1 y1 e1)))))
-</pre>
-<pre>
-(forall (s s1 e)
-   (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
-        (and (<a href="../scale">scale</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
-             (exists (x y)
-               (<a href="../partialOrdering">partialOrdering</a> e x y s)))))
-</pre>
+<div class="axiom">
+<p>A scale is a partially ordered set.</p>
 <pre>
 (forall (s)
    (if (<a href="../scale">scale</a> s)
@@ -74,6 +54,43 @@
                               (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> y1 s1)
                                    (<a href="../subst2">subst2</a> x1 y1 e1 x y e))))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Conditions on the arguments of <code>partialOrdering</code>:</p>
+<pre>
+(forall (e x y s)
+   (if (<a href="../partialOrdering">partialOrdering</a> e x y s)
+       (and (<a href="../scale">scale</a> s) (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e))))
+</pre>
+</div>
+<div class="axiom">
+<p>We define a less-than relation relative to a particular scale:</p>
+<pre>
+(forall (e x1 y1 s)
+   (iff (<a href="../lts">lts</a>' e1 x1 y1 s)
+        (exists (e x y e1)
+           (and (<a href="../partialOrdering">partialOrdering</a> e x y s)
+                (<a href="../subst2">subst2</a> x y e x1 y1 e1)))))
+</pre>
+</div>
+<div class="axiom">
+<p>We define a scale by the set of its components and the relation that is the partial ordering of the scale.</p>
+<pre>
+(forall (s s1 e)
+   (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+        (and (<a href="../scale">scale</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
+             (exists (x y)
+               (<a href="../partialOrdering">partialOrdering</a> e x y s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>before</code> is a partial ordering on the elements of a temporal sequence.</p>
+<pre>
+(forall (e t1 t2 s)
+  (if (and (<a href="../tseq">tseq</a> s) (<a href="../before">before</a>' e t1 t2))
+      (<a href="../partialOrdering">partialOrdering</a> e t1 t2 s)))
+</pre>
+</div>
 </section>
 
 </body>

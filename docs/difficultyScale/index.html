@@ -28,6 +28,16 @@
 </section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>If the set of difficulties associated with achieving e1 contains the set of difficulties associated with achieving e2, then e1 is more difficult than e2.</p>
+<pre>
+(forall (s s1 e)
+  (if (and (<a href="../difficultyScale">difficultyScale</a> s e) (<a href="../difficultiesWith">difficultiesWith</a>' e1 s e))
+      (<a href="../subsetConsistent">subsetConsistent</a> s e1)))
+</pre>
+</div>
+<div class="axiom">
+<p>Something is difficult if it is in the <code>Hi</code> region of a difficulty scale.</p>
 <pre>
 (forall (e1 e a)
   (iff (<a href="../difficult">difficult</a>' e1 e a)
@@ -35,11 +45,7 @@
             (exists (s)
               (and (<a href="../difficultyScale">difficultyScale</a> s e) (<a href="../scaleFor">scaleFor</a> s e1))))))
 </pre>
-<pre>
-(forall (s s1 e)
-  (if (and (<a href="../difficultyScale">difficultyScale</a> s e) (<a href="../difficultiesWith">difficultiesWith</a>' e1 s e))
-      (<a href="../subsetConsistent">subsetConsistent</a> s e1)))
-</pre>
+</div>
 </section>
 
 </body>

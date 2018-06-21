@@ -24,6 +24,7 @@
 </header>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
    (forall (c r x u)
       (iff (<a href="../circle">circle</a> c x)
@@ -33,6 +34,8 @@
                       (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
                           (<a href="../length">length</a> d c1 u)))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (c)
       (if (<a href="../curve">curve</a> c)
@@ -42,6 +45,7 @@
                        (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
                             (<a href="../inside">inside</a> c r)))))))
 </pre>
+</div>
 </section>
 
 </body>

@@ -24,6 +24,8 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The intersection of two sets is defined in the standard way.</p>
 <pre>
 (forall (s s1 s2)
   (iff (<a href="../intersection">intersection</a> s s1 s2)
@@ -32,9 +34,21 @@
               (iff (<a href="../member">member</a> x s)
                    (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The intersection of two sets is defined in the standard way.</p>
+<pre>
+(forall (s s1 s2)
+  (iff (<a href="../intersection">intersection</a> s s1 s2)
+       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1) (<a href="../set">set</a> s2)
+            (forall (x)
+              (iff (<a href="../member">member</a> x s)
+                   (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (f a1 a2 s)
   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
@@ -42,14 +56,7 @@
         (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
              (<a href="../origin">origin</a> o f)))))
 </pre>
-<pre>
-(forall (s s1 s2)
-  (iff (<a href="../intersection">intersection</a> s s1 s2)
-       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1) (<a href="../set">set</a> s2)
-            (forall (x)
-              (iff (<a href="../member">member</a> x s)
-                   (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
-</pre>
+</div>
 </section>
 
 </body>

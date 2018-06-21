@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>An eventuality is <code>likely</code> with respect to constraints <code>c</code> if its likelihood <code>d</code> is on the high end of the scale of likelihoods.</p>
 <pre>
 (forall (e c)
   (iff (<a href="../likely">likely</a> e c)
@@ -35,21 +37,11 @@
          (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../Hi">Hi</a> s1 s)
               (<a href="../inScale">inScale</a> d s1)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-(forall (e c)
-  (iff (<a href="../likely">likely</a> e c)
-       (exists (s d s1)
-         (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../Hi">Hi</a> s1 s)
-              (<a href="../inScale">inScale</a> d s1)))))
-</pre>
-<pre>
-(forall (e e1 c)
-  (if (and (<a href="../likely">likely</a> e c) (<a href="../not'">not'</a> e1 e))
-      (not (<a href="../likely">likely</a> e1 c))))
-</pre>
+<div class="axiom">
+<p>The expression (tcause e1 e2) means that e1 tends to cause e2. If (tcause e1 e2) holds, the other eventualities in the causal complex for e2 are likely but not guaranteed to hold. Both <code>cause</code> and <code>tcause</code> are defeasible, but <code>tcause</code> is more likely to be defeated.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../tcause">tcause</a> e1 e2)
@@ -59,6 +51,25 @@
               (if (<a href="../Rexist">Rexist</a> s)
                   (<a href="../cause">cause</a> e1 e2))))))
 </pre>
+</div>
+<div class="axiom">
+<p>An eventuality is <code>likely</code> with respect to constraints <code>c</code> if its likelihood <code>d</code> is on the high end of the scale of likelihoods.</p>
+<pre>
+(forall (e c)
+  (iff (<a href="../likely">likely</a> e c)
+       (exists (s d s1)
+         (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../Hi">Hi</a> s1 s)
+              (<a href="../inScale">inScale</a> d s1)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an eventuality is likely, its negation is not likely.</p>
+<pre>
+(forall (e e1 c)
+  (if (and (<a href="../likely">likely</a> e c) (<a href="../not'">not'</a> e1 e))
+      (not (<a href="../likely">likely</a> e1 c))))
+</pre>
+</div>
 </section>
 
 </body>

@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>An 'arg*' is something that is an argument of the eventuality or the argument of an argument of the eventuality or so on recursively.</p>
 <pre>
 (forall (x e1)
   (iff (<a href="../arg*">arg*</a> x e1)
@@ -35,26 +37,39 @@
            (exists (e2)
              (and (<a href="../arg">arg</a> e2 e1) (<a href="../arg*">arg*</a> x e2))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>An 'arg*' is something that is an argument of the eventuality or the argument of an argument of the eventuality or so on recursively.</p>
 <pre>
-(forall (e x y s)
-   (if (<a href="../partialOrdering">partialOrdering</a> e x y s)
-       (and (<a href="../scale">scale</a> s) (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e))))
+(forall (x e1)
+  (iff (<a href="../arg*">arg*</a> x e1)
+       (or (<a href="../arg">arg</a> x e1)
+           (exists (e2)
+             (and (<a href="../arg">arg</a> e2 e1) (<a href="../arg*">arg*</a> x e2))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Real members of a set inherit all the properties of the typical element.</p>
 <pre>
-(forall (e x)
-  (iff (<a href="../changeIn">changeIn</a>' e x)
-       (exists (e1 e2 e3)
-         (and (<a href="../arg*">arg*</a> x e1) (<a href="../arg*">arg*</a> x e2) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
+(forall (s x e)
+  (if (<a href="../dset">dset</a> s x e)
+      (and (<a href="../set">set</a> s) (<a href="../typelt">typelt</a> x s) (<a href="../arg*">arg*</a> x e))))
 </pre>
+</div>
+<div class="axiom">
+<p>Functional dependencies:</p>
 <pre>
-(forall (e1 e2)
-  (if (<a href="../change">change</a> e1 e2)
-      (exists (x)
-        (and (<a href="../arg*">arg*</a> x e1) (<a href="../arg*">arg*</a> x e2)))))
+(forall (x y e)
+  (if (<a href="../fd">fd</a> y x e)
+      (and (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e)
+           (exists (s)
+             (<a href="../typelt">typelt</a> x s)))))
 </pre>
+</div>
+<div class="axiom">
+<p>Define the set of parameters in an abstract eventuality:</p>
 <pre>
 (forall (s e)
   (iff (<a href="../parameters">parameters</a> s e)
@@ -63,19 +78,22 @@
               (exists (s1)
                 (and (<a href="../arg*">arg*</a> x e) (<a href="../typelt">typelt</a> x s1)))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The set of relations of a composite entity are relations between a component or the whole, and something else.</p>
 <pre>
-(forall (s x e)
-  (if (<a href="../dset">dset</a> s x e)
-      (and (<a href="../set">set</a> s) (<a href="../typelt">typelt</a> x s) (<a href="../arg*">arg*</a> x e))))
+(forall (s3 x)
+  (if (<a href="../relationsOf">relationsOf</a> s3 x)
+      (and (<a href="../set">set</a> s3) (<a href="../compositeEntity">compositeEntity</a> x)
+           (forall (e)
+             (if (<a href="../member">member</a> e s3)
+                 (exists (y z)
+                   (and (<a href="../componentOrWhole">componentOrWhole</a> y x) (<a href="../arg*">arg*</a> y e)
+                        (<a href="../nequal">nequal</a> z y) (<a href="../arg*">arg*</a> z e))))))))
 </pre>
-<pre>
-(forall (s)
-  (iff (<a href="../ground">ground</a> s)
-       (and (<a href="../compositeEntity">compositeEntity</a> s)
-            (exists (e y s1)
-              (and (<a href="../componentsOf">componentsOf</a> s1 s) (<a href="../typelt">typelt</a> y s1) (<a href="../arg*">arg*</a> y e)
-                   (if (<a href="../Rexist">Rexist</a> s) (<a href="../Rexist">Rexist</a> e)))))))
-</pre>
+</div>
+<div class="axiom">
+<p>A ground in a figure-ground relation is a composite entity whose parts are all uniform in that they all share some property.</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -89,38 +107,20 @@
                                 (if (<a href="../Rexist">Rexist</a> s)
                                     (<a href="../Rexist">Rexist</a> e1)))))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>This can also be written as:</p>
 <pre>
-(forall (s3 x)
-  (if (<a href="../relationsOf">relationsOf</a> s3 x)
-      (and (<a href="../set">set</a> s3) (<a href="../compositeEntity">compositeEntity</a> x)
-           (forall (e)
-             (if (<a href="../member">member</a> e s3)
-                 (exists (y z)
-                   (and (<a href="../componentOrWhole">componentOrWhole</a> y x) (<a href="../arg*">arg*</a> y e)
-                        (<a href="../nequal">nequal</a> z y) (<a href="../arg*">arg*</a> z e))))))))
+(forall (s)
+  (iff (<a href="../ground">ground</a> s)
+       (and (<a href="../compositeEntity">compositeEntity</a> s)
+            (exists (e y s1)
+              (and (<a href="../componentsOf">componentsOf</a> s1 s) (<a href="../typelt">typelt</a> y s1) (<a href="../arg*">arg*</a> y e)
+                   (if (<a href="../Rexist">Rexist</a> s) (<a href="../Rexist">Rexist</a> e)))))))
 </pre>
-<pre>
-(forall (x e1)
-  (iff (<a href="../arg*">arg*</a> x e1)
-       (or (<a href="../arg">arg</a> x e1)
-           (exists (e2)
-             (and (<a href="../arg">arg</a> e2 e1) (<a href="../arg*">arg*</a> x e2))))))
-</pre>
-<pre>
-(forall (x x1 s)
-  (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
-      (iff (<a href="../incompleteInstance">incompleteInstance</a> x1 x)
-           (and (exists (y y1 s1 p p1)
-                  (and (<a href="../member">member</a> y s) (<a href="../typelt">typelt</a> y s1)
-                       (<a href="../componentOf">componentOf</a> y1 x1) (<a href="../member">member</a> y1 s1)
-                       (<a href="../propOrRelOf">propOrRelOf</a> p x) (<a href="../arg*">arg*</a> y p)
-                       (<a href="../subst">subst</a> y1 p1 y p) (<a href="../propOrRelOf">propOrRelOf</a> p1 x1)))
-                (exists (p y)
-                  (and (<a href="../propOrRelOf">propOrRelOf</a> p x) (<a href="../arg*">arg*</a> y p)
-                       (forall (y1 p1)
-                         (if (<a href="../subst">subst</a> y1 p1 y p)
-                             (not (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))
-</pre>
+</div>
+<div class="axiom">
+<p>An instance of a pattern is a composite entity in which all parameters have been replaced by entities that are members of the set the parameter is the type element of.</p>
 <pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
@@ -136,13 +136,51 @@
                                           (and (<a href="../subst">subst</a> y1 p1 y p)
                                                (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>We can define an incomplete instance to be a composite entity in which at least one parameter is instantiated and some but not all of the properties and relations are instantiated.</p>
 <pre>
-(forall (x y e)
-  (if (<a href="../fd">fd</a> y x e)
-      (and (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e)
-           (exists (s)
-             (<a href="../typelt">typelt</a> x s)))))
+(forall (x x1 s)
+  (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
+      (iff (<a href="../incompleteInstance">incompleteInstance</a> x1 x)
+           (and (exists (y y1 s1 p p1)
+                  (and (<a href="../member">member</a> y s) (<a href="../typelt">typelt</a> y s1)
+                       (<a href="../componentOf">componentOf</a> y1 x1) (<a href="../member">member</a> y1 s1)
+                       (<a href="../propOrRelOf">propOrRelOf</a> p x) (<a href="../arg*">arg*</a> y p)
+                       (<a href="../subst">subst</a> y1 p1 y p) (<a href="../propOrRelOf">propOrRelOf</a> p1 x1)))
+                (exists (p y)
+                  (and (<a href="../propOrRelOf">propOrRelOf</a> p x) (<a href="../arg*">arg*</a> y p)
+                       (forall (y1 p1)
+                         (if (<a href="../subst">subst</a> y1 p1 y p)
+                             (not (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Conditions on the arguments of <code>partialOrdering</code>:</p>
+<pre>
+(forall (e x y s)
+   (if (<a href="../partialOrdering">partialOrdering</a> e x y s)
+       (and (<a href="../scale">scale</a> s) (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e))))
+</pre>
+</div>
+<div class="axiom">
+<p>The eventualities involved in a change must involve some common entity.</p>
+<pre>
+(forall (e1 e2)
+  (if (<a href="../change">change</a> e1 e2)
+      (exists (x)
+        (and (<a href="../arg*">arg*</a> x e1) (<a href="../arg*">arg*</a> x e2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>There is a <code>changeIn</code> something when there is a change in its properties.</p>
+<pre>
+(forall (e x)
+  (iff (<a href="../changeIn">changeIn</a>' e x)
+       (exists (e1 e2 e3)
+         (and (<a href="../arg*">arg*</a> x e1) (<a href="../arg*">arg*</a> x e2) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
+</pre>
+</div>
 </section>
 
 </body>

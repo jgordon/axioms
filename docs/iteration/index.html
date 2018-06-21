@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A pure <code>iteration</code> is defined recursively for when there is no termination condition and no set of entities the iteration is over.</p>
 <pre>
 (forall (e e1)
   (iff (<a href="../iteration">iteration</a> e e1)
@@ -35,9 +37,11 @@
          (and (<a href="../eventSequence">eventSequence</a>' e e2 e3) (<a href="../instance">instance</a> e2 e1)
               (or (<a href="../iteration">iteration</a> e3 e1) (<a href="../instance">instance</a> e3 e1))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>A pure <code>iteration</code> is defined recursively for when there is no termination condition and no set of entities the iteration is over.</p>
 <pre>
 (forall (e e1)
   (iff (<a href="../iteration">iteration</a> e e1)
@@ -45,6 +49,7 @@
          (and (<a href="../eventSequence">eventSequence</a>' e e2 e3) (<a href="../instance">instance</a> e2 e1)
               (or (<a href="../iteration">iteration</a> e3 e1) (<a href="../instance">instance</a> e3 e1))))))
 </pre>
+</div>
 </section>
 
 </body>

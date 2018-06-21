@@ -28,27 +28,56 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Less-than or equal:</p>
 <pre>
 (forall (x y s)
    (iff (<a href="../leqs">leqs</a> x y s)
         (or (<a href="../lts">lts</a> x y s)
             (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Less-than or equal:</p>
 <pre>
-(forall (s e e1 e2 d d1 d2 c)
-  (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
-           (<a href="../and'">and'</a> e e1 e2) (<a href="../likelihood">likelihood</a> d e c))
-      (and (<a href="../leqs">leqs</a> d d1 s) (<a href="../leqs">leqs</a> d d2 s))))
+(forall (x y s)
+   (iff (<a href="../leqs">leqs</a> x y s)
+        (or (<a href="../lts">lts</a> x y s)
+            (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
 </pre>
+</div>
+<div class="axiom">
+<p><code>leqs</code> is antisymmetric:</p>
 <pre>
-(forall (s e e1 e2 d d1 d2 c)
-  (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
-           (<a href="../or'">or'</a> e e1 e2) (<a href="../likelihood">likelihood</a> d e c))
-      (and (<a href="../leqs">leqs</a> d1 d s) (<a href="../leqs">leqs</a> d2 d s))))
+(forall (x y s)
+   (if (and (<a href="../leqs">leqs</a> x y s) (<a href="../leqs">leqs</a> y x s))
+       (equal x y)))
 </pre>
+</div>
+<div class="axiom">
+<p>The top of a scale is the highest point in the scale.</p>
+<pre>
+(forall (x s)
+   (iff (<a href="../top">top</a> x s)
+        (and (<a href="../inScale">inScale</a> x s)
+             (forall (y)
+               (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> y x s))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The bottom of a scale is the lowest point in the scale.</p>
+<pre>
+(forall (x s)
+   (iff (<a href="../bottom">bottom</a> x s)
+        (and (<a href="../inScale">inScale</a> x s)
+             (forall (y)
+               (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> x y s))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -63,6 +92,9 @@
                          (<a href="../subset">subset</a> s1 s2))
                     (<a href="../leqs">leqs</a> x1 x2 s))))))
 </pre>
+</div>
+<div class="axiom">
+<p>We can construct composite scales out of existing scales.</p>
 <pre>
 (forall (s s1 s2)
    (if (<a href="../compositeScale">compositeScale</a> s s1 s2)
@@ -76,37 +108,9 @@
                (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../lts">lts</a> x y s2))
                    (<a href="../lts">lts</a> x y s))))))
 </pre>
-<pre>
-(forall (s1 e1 d1 s2 e2 d2 c s)
-  (if (and (<a href="../alsoRequired">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired">alsoRequired</a> s2 e2 c) (<a href="../subset">subset</a> s2 s1)
-           (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c) (<a href="../likelihoodScale">likelihoodScale</a> s))
-      (<a href="../leqs">leqs</a> d1 d2 s)))
-</pre>
-<pre>
-(forall (x s)
-   (iff (<a href="../bottom">bottom</a> x s)
-        (and (<a href="../inScale">inScale</a> x s)
-             (forall (y)
-               (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> x y s))))))
-</pre>
-<pre>
-(forall (x s)
-   (iff (<a href="../top">top</a> x s)
-        (and (<a href="../inScale">inScale</a> x s)
-             (forall (y)
-               (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> y x s))))))
-</pre>
-<pre>
-(forall (x y s)
-   (if (and (<a href="../leqs">leqs</a> x y s) (<a href="../leqs">leqs</a> y x s))
-       (equal x y)))
-</pre>
-<pre>
-(forall (x y s)
-   (iff (<a href="../leqs">leqs</a> x y s)
-        (or (<a href="../lts">lts</a> x y s)
-            (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
-</pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
@@ -115,6 +119,34 @@
              (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
                   (<a href="../leq">leq</a> f2 10))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The more we have to assume will happen, the less likely it is.</p>
+<pre>
+(forall (s1 e1 d1 s2 e2 d2 c s)
+  (if (and (<a href="../alsoRequired">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired">alsoRequired</a> s2 e2 c) (<a href="../subset">subset</a> s2 s1)
+           (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c) (<a href="../likelihoodScale">likelihoodScale</a> s))
+      (<a href="../leqs">leqs</a> d1 d2 s)))
+</pre>
+</div>
+<div class="axiom">
+<p>The likelihood of the conjunction <code>e</code> of two eventualities <code>e1</code> and <code>e2</code> is less than or equal to the likelihood of each of them.</p>
+<pre>
+(forall (s e e1 e2 d d1 d2 c)
+  (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
+           (<a href="../and'">and'</a> e e1 e2) (<a href="../likelihood">likelihood</a> d e c))
+      (and (<a href="../leqs">leqs</a> d d1 s) (<a href="../leqs">leqs</a> d d2 s))))
+</pre>
+</div>
+<div class="axiom">
+<p>The likelihood of the disjunction <code>e</code> of two eventualities <code>e1</code> and <code>e2</code> is greater than or equal to the likelihood of either of them.</p>
+<pre>
+(forall (s e e1 e2 d d1 d2 c)
+  (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
+           (<a href="../or'">or'</a> e e1 e2) (<a href="../likelihood">likelihood</a> d e c))
+      (and (<a href="../leqs">leqs</a> d1 d s) (<a href="../leqs">leqs</a> d2 d s))))
+</pre>
+</div>
 </section>
 
 </body>

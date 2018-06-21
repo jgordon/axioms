@@ -28,6 +28,16 @@
 </section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The last element of a sequence is the <code>nth</code> element where <code>n</code> is the length of the sequence.</p>
+<pre>
+(forall (s y n)
+  (if (and (<a href="../sequence">sequence</a> s) (<a href="../length">length</a> n s))
+      (iff (<a href="../last">last</a> y s) (<a href="../nth">nth</a> y n s))))
+</pre>
+</div>
+<div class="axiom">
+<p>If there is an element of the temporal sequence after all its other elements, this is called the last element.</p>
 <pre>
 (forall (s t)
   (if (<a href="../tseq">tseq</a> s)
@@ -37,6 +47,9 @@
                   (if (<a href="../member">member</a> t1 s)
                       (or (equal t1 t) (<a href="../before">before</a> t1 t))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
 <pre>
 (forall (s t1 t2 t3 t4)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t3 t1)
@@ -45,17 +58,16 @@
         (iff (<a href="../convexHull">convexHull</a> t s)
              (<a href="../intervalBetween">intervalBetween</a> t t3 t4)))))
 </pre>
-<pre>
-(forall (s y n)
-  (if (and (<a href="../sequence">sequence</a> s) (<a href="../length">length</a> n s))
-      (iff (<a href="../last">last</a> y s) (<a href="../nth">nth</a> y n s))))
-</pre>
+</div>
+<div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
 <pre>
 (forall (t s)
   (if (<a href="../tseq">tseq</a> s)
       (iff (<a href="../ends">ends</a> t s)
            (exists (t1) (and (<a href="../last">last</a> t1 s) (<a href="../ends">ends</a> t t1))))))
 </pre>
+</div>
 </section>
 
 </body>

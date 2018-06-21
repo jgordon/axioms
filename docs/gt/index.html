@@ -28,13 +28,43 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
 <pre>
 (forall (n1 n2)
   (iff (<a href="../gt">gt</a> n1 n2) (<a href="../lt">lt</a> n2 n1)))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
+<pre>
+(forall (n1 n2)
+  (iff (<a href="../gt">gt</a> n1 n2) (<a href="../lt">lt</a> n2 n1)))
+</pre>
+</div>
+<div class="axiom">
+<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
+<pre>
+(forall (n1 n2)
+  (iff (<a href="../geq">geq</a> n1 n2)
+       (or (<a href="../gt">gt</a> n1 n2) (equal n1 n2))))
+</pre>
+</div>
+<div class="axiom">
+<p>The same event type happening to all the elements of a sequence in turn.</p>
+<pre>
+(forall (e s e1)
+  (iff (<a href="../forAllOfSeq">forAllOfSeq</a> e s x e1)
+       (exists (y e2 l e3 s1)
+         (or (and (<a href="../length">length</a> 1 s) (<a href="../first">first</a> y s) (<a href="../subst">subst</a> y e2 x e1) (equal e e2))
+             (and (<a href="../length">length</a> l s) (<a href="../gt">gt</a> l 1) (<a href="../first">first</a> y s) (<a href="../subst">subst</a> y e2 x e1)
+                  (<a href="../eventSequence">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq">forAllOfSeq</a> e3 s1 x e1)
+                  (<a href="../rest">rest</a> s1 s))))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (f)
       (iff (<a href="../coordinateSystem">coordinateSystem</a> f)
@@ -47,6 +77,8 @@
                 (forall (y1 y2) (iff (<a href="../above2">above2</a> y1 y2 f) (<a href="../gt">gt</a> y1 y2)))
                 (forall (z1 z2) (iff (<a href="../above3">above3</a> z1 z2 f) (<a href="../gt">gt</a> z1 z2))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (v1 v2)
       (iff (<a href="../gtAngle">gtAngle</a> v1 v2)
@@ -54,24 +86,7 @@
               (and (<a href="../baseOfAngle">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle">baseOfAngle</a> c2 v2 u)
                    (<a href="../length">length</a> d1 c1 u) (<a href="../length">length</a> d2 c2 u) (<a href="../gt">gt</a> d1 d2)))))
 </pre>
-<pre>
-(forall (e s e1)
-  (iff (<a href="../forAllOfSeq">forAllOfSeq</a> e s x e1)
-       (exists (y e2 l e3 s1)
-         (or (and (<a href="../length">length</a> 1 s) (<a href="../first">first</a> y s) (<a href="../subst">subst</a> y e2 x e1) (equal e e2))
-             (and (<a href="../length">length</a> l s) (<a href="../gt">gt</a> l 1) (<a href="../first">first</a> y s) (<a href="../subst">subst</a> y e2 x e1)
-                  (<a href="../eventSequence">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq">forAllOfSeq</a> e3 s1 x e1)
-                  (<a href="../rest">rest</a> s1 s))))))
-</pre>
-<pre>
-(forall (n1 n2)
-  (iff (<a href="../geq">geq</a> n1 n2)
-       (or (<a href="../gt">gt</a> n1 n2) (equal n1 n2))))
-</pre>
-<pre>
-(forall (n1 n2)
-  (iff (<a href="../gt">gt</a> n1 n2) (<a href="../lt">lt</a> n2 n1)))
-</pre>
+</div>
 </section>
 
 </body>

@@ -28,50 +28,43 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Restrictions on the arguments to 'argn'.</p>
 <pre>
 (forall (e x n)
   (if (<a href="../argn">argn</a> x n e)
       (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../eventuality">eventuality</a> e))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Restrictions on the arguments to 'argn'.</p>
 <pre>
 (forall (e x n)
   (if (<a href="../argn">argn</a> x n e)
       (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../eventuality">eventuality</a> e))))
 </pre>
+</div>
+<div class="axiom">
+<p>Every eventuality is its own 0th argument.</p>
 <pre>
-(forall (e x y z)
-  (if (<a href="../give">give</a>' e x y z)
-      (<a href="../argn">argn</a> e 0 e)))
+(forall (e)
+  (iff (<a href="../eventuality">eventuality</a> e)
+       (<a href="../argn">argn</a> e 0 e)))
 </pre>
-<pre>
-(forall (e x y z)
-  (if (<a href="../give">give</a>' e x y z)
-      (<a href="../argn">argn</a> x 1 e)))
-</pre>
-<pre>
-(forall (e x y z)
-  (if (<a href="../give">give</a>' e x y z)
-      (<a href="../argn">argn</a> y 2 e)))
-</pre>
-<pre>
-(forall (e x y z)
-  (if (<a href="../give">give</a>' e x y z)
-      (<a href="../argn">argn</a> z 3 e)))
-</pre>
+</div>
+<div class="axiom">
+<p>Every argument is the argument of some eventuality.</p>
 <pre>
 (forall (e x)
   (iff (<a href="../arg">arg</a> x e)
        (exists (n)
          (<a href="../argn">argn</a> x n e))))
 </pre>
-<pre>
-(forall (e)
-  (iff (<a href="../eventuality">eventuality</a> e)
-       (<a href="../argn">argn</a> e 0 e)))
-</pre>
+</div>
+<div class="axiom">
+<p>Eventualities all have a predicate p, an arity n, and arguments 1...n.</p>
 <pre>
 (forall (e)
   (iff (<a href="../eventuality">eventuality</a> e)
@@ -83,29 +76,41 @@
                     (exists (x)
                       (<a href="../argn">argn</a> x i e))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>'gen' is stronger than implication.</p>
 <pre>
-(forall (s e)
-   (iff (<a href="../scaleFor">scaleFor</a> s e)
-        (exists (s1)
-           (and (<a href="../Hi">Hi</a> s1 s)
-                (forall (e1 x y)
-                   (if (and (<a href="../at">at</a>' e1 x y s1) (<a href="../argn">argn</a> x 1 e))
-                       (iff (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1))))))))
+(forall (e x y z)
+  (if (<a href="../give">give</a>' e x y z)
+      (<a href="../argn">argn</a> x 1 e)))
 </pre>
+</div>
+<div class="axiom">
+<p>'gen' is stronger than implication.</p>
 <pre>
-(forall (s e)
-   (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
-        (and (<a href="../scale">scale</a> s) (<a href="../eventuality">eventuality</a> e)
-             (forall (s0) (if (<a href="../argn">argn</a> s0 1 e) (<a href="../set">set</a> s0)))
-             (forall (x) (if (<a href="../argn">argn</a> x 2 e) (exists (y) (<a href="../at">at</a> x y s))))
-             (forall (e1 e2 s1 s2 x1 x2)
-                (if (and (<a href="../instance">instance</a> e1 e) (<a href="../argn">argn</a> s1 1 e1)
-                                         (<a href="../argn">argn</a> x1 2 e1)
-                         (<a href="../instance">instance</a> e2 e) (<a href="../argn">argn</a> s2 1 e2)
-                                         (<a href="../argn">argn</a> x2 2 e2)
-                         (<a href="../subset">subset</a> s1 s2))
-                    (<a href="../leqs">leqs</a> x1 x2 s))))))
+(forall (e x y z)
+  (if (<a href="../give">give</a>' e x y z)
+      (<a href="../argn">argn</a> y 2 e)))
 </pre>
+</div>
+<div class="axiom">
+<p>'gen' is stronger than implication.</p>
+<pre>
+(forall (e x y z)
+  (if (<a href="../give">give</a>' e x y z)
+      (<a href="../argn">argn</a> z 3 e)))
+</pre>
+</div>
+<div class="axiom">
+<p>'gen' is stronger than implication.</p>
+<pre>
+(forall (e x y z)
+  (if (<a href="../give">give</a>' e x y z)
+      (<a href="../argn">argn</a> e 0 e)))
+</pre>
+</div>
+<div class="axiom">
+<p>Two entities are subsitutable in their respective events if they play the same role.</p>
 <pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst">subst</a> x e1 y e2)
@@ -125,6 +130,36 @@
                          (if (<a href="../eventuality">eventuality</a> z1)
                              (<a href="../subst">subst</a> x z1 y z2)))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
+<pre>
+(forall (s e)
+   (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
+        (and (<a href="../scale">scale</a> s) (<a href="../eventuality">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn">argn</a> s0 1 e) (<a href="../set">set</a> s0)))
+             (forall (x) (if (<a href="../argn">argn</a> x 2 e) (exists (y) (<a href="../at">at</a> x y s))))
+             (forall (e1 e2 s1 s2 x1 x2)
+                (if (and (<a href="../instance">instance</a> e1 e) (<a href="../argn">argn</a> s1 1 e1)
+                                         (<a href="../argn">argn</a> x1 2 e1)
+                         (<a href="../instance">instance</a> e2 e) (<a href="../argn">argn</a> s2 1 e2)
+                                         (<a href="../argn">argn</a> x2 2 e2)
+                         (<a href="../subset">subset</a> s1 s2))
+                    (<a href="../leqs">leqs</a> x1 x2 s))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The <code>scaleFor</code> predicate relates a scale and the absolute form of its adjective (e.g., 'tall').</p>
+<pre>
+(forall (s e)
+   (iff (<a href="../scaleFor">scaleFor</a> s e)
+        (exists (s1)
+           (and (<a href="../Hi">Hi</a> s1 s)
+                (forall (e1 x y)
+                   (if (and (<a href="../at">at</a>' e1 x y s1) (<a href="../argn">argn</a> x 1 e))
+                       (iff (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1))))))))
+</pre>
+</div>
 </section>
 
 </body>

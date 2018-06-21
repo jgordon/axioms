@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>We define the set of difficulties associated with an action as the set of eventualities that tend to cause the action not to happen. The predicate <code>difficultiesWith</code> is a relation between a set of eventualities and an eventuality.</p>
 <pre>
 (forall (s e)
   (iff (<a href="../difficultiesWith">difficultiesWith</a> s e)
@@ -36,9 +38,11 @@
               (exists (e2)
                 (and (<a href="../not'">not'</a> e2 e) (<a href="../tcause">tcause</a> e1 e2)))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>We define the set of difficulties associated with an action as the set of eventualities that tend to cause the action not to happen. The predicate <code>difficultiesWith</code> is a relation between a set of eventualities and an eventuality.</p>
 <pre>
 (forall (s e)
   (iff (<a href="../difficultiesWith">difficultiesWith</a> s e)
@@ -47,11 +51,15 @@
               (exists (e2)
                 (and (<a href="../not'">not'</a> e2 e) (<a href="../tcause">tcause</a> e1 e2)))))))
 </pre>
+</div>
+<div class="axiom">
+<p>If the set of difficulties associated with achieving e1 contains the set of difficulties associated with achieving e2, then e1 is more difficult than e2.</p>
 <pre>
 (forall (s s1 e)
   (if (and (<a href="../difficultyScale">difficultyScale</a> s e) (<a href="../difficultiesWith">difficultiesWith</a>' e1 s e))
       (<a href="../subsetConsistent">subsetConsistent</a> s e1)))
 </pre>
+</div>
 </section>
 
 </body>

@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Time is a scale whose ordering relation is <code>before</code> and whose components are instants and intervals.</p>
 <pre>
 (forall (t)
   (iff (<a href="../timeScale">timeScale</a> t)
@@ -38,30 +40,41 @@
               (<a href="../before">before</a>' e t2 t3)
               (<a href="../scaleDefinedBy">scaleDefinedBy</a> t s e)))))
 </pre>
+</div><div class="axiom">
+<p>Since all the elements in a time scale are temporal entities, a time scale can be viewed as a possible ground.</p>
 <pre>
 (forall (t) (if (<a href="../timeScale">timeScale</a> t) (<a href="../ground">ground</a> t)))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Time is a scale whose ordering relation is <code>before</code> and whose components are instants and intervals.</p>
+<pre>
+(forall (t)
+  (iff (<a href="../timeScale">timeScale</a> t)
+       (exists (s e t2 t3)
+         (and (forall (t1)
+                (iff (<a href="../member">member</a> t1 s)
+                     (or (<a href="../instant">instant</a> t1) (<a href="../interval">interval</a> t1))))
+              (<a href="../before">before</a>' e t2 t3)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> t s e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Since all the elements in a time scale are temporal entities, a time scale can be viewed as a possible ground.</p>
+<pre>
+(forall (t) (if (<a href="../timeScale">timeScale</a> t) (<a href="../ground">ground</a> t)))
+</pre>
+</div>
+<div class="axiom">
+<p>And <code>atTime</code> can be viewed as an <code>at</code> relation.</p>
 <pre>
 (forall (s e t)
   (if (and (<a href="../timeScale">timeScale</a> s) (<a href="../atTime">atTime</a> e t))
       (<a href="../at">at</a> e t s)))
 </pre>
-<pre>
-(forall (t)
-  (iff (<a href="../timeScale">timeScale</a> t)
-       (exists (s e t2 t3)
-         (and (forall (t1)
-                (iff (<a href="../member">member</a> t1 s)
-                     (or (<a href="../instant">instant</a> t1) (<a href="../interval">interval</a> t1))))
-              (<a href="../before">before</a>' e t2 t3)
-              (<a href="../scaleDefinedBy">scaleDefinedBy</a> t s e)))))
-</pre>
-<pre>
-(forall (t) (if (<a href="../timeScale">timeScale</a> t) (<a href="../ground">ground</a> t)))
-</pre>
+</div>
 </section>
 
 </body>

@@ -28,38 +28,80 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A fraction is a number.</p>
+<pre>
+(forall (f a b)
+  (if (<a href="../fraction">fraction</a> f a b) (<a href="../number">number</a> f)))
+</pre>
+</div><div class="axiom">
+<p>The arguments of <code>fraction</code> are a number and a non-zero number.</p>
 <pre>
 (forall (f a b)
   (if (<a href="../fraction">fraction</a> f a b)
       (and (<a href="../number">number</a> a) (<a href="../number">number</a> b) (<a href="../nequal">nequal</a> b 0))))
 </pre>
-<pre>
-(forall (f a b)
-  (if (<a href="../fraction">fraction</a> f a b) (<a href="../number">number</a> f)))
-</pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Fractions will be characterized by a non-negative integer (the numerator) and a positive integer (the denominator). The prediction (fraction f a) says that f is the fraction a/b.</p>
 <pre>
 (forall (a b)
    (if (and (<a href="../nonNegInteger">nonNegInteger</a> a) (<a href="../posInteger">posInteger</a> b))
        (exists (f) (<a href="../fraction">fraction</a> f a b))))
 </pre>
+</div>
+<div class="axiom">
+<p>Fraction equality: <code>a1/b1 = a2/b2</code> when <code>a1*b2 = a2*b1</code>.</p>
 <pre>
-(forall (f a b)
-  (if (<a href="../fraction">fraction</a> f a b)
-      (and (<a href="../number">number</a> a) (<a href="../number">number</a> b) (<a href="../nequal">nequal</a> b 0))))
+(forall (f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
+            (<a href="../product">product</a> c1 a1 b2) (<a href="../product">product</a> c2 a2 b1))
+       (iff (equal f1 f2) (equal c1 c2))))
 </pre>
+</div>
+<div class="axiom">
+<p>The non-negative integers are embedded in the set of rational numbers: <code>n = n/1</code></p>
 <pre>
-(forall (f a b)
-  (if (<a href="../fraction">fraction</a> f a b) (<a href="../number">number</a> f)))
+(forall (n) (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../fraction">fraction</a> n n 1)))
 </pre>
+</div>
+<div class="axiom">
+<p>The <code>lt</code> relation can be extended to rational numbers: <code>a1/b1 < a2/b2</code> when <code>a1*b2 < a2*b1</code>. This also extends the other ordering relations, <code>leq</code>, <code>gt</code>, and <code>geq</code>.</p>
+<pre>
+(forall (f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
+            (<a href="../product">product</a> c1 a1 b2) (<a href="../product">product</a> c2 a2 b1))
+       (iff (<a href="../lt">lt</a> f1 f2) (<a href="../lt">lt</a> c1 c2))))
+</pre>
+</div>
+<div class="axiom">
+<p>The product of two fractions, <code>f1=a1/b1</code> and <code>f2=a2/b2</code> is <code>(a1*a2)/(b1*b2)</code>.</p>
 <pre>
 (forall (f f1 f2 a1 a2 b1 b2 c1 c2)
    (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
             (<a href="../product">product</a> c1 a1 a2) (<a href="../product">product</a> c2 b1 b2))
        (iff (<a href="../product">product</a> f f1 f2) (<a href="../fraction">fraction</a> f c1 c2))))
 </pre>
+</div>
+<div class="axiom">
+<p>A fraction is a number.</p>
+<pre>
+(forall (f a b)
+  (if (<a href="../fraction">fraction</a> f a b) (<a href="../number">number</a> f)))
+</pre>
+</div>
+<div class="axiom">
+<p>The arguments of <code>fraction</code> are a number and a non-zero number.</p>
+<pre>
+(forall (f a b)
+  (if (<a href="../fraction">fraction</a> f a b)
+      (and (<a href="../number">number</a> a) (<a href="../number">number</a> b) (<a href="../nequal">nequal</a> b 0))))
+</pre>
+</div>
+<div class="axiom">
+<p>Suppose we have two points x and y on a scale s1 which has a measure. Then the proportion of x to y is the fraction whose numerator and denominator are the numbers the measure maps x and y into, respectively.</p>
 <pre>
 (forall (f x y m s1)
   (if (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1))
@@ -68,21 +110,7 @@
              (and (<a href="../map">map</a> m x n1) (<a href="../map">map</a> m y n2)
                   (<a href="../fraction">fraction</a> f n1 n2))))))
 </pre>
-<pre>
-(forall (f1 f2 a1 a2 b1 b2 c1 c2)
-   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
-            (<a href="../product">product</a> c1 a1 b2) (<a href="../product">product</a> c2 a2 b1))
-       (iff (<a href="../lt">lt</a> f1 f2) (<a href="../lt">lt</a> c1 c2))))
-</pre>
-<pre>
-(forall (f1 f2 a1 a2 b1 b2 c1 c2)
-   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
-            (<a href="../product">product</a> c1 a1 b2) (<a href="../product">product</a> c2 a2 b1))
-       (iff (equal f1 f2) (equal c1 c2))))
-</pre>
-<pre>
-(forall (n) (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../fraction">fraction</a> n n 1)))
-</pre>
+</div>
 </section>
 
 </body>

@@ -24,6 +24,7 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (s1 s2)
   (iff (<a href="../independentScales">independentScales</a> s1 s2)
@@ -31,26 +32,32 @@
          (and (<a href="../lts">lts</a> x1 x2 s1) (<a href="../lts">lts</a> x1 x2 s2)
               (<a href="../lts">lts</a> y1 y2 s1) (<a href="../lts">lts</a> y2 y1 s2)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
-   (forall (s1 s2 f)
-      (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal3">horizontal3</a> s1 f) (<a href="../vertical3">vertical3</a> s2 f))
-          (<a href="../independentScales">independentScales</a> s1 s2)))
+(forall (s1 s2)
+  (iff (<a href="../independentScales">independentScales</a> s1 s2)
+       (exists (x1 x2 y1 y2)
+         (and (<a href="../lts">lts</a> x1 x2 s1) (<a href="../lts">lts</a> x1 x2 s2)
+              (<a href="../lts">lts</a> y1 y2 s1) (<a href="../lts">lts</a> y2 y1 s2)))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (s1 s2 f)
   (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> s1 f) (<a href="../vertical2">vertical2</a> s2 f))
       (<a href="../independentScales">independentScales</a> s1 s2)))
 </pre>
+</div>
+<div class="axiom">
 <pre>
-(forall (s1 s2)
-  (iff (<a href="../independentScales">independentScales</a> s1 s2)
-       (exists (x1 x2 y1 y2)
-         (and (<a href="../lts">lts</a> x1 x2 s1) (<a href="../lts">lts</a> x1 x2 s2)
-              (<a href="../lts">lts</a> y1 y2 s1) (<a href="../lts">lts</a> y2 y1 s2)))))
+   (forall (s1 s2 f)
+      (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal3">horizontal3</a> s1 f) (<a href="../vertical3">vertical3</a> s2 f))
+          (<a href="../independentScales">independentScales</a> s1 s2)))
 </pre>
+</div>
 </section>
 
 </body>

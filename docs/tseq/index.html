@@ -28,24 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
-<pre>
-(forall (s t)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../first">first</a> t s)
-           (and (<a href="../member">member</a> t s)
-                (forall (t1)
-                  (if (<a href="../member">member</a> t1 s)
-                      (or (equal t1 t) (<a href="../before">before</a> t t1))))))))
-</pre>
-<pre>
-(forall (s t)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../last">last</a> t s)
-           (and (<a href="../member">member</a> t s)
-                (forall (t1)
-                  (if (<a href="../member">member</a> t1 s)
-                      (or (equal t1 t) (<a href="../before">before</a> t1 t))))))))
-</pre>
+<div class="axiom">
+<p>A temporal sequence is a set of non-overlapping temporal entities. Between any two distinct members of a temporal sequence, there is another interval or instant that is not in the set.</p>
 <pre>
 (forall (s)
   (iff (<a href="../tseq">tseq</a> s)
@@ -60,6 +44,46 @@
                                   (<a href="../before">before</a> t1 t3)
                                   (<a href="../before">before</a> t3 t2))))))))))
 </pre>
+</div><div class="axiom">
+<p>If there is an element of the temporal sequence before all its other elements, this is called the first element.</p>
+<pre>
+(forall (s t)
+  (if (<a href="../tseq">tseq</a> s)
+      (iff (<a href="../first">first</a> t s)
+           (and (<a href="../member">member</a> t s)
+                (forall (t1)
+                  (if (<a href="../member">member</a> t1 s)
+                      (or (equal t1 t) (<a href="../before">before</a> t t1))))))))
+</pre>
+</div><div class="axiom">
+<p>If there is an element of the temporal sequence after all its other elements, this is called the last element.</p>
+<pre>
+(forall (s t)
+  (if (<a href="../tseq">tseq</a> s)
+      (iff (<a href="../last">last</a> t s)
+           (and (<a href="../member">member</a> t s)
+                (forall (t1)
+                  (if (<a href="../member">member</a> t1 s)
+                      (or (equal t1 t) (<a href="../before">before</a> t1 t))))))))
+</pre>
+</div><div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<pre>
+(forall (t s)
+  (if (<a href="../tseq">tseq</a> s)
+      (iff (<a href="../begins">begins</a> t s)
+           (exists (t1) (and (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t t1))))))
+</pre>
+</div><div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<pre>
+(forall (t s)
+  (if (<a href="../tseq">tseq</a> s)
+      (iff (<a href="../ends">ends</a> t s)
+           (exists (t1) (and (<a href="../last">last</a> t1 s) (<a href="../ends">ends</a> t t1))))))
+</pre>
+</div><div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
 <pre>
 (forall (t s)
   (if (<a href="../tseq">tseq</a> s)
@@ -68,95 +92,35 @@
                  (or (equal t1 t) (<a href="../insideTime">insideTime</a> t t1))))
           (<a href="../insideTime">insideTime</a> t s))))
 </pre>
-<pre>
-(forall (t s)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../begins">begins</a> t s)
-           (exists (t1) (and (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t t1))))))
-</pre>
-<pre>
-(forall (t s)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../ends">ends</a> t s)
-           (exists (t1) (and (<a href="../last">last</a> t1 s) (<a href="../ends">ends</a> t t1))))))
-</pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
-(forall (d t u)
-  (if (<a href="../durationOf">durationOf</a> d t u)
-      (and (<a href="../nonNegInteger">nonNegInteger</a> d) (<a href="../temporalUnit">temporalUnit</a> u)
-           (or (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../tseq">tseq</a> t) (<a href="../eventuality">eventuality</a> t)))))
+(forall (t1 t2)
+  (if (<a href="../begins">begins</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
-(forall (e t1 t2 s)
-  (if (and (<a href="../tseq">tseq</a> s) (<a href="../before">before</a>' e t1 t2))
-      (<a href="../partialOrdering">partialOrdering</a> e t1 t2 s)))
+(forall (t1 t2)
+  (if (<a href="../ends">ends</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
-(forall (s e t1 t1)
-  (if (and (<a href="../tseq">tseq</a> s) (<a href="../before">before</a>' e t1 t2))
-      (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s e)))
+(forall (t1 t2)
+  (if (<a href="../insideTime">insideTime</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
 </pre>
-<pre>
-(forall (s s1 t u d d1 d2)
-  (if (and (<a href="../tseq">tseq</a> s) (<a href="../tseq">tseq</a> s1) (not (<a href="../member">member</a> t s1)) (<a href="../addElt">addElt</a> s s1 t)
-           (<a href="../durationOf">durationOf</a> d1 s1 u) (<a href="../durationOf">durationOf</a> d2 t u) (<a href="../sum">sum</a> d d1 d2))
-      (<a href="../durationOf">durationOf</a> d s u)))
-</pre>
-<pre>
-(forall (s t)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../first">first</a> t s)
-           (and (<a href="../member">member</a> t s)
-                (forall (t1)
-                  (if (<a href="../member">member</a> t1 s)
-                      (or (equal t1 t) (<a href="../before">before</a> t t1))))))))
-</pre>
-<pre>
-(forall (s t)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../last">last</a> t s)
-           (and (<a href="../member">member</a> t s)
-                (forall (t1)
-                  (if (<a href="../member">member</a> t1 s)
-                      (or (equal t1 t) (<a href="../before">before</a> t1 t))))))))
-</pre>
-<pre>
-(forall (s t1 t2 t3 t4)
-  (if (and (<a href="../tseq">tseq</a> s) (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t3 t1)
-           (<a href="../last">last</a> t2 s) (<a href="../ends">ends</a> t4 t2))
-      (forall (t)
-        (iff (<a href="../convexHull">convexHull</a> t s)
-             (<a href="../intervalBetween">intervalBetween</a> t t3 t4)))))
-</pre>
-<pre>
-(forall (s)
-  (iff (<a href="../periodicTseq">periodicTseq</a> s)
-       (and (<a href="../tseq">tseq</a> s)
-            (exists (d u)
-              (forall (t1 t2)
-                (if (<a href="../successiveElts">successiveElts</a> t1 t2 s)
-                    (exists (t)
-                      (and (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
-                           (<a href="../durationOf">durationOf</a> d t u)))))))))
-</pre>
-<pre>
-(forall (s)
-  (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)
-       (and (<a href="../tseq">tseq</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
-            (exists (s0 d)
-              (and (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s0)
-                   (forall (t1 t2 t3 t4)
-                     (if (and (<a href="../successiveElts">successiveElts</a> t1 t2 s)
-                              (<a href="../successiveElts">successiveElts</a> t3 t4 s))
-                         (exists (t12 t34 e d)
-                           (and (<a href="../intervalBetween">intervalBetween</a> t12 t1 t2)
-                                (<a href="../intervalBetween">intervalBetween</a> t34 t3 t4)
-                                (<a href="../durationOf">durationOf</a>' e d t12 u)
-                                (<a href="../sameHOM">sameHOM</a> t12 t34 s0 e))))))))))
-</pre>
+</div>
+<div class="axiom">
+<p>A temporal sequence is a set of non-overlapping temporal entities. Between any two distinct members of a temporal sequence, there is another interval or instant that is not in the set.</p>
 <pre>
 (forall (s)
   (iff (<a href="../tseq">tseq</a> s)
@@ -171,6 +135,101 @@
                                   (<a href="../before">before</a> t1 t3)
                                   (<a href="../before">before</a> t3 t2))))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>If there is an element of the temporal sequence before all its other elements, this is called the first element.</p>
+<pre>
+(forall (s t)
+  (if (<a href="../tseq">tseq</a> s)
+      (iff (<a href="../first">first</a> t s)
+           (and (<a href="../member">member</a> t s)
+                (forall (t1)
+                  (if (<a href="../member">member</a> t1 s)
+                      (or (equal t1 t) (<a href="../before">before</a> t t1))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If there is an element of the temporal sequence after all its other elements, this is called the last element.</p>
+<pre>
+(forall (s t)
+  (if (<a href="../tseq">tseq</a> s)
+      (iff (<a href="../last">last</a> t s)
+           (and (<a href="../member">member</a> t s)
+                (forall (t1)
+                  (if (<a href="../member">member</a> t1 s)
+                      (or (equal t1 t) (<a href="../before">before</a> t1 t))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>before</code> is a partial ordering on the elements of a temporal sequence.</p>
+<pre>
+(forall (e t1 t2 s)
+  (if (and (<a href="../tseq">tseq</a> s) (<a href="../before">before</a>' e t1 t2))
+      (<a href="../partialOrdering">partialOrdering</a> e t1 t2 s)))
+</pre>
+</div>
+<div class="axiom">
+<p>A temporal sequence is a scale whose ordering relation is <code>before</code>.</p>
+<pre>
+(forall (s e t1 t1)
+  (if (and (<a href="../tseq">tseq</a> s) (<a href="../before">before</a>' e t1 t2))
+      (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s e)))
+</pre>
+</div>
+<div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<pre>
+(forall (s t1 t2 t3 t4)
+  (if (and (<a href="../tseq">tseq</a> s) (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t3 t1)
+           (<a href="../last">last</a> t2 s) (<a href="../ends">ends</a> t4 t2))
+      (forall (t)
+        (iff (<a href="../convexHull">convexHull</a> t s)
+             (<a href="../intervalBetween">intervalBetween</a> t t3 t4)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<pre>
+(forall (t s)
+  (if (<a href="../tseq">tseq</a> s)
+      (iff (<a href="../begins">begins</a> t s)
+           (exists (t1) (and (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t t1))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<pre>
+(forall (t s)
+  (if (<a href="../tseq">tseq</a> s)
+      (iff (<a href="../ends">ends</a> t s)
+           (exists (t1) (and (<a href="../last">last</a> t1 s) (<a href="../ends">ends</a> t t1))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<pre>
+(forall (t s)
+  (if (and (<a href="../tseq">tseq</a> s) (<a href="../insideTime">insideTime</a> t s))
+      (and (not (<a href="../begins">begins</a> t s)) (not (<a href="../ends">ends</a> t s))
+           (exists (t1)
+             (and (<a href="../member">member</a> t1 s)
+                  (or (equal t1 t) (<a href="../insideTime">insideTime</a> t t1)
+                      (<a href="../begins">begins</a> t t1) (<a href="../ends">ends</a> t t1)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<pre>
+(forall (t s)
+  (if (<a href="../tseq">tseq</a> s)
+      (if (exists (t1)
+            (and (<a href="../member">member</a> t1 s)
+                 (or (equal t1 t) (<a href="../insideTime">insideTime</a> t t1))))
+          (<a href="../insideTime">insideTime</a> t s))))
+</pre>
+</div>
+<div class="axiom">
+<p>The "time span of" an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
 <pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
@@ -198,59 +257,66 @@
                                      (<a href="../insideTime">insideTime</a> t1 t2)
                                      (<a href="../ends">ends</a> t1 t2)))))))))))
 </pre>
-<pre>
-(forall (t s)
-  (if (<a href="../tseq">tseq</a> s)
-      (if (exists (t1)
-            (and (<a href="../member">member</a> t1 s)
-                 (or (equal t1 t) (<a href="../insideTime">insideTime</a> t t1))))
-          (<a href="../insideTime">insideTime</a> t s))))
-</pre>
-<pre>
-(forall (t s)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../begins">begins</a> t s)
-           (exists (t1) (and (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t t1))))))
-</pre>
-<pre>
-(forall (t s)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../ends">ends</a> t s)
-           (exists (t1) (and (<a href="../last">last</a> t1 s) (<a href="../ends">ends</a> t t1))))))
-</pre>
-<pre>
-(forall (t s)
-  (if (and (<a href="../tseq">tseq</a> s) (<a href="../insideTime">insideTime</a> t s))
-      (and (not (<a href="../begins">begins</a> t s)) (not (<a href="../ends">ends</a> t s))
-           (exists (t1)
-             (and (<a href="../member">member</a> t1 s)
-                  (or (equal t1 t) (<a href="../insideTime">insideTime</a> t t1)
-                      (<a href="../begins">begins</a> t t1) (<a href="../ends">ends</a> t t1)))))))
-</pre>
+</div>
+<div class="axiom">
+<p>Instants are at least partially ordered by a <code>before</code> relation, which will also be extended to intervals, temporal sequences, and eventualities.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../before">before</a> t1 t2)
       (and (or (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../tseq">tseq</a> t1) (<a href="../eventuality">eventuality</a> t1))
            (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
 </pre>
+</div>
+<div class="axiom">
+<p>The predication <code>(durationOf d t u)</code> says that t is made up of d intervals having the same duration as u. We will allow the second argument to be an instant, an interval, a temporal sequence, or an eventuality.</p>
 <pre>
-(forall (t1 t2)
-  (if (<a href="../begins">begins</a> t1 t2)
-      (and (<a href="../instant">instant</a> t1)
-           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+(forall (d t u)
+  (if (<a href="../durationOf">durationOf</a> d t u)
+      (and (<a href="../nonNegInteger">nonNegInteger</a> d) (<a href="../temporalUnit">temporalUnit</a> u)
+           (or (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../tseq">tseq</a> t) (<a href="../eventuality">eventuality</a> t)))))
 </pre>
+</div>
+<div class="axiom">
+<p>The duration of an interval is determined by concatenation.</p>
 <pre>
-(forall (t1 t2)
-  (if (<a href="../ends">ends</a> t1 t2)
-      (and (<a href="../instant">instant</a> t1)
-           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+(forall (s s1 t u d d1 d2)
+  (if (and (<a href="../tseq">tseq</a> s) (<a href="../tseq">tseq</a> s1) (not (<a href="../member">member</a> t s1)) (<a href="../addElt">addElt</a> s s1 t)
+           (<a href="../durationOf">durationOf</a> d1 s1 u) (<a href="../durationOf">durationOf</a> d2 t u) (<a href="../sum">sum</a> d d1 d2))
+      (<a href="../durationOf">durationOf</a> d s u)))
 </pre>
+</div>
+<div class="axiom">
+<p>A temporal sequence is periodic if there is a constant duration between any two successive temporal entities in the temporal sequence.</p>
 <pre>
-(forall (t1 t2)
-  (if (<a href="../insideTime">insideTime</a> t1 t2)
-      (and (<a href="../instant">instant</a> t1)
-           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+(forall (s)
+  (iff (<a href="../periodicTseq">periodicTseq</a> s)
+       (and (<a href="../tseq">tseq</a> s)
+            (exists (d u)
+              (forall (t1 t2)
+                (if (<a href="../successiveElts">successiveElts</a> t1 t2 s)
+                    (exists (t)
+                      (and (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
+                           (<a href="../durationOf">durationOf</a> d t u)))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>If the gap between two elements is roughly equal, the temporal sequence is roughly periodic.</p>
+<pre>
+(forall (s)
+  (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)
+       (and (<a href="../tseq">tseq</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
+            (exists (s0 d)
+              (and (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s0)
+                   (forall (t1 t2 t3 t4)
+                     (if (and (<a href="../successiveElts">successiveElts</a> t1 t2 s)
+                              (<a href="../successiveElts">successiveElts</a> t3 t4 s))
+                         (exists (t12 t34 e d)
+                           (and (<a href="../intervalBetween">intervalBetween</a> t12 t1 t2)
+                                (<a href="../intervalBetween">intervalBetween</a> t34 t3 t4)
+                                (<a href="../durationOf">durationOf</a>' e d t12 u)
+                                (<a href="../sameHOM">sameHOM</a> t12 t34 s0 e))))))))))
+</pre>
+</div>
 </section>
 
 </body>

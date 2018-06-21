@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>An interval t between two instants t1 and t2 is an interval that begins at t1 and ends at t2. It will be useful to extend this to intervals and define it as the interval from the end of t1 to the beginning of t2.</p>
 <pre>
 (forall (t t1 t2)
   (iff (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
@@ -35,15 +37,21 @@
          (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2)
               (<a href="../begins">begins</a> t3 t) (<a href="../ends">ends</a> t4 t)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>An interval t between two instants t1 and t2 is an interval that begins at t1 and ends at t2. It will be useful to extend this to intervals and define it as the interval from the end of t1 to the beginning of t2.</p>
 <pre>
-(forall (s d t1 t2 t n1 n2 u)
-  (if (and (<a href="../periodicTseq">periodicTseq</a> s) (<a href="../successiveElts">successiveElts</a> t1 t2 s)
-           (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../intervalBetween">intervalBetween</a> t t1 t2))
-      (iff (<a href="../gapDuration">gapDuration</a> d s u) (<a href="../durationOf">durationOf</a> d t u))))
+(forall (t t1 t2)
+  (iff (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
+       (exists (t3 t4)
+         (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2)
+              (<a href="../begins">begins</a> t3 t) (<a href="../ends">ends</a> t4 t)))))
 </pre>
+</div>
+<div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
 <pre>
 (forall (s t1 t2 t3 t4)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t3 t1)
@@ -52,6 +60,9 @@
         (iff (<a href="../convexHull">convexHull</a> t s)
              (<a href="../intervalBetween">intervalBetween</a> t t3 t4)))))
 </pre>
+</div>
+<div class="axiom">
+<p>A temporal sequence is periodic if there is a constant duration between any two successive temporal entities in the temporal sequence.</p>
 <pre>
 (forall (s)
   (iff (<a href="../periodicTseq">periodicTseq</a> s)
@@ -63,6 +74,18 @@
                       (and (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
                            (<a href="../durationOf">durationOf</a> d t u)))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The constant duration in a periodic temporal sequence can be called the gap duration.</p>
+<pre>
+(forall (s d t1 t2 t n1 n2 u)
+  (if (and (<a href="../periodicTseq">periodicTseq</a> s) (<a href="../successiveElts">successiveElts</a> t1 t2 s)
+           (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../intervalBetween">intervalBetween</a> t t1 t2))
+      (iff (<a href="../gapDuration">gapDuration</a> d s u) (<a href="../durationOf">durationOf</a> d t u))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the gap between two elements is roughly equal, the temporal sequence is roughly periodic.</p>
 <pre>
 (forall (s)
   (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)
@@ -78,13 +101,7 @@
                                 (<a href="../durationOf">durationOf</a>' e d t12 u)
                                 (<a href="../sameHOM">sameHOM</a> t12 t34 s0 e))))))))))
 </pre>
-<pre>
-(forall (t t1 t2)
-  (iff (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
-       (exists (t3 t4)
-         (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2)
-              (<a href="../begins">begins</a> t3 t) (<a href="../ends">ends</a> t4 t)))))
-</pre>
+</div>
 </section>
 
 </body>

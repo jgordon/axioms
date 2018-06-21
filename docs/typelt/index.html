@@ -28,6 +28,89 @@
 </section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>"Surgery" on the definition of subst for the cases that will cause trouble for typical elements -- when e1 itself is a typical element relation between x and s and y is a member of s.</p>
+<pre>
+(forall (x e1 y e2)
+  (iff (<a href="../noSubstTypelt">noSubstTypelt</a> x e1 y e2)
+       (exists (s) (and (<a href="../typelt">typelt</a>' e1 x s) (<a href="../member">member</a> y s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Every set has a typical element.</p>
+<pre>
+(forall (s) (iff (<a href="../set">set</a> s)
+                 (exists (x) (<a href="../typelt">typelt</a> x s))))
+</pre>
+</div>
+<div class="axiom">
+<p>Real members of a set inherit all the properties of the typical element.</p>
+<pre>
+(forall (x s y e1 e2)
+  (if (and (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> y s) (<a href="../subst">subst</a> x e1 y e2)
+           (<a href="../Rexist">Rexist</a> e1))
+      (<a href="../Rexist">Rexist</a> e2)))
+</pre>
+</div>
+<div class="axiom">
+<p>Real members of a set inherit all the properties of the typical element.</p>
+<pre>
+(forall (s x e)
+  (if (<a href="../dset">dset</a> s x e)
+      (and (<a href="../set">set</a> s) (<a href="../typelt">typelt</a> x s) (<a href="../arg*">arg*</a> x e))))
+</pre>
+</div>
+<div class="axiom">
+<p>"Surgery" on the definition of "dset" to rule out problematic cases:</p>
+<pre>
+(forall (y s)
+  (iff (<a href="../notSubsetTypelt">notSubsetTypelt</a> y s)
+       (not (exists (s1)
+              (and (<a href="../typelt">typelt</a> y s1) (<a href="../subset">subset</a> s1 s))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Functional dependencies:</p>
+<pre>
+(forall (x y e)
+  (if (<a href="../fd">fd</a> y x e)
+      (and (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e)
+           (exists (s)
+             (<a href="../typelt">typelt</a> x s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The principal property of 'fd' is that when e holds and a real entity instantiates x, then there is a real entity that instantiates y and the corresponding eventuality holds.</p>
+<pre>
+(forall (x y e s)
+  (if (and (<a href="../fd">fd</a> y x e) (<a href="../Rexist">Rexist</a> e) (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> x1 s))
+      (exists (y1 e1)
+        (and (<a href="../subst2">subst2</a> x y e x1 y1 e1) (<a href="../Rexist">Rexist</a> e1)))))
+</pre>
+</div>
+<div class="axiom">
+<p>An entity that is a typical element of a set or functionally dependent on a typical element of a set is nonspecific.</p>
+<pre>
+(forall (x)
+  (iff (<a href="../nonspecific">nonspecific</a> x)
+       (or (exists (s) (<a href="../typelt">typelt</a> x s))
+           (exists (y s e)
+             (and (<a href="../typelt">typelt</a> y s) (<a href="../fd">fd</a> x y e))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Define the set of parameters in an abstract eventuality:</p>
+<pre>
+(forall (s e)
+  (iff (<a href="../parameters">parameters</a> s e)
+       (forall (x)
+         (iff (<a href="../member">member</a> x s)
+              (exists (s1)
+                (and (<a href="../arg*">arg*</a> x e) (<a href="../typelt">typelt</a> x s1)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A partial instantiation of an abstract eventuality:</p>
 <pre>
 (forall (e1 e)
   (iff (<a href="../partialInstance">partialInstance</a> e1 e)
@@ -40,6 +123,9 @@
                           (and (<a href="../typelt">typelt</a> x1 s2)
                                (<a href="../subset">subset</a> s2 s1))))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>An eventuality type e1 holds for an entity y as its x parameter if, when the entity is substituted for x in the eventuality type, the resulting instantiation really exists.</p>
 <pre>
 (forall (e1 y x)
   (iff (<a href="../holdsFor">holdsFor</a> e1 y x)
@@ -47,19 +133,20 @@
          (and (<a href="../subst">subst</a> y e2 x e1) (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> y s)
               (<a href="../Rexist">Rexist</a> e2)))))
 </pre>
+</div>
+<div class="axiom">
+<p>When we have a Skolem function or a functional dependency, we have a corresponding function.</p>
 <pre>
-(forall (s e)
-  (iff (<a href="../parameters">parameters</a> s e)
-       (forall (x)
-         (iff (<a href="../member">member</a> x s)
-              (exists (s1)
-                (and (<a href="../arg*">arg*</a> x e) (<a href="../typelt">typelt</a> x s1)))))))
+(forall (y1 y x1 x e s1 s2)
+  (if (and (<a href="../skfct">skfct</a> y1 y x1 x e) (<a href="../typelt">typelt</a> x s1) (<a href="../rangeFd">rangeFd</a> s2 y x e))
+      (exists (f)
+        (and (<a href="../function0">function0</a> f s1 s2)
+             (forall (p)
+               (iff (<a href="../pair">pair</a> p x1 y1) (<a href="../member">member</a> p f)))))))
 </pre>
-<pre>
-(forall (s x e)
-  (if (<a href="../dset">dset</a> s x e)
-      (and (<a href="../set">set</a> s) (<a href="../typelt">typelt</a> x s) (<a href="../arg*">arg*</a> x e))))
-</pre>
+</div>
+<div class="axiom">
+<p>This can also be written as:</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -68,36 +155,31 @@
               (and (<a href="../componentsOf">componentsOf</a> s1 s) (<a href="../typelt">typelt</a> y s1) (<a href="../arg*">arg*</a> y e)
                    (if (<a href="../Rexist">Rexist</a> s) (<a href="../Rexist">Rexist</a> e)))))))
 </pre>
+</div>
+<div class="axiom">
+<p>A pattern is a composite entity which contains type elements among its components.</p>
 <pre>
-(forall (s) (iff (<a href="../set">set</a> s)
-                 (exists (x) (<a href="../typelt">typelt</a> x s))))
+(forall (x)
+  (iff (<a href="../pattern">pattern</a> x)
+       (exists (y s1)
+              (and (<a href="../componentOf">componentOf</a> y x) (<a href="../typelt">typelt</a> y s1)))))
 </pre>
+</div>
+<div class="axiom">
+<p>The parameters of a pattern are the components that are type elements.</p>
 <pre>
-(forall (x e1 y e2)
-  (iff (<a href="../noSubstTypelt">noSubstTypelt</a> x e1 y e2)
-       (exists (s) (and (<a href="../typelt">typelt</a>' e1 x s) (<a href="../member">member</a> y s)))))
+(forall (x)
+  (if (<a href="../pattern">pattern</a> x)
+      (iff (<a href="../patternParameters">patternParameters</a> s x)
+           (forall (y)
+             (iff (<a href="../member">member</a> y s)
+                  (exists (s1)
+                         (and (<a href="../componentOf">componentOf</a> y x)
+                              (<a href="../typelt">typelt</a> y s1))))))))
 </pre>
-<pre>
-(forall (x s y e1 e2)
-  (if (and (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> y s) (<a href="../subst">subst</a> x e1 y e2)
-           (<a href="../Rexist">Rexist</a> e1))
-      (<a href="../Rexist">Rexist</a> e2)))
-</pre>
-<pre>
-(forall (x x1 s)
-  (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
-      (iff (<a href="../incompleteInstance">incompleteInstance</a> x1 x)
-           (and (exists (y y1 s1 p p1)
-                  (and (<a href="../member">member</a> y s) (<a href="../typelt">typelt</a> y s1)
-                       (<a href="../componentOf">componentOf</a> y1 x1) (<a href="../member">member</a> y1 s1)
-                       (<a href="../propOrRelOf">propOrRelOf</a> p x) (<a href="../arg*">arg*</a> y p)
-                       (<a href="../subst">subst</a> y1 p1 y p) (<a href="../propOrRelOf">propOrRelOf</a> p1 x1)))
-                (exists (p y)
-                  (and (<a href="../propOrRelOf">propOrRelOf</a> p x) (<a href="../arg*">arg*</a> y p)
-                       (forall (y1 p1)
-                         (if (<a href="../subst">subst</a> y1 p1 y p)
-                             (not (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))
-</pre>
+</div>
+<div class="axiom">
+<p>An instance of a pattern is a composite entity in which all parameters have been replaced by entities that are members of the set the parameter is the type element of.</p>
 <pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
@@ -113,56 +195,25 @@
                                           (and (<a href="../subst">subst</a> y1 p1 y p)
                                                (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>We can define an incomplete instance to be a composite entity in which at least one parameter is instantiated and some but not all of the properties and relations are instantiated.</p>
 <pre>
-(forall (x y e s)
-  (if (and (<a href="../fd">fd</a> y x e) (<a href="../Rexist">Rexist</a> e) (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> x1 s))
-      (exists (y1 e1)
-        (and (<a href="../subst2">subst2</a> x y e x1 y1 e1) (<a href="../Rexist">Rexist</a> e1)))))
+(forall (x x1 s)
+  (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
+      (iff (<a href="../incompleteInstance">incompleteInstance</a> x1 x)
+           (and (exists (y y1 s1 p p1)
+                  (and (<a href="../member">member</a> y s) (<a href="../typelt">typelt</a> y s1)
+                       (<a href="../componentOf">componentOf</a> y1 x1) (<a href="../member">member</a> y1 s1)
+                       (<a href="../propOrRelOf">propOrRelOf</a> p x) (<a href="../arg*">arg*</a> y p)
+                       (<a href="../subst">subst</a> y1 p1 y p) (<a href="../propOrRelOf">propOrRelOf</a> p1 x1)))
+                (exists (p y)
+                  (and (<a href="../propOrRelOf">propOrRelOf</a> p x) (<a href="../arg*">arg*</a> y p)
+                       (forall (y1 p1)
+                         (if (<a href="../subst">subst</a> y1 p1 y p)
+                             (not (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))
 </pre>
-<pre>
-(forall (x y e)
-  (if (<a href="../fd">fd</a> y x e)
-      (and (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e)
-           (exists (s)
-             (<a href="../typelt">typelt</a> x s)))))
-</pre>
-<pre>
-(forall (x)
-  (if (<a href="../pattern">pattern</a> x)
-      (iff (<a href="../patternParameters">patternParameters</a> s x)
-           (forall (y)
-             (iff (<a href="../member">member</a> y s)
-                  (exists (s1)
-                         (and (<a href="../componentOf">componentOf</a> y x)
-                              (<a href="../typelt">typelt</a> y s1))))))))
-</pre>
-<pre>
-(forall (x)
-  (iff (<a href="../nonspecific">nonspecific</a> x)
-       (or (exists (s) (<a href="../typelt">typelt</a> x s))
-           (exists (y s e)
-             (and (<a href="../typelt">typelt</a> y s) (<a href="../fd">fd</a> x y e))))))
-</pre>
-<pre>
-(forall (x)
-  (iff (<a href="../pattern">pattern</a> x)
-       (exists (y s1)
-              (and (<a href="../componentOf">componentOf</a> y x) (<a href="../typelt">typelt</a> y s1)))))
-</pre>
-<pre>
-(forall (y s)
-  (iff (<a href="../notSubsetTypelt">notSubsetTypelt</a> y s)
-       (not (exists (s1)
-              (and (<a href="../typelt">typelt</a> y s1) (<a href="../subset">subset</a> s1 s))))))
-</pre>
-<pre>
-(forall (y1 y x1 x e s1 s2)
-  (if (and (<a href="../skfct">skfct</a> y1 y x1 x e) (<a href="../typelt">typelt</a> x s1) (<a href="../rangeFd">rangeFd</a> s2 y x e))
-      (exists (f)
-        (and (<a href="../function0">function0</a> f s1 s2)
-             (forall (p)
-               (iff (<a href="../pair">pair</a> p x1 y1) (<a href="../member">member</a> p f)))))))
-</pre>
+</div>
 </section>
 
 </body>

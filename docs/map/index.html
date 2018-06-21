@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>If <code>f</code> is a function from <code>s1</code> to <code>s2</code>, we say it maps an element <code>x</code> of <code>s1</code> to an element <code>y</code> of <code>s2</code> when the pair <code><x, y></code> is a member of <code>f</code>.</p>
 <pre>
 (forall (f x y)
   (iff (<a href="../map">map</a> f x y)
@@ -35,15 +37,42 @@
          (and (<a href="../function0">function0</a> f s1 s2) (<a href="../member">member</a> p f)
               (<a href="../first">first</a> x p) (<a href="../second">second</a> y p)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>If <code>f</code> is a function from <code>s1</code> to <code>s2</code>, we say it maps an element <code>x</code> of <code>s1</code> to an element <code>y</code> of <code>s2</code> when the pair <code><x, y></code> is a member of <code>f</code>.</p>
 <pre>
-(forall (f s)
-  (iff (<a href="../identityFunction">identityFunction</a> f s)
-       (and (<a href="../function">function</a> f s s)
-            (forall (x) (if (<a href="../member">member</a> x s) (<a href="../map">map</a> f x x))))))
+(forall (f x y)
+  (iff (<a href="../map">map</a> f x y)
+       (exists (s1 s2 p)
+         (and (<a href="../function0">function0</a> f s1 s2) (<a href="../member">member</a> p f)
+              (<a href="../first">first</a> x p) (<a href="../second">second</a> y p)))))
 </pre>
+</div>
+<div class="axiom">
+<p>The <code>nth</code> element in a sequence is the entity in the range of the function that <code>n</code> is mapped into.</p>
+<pre>
+(forall (s n y)
+  (if (<a href="../sequence">sequence</a> s)
+      (iff (<a href="../nth">nth</a> y n s) (<a href="../map">map</a> s n y))))
+</pre>
+</div>
+<div class="axiom">
+<p>The <code>rest</code> of a sequence is what remains after the first element is removed. The expression <code>(rest s1 s)</code> says that <code>s1</code> is the rest of <code>s</code> after the first is removed.</p>
+<pre>
+(forall (s1 s)
+  (iff (<a href="../rest">rest</a> s1 s)
+       (and (<a href="../sequence">sequence</a> s) (<a href="../sequence">sequence</a> s1)
+            (forall (i x)
+              (iff (<a href="../map">map</a> s1 i x)
+                   (exists (j)
+                     (and (<a href="../posInteger">posInteger</a> i) (<a href="../successor">successor</a> j i)
+                          (<a href="../map">map</a> s j x))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A scale-to-scale function is monotone-increasing if the mapping preserves the domain scale's less-than ordering.</p>
 <pre>
 (forall (f s1 s2)
    (if (and (<a href="../function">function</a> f s1 s2) (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
@@ -52,27 +81,9 @@
                (if (and (<a href="../map">map</a> f x1 y1) (<a href="../map">map</a> f x2 y2) (<a href="../lts">lts</a> x1 x2 s1))
                    (<a href="../lts">lts</a> y1 y2 s2))))))
 </pre>
-<pre>
-(forall (f x y m s1)
-  (if (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1))
-      (iff (<a href="../proportion">proportion</a> f x y m)
-           (exists (n1 n2)
-             (and (<a href="../map">map</a> m x n1) (<a href="../map">map</a> m y n2)
-                  (<a href="../fraction">fraction</a> f n1 n2))))))
-</pre>
-<pre>
-(forall (f x y)
-  (iff (<a href="../map">map</a> f x y)
-       (exists (s1 s2 p)
-         (and (<a href="../function0">function0</a> f s1 s2) (<a href="../member">member</a> p f)
-              (<a href="../first">first</a> x p) (<a href="../second">second</a> y p)))))
-</pre>
-<pre>
-(forall (m s1 s2 x y)
-  (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)
-           (<a href="../map">map</a> m x y))
-      (<a href="../at">at</a> x y s2)))
-</pre>
+</div>
+<div class="axiom">
+<p>A measure is a monotone increasing function from a scale into a non-negative numeric scale in which the bottom of the domain scale, if there is one, maps into 0.</p>
 <pre>
 (forall (m s1)
   (iff (<a href="../measure">measure</a> m s1)
@@ -82,11 +93,38 @@
               (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
               (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Suppose we have two points x and y on a scale s1 which has a measure. Then the proportion of x to y is the fraction whose numerator and denominator are the numbers the measure maps x and y into, respectively.</p>
 <pre>
-(forall (s n y)
-  (if (<a href="../sequence">sequence</a> s)
-      (iff (<a href="../nth">nth</a> y n s) (<a href="../map">map</a> s n y))))
+(forall (f x y m s1)
+  (if (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1))
+      (iff (<a href="../proportion">proportion</a> f x y m)
+           (exists (n1 n2)
+             (and (<a href="../map">map</a> m x n1) (<a href="../map">map</a> m y n2)
+                  (<a href="../fraction">fraction</a> f n1 n2))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The identity function is the function that maps every entity into itself.</p>
+<pre>
+(forall (f s)
+  (iff (<a href="../identityFunction">identityFunction</a> f s)
+       (and (<a href="../function">function</a> f s s)
+            (forall (x) (if (<a href="../member">member</a> x s) (<a href="../map">map</a> f x x))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<pre>
+(forall (m s1 s2 x y)
+  (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)
+           (<a href="../map">map</a> m x y))
+      (<a href="../at">at</a> x y s2)))
+</pre>
+</div>
+<div class="axiom">
+<p>The primitive case of a rate is when there is a set S of events, a set T of time intervals, and a function mapping the intervals into a subset of S, namely those events that occur during that interval. When the concept of rate truly applies, the cardinalities of all these subsets are the same.</p>
 <pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)
@@ -100,16 +138,7 @@
                       (<a href="../card">card</a> n s1)))))
       (<a href="../rate">rate</a> n s t)))
 </pre>
-<pre>
-(forall (s1 s)
-  (iff (<a href="../rest">rest</a> s1 s)
-       (and (<a href="../sequence">sequence</a> s) (<a href="../sequence">sequence</a> s1)
-            (forall (i x)
-              (iff (<a href="../map">map</a> s1 i x)
-                   (exists (j)
-                     (and (<a href="../posInteger">posInteger</a> i) (<a href="../successor">successor</a> j i)
-                          (<a href="../map">map</a> s j x))))))))
-</pre>
+</div>
 </section>
 
 </body>

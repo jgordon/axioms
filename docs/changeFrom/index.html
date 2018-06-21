@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>When there has been a <code>changeFrom</code> some eventuality e1 where p'(e1,x) holds, then after the change p(x) is not true. (I.e., no eventuality corresponding to p(x) really exists.) The <code>subst</code> expression means that e1 and e3 have the same predicate and same arguments, other than the self argument.</p>
 <pre>
 (forall (e e1 e3)
   (if (<a href="../subst">subst</a> e3 e3 e1 e1)
@@ -35,6 +37,7 @@
            (exists (e2 e5)
              (and (<a href="../change">change</a>' e5 e1 e2) (<a href="../gen">gen</a> e5 e) (<a href="../inconsistent">inconsistent</a> e3 e2))))))
 </pre>
+</div>
 </section>
 
 </body>

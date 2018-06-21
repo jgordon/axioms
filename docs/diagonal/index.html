@@ -24,11 +24,7 @@
 </header>
 <section>
 <h2>All Axioms</h2>
-<pre>
-   (forall (p d c v x)
-      (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
-          (<a href="../45Degrees">45Degrees</a> v)))
-</pre>
+<div class="axiom">
 <pre>
    (forall (p d)
       (if (<a href="../square">square</a> p)
@@ -39,6 +35,14 @@
                        (<a href="../nequal">nequal</a> c1 c3) (<a href="../nequal">nequal</a> c1 c4)
                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (p d c v x)
+      (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
+          (<a href="../45Degrees">45Degrees</a> v)))
+</pre>
+</div>
 </section>
 
 </body>

@@ -28,15 +28,68 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (x) (if (<a href="../point">point</a> x) (<a href="../figure">figure</a> x)))
 (forall (c) (if (<a href="../curve">curve</a> c) (<a href="../figure">figure</a> c)))
 (forall (r) (if (<a href="../region">region</a> r) (<a href="../figure">figure</a> r)))
 (forall (v) (if (<a href="../volume">volume</a> v) (<a href="../figure">figure</a> v)))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (x) (if (<a href="../point">point</a> x) (<a href="../figure">figure</a> x)))
+(forall (c) (if (<a href="../curve">curve</a> c) (<a href="../figure">figure</a> c)))
+(forall (r) (if (<a href="../region">region</a> r) (<a href="../figure">figure</a> r)))
+(forall (v) (if (<a href="../volume">volume</a> v) (<a href="../figure">figure</a> v)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x c)
+  (if (<a href="../endpoint">endpoint</a> x c)
+      (and (<a href="../point">point</a> x) (<a href="../curve">curve</a> c))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f1 f2)
+  (if (and (<a href="../point">point</a> f1) (<a href="../inside">inside</a> f1 f2))
+      (or (<a href="../curve">curve</a> f2) (<a href="../region">region</a> f2) (<a href="../volume">volume</a> f2))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f1 f2)
+  (if (not (<a href="../point">point</a> f1))
+      (iff (<a href="../inside">inside</a> f1 f2)
+           (and (exists (x) (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x f1)))
+                (forall (x)
+                   (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x f1))
+                       (<a href="../inside">inside</a> x f2)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f1 f2)
+  (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
+       (or (and (<a href="../point">point</a> f1) (<a href="../curve">curve</a> f2) (<a href="../endpoint">endpoint</a> f1 f2))
+           (exists (b) (and (<a href="../region">region</a> f2) (<a href="../border">border</a> b f2) (<a href="../inside">inside</a> f1 b)))
+           (exists (b)
+             (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (d x1 x2 u)
+  (if (<a href="../distance">distance</a> d x1 x2 u)
+      (and (<a href="../nonNegativeNumber">nonNegativeNumber</a> d) (<a href="../point">point</a> x1) (<a href="../point">point</a> x2)
+           (<a href="../spatialUnit">spatialUnit</a> u))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (p s)
       (iff (<a href="../polyhedron">polyhedron</a> p s)
@@ -53,45 +106,7 @@
                                (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
                           (equal f1 f2)))))))
 </pre>
-<pre>
-(forall (d x1 x2 u)
-  (if (<a href="../distance">distance</a> d x1 x2 u)
-      (and (<a href="../nonNegativeNumber">nonNegativeNumber</a> d) (<a href="../point">point</a> x1) (<a href="../point">point</a> x2)
-           (<a href="../spatialUnit">spatialUnit</a> u))))
-</pre>
-<pre>
-(forall (f1 f2)
-  (if (and (<a href="../point">point</a> f1) (<a href="../inside">inside</a> f1 f2))
-      (or (<a href="../curve">curve</a> f2) (<a href="../region">region</a> f2) (<a href="../volume">volume</a> f2))))
-</pre>
-<pre>
-(forall (f1 f2)
-  (if (not (<a href="../point">point</a> f1))
-      (iff (<a href="../inside">inside</a> f1 f2)
-           (and (exists (x) (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x f1)))
-                (forall (x)
-                   (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x f1))
-                       (<a href="../inside">inside</a> x f2)))))))
-</pre>
-<pre>
-(forall (f1 f2)
-  (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
-       (or (and (<a href="../point">point</a> f1) (<a href="../curve">curve</a> f2) (<a href="../endpoint">endpoint</a> f1 f2))
-           (exists (b) (and (<a href="../region">region</a> f2) (<a href="../border">border</a> b f2) (<a href="../inside">inside</a> f1 b)))
-           (exists (b)
-             (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
-</pre>
-<pre>
-(forall (x c)
-  (if (<a href="../endpoint">endpoint</a> x c)
-      (and (<a href="../point">point</a> x) (<a href="../curve">curve</a> c))))
-</pre>
-<pre>
-(forall (x) (if (<a href="../point">point</a> x) (<a href="../figure">figure</a> x)))
-(forall (c) (if (<a href="../curve">curve</a> c) (<a href="../figure">figure</a> c)))
-(forall (r) (if (<a href="../region">region</a> r) (<a href="../figure">figure</a> r)))
-(forall (v) (if (<a href="../volume">volume</a> v) (<a href="../figure">figure</a> v)))
-</pre>
+</div>
 </section>
 
 </body>

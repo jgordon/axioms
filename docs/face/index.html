@@ -24,17 +24,21 @@
 </header>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+   (forall (p s f)
+      (if (<a href="../polyhedron">polyhedron</a> p s)
+          (iff (<a href="../face">face</a> f p) (<a href="../member">member</a> f s))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (c p s)
       (if (<a href="../polyhedron">polyhedron</a> p s)
           (iff (<a href="../edge">edge</a> c p)
                (exists (f) (and (<a href="../face">face</a> f p) (<a href="../sideOf">sideOf</a> c f))))))
 </pre>
-<pre>
-   (forall (p s f)
-      (if (<a href="../polyhedron">polyhedron</a> p s)
-          (iff (<a href="../face">face</a> f p) (<a href="../member">member</a> f s))))
-</pre>
+</div>
 </section>
 
 </body>

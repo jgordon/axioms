@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>It is convenient to have a predicate <code>onScale</code> for both points on a scale and for entities at points in a scale.</p>
 <pre>
 (forall (x s)
    (iff (<a href="../onScale">onScale</a> x s)
@@ -35,9 +37,62 @@
             (exists (y)
                (and (<a href="../inScale">inScale</a> y s) (<a href="../at">at</a> x y s))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Original:</p>
+<pre>
+(forall (x y s)
+   (if (<a href="../lts">lts</a> x y s)
+       (and (<a href="../onScale">onScale</a> x s) (<a href="../onScale">onScale</a> y s))))
+</pre>
+</div>
+<div class="axiom">
+<p>It is convenient to have a predicate <code>onScale</code> for both points on a scale and for entities at points in a scale.</p>
+<pre>
+(forall (x s)
+   (iff (<a href="../onScale">onScale</a> x s)
+        (or (<a href="../inScale">inScale</a> x s)
+            (exists (y)
+               (and (<a href="../inScale">inScale</a> y s) (<a href="../at">at</a> x y s))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Less-than or equal:</p>
+<pre>
+(forall (x y s)
+   (iff (<a href="../leqs">leqs</a> x y s)
+        (or (<a href="../lts">lts</a> x y s)
+            (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Greater-than or equal:</p>
+<pre>
+(forall (x y s)
+   (iff (<a href="../geqs">geqs</a> x y s)
+        (or (<a href="../gts">gts</a> x y s)
+            (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (x z)
+      (iff (<a href="../near">near</a> x z)
+           (exists (s s1)
+              (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Lo">Lo</a> s1 s) (<a href="../onScale">onScale</a> x s1)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (x z)
+      (iff (<a href="../far">far</a> x z)
+           (exists (s s2)
+              (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Hi">Hi</a> s2 s) (<a href="../onScale">onScale</a> x s2)))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (x s0 s1)
       (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
@@ -47,42 +102,7 @@
                   (forall (z) (iff (<a href="../member">member</a> z s4) (<a href="../lts">lts</a> x z s0)))
                   (<a href="../card">card</a> n3 s3) (<a href="../card">card</a> n4 s4) (<a href="../lt">lt</a> n4 n3)))))
 </pre>
-<pre>
-   (forall (x z)
-      (iff (<a href="../far">far</a> x z)
-           (exists (s s2)
-              (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Hi">Hi</a> s2 s) (<a href="../onScale">onScale</a> x s2)))))
-</pre>
-<pre>
-   (forall (x z)
-      (iff (<a href="../near">near</a> x z)
-           (exists (s s1)
-              (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Lo">Lo</a> s1 s) (<a href="../onScale">onScale</a> x s1)))))
-</pre>
-<pre>
-(forall (x s)
-   (iff (<a href="../onScale">onScale</a> x s)
-        (or (<a href="../inScale">inScale</a> x s)
-            (exists (y)
-               (and (<a href="../inScale">inScale</a> y s) (<a href="../at">at</a> x y s))))))
-</pre>
-<pre>
-(forall (x y s)
-   (if (<a href="../lts">lts</a> x y s)
-       (and (<a href="../onScale">onScale</a> x s) (<a href="../onScale">onScale</a> y s))))
-</pre>
-<pre>
-(forall (x y s)
-   (iff (<a href="../geqs">geqs</a> x y s)
-        (or (<a href="../gts">gts</a> x y s)
-            (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
-</pre>
-<pre>
-(forall (x y s)
-   (iff (<a href="../leqs">leqs</a> x y s)
-        (or (<a href="../lts">lts</a> x y s)
-            (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
-</pre>
+</div>
 </section>
 
 </body>

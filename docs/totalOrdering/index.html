@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>A total ordering is a partial ordering in which of any two elements, one is either less than, equal to, or greater than the other.</p>
 <pre>
 (forall (e x y s)
    (if (<a href="../lts">lts</a>' e x y s)
@@ -37,6 +39,7 @@
                    (or (<a href="../lts">lts</a> x1 y1 s) (equal x1 y1)
                        (<a href="../lts">lts</a> y1 x1 s)))))))
 </pre>
+</div>
 </section>
 
 </body>

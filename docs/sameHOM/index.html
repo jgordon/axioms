@@ -28,14 +28,45 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
 <pre>
 (forall (x y s1 m)
   (if (<a href="../sameHOM">sameHOM</a> x y s1 m)
       (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1) (<a href="../measure">measure</a> m s1))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<pre>
+(forall (x y s1 m)
+  (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
+      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m)
+           (exists (f f2)
+             (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
+                  (<a href="../leq">leq</a> f2 10))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<pre>
+(forall (x y s1 m)
+  (if (and (<a href="../gts">gts</a> x y s1) (<a href="../measure">measure</a> m s1))
+      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m) (<a href="../sameHOM">sameHOM</a> y x s1 m))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<pre>
+(forall (x y s1 m)
+  (if (<a href="../sameHOM">sameHOM</a> x y s1 m)
+      (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1) (<a href="../measure">measure</a> m s1))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the gap between two elements is roughly equal, the temporal sequence is roughly periodic.</p>
 <pre>
 (forall (s)
   (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)
@@ -51,24 +82,7 @@
                                 (<a href="../durationOf">durationOf</a>' e d t12 u)
                                 (<a href="../sameHOM">sameHOM</a> t12 t34 s0 e))))))))))
 </pre>
-<pre>
-(forall (x y s1 m)
-  (if (<a href="../sameHOM">sameHOM</a> x y s1 m)
-      (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1) (<a href="../measure">measure</a> m s1))))
-</pre>
-<pre>
-(forall (x y s1 m)
-  (if (and (<a href="../gts">gts</a> x y s1) (<a href="../measure">measure</a> m s1))
-      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m) (<a href="../sameHOM">sameHOM</a> y x s1 m))))
-</pre>
-<pre>
-(forall (x y s1 m)
-  (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
-      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m)
-           (exists (f f2)
-             (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
-                  (<a href="../leq">leq</a> f2 10))))))
-</pre>
+</div>
 </section>
 
 </body>

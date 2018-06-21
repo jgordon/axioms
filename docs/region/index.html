@@ -28,16 +28,36 @@
 </section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (x) (if (<a href="../point">point</a> x) (<a href="../figure">figure</a> x)))
+(forall (c) (if (<a href="../curve">curve</a> c) (<a href="../figure">figure</a> c)))
+(forall (r) (if (<a href="../region">region</a> r) (<a href="../figure">figure</a> r)))
+(forall (v) (if (<a href="../volume">volume</a> v) (<a href="../figure">figure</a> v)))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (c r)
   (if (<a href="../border">border</a> c r)
       (and (<a href="../curve">curve</a> c) (<a href="../region">region</a> r))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (r v)
+  (if (<a href="../surface">surface</a> r v)
+      (and (<a href="../region">region</a> r) (<a href="../volume">volume</a> v))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (f1 f2)
   (if (and (<a href="../point">point</a> f1) (<a href="../inside">inside</a> f1 f2))
       (or (<a href="../curve">curve</a> f2) (<a href="../region">region</a> f2) (<a href="../volume">volume</a> f2))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (f1 f2)
   (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
@@ -46,16 +66,8 @@
            (exists (b)
              (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
 </pre>
-<pre>
-(forall (r v)
-  (if (<a href="../surface">surface</a> r v)
-      (and (<a href="../region">region</a> r) (<a href="../volume">volume</a> v))))
-</pre>
-<pre>
-(forall (r)
-  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
-      (iff (<a href="../concave">concave</a> r) (not (<a href="../convex">convex</a> r)))))
-</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (r)
   (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
@@ -65,12 +77,14 @@
                       (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
                  (<a href="../subfigure">subfigure</a> x r))))))`
 </pre>
+</div>
+<div class="axiom">
 <pre>
-(forall (x) (if (<a href="../point">point</a> x) (<a href="../figure">figure</a> x)))
-(forall (c) (if (<a href="../curve">curve</a> c) (<a href="../figure">figure</a> c)))
-(forall (r) (if (<a href="../region">region</a> r) (<a href="../figure">figure</a> r)))
-(forall (v) (if (<a href="../volume">volume</a> v) (<a href="../figure">figure</a> v)))
+(forall (r)
+  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
+      (iff (<a href="../concave">concave</a> r) (not (<a href="../convex">convex</a> r)))))
 </pre>
+</div>
 </section>
 
 </body>

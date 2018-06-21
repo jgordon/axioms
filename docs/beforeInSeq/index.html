@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>If one element's <code>n</code> is less than another's, it is before the other in the sequence.</p>
 <pre>
 (forall (x y s)
   (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
@@ -35,9 +37,21 @@
          (and (<a href="../sequence">sequence</a> s) (<a href="../nth">nth</a> x n1 s) (<a href="../nth">nth</a> y n2 s)
               (<a href="../lt">lt</a> n1 n2)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>If one element's <code>n</code> is less than another's, it is before the other in the sequence.</p>
+<pre>
+(forall (x y s)
+  (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
+       (exists (n1 n2)
+         (and (<a href="../sequence">sequence</a> s) (<a href="../nth">nth</a> x n1 s) (<a href="../nth">nth</a> y n2 s)
+              (<a href="../lt">lt</a> n1 n2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A sequence can be viewed as a composite entity whose components are the elements of the sequence and whose relations are the ordering relations in the sequence.</p>
 <pre>
 (forall (e s)
   (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
@@ -54,6 +68,9 @@
                            (<a href="../Rexist">Rexist</a> e1)))))
              (<a href="../relationsOf">relationsOf</a> s3 s)))))
 </pre>
+</div>
+<div class="axiom">
+<p>A sequence is a scale whose partial ordering is the <code>beforeInSeq</code> relation.</p>
 <pre>
 (forall (s s1 e x y)
    (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
@@ -63,13 +80,7 @@
               (if (<a href="../first">first</a> z s)
                   (<a href="../bottom">bottom</a> z s))))))
 </pre>
-<pre>
-(forall (x y s)
-  (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
-       (exists (n1 n2)
-         (and (<a href="../sequence">sequence</a> s) (<a href="../nth">nth</a> x n1 s) (<a href="../nth">nth</a> y n2 s)
-              (<a href="../lt">lt</a> n1 n2)))))
-</pre>
+</div>
 </section>
 
 </body>

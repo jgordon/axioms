@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Set difference is defined similarly to union.</p>
 <pre>
 (forall (s s1 s2)
   (iff (<a href="../setdiff">setdiff</a> s s1 s2)
@@ -37,9 +39,11 @@
                    (and (<a href="../member">member</a> x s1)
                         (not (<a href="../member">member</a> x s2))))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Set difference is defined similarly to union.</p>
 <pre>
 (forall (s s1 s2)
   (iff (<a href="../setdiff">setdiff</a> s s1 s2)
@@ -49,6 +53,7 @@
                    (and (<a href="../member">member</a> x s1)
                         (not (<a href="../member">member</a> x s2))))))))
 </pre>
+</div>
 </section>
 
 </body>

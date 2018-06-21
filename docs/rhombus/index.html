@@ -24,6 +24,7 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (p)
   (iff (<a href="../rhombus">rhombus</a> p)
@@ -32,9 +33,10 @@
               (forall (c)
                 (if (<a href="../sideOf">sideOf</a> c p) (<a href="../length">length</a> d c u)))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (p)
   (iff (<a href="../rhombus">rhombus</a> p)
@@ -43,11 +45,14 @@
               (forall (c)
                 (if (<a href="../sideOf">sideOf</a> c p) (<a href="../length">length</a> d c u)))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (p)
   (iff (<a href="../square">square</a> p)
        (and (<a href="../rhombus">rhombus</a> p) (<a href="../rectangle">rectangle</a> p))))
 </pre>
+</div>
 </section>
 
 </body>

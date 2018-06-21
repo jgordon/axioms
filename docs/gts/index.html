@@ -28,14 +28,42 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The opposite of being less-than on a scale is being greater-than:</p>
 <pre>
 (forall (x y s)
   (iff (<a href="../gts">gts</a> y x s)
        (<a href="../lts">lts</a> x y s)))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The opposite of being less-than on a scale is being greater-than:</p>
+<pre>
+(forall (x y s)
+  (iff (<a href="../gts">gts</a> y x s)
+       (<a href="../lts">lts</a> x y s)))
+</pre>
+</div>
+<div class="axiom">
+<p>Greater-than or equal:</p>
+<pre>
+(forall (x y s)
+   (iff (<a href="../geqs">geqs</a> x y s)
+        (or (<a href="../gts">gts</a> x y s)
+            (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<pre>
+(forall (x y s1 m)
+  (if (and (<a href="../gts">gts</a> x y s1) (<a href="../measure">measure</a> m s1))
+      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m) (<a href="../sameHOM">sameHOM</a> y x s1 m))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (v)
       (iff (<a href="../acuteAngle">acuteAngle</a> v)
@@ -45,6 +73,8 @@
                    (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
                    (<a href="../gts">gts</a> x1 o a1) (<a href="../gts">gts</a> y1 o a2)))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (v)
       (iff (<a href="../obtuseAngle">obtuseAngle</a> v)
@@ -54,22 +84,7 @@
                    (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
                    (<a href="../gts">gts</a> o x1 a1) (<a href="../gts">gts</a> y1 o a2)))))
 </pre>
-<pre>
-(forall (x y s)
-   (iff (<a href="../geqs">geqs</a> x y s)
-        (or (<a href="../gts">gts</a> x y s)
-            (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
-</pre>
-<pre>
-(forall (x y s)
-  (iff (<a href="../gts">gts</a> y x s)
-       (<a href="../lts">lts</a> x y s)))
-</pre>
-<pre>
-(forall (x y s1 m)
-  (if (and (<a href="../gts">gts</a> x y s1) (<a href="../measure">measure</a> m s1))
-      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m) (<a href="../sameHOM">sameHOM</a> y x s1 m))))
-</pre>
+</div>
 </section>
 
 </body>

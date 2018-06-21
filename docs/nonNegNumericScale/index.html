@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Conversely, a non-negative numeric scale has the <code>lt</code> relation for its ordering and a set of numbers, including 0, as its set.</p>
 <pre>
 (forall (s)
   (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
@@ -39,40 +41,16 @@
              (<a href="../member">member</a> 0 s1)
              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
 </pre>
+</div><div class="axiom">
+<p>A non-negative numeric scale is vertical.</p>
 <pre>
 (forall (s) (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s) (<a href="../vertical">vertical</a> s)))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-(forall (f s)
-  (if (and (<a href="../nonNegNumericScale">nonNegNumericScale</a> s) (<a href="../identityFunction">identityFunction</a> f s))
-      (<a href="../measure">measure</a> f s)))
-</pre>
-<pre>
-(forall (m s1)
-  (iff (<a href="../measure">measure</a> m s1)
-       (exists (s2)
-         (and (<a href="../scale">scale</a> s1) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s2)
-              (<a href="../functionInto">functionInto</a> m s1 s2)
-              (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
-              (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
-</pre>
-<pre>
-(forall (s)
-  (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
-      (exists (s1 e x y)
-        (and (<a href="../lt">lt</a>' e x y)
-             (forall (n)
-               (if (<a href="../member">member</a> n s1)
-                   (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
-             (<a href="../member">member</a> 0 s1)
-             (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
-</pre>
-<pre>
-(forall (s) (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s) (<a href="../vertical">vertical</a> s)))
-</pre>
+<div class="axiom">
+<p>If e is the <code>lt</code> relation between x and y and s1 is a set of numbers containing 0 but no smaller number, then there is a non-negative numeric scale s with s1 as its set and e as its partial ordering.</p>
 <pre>
 (forall (s1 e x y)
   (if (and (<a href="../lt">lt</a>' e x y)
@@ -83,6 +61,47 @@
       (exists (s)
         (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)))))
 </pre>
+</div>
+<div class="axiom">
+<p>Conversely, a non-negative numeric scale has the <code>lt</code> relation for its ordering and a set of numbers, including 0, as its set.</p>
+<pre>
+(forall (s)
+  (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
+      (exists (s1 e x y)
+        (and (<a href="../lt">lt</a>' e x y)
+             (forall (n)
+               (if (<a href="../member">member</a> n s1)
+                   (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
+             (<a href="../member">member</a> 0 s1)
+             (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A measure is a monotone increasing function from a scale into a non-negative numeric scale in which the bottom of the domain scale, if there is one, maps into 0.</p>
+<pre>
+(forall (m s1)
+  (iff (<a href="../measure">measure</a> m s1)
+       (exists (s2)
+         (and (<a href="../scale">scale</a> s1) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s2)
+              (<a href="../functionInto">functionInto</a> m s1 s2)
+              (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
+              (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The identity function on a non-negative numeric scale is a measure.</p>
+<pre>
+(forall (f s)
+  (if (and (<a href="../nonNegNumericScale">nonNegNumericScale</a> s) (<a href="../identityFunction">identityFunction</a> f s))
+      (<a href="../measure">measure</a> f s)))
+</pre>
+</div>
+<div class="axiom">
+<p>A non-negative numeric scale is vertical.</p>
+<pre>
+(forall (s) (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s) (<a href="../vertical">vertical</a> s)))
+</pre>
+</div>
 </section>
 
 </body>

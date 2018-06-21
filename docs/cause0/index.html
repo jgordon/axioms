@@ -28,15 +28,36 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A <code>cause0</code> is an eventuality in a causal complex; a conjunction of the nonpresumable eventualities in a causal complex.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../cause0">cause0</a> e1 e2)
       (exists (s)
         (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>A <code>cause0</code> is an eventuality in a causal complex; a conjunction of the nonpresumable eventualities in a causal complex.</p>
+<pre>
+(forall (e1 e2)
+  (if (<a href="../cause0">cause0</a> e1 e2)
+      (exists (s)
+        (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)))))
+</pre>
+</div>
+<div class="axiom">
+<p><code>cause0</code> is defeasibly transitive.</p>
+<pre>
+(forall (e1 e2 e3)
+  (if (and (<a href="../cause0">cause0</a> e1 e2) (<a href="../cause0">cause0</a> e2 e3) (etc))
+      (<a href="../cause0">cause0</a> e1 e3)))
+</pre>
+</div>
+<div class="axiom">
+<p><code>cause</code> is like <code>cause0</code>, but it allows an agent as its first argument. When the first argument of <code>cause</code> is an eventuality, it reduces to <code>cause0</code>. When it's an agent, the agent's willing is the <code>cause0</code> of the second argument.</p>
 <pre>
 (forall (a e2)
   (and (if (<a href="../eventuality">eventuality</a> a)
@@ -48,17 +69,7 @@
        (if (not (or (<a href="../eventuality">eventuality</a> a) (<a href="../agent">agent</a> a)))
            (not (<a href="../cause">cause</a> a e2)))))
 </pre>
-<pre>
-(forall (e1 e2 e3)
-  (if (and (<a href="../cause0">cause0</a> e1 e2) (<a href="../cause0">cause0</a> e2 e3) (etc))
-      (<a href="../cause0">cause0</a> e1 e3)))
-</pre>
-<pre>
-(forall (e1 e2)
-  (if (<a href="../cause0">cause0</a> e1 e2)
-      (exists (s)
-        (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)))))
-</pre>
+</div>
 </section>
 
 </body>

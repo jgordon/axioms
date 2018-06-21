@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>All the elements in the properties of a composite entity have an <code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
 <pre>
 (forall (s2 x)
   (if (<a href="../propertiesOf">propertiesOf</a> s2 x)
@@ -38,9 +40,44 @@
                    (and (<a href="../componentOrWhole">componentOrWhole</a> y x)
                         (<a href="../onlyarg*">onlyarg*</a> y e))))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>A composite entity is characterized by a set of components, a set of properties, and a set of relations.</p>
+<pre>
+(forall (x)
+  (iff (<a href="../compositeEntity">compositeEntity</a> x)
+       (exists (s1 s2 s3)
+         (and (<a href="../componentsOf">componentsOf</a> s1 x) (<a href="../propertiesOf">propertiesOf</a> s2 x)
+              (<a href="../relationsOf">relationsOf</a> s3 x)))))
+</pre>
+</div>
+<div class="axiom">
+<p>All the elements in the properties of a composite entity have an <code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
+<pre>
+(forall (s2 x)
+  (if (<a href="../propertiesOf">propertiesOf</a> s2 x)
+      (and (<a href="../set">set</a> s2) (<a href="../compositeEntity">compositeEntity</a> x)
+           (forall (e)
+             (if (<a href="../member">member</a> e s2)
+                 (exists (y)
+                   (and (<a href="../componentOrWhole">componentOrWhole</a> y x)
+                        (<a href="../onlyarg*">onlyarg*</a> y e))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>It will be useful to be able to say something is a property or a relation of a composite entity.</p>
+<pre>
+(forall (e x)
+  (iff (<a href="../propOrRelOf">propOrRelOf</a> e x)
+       (exists (s)
+         (and (<a href="../member">member</a> e s)
+              (or (<a href="../propertiesOf">propertiesOf</a> s x) (<a href="../relationsOf">relationsOf</a> s x))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Sets are composite entities whose components are members and whose only property is being set.</p>
 <pre>
 (forall (e s s1 s2 s3)
   (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
@@ -48,6 +85,22 @@
       (and (<a href="../compositeEntity">compositeEntity</a> s) (<a href="../componentsOf">componentsOf</a> s s)
            (<a href="../propertiesOf">propertiesOf</a> s2 s) (<a href="../relationsOf">relationsOf</a> s3 s))))
 </pre>
+</div>
+<div class="axiom">
+<p>Ordered pairs are composite entities where the components are the first and second elements, there are no properties other than the whole being a pair, and the relations are the <code>first</code> and <code>second</code> relations between the components and the whole.</p>
+<pre>
+(forall (p x y e1 e2 e3)
+  (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
+           (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2) (<a href="../Rexist">Rexist</a> e3))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity">compositeEntity</a> p)
+             (<a href="../doubleton">doubleton</a> s1 x y) (<a href="../componentsOf">componentsOf</a> s1 p)
+             (<a href="../singleton">singleton</a> s2 e1) (<a href="../propertiesOf">propertiesOf</a> s2 p)
+             (<a href="../doubleton">doubleton</a> s3 e2 e3) (<a href="../relationsOf">relationsOf</a> s3 p)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A sequence can be viewed as a composite entity whose components are the elements of the sequence and whose relations are the ordering relations in the sequence.</p>
 <pre>
 (forall (e s)
   (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
@@ -64,13 +117,9 @@
                            (<a href="../Rexist">Rexist</a> e1)))))
              (<a href="../relationsOf">relationsOf</a> s3 s)))))
 </pre>
-<pre>
-(forall (e x)
-  (iff (<a href="../propOrRelOf">propOrRelOf</a> e x)
-       (exists (s)
-         (and (<a href="../member">member</a> e s)
-              (or (<a href="../propertiesOf">propertiesOf</a> s x) (<a href="../relationsOf">relationsOf</a> s x))))))
-</pre>
+</div>
+<div class="axiom">
+<p>A complex event is a composite entity whose components are its subevents, among whose properties are the <code>event</code> properties, and among whose relations are the <code>subevent</code> relations.</p>
 <pre>
 (forall (e1 e)
    (if (<a href="../subevent">subevent</a> e1 e)
@@ -90,33 +139,7 @@
                        (and (<a href="../subevent">subevent</a>' e3 e2 e)
                             (<a href="../member">member</a> e3 s3)))))))))
 </pre>
-<pre>
-(forall (p x y e1 e2 e3)
-  (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
-           (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2) (<a href="../Rexist">Rexist</a> e3))
-      (exists (s1 s2 s3)
-        (and (<a href="../compositeEntity">compositeEntity</a> p)
-             (<a href="../doubleton">doubleton</a> s1 x y) (<a href="../componentsOf">componentsOf</a> s1 p)
-             (<a href="../singleton">singleton</a> s2 e1) (<a href="../propertiesOf">propertiesOf</a> s2 p)
-             (<a href="../doubleton">doubleton</a> s3 e2 e3) (<a href="../relationsOf">relationsOf</a> s3 p)))))
-</pre>
-<pre>
-(forall (s2 x)
-  (if (<a href="../propertiesOf">propertiesOf</a> s2 x)
-      (and (<a href="../set">set</a> s2) (<a href="../compositeEntity">compositeEntity</a> x)
-           (forall (e)
-             (if (<a href="../member">member</a> e s2)
-                 (exists (y)
-                   (and (<a href="../componentOrWhole">componentOrWhole</a> y x)
-                        (<a href="../onlyarg*">onlyarg*</a> y e))))))))
-</pre>
-<pre>
-(forall (x)
-  (iff (<a href="../compositeEntity">compositeEntity</a> x)
-       (exists (s1 s2 s3)
-         (and (<a href="../componentsOf">componentsOf</a> s1 x) (<a href="../propertiesOf">propertiesOf</a> s2 x)
-              (<a href="../relationsOf">relationsOf</a> s3 x)))))
-</pre>
+</div>
 </section>
 
 </body>

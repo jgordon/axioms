@@ -24,19 +24,23 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (p)
   (iff (<a href="../square">square</a> p)
        (and (<a href="../rhombus">rhombus</a> p) (<a href="../rectangle">rectangle</a> p))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
-   (forall (p d c v x)
-      (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
-          (<a href="../45Degrees">45Degrees</a> v)))
+(forall (p)
+  (iff (<a href="../square">square</a> p)
+       (and (<a href="../rhombus">rhombus</a> p) (<a href="../rectangle">rectangle</a> p))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (p d)
       (if (<a href="../square">square</a> p)
@@ -47,6 +51,15 @@
                        (<a href="../nequal">nequal</a> c1 c3) (<a href="../nequal">nequal</a> c1 c4)
                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (p d c v x)
+      (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
+          (<a href="../45Degrees">45Degrees</a> v)))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (p s)
       (iff (<a href="../cube">cube</a> p s)
@@ -54,11 +67,7 @@
                 (forall (f)
                    (if (<a href="../member">member</a> f s) (<a href="../square">square</a> f))))))
 </pre>
-<pre>
-(forall (p)
-  (iff (<a href="../square">square</a> p)
-       (and (<a href="../rhombus">rhombus</a> p) (<a href="../rectangle">rectangle</a> p))))
-</pre>
+</div>
 </section>
 
 </body>

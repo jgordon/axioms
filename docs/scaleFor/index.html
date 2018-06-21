@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The <code>scaleFor</code> predicate relates a scale and the absolute form of its adjective (e.g., 'tall').</p>
 <pre>
 (forall (s e)
    (iff (<a href="../scaleFor">scaleFor</a> s e)
@@ -37,9 +39,23 @@
                    (if (and (<a href="../at">at</a>' e1 x y s1) (<a href="../argn">argn</a> x 1 e))
                        (iff (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1))))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The <code>scaleFor</code> predicate relates a scale and the absolute form of its adjective (e.g., 'tall').</p>
+<pre>
+(forall (s e)
+   (iff (<a href="../scaleFor">scaleFor</a> s e)
+        (exists (s1)
+           (and (<a href="../Hi">Hi</a> s1 s)
+                (forall (e1 x y)
+                   (if (and (<a href="../at">at</a>' e1 x y s1) (<a href="../argn">argn</a> x 1 e))
+                       (iff (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Something is difficult if it is in the <code>Hi</code> region of a difficulty scale.</p>
 <pre>
 (forall (e1 e a)
   (iff (<a href="../difficult">difficult</a>' e1 e a)
@@ -47,15 +63,7 @@
             (exists (s)
               (and (<a href="../difficultyScale">difficultyScale</a> s e) (<a href="../scaleFor">scaleFor</a> s e1))))))
 </pre>
-<pre>
-(forall (s e)
-   (iff (<a href="../scaleFor">scaleFor</a> s e)
-        (exists (s1)
-           (and (<a href="../Hi">Hi</a> s1 s)
-                (forall (e1 x y)
-                   (if (and (<a href="../at">at</a>' e1 x y s1) (<a href="../argn">argn</a> x 1 e))
-                       (iff (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1))))))))
-</pre>
+</div>
 </section>
 
 </body>

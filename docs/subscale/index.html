@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A subscale of a scale has as its components a subset of the components of the scale and its partial ordering relation is the partial ordering of the scale restricted to that subset.</p>
 <pre>
 (forall (s1 s)
    (iff (<a href="../subscale">subscale</a> s1 s)
@@ -38,9 +40,24 @@
                      (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)
                           (<a href="../lts">lts</a> x y s)))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>A subscale of a scale has as its components a subset of the components of the scale and its partial ordering relation is the partial ordering of the scale restricted to that subset.</p>
+<pre>
+(forall (s1 s)
+   (iff (<a href="../subscale">subscale</a> s1 s)
+        (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s)
+             (forall (x) (if (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> x s)))
+             (forall (x y)
+                (iff (<a href="../lts">lts</a> x y s1)
+                     (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)
+                          (<a href="../lts">lts</a> x y s)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A function f is "into" a set or scale s3 if there is a subset or subscale s2 for which fi is a function "onto".</p>
 <pre>
 (forall (f s1 s3)
    (iff (<a href="../functionInto">functionInto</a> f s1 s3)
@@ -48,25 +65,25 @@
           (and (or (<a href="../subset">subset</a> s2 s3) (<a href="../subscale">subscale</a> s2 s3))
                (<a href="../function">function</a> f s1 s2)))))
 </pre>
-<pre>
-(forall (s1 s)
-   (iff (<a href="../subscale">subscale</a> s1 s)
-        (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s)
-             (forall (x) (if (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> x s)))
-             (forall (x y)
-                (iff (<a href="../lts">lts</a> x y s1)
-                     (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)
-                          (<a href="../lts">lts</a> x y s)))))))
-</pre>
+</div>
+<div class="axiom">
+<p>We can construct composite scales out of existing scales.</p>
 <pre>
 (forall (s1 s) (if (<a href="../Hi">Hi</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
 </pre>
-<pre>
-(forall (s1 s) (if (<a href="../Lo">Lo</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
-</pre>
+</div>
+<div class="axiom">
+<p>We can construct composite scales out of existing scales.</p>
 <pre>
 (forall (s1 s) (if (<a href="../Md">Md</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
 </pre>
+</div>
+<div class="axiom">
+<p>We can construct composite scales out of existing scales.</p>
+<pre>
+(forall (s1 s) (if (<a href="../Lo">Lo</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
+</pre>
+</div>
 </section>
 
 </body>

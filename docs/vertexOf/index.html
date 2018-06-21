@@ -24,6 +24,15 @@
 </header>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (p)
+  (iff (<a href="../rectangle">rectangle</a> p)
+       (and (<a href="../quadrilateral">quadrilateral</a> p)
+            (forall (v) (iff (<a href="../vertexOf">vertexOf</a> v p) (<a href="../rightAngle">rightAngle</a> v))))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (p d)
       (if (<a href="../square">square</a> p)
@@ -34,12 +43,7 @@
                        (<a href="../nequal">nequal</a> c1 c3) (<a href="../nequal">nequal</a> c1 c4)
                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
 </pre>
-<pre>
-(forall (p)
-  (iff (<a href="../rectangle">rectangle</a> p)
-       (and (<a href="../quadrilateral">quadrilateral</a> p)
-            (forall (v) (iff (<a href="../vertexOf">vertexOf</a> v p) (<a href="../rightAngle">rightAngle</a> v))))))
-</pre>
+</div>
 </section>
 
 </body>

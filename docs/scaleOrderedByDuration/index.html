@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Then we can define a <code>scaleOrderedByDuration</code>.</p>
 <pre>
 (forall (s)
   (iff (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s)
@@ -36,9 +38,22 @@
               (<a href="../shorterDuration">shorterDuration</a>' e t1 t2)
               (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Then we can define a <code>scaleOrderedByDuration</code>.</p>
+<pre>
+(forall (s)
+  (iff (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s)
+       (exists (s1 e t1 t2)
+         (and (forall (t) (if (<a href="../member">member</a> t s1) (<a href="../interval">interval</a> t)))
+              (<a href="../shorterDuration">shorterDuration</a>' e t1 t2)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the gap between two elements is roughly equal, the temporal sequence is roughly periodic.</p>
 <pre>
 (forall (s)
   (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)
@@ -54,14 +69,7 @@
                                 (<a href="../durationOf">durationOf</a>' e d t12 u)
                                 (<a href="../sameHOM">sameHOM</a> t12 t34 s0 e))))))))))
 </pre>
-<pre>
-(forall (s)
-  (iff (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s)
-       (exists (s1 e t1 t2)
-         (and (forall (t) (if (<a href="../member">member</a> t s1) (<a href="../interval">interval</a> t)))
-              (<a href="../shorterDuration">shorterDuration</a>' e t1 t2)
-              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
-</pre>
+</div>
 </section>
 
 </body>

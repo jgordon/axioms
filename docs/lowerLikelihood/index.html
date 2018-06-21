@@ -28,11 +28,8 @@
 </section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-(forall (d1 d2)
-  (iff (<a href="../leqLikelihood">leqLikelihood</a> d1 d2)
-       (or (<a href="../lowerLikelihood">lowerLikelihood</a> d1 d2) (equal d1 d2))))
-</pre>
+<div class="axiom">
+<p>The <code>likelihoodScale</code> has likelihoods as its elements and the <code>lowerLikelihood</code> relation as its partial ordering.</p>
 <pre>
 (forall (s)
   (iff (<a href="../likelihoodScale">likelihoodScale</a> s)
@@ -42,6 +39,15 @@
               (<a href="../lowerLikelihood">lowerLikelihood</a>' r d1 d2)
               (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 r)))))
 </pre>
+</div>
+<div class="axiom">
+<p>If an eventuality is likely, its negation is not likely.</p>
+<pre>
+(forall (d1 d2)
+  (iff (<a href="../leqLikelihood">leqLikelihood</a> d1 d2)
+       (or (<a href="../lowerLikelihood">lowerLikelihood</a> d1 d2) (equal d1 d2))))
+</pre>
+</div>
 </section>
 
 </body>

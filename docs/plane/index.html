@@ -24,6 +24,7 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (r)
   (iff (<a href="../plane">plane</a> r)
@@ -32,28 +33,34 @@
                   (<a href="../inside">inside</a> x1 r) (<a href="../inside">inside</a> x2 r))
              (<a href="../inside">inside</a> c r)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (r)
+  (iff (<a href="../plane">plane</a> r)
+       (forall (c x1 x2)
+         (if (and (<a href="../line">line</a> c) (<a href="../inside">inside</a> x1 c) (<a href="../inside">inside</a> x2 c)
+                  (<a href="../inside">inside</a> x1 r) (<a href="../inside">inside</a> x2 r))
+             (<a href="../inside">inside</a> c r)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (r)
+  (iff (<a href="../planar">planar</a> r)
+       (exists (r1) (and (<a href="../plane">plane</a> r1) (<a href="../inside">inside</a> r r1)))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (f1 f2)
   (iff (<a href="../coplanar">coplanar</a> f1 f2)
        (exists (p)
          (and (<a href="../plane">plane</a> p) (<a href="../inside">inside</a> f1 p) (<a href="../inside">inside</a> f2 p)))))
 </pre>
-<pre>
-(forall (r)
-  (iff (<a href="../planar">planar</a> r)
-       (exists (r1) (and (<a href="../plane">plane</a> r1) (<a href="../inside">inside</a> r r1)))))
-</pre>
-<pre>
-(forall (r)
-  (iff (<a href="../plane">plane</a> r)
-       (forall (c x1 x2)
-         (if (and (<a href="../line">line</a> c) (<a href="../inside">inside</a> x1 c) (<a href="../inside">inside</a> x2 c)
-                  (<a href="../inside">inside</a> x1 r) (<a href="../inside">inside</a> x2 r))
-             (<a href="../inside">inside</a> c r)))))
-</pre>
+</div>
 </section>
 
 </body>

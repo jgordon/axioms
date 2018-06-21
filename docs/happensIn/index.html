@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>We will say that an eventuality happens in a temporal entity or sequence if its time span is entirely included in the temporal entity or sequence.</p>
 <pre>
 (forall (e t)
   (iff (<a href="../happensIn">happensIn</a> e t)
@@ -39,12 +41,16 @@
                     (or (<a href="../begins">begins</a> t2 t) (<a href="../insideTime">insideTime</a> t2 t)
                         (<a href="../ends">ends</a> t2 t))))))))
 </pre>
+</div><div class="axiom">
+<p>The predicate <code>properIntervalEv</code> says that its argument is either a proper interval or an eventuality whose time span is a proper interval.</p>
 <pre>
 (forall (e0 e t) (if (<a href="../happensIn">happensIn</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>We will say that an eventuality happens in a temporal entity or sequence if its time span is entirely included in the temporal entity or sequence.</p>
 <pre>
 (forall (e t)
   (iff (<a href="../happensIn">happensIn</a> e t)
@@ -56,9 +62,15 @@
                     (or (<a href="../begins">begins</a> t2 t) (<a href="../insideTime">insideTime</a> t2 t)
                         (<a href="../ends">ends</a> t2 t))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>properIntervalEv</code> says that its argument is either a proper interval or an eventuality whose time span is a proper interval.</p>
 <pre>
 (forall (e0 e t) (if (<a href="../happensIn">happensIn</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
 </pre>
+</div>
+<div class="axiom">
+<p>The primitive case of a rate is when there is a set S of events, a set T of time intervals, and a function mapping the intervals into a subset of S, namely those events that occur during that interval. When the concept of rate truly applies, the cardinalities of all these subsets are the same.</p>
 <pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)
@@ -72,6 +84,7 @@
                       (<a href="../card">card</a> n s1)))))
       (<a href="../rate">rate</a> n s t)))
 </pre>
+</div>
 </section>
 
 </body>

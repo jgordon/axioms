@@ -28,6 +28,16 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A sequence of length <code>n</code> is a function whose domain is the first <code>n</code> positive integers. There are no constraints on <code>s2</code>.</p>
+<pre>
+(forall (s)
+  (iff (<a href="../sequence">sequence</a> s)
+       (exists (s1 s2 n)
+         (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n)))))
+</pre>
+</div><div class="axiom">
+<p>The length of a sequence is the number that defines its domain of consecutive integers.</p>
 <pre>
 (forall (n s)
   (if (<a href="../sequence">sequence</a> s)
@@ -35,25 +45,91 @@
            (exists (s1 s2)
              (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n))))))
 </pre>
+</div><div class="axiom">
+<p>The <code>nth</code> element in a sequence is the entity in the range of the function that <code>n</code> is mapped into.</p>
 <pre>
 (forall (s n y)
   (if (<a href="../sequence">sequence</a> s)
       (iff (<a href="../nth">nth</a> y n s) (<a href="../map">map</a> s n y))))
 </pre>
+</div><div class="axiom">
+<p>The <code>first</code> element is the <code>nth</code> where <code>n</code> is 1. This is the same predicate used for the first element of a pair, but the axioms are avoid confusion by conditioning on the second element being either a sequence or a pair (which is isomorphic to the set of sequences of length two).</p>
 <pre>
 (forall (s y)
   (if (<a href="../sequence">sequence</a> s)
       (iff (<a href="../first">first</a> y s) (<a href="../nth">nth</a> y 1 s))))
 </pre>
+</div></section>
+<section>
+<h2>All Axioms</h2>
+<div class="axiom">
+<p>A sequence of length <code>n</code> is a function whose domain is the first <code>n</code> positive integers. There are no constraints on <code>s2</code>.</p>
 <pre>
 (forall (s)
   (iff (<a href="../sequence">sequence</a> s)
        (exists (s1 s2 n)
          (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n)))))
 </pre>
-</section>
-<section>
-<h2>All Axioms</h2>
+</div>
+<div class="axiom">
+<p>The length of a sequence is the number that defines its domain of consecutive integers.</p>
+<pre>
+(forall (n s)
+  (if (<a href="../sequence">sequence</a> s)
+      (iff (<a href="../length">length</a> n s)
+           (exists (s1 s2)
+             (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The <code>nth</code> element in a sequence is the entity in the range of the function that <code>n</code> is mapped into.</p>
+<pre>
+(forall (s n y)
+  (if (<a href="../sequence">sequence</a> s)
+      (iff (<a href="../nth">nth</a> y n s) (<a href="../map">map</a> s n y))))
+</pre>
+</div>
+<div class="axiom">
+<p>The <code>first</code> element is the <code>nth</code> where <code>n</code> is 1. This is the same predicate used for the first element of a pair, but the axioms are avoid confusion by conditioning on the second element being either a sequence or a pair (which is isomorphic to the set of sequences of length two).</p>
+<pre>
+(forall (s y)
+  (if (<a href="../sequence">sequence</a> s)
+      (iff (<a href="../first">first</a> y s) (<a href="../nth">nth</a> y 1 s))))
+</pre>
+</div>
+<div class="axiom">
+<p>The <code>rest</code> of a sequence is what remains after the first element is removed. The expression <code>(rest s1 s)</code> says that <code>s1</code> is the rest of <code>s</code> after the first is removed.</p>
+<pre>
+(forall (s1 s)
+  (iff (<a href="../rest">rest</a> s1 s)
+       (and (<a href="../sequence">sequence</a> s) (<a href="../sequence">sequence</a> s1)
+            (forall (i x)
+              (iff (<a href="../map">map</a> s1 i x)
+                   (exists (j)
+                     (and (<a href="../posInteger">posInteger</a> i) (<a href="../successor">successor</a> j i)
+                          (<a href="../map">map</a> s j x))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The last element of a sequence is the <code>nth</code> element where <code>n</code> is the length of the sequence.</p>
+<pre>
+(forall (s y n)
+  (if (and (<a href="../sequence">sequence</a> s) (<a href="../length">length</a> n s))
+      (iff (<a href="../last">last</a> y s) (<a href="../nth">nth</a> y n s))))
+</pre>
+</div>
+<div class="axiom">
+<p>If one element's <code>n</code> is less than another's, it is before the other in the sequence.</p>
+<pre>
+(forall (x y s)
+  (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
+       (exists (n1 n2)
+         (and (<a href="../sequence">sequence</a> s) (<a href="../nth">nth</a> x n1 s) (<a href="../nth">nth</a> y n2 s)
+              (<a href="../lt">lt</a> n1 n2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A sequence can be viewed as a composite entity whose components are the elements of the sequence and whose relations are the ordering relations in the sequence.</p>
 <pre>
 (forall (e s)
   (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
@@ -70,18 +146,9 @@
                            (<a href="../Rexist">Rexist</a> e1)))))
              (<a href="../relationsOf">relationsOf</a> s3 s)))))
 </pre>
-<pre>
-(forall (n s)
-  (if (<a href="../sequence">sequence</a> s)
-      (iff (<a href="../length">length</a> n s)
-           (exists (s1 s2)
-             (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n))))))
-</pre>
-<pre>
-(forall (s n y)
-  (if (<a href="../sequence">sequence</a> s)
-      (iff (<a href="../nth">nth</a> y n s) (<a href="../map">map</a> s n y))))
-</pre>
+</div>
+<div class="axiom">
+<p>A sequence is a scale whose partial ordering is the <code>beforeInSeq</code> relation.</p>
 <pre>
 (forall (s s1 e x y)
    (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
@@ -91,39 +158,7 @@
               (if (<a href="../first">first</a> z s)
                   (<a href="../bottom">bottom</a> z s))))))
 </pre>
-<pre>
-(forall (s y n)
-  (if (and (<a href="../sequence">sequence</a> s) (<a href="../length">length</a> n s))
-      (iff (<a href="../last">last</a> y s) (<a href="../nth">nth</a> y n s))))
-</pre>
-<pre>
-(forall (s y)
-  (if (<a href="../sequence">sequence</a> s)
-      (iff (<a href="../first">first</a> y s) (<a href="../nth">nth</a> y 1 s))))
-</pre>
-<pre>
-(forall (s)
-  (iff (<a href="../sequence">sequence</a> s)
-       (exists (s1 s2 n)
-         (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n)))))
-</pre>
-<pre>
-(forall (s1 s)
-  (iff (<a href="../rest">rest</a> s1 s)
-       (and (<a href="../sequence">sequence</a> s) (<a href="../sequence">sequence</a> s1)
-            (forall (i x)
-              (iff (<a href="../map">map</a> s1 i x)
-                   (exists (j)
-                     (and (<a href="../posInteger">posInteger</a> i) (<a href="../successor">successor</a> j i)
-                          (<a href="../map">map</a> s j x))))))))
-</pre>
-<pre>
-(forall (x y s)
-  (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
-       (exists (n1 n2)
-         (and (<a href="../sequence">sequence</a> s) (<a href="../nth">nth</a> x n1 s) (<a href="../nth">nth</a> y n2 s)
-              (<a href="../lt">lt</a> n1 n2)))))
-</pre>
+</div>
 </section>
 
 </body>

@@ -28,14 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
-<pre>
-(forall (s)
-  (iff (<a href="../ground">ground</a> s)
-       (and (<a href="../compositeEntity">compositeEntity</a> s)
-            (exists (e y s1)
-              (and (<a href="../componentsOf">componentsOf</a> s1 s) (<a href="../typelt">typelt</a> y s1) (<a href="../arg*">arg*</a> y e)
-                   (if (<a href="../Rexist">Rexist</a> s) (<a href="../Rexist">Rexist</a> e)))))))
-</pre>
+<div class="axiom">
+<p>A ground in a figure-ground relation is a composite entity whose parts are all uniform in that they all share some property.</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -49,21 +43,21 @@
                                 (if (<a href="../Rexist">Rexist</a> s)
                                     (<a href="../Rexist">Rexist</a> e1)))))))))))
 </pre>
-</section>
+</div><div class="axiom">
+<p>This can also be written as:</p>
+<pre>
+(forall (s)
+  (iff (<a href="../ground">ground</a> s)
+       (and (<a href="../compositeEntity">compositeEntity</a> s)
+            (exists (e y s1)
+              (and (<a href="../componentsOf">componentsOf</a> s1 s) (<a href="../typelt">typelt</a> y s1) (<a href="../arg*">arg*</a> y e)
+                   (if (<a href="../Rexist">Rexist</a> s) (<a href="../Rexist">Rexist</a> e)))))))
+</pre>
+</div></section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-(forall (s)
-  (if (<a href="../scale">scale</a> s) (<a href="../ground">ground</a> s)))
-</pre>
-<pre>
-(forall (s)
-  (iff (<a href="../ground">ground</a> s)
-       (and (<a href="../compositeEntity">compositeEntity</a> s)
-            (exists (e y s1)
-              (and (<a href="../componentsOf">componentsOf</a> s1 s) (<a href="../typelt">typelt</a> y s1) (<a href="../arg*">arg*</a> y e)
-                   (if (<a href="../Rexist">Rexist</a> s) (<a href="../Rexist">Rexist</a> e)))))))
-</pre>
+<div class="axiom">
+<p>A ground in a figure-ground relation is a composite entity whose parts are all uniform in that they all share some property.</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -77,17 +71,45 @@
                                 (if (<a href="../Rexist">Rexist</a> s)
                                     (<a href="../Rexist">Rexist</a> e1)))))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>This can also be written as:</p>
 <pre>
-(forall (s) (if (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../ground">ground</a> s)))
+(forall (s)
+  (iff (<a href="../ground">ground</a> s)
+       (and (<a href="../compositeEntity">compositeEntity</a> s)
+            (exists (e y s1)
+              (and (<a href="../componentsOf">componentsOf</a> s1 s) (<a href="../typelt">typelt</a> y s1) (<a href="../arg*">arg*</a> y e)
+                   (if (<a href="../Rexist">Rexist</a> s) (<a href="../Rexist">Rexist</a> e)))))))
 </pre>
-<pre>
-(forall (t) (if (<a href="../timeScale">timeScale</a> t) (<a href="../ground">ground</a> t)))
-</pre>
+</div>
+<div class="axiom">
+<p>The third argument of an <code>at</code> relation must be a potential ground.</p>
 <pre>
 (forall (x y s)
   (if (<a href="../at">at</a> x y s)
       (<a href="../ground">ground</a> s)))
 </pre>
+</div>
+<div class="axiom">
+<p>A scale is potentially a ground, and very frequently we speak of entities being located at some point on a scale.</p>
+<pre>
+(forall (s)
+  (if (<a href="../scale">scale</a> s) (<a href="../ground">ground</a> s)))
+</pre>
+</div>
+<div class="axiom">
+<p>Since all the elements in a time scale are temporal entities, a time scale can be viewed as a possible ground.</p>
+<pre>
+(forall (t) (if (<a href="../timeScale">timeScale</a> t) (<a href="../ground">ground</a> t)))
+</pre>
+</div>
+<div class="axiom">
+<p>A likelihood scale consists of elements that are all likelihoods and hence have a common property; the scale can then be a potential ground.</p>
+<pre>
+(forall (s) (if (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../ground">ground</a> s)))
+</pre>
+</div>
 </section>
 
 </body>

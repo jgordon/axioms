@@ -24,11 +24,7 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
-<pre>
-(forall (c c1 c2 x)
-   (if (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
-       (<a href="../curve">curve</a> c)))
-</pre>
+<div class="axiom">
 <pre>
 (forall (c c1 c2 x)
   (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
@@ -43,14 +39,16 @@
                    (and (<a href="../nequal">nequal</a> z x)
                         (or (<a href="../endpoint">endpoint</a> z c1) (<a href="../endpoint">endpoint</a> z c2))))))))
 </pre>
-</section>
+</div><div class="axiom">
+<pre>
+(forall (c c1 c2 x)
+   (if (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
+       (<a href="../curve">curve</a> c)))
+</pre>
+</div></section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-(forall (c c1 c2 x)
-   (if (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
-       (<a href="../curve">curve</a> c)))
-</pre>
+<div class="axiom">
 <pre>
 (forall (c c1 c2 x)
   (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
@@ -65,12 +63,22 @@
                    (and (<a href="../nequal">nequal</a> z x)
                         (or (<a href="../endpoint">endpoint</a> z c1) (<a href="../endpoint">endpoint</a> z c2))))))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (c c1 c2 x)
+   (if (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
+       (<a href="../curve">curve</a> c)))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex">vertex</a> v c1 c2 x)
        (and (<a href="../linear">linear</a> c1) (<a href="../linear">linear</a> c2) (not (<a href="../linear">linear</a> v))
             (<a href="../joinedCurves">joinedCurves</a> v c1 c2 x))))
 </pre>
+</div>
 </section>
 
 </body>

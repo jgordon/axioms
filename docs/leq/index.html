@@ -28,20 +28,18 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
 <pre>
 (forall (n1 n2)
   (iff (<a href="../leq">leq</a> n1 n2)
        (or (<a href="../lt">lt</a> n1 n2) (equal n1 n2))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-(forall (d1 d2 d3 d4 x1 x2 x3 u)
-  (if (and (<a href="../distance">distance</a> d1 x1 x2 u) (<a href="../distance">distance</a> d2 x2 x3 u)
-           (<a href="../distance">distance</a> d3 x1 x3 u) (<a href="../sum">sum</a> d4 d1 d2))
-      (<a href="../leq">leq</a> d3 d4)))
-</pre>
+<div class="axiom">
+<p>Eventualities all have a predicate p, an arity n, and arguments 1...n.</p>
 <pre>
 (forall (e)
   (iff (<a href="../eventuality">eventuality</a> e)
@@ -53,19 +51,9 @@
                     (exists (x)
                       (<a href="../argn">argn</a> x i e))))))))
 </pre>
-<pre>
-(forall (n1 n2)
-  (iff (<a href="../leq">leq</a> n1 n2)
-       (or (<a href="../lt">lt</a> n1 n2) (equal n1 n2))))
-</pre>
-<pre>
-(forall (s n1 n2)
-  (iff (<a href="../ints">ints</a> s n1 n2)
-       (and (<a href="../posInteger">posInteger</a> n1) (<a href="../posInteger">posInteger</a> n2) (<a href="../set">set</a> s)
-            (forall (n)
-              (iff (<a href="../member">member</a> n s)
-                   (and (<a href="../posInteger">posInteger</a> n) (<a href="../leq">leq</a> n1 n) (<a href="../leq">leq</a> n n2)))))))
-</pre>
+</div>
+<div class="axiom">
+<p>Two entities are subsitutable in their respective events if they play the same role.</p>
 <pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst">subst</a> x e1 y e2)
@@ -85,6 +73,28 @@
                          (if (<a href="../eventuality">eventuality</a> z1)
                              (<a href="../subst">subst</a> x z1 y z2)))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The expression <code>(ints s n1 n2)</code> says that <code>s</code> is the set of all positive integers from <code>n1</code> to <code>n2</code>, including <code>n1</code> and <code>n2</code>.</p>
+<pre>
+(forall (s n1 n2)
+  (iff (<a href="../ints">ints</a> s n1 n2)
+       (and (<a href="../posInteger">posInteger</a> n1) (<a href="../posInteger">posInteger</a> n2) (<a href="../set">set</a> s)
+            (forall (n)
+              (iff (<a href="../member">member</a> n s)
+                   (and (<a href="../posInteger">posInteger</a> n) (<a href="../leq">leq</a> n1 n) (<a href="../leq">leq</a> n n2)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
+<pre>
+(forall (n1 n2)
+  (iff (<a href="../leq">leq</a> n1 n2)
+       (or (<a href="../lt">lt</a> n1 n2) (equal n1 n2))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
@@ -93,6 +103,15 @@
              (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
                   (<a href="../leq">leq</a> f2 10))))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (d1 d2 d3 d4 x1 x2 x3 u)
+  (if (and (<a href="../distance">distance</a> d1 x1 x2 u) (<a href="../distance">distance</a> d2 x2 x3 u)
+           (<a href="../distance">distance</a> d3 x1 x3 u) (<a href="../sum">sum</a> d4 d1 d2))
+      (<a href="../leq">leq</a> d3 d4)))
+</pre>
+</div>
 </section>
 
 </body>

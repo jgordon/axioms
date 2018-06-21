@@ -28,14 +28,37 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>We define a predicate <code>componentOrWhole</code> as the disjunction of <code>componentOf</code> and being equal to the whole.</p>
 <pre>
 (forall (x1 x)
   (iff (<a href="../componentOrWhole">componentOrWhole</a> x1 x)
        (or (equal x1 x) (<a href="../componentOf">componentOf</a> x1 x))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>We define a predicate <code>componentOrWhole</code> as the disjunction of <code>componentOf</code> and being equal to the whole.</p>
+<pre>
+(forall (x1 x)
+  (iff (<a href="../componentOrWhole">componentOrWhole</a> x1 x)
+       (or (equal x1 x) (<a href="../componentOf">componentOf</a> x1 x))))
+</pre>
+</div>
+<div class="axiom">
+<p>An entity <code>y</code> is external to a composite entity <code>x</code> if neither it nor any of its components is equal to <code>x</code> or one of <code>x</code>'s components.</p>
+<pre>
+(forall (y x)
+  (iff (<a href="../externalTo">externalTo</a> y x)
+       (not (exists (y1 x1)
+              (and (<a href="../componentOrWhole">componentOrWhole</a> y1 y)
+                   (<a href="../componentOrWhole">componentOrWhole</a> x1 x)
+                   (equal y1 x1))))))
+</pre>
+</div>
+<div class="axiom">
+<p>All the elements in the properties of a composite entity have an <code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
 <pre>
 (forall (s2 x)
   (if (<a href="../propertiesOf">propertiesOf</a> s2 x)
@@ -46,6 +69,9 @@
                    (and (<a href="../componentOrWhole">componentOrWhole</a> y x)
                         (<a href="../onlyarg*">onlyarg*</a> y e))))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The set of relations of a composite entity are relations between a component or the whole, and something else.</p>
 <pre>
 (forall (s3 x)
   (if (<a href="../relationsOf">relationsOf</a> s3 x)
@@ -56,19 +82,7 @@
                    (and (<a href="../componentOrWhole">componentOrWhole</a> y x) (<a href="../arg*">arg*</a> y e)
                         (<a href="../nequal">nequal</a> z y) (<a href="../arg*">arg*</a> z e))))))))
 </pre>
-<pre>
-(forall (x1 x)
-  (iff (<a href="../componentOrWhole">componentOrWhole</a> x1 x)
-       (or (equal x1 x) (<a href="../componentOf">componentOf</a> x1 x))))
-</pre>
-<pre>
-(forall (y x)
-  (iff (<a href="../externalTo">externalTo</a> y x)
-       (not (exists (y1 x1)
-              (and (<a href="../componentOrWhole">componentOrWhole</a> y1 y)
-                   (<a href="../componentOrWhole">componentOrWhole</a> x1 x)
-                   (equal y1 x1))))))
-</pre>
+</div>
 </section>
 
 </body>

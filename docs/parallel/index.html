@@ -24,20 +24,17 @@
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (f1 f2)
   (iff (<a href="../parallel">parallel</a> f1 f2)
        (exists (c1 c2)
          (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2) (<a href="../inside">inside</a> f1 c1) (<a href="../inside">inside</a> f2 c2)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
-<pre>
-   (forall (d c f)
-      (iff (<a href="../directionOf">directionOf</a> d c f)
-           (and (<a href="../direction">direction</a> d f) (<a href="../parallel">parallel</a> c f))))
-</pre>
+<div class="axiom">
 <pre>
 (forall (c1 c2)
   (if (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2))
@@ -46,12 +43,22 @@
                 (not (exists (f)
                        (and (<a href="../inside">inside</a> f c1) (<a href="../inside">inside</a> f c2))))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (f1 f2)
   (iff (<a href="../parallel">parallel</a> f1 f2)
        (exists (c1 c2)
          (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2) (<a href="../inside">inside</a> f1 c1) (<a href="../inside">inside</a> f2 c2)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (d c f)
+      (iff (<a href="../directionOf">directionOf</a> d c f)
+           (and (<a href="../direction">direction</a> d f) (<a href="../parallel">parallel</a> c f))))
+</pre>
+</div>
 </section>
 
 </body>

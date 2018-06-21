@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>One eventuality is more likely than another with respect to a set of constraints if its likelihood is higher.</p>
 <pre>
 (forall (e1 e2 c)
   (iff (<a href="../moreLikely">moreLikely</a> e1 e2 c)
@@ -36,9 +38,11 @@
               (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
               (<a href="../lts">lts</a> d2 d1 s)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>One eventuality is more likely than another with respect to a set of constraints if its likelihood is higher.</p>
 <pre>
 (forall (e1 e2 c)
   (iff (<a href="../moreLikely">moreLikely</a> e1 e2 c)
@@ -47,6 +51,7 @@
               (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
               (<a href="../lts">lts</a> d2 d1 s)))))
 </pre>
+</div>
 </section>
 
 </body>

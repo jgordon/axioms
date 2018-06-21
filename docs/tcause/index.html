@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The expression (tcause e1 e2) means that e1 tends to cause e2. If (tcause e1 e2) holds, the other eventualities in the causal complex for e2 are likely but not guaranteed to hold. Both <code>cause</code> and <code>tcause</code> are defeasible, but <code>tcause</code> is more likely to be defeated.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../tcause">tcause</a> e1 e2)
@@ -37,23 +39,31 @@
               (if (<a href="../Rexist">Rexist</a> s)
                   (<a href="../cause">cause</a> e1 e2))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The expression (tcause e1 e2) means that e1 tends to cause e2. If (tcause e1 e2) holds, the other eventualities in the causal complex for e2 are likely but not guaranteed to hold. Both <code>cause</code> and <code>tcause</code> are defeasible, but <code>tcause</code> is more likely to be defeated.</p>
+<pre>
+(forall (e1 e2)
+  (iff (<a href="../tcause">tcause</a> e1 e2)
+       (exists (s c)
+         (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+              (<a href="../deleteElt">deleteElt</a> s1 s e1) (<a href="../likely">likely</a> s1 c)
+              (if (<a href="../Rexist">Rexist</a> s)
+                  (<a href="../cause">cause</a> e1 e2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The notion <code>cause</code> is stronger than the notion <code>tcause</code> in the sense that if e1 causes e2 then it tends to cause e2.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../cause">cause</a> e1 e2)
       (<a href="../tcause">tcause</a> e1 e2)))
 </pre>
-<pre>
-(forall (e1 e2)
-  (iff (<a href="../tcause">tcause</a> e1 e2)
-       (exists (s c)
-         (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
-              (<a href="../deleteElt">deleteElt</a> s1 s e1) (<a href="../likely">likely</a> s1 c)
-              (if (<a href="../Rexist">Rexist</a> s)
-                  (<a href="../cause">cause</a> e1 e2))))))
-</pre>
+</div>
+<div class="axiom">
+<p>We define the set of difficulties associated with an action as the set of eventualities that tend to cause the action not to happen. The predicate <code>difficultiesWith</code> is a relation between a set of eventualities and an eventuality.</p>
 <pre>
 (forall (s e)
   (iff (<a href="../difficultiesWith">difficultiesWith</a> s e)
@@ -62,6 +72,7 @@
               (exists (e2)
                 (and (<a href="../not'">not'</a> e2 e) (<a href="../tcause">tcause</a> e1 e2)))))))
 </pre>
+</div>
 </section>
 
 </body>

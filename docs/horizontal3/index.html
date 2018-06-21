@@ -24,16 +24,20 @@
 </header>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
    (forall (s f)
       (iff (<a href="../horizontal3">horizontal3</a> s f)
            (or (<a href="../horizontal2">horizontal2</a> s f) (<a href="../vertical2">vertical2</a> s f))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (s1 s2 f)
       (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal3">horizontal3</a> s1 f) (<a href="../vertical3">vertical3</a> s2 f))
           (<a href="../independentScales">independentScales</a> s1 s2)))
 </pre>
+</div>
 </section>
 
 </body>

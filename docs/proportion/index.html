@@ -28,15 +28,19 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Constraints on the arguments of <code>proportion</code>:</p>
 <pre>
 (forall (f x y m)
   (if (<a href="../proportion">proportion</a> f x y m)
       (exists (s1)
         (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Suppose we have two points x and y on a scale s1 which has a measure. Then the proportion of x to y is the fraction whose numerator and denominator are the numbers the measure maps x and y into, respectively.</p>
 <pre>
 (forall (f x y m s1)
   (if (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1))
@@ -45,12 +49,18 @@
              (and (<a href="../map">map</a> m x n1) (<a href="../map">map</a> m y n2)
                   (<a href="../fraction">fraction</a> f n1 n2))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Constraints on the arguments of <code>proportion</code>:</p>
 <pre>
 (forall (f x y m)
   (if (<a href="../proportion">proportion</a> f x y m)
       (exists (s1)
         (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)))))
 </pre>
+</div>
+<div class="axiom">
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
@@ -59,6 +69,7 @@
              (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
                   (<a href="../leq">leq</a> f2 10))))))
 </pre>
+</div>
 </section>
 
 </body>

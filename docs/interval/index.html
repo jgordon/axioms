@@ -28,22 +28,12 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
-<pre>
-(forall (d t u)
-  (if (<a href="../interval">interval</a> t)
-      (iff (<a href="../durationOf">durationOf</a> d t u)
-           (exists (s)
-             (and (<a href="../concatenation">concatenation</a> t s)
-                  (forall (t1)
-                    (if (<a href="../member">member</a> t1 s) (<a href="../sameDuration">sameDuration</a> t1 u)))
-                  (<a href="../card">card</a> d s))))))
-</pre>
+<div class="axiom">
 <pre>
 (forall (t) (if (<a href="../interval">interval</a> t) (<a href="../temporalEntity">temporalEntity</a> t)))
 </pre>
-</section>
-<section>
-<h2>All Axioms</h2>
+</div><div class="axiom">
+<p>The duration of an interval is determined by concatenation.</p>
 <pre>
 (forall (d t u)
   (if (<a href="../interval">interval</a> t)
@@ -54,27 +44,32 @@
                     (if (<a href="../member">member</a> t1 s) (<a href="../sameDuration">sameDuration</a> t1 u)))
                   (<a href="../card">card</a> d s))))))
 </pre>
+</div></section>
+<section>
+<h2>All Axioms</h2>
+<div class="axiom">
 <pre>
-(forall (s s0 t f n)
-  (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)
-           (forall (t1)
-             (if (<a href="../member">member</a> t1 t) (<a href="../interval">interval</a> t1)))
-           (<a href="../function">function</a> f t s0)
-           (forall (t1 s1)
-             (if (<a href="../map">map</a> f t1 s1)
-                 (and (forall (e)
-                        (if (<a href="../member">member</a> e s1) (<a href="../happensIn">happensIn</a> e t1)))
-                      (<a href="../card">card</a> n s1)))))
-      (<a href="../rate">rate</a> n s t)))
+(forall (t) (if (<a href="../interval">interval</a> t) (<a href="../temporalEntity">temporalEntity</a> t)))
 </pre>
+</div>
+<div class="axiom">
 <pre>
-(forall (s)
-  (iff (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s)
-       (exists (s1 e t1 t2)
-         (and (forall (t) (if (<a href="../member">member</a> t s1) (<a href="../interval">interval</a> t)))
-              (<a href="../shorterDuration">shorterDuration</a>' e t1 t2)
-              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
+(forall (t)
+  (if (<a href="../temporalEntity">temporalEntity</a> t)
+      (or (<a href="../interval">interval</a> t) (<a href="../instant">instant</a> t))))
 </pre>
+</div>
+<div class="axiom">
+<p>A positive infinite interval is one that has no end. It may or may not have a beginning.</p>
+<pre>
+(forall (t)
+  (iff (<a href="../posInfInterval">posInfInterval</a> t)
+       (and (<a href="../interval">interval</a> t)
+            (not (exists (t2) (<a href="../ends">ends</a> t2 t))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The "time span of" an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
 <pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
@@ -102,17 +97,9 @@
                                      (<a href="../insideTime">insideTime</a> t1 t2)
                                      (<a href="../ends">ends</a> t1 t2)))))))))))
 </pre>
-<pre>
-(forall (t)
-  (if (<a href="../temporalEntity">temporalEntity</a> t)
-      (or (<a href="../interval">interval</a> t) (<a href="../instant">instant</a> t))))
-</pre>
-<pre>
-(forall (t)
-  (iff (<a href="../posInfInterval">posInfInterval</a> t)
-       (and (<a href="../interval">interval</a> t)
-            (not (exists (t2) (<a href="../ends">ends</a> t2 t))))))
-</pre>
+</div>
+<div class="axiom">
+<p>Time is a scale whose ordering relation is <code>before</code> and whose components are instants and intervals.</p>
 <pre>
 (forall (t)
   (iff (<a href="../timeScale">timeScale</a> t)
@@ -123,9 +110,29 @@
               (<a href="../before">before</a>' e t2 t3)
               (<a href="../scaleDefinedBy">scaleDefinedBy</a> t s e)))))
 </pre>
+</div>
+<div class="axiom">
+<p>A <code>temporalUnit</code> is an interval.</p>
 <pre>
-(forall (t) (if (<a href="../interval">interval</a> t) (<a href="../temporalEntity">temporalEntity</a> t)))
+(forall (u)
+  (if (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../interval">interval</a> u)))
 </pre>
+</div>
+<div class="axiom">
+<p>The duration of an interval is determined by concatenation.</p>
+<pre>
+(forall (d t u)
+  (if (<a href="../interval">interval</a> t)
+      (iff (<a href="../durationOf">durationOf</a> d t u)
+           (exists (s)
+             (and (<a href="../concatenation">concatenation</a> t s)
+                  (forall (t1)
+                    (if (<a href="../member">member</a> t1 s) (<a href="../sameDuration">sameDuration</a> t1 u)))
+                  (<a href="../card">card</a> d s))))))
+</pre>
+</div>
+<div class="axiom">
+<p>In terms of <code>durationOf</code>, we can define a <code>shorterDuration</code> partial ordering.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../shorterDuration">shorterDuration</a> t1 t2)
@@ -134,10 +141,34 @@
               (and (<a href="../durationOf">durationOf</a> d1 t1 u) (<a href="../durationOf">durationOf</a> d2 t2 u)
                    (<a href="../lt">lt</a> d1 d2))))))
 </pre>
+</div>
+<div class="axiom">
+<p>Then we can define a <code>scaleOrderedByDuration</code>.</p>
 <pre>
-(forall (u)
-  (if (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../interval">interval</a> u)))
+(forall (s)
+  (iff (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s)
+       (exists (s1 e t1 t2)
+         (and (forall (t) (if (<a href="../member">member</a> t s1) (<a href="../interval">interval</a> t)))
+              (<a href="../shorterDuration">shorterDuration</a>' e t1 t2)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
 </pre>
+</div>
+<div class="axiom">
+<p>The primitive case of a rate is when there is a set S of events, a set T of time intervals, and a function mapping the intervals into a subset of S, namely those events that occur during that interval. When the concept of rate truly applies, the cardinalities of all these subsets are the same.</p>
+<pre>
+(forall (s s0 t f n)
+  (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)
+           (forall (t1)
+             (if (<a href="../member">member</a> t1 t) (<a href="../interval">interval</a> t1)))
+           (<a href="../function">function</a> f t s0)
+           (forall (t1 s1)
+             (if (<a href="../map">map</a> f t1 s1)
+                 (and (forall (e)
+                        (if (<a href="../member">member</a> e s1) (<a href="../happensIn">happensIn</a> e t1)))
+                      (<a href="../card">card</a> n s1)))))
+      (<a href="../rate">rate</a> n s t)))
+</pre>
+</div>
 </section>
 
 </body>

@@ -24,16 +24,20 @@
 </header>
 <section>
 <h2>All Axioms</h2>
-<pre>
-   (forall (p)
-      (if (<a href="../volume">volume</a> p)
-          (iff (<a href="../concave">concave</a> p) (not (<a href="../convex">convex</a> p)))))
-</pre>
+<div class="axiom">
 <pre>
 (forall (r)
   (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
       (iff (<a href="../concave">concave</a> r) (not (<a href="../convex">convex</a> r)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (p)
+      (if (<a href="../volume">volume</a> p)
+          (iff (<a href="../concave">concave</a> p) (not (<a href="../convex">convex</a> p)))))
+</pre>
+</div>
 </section>
 
 </body>

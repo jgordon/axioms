@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Some iterative processes have a termination condition, for which we define a predicate <code>whileDo</code> that says one event type <code>e2</code> is instantiated by successive instances as long as eventuality <code>e1</code> happens or holds.</p>
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../whileDo">whileDo</a> e e1 e2)
@@ -35,9 +37,11 @@
          (and (<a href="../cond">cond</a> e e1 e3) (<a href="../eventSequence">eventSequence</a>' e3 e4 e5) (<a href="../instance">instance</a> e4 e2)
               (or (<a href="../whileDo">whileDo</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e2))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Some iterative processes have a termination condition, for which we define a predicate <code>whileDo</code> that says one event type <code>e2</code> is instantiated by successive instances as long as eventuality <code>e1</code> happens or holds.</p>
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../whileDo">whileDo</a> e e1 e2)
@@ -45,6 +49,7 @@
          (and (<a href="../cond">cond</a> e e1 e3) (<a href="../eventSequence">eventSequence</a>' e3 e4 e5) (<a href="../instance">instance</a> e4 e2)
               (or (<a href="../whileDo">whileDo</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e2))))))
 </pre>
+</div>
 </section>
 
 </body>

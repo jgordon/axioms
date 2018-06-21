@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Sets can be constructed recursively by adding one element at a time.</p>
 <pre>
 (forall (s s1 x)
   (iff (<a href="../addElt">addElt</a> s s1 x)
@@ -36,9 +38,52 @@
               (iff (<a href="../member">member</a> y s)
                    (or (equal y x) (<a href="../member">member</a> y s1)))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Sets can be constructed recursively by adding one element at a time.</p>
+<pre>
+(forall (s s1 x)
+  (iff (<a href="../addElt">addElt</a> s s1 x)
+       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1)
+            (forall (y)
+              (iff (<a href="../member">member</a> y s)
+                   (or (equal y x) (<a href="../member">member</a> y s1)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A singleton set consists of one entity.</p>
+<pre>
+(forall (s x)
+  (iff (<a href="../singleton">singleton</a> s x)
+       (exists (s1)
+         (and (<a href="../addElt">addElt</a> s s1 x) (<a href="../null">null</a> s1)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A 'doubleton' set has exactly two members.</p>
+<pre>
+(forall (s x y)
+  (iff (<a href="../doubleton">doubleton</a> s x y)
+       (exists (s1)
+         (and (<a href="../nequal">nequal</a> x y)
+              (<a href="../addElt">addElt</a> s s1 x)
+              (<a href="../singleton">singleton</a> s1 y)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predication (replaceElt s s1 x y) says that set s is obtained from set s1 by replacing element x with element y.</p>
+<pre>
+(forall (s s1 x y)
+  (iff (<a href="../replaceElt">replaceElt</a> s s1 x y)
+       (exists (s2)
+         (and (<a href="../deleteElt">deleteElt</a> s2 s1 x)
+              (<a href="../addElt">addElt</a> s s2 y)))))
+</pre>
+</div>
+<div class="axiom">
+<p>We recursively define the cardinality of sets using addElt.</p>
 <pre>
 (forall (n s)
   (iff (<a href="../card">card</a> n s)
@@ -50,41 +95,16 @@
                        (<a href="../card">card</a> m s1)
                        (<a href="../sum">sum</a> n m 1)))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The duration of an interval is determined by concatenation.</p>
 <pre>
 (forall (s s1 t u d d1 d2)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../tseq">tseq</a> s1) (not (<a href="../member">member</a> t s1)) (<a href="../addElt">addElt</a> s s1 t)
            (<a href="../durationOf">durationOf</a> d1 s1 u) (<a href="../durationOf">durationOf</a> d2 t u) (<a href="../sum">sum</a> d d1 d2))
       (<a href="../durationOf">durationOf</a> d s u)))
 </pre>
-<pre>
-(forall (s s1 x y)
-  (iff (<a href="../replaceElt">replaceElt</a> s s1 x y)
-       (exists (s2)
-         (and (<a href="../deleteElt">deleteElt</a> s2 s1 x)
-              (<a href="../addElt">addElt</a> s s2 y)))))
-</pre>
-<pre>
-(forall (s s1 x)
-  (iff (<a href="../addElt">addElt</a> s s1 x)
-       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1)
-            (forall (y)
-              (iff (<a href="../member">member</a> y s)
-                   (or (equal y x) (<a href="../member">member</a> y s1)))))))
-</pre>
-<pre>
-(forall (s x y)
-  (iff (<a href="../doubleton">doubleton</a> s x y)
-       (exists (s1)
-         (and (<a href="../nequal">nequal</a> x y)
-              (<a href="../addElt">addElt</a> s s1 x)
-              (<a href="../singleton">singleton</a> s1 y)))))
-</pre>
-<pre>
-(forall (s x)
-  (iff (<a href="../singleton">singleton</a> s x)
-       (exists (s1)
-         (and (<a href="../addElt">addElt</a> s s1 x) (<a href="../null">null</a> s1)))))
-</pre>
+</div>
 </section>
 
 </body>

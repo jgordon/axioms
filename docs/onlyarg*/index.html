@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The predicate <code>onlyarg*</code> recurses through eventuality arguments and bottoms out in a single entity y.</p>
 <pre>
 (forall (y e)
   (iff (<a href="../onlyarg*">onlyarg*</a> y e)
@@ -37,9 +39,23 @@
                   (or (equal y1 y)
                       (<a href="../onlyarg*">onlyarg*</a> y y1)))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The predicate <code>onlyarg*</code> recurses through eventuality arguments and bottoms out in a single entity y.</p>
+<pre>
+(forall (y e)
+  (iff (<a href="../onlyarg*">onlyarg*</a> y e)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../nequal">nequal</a> y e)
+            (forall (y1)
+              (if (<a href="../arg">arg</a> y1 e)
+                  (or (equal y1 y)
+                      (<a href="../onlyarg*">onlyarg*</a> y y1)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>All the elements in the properties of a composite entity have an <code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
 <pre>
 (forall (s2 x)
   (if (<a href="../propertiesOf">propertiesOf</a> s2 x)
@@ -50,15 +66,7 @@
                    (and (<a href="../componentOrWhole">componentOrWhole</a> y x)
                         (<a href="../onlyarg*">onlyarg*</a> y e))))))))
 </pre>
-<pre>
-(forall (y e)
-  (iff (<a href="../onlyarg*">onlyarg*</a> y e)
-       (and (<a href="../eventuality">eventuality</a> e) (<a href="../nequal">nequal</a> y e)
-            (forall (y1)
-              (if (<a href="../arg">arg</a> y1 e)
-                  (or (equal y1 y)
-                      (<a href="../onlyarg*">onlyarg*</a> y y1)))))))
-</pre>
+</div>
 </section>
 
 </body>

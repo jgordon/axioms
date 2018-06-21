@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A scale is a partially ordered set.</p>
 <pre>
 (forall (s)
    (if (<a href="../scale">scale</a> s)
@@ -42,26 +44,92 @@
                               (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> y1 s1)
                                    (<a href="../subst2">subst2</a> x1 y1 e1 x y e))))))))))
 </pre>
+</div><div class="axiom">
+<p>A scale is potentially a ground, and very frequently we speak of entities being located at some point on a scale.</p>
 <pre>
 (forall (s)
   (if (<a href="../scale">scale</a> s) (<a href="../ground">ground</a> s)))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>A scale is a partially ordered set.</p>
+<pre>
+(forall (s)
+   (if (<a href="../scale">scale</a> s)
+       (and (<a href="../compositeEntity">compositeEntity</a> s)
+            (exists (s1 e x y s2 s3)
+               (and (<a href="../componentsOf">componentsOf</a> s1 s)
+                    (<a href="../partialOrdering">partialOrdering</a> e x y s)
+                    (<a href="../subset">subset</a> s2 s3) (<a href="../relationsOf">relationsOf</a> s3 s)
+                    (forall (e1)
+                       (if (<a href="../member">member</a> e1 s2)
+                           (exists (x1 y1)
+                              (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> y1 s1)
+                                   (<a href="../subst2">subst2</a> x1 y1 e1 x y e))))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Conditions on the arguments of <code>partialOrdering</code>:</p>
 <pre>
 (forall (e x y s)
    (if (<a href="../partialOrdering">partialOrdering</a> e x y s)
        (and (<a href="../scale">scale</a> s) (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e))))
 </pre>
+</div>
+<div class="axiom">
+<p><code>inScale</code> is an abbreviation for being a component of a scale.</p>
 <pre>
-(forall (f s1 s2)
-   (if (and (<a href="../function">function</a> f s1 s2) (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
-       (iff (<a href="../monotoneIncreasing">monotoneIncreasing</a> f)
-            (forall (x1 x2 y1 y2)
-               (if (and (<a href="../map">map</a> f x1 y1) (<a href="../map">map</a> f x2 y2) (<a href="../lts">lts</a> x1 x2 s1))
-                   (<a href="../lts">lts</a> y1 y2 s2))))))
+(forall (y s)
+   (iff (<a href="../inScale">inScale</a> y s)
+        (and (<a href="../scale">scale</a> s) (<a href="../componentOf">componentOf</a> y s))))
 </pre>
+</div>
+<div class="axiom">
+<p>A subscale of a scale has as its components a subset of the components of the scale and its partial ordering relation is the partial ordering of the scale restricted to that subset.</p>
+<pre>
+(forall (s1 s)
+   (iff (<a href="../subscale">subscale</a> s1 s)
+        (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s)
+             (forall (x) (if (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> x s)))
+             (forall (x y)
+                (iff (<a href="../lts">lts</a> x y s1)
+                     (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)
+                          (<a href="../lts">lts</a> x y s)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The reverse of a scale is one in which the partial ordering is reversed.</p>
+<pre>
+(forall (s1 s)
+   (iff (<a href="../reverse">reverse</a> s1 s)
+        (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s)
+             (forall (x y)
+                (and (iff (<a href="../inScale">inScale</a> x s) (<a href="../inScale">inScale</a> x s1))
+                     (iff (<a href="../lts">lts</a> x y s) (<a href="../lts">lts</a> y x s1)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Two scales are disjoint if their sets of components are disjoint.</p>
+<pre>
+(forall (s1 s2)
+   (if (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
+       (iff (<a href="../disjoint">disjoint</a> s1 s2)
+            (exists (s3 s4)
+               (and (<a href="../componentsOf">componentsOf</a> s3 s1) (<a href="../componentsOf">componentsOf</a> s4 s2)
+                    (<a href="../disjoint">disjoint</a> s3 s4))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A scale is potentially a ground, and very frequently we speak of entities being located at some point on a scale.</p>
+<pre>
+(forall (s)
+  (if (<a href="../scale">scale</a> s) (<a href="../ground">ground</a> s)))
+</pre>
+</div>
+<div class="axiom">
+<p>For a scale to be the domain or range of a function is for its set of components to be the domain or range.</p>
 <pre>
 (forall (f s1 s2)
    (iff (<a href="../function">function</a> f s1 s2)
@@ -72,15 +140,30 @@
                 (if (<a href="../scale">scale</a> s2) (<a href="../componentsOf">componentsOf</a> s4 s2))
                 (<a href="../function0">function0</a> f s3 s4)))))
 </pre>
+</div>
+<div class="axiom">
+<p>A scale-to-scale function is monotone-increasing if the mapping preserves the domain scale's less-than ordering.</p>
 <pre>
-(forall (m s1)
-  (iff (<a href="../measure">measure</a> m s1)
-       (exists (s2)
-         (and (<a href="../scale">scale</a> s1) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s2)
-              (<a href="../functionInto">functionInto</a> m s1 s2)
-              (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
-              (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
+(forall (f s1 s2)
+   (if (and (<a href="../function">function</a> f s1 s2) (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
+       (iff (<a href="../monotoneIncreasing">monotoneIncreasing</a> f)
+            (forall (x1 x2 y1 y2)
+               (if (and (<a href="../map">map</a> f x1 y1) (<a href="../map">map</a> f x2 y2) (<a href="../lts">lts</a> x1 x2 s1))
+                   (<a href="../lts">lts</a> y1 y2 s2))))))
 </pre>
+</div>
+<div class="axiom">
+<p>We define a scale by the set of its components and the relation that is the partial ordering of the scale.</p>
+<pre>
+(forall (s s1 e)
+   (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+        (and (<a href="../scale">scale</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
+             (exists (x y)
+               (<a href="../partialOrdering">partialOrdering</a> e x y s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -95,65 +178,25 @@
                          (<a href="../subset">subset</a> s1 s2))
                     (<a href="../leqs">leqs</a> x1 x2 s))))))
 </pre>
+</div>
+<div class="axiom">
+<p>A measure is a monotone increasing function from a scale into a non-negative numeric scale in which the bottom of the domain scale, if there is one, maps into 0.</p>
 <pre>
-(forall (s s1 e)
-   (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
-        (and (<a href="../scale">scale</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
-             (exists (x y)
-               (<a href="../partialOrdering">partialOrdering</a> e x y s)))))
+(forall (m s1)
+  (iff (<a href="../measure">measure</a> m s1)
+       (exists (s2)
+         (and (<a href="../scale">scale</a> s1) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s2)
+              (<a href="../functionInto">functionInto</a> m s1 s2)
+              (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
+              (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
 </pre>
-<pre>
-(forall (s)
-   (if (<a href="../scale">scale</a> s)
-       (and (<a href="../compositeEntity">compositeEntity</a> s)
-            (exists (s1 e x y s2 s3)
-               (and (<a href="../componentsOf">componentsOf</a> s1 s)
-                    (<a href="../partialOrdering">partialOrdering</a> e x y s)
-                    (<a href="../subset">subset</a> s2 s3) (<a href="../relationsOf">relationsOf</a> s3 s)
-                    (forall (e1)
-                       (if (<a href="../member">member</a> e1 s2)
-                           (exists (x1 y1)
-                              (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> y1 s1)
-                                   (<a href="../subst2">subst2</a> x1 y1 e1 x y e))))))))))
-</pre>
-<pre>
-(forall (s)
-  (if (<a href="../scale">scale</a> s) (<a href="../ground">ground</a> s)))
-</pre>
+</div>
+<div class="axiom">
+<p>The argument of <code>vertical</code> has to be a scale.</p>
 <pre>
 (forall (s) (if (<a href="../vertical">vertical</a> s) (<a href="../scale">scale</a> s)))
 </pre>
-<pre>
-(forall (s1 s)
-   (iff (<a href="../reverse">reverse</a> s1 s)
-        (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s)
-             (forall (x y)
-                (and (iff (<a href="../inScale">inScale</a> x s) (<a href="../inScale">inScale</a> x s1))
-                     (iff (<a href="../lts">lts</a> x y s) (<a href="../lts">lts</a> y x s1)))))))
-</pre>
-<pre>
-(forall (s1 s)
-   (iff (<a href="../subscale">subscale</a> s1 s)
-        (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s)
-             (forall (x) (if (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> x s)))
-             (forall (x y)
-                (iff (<a href="../lts">lts</a> x y s1)
-                     (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)
-                          (<a href="../lts">lts</a> x y s)))))))
-</pre>
-<pre>
-(forall (s1 s2)
-   (if (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
-       (iff (<a href="../disjoint">disjoint</a> s1 s2)
-            (exists (s3 s4)
-               (and (<a href="../componentsOf">componentsOf</a> s3 s1) (<a href="../componentsOf">componentsOf</a> s4 s2)
-                    (<a href="../disjoint">disjoint</a> s3 s4))))))
-</pre>
-<pre>
-(forall (y s)
-   (iff (<a href="../inScale">inScale</a> y s)
-        (and (<a href="../scale">scale</a> s) (<a href="../componentOf">componentOf</a> y s))))
-</pre>
+</div>
 </section>
 
 </body>

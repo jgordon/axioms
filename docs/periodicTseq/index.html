@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A temporal sequence is periodic if there is a constant duration between any two successive temporal entities in the temporal sequence.</p>
 <pre>
 (forall (s)
   (iff (<a href="../periodicTseq">periodicTseq</a> s)
@@ -39,26 +41,32 @@
                       (and (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
                            (<a href="../durationOf">durationOf</a> d t u)))))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>A temporal sequence is periodic if there is a constant duration between any two successive temporal entities in the temporal sequence.</p>
+<pre>
+(forall (s)
+  (iff (<a href="../periodicTseq">periodicTseq</a> s)
+       (and (<a href="../tseq">tseq</a> s)
+            (exists (d u)
+              (forall (t1 t2)
+                (if (<a href="../successiveElts">successiveElts</a> t1 t2 s)
+                    (exists (t)
+                      (and (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
+                           (<a href="../durationOf">durationOf</a> d t u)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The constant duration in a periodic temporal sequence can be called the gap duration.</p>
 <pre>
 (forall (s d t1 t2 t n1 n2 u)
   (if (and (<a href="../periodicTseq">periodicTseq</a> s) (<a href="../successiveElts">successiveElts</a> t1 t2 s)
            (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../intervalBetween">intervalBetween</a> t t1 t2))
       (iff (<a href="../gapDuration">gapDuration</a> d s u) (<a href="../durationOf">durationOf</a> d t u))))
 </pre>
-<pre>
-(forall (s)
-  (iff (<a href="../periodicTseq">periodicTseq</a> s)
-       (and (<a href="../tseq">tseq</a> s)
-            (exists (d u)
-              (forall (t1 t2)
-                (if (<a href="../successiveElts">successiveElts</a> t1 t2 s)
-                    (exists (t)
-                      (and (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
-                           (<a href="../durationOf">durationOf</a> d t u)))))))))
-</pre>
+</div>
 </section>
 
 </body>

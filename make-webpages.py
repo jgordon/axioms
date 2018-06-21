@@ -54,13 +54,24 @@ for fname in axiom_files:
 
 for fname in axiom_files:
     with open('axioms/' + fname, 'r') as fin:
+        in_gloss = False
+        gloss = ''
+
         in_axiom = False
         axiom = ''
+
         for line in fin:
             line = line.rstrip()
+
             if not line:
+                in_gloss = False
                 continue
-            if line == '```':
+
+            if re.match('^[0-9]+\.[0-9]+ ', line):
+                in_gloss = True
+                gloss = re.sub('^[0-9.]+ ', '', line)
+            elif line == '```':
+                in_gloss = False
                 if in_axiom:
                     in_axiom = False
                     # Done reading an axiom; process it.
@@ -79,7 +90,7 @@ for fname in axiom_files:
                         if pred in bad_preds:
                             continue
                         if 'all axioms' not in preds[pred]:
-                            preds[pred]['all axioms'] = set()
+                            preds[pred]['all axioms'] = []
                         to_index.add(pred)
                         formatted_axiom = formatted_axiom.replace(
                             '(' + pred + ' ',
@@ -87,9 +98,15 @@ for fname in axiom_files:
                         formatted_axiom = formatted_axiom.replace(
                             '(' + pred + '\' ',
                             '(<a href="../' + pred + '">' + pred + '</a>\' ')
+                    formatted_axiom = '<pre>\n' + formatted_axiom + '</pre>\n'
+                    if gloss:
+                        gloss = re.sub(r'`([^`]+)`', r'<code>\1</code>',
+                                       gloss)
+                        formatted_axiom = '<p>' + gloss + '</p>\n' + \
+                                          formatted_axiom
 
                     for pred in to_index:
-                        preds[pred]['all axioms'].add(formatted_axiom)
+                        preds[pred]['all axioms'].append(formatted_axiom)
 
                     # If it's a characterizing axiom for a predicate,
                     # add it to the predicate's entry.
@@ -101,13 +118,16 @@ for fname in axiom_files:
                             pred = pred.replace("'", "")
                         if pred not in bad_preds:
                             if 'characterizing' not in preds[pred]:
-                                preds[pred]['characterizing'] = set()
-                            preds[pred]['characterizing'].add(formatted_axiom)
+                                preds[pred]['characterizing'] = []
+                            preds[pred]['characterizing'].append(
+                                formatted_axiom)
                 else:
                     in_axiom = True
                     axiom = ''
             elif in_axiom:
                 axiom += line + '\n'
+            elif in_gloss:
+                gloss += ' '+ line
 
 def ensure_dir(file_path):
     directory = os.path.dirname(file_path)
@@ -169,7 +189,7 @@ html_footer = """
 </html>
 """
 
-
+ensure_dir('docs/index.html')
 with open('docs/index.html', 'w') as fout:
     fout.write(html_header_index)
     fout.write('<ul>')
@@ -194,17 +214,17 @@ for pred in preds:
         if 'characterizing' in preds[pred]:
             fout.write('<section>\n')
             fout.write('<h2>Characterizing Axioms</h2>\n')
-            for axiom in sorted(preds[pred]['characterizing']):
-                fout.write('<pre>\n')
+            for axiom in preds[pred]['characterizing']:
+                fout.write('<div class="axiom">\n')
                 fout.write(axiom)
-                fout.write('</pre>\n')
+                fout.write('</div>')
             fout.write('</section>\n')
         if 'all axioms' in preds[pred]:
             fout.write('<section>\n')
             fout.write('<h2>All Axioms</h2>\n')
-            for axiom in sorted(preds[pred]['all axioms']):
-                fout.write('<pre>\n')
+            for axiom in preds[pred]['all axioms']:
+                fout.write('<div class="axiom">\n')
                 fout.write(axiom)
-                fout.write('</pre>\n')
+                fout.write('</div>\n')
             fout.write('</section>\n')
         fout.write(html_footer)

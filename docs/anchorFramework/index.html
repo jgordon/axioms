@@ -24,6 +24,7 @@
 </header>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
    (forall (f v c1 c2 o)
       (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
@@ -31,12 +32,15 @@
                 (forall (a1) (if (<a href="../xAxis">xAxis</a> a1 f) (<a href="../subfigure">subfigure</a> c1 a1)))
                 (<a href="../origin">origin</a> o f))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (x v f c1 c2 o u)
   (iff (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
        (and (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
             (<a href="../inside">inside</a> x c2) (<a href="../distance">distance</a> 1 o x u))))
 </pre>
+</div>
 </section>
 
 </body>

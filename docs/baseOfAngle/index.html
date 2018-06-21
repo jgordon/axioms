@@ -24,6 +24,7 @@
 </header>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
 <pre>
    (forall (c v u)
       (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
@@ -33,13 +34,8 @@
                    (<a href="../endpoint">endpoint</a> x2 c2) (<a href="../distance">distance</a> 1 x0 x2 u)
                    (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)))))
 </pre>
-<pre>
-   (forall (v1 v2)
-      (iff (<a href="../gtAngle">gtAngle</a> v1 v2)
-           (exists (c1 c2 d1 d2 u)
-              (and (<a href="../baseOfAngle">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle">baseOfAngle</a> c2 v2 u)
-                   (<a href="../length">length</a> d1 c1 u) (<a href="../length">length</a> d2 c2 u) (<a href="../gt">gt</a> d1 d2)))))
-</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (v1 v2)
   (iff (<a href="../equalAngle">equalAngle</a> v1 v2)
@@ -47,6 +43,16 @@
          (and (<a href="../baseOfAngle">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle">baseOfAngle</a> c2 v2 u)
               (<a href="../length">length</a> d c1 u) (<a href="../length">length</a> d c2 u)))))
 </pre>
+</div>
+<div class="axiom">
+<pre>
+   (forall (v1 v2)
+      (iff (<a href="../gtAngle">gtAngle</a> v1 v2)
+           (exists (c1 c2 d1 d2 u)
+              (and (<a href="../baseOfAngle">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle">baseOfAngle</a> c2 v2 u)
+                   (<a href="../length">length</a> d1 c1 u) (<a href="../length">length</a> d2 c2 u) (<a href="../gt">gt</a> d1 d2)))))
+</pre>
+</div>
 </section>
 
 </body>

@@ -28,21 +28,26 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>An eventuality e1 allows an eventuality e2 if e1 does not cause (not e2).</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../allow">allow</a> e1 e2)
        (forall (e4)
          (if (<a href="../not'">not'</a> e4 e2) (not (<a href="../cause">cause</a> e1 e4))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>An eventuality e1 allows an eventuality e2 if e1 does not cause (not e2).</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../allow">allow</a> e1 e2)
        (forall (e4)
          (if (<a href="../not'">not'</a> e4 e2) (not (<a href="../cause">cause</a> e1 e4))))))
 </pre>
+</div>
 </section>
 
 </body>

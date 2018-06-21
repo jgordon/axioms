@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>In terms of <code>durationOf</code>, we can define a <code>shorterDuration</code> partial ordering.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../shorterDuration">shorterDuration</a> t1 t2)
@@ -36,9 +38,22 @@
               (and (<a href="../durationOf">durationOf</a> d1 t1 u) (<a href="../durationOf">durationOf</a> d2 t2 u)
                    (<a href="../lt">lt</a> d1 d2))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>In terms of <code>durationOf</code>, we can define a <code>shorterDuration</code> partial ordering.</p>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../shorterDuration">shorterDuration</a> t1 t2)
+       (and (<a href="../interval">interval</a> t1) (<a href="../interval">interval</a> t2)
+            (exists (d1 d2 u)
+              (and (<a href="../durationOf">durationOf</a> d1 t1 u) (<a href="../durationOf">durationOf</a> d2 t2 u)
+                   (<a href="../lt">lt</a> d1 d2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Then we can define a <code>scaleOrderedByDuration</code>.</p>
 <pre>
 (forall (s)
   (iff (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s)
@@ -47,14 +62,7 @@
               (<a href="../shorterDuration">shorterDuration</a>' e t1 t2)
               (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
 </pre>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../shorterDuration">shorterDuration</a> t1 t2)
-       (and (<a href="../interval">interval</a> t1) (<a href="../interval">interval</a> t2)
-            (exists (d1 d2 u)
-              (and (<a href="../durationOf">durationOf</a> d1 t1 u) (<a href="../durationOf">durationOf</a> d2 t2 u)
-                   (<a href="../lt">lt</a> d1 d2))))))
-</pre>
+</div>
 </section>
 
 </body>

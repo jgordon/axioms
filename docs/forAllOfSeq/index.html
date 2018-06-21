@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The same event type happening to all the elements of a sequence in turn.</p>
 <pre>
 (forall (e s e1)
   (iff (<a href="../forAllOfSeq">forAllOfSeq</a> e s x e1)
@@ -37,9 +39,11 @@
                   (<a href="../eventSequence">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq">forAllOfSeq</a> e3 s1 x e1)
                   (<a href="../rest">rest</a> s1 s))))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>The same event type happening to all the elements of a sequence in turn.</p>
 <pre>
 (forall (e s e1)
   (iff (<a href="../forAllOfSeq">forAllOfSeq</a> e s x e1)
@@ -49,6 +53,7 @@
                   (<a href="../eventSequence">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq">forAllOfSeq</a> e3 s1 x e1)
                   (<a href="../rest">rest</a> s1 s))))))
 </pre>
+</div>
 </section>
 
 </body>

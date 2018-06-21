@@ -28,6 +28,8 @@
 </section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>Given an eventuality <code>e</code> and a set of constraints <code>c</code>, we can ask what other set <code>s</code> of eventualities would have to obtain in order to entail that <code>e</code> also obtains. The expression <code>(alsoRequired s e c)</code> says that <code>s</code> is a set of eventualities that will entail the real existence of <code>e</code>, over and above <code>c</code>.</p>
 <pre>
 (forall (s e c)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -37,12 +39,16 @@
                   (and (<a href="../union">union</a> s1 c1 s) (<a href="../subset">subset</a> c1 c)
                        (<a href="../minimallyProves">minimallyProves</a> s1 e)))))))
 </pre>
+</div>
+<div class="axiom">
+<p>The more we have to assume will happen, the less likely it is.</p>
 <pre>
 (forall (s1 e1 d1 s2 e2 d2 c s)
   (if (and (<a href="../alsoRequired">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired">alsoRequired</a> s2 e2 c) (<a href="../subset">subset</a> s2 s1)
            (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c) (<a href="../likelihoodScale">likelihoodScale</a> s))
       (<a href="../leqs">leqs</a> d1 d2 s)))
 </pre>
+</div>
 </section>
 
 </body>

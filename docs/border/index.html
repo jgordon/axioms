@@ -28,14 +28,40 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
 <pre>
 (forall (c r)
   (if (<a href="../border">border</a> c r)
       (and (<a href="../curve">curve</a> c) (<a href="../region">region</a> r))))
 </pre>
-</section>
+</div></section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (c r)
+  (if (<a href="../border">border</a> c r)
+      (and (<a href="../curve">curve</a> c) (<a href="../region">region</a> r))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f1 f2)
+  (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
+       (or (and (<a href="../point">point</a> f1) (<a href="../curve">curve</a> f2) (<a href="../endpoint">endpoint</a> f1 f2))
+           (exists (b) (and (<a href="../region">region</a> f2) (<a href="../border">border</a> b f2) (<a href="../inside">inside</a> f1 b)))
+           (exists (b)
+             (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (r)
+  (iff (<a href="../polygon2">polygon2</a> r)
+       (exists (c) (and (<a href="../border">border</a> c r) (<a href="../polygon">polygon</a> c)))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
    (forall (c r x u)
       (iff (<a href="../circle">circle</a> c x)
@@ -45,24 +71,7 @@
                       (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
                           (<a href="../length">length</a> d c1 u)))))))
 </pre>
-<pre>
-(forall (c r)
-  (if (<a href="../border">border</a> c r)
-      (and (<a href="../curve">curve</a> c) (<a href="../region">region</a> r))))
-</pre>
-<pre>
-(forall (f1 f2)
-  (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
-       (or (and (<a href="../point">point</a> f1) (<a href="../curve">curve</a> f2) (<a href="../endpoint">endpoint</a> f1 f2))
-           (exists (b) (and (<a href="../region">region</a> f2) (<a href="../border">border</a> b f2) (<a href="../inside">inside</a> f1 b)))
-           (exists (b)
-             (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
-</pre>
-<pre>
-(forall (r)
-  (iff (<a href="../polygon2">polygon2</a> r)
-       (exists (c) (and (<a href="../border">border</a> c r) (<a href="../polygon">polygon</a> c)))))
-</pre>
+</div>
 </section>
 
 </body>

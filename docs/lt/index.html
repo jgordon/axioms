@@ -28,43 +28,89 @@
 </section>
 <section>
 <h2>All Axioms</h2>
+<div class="axiom">
+<p>If one element's <code>n</code> is less than another's, it is before the other in the sequence.</p>
 <pre>
-   (forall (x s0 s1)
-      (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
-          (exists (s2 s3 s4 n3 n4)
-             (and (<a href="../componentsOf">componentsOf</a> s2 s0) (<a href="../union">union</a> s2 s3 s4)
-                  (forall (y) (iff (<a href="../member">member</a> y s3) (<a href="../lts">lts</a> y x s0)))
-                  (forall (z) (iff (<a href="../member">member</a> z s4) (<a href="../lts">lts</a> x z s0)))
-                  (<a href="../card">card</a> n3 s3) (<a href="../card">card</a> n4 s4) (<a href="../lt">lt</a> n4 n3)))))
+(forall (x y s)
+  (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
+       (exists (n1 n2)
+         (and (<a href="../sequence">sequence</a> s) (<a href="../nth">nth</a> x n1 s) (<a href="../nth">nth</a> y n2 s)
+              (<a href="../lt">lt</a> n1 n2)))))
 </pre>
-<pre>
-   (forall (x y z)
-      (iff (<a href="../nearer">nearer</a> x y z)
-           (exists (d1 d2)
-              (and (<a href="../distance">distance</a> d1 x z u) (<a href="../distance">distance</a> d2 y z u)
-                   (<a href="../lt">lt</a> d1 d2)))))
-</pre>
-<pre>
-(forall (f1 f2 a1 a2 b1 b2 c1 c2)
-   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
-            (<a href="../product">product</a> c1 a1 b2) (<a href="../product">product</a> c2 a2 b1))
-       (iff (<a href="../lt">lt</a> f1 f2) (<a href="../lt">lt</a> c1 c2))))
-</pre>
+</div>
+<div class="axiom">
+<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
 <pre>
 (forall (n1 n2)
    (if (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n2))
        (iff (<a href="../lt">lt</a> n1 n2)
             (exists (n3) (and (<a href="../posInteger">posInteger</a> n3) (<a href="../sum">sum</a> n2 n1 n3))))))
 </pre>
-<pre>
-(forall (n1 n2)
-  (iff (<a href="../gt">gt</a> n1 n2) (<a href="../lt">lt</a> n2 n1)))
-</pre>
+</div>
+<div class="axiom">
+<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
 <pre>
 (forall (n1 n2)
   (iff (<a href="../leq">leq</a> n1 n2)
        (or (<a href="../lt">lt</a> n1 n2) (equal n1 n2))))
 </pre>
+</div>
+<div class="axiom">
+<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
+<pre>
+(forall (n1 n2)
+  (iff (<a href="../gt">gt</a> n1 n2) (<a href="../lt">lt</a> n2 n1)))
+</pre>
+</div>
+<div class="axiom">
+<p>The <code>lt</code> relation can be extended to rational numbers: <code>a1/b1 < a2/b2</code> when <code>a1*b2 < a2*b1</code>. This also extends the other ordering relations, <code>leq</code>, <code>gt</code>, and <code>geq</code>.</p>
+<pre>
+(forall (f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
+            (<a href="../product">product</a> c1 a1 b2) (<a href="../product">product</a> c2 a2 b1))
+       (iff (<a href="../lt">lt</a> f1 f2) (<a href="../lt">lt</a> c1 c2))))
+</pre>
+</div>
+<div class="axiom">
+<p>If e is the <code>lt</code> relation between x and y and s1 is a set of numbers containing 0 but no smaller number, then there is a non-negative numeric scale s with s1 as its set and e as its partial ordering.</p>
+<pre>
+(forall (s1 e x y)
+  (if (and (<a href="../lt">lt</a>' e x y)
+           (forall (n)
+             (if (<a href="../member">member</a> n s1)
+                 (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
+           (<a href="../member">member</a> 0 s1))
+      (exists (s)
+        (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Conversely, a non-negative numeric scale has the <code>lt</code> relation for its ordering and a set of numbers, including 0, as its set.</p>
+<pre>
+(forall (s)
+  (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
+      (exists (s1 e x y)
+        (and (<a href="../lt">lt</a>' e x y)
+             (forall (n)
+               (if (<a href="../member">member</a> n s1)
+                   (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
+             (<a href="../member">member</a> 0 s1)
+             (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>In terms of <code>durationOf</code>, we can define a <code>shorterDuration</code> partial ordering.</p>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../shorterDuration">shorterDuration</a> t1 t2)
+       (and (<a href="../interval">interval</a> t1) (<a href="../interval">interval</a> t2)
+            (exists (d1 d2 u)
+              (and (<a href="../durationOf">durationOf</a> d1 t1 u) (<a href="../durationOf">durationOf</a> d2 t2 u)
+                   (<a href="../lt">lt</a> d1 d2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Rate defines a scale whose elements are the set of events whose rate is being measured and whose ordering is the less-than relation between rates.</p>
 <pre>
 (forall (s s0)
   (iff (<a href="../rateScale">rateScale</a> s s0)
@@ -78,42 +124,27 @@
                                  (<a href="../lt">lt</a> r1 r2)))))
                    (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e))))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
-(forall (s)
-  (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
-      (exists (s1 e x y)
-        (and (<a href="../lt">lt</a>' e x y)
-             (forall (n)
-               (if (<a href="../member">member</a> n s1)
-                   (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
-             (<a href="../member">member</a> 0 s1)
-             (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
+   (forall (x y z)
+      (iff (<a href="../nearer">nearer</a> x y z)
+           (exists (d1 d2)
+              (and (<a href="../distance">distance</a> d1 x z u) (<a href="../distance">distance</a> d2 y z u)
+                   (<a href="../lt">lt</a> d1 d2)))))
 </pre>
+</div>
+<div class="axiom">
 <pre>
-(forall (s1 e x y)
-  (if (and (<a href="../lt">lt</a>' e x y)
-           (forall (n)
-             (if (<a href="../member">member</a> n s1)
-                 (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
-           (<a href="../member">member</a> 0 s1))
-      (exists (s)
-        (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)))))
+   (forall (x s0 s1)
+      (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
+          (exists (s2 s3 s4 n3 n4)
+             (and (<a href="../componentsOf">componentsOf</a> s2 s0) (<a href="../union">union</a> s2 s3 s4)
+                  (forall (y) (iff (<a href="../member">member</a> y s3) (<a href="../lts">lts</a> y x s0)))
+                  (forall (z) (iff (<a href="../member">member</a> z s4) (<a href="../lts">lts</a> x z s0)))
+                  (<a href="../card">card</a> n3 s3) (<a href="../card">card</a> n4 s4) (<a href="../lt">lt</a> n4 n3)))))
 </pre>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../shorterDuration">shorterDuration</a> t1 t2)
-       (and (<a href="../interval">interval</a> t1) (<a href="../interval">interval</a> t2)
-            (exists (d1 d2 u)
-              (and (<a href="../durationOf">durationOf</a> d1 t1 u) (<a href="../durationOf">durationOf</a> d2 t2 u)
-                   (<a href="../lt">lt</a> d1 d2))))))
-</pre>
-<pre>
-(forall (x y s)
-  (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
-       (exists (n1 n2)
-         (and (<a href="../sequence">sequence</a> s) (<a href="../nth">nth</a> x n1 s) (<a href="../nth">nth</a> y n2 s)
-              (<a href="../lt">lt</a> n1 n2)))))
-</pre>
+</div>
 </section>
 
 </body>

@@ -28,30 +28,90 @@
 </section>
 <section>
 <h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The 'gen' relation is between two eventualities, which are almost identical but not quite, e.g., the same event under different descriptions.</p>
+<pre>
+(forall (e1 e2)
+  (if (<a href="../gen">gen</a> e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2))))
+</pre>
+</div><div class="axiom">
+<p>'gen' is stronger than implication.</p>
 <pre>
 (forall (e1 e2 t)
   (if (<a href="../gen">gen</a> e1 e2)
       (iff (<a href="../atTime">atTime</a> e1 t)
            (<a href="../atTime">atTime</a> e2 t))))
 </pre>
+</div><div class="axiom">
+<p>'gen' is stronger than implication.</p>
 <pre>
 (forall (e1 e2 x s)
   (if (<a href="../gen">gen</a> e1 e2)
       (iff (<a href="../atLoc">atLoc</a> e1 x s)
            (<a href="../atLoc">atLoc</a> e2 x s))))
 </pre>
+</div></section>
+<section>
+<h2>All Axioms</h2>
+<div class="axiom">
+<p>The 'gen' relation is between two eventualities, which are almost identical but not quite, e.g., the same event under different descriptions.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../gen">gen</a> e1 e2)
       (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2))))
 </pre>
-</section>
-<section>
-<h2>All Axioms</h2>
+</div>
+<div class="axiom">
+<p>The 'gen' relation is anti-reflexive.</p>
+<pre>
+(forall (e) (not (<a href="../gen">gen</a> e e)))
+</pre>
+</div>
+<div class="axiom">
+<p>'gen' obeys a kind of modus ponens rule with respect to 'Rexist'.</p>
+<pre>
+(forall (e1 e2)
+  (if (and (<a href="../gen">gen</a> e1 e2) (<a href="../Rexist">Rexist</a> e1))
+      (<a href="../Rexist">Rexist</a> e2)))
+</pre>
+</div>
+<div class="axiom">
+<p>'gen' is stronger than implication.</p>
 <pre>
 (exists (e1 e2)
   (and (<a href="../imply">imply</a> e1 e2) (not (<a href="../gen">gen</a> e1 e2))))
 </pre>
+</div>
+<div class="axiom">
+<p>'gen' is stronger than implication.</p>
+<pre>
+(forall (e1 e2 t)
+  (if (<a href="../gen">gen</a> e1 e2)
+      (iff (<a href="../atTime">atTime</a> e1 t)
+           (<a href="../atTime">atTime</a> e2 t))))
+</pre>
+</div>
+<div class="axiom">
+<p>'gen' is stronger than implication.</p>
+<pre>
+(forall (e1 e2 x s)
+  (if (<a href="../gen">gen</a> e1 e2)
+      (iff (<a href="../atLoc">atLoc</a> e1 x s)
+           (<a href="../atLoc">atLoc</a> e2 x s))))
+</pre>
+</div>
+<div class="axiom">
+<p>'gen' is stronger than implication.</p>
+<pre>
+(forall (e1 x)
+  (if (<a href="../run">run</a>' e1 x)
+      (exists (e2)
+        (and (<a href="../go">go</a>' e2 x) (<a href="../gen">gen</a> e1 e2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If two states are not inconsistent, then the change must be a composite of two changes, one to and the other from an inconsistent state.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../change">change</a>' e e1 e2)
@@ -60,6 +120,18 @@
             (and (<a href="../change">change</a>' e4 e1 e3) (<a href="../change">change</a>' e5 e3 e2) (<a href="../and'">and'</a> e6 e4 e5)
                  (<a href="../gen">gen</a> e6 e))))))
 </pre>
+</div>
+<div class="axiom">
+<p>There is a <code>changeIn</code> something when there is a change in its properties.</p>
+<pre>
+(forall (e x)
+  (iff (<a href="../changeIn">changeIn</a>' e x)
+       (exists (e1 e2 e3)
+         (and (<a href="../arg*">arg*</a> x e1) (<a href="../arg*">arg*</a> x e2) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>When there has been a <code>changeFrom</code> some eventuality e1 where p'(e1,x) holds, then after the change p(x) is not true. (I.e., no eventuality corresponding to p(x) really exists.) The <code>subst</code> expression means that e1 and e3 have the same predicate and same arguments, other than the self argument.</p>
 <pre>
 (forall (e e1 e3)
   (if (<a href="../subst">subst</a> e3 e3 e1 e1)
@@ -67,6 +139,9 @@
            (exists (e2 e5)
              (and (<a href="../change">change</a>' e5 e1 e2) (<a href="../gen">gen</a> e5 e) (<a href="../inconsistent">inconsistent</a> e3 e2))))))
 </pre>
+</div>
+<div class="axiom">
+<p>For <code>changeTo</code>, the start state of the change must exclude any other instance of the type e2 instantiates.</p>
 <pre>
 (forall (e e2 e4)
   (if (<a href="../subst">subst</a> e4 e4 e2 e2)
@@ -74,18 +149,18 @@
            (exists (e1 e5)
              (and (<a href="../change">change</a>' e5 e1 e2) (<a href="../gen">gen</a> e5 e) (<a href="../inconsistent">inconsistent</a> e4 e1))))))
 </pre>
+</div>
+<div class="axiom">
+<p>An entity x moves from y to z exactly when there is a change from x's being at y to its being at z.</p>
 <pre>
 (forall (e x y z)
   (iff (<a href="../move">move</a>' e x y z)
        (exists (e1 e2 e3 s)
          (and (<a href="../at">at</a>' e1 x y s) (<a href="../at">at</a>' e2 x z s) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
 </pre>
-<pre>
-(forall (e x)
-  (iff (<a href="../changeIn">changeIn</a>' e x)
-       (exists (e1 e2 e3)
-         (and (<a href="../arg*">arg*</a> x e1) (<a href="../arg*">arg*</a> x e2) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
-</pre>
+</div>
+<div class="axiom">
+<p>An <code>event</code> can (1) directly be a change of state, (2) generate a change of state, or (3) have a subevent, which contains the change.</p>
 <pre>
 (forall (e)
    (iff (<a href="../event">event</a> e)
@@ -96,37 +171,7 @@
             (exists (e1)
               (<a href="../subevent">subevent</a> e1 e)))))
 </pre>
-<pre>
-(forall (e) (not (<a href="../gen">gen</a> e e)))
-</pre>
-<pre>
-(forall (e1 e2 t)
-  (if (<a href="../gen">gen</a> e1 e2)
-      (iff (<a href="../atTime">atTime</a> e1 t)
-           (<a href="../atTime">atTime</a> e2 t))))
-</pre>
-<pre>
-(forall (e1 e2 x s)
-  (if (<a href="../gen">gen</a> e1 e2)
-      (iff (<a href="../atLoc">atLoc</a> e1 x s)
-           (<a href="../atLoc">atLoc</a> e2 x s))))
-</pre>
-<pre>
-(forall (e1 e2)
-  (if (<a href="../gen">gen</a> e1 e2)
-      (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2))))
-</pre>
-<pre>
-(forall (e1 e2)
-  (if (and (<a href="../gen">gen</a> e1 e2) (<a href="../Rexist">Rexist</a> e1))
-      (<a href="../Rexist">Rexist</a> e2)))
-</pre>
-<pre>
-(forall (e1 x)
-  (if (<a href="../run">run</a>' e1 x)
-      (exists (e2)
-        (and (<a href="../go">go</a>' e2 x) (<a href="../gen">gen</a> e1 e2)))))
-</pre>
+</div>
 </section>
 
 </body>
