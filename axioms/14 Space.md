@@ -1145,7 +1145,7 @@ with any side of the square.
 ```
    (forall (p d c v x)
       (if (and (square p) (sideOf c p) (diagonal d p) (vertex v c d x))
-          (45Degree v)))
+          (45Degrees v)))
 ```
 
 A direction with respect to a framework is a ray whose endpoint is the
