@@ -23,34 +23,34 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (e x)
-  (iff (<a href="../arg/index.html">arg</a> x e)
+  (iff (<a href="../arg">arg</a> x e)
        (exists (n)
-         (<a href="../argn/index.html">argn</a> x n e))))
+         (<a href="../argn">argn</a> x n e))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e x)
-  (iff (<a href="../arg/index.html">arg</a> x e)
+  (iff (<a href="../arg">arg</a> x e)
        (exists (n)
-         (<a href="../argn/index.html">argn</a> x n e))))
+         (<a href="../argn">argn</a> x n e))))
 </pre>
 <pre>
 (forall (x e1)
-  (iff (<a href="../arg*/index.html">arg*</a> x e1)
-       (or (<a href="../arg/index.html">arg</a> x e1)
+  (iff (<a href="../arg*">arg*</a> x e1)
+       (or (<a href="../arg">arg</a> x e1)
            (exists (e2)
-             (and (<a href="../arg/index.html">arg</a> e2 e1) (<a href="../arg*/index.html">arg*</a> x e2))))))
+             (and (<a href="../arg">arg</a> e2 e1) (<a href="../arg*">arg*</a> x e2))))))
 </pre>
 <pre>
 (forall (y e)
-  (iff (<a href="../onlyarg*/index.html">onlyarg*</a> y e)
-       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../nequal/index.html">nequal</a> y e)
+  (iff (<a href="../onlyarg*">onlyarg*</a> y e)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../nequal">nequal</a> y e)
             (forall (y1)
-              (if (<a href="../arg/index.html">arg</a> y1 e)
+              (if (<a href="../arg">arg</a> y1 e)
                   (or (equal y1 y)
-                      (<a href="../onlyarg*/index.html">onlyarg*</a> y y1)))))))
+                      (<a href="../onlyarg*">onlyarg*</a> y y1)))))))
 </pre>
 </section>
 

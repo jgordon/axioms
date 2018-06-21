@@ -23,94 +23,94 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (y x)
-  (iff (<a href="../componentOf/index.html">componentOf</a> y x)
-       (and (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+  (iff (<a href="../componentOf">componentOf</a> y x)
+       (and (<a href="../compositeEntity">compositeEntity</a> x)
             (exists (s)
-              (and (<a href="../componentsOf/index.html">componentsOf</a> s x) (<a href="../member/index.html">member</a> y s))))))
+              (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../member">member</a> y s))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (s)
-  (iff (<a href="../ground/index.html">ground</a> s)
-       (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
+  (iff (<a href="../ground">ground</a> s)
+       (and (<a href="../compositeEntity">compositeEntity</a> s)
             (exists (e y)
-              (and (<a href="../arg*/index.html">arg*</a> y e)
+              (and (<a href="../arg*">arg*</a> y e)
                    (forall (y1)
-                     (if (<a href="../componentOf/index.html">componentOf</a> y1 s)
+                     (if (<a href="../componentOf">componentOf</a> y1 s)
                          (exists (e1)
-                           (and (<a href="../subst/index.html">subst</a> y e y1 e1)
-                                (if (<a href="../Rexist/index.html">Rexist</a> s)
-                                    (<a href="../Rexist/index.html">Rexist</a> e1)))))))))))
+                           (and (<a href="../subst">subst</a> y e y1 e1)
+                                (if (<a href="../Rexist">Rexist</a> s)
+                                    (<a href="../Rexist">Rexist</a> e1)))))))))))
 </pre>
 <pre>
 (forall (x x1 s)
-  (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
-      (iff (<a href="../incompleteInstance/index.html">incompleteInstance</a> x1 x)
+  (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
+      (iff (<a href="../incompleteInstance">incompleteInstance</a> x1 x)
            (and (exists (y y1 s1 p p1)
-                  (and (<a href="../member/index.html">member</a> y s) (<a href="../typelt/index.html">typelt</a> y s1)
-                       (<a href="../componentOf/index.html">componentOf</a> y1 x1) (<a href="../member/index.html">member</a> y1 s1)
-                       (<a href="../propOrRelOf/index.html">propOrRelOf</a> p x) (<a href="../arg*/index.html">arg*</a> y p)
-                       (<a href="../subst/index.html">subst</a> y1 p1 y p) (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1)))
+                  (and (<a href="../member">member</a> y s) (<a href="../typelt">typelt</a> y s1)
+                       (<a href="../componentOf">componentOf</a> y1 x1) (<a href="../member">member</a> y1 s1)
+                       (<a href="../propOrRelOf">propOrRelOf</a> p x) (<a href="../arg*">arg*</a> y p)
+                       (<a href="../subst">subst</a> y1 p1 y p) (<a href="../propOrRelOf">propOrRelOf</a> p1 x1)))
                 (exists (p y)
-                  (and (<a href="../propOrRelOf/index.html">propOrRelOf</a> p x) (<a href="../arg*/index.html">arg*</a> y p)
+                  (and (<a href="../propOrRelOf">propOrRelOf</a> p x) (<a href="../arg*">arg*</a> y p)
                        (forall (y1 p1)
-                         (if (<a href="../subst/index.html">subst</a> y1 p1 y p)
-                             (not (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))
+                         (if (<a href="../subst">subst</a> y1 p1 y p)
+                             (not (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))
 </pre>
 <pre>
 (forall (x x1 s)
-  (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
-      (iff (<a href="../patternInstance/index.html">patternInstance</a> x1 x)
+  (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
+      (iff (<a href="../patternInstance">patternInstance</a> x1 x)
            (forall (y s1)
-             (if (and (<a href="../member/index.html">member</a> y s) (<a href="../typelt/index.html">typelt</a> y s1))
+             (if (and (<a href="../member">member</a> y s) (<a href="../typelt">typelt</a> y s1))
                  (exists (y1)
-                        (and (<a href="../member/index.html">member</a> y1 s1) (<a href="../componentOf/index.html">componentOf</a> y1 x1)
+                        (and (<a href="../member">member</a> y1 s1) (<a href="../componentOf">componentOf</a> y1 x1)
                              (forall (p)
-                               (if (and (<a href="../propOrRelOf/index.html">propOrRelOf</a> p x)
-                                        (<a href="../arg*/index.html">arg*</a> y p))
+                               (if (and (<a href="../propOrRelOf">propOrRelOf</a> p x)
+                                        (<a href="../arg*">arg*</a> y p))
                                    (exists (p1)
-                                          (and (<a href="../subst/index.html">subst</a> y1 p1 y p)
-                                               (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))))
+                                          (and (<a href="../subst">subst</a> y1 p1 y p)
+                                               (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))))
 </pre>
 <pre>
 (forall (x y s)
-  (if (<a href="../at/index.html">at</a> x y s)
-      (and (<a href="../componentOf/index.html">componentOf</a> y s) (<a href="../externalTo/index.html">externalTo</a> x s))))
+  (if (<a href="../at">at</a> x y s)
+      (and (<a href="../componentOf">componentOf</a> y s) (<a href="../externalTo">externalTo</a> x s))))
 </pre>
 <pre>
 (forall (x)
-  (if (<a href="../pattern/index.html">pattern</a> x)
-      (iff (<a href="../patternParameters/index.html">patternParameters</a> s x)
+  (if (<a href="../pattern">pattern</a> x)
+      (iff (<a href="../patternParameters">patternParameters</a> s x)
            (forall (y)
-             (iff (<a href="../member/index.html">member</a> y s)
+             (iff (<a href="../member">member</a> y s)
                   (exists (s1)
-                         (and (<a href="../componentOf/index.html">componentOf</a> y x)
-                              (<a href="../typelt/index.html">typelt</a> y s1))))))))
+                         (and (<a href="../componentOf">componentOf</a> y x)
+                              (<a href="../typelt">typelt</a> y s1))))))))
 </pre>
 <pre>
 (forall (x)
-  (iff (<a href="../pattern/index.html">pattern</a> x)
+  (iff (<a href="../pattern">pattern</a> x)
        (exists (y s1)
-              (and (<a href="../componentOf/index.html">componentOf</a> y x) (<a href="../typelt/index.html">typelt</a> y s1)))))
+              (and (<a href="../componentOf">componentOf</a> y x) (<a href="../typelt">typelt</a> y s1)))))
 </pre>
 <pre>
 (forall (x1 x)
-  (iff (<a href="../componentOrWhole/index.html">componentOrWhole</a> x1 x)
-       (or (equal x1 x) (<a href="../componentOf/index.html">componentOf</a> x1 x))))
+  (iff (<a href="../componentOrWhole">componentOrWhole</a> x1 x)
+       (or (equal x1 x) (<a href="../componentOf">componentOf</a> x1 x))))
 </pre>
 <pre>
 (forall (y s)
-   (iff (<a href="../inScale/index.html">inScale</a> y s)
-        (and (<a href="../scale/index.html">scale</a> s) (<a href="../componentOf/index.html">componentOf</a> y s))))
+   (iff (<a href="../inScale">inScale</a> y s)
+        (and (<a href="../scale">scale</a> s) (<a href="../componentOf">componentOf</a> y s))))
 </pre>
 <pre>
 (forall (y x)
-  (iff (<a href="../componentOf/index.html">componentOf</a> y x)
-       (and (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+  (iff (<a href="../componentOf">componentOf</a> y x)
+       (and (<a href="../compositeEntity">compositeEntity</a> x)
             (exists (s)
-              (and (<a href="../componentsOf/index.html">componentsOf</a> s x) (<a href="../member/index.html">member</a> y s))))))
+              (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../member">member</a> y s))))))
 </pre>
 </section>
 

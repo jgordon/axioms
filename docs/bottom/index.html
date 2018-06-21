@@ -23,67 +23,67 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (x s)
-   (iff (<a href="../bottom/index.html">bottom</a> x s)
-        (and (<a href="../inScale/index.html">inScale</a> x s)
+   (iff (<a href="../bottom">bottom</a> x s)
+        (and (<a href="../inScale">inScale</a> x s)
              (forall (y)
-               (if (<a href="../inScale/index.html">inScale</a> y s) (<a href="../leqs/index.html">leqs</a> x y s))))))
+               (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> x y s))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (d e c s)
-  (if (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s))
-      (iff (<a href="../bottom/index.html">bottom</a> d s)
-           (<a href="../impossible/index.html">impossible</a> e c))))
+  (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s))
+      (iff (<a href="../bottom">bottom</a> d s)
+           (<a href="../impossible">impossible</a> e c))))
 </pre>
 <pre>
 (forall (d e c s)
-  (if (and (<a href="../likelihood/index.html">likelihood</a> d1 e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../bottom/index.html">bottom</a> d s))
-      (iff (<a href="../lts/index.html">lts</a> d d1 s) (<a href="../possible/index.html">possible</a> e c))))
+  (if (and (<a href="../likelihood">likelihood</a> d1 e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../bottom">bottom</a> d s))
+      (iff (<a href="../lts">lts</a> d d1 s) (<a href="../possible">possible</a> e c))))
 </pre>
 <pre>
 (forall (m s1)
-  (iff (<a href="../measure/index.html">measure</a> m s1)
+  (iff (<a href="../measure">measure</a> m s1)
        (exists (s2)
-         (and (<a href="../scale/index.html">scale</a> s1) (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s2)
-              (<a href="../functionInto/index.html">functionInto</a> m s1 s2)
-              (<a href="../monotoneIncreasing/index.html">monotoneIncreasing</a> m)
-              (forall (x) (if (<a href="../bottom/index.html">bottom</a> x s1) (<a href="../map/index.html">map</a> m x 0)))))))
+         (and (<a href="../scale">scale</a> s1) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s2)
+              (<a href="../functionInto">functionInto</a> m s1 s2)
+              (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
+              (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
 </pre>
 <pre>
 (forall (s s1 e x y)
-   (if (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
-            (<a href="../beforeInSeq/index.html">beforeInSeq</a>' e x y s))
-       (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
+   (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
+            (<a href="../beforeInSeq">beforeInSeq</a>' e x y s))
+       (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
             (forall (z)
-              (if (<a href="../first/index.html">first</a> z s)
-                  (<a href="../bottom/index.html">bottom</a> z s))))))
+              (if (<a href="../first">first</a> z s)
+                  (<a href="../bottom">bottom</a> z s))))))
 </pre>
 <pre>
 (forall (s1 e x y)
   (if (and (forall (s2)
-             (if (<a href="../member/index.html">member</a> s2 s1)
-                 (<a href="../set/index.html">set</a> s2)))
-            (<a href="../subset/index.html">subset</a>' e x y))
+             (if (<a href="../member">member</a> s2 s1)
+                 (<a href="../set">set</a> s2)))
+            (<a href="../subset">subset</a>' e x y))
        (exists (s)
-          (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
+          (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
                (forall (z)
-                 (if (and (<a href="../member/index.html">member</a> z s1) (<a href="../null/index.html">null</a> z))
-                     (<a href="../bottom/index.html">bottom</a> z s)))))))
+                 (if (and (<a href="../member">member</a> z s1) (<a href="../null">null</a> z))
+                     (<a href="../bottom">bottom</a> z s)))))))
 </pre>
 <pre>
 (forall (s1 s)
-   (if (<a href="../Lo/index.html">Lo</a> s1 s)
+   (if (<a href="../Lo">Lo</a> s1 s)
        (forall (x)
-         (iff (<a href="../bottom/index.html">bottom</a> x s) (<a href="../bottom/index.html">bottom</a> x s1)))))
+         (iff (<a href="../bottom">bottom</a> x s) (<a href="../bottom">bottom</a> x s1)))))
 </pre>
 <pre>
 (forall (x s)
-   (iff (<a href="../bottom/index.html">bottom</a> x s)
-        (and (<a href="../inScale/index.html">inScale</a> x s)
+   (iff (<a href="../bottom">bottom</a> x s)
+        (and (<a href="../inScale">inScale</a> x s)
              (forall (y)
-               (if (<a href="../inScale/index.html">inScale</a> y s) (<a href="../leqs/index.html">leqs</a> x y s))))))
+               (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> x y s))))))
 </pre>
 </section>
 

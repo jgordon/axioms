@@ -23,29 +23,29 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (s e t)
-  (iff (<a href="../enabled/index.html">enabled</a> s e t)
+  (iff (<a href="../enabled">enabled</a> s e t)
        (forall (e1)
-         (if (<a href="../enable0/index.html">enable0</a> e1 e s) (<a href="../atTime/index.html">atTime</a> e1 t)))))
+         (if (<a href="../enable0">enable0</a> e1 e s) (<a href="../atTime">atTime</a> e1 t)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e a c t)
-  (iff (<a href="../executable/index.html">executable</a> e a c t)
+  (iff (<a href="../executable">executable</a> e a c t)
        (exists (s)
-         (and (<a href="../enabled/index.html">enabled</a> s e t)
+         (and (<a href="../enabled">enabled</a> s e t)
               (or (exists (e1)
-                    (and (<a href="../dcause/index.html">dcause</a>' e1 a e) (<a href="../possible/index.html">possible</a> e1 c)))
+                    (and (<a href="../dcause">dcause</a>' e1 a e) (<a href="../possible">possible</a> e1 c)))
                   (exists (e2)
-                    (and (<a href="../cause/index.html">cause</a> e2 e)
-                         (<a href="../executable/index.html">executable</a> e2 a c t))))))))
+                    (and (<a href="../cause">cause</a> e2 e)
+                         (<a href="../executable">executable</a> e2 a c t))))))))
 </pre>
 <pre>
 (forall (s e t)
-  (iff (<a href="../enabled/index.html">enabled</a> s e t)
+  (iff (<a href="../enabled">enabled</a> s e t)
        (forall (e1)
-         (if (<a href="../enable0/index.html">enable0</a> e1 e s) (<a href="../atTime/index.html">atTime</a> e1 t)))))
+         (if (<a href="../enable0">enable0</a> e1 e s) (<a href="../atTime">atTime</a> e1 t)))))
 </pre>
 </section>
 

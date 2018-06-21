@@ -23,62 +23,62 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (n1 n)
-   (if (<a href="../successor/index.html">successor</a> n1 n)
-       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1) (<a href="../nonNegInteger/index.html">nonNegInteger</a> n))))
+   (if (<a href="../successor">successor</a> n1 n)
+       (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
-(and (<a href="../successor/index.html">successor</a> 1 0) (<a href="../successor/index.html">successor</a> 2 1) (<a href="../successor/index.html">successor</a> 3 2)
-     (<a href="../successor/index.html">successor</a> 4 3) (<a href="../successor/index.html">successor</a> 5 4) (<a href="../successor/index.html">successor</a> 6 5)
-     (<a href="../successor/index.html">successor</a> 7 6) (<a href="../successor/index.html">successor</a> 8 7) (<a href="../successor/index.html">successor</a> 9 8)
-     (<a href="../successor/index.html">successor</a> 10 9))
+(and (<a href="../successor">successor</a> 1 0) (<a href="../successor">successor</a> 2 1) (<a href="../successor">successor</a> 3 2)
+     (<a href="../successor">successor</a> 4 3) (<a href="../successor">successor</a> 5 4) (<a href="../successor">successor</a> 6 5)
+     (<a href="../successor">successor</a> 7 6) (<a href="../successor">successor</a> 8 7) (<a href="../successor">successor</a> 9 8)
+     (<a href="../successor">successor</a> 10 9))
 </pre>
 <pre>
 (forall (n n1 n2 n3 n4)
-   (if (and (<a href="../successor/index.html">successor</a> n3 n2) (<a href="../product/index.html">product</a> n4 n1 n2))
-       (iff (<a href="../product/index.html">product</a> n n1 n3) (<a href="../sum/index.html">sum</a> n n4 n1))))
+   (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../product">product</a> n4 n1 n2))
+       (iff (<a href="../product">product</a> n n1 n3) (<a href="../sum">sum</a> n n4 n1))))
 </pre>
 <pre>
 (forall (n n1 n2 n3 n4)
-   (if (and (<a href="../successor/index.html">successor</a> n3 n2) (<a href="../sum/index.html">sum</a> n4 n1 n2))
-       (iff (<a href="../sum/index.html">sum</a> n n1 n3) (<a href="../successor/index.html">successor</a> n n4))))
+   (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../sum">sum</a> n4 n1 n2))
+       (iff (<a href="../sum">sum</a> n n1 n3) (<a href="../successor">successor</a> n n4))))
 </pre>
 <pre>
 (forall (n n1 n2)
-   (if (and (<a href="../successor/index.html">successor</a> n1 n) (<a href="../successor/index.html">successor</a> n2 n))
+   (if (and (<a href="../successor">successor</a> n1 n) (<a href="../successor">successor</a> n2 n))
        (equal n1 n2)))
 </pre>
 <pre>
 (forall (n)
-   (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n)
+   (if (<a href="../nonNegInteger">nonNegInteger</a> n)
        (exists (n1)
-          (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1) (<a href="../successor/index.html">successor</a> n1 n)))))
+          (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../successor">successor</a> n1 n)))))
 </pre>
 <pre>
 (forall (n1 n)
-   (if (<a href="../successor/index.html">successor</a> n1 n)
-       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1) (<a href="../nonNegInteger/index.html">nonNegInteger</a> n))))
+   (if (<a href="../successor">successor</a> n1 n)
+       (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n))))
 </pre>
 <pre>
 (forall (s1 s)
-  (iff (<a href="../rest/index.html">rest</a> s1 s)
-       (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../sequence/index.html">sequence</a> s1)
+  (iff (<a href="../rest">rest</a> s1 s)
+       (and (<a href="../sequence">sequence</a> s) (<a href="../sequence">sequence</a> s1)
             (forall (i x)
-              (iff (<a href="../map/index.html">map</a> s1 i x)
+              (iff (<a href="../map">map</a> s1 i x)
                    (exists (j)
-                     (and (<a href="../posInteger/index.html">posInteger</a> i) (<a href="../successor/index.html">successor</a> j i)
-                          (<a href="../map/index.html">map</a> s j x))))))))
+                     (and (<a href="../posInteger">posInteger</a> i) (<a href="../successor">successor</a> j i)
+                          (<a href="../map">map</a> s j x))))))))
 </pre>
 <pre>
 (forall (x1 x2 s)
-  (iff (<a href="../successiveElts/index.html">successiveElts</a> x1 x2 s)
+  (iff (<a href="../successiveElts">successiveElts</a> x1 x2 s)
        (exists (n1 n2)
-         (and (<a href="../successor/index.html">successor</a> n2 n1) (<a href="../nth/index.html">nth</a> x1 n1 s) (<a href="../nth/index.html">nth</a> x2 n2 s)))))
+         (and (<a href="../successor">successor</a> n2 n1) (<a href="../nth">nth</a> x1 n1 s) (<a href="../nth">nth</a> x2 n2 s)))))
 </pre>
 <pre>
-(not (exists (n) (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../successor/index.html">successor</a> 0 n))))
+(not (exists (n) (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../successor">successor</a> 0 n))))
 </pre>
 </section>
 

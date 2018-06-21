@@ -23,36 +23,36 @@
 <h2>All Axioms</h2>
 <pre>
 (forall (f a b)
-  (if (<a href="../fraction/index.html">fraction</a> f a b)
-      (and (<a href="../number/index.html">number</a> a) (<a href="../number/index.html">number</a> b) (<a href="../nequal/index.html">nequal</a> b 0))))
+  (if (<a href="../fraction">fraction</a> f a b)
+      (and (<a href="../number">number</a> a) (<a href="../number">number</a> b) (<a href="../nequal">nequal</a> b 0))))
 </pre>
 <pre>
 (forall (f a b)
-  (if (<a href="../fraction/index.html">fraction</a> f a b) (<a href="../number/index.html">number</a> f)))
+  (if (<a href="../fraction">fraction</a> f a b) (<a href="../number">number</a> f)))
 </pre>
 <pre>
-(forall (n) (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../number/index.html">number</a> n)))
+(forall (n) (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../number">number</a> n)))
 </pre>
 <pre>
 (forall (s)
-  (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)
+  (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
       (exists (s1 e x y)
-        (and (<a href="../lt/index.html">lt</a>' e x y)
+        (and (<a href="../lt">lt</a>' e x y)
              (forall (n)
-               (if (<a href="../member/index.html">member</a> n s1)
-                   (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
-             (<a href="../member/index.html">member</a> 0 s1)
-             (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
+               (if (<a href="../member">member</a> n s1)
+                   (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
+             (<a href="../member">member</a> 0 s1)
+             (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
 </pre>
 <pre>
 (forall (s1 e x y)
-  (if (and (<a href="../lt/index.html">lt</a>' e x y)
+  (if (and (<a href="../lt">lt</a>' e x y)
            (forall (n)
-             (if (<a href="../member/index.html">member</a> n s1)
-                 (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
-           (<a href="../member/index.html">member</a> 0 s1))
+             (if (<a href="../member">member</a> n s1)
+                 (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
+           (<a href="../member">member</a> 0 s1))
       (exists (s)
-        (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)))))
+        (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)))))
 </pre>
 </section>
 

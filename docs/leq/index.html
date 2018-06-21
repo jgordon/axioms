@@ -23,68 +23,68 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (n1 n2)
-  (iff (<a href="../leq/index.html">leq</a> n1 n2)
-       (or (<a href="../lt/index.html">lt</a> n1 n2) (equal n1 n2))))
+  (iff (<a href="../leq">leq</a> n1 n2)
+       (or (<a href="../lt">lt</a> n1 n2) (equal n1 n2))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (d1 d2 d3 d4 x1 x2 x3 u)
-  (if (and (<a href="../distance/index.html">distance</a> d1 x1 x2 u) (<a href="../distance/index.html">distance</a> d2 x2 x3 u)
-           (<a href="../distance/index.html">distance</a> d3 x1 x3 u) (<a href="../sum/index.html">sum</a> d4 d1 d2))
-      (<a href="../leq/index.html">leq</a> d3 d4)))
+  (if (and (<a href="../distance">distance</a> d1 x1 x2 u) (<a href="../distance">distance</a> d2 x2 x3 u)
+           (<a href="../distance">distance</a> d3 x1 x3 u) (<a href="../sum">sum</a> d4 d1 d2))
+      (<a href="../leq">leq</a> d3 d4)))
 </pre>
 <pre>
 (forall (e)
-  (iff (<a href="../eventuality/index.html">eventuality</a> e)
+  (iff (<a href="../eventuality">eventuality</a> e)
        (exists (p n)
-         (and (<a href="../pred/index.html">pred</a> p e) (<a href="../arity/index.html">arity</a> n e)
+         (and (<a href="../pred">pred</a> p e) (<a href="../arity">arity</a> n e)
               (forall (i)
-                (if (and (<a href="../posInteger/index.html">posInteger</a> i)
-                         (<a href="../leq/index.html">leq</a> i n))
+                (if (and (<a href="../posInteger">posInteger</a> i)
+                         (<a href="../leq">leq</a> i n))
                     (exists (x)
-                      (<a href="../argn/index.html">argn</a> x i e))))))))
+                      (<a href="../argn">argn</a> x i e))))))))
 </pre>
 <pre>
 (forall (n1 n2)
-  (iff (<a href="../leq/index.html">leq</a> n1 n2)
-       (or (<a href="../lt/index.html">lt</a> n1 n2) (equal n1 n2))))
+  (iff (<a href="../leq">leq</a> n1 n2)
+       (or (<a href="../lt">lt</a> n1 n2) (equal n1 n2))))
 </pre>
 <pre>
 (forall (s n1 n2)
-  (iff (<a href="../ints/index.html">ints</a> s n1 n2)
-       (and (<a href="../posInteger/index.html">posInteger</a> n1) (<a href="../posInteger/index.html">posInteger</a> n2) (<a href="../set/index.html">set</a> s)
+  (iff (<a href="../ints">ints</a> s n1 n2)
+       (and (<a href="../posInteger">posInteger</a> n1) (<a href="../posInteger">posInteger</a> n2) (<a href="../set">set</a> s)
             (forall (n)
-              (iff (<a href="../member/index.html">member</a> n s)
-                   (and (<a href="../posInteger/index.html">posInteger</a> n) (<a href="../leq/index.html">leq</a> n1 n) (<a href="../leq/index.html">leq</a> n n2)))))))
+              (iff (<a href="../member">member</a> n s)
+                   (and (<a href="../posInteger">posInteger</a> n) (<a href="../leq">leq</a> n1 n) (<a href="../leq">leq</a> n n2)))))))
 </pre>
 <pre>
 (forall (x e1 y e2)
-  (iff (<a href="../subst/index.html">subst</a> x e1 y e2)
+  (iff (<a href="../subst">subst</a> x e1 y e2)
        (exists (p n)
-         (and (<a href="../pred/index.html">pred</a> p e1) (<a href="../pred/index.html">pred</a> p e2) (<a href="../arity/index.html">arity</a> n e1) (<a href="../arity/index.html">arity</a> n e2)
-              (<a href="../noSubstTypelt/index.html">noSubstTypelt</a> x e1 y e2)
+         (and (<a href="../pred">pred</a> p e1) (<a href="../pred">pred</a> p e2) (<a href="../arity">arity</a> n e1) (<a href="../arity">arity</a> n e2)
+              (<a href="../noSubstTypelt">noSubstTypelt</a> x e1 y e2)
               (forall (i z1 z2)
-                (if (and (<a href="../posInteger/index.html">posInteger</a> i) (<a href="../leq/index.html">leq</a> i n)
-                         (<a href="../argn/index.html">argn</a> z1 i e1) (<a href="../argn/index.html">argn</a> z2 i e2))
-                    (and (iff (<a href="../eventuality/index.html">eventuality</a> z1)
-                              (<a href="../eventuality/index.html">eventuality</a> z2))
-                         (if (not (<a href="../eventuality/index.html">eventuality</a> z1))
-                             (and (if (<a href="../nequal/index.html">nequal</a> z1 x)
+                (if (and (<a href="../posInteger">posInteger</a> i) (<a href="../leq">leq</a> i n)
+                         (<a href="../argn">argn</a> z1 i e1) (<a href="../argn">argn</a> z2 i e2))
+                    (and (iff (<a href="../eventuality">eventuality</a> z1)
+                              (<a href="../eventuality">eventuality</a> z2))
+                         (if (not (<a href="../eventuality">eventuality</a> z1))
+                             (and (if (<a href="../nequal">nequal</a> z1 x)
                                       (equal z2 z1))
                                   (if (equal z1 x)
                                       (equal z2 y))))
-                         (if (<a href="../eventuality/index.html">eventuality</a> z1)
-                             (<a href="../subst/index.html">subst</a> x z1 y z2)))))))))
+                         (if (<a href="../eventuality">eventuality</a> z1)
+                             (<a href="../subst">subst</a> x z1 y z2)))))))))
 </pre>
 <pre>
 (forall (x y s1 m)
-  (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../measure/index.html">measure</a> m s1))
-      (iff (<a href="../sameHOM/index.html">sameHOM</a> x y s1 m)
+  (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
+      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m)
            (exists (f f2)
-             (and (<a href="../proportion/index.html">proportion</a> f y x m) (<a href="../product/index.html">product</a> f2 f f)
-                  (<a href="../leq/index.html">leq</a> f2 10))))))
+             (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
+                  (<a href="../leq">leq</a> f2 10))))))
 </pre>
 </section>
 

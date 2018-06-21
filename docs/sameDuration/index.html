@@ -23,48 +23,48 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (t1 t2)
-  (if (<a href="../sameDuration/index.html">sameDuration</a> t1 t2)
-      (and (<a href="../temporalEntity/index.html">temporalEntity</a> t1) (<a href="../temporalEntity/index.html">temporalEntity</a> t2))))
+  (if (<a href="../sameDuration">sameDuration</a> t1 t2)
+      (and (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../temporalEntity">temporalEntity</a> t2))))
 </pre>
 <pre>
 (forall (t1 t2)
-  (iff (<a href="../sameDuration/index.html">sameDuration</a> t1 t2) (<a href="../sameDuration/index.html">sameDuration</a> t2 t1)))
+  (iff (<a href="../sameDuration">sameDuration</a> t1 t2) (<a href="../sameDuration">sameDuration</a> t2 t1)))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (d t u)
-  (if (<a href="../interval/index.html">interval</a> t)
-      (iff (<a href="../durationOf/index.html">durationOf</a> d t u)
+  (if (<a href="../interval">interval</a> t)
+      (iff (<a href="../durationOf">durationOf</a> d t u)
            (exists (s)
-             (and (<a href="../concatenation/index.html">concatenation</a> t s)
+             (and (<a href="../concatenation">concatenation</a> t s)
                   (forall (t1)
-                    (if (<a href="../member/index.html">member</a> t1 s) (<a href="../sameDuration/index.html">sameDuration</a> t1 u)))
-                  (<a href="../card/index.html">card</a> d s))))))
+                    (if (<a href="../member">member</a> t1 s) (<a href="../sameDuration">sameDuration</a> t1 u)))
+                  (<a href="../card">card</a> d s))))))
 </pre>
 <pre>
 (forall (t)
-  (if (<a href="../temporalEntity/index.html">temporalEntity</a> t) (<a href="../sameDuration/index.html">sameDuration</a> t t)))
+  (if (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../sameDuration">sameDuration</a> t t)))
 </pre>
 <pre>
 (forall (t1 t2 t3)
-  (if (and (<a href="../sameDuration/index.html">sameDuration</a> t1 t2) (<a href="../sameDuration/index.html">sameDuration</a> t2 t3))
-      (<a href="../sameDuration/index.html">sameDuration</a> t1 t3)))
+  (if (and (<a href="../sameDuration">sameDuration</a> t1 t2) (<a href="../sameDuration">sameDuration</a> t2 t3))
+      (<a href="../sameDuration">sameDuration</a> t1 t3)))
 </pre>
 <pre>
 (forall (t1 t2)
-  (if (<a href="../sameDuration/index.html">sameDuration</a> t1 t2)
-      (and (<a href="../temporalEntity/index.html">temporalEntity</a> t1) (<a href="../temporalEntity/index.html">temporalEntity</a> t2))))
+  (if (<a href="../sameDuration">sameDuration</a> t1 t2)
+      (and (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../temporalEntity">temporalEntity</a> t2))))
 </pre>
 <pre>
 (forall (t1 t2)
-  (if (and (<a href="../instant/index.html">instant</a> t1) (<a href="../instant/index.html">instant</a> t2))
-      (<a href="../sameDuration/index.html">sameDuration</a> t1 t2)))
+  (if (and (<a href="../instant">instant</a> t1) (<a href="../instant">instant</a> t2))
+      (<a href="../sameDuration">sameDuration</a> t1 t2)))
 </pre>
 <pre>
 (forall (t1 t2)
-  (iff (<a href="../sameDuration/index.html">sameDuration</a> t1 t2) (<a href="../sameDuration/index.html">sameDuration</a> t2 t1)))
+  (iff (<a href="../sameDuration">sameDuration</a> t1 t2) (<a href="../sameDuration">sameDuration</a> t2 t1)))
 </pre>
 </section>
 

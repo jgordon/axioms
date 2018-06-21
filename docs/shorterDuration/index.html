@@ -23,30 +23,30 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (t1 t2)
-  (iff (<a href="../shorterDuration/index.html">shorterDuration</a> t1 t2)
-       (and (<a href="../interval/index.html">interval</a> t1) (<a href="../interval/index.html">interval</a> t2)
+  (iff (<a href="../shorterDuration">shorterDuration</a> t1 t2)
+       (and (<a href="../interval">interval</a> t1) (<a href="../interval">interval</a> t2)
             (exists (d1 d2 u)
-              (and (<a href="../durationOf/index.html">durationOf</a> d1 t1 u) (<a href="../durationOf/index.html">durationOf</a> d2 t2 u)
-                   (<a href="../lt/index.html">lt</a> d1 d2))))))
+              (and (<a href="../durationOf">durationOf</a> d1 t1 u) (<a href="../durationOf">durationOf</a> d2 t2 u)
+                   (<a href="../lt">lt</a> d1 d2))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (s)
-  (iff (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s)
+  (iff (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s)
        (exists (s1 e t1 t2)
-         (and (forall (t) (if (<a href="../member/index.html">member</a> t s1) (<a href="../interval/index.html">interval</a> t)))
-              (<a href="../shorterDuration/index.html">shorterDuration</a>' e t1 t2)
-              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
+         (and (forall (t) (if (<a href="../member">member</a> t s1) (<a href="../interval">interval</a> t)))
+              (<a href="../shorterDuration">shorterDuration</a>' e t1 t2)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
 </pre>
 <pre>
 (forall (t1 t2)
-  (iff (<a href="../shorterDuration/index.html">shorterDuration</a> t1 t2)
-       (and (<a href="../interval/index.html">interval</a> t1) (<a href="../interval/index.html">interval</a> t2)
+  (iff (<a href="../shorterDuration">shorterDuration</a> t1 t2)
+       (and (<a href="../interval">interval</a> t1) (<a href="../interval">interval</a> t2)
             (exists (d1 d2 u)
-              (and (<a href="../durationOf/index.html">durationOf</a> d1 t1 u) (<a href="../durationOf/index.html">durationOf</a> d2 t2 u)
-                   (<a href="../lt/index.html">lt</a> d1 d2))))))
+              (and (<a href="../durationOf">durationOf</a> d1 t1 u) (<a href="../durationOf">durationOf</a> d2 t2 u)
+                   (<a href="../lt">lt</a> d1 d2))))))
 </pre>
 </section>
 

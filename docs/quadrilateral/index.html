@@ -19,28 +19,28 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (p)
-  (iff (<a href="../quadrilateral/index.html">quadrilateral</a> p) (<a href="../polygon/index.html">polygon</a> p 4)))
+  (iff (<a href="../quadrilateral">quadrilateral</a> p) (<a href="../polygon">polygon</a> p 4)))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (p)
-  (iff (<a href="../quadrilateral/index.html">quadrilateral</a> p) (<a href="../polygon/index.html">polygon</a> p 4)))
+  (iff (<a href="../quadrilateral">quadrilateral</a> p) (<a href="../polygon">polygon</a> p 4)))
 </pre>
 <pre>
 (forall (p)
-  (iff (<a href="../rectangle/index.html">rectangle</a> p)
-       (and (<a href="../quadrilateral/index.html">quadrilateral</a> p)
-            (forall (v) (iff (<a href="../vertexOf/index.html">vertexOf</a> v p) (<a href="../rightAngle/index.html">rightAngle</a> v))))))
+  (iff (<a href="../rectangle">rectangle</a> p)
+       (and (<a href="../quadrilateral">quadrilateral</a> p)
+            (forall (v) (iff (<a href="../vertexOf">vertexOf</a> v p) (<a href="../rightAngle">rightAngle</a> v))))))
 </pre>
 <pre>
 (forall (p)
-  (iff (<a href="../rhombus/index.html">rhombus</a> p)
-       (and (<a href="../quadrilateral/index.html">quadrilateral</a> p)
+  (iff (<a href="../rhombus">rhombus</a> p)
+       (and (<a href="../quadrilateral">quadrilateral</a> p)
             (exists (d u)
               (forall (c)
-                (if (<a href="../sideOf/index.html">sideOf</a> c p) (<a href="../length/index.html">length</a> d c u)))))))
+                (if (<a href="../sideOf">sideOf</a> c p) (<a href="../length">length</a> d c u)))))))
 </pre>
 </section>
 

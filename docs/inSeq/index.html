@@ -23,32 +23,32 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (x s)
-  (iff (<a href="../inSeq/index.html">inSeq</a> x s)
-       (exists (n) (<a href="../nth/index.html">nth</a> x n s))))
+  (iff (<a href="../inSeq">inSeq</a> x s)
+       (exists (n) (<a href="../nth">nth</a> x n s))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e s)
-  (if (and (<a href="../sequence/index.html">sequence</a>' e s) (<a href="../Rexist/index.html">Rexist</a> e)
-           (exists (x) (<a href="../inSeq/index.html">inSeq</a> x s)))
+  (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
+           (exists (x) (<a href="../inSeq">inSeq</a> x s)))
       (exists (s1 s2 s3)
-        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
-             (forall (x) (iff (<a href="../member/index.html">member</a> x s1) (<a href="../inSeq/index.html">inSeq</a> x s)))
-             (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
-             (<a href="../singleton/index.html">singleton</a> s2 e) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 s)
+        (and (<a href="../compositeEntity">compositeEntity</a> s)
+             (forall (x) (iff (<a href="../member">member</a> x s1) (<a href="../inSeq">inSeq</a> x s)))
+             (<a href="../componentsOf">componentsOf</a> s1 s)
+             (<a href="../singleton">singleton</a> s2 e) (<a href="../propertiesOf">propertiesOf</a> s2 s)
              (forall (e1)
-               (iff (<a href="../member/index.html">member</a> e1 s3)
+               (iff (<a href="../member">member</a> e1 s3)
                     (exists (x y)
-                      (and (<a href="../beforeInSeq/index.html">beforeInSeq</a>' e1 x y s)
-                           (<a href="../Rexist/index.html">Rexist</a> e1)))))
-             (<a href="../relationsOf/index.html">relationsOf</a> s3 s)))))
+                      (and (<a href="../beforeInSeq">beforeInSeq</a>' e1 x y s)
+                           (<a href="../Rexist">Rexist</a> e1)))))
+             (<a href="../relationsOf">relationsOf</a> s3 s)))))
 </pre>
 <pre>
 (forall (x s)
-  (iff (<a href="../inSeq/index.html">inSeq</a> x s)
-       (exists (n) (<a href="../nth/index.html">nth</a> x n s))))
+  (iff (<a href="../inSeq">inSeq</a> x s)
+       (exists (n) (<a href="../nth">nth</a> x n s))))
 </pre>
 </section>
 

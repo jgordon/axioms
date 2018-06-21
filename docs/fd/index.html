@@ -23,47 +23,47 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (x y e)
-  (if (<a href="../fd/index.html">fd</a> y x e)
-      (and (<a href="../arg*/index.html">arg*</a> x e) (<a href="../arg*/index.html">arg*</a> y e)
+  (if (<a href="../fd">fd</a> y x e)
+      (and (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e)
            (exists (s)
-             (<a href="../typelt/index.html">typelt</a> x s)))))
+             (<a href="../typelt">typelt</a> x s)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (c1 c x1 x y e e1)
-  (if (and (<a href="../skfct/index.html">skfct</a> c1 c x1 x e) (<a href="../fd/index.html">fd</a> c y e) (<a href="../nequal/index.html">nequal</a> x y)
-           (<a href="../subst2/index.html">subst2</a> c1 x1 e1 c x e))
-      (<a href="../fd/index.html">fd</a> c1 y e1)))
+  (if (and (<a href="../skfct">skfct</a> c1 c x1 x e) (<a href="../fd">fd</a> c y e) (<a href="../nequal">nequal</a> x y)
+           (<a href="../subst2">subst2</a> c1 x1 e1 c x e))
+      (<a href="../fd">fd</a> c1 y e1)))
 </pre>
 <pre>
 (forall (x x1 y y1 e)
-  (iff (<a href="../skfct/index.html">skfct</a> y1 y x1 x e)
-       (and (<a href="../fd/index.html">fd</a> y x e)
+  (iff (<a href="../skfct">skfct</a> y1 y x1 x e)
+       (and (<a href="../fd">fd</a> y x e)
             (exists (e1)
-              (and (<a href="../subst2/index.html">subst2</a> x y e x1 y1 e1)
-                   (if (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../Rexist/index.html">Rexist</a> e1)))))))
+              (and (<a href="../subst2">subst2</a> x y e x1 y1 e1)
+                   (if (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1)))))))
 </pre>
 <pre>
 (forall (x y e s)
-  (if (and (<a href="../fd/index.html">fd</a> y x e) (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../typelt/index.html">typelt</a> x s) (<a href="../member/index.html">member</a> x1 s))
+  (if (and (<a href="../fd">fd</a> y x e) (<a href="../Rexist">Rexist</a> e) (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> x1 s))
       (exists (y1 e1)
-        (and (<a href="../subst2/index.html">subst2</a> x y e x1 y1 e1) (<a href="../Rexist/index.html">Rexist</a> e1)))))
+        (and (<a href="../subst2">subst2</a> x y e x1 y1 e1) (<a href="../Rexist">Rexist</a> e1)))))
 </pre>
 <pre>
 (forall (x y e)
-  (if (<a href="../fd/index.html">fd</a> y x e)
-      (and (<a href="../arg*/index.html">arg*</a> x e) (<a href="../arg*/index.html">arg*</a> y e)
+  (if (<a href="../fd">fd</a> y x e)
+      (and (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e)
            (exists (s)
-             (<a href="../typelt/index.html">typelt</a> x s)))))
+             (<a href="../typelt">typelt</a> x s)))))
 </pre>
 <pre>
 (forall (x)
-  (iff (<a href="../nonspecific/index.html">nonspecific</a> x)
-       (or (exists (s) (<a href="../typelt/index.html">typelt</a> x s))
+  (iff (<a href="../nonspecific">nonspecific</a> x)
+       (or (exists (s) (<a href="../typelt">typelt</a> x s))
            (exists (y s e)
-             (and (<a href="../typelt/index.html">typelt</a> y s) (<a href="../fd/index.html">fd</a> x y e))))))
+             (and (<a href="../typelt">typelt</a> y s) (<a href="../fd">fd</a> x y e))))))
 </pre>
 </section>
 

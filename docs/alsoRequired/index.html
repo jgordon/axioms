@@ -23,18 +23,18 @@
 <h2>All Axioms</h2>
 <pre>
 (forall (s e c)
-  (if (<a href="../eventuality/index.html">eventuality</a> e)
-      (iff (<a href="../alsoRequired/index.html">alsoRequired</a> s e c)
-           (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../eventualities/index.html">eventualities</a> c)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../alsoRequired">alsoRequired</a> s e c)
+           (and (<a href="../eventualities">eventualities</a> s) (<a href="../eventualities">eventualities</a> c)
                 (exists (s1 c1)
-                  (and (<a href="../union/index.html">union</a> s1 c1 s) (<a href="../subset/index.html">subset</a> c1 c)
-                       (<a href="../minimallyProves/index.html">minimallyProves</a> s1 e)))))))
+                  (and (<a href="../union">union</a> s1 c1 s) (<a href="../subset">subset</a> c1 c)
+                       (<a href="../minimallyProves">minimallyProves</a> s1 e)))))))
 </pre>
 <pre>
 (forall (s1 e1 d1 s2 e2 d2 c s)
-  (if (and (<a href="../alsoRequired/index.html">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired/index.html">alsoRequired</a> s2 e2 c) (<a href="../subset/index.html">subset</a> s2 s1)
-           (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s))
-      (<a href="../leqs/index.html">leqs</a> d1 d2 s)))
+  (if (and (<a href="../alsoRequired">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired">alsoRequired</a> s2 e2 c) (<a href="../subset">subset</a> s2 s1)
+           (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c) (<a href="../likelihoodScale">likelihoodScale</a> s))
+      (<a href="../leqs">leqs</a> d1 d2 s)))
 </pre>
 </section>
 

@@ -23,78 +23,78 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (e)
-  (iff (<a href="../properIntervalEv/index.html">properIntervalEv</a> e)
-       (or (<a href="../properInterval/index.html">properInterval</a> e)
+  (iff (<a href="../properIntervalEv">properIntervalEv</a> e)
+       (or (<a href="../properInterval">properInterval</a> e)
            (exists (t)
-             (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../properInterval/index.html">properInterval</a> t)))
-           (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> e))))
+             (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../properInterval">properInterval</a> t)))
+           (<a href="../posInfIntervalEv">posInfIntervalEv</a> e))))
 </pre>
 <pre>
 (forall (t1 t2 t3 t)
-  (if (<a href="../properIntervalEv/index.html">properIntervalEv</a> t)
-      (and (if (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../ends/index.html">ends</a> t3 t))
-               (<a href="../before/index.html">before</a> t1 t3))
-           (if (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../insideTime/index.html">insideTime</a> t2 t))
-               (<a href="../before/index.html">before</a> t1 t2))
-           (if (and (<a href="../insideTime/index.html">insideTime</a> t2 t) (<a href="../ends/index.html">ends</a> t3 t))
-               (<a href="../before/index.html">before</a> t2 t3)))))
+  (if (<a href="../properIntervalEv">properIntervalEv</a> t)
+      (and (if (and (<a href="../begins">begins</a> t1 t) (<a href="../ends">ends</a> t3 t))
+               (<a href="../before">before</a> t1 t3))
+           (if (and (<a href="../begins">begins</a> t1 t) (<a href="../insideTime">insideTime</a> t2 t))
+               (<a href="../before">before</a> t1 t2))
+           (if (and (<a href="../insideTime">insideTime</a> t2 t) (<a href="../ends">ends</a> t3 t))
+               (<a href="../before">before</a> t2 t3)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e)
-  (iff (<a href="../properIntervalEv/index.html">properIntervalEv</a> e)
-       (or (<a href="../properInterval/index.html">properInterval</a> e)
+  (iff (<a href="../properIntervalEv">properIntervalEv</a> e)
+       (or (<a href="../properInterval">properInterval</a> e)
            (exists (t)
-             (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../properInterval/index.html">properInterval</a> t)))
-           (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> e))))
+             (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../properInterval">properInterval</a> t)))
+           (<a href="../posInfIntervalEv">posInfIntervalEv</a> e))))
 </pre>
 <pre>
 (forall (t1 t2 t3 t)
-  (if (<a href="../properIntervalEv/index.html">properIntervalEv</a> t)
-      (and (if (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../ends/index.html">ends</a> t3 t))
-               (<a href="../before/index.html">before</a> t1 t3))
-           (if (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../insideTime/index.html">insideTime</a> t2 t))
-               (<a href="../before/index.html">before</a> t1 t2))
-           (if (and (<a href="../insideTime/index.html">insideTime</a> t2 t) (<a href="../ends/index.html">ends</a> t3 t))
-               (<a href="../before/index.html">before</a> t2 t3)))))
+  (if (<a href="../properIntervalEv">properIntervalEv</a> t)
+      (and (if (and (<a href="../begins">begins</a> t1 t) (<a href="../ends">ends</a> t3 t))
+               (<a href="../before">before</a> t1 t3))
+           (if (and (<a href="../begins">begins</a> t1 t) (<a href="../insideTime">insideTime</a> t2 t))
+               (<a href="../before">before</a> t1 t2))
+           (if (and (<a href="../insideTime">insideTime</a> t2 t) (<a href="../ends">ends</a> t3 t))
+               (<a href="../before">before</a> t2 t3)))))
 </pre>
 <pre>
 (forall (t1 t2)
-  (iff (<a href="../intDuring/index.html">intDuring</a> t1 t2)
-       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
+  (iff (<a href="../intDuring">intDuring</a> t1 t2)
+       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
             (exists (t3 t4)
-              (and (<a href="../begins/index.html">begins</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t4 t3)))
+              (and (<a href="../begins">begins</a> t3 t1) (<a href="../begins">begins</a> t4 t2) (<a href="../before">before</a> t4 t3)))
             (exists (t5)
-              (and (<a href="../ends/index.html">ends</a> t5 t1)
+              (and (<a href="../ends">ends</a> t5 t1)
                    (forall (t6)
-                     (if (<a href="../ends/index.html">ends</a> t6 t2) (<a href="../before/index.html">before</a> t5 t6))))))))
+                     (if (<a href="../ends">ends</a> t6 t2) (<a href="../before">before</a> t5 t6))))))))
 </pre>
 <pre>
 (forall (t1 t2)
-  (iff (<a href="../intFinishes/index.html">intFinishes</a> t1 t2)
-       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
+  (iff (<a href="../intFinishes">intFinishes</a> t1 t2)
+       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
             (exists (t3 t4)
-              (and (<a href="../begins/index.html">begins</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t4 t3)))
+              (and (<a href="../begins">begins</a> t3 t1) (<a href="../begins">begins</a> t4 t2) (<a href="../before">before</a> t4 t3)))
             (or (exists (t)
-                  (and (<a href="../ends/index.html">ends</a> t t1) (<a href="../ends/index.html">ends</a> t t2)))
-                (and (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> t1)
-                     (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> t2))))))
+                  (and (<a href="../ends">ends</a> t t1) (<a href="../ends">ends</a> t t2)))
+                (and (<a href="../posInfIntervalEv">posInfIntervalEv</a> t1)
+                     (<a href="../posInfIntervalEv">posInfIntervalEv</a> t2))))))
 </pre>
 <pre>
 (forall (t1 t2)
-  (iff (<a href="../intMeets/index.html">intMeets</a> t1 t2)
-       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
-            (exists (t) (and (<a href="../ends/index.html">ends</a> t t1) (<a href="../begins/index.html">begins</a> t t2))))))
+  (iff (<a href="../intMeets">intMeets</a> t1 t2)
+       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
+            (exists (t) (and (<a href="../ends">ends</a> t t1) (<a href="../begins">begins</a> t t2))))))
 </pre>
 <pre>
 (forall (t1 t2)
-  (iff (<a href="../intOverlap/index.html">intOverlap</a> t1 t2)
-       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
+  (iff (<a href="../intOverlap">intOverlap</a> t1 t2)
+       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
             (exists (t)
-              (or (and (<a href="../begins/index.html">begins</a> t t1) (<a href="../insideTime/index.html">insideTime</a> t t2))
-                  (and (<a href="../begins/index.html">begins</a> t t2) (<a href="../insideTime/index.html">insideTime</a> t t1)))))))
+              (or (and (<a href="../begins">begins</a> t t1) (<a href="../insideTime">insideTime</a> t t2))
+                  (and (<a href="../begins">begins</a> t t2) (<a href="../insideTime">insideTime</a> t t1)))))))
 </pre>
 </section>
 

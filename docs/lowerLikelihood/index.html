@@ -23,17 +23,17 @@
 <h2>All Axioms</h2>
 <pre>
 (forall (d1 d2)
-  (iff (<a href="../leqLikelihood/index.html">leqLikelihood</a> d1 d2)
-       (or (<a href="../lowerLikelihood/index.html">lowerLikelihood</a> d1 d2) (equal d1 d2))))
+  (iff (<a href="../leqLikelihood">leqLikelihood</a> d1 d2)
+       (or (<a href="../lowerLikelihood">lowerLikelihood</a> d1 d2) (equal d1 d2))))
 </pre>
 <pre>
 (forall (s)
-  (iff (<a href="../likelihoodScale/index.html">likelihoodScale</a> s)
+  (iff (<a href="../likelihoodScale">likelihoodScale</a> s)
        (exists (s1 e r d1 d2)
          (and (forall (d)
-                (iff (<a href="../member/index.html">member</a> d s1) (exists (e c) (<a href="../likelihood/index.html">likelihood</a> d e c))))
-              (<a href="../lowerLikelihood/index.html">lowerLikelihood</a>' r d1 d2)
-              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 r)))))
+                (iff (<a href="../member">member</a> d s1) (exists (e c) (<a href="../likelihood">likelihood</a> d e c))))
+              (<a href="../lowerLikelihood">lowerLikelihood</a>' r d1 d2)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 r)))))
 </pre>
 </section>
 

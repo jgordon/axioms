@@ -19,43 +19,43 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (p n)
-  (iff (<a href="../polygon/index.html">polygon</a> p n)
+  (iff (<a href="../polygon">polygon</a> p n)
        (exists (s)
          (and (forall (c)
-                (iff (<a href="../member/index.html">member</a> c s) (<a href="../sideOf/index.html">sideOf</a> c p)))
+                (iff (<a href="../member">member</a> c s) (<a href="../sideOf">sideOf</a> c p)))
               (forall (x)
-                (if (<a href="../inside/index.html">inside</a> x p)
+                (if (<a href="../inside">inside</a> x p)
                     (exists (c)
-                      (and (<a href="../member/index.html">member</a> c s)
-                        (or (<a href="../inside/index.html">inside</a> x c) (<a href="../endpoint/index.html">endpoint</a> x l))))))
-              (<a href="../closed/index.html">closed</a> p) (<a href="../planar/index.html">planar</a> p)
-              (<a href="../card/index.html">card</a> n s)))))
+                      (and (<a href="../member">member</a> c s)
+                        (or (<a href="../inside">inside</a> x c) (<a href="../endpoint">endpoint</a> x l))))))
+              (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
+              (<a href="../card">card</a> n s)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (p n)
-  (iff (<a href="../polygon/index.html">polygon</a> p n)
+  (iff (<a href="../polygon">polygon</a> p n)
        (exists (s)
          (and (forall (c)
-                (iff (<a href="../member/index.html">member</a> c s) (<a href="../sideOf/index.html">sideOf</a> c p)))
+                (iff (<a href="../member">member</a> c s) (<a href="../sideOf">sideOf</a> c p)))
               (forall (x)
-                (if (<a href="../inside/index.html">inside</a> x p)
+                (if (<a href="../inside">inside</a> x p)
                     (exists (c)
-                      (and (<a href="../member/index.html">member</a> c s)
-                        (or (<a href="../inside/index.html">inside</a> x c) (<a href="../endpoint/index.html">endpoint</a> x l))))))
-              (<a href="../closed/index.html">closed</a> p) (<a href="../planar/index.html">planar</a> p)
-              (<a href="../card/index.html">card</a> n s)))))
+                      (and (<a href="../member">member</a> c s)
+                        (or (<a href="../inside">inside</a> x c) (<a href="../endpoint">endpoint</a> x l))))))
+              (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
+              (<a href="../card">card</a> n s)))))
 </pre>
 <pre>
 (forall (p)
-  (iff (<a href="../quadrilateral/index.html">quadrilateral</a> p) (<a href="../polygon/index.html">polygon</a> p 4)))
+  (iff (<a href="../quadrilateral">quadrilateral</a> p) (<a href="../polygon">polygon</a> p 4)))
 </pre>
 <pre>
 (forall (r)
-  (iff (<a href="../polygon2/index.html">polygon2</a> r)
-       (exists (c) (and (<a href="../border/index.html">border</a> c r) (<a href="../polygon/index.html">polygon</a> c)))))
+  (iff (<a href="../polygon2">polygon2</a> r)
+       (exists (c) (and (<a href="../border">border</a> c r) (<a href="../polygon">polygon</a> c)))))
 </pre>
 </section>
 

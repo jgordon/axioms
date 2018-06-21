@@ -23,96 +23,96 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (e t)
-  (if (<a href="../atTime/index.html">atTime</a> e t) (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../instant/index.html">instant</a> t))))
+  (if (<a href="../atTime">atTime</a> e t) (and (<a href="../eventuality">eventuality</a> e) (<a href="../instant">instant</a> t))))
 </pre>
 <pre>
-(forall (e0 e t) (if (<a href="../atTime/index.html">atTime</a>' e0 e t) (<a href="../temporal/index.html">temporal</a> e0)))
+(forall (e0 e t) (if (<a href="../atTime">atTime</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e e1 e2)
-  (iff (<a href="../cond/index.html">cond</a> e e1 e2)
-       (and (<a href="../imply'/index.html">imply'</a> e e1 e2) (<a href="../event/index.html">event</a> e2)
+  (iff (<a href="../cond">cond</a> e e1 e2)
+       (and (<a href="../imply'">imply'</a> e e1 e2) (<a href="../event">event</a> e2)
             (forall (t)
-              (if (<a href="../begins/index.html">begins</a> t e2)
-                  (<a href="../atTime/index.html">atTime</a> e1 t))))))
+              (if (<a href="../begins">begins</a> t e2)
+                  (<a href="../atTime">atTime</a> e1 t))))))
 </pre>
 <pre>
 (forall (e t)
-  (if (<a href="../Now/index.html">Now</a> t)
-      (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../atTime/index.html">atTime</a> e t))))
+  (if (<a href="../Now">Now</a> t)
+      (iff (<a href="../Rexist">Rexist</a> e) (<a href="../atTime">atTime</a> e t))))
 </pre>
 <pre>
 (forall (e t)
-  (if (<a href="../atTime/index.html">atTime</a> e t) (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../instant/index.html">instant</a> t))))
+  (if (<a href="../atTime">atTime</a> e t) (and (<a href="../eventuality">eventuality</a> e) (<a href="../instant">instant</a> t))))
 </pre>
 <pre>
 (forall (e t)
-  (iff (<a href="../during/index.html">during</a> e t)
-       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../properInterval/index.html">properInterval</a> t)
-            (forall (t1) (if (<a href="../insideTime/index.html">insideTime</a> t1 t) (<a href="../atTime/index.html">atTime</a> e t1))))))
+  (iff (<a href="../during">during</a> e t)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../properInterval">properInterval</a> t)
+            (forall (t1) (if (<a href="../insideTime">insideTime</a> t1 t) (<a href="../atTime">atTime</a> e t1))))))
 </pre>
 <pre>
-(forall (e0 e t) (if (<a href="../atTime/index.html">atTime</a>' e0 e t) (<a href="../temporal/index.html">temporal</a> e0)))
+(forall (e0 e t) (if (<a href="../atTime">atTime</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
 </pre>
 <pre>
 (forall (e1 e2 t)
-  (if (<a href="../gen/index.html">gen</a> e1 e2)
-      (iff (<a href="../atTime/index.html">atTime</a> e1 t)
-           (<a href="../atTime/index.html">atTime</a> e2 t))))
+  (if (<a href="../gen">gen</a> e1 e2)
+      (iff (<a href="../atTime">atTime</a> e1 t)
+           (<a href="../atTime">atTime</a> e2 t))))
 </pre>
 <pre>
 (forall (e1 e2 t1)
-  (if (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../atTime/index.html">atTime</a> e1 t1) (etc))
+  (if (and (<a href="../cause">cause</a> e1 e2) (<a href="../atTime">atTime</a> e1 t1) (etc))
       (exists (t2)
-        (and (not (<a href="../before/index.html">before</a> t2 t1)) (<a href="../atTime/index.html">atTime</a> e2 t2)))))
+        (and (not (<a href="../before">before</a> t2 t1)) (<a href="../atTime">atTime</a> e2 t2)))))
 </pre>
 <pre>
 (forall (s e t)
-  (if (and (<a href="../timeScale/index.html">timeScale</a> s) (<a href="../atTime/index.html">atTime</a> e t))
-      (<a href="../at/index.html">at</a> e t s)))
+  (if (and (<a href="../timeScale">timeScale</a> s) (<a href="../atTime">atTime</a> e t))
+      (<a href="../at">at</a> e t s)))
 </pre>
 <pre>
 (forall (s e t)
-  (iff (<a href="../enabled/index.html">enabled</a> s e t)
+  (iff (<a href="../enabled">enabled</a> s e t)
        (forall (e1)
-         (if (<a href="../enable0/index.html">enable0</a> e1 e s) (<a href="../atTime/index.html">atTime</a> e1 t)))))
+         (if (<a href="../enable0">enable0</a> e1 e s) (<a href="../atTime">atTime</a> e1 t)))))
 </pre>
 <pre>
 (forall (s e t1)
-  (if (and (<a href="../causalComplex/index.html">causalComplex</a> s e)
-           (forall (e1) (if (<a href="../member/index.html">member</a> e1 s) (<a href="../atTime/index.html">atTime</a> e1 t1))))
+  (if (and (<a href="../causalComplex">causalComplex</a> s e)
+           (forall (e1) (if (<a href="../member">member</a> e1 s) (<a href="../atTime">atTime</a> e1 t1))))
       (exists (t2)
-        (and (not (<a href="../before/index.html">before</a> t2 t1)) (<a href="../atTime/index.html">atTime</a> e t2)))))
+        (and (not (<a href="../before">before</a> t2 t1)) (<a href="../atTime">atTime</a> e t2)))))
 </pre>
 <pre>
 (forall (t e)
-  (iff (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e)
-       (or (and (<a href="../instant/index.html">instant</a> t) (<a href="../atTime/index.html">atTime</a> e t)
+  (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
+       (or (and (<a href="../instant">instant</a> t) (<a href="../atTime">atTime</a> e t)
                 (forall (t1)
-                  (if (<a href="../nequal/index.html">nequal</a> t1 t) (not (<a href="../atTime/index.html">atTime</a> e t1)))))
-           (and (<a href="../interval/index.html">interval</a> t) (<a href="../during/index.html">during</a> e t)
+                  (if (<a href="../nequal">nequal</a> t1 t) (not (<a href="../atTime">atTime</a> e t1)))))
+           (and (<a href="../interval">interval</a> t) (<a href="../during">during</a> e t)
                 (forall (t1)
-                  (if (<a href="../atTime/index.html">atTime</a> e t1)
-                      (or (<a href="../insideTime/index.html">insideTime</a> t1 t) (<a href="../begins/index.html">begins</a> t1 t)
-                          (<a href="../ends/index.html">ends</a> t1 t)))))
-           (and (<a href="../tseq/index.html">tseq</a> t)
+                  (if (<a href="../atTime">atTime</a> e t1)
+                      (or (<a href="../insideTime">insideTime</a> t1 t) (<a href="../begins">begins</a> t1 t)
+                          (<a href="../ends">ends</a> t1 t)))))
+           (and (<a href="../tseq">tseq</a> t)
                 (forall (t1)
-                  (if (and (<a href="../member/index.html">member</a> t1 t) (<a href="../instant/index.html">instant</a> t1))
-                      (<a href="../atTime/index.html">atTime</a> e t1)))
+                  (if (and (<a href="../member">member</a> t1 t) (<a href="../instant">instant</a> t1))
+                      (<a href="../atTime">atTime</a> e t1)))
                 (forall (t1)
-                  (if (and (<a href="../member/index.html">member</a> t1 t) (<a href="../interval/index.html">interval</a> t1))
-                      (<a href="../during/index.html">during</a> e t1)))
+                  (if (and (<a href="../member">member</a> t1 t) (<a href="../interval">interval</a> t1))
+                      (<a href="../during">during</a> e t1)))
                 (forall (t1)
-                  (if (and (<a href="../instant/index.html">instant</a> t1) (<a href="../atTime/index.html">atTime</a> e t1))
-                      (or (<a href="../member/index.html">member</a> t1 t)
+                  (if (and (<a href="../instant">instant</a> t1) (<a href="../atTime">atTime</a> e t1))
+                      (or (<a href="../member">member</a> t1 t)
                           (exists (t2)
-                            (and (<a href="../interval/index.html">interval</a> t2) (<a href="../member/index.html">member</a> t2 t)
-                                 (or (<a href="../begins/index.html">begins</a> t1 t2)
-                                     (<a href="../insideTime/index.html">insideTime</a> t1 t2)
-                                     (<a href="../ends/index.html">ends</a> t1 t2)))))))))))
+                            (and (<a href="../interval">interval</a> t2) (<a href="../member">member</a> t2 t)
+                                 (or (<a href="../begins">begins</a> t1 t2)
+                                     (<a href="../insideTime">insideTime</a> t1 t2)
+                                     (<a href="../ends">ends</a> t1 t2)))))))))))
 </pre>
 </section>
 

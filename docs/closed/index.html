@@ -19,57 +19,57 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (c)
-  (if (<a href="../closed/index.html">closed</a> c)
+  (if (<a href="../closed">closed</a> c)
       (not (exists (x)
-             (<a href="../endpoint/index.html">endpoint</a> x c)))))
+             (<a href="../endpoint">endpoint</a> x c)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
    (forall (c)
-      (if (<a href="../curve/index.html">curve</a> c)
-          (iff (<a href="../closed/index.html">closed</a> c)
-               (and (not (exists (x) (<a href="../endpoint/index.html">endpoint</a> x c)))
+      (if (<a href="../curve">curve</a> c)
+          (iff (<a href="../closed">closed</a> c)
+               (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
                     (exists (r c1 x1)
-                       (and (<a href="../circle/index.html">circle</a> c1 x1) (<a href="../boundary/index.html">boundary</a> c r)
-                            (<a href="../inside/index.html">inside</a> c r)))))))
+                       (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
+                            (<a href="../inside">inside</a> c r)))))))
 </pre>
 <pre>
    (forall (p s)
-      (iff (<a href="../polyhedron/index.html">polyhedron</a> p s)
+      (iff (<a href="../polyhedron">polyhedron</a> p s)
            (exists ( r)
-              (and (<a href="../surface/index.html">surface</a> r p) (<a href="../closed/index.html">closed</a> r)
+              (and (<a href="../surface">surface</a> r p) (<a href="../closed">closed</a> r)
                    (forall (f)
-                      (if (<a href="../member/index.html">member</a> f s) (and (<a href="../polygon2/index.html">polygon2</a> f) (<a href="../inside/index.html">inside</a> f r))))
+                      (if (<a href="../member">member</a> f s) (and (<a href="../polygon2">polygon2</a> f) (<a href="../inside">inside</a> f r))))
                    (forall (x)
-                      (if (and (<a href="../point/index.html">point</a> x) (<a href="../inside/index.html">inside</a> x r))
+                      (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x r))
                           (exists (f)
-                             (and (<a href="../member/index.html">member</a> f s) (<a href="../subfigure/index.html">subfigure</a> x f)))))
+                             (and (<a href="../member">member</a> f s) (<a href="../subfigure">subfigure</a> x f)))))
                    (forall (x)
-                      (if (and (<a href="../point/index.html">point</a> x) (<a href="../member/index.html">member</a> f1 s) (<a href="../member/index.html">member</a> f2 s)
-                               (<a href="../inside/index.html">inside</a> x f1) (<a href="../inside/index.html">inside</a> x f2))
+                      (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
+                               (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
                           (equal f1 f2)))))))
 </pre>
 <pre>
 (forall (c)
-  (if (<a href="../closed/index.html">closed</a> c)
+  (if (<a href="../closed">closed</a> c)
       (not (exists (x)
-             (<a href="../endpoint/index.html">endpoint</a> x c)))))
+             (<a href="../endpoint">endpoint</a> x c)))))
 </pre>
 <pre>
 (forall (p n)
-  (iff (<a href="../polygon/index.html">polygon</a> p n)
+  (iff (<a href="../polygon">polygon</a> p n)
        (exists (s)
          (and (forall (c)
-                (iff (<a href="../member/index.html">member</a> c s) (<a href="../sideOf/index.html">sideOf</a> c p)))
+                (iff (<a href="../member">member</a> c s) (<a href="../sideOf">sideOf</a> c p)))
               (forall (x)
-                (if (<a href="../inside/index.html">inside</a> x p)
+                (if (<a href="../inside">inside</a> x p)
                     (exists (c)
-                      (and (<a href="../member/index.html">member</a> c s)
-                        (or (<a href="../inside/index.html">inside</a> x c) (<a href="../endpoint/index.html">endpoint</a> x l))))))
-              (<a href="../closed/index.html">closed</a> p) (<a href="../planar/index.html">planar</a> p)
-              (<a href="../card/index.html">card</a> n s)))))
+                      (and (<a href="../member">member</a> c s)
+                        (or (<a href="../inside">inside</a> x c) (<a href="../endpoint">endpoint</a> x l))))))
+              (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
+              (<a href="../card">card</a> n s)))))
 </pre>
 </section>
 

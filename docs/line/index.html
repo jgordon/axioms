@@ -23,54 +23,54 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (c)
-  (if (<a href="../line/index.html">line</a> c)
+  (if (<a href="../line">line</a> c)
       (not (exists (x)
-             (<a href="../endpoint/index.html">endpoint</a> x c)))))
+             (<a href="../endpoint">endpoint</a> x c)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (c)
-  (if (<a href="../line/index.html">line</a> c)
+  (if (<a href="../line">line</a> c)
       (not (exists (x)
-             (<a href="../endpoint/index.html">endpoint</a> x c)))))
+             (<a href="../endpoint">endpoint</a> x c)))))
 </pre>
 <pre>
 (forall (c)
-  (if (<a href="../linear/index.html">linear</a> c)
-      (and (exists (c1) (and (<a href="../line/index.html">line</a> c1) (<a href="../subfigure/index.html">subfigure</a> c c1)))
+  (if (<a href="../linear">linear</a> c)
+      (and (exists (c1) (and (<a href="../line">line</a> c1) (<a href="../subfigure">subfigure</a> c c1)))
            (forall (c1 c2)
-             (if (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2)
-                      (<a href="../subfigure/index.html">subfigure</a> c c1) (<a href="../subfigure/index.html">subfigure</a> c c2))
+             (if (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2)
+                      (<a href="../subfigure">subfigure</a> c c1) (<a href="../subfigure">subfigure</a> c c2))
                   (equal c1 c2))))))
 </pre>
 <pre>
 (forall (c)
-  (iff (<a href="../linear/index.html">linear</a> c)
-       (or (<a href="../line/index.html">line</a> c) (<a href="../ray/index.html">ray</a> c) (<a href="../lineSegment/index.html">lineSegment</a> c))))
+  (iff (<a href="../linear">linear</a> c)
+       (or (<a href="../line">line</a> c) (<a href="../ray">ray</a> c) (<a href="../lineSegment">lineSegment</a> c))))
 </pre>
 <pre>
 (forall (c1 c2)
-  (if (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2))
-      (iff (<a href="../parallel/index.html">parallel</a> c1 c2)
-           (and (<a href="../coplanar/index.html">coplanar</a> c1 c2)
+  (if (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2))
+      (iff (<a href="../parallel">parallel</a> c1 c2)
+           (and (<a href="../coplanar">coplanar</a> c1 c2)
                 (not (exists (f)
-                       (and (<a href="../inside/index.html">inside</a> f c1) (<a href="../inside/index.html">inside</a> f c2))))))))
+                       (and (<a href="../inside">inside</a> f c1) (<a href="../inside">inside</a> f c2))))))))
 </pre>
 <pre>
 (forall (f1 f2)
-  (iff (<a href="../parallel/index.html">parallel</a> f1 f2)
+  (iff (<a href="../parallel">parallel</a> f1 f2)
        (exists (c1 c2)
-         (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2) (<a href="../inside/index.html">inside</a> f1 c1) (<a href="../inside/index.html">inside</a> f2 c2)))))
+         (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2) (<a href="../inside">inside</a> f1 c1) (<a href="../inside">inside</a> f2 c2)))))
 </pre>
 <pre>
 (forall (r)
-  (iff (<a href="../plane/index.html">plane</a> r)
+  (iff (<a href="../plane">plane</a> r)
        (forall (c x1 x2)
-         (if (and (<a href="../line/index.html">line</a> c) (<a href="../inside/index.html">inside</a> x1 c) (<a href="../inside/index.html">inside</a> x2 c)
-                  (<a href="../inside/index.html">inside</a> x1 r) (<a href="../inside/index.html">inside</a> x2 r))
-             (<a href="../inside/index.html">inside</a> c r)))))
+         (if (and (<a href="../line">line</a> c) (<a href="../inside">inside</a> x1 c) (<a href="../inside">inside</a> x2 c)
+                  (<a href="../inside">inside</a> x1 r) (<a href="../inside">inside</a> x2 r))
+             (<a href="../inside">inside</a> c r)))))
 </pre>
 </section>
 

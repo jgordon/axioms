@@ -23,88 +23,88 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (s e)
-  (if (<a href="../causalComplex/index.html">causalComplex</a> s e)
-      (and (<a href="../eventuality/index.html">eventuality</a> e)
-           (or (<a href="../eventualities/index.html">eventualities</a> s)
-               (<a href="../eventuality/index.html">eventuality</a> s)))))
+  (if (<a href="../causalComplex">causalComplex</a> s e)
+      (and (<a href="../eventuality">eventuality</a> e)
+           (or (<a href="../eventualities">eventualities</a> s)
+               (<a href="../eventuality">eventuality</a> s)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (a e c)
-  (iff (<a href="../able/index.html">able</a> a e c)
+  (iff (<a href="../able">able</a> a e c)
        (exists (s s1 e1)
-         (and (<a href="../causalComplex/index.html">causalComplex</a> s e) (<a href="../cause/index.html">cause</a>' e1 a e) (<a href="../member/index.html">member</a> e1 s)
-              (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
-              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../possible/index.html">possible</a> e1 c))))))
+         (and (<a href="../causalComplex">causalComplex</a> s e) (<a href="../cause">cause</a>' e1 a e) (<a href="../member">member</a> e1 s)
+              (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
+              (if (<a href="../Rexist">Rexist</a> s1) (<a href="../possible">possible</a> e1 c))))))
 </pre>
 <pre>
 (forall (e x y s1 s)
-   (if (and (<a href="../at/index.html">at</a>' e x y s1) (<a href="../Hi/index.html">Hi</a> s1 s) (etc))
+   (if (and (<a href="../at">at</a>' e x y s1) (<a href="../Hi">Hi</a> s1 s) (etc))
        (exists (c a g g1)
-          (and (<a href="../member/index.html">member</a> e c) (<a href="../goal/index.html">goal</a> g a)
-               (or (<a href="../causalComplex/index.html">causalComplex</a> c g)
-                   (and (<a href="../not'/index.html">not'</a> g1 g) (<a href="../causalComplex/index.html">causalComplex</a> c g1)))))))
+          (and (<a href="../member">member</a> e c) (<a href="../goal">goal</a> g a)
+               (or (<a href="../causalComplex">causalComplex</a> c g)
+                   (and (<a href="../not'">not'</a> g1 g) (<a href="../causalComplex">causalComplex</a> c g1)))))))
 </pre>
 <pre>
 (forall (e1 e2 q c)
-  (iff (<a href="../tcauseq/index.html">tcauseq</a> e1 e2 q c)
+  (iff (<a href="../tcauseq">tcauseq</a> e1 e2 q c)
        (exists (s)
-         (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
-              (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likelihood/index.html">likelihood</a> q s1 c)
-              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../cause/index.html">cause</a> e1 e2))))))
+         (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+              (<a href="../deleteElt">deleteElt</a> s1 s e1) (<a href="../likelihood">likelihood</a> q s1 c)
+              (if (<a href="../Rexist">Rexist</a> s1) (<a href="../cause">cause</a> e1 e2))))))
 </pre>
 <pre>
 (forall (e1 e2 s)
-  (iff (<a href="../enable0/index.html">enable0</a> e1 e2 s)
-       (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
-            (not (<a href="../cause/index.html">cause</a> e1 e2)))))
+  (iff (<a href="../enable0">enable0</a> e1 e2 s)
+       (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+            (not (<a href="../cause">cause</a> e1 e2)))))
 </pre>
 <pre>
 (forall (e1 e2)
-  (if (<a href="../cause0/index.html">cause0</a> e1 e2)
+  (if (<a href="../cause0">cause0</a> e1 e2)
       (exists (s)
-        (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)))))
+        (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)))))
 </pre>
 <pre>
 (forall (e1 e2)
-  (iff (<a href="../causallyInvolved/index.html">causallyInvolved</a> e1 e2)
-       (exists (s) (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)))))
+  (iff (<a href="../causallyInvolved">causallyInvolved</a> e1 e2)
+       (exists (s) (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)))))
 </pre>
 <pre>
 (forall (e1 e2)
-  (iff (<a href="../enable/index.html">enable</a> e1 e2)
+  (iff (<a href="../enable">enable</a> e1 e2)
        (forall (s)
-         (if (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../enable0/index.html">enable0</a> e1 e2 s)))))
+         (if (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../enable0">enable0</a> e1 e2 s)))))
 </pre>
 <pre>
 (forall (e1 e2)
-  (iff (<a href="../tcause/index.html">tcause</a> e1 e2)
+  (iff (<a href="../tcause">tcause</a> e1 e2)
        (exists (s c)
-         (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
-              (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likely/index.html">likely</a> s1 c)
-              (if (<a href="../Rexist/index.html">Rexist</a> s)
-                  (<a href="../cause/index.html">cause</a> e1 e2))))))
+         (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+              (<a href="../deleteElt">deleteElt</a> s1 s e1) (<a href="../likely">likely</a> s1 c)
+              (if (<a href="../Rexist">Rexist</a> s)
+                  (<a href="../cause">cause</a> e1 e2))))))
 </pre>
 <pre>
 (forall (s e t1)
-  (if (and (<a href="../causalComplex/index.html">causalComplex</a> s e)
-           (forall (e1) (if (<a href="../member/index.html">member</a> e1 s) (<a href="../atTime/index.html">atTime</a> e1 t1))))
+  (if (and (<a href="../causalComplex">causalComplex</a> s e)
+           (forall (e1) (if (<a href="../member">member</a> e1 s) (<a href="../atTime">atTime</a> e1 t1))))
       (exists (t2)
-        (and (not (<a href="../before/index.html">before</a> t2 t1)) (<a href="../atTime/index.html">atTime</a> e t2)))))
+        (and (not (<a href="../before">before</a> t2 t1)) (<a href="../atTime">atTime</a> e t2)))))
 </pre>
 <pre>
 (forall (s e)
-  (if (<a href="../causalComplex/index.html">causalComplex</a> s e)
-      (and (<a href="../eventuality/index.html">eventuality</a> e)
-           (or (<a href="../eventualities/index.html">eventualities</a> s)
-               (<a href="../eventuality/index.html">eventuality</a> s)))))
+  (if (<a href="../causalComplex">causalComplex</a> s e)
+      (and (<a href="../eventuality">eventuality</a> e)
+           (or (<a href="../eventualities">eventualities</a> s)
+               (<a href="../eventuality">eventuality</a> s)))))
 </pre>
 <pre>
 (forall (s s1 e1 e)
-  (if (and (<a href="../causalComplex/index.html">causalComplex</a> s e) (<a href="../member/index.html">member</a> e1 s) (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1))
-      (not (<a href="../causalComplex/index.html">causalComplex</a> s1 e))))
+  (if (and (<a href="../causalComplex">causalComplex</a> s e) (<a href="../member">member</a> e1 s) (<a href="../deleteElt">deleteElt</a> s1 s e1))
+      (not (<a href="../causalComplex">causalComplex</a> s1 e))))
 </pre>
 </section>
 

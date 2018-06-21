@@ -23,66 +23,66 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (s t1 t2)
-  (iff (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
-       (and (<a href="../member/index.html">member</a> t1 s) (<a href="../member/index.html">member</a> t2 s) (<a href="../before/index.html">before</a> t1 t2)
+  (iff (<a href="../successiveElts">successiveElts</a> t1 t2 s)
+       (and (<a href="../member">member</a> t1 s) (<a href="../member">member</a> t2 s) (<a href="../before">before</a> t1 t2)
             (not (exists (t)
-                   (and (<a href="../member/index.html">member</a> t s) (<a href="../before/index.html">before</a> t1 t)
-                        (<a href="../before/index.html">before</a> t t2)))))))
+                   (and (<a href="../member">member</a> t s) (<a href="../before">before</a> t1 t)
+                        (<a href="../before">before</a> t t2)))))))
 </pre>
 <pre>
 (forall (x1 x2 s)
-  (iff (<a href="../successiveElts/index.html">successiveElts</a> x1 x2 s)
+  (iff (<a href="../successiveElts">successiveElts</a> x1 x2 s)
        (exists (n1 n2)
-         (and (<a href="../successor/index.html">successor</a> n2 n1) (<a href="../nth/index.html">nth</a> x1 n1 s) (<a href="../nth/index.html">nth</a> x2 n2 s)))))
+         (and (<a href="../successor">successor</a> n2 n1) (<a href="../nth">nth</a> x1 n1 s) (<a href="../nth">nth</a> x2 n2 s)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (s d t1 t2 t n1 n2 u)
-  (if (and (<a href="../periodicTseq/index.html">periodicTseq</a> s) (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
-           (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2))
-      (iff (<a href="../gapDuration/index.html">gapDuration</a> d s u) (<a href="../durationOf/index.html">durationOf</a> d t u))))
+  (if (and (<a href="../periodicTseq">periodicTseq</a> s) (<a href="../successiveElts">successiveElts</a> t1 t2 s)
+           (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../intervalBetween">intervalBetween</a> t t1 t2))
+      (iff (<a href="../gapDuration">gapDuration</a> d s u) (<a href="../durationOf">durationOf</a> d t u))))
 </pre>
 <pre>
 (forall (s t1 t2)
-  (iff (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
-       (and (<a href="../member/index.html">member</a> t1 s) (<a href="../member/index.html">member</a> t2 s) (<a href="../before/index.html">before</a> t1 t2)
+  (iff (<a href="../successiveElts">successiveElts</a> t1 t2 s)
+       (and (<a href="../member">member</a> t1 s) (<a href="../member">member</a> t2 s) (<a href="../before">before</a> t1 t2)
             (not (exists (t)
-                   (and (<a href="../member/index.html">member</a> t s) (<a href="../before/index.html">before</a> t1 t)
-                        (<a href="../before/index.html">before</a> t t2)))))))
+                   (and (<a href="../member">member</a> t s) (<a href="../before">before</a> t1 t)
+                        (<a href="../before">before</a> t t2)))))))
 </pre>
 <pre>
 (forall (s)
-  (iff (<a href="../periodicTseq/index.html">periodicTseq</a> s)
-       (and (<a href="../tseq/index.html">tseq</a> s)
+  (iff (<a href="../periodicTseq">periodicTseq</a> s)
+       (and (<a href="../tseq">tseq</a> s)
             (exists (d u)
               (forall (t1 t2)
-                (if (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
+                (if (<a href="../successiveElts">successiveElts</a> t1 t2 s)
                     (exists (t)
-                      (and (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2)
-                           (<a href="../durationOf/index.html">durationOf</a> d t u)))))))))
+                      (and (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
+                           (<a href="../durationOf">durationOf</a> d t u)))))))))
 </pre>
 <pre>
 (forall (s)
-  (iff (<a href="../roughlyPeriodicTseq/index.html">roughlyPeriodicTseq</a> s u)
-       (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
+  (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)
+       (and (<a href="../tseq">tseq</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
             (exists (s0 d)
-              (and (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s0)
+              (and (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s0)
                    (forall (t1 t2 t3 t4)
-                     (if (and (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
-                              (<a href="../successiveElts/index.html">successiveElts</a> t3 t4 s))
+                     (if (and (<a href="../successiveElts">successiveElts</a> t1 t2 s)
+                              (<a href="../successiveElts">successiveElts</a> t3 t4 s))
                          (exists (t12 t34 e d)
-                           (and (<a href="../intervalBetween/index.html">intervalBetween</a> t12 t1 t2)
-                                (<a href="../intervalBetween/index.html">intervalBetween</a> t34 t3 t4)
-                                (<a href="../durationOf/index.html">durationOf</a>' e d t12 u)
-                                (<a href="../sameHOM/index.html">sameHOM</a> t12 t34 s0 e))))))))))
+                           (and (<a href="../intervalBetween">intervalBetween</a> t12 t1 t2)
+                                (<a href="../intervalBetween">intervalBetween</a> t34 t3 t4)
+                                (<a href="../durationOf">durationOf</a>' e d t12 u)
+                                (<a href="../sameHOM">sameHOM</a> t12 t34 s0 e))))))))))
 </pre>
 <pre>
 (forall (x1 x2 s)
-  (iff (<a href="../successiveElts/index.html">successiveElts</a> x1 x2 s)
+  (iff (<a href="../successiveElts">successiveElts</a> x1 x2 s)
        (exists (n1 n2)
-         (and (<a href="../successor/index.html">successor</a> n2 n1) (<a href="../nth/index.html">nth</a> x1 n1 s) (<a href="../nth/index.html">nth</a> x2 n2 s)))))
+         (and (<a href="../successor">successor</a> n2 n1) (<a href="../nth">nth</a> x1 n1 s) (<a href="../nth">nth</a> x2 n2 s)))))
 </pre>
 </section>
 

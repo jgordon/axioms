@@ -23,63 +23,63 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (e1 e)
-  (iff (<a href="../instance/index.html">instance</a> e1 e)
-       (and (<a href="../partialInstance/index.html">partialInstance</a> e1 e)
+  (iff (<a href="../instance">instance</a> e1 e)
+       (and (<a href="../partialInstance">partialInstance</a> e1 e)
             (forall (s1)
-              (if (<a href="../parameters/index.html">parameters</a> s1 e1)
-                  (<a href="../null/index.html">null</a> s1))))))
+              (if (<a href="../parameters">parameters</a> s1 e1)
+                  (<a href="../null">null</a> s1))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e e1 e2)
-  (iff (<a href="../repeatUntil/index.html">repeatUntil</a> e e1 e2)
+  (iff (<a href="../repeatUntil">repeatUntil</a> e e1 e2)
        (exists (e3 e4 e5)
-         (and (<a href="../eventSequence/index.html">eventSequence</a>' e e3 e4) (<a href="../instance/index.html">instance</a> e3 e1) (<a href="../cond/index.html">cond</a> e4 e2 e5)
-              (or (<a href="../repeatUntil/index.html">repeatUntil</a> e5 e1 e2) (<a href="../instance/index.html">instance</a> e5 e1))))))
+         (and (<a href="../eventSequence">eventSequence</a>' e e3 e4) (<a href="../instance">instance</a> e3 e1) (<a href="../cond">cond</a> e4 e2 e5)
+              (or (<a href="../repeatUntil">repeatUntil</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e1))))))
 </pre>
 <pre>
 (forall (e e1 e2)
-  (iff (<a href="../whileDo/index.html">whileDo</a> e e1 e2)
+  (iff (<a href="../whileDo">whileDo</a> e e1 e2)
        (exists (e3 e4 e5)
-         (and (<a href="../cond/index.html">cond</a> e e1 e3) (<a href="../eventSequence/index.html">eventSequence</a>' e3 e4 e5) (<a href="../instance/index.html">instance</a> e4 e2)
-              (or (<a href="../whileDo/index.html">whileDo</a> e5 e1 e2) (<a href="../instance/index.html">instance</a> e5 e2))))))
+         (and (<a href="../cond">cond</a> e e1 e3) (<a href="../eventSequence">eventSequence</a>' e3 e4 e5) (<a href="../instance">instance</a> e4 e2)
+              (or (<a href="../whileDo">whileDo</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e2))))))
 </pre>
 <pre>
 (forall (e e1)
-  (iff (<a href="../iteration/index.html">iteration</a> e e1)
+  (iff (<a href="../iteration">iteration</a> e e1)
        (exists (e2 e3)
-         (and (<a href="../eventSequence/index.html">eventSequence</a>' e e2 e3) (<a href="../instance/index.html">instance</a> e2 e1)
-              (or (<a href="../iteration/index.html">iteration</a> e3 e1) (<a href="../instance/index.html">instance</a> e3 e1))))))
+         (and (<a href="../eventSequence">eventSequence</a>' e e2 e3) (<a href="../instance">instance</a> e2 e1)
+              (or (<a href="../iteration">iteration</a> e3 e1) (<a href="../instance">instance</a> e3 e1))))))
 </pre>
 <pre>
 (forall (e1 e)
-  (iff (<a href="../instance/index.html">instance</a> e1 e)
-       (and (<a href="../partialInstance/index.html">partialInstance</a> e1 e)
+  (iff (<a href="../instance">instance</a> e1 e)
+       (and (<a href="../partialInstance">partialInstance</a> e1 e)
             (forall (s1)
-              (if (<a href="../parameters/index.html">parameters</a> s1 e1)
-                  (<a href="../null/index.html">null</a> s1))))))
+              (if (<a href="../parameters">parameters</a> s1 e1)
+                  (<a href="../null">null</a> s1))))))
 </pre>
 <pre>
 (forall (e1 e2)
-  (if (<a href="../nott'/index.html">nott'</a> e1 e2)
+  (if (<a href="../nott'">nott'</a> e1 e2)
       (exists (e3)
-        (and (<a href="../instance/index.html">instance</a> e2 e3) (<a href="../not'/index.html">not'</a> e1 e3)))))
+        (and (<a href="../instance">instance</a> e2 e3) (<a href="../not'">not'</a> e1 e3)))))
 </pre>
 <pre>
 (forall (s e)
-   (iff (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e)
-        (and (<a href="../scale/index.html">scale</a> s) (<a href="../eventuality/index.html">eventuality</a> e)
-             (forall (s0) (if (<a href="../argn/index.html">argn</a> s0 1 e) (<a href="../set/index.html">set</a> s0)))
-             (forall (x) (if (<a href="../argn/index.html">argn</a> x 2 e) (exists (y) (<a href="../at/index.html">at</a> x y s))))
+   (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
+        (and (<a href="../scale">scale</a> s) (<a href="../eventuality">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn">argn</a> s0 1 e) (<a href="../set">set</a> s0)))
+             (forall (x) (if (<a href="../argn">argn</a> x 2 e) (exists (y) (<a href="../at">at</a> x y s))))
              (forall (e1 e2 s1 s2 x1 x2)
-                (if (and (<a href="../instance/index.html">instance</a> e1 e) (<a href="../argn/index.html">argn</a> s1 1 e1)
-                                         (<a href="../argn/index.html">argn</a> x1 2 e1)
-                         (<a href="../instance/index.html">instance</a> e2 e) (<a href="../argn/index.html">argn</a> s2 1 e2)
-                                         (<a href="../argn/index.html">argn</a> x2 2 e2)
-                         (<a href="../subset/index.html">subset</a> s1 s2))
-                    (<a href="../leqs/index.html">leqs</a> x1 x2 s))))))
+                (if (and (<a href="../instance">instance</a> e1 e) (<a href="../argn">argn</a> s1 1 e1)
+                                         (<a href="../argn">argn</a> x1 2 e1)
+                         (<a href="../instance">instance</a> e2 e) (<a href="../argn">argn</a> s2 1 e2)
+                                         (<a href="../argn">argn</a> x2 2 e2)
+                         (<a href="../subset">subset</a> s1 s2))
+                    (<a href="../leqs">leqs</a> x1 x2 s))))))
 </pre>
 </section>
 

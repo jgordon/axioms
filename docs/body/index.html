@@ -23,46 +23,46 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (b p)
-  (if (<a href="../body/index.html">body</a> b p)
-      (<a href="../physobj/index.html">physobj</a> b)))
+  (if (<a href="../body">body</a> b p)
+      (<a href="../physobj">physobj</a> b)))
 </pre>
 <pre>
 (forall (b p)
-  (if (<a href="../body/index.html">body</a> b p)
-      (and (<a href="../spatialSystem/index.html">spatialSystem</a> b)
+  (if (<a href="../body">body</a> b p)
+      (and (<a href="../spatialSystem">spatialSystem</a> b)
            (exists (s)
-             (and (<a href="../componentsOf/index.html">componentsOf</a> s b)
+             (and (<a href="../componentsOf">componentsOf</a> s b)
                   (forall (x)
-                    (iff (<a href="../member/index.html">member</a> x s) (<a href="../bodyPart/index.html">bodyPart</a> x p))))))))
+                    (iff (<a href="../member">member</a> x s) (<a href="../bodyPart">bodyPart</a> x p))))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (b p)
-  (if (<a href="../body/index.html">body</a> b p)
-      (<a href="../physobj/index.html">physobj</a> b)))
+  (if (<a href="../body">body</a> b p)
+      (<a href="../physobj">physobj</a> b)))
 </pre>
 <pre>
 (forall (b p)
-  (if (<a href="../body/index.html">body</a> b p)
-      (and (<a href="../spatialSystem/index.html">spatialSystem</a> b)
+  (if (<a href="../body">body</a> b p)
+      (and (<a href="../spatialSystem">spatialSystem</a> b)
            (exists (s)
-             (and (<a href="../componentsOf/index.html">componentsOf</a> s b)
+             (and (<a href="../componentsOf">componentsOf</a> s b)
                   (forall (x)
-                    (iff (<a href="../member/index.html">member</a> x s) (<a href="../bodyPart/index.html">bodyPart</a> x p))))))))
+                    (iff (<a href="../member">member</a> x s) (<a href="../bodyPart">bodyPart</a> x p))))))))
 </pre>
 <pre>
 (forall (p s)
-  (iff (<a href="../bodyPartsOf/index.html">bodyPartsOf</a> s p)
+  (iff (<a href="../bodyPartsOf">bodyPartsOf</a> s p)
        (exists (b)
-         (and (<a href="../person/index.html">person</a> p) (<a href="../body/index.html">body</a> b p) (<a href="../componentsOf/index.html">componentsOf</a> s b)))))
+         (and (<a href="../person">person</a> p) (<a href="../body">body</a> b p) (<a href="../componentsOf">componentsOf</a> s b)))))
 </pre>
 <pre>
 (forall (p)
-  (if (<a href="../person/index.html">person</a> p)
+  (if (<a href="../person">person</a> p)
       (exists (b m)
-        (and (<a href="../body/index.html">body</a> b p) (<a href="../mind/index.html">mind</a> m p)))))
+        (and (<a href="../body">body</a> b p) (<a href="../mind">mind</a> m p)))))
 </pre>
 </section>
 

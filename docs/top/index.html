@@ -23,31 +23,31 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (x s)
-   (iff (<a href="../top/index.html">top</a> x s)
-        (and (<a href="../inScale/index.html">inScale</a> x s)
+   (iff (<a href="../top">top</a> x s)
+        (and (<a href="../inScale">inScale</a> x s)
              (forall (y)
-               (if (<a href="../inScale/index.html">inScale</a> y s) (<a href="../leqs/index.html">leqs</a> y x s))))))
+               (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> y x s))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (d e c s)
-  (if (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s))
-      (iff (<a href="../top/index.html">top</a> d s) (<a href="../necessary/index.html">necessary</a> e c))))
+  (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s))
+      (iff (<a href="../top">top</a> d s) (<a href="../necessary">necessary</a> e c))))
 </pre>
 <pre>
 (forall (s1 s)
-   (if (<a href="../Hi/index.html">Hi</a> s1 s)
+   (if (<a href="../Hi">Hi</a> s1 s)
        (forall (x)
-         (iff (<a href="../top/index.html">top</a> x s) (<a href="../top/index.html">top</a> x s1)))))
+         (iff (<a href="../top">top</a> x s) (<a href="../top">top</a> x s1)))))
 </pre>
 <pre>
 (forall (x s)
-   (iff (<a href="../top/index.html">top</a> x s)
-        (and (<a href="../inScale/index.html">inScale</a> x s)
+   (iff (<a href="../top">top</a> x s)
+        (and (<a href="../inScale">inScale</a> x s)
              (forall (y)
-               (if (<a href="../inScale/index.html">inScale</a> y s) (<a href="../leqs/index.html">leqs</a> y x s))))))
+               (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> y x s))))))
 </pre>
 </section>
 

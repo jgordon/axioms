@@ -23,45 +23,45 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (r v)
-  (if (<a href="../surface/index.html">surface</a> r v)
-      (and (<a href="../region/index.html">region</a> r) (<a href="../volume/index.html">volume</a> v))))
+  (if (<a href="../surface">surface</a> r v)
+      (and (<a href="../region">region</a> r) (<a href="../volume">volume</a> v))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
    (forall (p s)
-      (iff (<a href="../polyhedron/index.html">polyhedron</a> p s)
+      (iff (<a href="../polyhedron">polyhedron</a> p s)
            (exists ( r)
-              (and (<a href="../surface/index.html">surface</a> r p) (<a href="../closed/index.html">closed</a> r)
+              (and (<a href="../surface">surface</a> r p) (<a href="../closed">closed</a> r)
                    (forall (f)
-                      (if (<a href="../member/index.html">member</a> f s) (and (<a href="../polygon2/index.html">polygon2</a> f) (<a href="../inside/index.html">inside</a> f r))))
+                      (if (<a href="../member">member</a> f s) (and (<a href="../polygon2">polygon2</a> f) (<a href="../inside">inside</a> f r))))
                    (forall (x)
-                      (if (and (<a href="../point/index.html">point</a> x) (<a href="../inside/index.html">inside</a> x r))
+                      (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x r))
                           (exists (f)
-                             (and (<a href="../member/index.html">member</a> f s) (<a href="../subfigure/index.html">subfigure</a> x f)))))
+                             (and (<a href="../member">member</a> f s) (<a href="../subfigure">subfigure</a> x f)))))
                    (forall (x)
-                      (if (and (<a href="../point/index.html">point</a> x) (<a href="../member/index.html">member</a> f1 s) (<a href="../member/index.html">member</a> f2 s)
-                               (<a href="../inside/index.html">inside</a> x f1) (<a href="../inside/index.html">inside</a> x f2))
+                      (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
+                               (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
                           (equal f1 f2)))))))
 </pre>
 <pre>
    (forall (p2 s)
-      (iff (<a href="../polyhedron2/index.html">polyhedron2</a> p2 s)
-           (exists (p) (and (<a href="../polyhedron/index.html">polyhedron</a> p s) (<a href="../surface/index.html">surface</a> p2 p)))))
+      (iff (<a href="../polyhedron2">polyhedron2</a> p2 s)
+           (exists (p) (and (<a href="../polyhedron">polyhedron</a> p s) (<a href="../surface">surface</a> p2 p)))))
 </pre>
 <pre>
 (forall (f1 f2)
-  (iff (<a href="../onBoundary/index.html">onBoundary</a> f1 f2)
-       (or (and (<a href="../point/index.html">point</a> f1) (<a href="../curve/index.html">curve</a> f2) (<a href="../endpoint/index.html">endpoint</a> f1 f2))
-           (exists (b) (and (<a href="../region/index.html">region</a> f2) (<a href="../border/index.html">border</a> b f2) (<a href="../inside/index.html">inside</a> f1 b)))
+  (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
+       (or (and (<a href="../point">point</a> f1) (<a href="../curve">curve</a> f2) (<a href="../endpoint">endpoint</a> f1 f2))
+           (exists (b) (and (<a href="../region">region</a> f2) (<a href="../border">border</a> b f2) (<a href="../inside">inside</a> f1 b)))
            (exists (b)
-             (and (<a href="../volume/index.html">volume</a> f2) (<a href="../surface/index.html">surface</a> b f2) (<a href="../inside/index.html">inside</a> f1 b))))))
+             (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
 </pre>
 <pre>
 (forall (r v)
-  (if (<a href="../surface/index.html">surface</a> r v)
-      (and (<a href="../region/index.html">region</a> r) (<a href="../volume/index.html">volume</a> v))))
+  (if (<a href="../surface">surface</a> r v)
+      (and (<a href="../region">region</a> r) (<a href="../volume">volume</a> v))))
 </pre>
 </section>
 

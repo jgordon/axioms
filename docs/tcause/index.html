@@ -23,37 +23,37 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (e1 e2)
-  (iff (<a href="../tcause/index.html">tcause</a> e1 e2)
+  (iff (<a href="../tcause">tcause</a> e1 e2)
        (exists (s c)
-         (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
-              (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likely/index.html">likely</a> s1 c)
-              (if (<a href="../Rexist/index.html">Rexist</a> s)
-                  (<a href="../cause/index.html">cause</a> e1 e2))))))
+         (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+              (<a href="../deleteElt">deleteElt</a> s1 s e1) (<a href="../likely">likely</a> s1 c)
+              (if (<a href="../Rexist">Rexist</a> s)
+                  (<a href="../cause">cause</a> e1 e2))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e1 e2)
-  (if (<a href="../cause/index.html">cause</a> e1 e2)
-      (<a href="../tcause/index.html">tcause</a> e1 e2)))
+  (if (<a href="../cause">cause</a> e1 e2)
+      (<a href="../tcause">tcause</a> e1 e2)))
 </pre>
 <pre>
 (forall (e1 e2)
-  (iff (<a href="../tcause/index.html">tcause</a> e1 e2)
+  (iff (<a href="../tcause">tcause</a> e1 e2)
        (exists (s c)
-         (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
-              (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likely/index.html">likely</a> s1 c)
-              (if (<a href="../Rexist/index.html">Rexist</a> s)
-                  (<a href="../cause/index.html">cause</a> e1 e2))))))
+         (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+              (<a href="../deleteElt">deleteElt</a> s1 s e1) (<a href="../likely">likely</a> s1 c)
+              (if (<a href="../Rexist">Rexist</a> s)
+                  (<a href="../cause">cause</a> e1 e2))))))
 </pre>
 <pre>
 (forall (s e)
-  (iff (<a href="../difficultiesWith/index.html">difficultiesWith</a> s e)
+  (iff (<a href="../difficultiesWith">difficultiesWith</a> s e)
        (forall (e1)
-         (iff (<a href="../member/index.html">member</a> e1 s)
+         (iff (<a href="../member">member</a> e1 s)
               (exists (e2)
-                (and (<a href="../not'/index.html">not'</a> e2 e) (<a href="../tcause/index.html">tcause</a> e1 e2)))))))
+                (and (<a href="../not'">not'</a> e2 e) (<a href="../tcause">tcause</a> e1 e2)))))))
 </pre>
 </section>
 

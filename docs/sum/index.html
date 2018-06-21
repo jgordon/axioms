@@ -23,79 +23,79 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (n n1 n2)
-   (iff (<a href="../sum/index.html">sum</a> n n1 n2) (<a href="../sum/index.html">sum</a> n n2 n1)))
+   (iff (<a href="../sum">sum</a> n n1 n2) (<a href="../sum">sum</a> n n2 n1)))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (c x1 x2 x3 d1 d2 d3 u)
-  (if (and (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x3)
-           (<a href="../inside/index.html">inside</a> x2 c) (<a href="../distance/index.html">distance</a> d1 x1 x2 u)
-           (<a href="../distance/index.html">distance</a> d2 x2 x3 u) (<a href="../distance/index.html">distance</a> d3 x1 x3 u))
-       (<a href="../sum/index.html">sum</a> d3 d1 d2)))
+  (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x3)
+           (<a href="../inside">inside</a> x2 c) (<a href="../distance">distance</a> d1 x1 x2 u)
+           (<a href="../distance">distance</a> d2 x2 x3 u) (<a href="../distance">distance</a> d3 x1 x3 u))
+       (<a href="../sum">sum</a> d3 d1 d2)))
 </pre>
 <pre>
 (forall (d1 d2 d3 d4 x1 x2 x3 u)
-  (if (and (<a href="../distance/index.html">distance</a> d1 x1 x2 u) (<a href="../distance/index.html">distance</a> d2 x2 x3 u)
-           (<a href="../distance/index.html">distance</a> d3 x1 x3 u) (<a href="../sum/index.html">sum</a> d4 d1 d2))
-      (<a href="../leq/index.html">leq</a> d3 d4)))
+  (if (and (<a href="../distance">distance</a> d1 x1 x2 u) (<a href="../distance">distance</a> d2 x2 x3 u)
+           (<a href="../distance">distance</a> d3 x1 x3 u) (<a href="../sum">sum</a> d4 d1 d2))
+      (<a href="../leq">leq</a> d3 d4)))
 </pre>
 <pre>
 (forall (n n1 n2 n3 n4 n5 n6)
-   (if (and (<a href="../sum/index.html">sum</a> n4 n2 n3) (<a href="../product/index.html">product</a> n5 n1 n2) (<a href="../product/index.html">product</a> n6 n1 n3))
-       (iff (<a href="../product/index.html">product</a> n n1 n4) (<a href="../sum/index.html">sum</a> n n5 n6))))
+   (if (and (<a href="../sum">sum</a> n4 n2 n3) (<a href="../product">product</a> n5 n1 n2) (<a href="../product">product</a> n6 n1 n3))
+       (iff (<a href="../product">product</a> n n1 n4) (<a href="../sum">sum</a> n n5 n6))))
 </pre>
 <pre>
 (forall (n n1 n2 n3 n4 n5)
-   (if (and (<a href="../sum/index.html">sum</a> n4 n2 n3) (<a href="../sum/index.html">sum</a> n5 n1 n2))
-       (iff (<a href="../sum/index.html">sum</a> n n1 n4) (<a href="../sum/index.html">sum</a> n n5 n3))))
+   (if (and (<a href="../sum">sum</a> n4 n2 n3) (<a href="../sum">sum</a> n5 n1 n2))
+       (iff (<a href="../sum">sum</a> n n1 n4) (<a href="../sum">sum</a> n n5 n3))))
 </pre>
 <pre>
 (forall (n n1 n2 n3 n4)
-   (if (and (<a href="../successor/index.html">successor</a> n3 n2) (<a href="../product/index.html">product</a> n4 n1 n2))
-       (iff (<a href="../product/index.html">product</a> n n1 n3) (<a href="../sum/index.html">sum</a> n n4 n1))))
+   (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../product">product</a> n4 n1 n2))
+       (iff (<a href="../product">product</a> n n1 n3) (<a href="../sum">sum</a> n n4 n1))))
 </pre>
 <pre>
 (forall (n n1 n2 n3 n4)
-   (if (and (<a href="../successor/index.html">successor</a> n3 n2) (<a href="../sum/index.html">sum</a> n4 n1 n2))
-       (iff (<a href="../sum/index.html">sum</a> n n1 n3) (<a href="../successor/index.html">successor</a> n n4))))
+   (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../sum">sum</a> n4 n1 n2))
+       (iff (<a href="../sum">sum</a> n n1 n3) (<a href="../successor">successor</a> n n4))))
 </pre>
 <pre>
 (forall (n n1 n2)
-   (iff (<a href="../sum/index.html">sum</a> n n1 n2) (<a href="../sum/index.html">sum</a> n n2 n1)))
+   (iff (<a href="../sum">sum</a> n n1 n2) (<a href="../sum">sum</a> n n2 n1)))
 </pre>
 <pre>
 (forall (n s)
-  (iff (<a href="../card/index.html">card</a> n s)
-       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../set/index.html">set</a> s)
-            (or (and (<a href="../null/index.html">null</a> s) (equal n 0))
+  (iff (<a href="../card">card</a> n s)
+       (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../set">set</a> s)
+            (or (and (<a href="../null">null</a> s) (equal n 0))
                 (exists (s1 x m)
-                  (and (<a href="../addElt/index.html">addElt</a> s s1 x)
-                       (not (<a href="../member/index.html">member</a> x s1))
-                       (<a href="../card/index.html">card</a> m s1)
-                       (<a href="../sum/index.html">sum</a> n m 1)))))))
+                  (and (<a href="../addElt">addElt</a> s s1 x)
+                       (not (<a href="../member">member</a> x s1))
+                       (<a href="../card">card</a> m s1)
+                       (<a href="../sum">sum</a> n m 1)))))))
 </pre>
 <pre>
 (forall (n)
-   (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../sum/index.html">sum</a> n n 0)))
+   (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../sum">sum</a> n n 0)))
 </pre>
 <pre>
 (forall (n1 n2 n3)
-   (if (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n2) (<a href="../nonNegInteger/index.html">nonNegInteger</a> n3) (<a href="../sum/index.html">sum</a> n1 n2 n3))
-       (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1)))
+   (if (and (<a href="../nonNegInteger">nonNegInteger</a> n2) (<a href="../nonNegInteger">nonNegInteger</a> n3) (<a href="../sum">sum</a> n1 n2 n3))
+       (<a href="../nonNegInteger">nonNegInteger</a> n1)))
 </pre>
 <pre>
 (forall (n1 n2)
-   (if (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1) (<a href="../nonNegInteger/index.html">nonNegInteger</a> n2))
-       (iff (<a href="../lt/index.html">lt</a> n1 n2)
-            (exists (n3) (and (<a href="../posInteger/index.html">posInteger</a> n3) (<a href="../sum/index.html">sum</a> n2 n1 n3))))))
+   (if (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n2))
+       (iff (<a href="../lt">lt</a> n1 n2)
+            (exists (n3) (and (<a href="../posInteger">posInteger</a> n3) (<a href="../sum">sum</a> n2 n1 n3))))))
 </pre>
 <pre>
 (forall (s s1 t u d d1 d2)
-  (if (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../tseq/index.html">tseq</a> s1) (not (<a href="../member/index.html">member</a> t s1)) (<a href="../addElt/index.html">addElt</a> s s1 t)
-           (<a href="../durationOf/index.html">durationOf</a> d1 s1 u) (<a href="../durationOf/index.html">durationOf</a> d2 t u) (<a href="../sum/index.html">sum</a> d d1 d2))
-      (<a href="../durationOf/index.html">durationOf</a> d s u)))
+  (if (and (<a href="../tseq">tseq</a> s) (<a href="../tseq">tseq</a> s1) (not (<a href="../member">member</a> t s1)) (<a href="../addElt">addElt</a> s s1 t)
+           (<a href="../durationOf">durationOf</a> d1 s1 u) (<a href="../durationOf">durationOf</a> d2 t u) (<a href="../sum">sum</a> d d1 d2))
+      (<a href="../durationOf">durationOf</a> d s u)))
 </pre>
 </section>
 

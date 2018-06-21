@@ -19,26 +19,26 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (f1 f2)
-  (iff (<a href="../coplanar/index.html">coplanar</a> f1 f2)
+  (iff (<a href="../coplanar">coplanar</a> f1 f2)
        (exists (p)
-         (and (<a href="../plane/index.html">plane</a> p) (<a href="../inside/index.html">inside</a> f1 p) (<a href="../inside/index.html">inside</a> f2 p)))))
+         (and (<a href="../plane">plane</a> p) (<a href="../inside">inside</a> f1 p) (<a href="../inside">inside</a> f2 p)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (c1 c2)
-  (if (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2))
-      (iff (<a href="../parallel/index.html">parallel</a> c1 c2)
-           (and (<a href="../coplanar/index.html">coplanar</a> c1 c2)
+  (if (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2))
+      (iff (<a href="../parallel">parallel</a> c1 c2)
+           (and (<a href="../coplanar">coplanar</a> c1 c2)
                 (not (exists (f)
-                       (and (<a href="../inside/index.html">inside</a> f c1) (<a href="../inside/index.html">inside</a> f c2))))))))
+                       (and (<a href="../inside">inside</a> f c1) (<a href="../inside">inside</a> f c2))))))))
 </pre>
 <pre>
 (forall (f1 f2)
-  (iff (<a href="../coplanar/index.html">coplanar</a> f1 f2)
+  (iff (<a href="../coplanar">coplanar</a> f1 f2)
        (exists (p)
-         (and (<a href="../plane/index.html">plane</a> p) (<a href="../inside/index.html">inside</a> f1 p) (<a href="../inside/index.html">inside</a> f2 p)))))
+         (and (<a href="../plane">plane</a> p) (<a href="../inside">inside</a> f1 p) (<a href="../inside">inside</a> f2 p)))))
 </pre>
 </section>
 

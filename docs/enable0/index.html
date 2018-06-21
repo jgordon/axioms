@@ -23,30 +23,30 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (e1 e2 s)
-  (iff (<a href="../enable0/index.html">enable0</a> e1 e2 s)
-       (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
-            (not (<a href="../cause/index.html">cause</a> e1 e2)))))
+  (iff (<a href="../enable0">enable0</a> e1 e2 s)
+       (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+            (not (<a href="../cause">cause</a> e1 e2)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e1 e2 s)
-  (iff (<a href="../enable0/index.html">enable0</a> e1 e2 s)
-       (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
-            (not (<a href="../cause/index.html">cause</a> e1 e2)))))
+  (iff (<a href="../enable0">enable0</a> e1 e2 s)
+       (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+            (not (<a href="../cause">cause</a> e1 e2)))))
 </pre>
 <pre>
 (forall (e1 e2)
-  (iff (<a href="../enable/index.html">enable</a> e1 e2)
+  (iff (<a href="../enable">enable</a> e1 e2)
        (forall (s)
-         (if (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../enable0/index.html">enable0</a> e1 e2 s)))))
+         (if (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../enable0">enable0</a> e1 e2 s)))))
 </pre>
 <pre>
 (forall (s e t)
-  (iff (<a href="../enabled/index.html">enabled</a> s e t)
+  (iff (<a href="../enabled">enabled</a> s e t)
        (forall (e1)
-         (if (<a href="../enable0/index.html">enable0</a> e1 e s) (<a href="../atTime/index.html">atTime</a> e1 t)))))
+         (if (<a href="../enable0">enable0</a> e1 e s) (<a href="../atTime">atTime</a> e1 t)))))
 </pre>
 </section>
 

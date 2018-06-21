@@ -23,44 +23,44 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (x y s1 m)
-  (if (<a href="../sameHOM/index.html">sameHOM</a> x y s1 m)
-      (and (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s1) (<a href="../measure/index.html">measure</a> m s1))))
+  (if (<a href="../sameHOM">sameHOM</a> x y s1 m)
+      (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1) (<a href="../measure">measure</a> m s1))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (s)
-  (iff (<a href="../roughlyPeriodicTseq/index.html">roughlyPeriodicTseq</a> s u)
-       (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
+  (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)
+       (and (<a href="../tseq">tseq</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
             (exists (s0 d)
-              (and (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s0)
+              (and (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s0)
                    (forall (t1 t2 t3 t4)
-                     (if (and (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
-                              (<a href="../successiveElts/index.html">successiveElts</a> t3 t4 s))
+                     (if (and (<a href="../successiveElts">successiveElts</a> t1 t2 s)
+                              (<a href="../successiveElts">successiveElts</a> t3 t4 s))
                          (exists (t12 t34 e d)
-                           (and (<a href="../intervalBetween/index.html">intervalBetween</a> t12 t1 t2)
-                                (<a href="../intervalBetween/index.html">intervalBetween</a> t34 t3 t4)
-                                (<a href="../durationOf/index.html">durationOf</a>' e d t12 u)
-                                (<a href="../sameHOM/index.html">sameHOM</a> t12 t34 s0 e))))))))))
+                           (and (<a href="../intervalBetween">intervalBetween</a> t12 t1 t2)
+                                (<a href="../intervalBetween">intervalBetween</a> t34 t3 t4)
+                                (<a href="../durationOf">durationOf</a>' e d t12 u)
+                                (<a href="../sameHOM">sameHOM</a> t12 t34 s0 e))))))))))
 </pre>
 <pre>
 (forall (x y s1 m)
-  (if (<a href="../sameHOM/index.html">sameHOM</a> x y s1 m)
-      (and (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s1) (<a href="../measure/index.html">measure</a> m s1))))
+  (if (<a href="../sameHOM">sameHOM</a> x y s1 m)
+      (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1) (<a href="../measure">measure</a> m s1))))
 </pre>
 <pre>
 (forall (x y s1 m)
-  (if (and (<a href="../gts/index.html">gts</a> x y s1) (<a href="../measure/index.html">measure</a> m s1))
-      (iff (<a href="../sameHOM/index.html">sameHOM</a> x y s1 m) (<a href="../sameHOM/index.html">sameHOM</a> y x s1 m))))
+  (if (and (<a href="../gts">gts</a> x y s1) (<a href="../measure">measure</a> m s1))
+      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m) (<a href="../sameHOM">sameHOM</a> y x s1 m))))
 </pre>
 <pre>
 (forall (x y s1 m)
-  (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../measure/index.html">measure</a> m s1))
-      (iff (<a href="../sameHOM/index.html">sameHOM</a> x y s1 m)
+  (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
+      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m)
            (exists (f f2)
-             (and (<a href="../proportion/index.html">proportion</a> f y x m) (<a href="../product/index.html">product</a> f2 f f)
-                  (<a href="../leq/index.html">leq</a> f2 10))))))
+             (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
+                  (<a href="../leq">leq</a> f2 10))))))
 </pre>
 </section>
 

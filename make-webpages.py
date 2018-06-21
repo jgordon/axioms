@@ -74,8 +74,12 @@ for fname in axiom_files:
                         if 'all axioms' not in preds[pred]:
                             preds[pred]['all axioms'] = set()
                         to_index.add(pred)
-                        formatted_axiom = formatted_axiom.replace('(' + pred + ' ', '(<a href="../' + pred + '/index.html">' + pred + '</a> ')
-                        formatted_axiom = formatted_axiom.replace('(' + pred + '\' ', '(<a href="../' + pred + '/index.html">' + pred + '</a>\' ')
+                        formatted_axiom = formatted_axiom.replace(
+                            '(' + pred + ' ',
+                            '(<a href="../' + pred + '">' + pred + '</a> ')
+                        formatted_axiom = formatted_axiom.replace(
+                            '(' + pred + '\' ',
+                            '(<a href="../' + pred + '">' + pred + '</a>\' ')
 
                     for pred in to_index:
                         preds[pred]['all axioms'].add(formatted_axiom)
@@ -154,7 +158,7 @@ with open('docs/index.html', 'w') as fout:
     fout.write(html_header_index)
     fout.write('<ul>')
     for pred in sorted(preds):
-        fout.write('<li><a href="' + pred + '/index.html">' + pred + '</a></li>')
+        fout.write('<li><a href="' + pred + '">' + pred + '</a></li>')
     fout.write('</ul>')
     fout.write(html_footer)
 

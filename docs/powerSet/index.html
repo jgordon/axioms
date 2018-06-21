@@ -23,33 +23,33 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (s0 s)
-  (iff (<a href="../powerSet/index.html">powerSet</a> s0 s)
+  (iff (<a href="../powerSet">powerSet</a> s0 s)
        (forall (s1)
-         (iff (<a href="../member/index.html">member</a> s1 s0)
-              (<a href="../subset/index.html">subset</a> s1 s)))))
+         (iff (<a href="../member">member</a> s1 s0)
+              (<a href="../subset">subset</a> s1 s)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (s s0 t f n)
-  (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../set/index.html">set</a> t) (<a href="../powerSet/index.html">powerSet</a> s0 s)
+  (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)
            (forall (t1)
-             (if (<a href="../member/index.html">member</a> t1 t) (<a href="../interval/index.html">interval</a> t1)))
-           (<a href="../function/index.html">function</a> f t s0)
+             (if (<a href="../member">member</a> t1 t) (<a href="../interval">interval</a> t1)))
+           (<a href="../function">function</a> f t s0)
            (forall (t1 s1)
-             (if (<a href="../map/index.html">map</a> f t1 s1)
+             (if (<a href="../map">map</a> f t1 s1)
                  (and (forall (e)
-                        (if (<a href="../member/index.html">member</a> e s1) (<a href="../happensIn/index.html">happensIn</a> e t1)))
-                      (<a href="../card/index.html">card</a> n s1)))))
-      (<a href="../rate/index.html">rate</a> n s t)))
+                        (if (<a href="../member">member</a> e s1) (<a href="../happensIn">happensIn</a> e t1)))
+                      (<a href="../card">card</a> n s1)))))
+      (<a href="../rate">rate</a> n s t)))
 </pre>
 <pre>
 (forall (s0 s)
-  (iff (<a href="../powerSet/index.html">powerSet</a> s0 s)
+  (iff (<a href="../powerSet">powerSet</a> s0 s)
        (forall (s1)
-         (iff (<a href="../member/index.html">member</a> s1 s0)
-              (<a href="../subset/index.html">subset</a> s1 s)))))
+         (iff (<a href="../member">member</a> s1 s0)
+              (<a href="../subset">subset</a> s1 s)))))
 </pre>
 </section>
 

@@ -23,34 +23,34 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (f x y m)
-  (if (<a href="../proportion/index.html">proportion</a> f x y m)
+  (if (<a href="../proportion">proportion</a> f x y m)
       (exists (s1)
-        (and (<a href="../measure/index.html">measure</a> m s1) (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s1)))))
+        (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (f x y m s1)
-  (if (and (<a href="../measure/index.html">measure</a> m s1) (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s1))
-      (iff (<a href="../proportion/index.html">proportion</a> f x y m)
+  (if (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1))
+      (iff (<a href="../proportion">proportion</a> f x y m)
            (exists (n1 n2)
-             (and (<a href="../map/index.html">map</a> m x n1) (<a href="../map/index.html">map</a> m y n2)
-                  (<a href="../fraction/index.html">fraction</a> f n1 n2))))))
+             (and (<a href="../map">map</a> m x n1) (<a href="../map">map</a> m y n2)
+                  (<a href="../fraction">fraction</a> f n1 n2))))))
 </pre>
 <pre>
 (forall (f x y m)
-  (if (<a href="../proportion/index.html">proportion</a> f x y m)
+  (if (<a href="../proportion">proportion</a> f x y m)
       (exists (s1)
-        (and (<a href="../measure/index.html">measure</a> m s1) (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s1)))))
+        (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)))))
 </pre>
 <pre>
 (forall (x y s1 m)
-  (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../measure/index.html">measure</a> m s1))
-      (iff (<a href="../sameHOM/index.html">sameHOM</a> x y s1 m)
+  (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
+      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m)
            (exists (f f2)
-             (and (<a href="../proportion/index.html">proportion</a> f y x m) (<a href="../product/index.html">product</a> f2 f f)
-                  (<a href="../leq/index.html">leq</a> f2 10))))))
+             (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
+                  (<a href="../leq">leq</a> f2 10))))))
 </pre>
 </section>
 

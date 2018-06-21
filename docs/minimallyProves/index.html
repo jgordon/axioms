@@ -23,33 +23,33 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (s1 e2)
-  (iff (<a href="../minimallyProves/index.html">minimallyProves</a> s1 e2)
-       (and (not (<a href="../member/index.html">member</a> e2 s1))
-            (<a href="../imply/index.html">imply</a> s1 e2)
+  (iff (<a href="../minimallyProves">minimallyProves</a> s1 e2)
+       (and (not (<a href="../member">member</a> e2 s1))
+            (<a href="../imply">imply</a> s1 e2)
             (not (exists (s2)
-                   (and (<a href="../properSubset/index.html">properSubset</a> s2 s1)
-                        (<a href="../imply/index.html">imply</a> s2 e2)))))))
+                   (and (<a href="../properSubset">properSubset</a> s2 s1)
+                        (<a href="../imply">imply</a> s2 e2)))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (s e c)
-  (if (<a href="../eventuality/index.html">eventuality</a> e)
-      (iff (<a href="../alsoRequired/index.html">alsoRequired</a> s e c)
-           (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../eventualities/index.html">eventualities</a> c)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../alsoRequired">alsoRequired</a> s e c)
+           (and (<a href="../eventualities">eventualities</a> s) (<a href="../eventualities">eventualities</a> c)
                 (exists (s1 c1)
-                  (and (<a href="../union/index.html">union</a> s1 c1 s) (<a href="../subset/index.html">subset</a> c1 c)
-                       (<a href="../minimallyProves/index.html">minimallyProves</a> s1 e)))))))
+                  (and (<a href="../union">union</a> s1 c1 s) (<a href="../subset">subset</a> c1 c)
+                       (<a href="../minimallyProves">minimallyProves</a> s1 e)))))))
 </pre>
 <pre>
 (forall (s1 e2)
-  (iff (<a href="../minimallyProves/index.html">minimallyProves</a> s1 e2)
-       (and (not (<a href="../member/index.html">member</a> e2 s1))
-            (<a href="../imply/index.html">imply</a> s1 e2)
+  (iff (<a href="../minimallyProves">minimallyProves</a> s1 e2)
+       (and (not (<a href="../member">member</a> e2 s1))
+            (<a href="../imply">imply</a> s1 e2)
             (not (exists (s2)
-                   (and (<a href="../properSubset/index.html">properSubset</a> s2 s1)
-                        (<a href="../imply/index.html">imply</a> s2 e2)))))))
+                   (and (<a href="../properSubset">properSubset</a> s2 s1)
+                        (<a href="../imply">imply</a> s2 e2)))))))
 </pre>
 </section>
 

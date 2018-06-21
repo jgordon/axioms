@@ -19,38 +19,38 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (p)
-  (iff (<a href="../square/index.html">square</a> p)
-       (and (<a href="../rhombus/index.html">rhombus</a> p) (<a href="../rectangle/index.html">rectangle</a> p))))
+  (iff (<a href="../square">square</a> p)
+       (and (<a href="../rhombus">rhombus</a> p) (<a href="../rectangle">rectangle</a> p))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
    (forall (p d c v x)
-      (if (and (<a href="../square/index.html">square</a> p) (<a href="../sideOf/index.html">sideOf</a> c p) (<a href="../diagonal/index.html">diagonal</a> d p) (<a href="../vertex/index.html">vertex</a> v c d x))
-          (<a href="../45Degrees/index.html">45Degrees</a> v)))
+      (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
+          (<a href="../45Degrees">45Degrees</a> v)))
 </pre>
 <pre>
    (forall (p d)
-      (if (<a href="../square/index.html">square</a> p)
-          (iff (<a href="../diagonal/index.html">diagonal</a> d p)
+      (if (<a href="../square">square</a> p)
+          (iff (<a href="../diagonal">diagonal</a> d p)
                (exists (v1 v2 x1 x2 c1 c2 c3 c4)
-                  (and (<a href="../vertex/index.html">vertex</a> v1 c1 c2 x1) (<a href="../vertexOf/index.html">vertexOf</a> v1 p)
-                       (<a href="../vertex/index.html">vertex</a> v2 c3 c4 x2) (<a href="../vertexOf/index.html">vertexOf</a> v2 p)
-                       (<a href="../nequal/index.html">nequal</a> c1 c3) (<a href="../nequal/index.html">nequal</a> c1 c4)
-                       (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> d x1 x2))))))
+                  (and (<a href="../vertex">vertex</a> v1 c1 c2 x1) (<a href="../vertexOf">vertexOf</a> v1 p)
+                       (<a href="../vertex">vertex</a> v2 c3 c4 x2) (<a href="../vertexOf">vertexOf</a> v2 p)
+                       (<a href="../nequal">nequal</a> c1 c3) (<a href="../nequal">nequal</a> c1 c4)
+                       (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
 </pre>
 <pre>
    (forall (p s)
-      (iff (<a href="../cube/index.html">cube</a> p s)
-           (and (<a href="../polyhedron/index.html">polyhedron</a> p s)
+      (iff (<a href="../cube">cube</a> p s)
+           (and (<a href="../polyhedron">polyhedron</a> p s)
                 (forall (f)
-                   (if (<a href="../member/index.html">member</a> f s) (<a href="../square/index.html">square</a> f))))))
+                   (if (<a href="../member">member</a> f s) (<a href="../square">square</a> f))))))
 </pre>
 <pre>
 (forall (p)
-  (iff (<a href="../square/index.html">square</a> p)
-       (and (<a href="../rhombus/index.html">rhombus</a> p) (<a href="../rectangle/index.html">rectangle</a> p))))
+  (iff (<a href="../square">square</a> p)
+       (and (<a href="../rhombus">rhombus</a> p) (<a href="../rectangle">rectangle</a> p))))
 </pre>
 </section>
 

@@ -23,65 +23,65 @@
 <h2>All Axioms</h2>
 <pre>
    (forall (c)
-      (if (<a href="../curve/index.html">curve</a> c)
-          (iff (<a href="../closed/index.html">closed</a> c)
-               (and (not (exists (x) (<a href="../endpoint/index.html">endpoint</a> x c)))
+      (if (<a href="../curve">curve</a> c)
+          (iff (<a href="../closed">closed</a> c)
+               (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
                     (exists (r c1 x1)
-                       (and (<a href="../circle/index.html">circle</a> c1 x1) (<a href="../boundary/index.html">boundary</a> c r)
-                            (<a href="../inside/index.html">inside</a> c r)))))))
+                       (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
+                            (<a href="../inside">inside</a> c r)))))))
 </pre>
 <pre>
 (forall (c c1 c2 x)
-   (if (<a href="../joinedCurves/index.html">joinedCurves</a> c c1 c2 x)
-       (<a href="../curve/index.html">curve</a> c)))
+   (if (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
+       (<a href="../curve">curve</a> c)))
 </pre>
 <pre>
 (forall (c c1 c2 x)
-  (iff (<a href="../joinedCurves/index.html">joinedCurves</a> c c1 c2 x)
-       (and (<a href="../curve/index.html">curve</a> c1) (<a href="../curve/index.html">curve</a> c2) (<a href="../nequal/index.html">nequal</a> c1 c2)
-            (<a href="../endpoint/index.html">endpoint</a> x c1) (<a href="../endpoint/index.html">endpoint</a> x c2)
+  (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
+       (and (<a href="../curve">curve</a> c1) (<a href="../curve">curve</a> c2) (<a href="../nequal">nequal</a> c1 c2)
+            (<a href="../endpoint">endpoint</a> x c1) (<a href="../endpoint">endpoint</a> x c2)
             (forall (y)
-              (iff (<a href="../inside/index.html">inside</a> y c)
-                   (or (<a href="../inside/index.html">inside</a> y c1) (<a href="../inside/index.html">inside</a> y c2)
+              (iff (<a href="../inside">inside</a> y c)
+                   (or (<a href="../inside">inside</a> y c1) (<a href="../inside">inside</a> y c2)
                        (equal y x))))
             (forall (z)
-              (iff (<a href="../endpoint/index.html">endpoint</a> z c)
-                   (and (<a href="../nequal/index.html">nequal</a> z x)
-                        (or (<a href="../endpoint/index.html">endpoint</a> z c1) (<a href="../endpoint/index.html">endpoint</a> z c2))))))))
+              (iff (<a href="../endpoint">endpoint</a> z c)
+                   (and (<a href="../nequal">nequal</a> z x)
+                        (or (<a href="../endpoint">endpoint</a> z c1) (<a href="../endpoint">endpoint</a> z c2))))))))
 </pre>
 <pre>
 (forall (c r)
-  (if (<a href="../border/index.html">border</a> c r)
-      (and (<a href="../curve/index.html">curve</a> c) (<a href="../region/index.html">region</a> r))))
+  (if (<a href="../border">border</a> c r)
+      (and (<a href="../curve">curve</a> c) (<a href="../region">region</a> r))))
 </pre>
 <pre>
 (forall (c)
-  (if (<a href="../linear/index.html">linear</a> c)
-      (<a href="../curve/index.html">curve</a> c)))
+  (if (<a href="../linear">linear</a> c)
+      (<a href="../curve">curve</a> c)))
 </pre>
 <pre>
 (forall (f1 f2)
-  (if (and (<a href="../point/index.html">point</a> f1) (<a href="../inside/index.html">inside</a> f1 f2))
-      (or (<a href="../curve/index.html">curve</a> f2) (<a href="../region/index.html">region</a> f2) (<a href="../volume/index.html">volume</a> f2))))
+  (if (and (<a href="../point">point</a> f1) (<a href="../inside">inside</a> f1 f2))
+      (or (<a href="../curve">curve</a> f2) (<a href="../region">region</a> f2) (<a href="../volume">volume</a> f2))))
 </pre>
 <pre>
 (forall (f1 f2)
-  (iff (<a href="../onBoundary/index.html">onBoundary</a> f1 f2)
-       (or (and (<a href="../point/index.html">point</a> f1) (<a href="../curve/index.html">curve</a> f2) (<a href="../endpoint/index.html">endpoint</a> f1 f2))
-           (exists (b) (and (<a href="../region/index.html">region</a> f2) (<a href="../border/index.html">border</a> b f2) (<a href="../inside/index.html">inside</a> f1 b)))
+  (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
+       (or (and (<a href="../point">point</a> f1) (<a href="../curve">curve</a> f2) (<a href="../endpoint">endpoint</a> f1 f2))
+           (exists (b) (and (<a href="../region">region</a> f2) (<a href="../border">border</a> b f2) (<a href="../inside">inside</a> f1 b)))
            (exists (b)
-             (and (<a href="../volume/index.html">volume</a> f2) (<a href="../surface/index.html">surface</a> b f2) (<a href="../inside/index.html">inside</a> f1 b))))))
+             (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
 </pre>
 <pre>
 (forall (x c)
-  (if (<a href="../endpoint/index.html">endpoint</a> x c)
-      (and (<a href="../point/index.html">point</a> x) (<a href="../curve/index.html">curve</a> c))))
+  (if (<a href="../endpoint">endpoint</a> x c)
+      (and (<a href="../point">point</a> x) (<a href="../curve">curve</a> c))))
 </pre>
 <pre>
-(forall (x) (if (<a href="../point/index.html">point</a> x) (<a href="../figure/index.html">figure</a> x)))
-(forall (c) (if (<a href="../curve/index.html">curve</a> c) (<a href="../figure/index.html">figure</a> c)))
-(forall (r) (if (<a href="../region/index.html">region</a> r) (<a href="../figure/index.html">figure</a> r)))
-(forall (v) (if (<a href="../volume/index.html">volume</a> v) (<a href="../figure/index.html">figure</a> v)))
+(forall (x) (if (<a href="../point">point</a> x) (<a href="../figure">figure</a> x)))
+(forall (c) (if (<a href="../curve">curve</a> c) (<a href="../figure">figure</a> c)))
+(forall (r) (if (<a href="../region">region</a> r) (<a href="../figure">figure</a> r)))
+(forall (v) (if (<a href="../volume">volume</a> v) (<a href="../figure">figure</a> v)))
 </pre>
 </section>
 

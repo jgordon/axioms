@@ -23,12 +23,12 @@
 <h2>All Axioms</h2>
 <pre>
 (forall (e x y s)
-   (if (<a href="../lts/index.html">lts</a>' e x y s)
-       (iff (<a href="../totalOrdering/index.html">totalOrdering</a> e x y s)
+   (if (<a href="../lts">lts</a>' e x y s)
+       (iff (<a href="../totalOrdering">totalOrdering</a> e x y s)
             (forall (x1 y1)
-               (if (and (<a href="../inScale/index.html">inScale</a> x1 s) (<a href="../inScale/index.html">inScale</a> y1 s))
-                   (or (<a href="../lts/index.html">lts</a> x1 y1 s) (equal x1 y1)
-                       (<a href="../lts/index.html">lts</a> y1 x1 s)))))))
+               (if (and (<a href="../inScale">inScale</a> x1 s) (<a href="../inScale">inScale</a> y1 s))
+                   (or (<a href="../lts">lts</a> x1 y1 s) (equal x1 y1)
+                       (<a href="../lts">lts</a> y1 x1 s)))))))
 </pre>
 </section>
 

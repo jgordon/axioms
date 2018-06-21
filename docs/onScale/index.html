@@ -23,58 +23,58 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (x s)
-   (iff (<a href="../onScale/index.html">onScale</a> x s)
-        (or (<a href="../inScale/index.html">inScale</a> x s)
+   (iff (<a href="../onScale">onScale</a> x s)
+        (or (<a href="../inScale">inScale</a> x s)
             (exists (y)
-               (and (<a href="../inScale/index.html">inScale</a> y s) (<a href="../at/index.html">at</a> x y s))))))
+               (and (<a href="../inScale">inScale</a> y s) (<a href="../at">at</a> x y s))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
    (forall (x s0 s1)
-      (if (and (<a href="../onScale/index.html">onScale</a> x s1) (<a href="../Hi/index.html">Hi</a> s1 s0) (etc))
+      (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
           (exists (s2 s3 s4 n3 n4)
-             (and (<a href="../componentsOf/index.html">componentsOf</a> s2 s0) (<a href="../union/index.html">union</a> s2 s3 s4)
-                  (forall (y) (iff (<a href="../member/index.html">member</a> y s3) (<a href="../lts/index.html">lts</a> y x s0)))
-                  (forall (z) (iff (<a href="../member/index.html">member</a> z s4) (<a href="../lts/index.html">lts</a> x z s0)))
-                  (<a href="../card/index.html">card</a> n3 s3) (<a href="../card/index.html">card</a> n4 s4) (<a href="../lt/index.html">lt</a> n4 n3)))))
+             (and (<a href="../componentsOf">componentsOf</a> s2 s0) (<a href="../union">union</a> s2 s3 s4)
+                  (forall (y) (iff (<a href="../member">member</a> y s3) (<a href="../lts">lts</a> y x s0)))
+                  (forall (z) (iff (<a href="../member">member</a> z s4) (<a href="../lts">lts</a> x z s0)))
+                  (<a href="../card">card</a> n3 s3) (<a href="../card">card</a> n4 s4) (<a href="../lt">lt</a> n4 n3)))))
 </pre>
 <pre>
    (forall (x z)
-      (iff (<a href="../far/index.html">far</a> x z)
+      (iff (<a href="../far">far</a> x z)
            (exists (s s2)
-              (and (<a href="../nearnessScale/index.html">nearnessScale</a> s z) (<a href="../Hi/index.html">Hi</a> s2 s) (<a href="../onScale/index.html">onScale</a> x s2)))))
+              (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Hi">Hi</a> s2 s) (<a href="../onScale">onScale</a> x s2)))))
 </pre>
 <pre>
    (forall (x z)
-      (iff (<a href="../near/index.html">near</a> x z)
+      (iff (<a href="../near">near</a> x z)
            (exists (s s1)
-              (and (<a href="../nearnessScale/index.html">nearnessScale</a> s z) (<a href="../Lo/index.html">Lo</a> s1 s) (<a href="../onScale/index.html">onScale</a> x s1)))))
+              (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Lo">Lo</a> s1 s) (<a href="../onScale">onScale</a> x s1)))))
 </pre>
 <pre>
 (forall (x s)
-   (iff (<a href="../onScale/index.html">onScale</a> x s)
-        (or (<a href="../inScale/index.html">inScale</a> x s)
+   (iff (<a href="../onScale">onScale</a> x s)
+        (or (<a href="../inScale">inScale</a> x s)
             (exists (y)
-               (and (<a href="../inScale/index.html">inScale</a> y s) (<a href="../at/index.html">at</a> x y s))))))
+               (and (<a href="../inScale">inScale</a> y s) (<a href="../at">at</a> x y s))))))
 </pre>
 <pre>
 (forall (x y s)
-   (if (<a href="../lts/index.html">lts</a> x y s)
-       (and (<a href="../onScale/index.html">onScale</a> x s) (<a href="../onScale/index.html">onScale</a> y s))))
+   (if (<a href="../lts">lts</a> x y s)
+       (and (<a href="../onScale">onScale</a> x s) (<a href="../onScale">onScale</a> y s))))
 </pre>
 <pre>
 (forall (x y s)
-   (iff (<a href="../geqs/index.html">geqs</a> x y s)
-        (or (<a href="../gts/index.html">gts</a> x y s)
-            (and (<a href="../onScale/index.html">onScale</a> x s) (equal x y)))))
+   (iff (<a href="../geqs">geqs</a> x y s)
+        (or (<a href="../gts">gts</a> x y s)
+            (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
 </pre>
 <pre>
 (forall (x y s)
-   (iff (<a href="../leqs/index.html">leqs</a> x y s)
-        (or (<a href="../lts/index.html">lts</a> x y s)
-            (and (<a href="../onScale/index.html">onScale</a> x s) (equal x y)))))
+   (iff (<a href="../leqs">leqs</a> x y s)
+        (or (<a href="../lts">lts</a> x y s)
+            (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
 </pre>
 </section>
 

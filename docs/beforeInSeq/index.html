@@ -23,45 +23,45 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (x y s)
-  (iff (<a href="../beforeInSeq/index.html">beforeInSeq</a> x y s)
+  (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
        (exists (n1 n2)
-         (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../nth/index.html">nth</a> x n1 s) (<a href="../nth/index.html">nth</a> y n2 s)
-              (<a href="../lt/index.html">lt</a> n1 n2)))))
+         (and (<a href="../sequence">sequence</a> s) (<a href="../nth">nth</a> x n1 s) (<a href="../nth">nth</a> y n2 s)
+              (<a href="../lt">lt</a> n1 n2)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e s)
-  (if (and (<a href="../sequence/index.html">sequence</a>' e s) (<a href="../Rexist/index.html">Rexist</a> e)
-           (exists (x) (<a href="../inSeq/index.html">inSeq</a> x s)))
+  (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
+           (exists (x) (<a href="../inSeq">inSeq</a> x s)))
       (exists (s1 s2 s3)
-        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
-             (forall (x) (iff (<a href="../member/index.html">member</a> x s1) (<a href="../inSeq/index.html">inSeq</a> x s)))
-             (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
-             (<a href="../singleton/index.html">singleton</a> s2 e) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 s)
+        (and (<a href="../compositeEntity">compositeEntity</a> s)
+             (forall (x) (iff (<a href="../member">member</a> x s1) (<a href="../inSeq">inSeq</a> x s)))
+             (<a href="../componentsOf">componentsOf</a> s1 s)
+             (<a href="../singleton">singleton</a> s2 e) (<a href="../propertiesOf">propertiesOf</a> s2 s)
              (forall (e1)
-               (iff (<a href="../member/index.html">member</a> e1 s3)
+               (iff (<a href="../member">member</a> e1 s3)
                     (exists (x y)
-                      (and (<a href="../beforeInSeq/index.html">beforeInSeq</a>' e1 x y s)
-                           (<a href="../Rexist/index.html">Rexist</a> e1)))))
-             (<a href="../relationsOf/index.html">relationsOf</a> s3 s)))))
+                      (and (<a href="../beforeInSeq">beforeInSeq</a>' e1 x y s)
+                           (<a href="../Rexist">Rexist</a> e1)))))
+             (<a href="../relationsOf">relationsOf</a> s3 s)))))
 </pre>
 <pre>
 (forall (s s1 e x y)
-   (if (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
-            (<a href="../beforeInSeq/index.html">beforeInSeq</a>' e x y s))
-       (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
+   (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
+            (<a href="../beforeInSeq">beforeInSeq</a>' e x y s))
+       (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
             (forall (z)
-              (if (<a href="../first/index.html">first</a> z s)
-                  (<a href="../bottom/index.html">bottom</a> z s))))))
+              (if (<a href="../first">first</a> z s)
+                  (<a href="../bottom">bottom</a> z s))))))
 </pre>
 <pre>
 (forall (x y s)
-  (iff (<a href="../beforeInSeq/index.html">beforeInSeq</a> x y s)
+  (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
        (exists (n1 n2)
-         (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../nth/index.html">nth</a> x n1 s) (<a href="../nth/index.html">nth</a> y n2 s)
-              (<a href="../lt/index.html">lt</a> n1 n2)))))
+         (and (<a href="../sequence">sequence</a> s) (<a href="../nth">nth</a> x n1 s) (<a href="../nth">nth</a> y n2 s)
+              (<a href="../lt">lt</a> n1 n2)))))
 </pre>
 </section>
 

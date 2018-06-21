@@ -19,47 +19,47 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (f1 f2)
-  (iff (<a href="../onBoundary/index.html">onBoundary</a> f1 f2)
-       (or (and (<a href="../point/index.html">point</a> f1) (<a href="../curve/index.html">curve</a> f2) (<a href="../endpoint/index.html">endpoint</a> f1 f2))
-           (exists (b) (and (<a href="../region/index.html">region</a> f2) (<a href="../border/index.html">border</a> b f2) (<a href="../inside/index.html">inside</a> f1 b)))
+  (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
+       (or (and (<a href="../point">point</a> f1) (<a href="../curve">curve</a> f2) (<a href="../endpoint">endpoint</a> f1 f2))
+           (exists (b) (and (<a href="../region">region</a> f2) (<a href="../border">border</a> b f2) (<a href="../inside">inside</a> f1 b)))
            (exists (b)
-             (and (<a href="../volume/index.html">volume</a> f2) (<a href="../surface/index.html">surface</a> b f2) (<a href="../inside/index.html">inside</a> f1 b))))))
+             (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (f1 f2)
-  (iff (<a href="../onBoundary/index.html">onBoundary</a> f1 f2)
-       (or (and (<a href="../point/index.html">point</a> f1) (<a href="../curve/index.html">curve</a> f2) (<a href="../endpoint/index.html">endpoint</a> f1 f2))
-           (exists (b) (and (<a href="../region/index.html">region</a> f2) (<a href="../border/index.html">border</a> b f2) (<a href="../inside/index.html">inside</a> f1 b)))
+  (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
+       (or (and (<a href="../point">point</a> f1) (<a href="../curve">curve</a> f2) (<a href="../endpoint">endpoint</a> f1 f2))
+           (exists (b) (and (<a href="../region">region</a> f2) (<a href="../border">border</a> b f2) (<a href="../inside">inside</a> f1 b)))
            (exists (b)
-             (and (<a href="../volume/index.html">volume</a> f2) (<a href="../surface/index.html">surface</a> b f2) (<a href="../inside/index.html">inside</a> f1 b))))))
+             (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
 </pre>
 <pre>
 (forall (f1 f2)
-  (iff (<a href="../subfigure/index.html">subfigure</a> f1 f2)
-       (or (<a href="../inside/index.html">inside</a> f1 f2) (<a href="../onBoundary/index.html">onBoundary</a> f1 f2))))
+  (iff (<a href="../subfigure">subfigure</a> f1 f2)
+       (or (<a href="../inside">inside</a> f1 f2) (<a href="../onBoundary">onBoundary</a> f1 f2))))
 </pre>
 <pre>
 (forall (r)
-  (if (and (<a href="../region/index.html">region</a> r) (<a href="../planar/index.html">planar</a> r))
-      (iff (<a href="../convex/index.html">convex</a> r)
+  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
+      (iff (<a href="../convex">convex</a> r)
            (forall (c x x1 x2)
-             (if (and (<a href="../onBoundary/index.html">onBoundary</a> x1 r) (<a href="../onBoundary/index.html">onBoundary</a> x2 r)
-                      (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2) (<a href="../inside/index.html">inside</a> x c))
-                 (<a href="../subfigure/index.html">subfigure</a> x r))))))`
+             (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
+                      (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
+                 (<a href="../subfigure">subfigure</a> x r))))))`
 </pre>
 <pre>
 (forall (r1 r2)
-  (iff (<a href="../tpp/index.html">tpp</a> r1 r2)
+  (iff (<a href="../tpp">tpp</a> r1 r2)
        (and (forall (x)
-              (if (<a href="../inside/index.html">inside</a> x r1) (<a href="../inside/index.html">inside</a> x r2)))
+              (if (<a href="../inside">inside</a> x r1) (<a href="../inside">inside</a> x r2)))
             (forall (x)
-              (if (<a href="../onBoundary/index.html">onBoundary</a> x r1)
-                  (or (<a href="../inside/index.html">inside</a> x r2) (<a href="../onBoundary/index.html">onBoundary</a> x r2))))
+              (if (<a href="../onBoundary">onBoundary</a> x r1)
+                  (or (<a href="../inside">inside</a> x r2) (<a href="../onBoundary">onBoundary</a> x r2))))
             (exists (x)
-              (and (<a href="../onBoundary/index.html">onBoundary</a> x r1) (<a href="../onBoundary/index.html">onBoundary</a> x r2))))))
+              (and (<a href="../onBoundary">onBoundary</a> x r1) (<a href="../onBoundary">onBoundary</a> x r2))))))
 </pre>
 </section>
 

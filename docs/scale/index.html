@@ -23,129 +23,129 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (s)
-   (if (<a href="../scale/index.html">scale</a> s)
-       (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
+   (if (<a href="../scale">scale</a> s)
+       (and (<a href="../compositeEntity">compositeEntity</a> s)
             (exists (s1 e x y s2 s3)
-               (and (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
-                    (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
-                    (<a href="../subset/index.html">subset</a> s2 s3) (<a href="../relationsOf/index.html">relationsOf</a> s3 s)
+               (and (<a href="../componentsOf">componentsOf</a> s1 s)
+                    (<a href="../partialOrdering">partialOrdering</a> e x y s)
+                    (<a href="../subset">subset</a> s2 s3) (<a href="../relationsOf">relationsOf</a> s3 s)
                     (forall (e1)
-                       (if (<a href="../member/index.html">member</a> e1 s2)
+                       (if (<a href="../member">member</a> e1 s2)
                            (exists (x1 y1)
-                              (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> y1 s1)
-                                   (<a href="../subst2/index.html">subst2</a> x1 y1 e1 x y e))))))))))
+                              (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> y1 s1)
+                                   (<a href="../subst2">subst2</a> x1 y1 e1 x y e))))))))))
 </pre>
 <pre>
 (forall (s)
-  (if (<a href="../scale/index.html">scale</a> s) (<a href="../ground/index.html">ground</a> s)))
+  (if (<a href="../scale">scale</a> s) (<a href="../ground">ground</a> s)))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e x y s)
-   (if (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
-       (and (<a href="../scale/index.html">scale</a> s) (<a href="../arg*/index.html">arg*</a> x e) (<a href="../arg*/index.html">arg*</a> y e))))
+   (if (<a href="../partialOrdering">partialOrdering</a> e x y s)
+       (and (<a href="../scale">scale</a> s) (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e))))
 </pre>
 <pre>
 (forall (f s1 s2)
-   (if (and (<a href="../function/index.html">function</a> f s1 s2) (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s2))
-       (iff (<a href="../monotoneIncreasing/index.html">monotoneIncreasing</a> f)
+   (if (and (<a href="../function">function</a> f s1 s2) (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
+       (iff (<a href="../monotoneIncreasing">monotoneIncreasing</a> f)
             (forall (x1 x2 y1 y2)
-               (if (and (<a href="../map/index.html">map</a> f x1 y1) (<a href="../map/index.html">map</a> f x2 y2) (<a href="../lts/index.html">lts</a> x1 x2 s1))
-                   (<a href="../lts/index.html">lts</a> y1 y2 s2))))))
+               (if (and (<a href="../map">map</a> f x1 y1) (<a href="../map">map</a> f x2 y2) (<a href="../lts">lts</a> x1 x2 s1))
+                   (<a href="../lts">lts</a> y1 y2 s2))))))
 </pre>
 <pre>
 (forall (f s1 s2)
-   (iff (<a href="../function/index.html">function</a> f s1 s2)
+   (iff (<a href="../function">function</a> f s1 s2)
         (exists (s3 s4)
-           (and (if (<a href="../set/index.html">set</a> s1) (equal s3 s1))
-                (if (<a href="../scale/index.html">scale</a> s1) (<a href="../componentsOf/index.html">componentsOf</a> s3 s1))
-                (if (<a href="../set/index.html">set</a> s2) (equal s4 s2))
-                (if (<a href="../scale/index.html">scale</a> s2) (<a href="../componentsOf/index.html">componentsOf</a> s4 s2))
-                (<a href="../function0/index.html">function0</a> f s3 s4)))))
+           (and (if (<a href="../set">set</a> s1) (equal s3 s1))
+                (if (<a href="../scale">scale</a> s1) (<a href="../componentsOf">componentsOf</a> s3 s1))
+                (if (<a href="../set">set</a> s2) (equal s4 s2))
+                (if (<a href="../scale">scale</a> s2) (<a href="../componentsOf">componentsOf</a> s4 s2))
+                (<a href="../function0">function0</a> f s3 s4)))))
 </pre>
 <pre>
 (forall (m s1)
-  (iff (<a href="../measure/index.html">measure</a> m s1)
+  (iff (<a href="../measure">measure</a> m s1)
        (exists (s2)
-         (and (<a href="../scale/index.html">scale</a> s1) (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s2)
-              (<a href="../functionInto/index.html">functionInto</a> m s1 s2)
-              (<a href="../monotoneIncreasing/index.html">monotoneIncreasing</a> m)
-              (forall (x) (if (<a href="../bottom/index.html">bottom</a> x s1) (<a href="../map/index.html">map</a> m x 0)))))))
+         (and (<a href="../scale">scale</a> s1) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s2)
+              (<a href="../functionInto">functionInto</a> m s1 s2)
+              (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
+              (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
 </pre>
 <pre>
 (forall (s e)
-   (iff (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e)
-        (and (<a href="../scale/index.html">scale</a> s) (<a href="../eventuality/index.html">eventuality</a> e)
-             (forall (s0) (if (<a href="../argn/index.html">argn</a> s0 1 e) (<a href="../set/index.html">set</a> s0)))
-             (forall (x) (if (<a href="../argn/index.html">argn</a> x 2 e) (exists (y) (<a href="../at/index.html">at</a> x y s))))
+   (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
+        (and (<a href="../scale">scale</a> s) (<a href="../eventuality">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn">argn</a> s0 1 e) (<a href="../set">set</a> s0)))
+             (forall (x) (if (<a href="../argn">argn</a> x 2 e) (exists (y) (<a href="../at">at</a> x y s))))
              (forall (e1 e2 s1 s2 x1 x2)
-                (if (and (<a href="../instance/index.html">instance</a> e1 e) (<a href="../argn/index.html">argn</a> s1 1 e1)
-                                         (<a href="../argn/index.html">argn</a> x1 2 e1)
-                         (<a href="../instance/index.html">instance</a> e2 e) (<a href="../argn/index.html">argn</a> s2 1 e2)
-                                         (<a href="../argn/index.html">argn</a> x2 2 e2)
-                         (<a href="../subset/index.html">subset</a> s1 s2))
-                    (<a href="../leqs/index.html">leqs</a> x1 x2 s))))))
+                (if (and (<a href="../instance">instance</a> e1 e) (<a href="../argn">argn</a> s1 1 e1)
+                                         (<a href="../argn">argn</a> x1 2 e1)
+                         (<a href="../instance">instance</a> e2 e) (<a href="../argn">argn</a> s2 1 e2)
+                                         (<a href="../argn">argn</a> x2 2 e2)
+                         (<a href="../subset">subset</a> s1 s2))
+                    (<a href="../leqs">leqs</a> x1 x2 s))))))
 </pre>
 <pre>
 (forall (s s1 e)
-   (iff (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
-        (and (<a href="../scale/index.html">scale</a> s) (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
+   (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+        (and (<a href="../scale">scale</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
              (exists (x y)
-               (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)))))
+               (<a href="../partialOrdering">partialOrdering</a> e x y s)))))
 </pre>
 <pre>
 (forall (s)
-   (if (<a href="../scale/index.html">scale</a> s)
-       (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
+   (if (<a href="../scale">scale</a> s)
+       (and (<a href="../compositeEntity">compositeEntity</a> s)
             (exists (s1 e x y s2 s3)
-               (and (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
-                    (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
-                    (<a href="../subset/index.html">subset</a> s2 s3) (<a href="../relationsOf/index.html">relationsOf</a> s3 s)
+               (and (<a href="../componentsOf">componentsOf</a> s1 s)
+                    (<a href="../partialOrdering">partialOrdering</a> e x y s)
+                    (<a href="../subset">subset</a> s2 s3) (<a href="../relationsOf">relationsOf</a> s3 s)
                     (forall (e1)
-                       (if (<a href="../member/index.html">member</a> e1 s2)
+                       (if (<a href="../member">member</a> e1 s2)
                            (exists (x1 y1)
-                              (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> y1 s1)
-                                   (<a href="../subst2/index.html">subst2</a> x1 y1 e1 x y e))))))))))
+                              (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> y1 s1)
+                                   (<a href="../subst2">subst2</a> x1 y1 e1 x y e))))))))))
 </pre>
 <pre>
 (forall (s)
-  (if (<a href="../scale/index.html">scale</a> s) (<a href="../ground/index.html">ground</a> s)))
+  (if (<a href="../scale">scale</a> s) (<a href="../ground">ground</a> s)))
 </pre>
 <pre>
-(forall (s) (if (<a href="../vertical/index.html">vertical</a> s) (<a href="../scale/index.html">scale</a> s)))
-</pre>
-<pre>
-(forall (s1 s)
-   (iff (<a href="../reverse/index.html">reverse</a> s1 s)
-        (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s)
-             (forall (x y)
-                (and (iff (<a href="../inScale/index.html">inScale</a> x s) (<a href="../inScale/index.html">inScale</a> x s1))
-                     (iff (<a href="../lts/index.html">lts</a> x y s) (<a href="../lts/index.html">lts</a> y x s1)))))))
+(forall (s) (if (<a href="../vertical">vertical</a> s) (<a href="../scale">scale</a> s)))
 </pre>
 <pre>
 (forall (s1 s)
-   (iff (<a href="../subscale/index.html">subscale</a> s1 s)
-        (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s)
-             (forall (x) (if (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> x s)))
+   (iff (<a href="../reverse">reverse</a> s1 s)
+        (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s)
              (forall (x y)
-                (iff (<a href="../lts/index.html">lts</a> x y s1)
-                     (and (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s1)
-                          (<a href="../lts/index.html">lts</a> x y s)))))))
+                (and (iff (<a href="../inScale">inScale</a> x s) (<a href="../inScale">inScale</a> x s1))
+                     (iff (<a href="../lts">lts</a> x y s) (<a href="../lts">lts</a> y x s1)))))))
+</pre>
+<pre>
+(forall (s1 s)
+   (iff (<a href="../subscale">subscale</a> s1 s)
+        (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s)
+             (forall (x) (if (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> x s)))
+             (forall (x y)
+                (iff (<a href="../lts">lts</a> x y s1)
+                     (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)
+                          (<a href="../lts">lts</a> x y s)))))))
 </pre>
 <pre>
 (forall (s1 s2)
-   (if (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s2))
-       (iff (<a href="../disjoint/index.html">disjoint</a> s1 s2)
+   (if (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
+       (iff (<a href="../disjoint">disjoint</a> s1 s2)
             (exists (s3 s4)
-               (and (<a href="../componentsOf/index.html">componentsOf</a> s3 s1) (<a href="../componentsOf/index.html">componentsOf</a> s4 s2)
-                    (<a href="../disjoint/index.html">disjoint</a> s3 s4))))))
+               (and (<a href="../componentsOf">componentsOf</a> s3 s1) (<a href="../componentsOf">componentsOf</a> s4 s2)
+                    (<a href="../disjoint">disjoint</a> s3 s4))))))
 </pre>
 <pre>
 (forall (y s)
-   (iff (<a href="../inScale/index.html">inScale</a> y s)
-        (and (<a href="../scale/index.html">scale</a> s) (<a href="../componentOf/index.html">componentOf</a> y s))))
+   (iff (<a href="../inScale">inScale</a> y s)
+        (and (<a href="../scale">scale</a> s) (<a href="../componentOf">componentOf</a> y s))))
 </pre>
 </section>
 

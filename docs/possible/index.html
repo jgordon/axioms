@@ -23,74 +23,74 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (e c)
-  (if (<a href="../possible/index.html">possible</a> e c)
-      (<a href="../PosMod/index.html">PosMod</a> e possible)))
+  (if (<a href="../possible">possible</a> e c)
+      (<a href="../PosMod">PosMod</a> e possible)))
 </pre>
 <pre>
 (forall (e c)
-  (if (<a href="../possible/index.html">possible</a> e c)
-      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
+  (if (<a href="../possible">possible</a> e c)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
 </pre>
 <pre>
 (forall (e c)
-  (iff (<a href="../possible/index.html">possible</a> e c)
+  (iff (<a href="../possible">possible</a> e c)
        (forall (e1)
-         (if (<a href="../not'/index.html">not'</a> e1 e)
-             (not (<a href="../imply/index.html">imply</a> c e1))))))
+         (if (<a href="../not'">not'</a> e1 e)
+             (not (<a href="../imply">imply</a> c e1))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (a e c)
-  (iff (<a href="../able/index.html">able</a> a e c)
+  (iff (<a href="../able">able</a> a e c)
        (exists (s s1 e1)
-         (and (<a href="../causalComplex/index.html">causalComplex</a> s e) (<a href="../cause/index.html">cause</a>' e1 a e) (<a href="../member/index.html">member</a> e1 s)
-              (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
-              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../possible/index.html">possible</a> e1 c))))))
+         (and (<a href="../causalComplex">causalComplex</a> s e) (<a href="../cause">cause</a>' e1 a e) (<a href="../member">member</a> e1 s)
+              (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
+              (if (<a href="../Rexist">Rexist</a> s1) (<a href="../possible">possible</a> e1 c))))))
 </pre>
 <pre>
 (forall (d e c s)
-  (if (and (<a href="../likelihood/index.html">likelihood</a> d1 e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../bottom/index.html">bottom</a> d s))
-      (iff (<a href="../lts/index.html">lts</a> d d1 s) (<a href="../possible/index.html">possible</a> e c))))
+  (if (and (<a href="../likelihood">likelihood</a> d1 e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../bottom">bottom</a> d s))
+      (iff (<a href="../lts">lts</a> d d1 s) (<a href="../possible">possible</a> e c))))
 </pre>
 <pre>
 (forall (e a c t)
-  (iff (<a href="../executable/index.html">executable</a> e a c t)
+  (iff (<a href="../executable">executable</a> e a c t)
        (exists (s)
-         (and (<a href="../enabled/index.html">enabled</a> s e t)
+         (and (<a href="../enabled">enabled</a> s e t)
               (or (exists (e1)
-                    (and (<a href="../dcause/index.html">dcause</a>' e1 a e) (<a href="../possible/index.html">possible</a> e1 c)))
+                    (and (<a href="../dcause">dcause</a>' e1 a e) (<a href="../possible">possible</a> e1 c)))
                   (exists (e2)
-                    (and (<a href="../cause/index.html">cause</a> e2 e)
-                         (<a href="../executable/index.html">executable</a> e2 a c t))))))))
+                    (and (<a href="../cause">cause</a> e2 e)
+                         (<a href="../executable">executable</a> e2 a c t))))))))
 </pre>
 <pre>
 (forall (e c e1)
-  (if (and (<a href="../possible/index.html">possible</a> e c) (<a href="../not'/index.html">not'</a> e1 e))
-      (not (<a href="../necessary/index.html">necessary</a> e1 c))))
+  (if (and (<a href="../possible">possible</a> e c) (<a href="../not'">not'</a> e1 e))
+      (not (<a href="../necessary">necessary</a> e1 c))))
 </pre>
 <pre>
 (forall (e c)
-  (if (<a href="../possible/index.html">possible</a> e c)
-      (<a href="../PosMod/index.html">PosMod</a> e possible)))
+  (if (<a href="../possible">possible</a> e c)
+      (<a href="../PosMod">PosMod</a> e possible)))
 </pre>
 <pre>
 (forall (e c)
-  (if (<a href="../possible/index.html">possible</a> e c)
-      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
+  (if (<a href="../possible">possible</a> e c)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
 </pre>
 <pre>
 (forall (e c)
-  (iff (<a href="../impossible/index.html">impossible</a> e c)
-       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c) (not (<a href="../possible/index.html">possible</a> e c)))))
+  (iff (<a href="../impossible">impossible</a> e c)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c) (not (<a href="../possible">possible</a> e c)))))
 </pre>
 <pre>
 (forall (e c)
-  (iff (<a href="../possible/index.html">possible</a> e c)
+  (iff (<a href="../possible">possible</a> e c)
        (forall (e1)
-         (if (<a href="../not'/index.html">not'</a> e1 e)
-             (not (<a href="../imply/index.html">imply</a> c e1))))))
+         (if (<a href="../not'">not'</a> e1 e)
+             (not (<a href="../imply">imply</a> c e1))))))
 </pre>
 </section>
 

@@ -23,305 +23,305 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (d e u)
-  (if (<a href="../eventuality/index.html">eventuality</a> e)
-      (iff (<a href="../durationOf/index.html">durationOf</a> d e u)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../durationOf">durationOf</a> d e u)
            (exists (t)
-             (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../durationOf/index.html">durationOf</a> d t u))))))
+             (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../durationOf">durationOf</a> d t u))))))
 </pre>
 <pre>
 (forall (e)
-  (iff (<a href="../eventuality/index.html">eventuality</a> e)
-       (<a href="../argn/index.html">argn</a> e 0 e)))
+  (iff (<a href="../eventuality">eventuality</a> e)
+       (<a href="../argn">argn</a> e 0 e)))
 </pre>
 <pre>
 (forall (e)
-  (iff (<a href="../eventuality/index.html">eventuality</a> e)
+  (iff (<a href="../eventuality">eventuality</a> e)
        (exists (p n)
-         (and (<a href="../pred/index.html">pred</a> p e) (<a href="../arity/index.html">arity</a> n e)
+         (and (<a href="../pred">pred</a> p e) (<a href="../arity">arity</a> n e)
               (forall (i)
-                (if (and (<a href="../posInteger/index.html">posInteger</a> i)
-                         (<a href="../leq/index.html">leq</a> i n))
+                (if (and (<a href="../posInteger">posInteger</a> i)
+                         (<a href="../leq">leq</a> i n))
                     (exists (x)
-                      (<a href="../argn/index.html">argn</a> x i e))))))))
+                      (<a href="../argn">argn</a> x i e))))))))
 </pre>
 <pre>
 (forall (s e c)
-  (if (<a href="../eventuality/index.html">eventuality</a> e)
-      (iff (<a href="../alsoRequired/index.html">alsoRequired</a> s e c)
-           (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../eventualities/index.html">eventualities</a> c)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../alsoRequired">alsoRequired</a> s e c)
+           (and (<a href="../eventualities">eventualities</a> s) (<a href="../eventualities">eventualities</a> c)
                 (exists (s1 c1)
-                  (and (<a href="../union/index.html">union</a> s1 c1 s) (<a href="../subset/index.html">subset</a> c1 c)
-                       (<a href="../minimallyProves/index.html">minimallyProves</a> s1 e)))))))
+                  (and (<a href="../union">union</a> s1 c1 s) (<a href="../subset">subset</a> c1 c)
+                       (<a href="../minimallyProves">minimallyProves</a> s1 e)))))))
 </pre>
 <pre>
 (forall (t e)
-  (if (<a href="../eventuality/index.html">eventuality</a> e)
-      (iff (<a href="../begins/index.html">begins</a> t e)
-           (exists (t1) (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t1 e) (<a href="../begins/index.html">begins</a> t t1))))))
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../begins">begins</a> t e)
+           (exists (t1) (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../begins">begins</a> t t1))))))
 </pre>
 <pre>
 (forall (t e)
-  (if (<a href="../eventuality/index.html">eventuality</a> e)
-      (iff (<a href="../ends/index.html">ends</a> t e)
-           (exists (t1) (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t1 e) (<a href="../ends/index.html">ends</a> t t1))))))
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../ends">ends</a> t e)
+           (exists (t1) (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../ends">ends</a> t t1))))))
 </pre>
 <pre>
 (forall (t e)
-  (if (<a href="../eventuality/index.html">eventuality</a> e)
-      (iff (<a href="../insideTime/index.html">insideTime</a> t e)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../insideTime">insideTime</a> t e)
            (exists (t1)
-             (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t1 e) (<a href="../insideTime/index.html">insideTime</a> t t1))))))
+             (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../insideTime">insideTime</a> t t1))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (a e2)
-  (and (if (<a href="../eventuality/index.html">eventuality</a> a)
-           (iff (<a href="../cause/index.html">cause</a> a e2) (<a href="../cause0/index.html">cause0</a> a e2)))
-       (if (<a href="../agent/index.html">agent</a> a)
-           (iff (<a href="../cause/index.html">cause</a> a e2)
+  (and (if (<a href="../eventuality">eventuality</a> a)
+           (iff (<a href="../cause">cause</a> a e2) (<a href="../cause0">cause0</a> a e2)))
+       (if (<a href="../agent">agent</a> a)
+           (iff (<a href="../cause">cause</a> a e2)
                 (exists (e1)
-                  (and (<a href="../will/index.html">will</a>' e1 a e2) (<a href="../cause0/index.html">cause0</a> e1 e2)))))
-       (if (not (or (<a href="../eventuality/index.html">eventuality</a> a) (<a href="../agent/index.html">agent</a> a)))
-           (not (<a href="../cause/index.html">cause</a> a e2)))))
+                  (and (<a href="../will">will</a>' e1 a e2) (<a href="../cause0">cause0</a> e1 e2)))))
+       (if (not (or (<a href="../eventuality">eventuality</a> a) (<a href="../agent">agent</a> a)))
+           (not (<a href="../cause">cause</a> a e2)))))
 </pre>
 <pre>
 (forall (d e c)
-  (if (<a href="../likelihood/index.html">likelihood</a> d e c)
-      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
+  (if (<a href="../likelihood">likelihood</a> d e c)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
 </pre>
 <pre>
 (forall (d e u)
-  (if (<a href="../eventuality/index.html">eventuality</a> e)
-      (iff (<a href="../durationOf/index.html">durationOf</a> d e u)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../durationOf">durationOf</a> d e u)
            (exists (t)
-             (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../durationOf/index.html">durationOf</a> d t u))))))
+             (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../durationOf">durationOf</a> d t u))))))
 </pre>
 <pre>
 (forall (d t u)
-  (if (<a href="../durationOf/index.html">durationOf</a> d t u)
-      (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> d) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
-           (or (<a href="../temporalEntity/index.html">temporalEntity</a> t) (<a href="../tseq/index.html">tseq</a> t) (<a href="../eventuality/index.html">eventuality</a> t)))))
+  (if (<a href="../durationOf">durationOf</a> d t u)
+      (and (<a href="../nonNegInteger">nonNegInteger</a> d) (<a href="../temporalUnit">temporalUnit</a> u)
+           (or (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../tseq">tseq</a> t) (<a href="../eventuality">eventuality</a> t)))))
 </pre>
 <pre>
 (forall (e c)
-  (if (<a href="../necessary/index.html">necessary</a> e c)
-      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
+  (if (<a href="../necessary">necessary</a> e c)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
 </pre>
 <pre>
 (forall (e c)
-  (if (<a href="../possible/index.html">possible</a> e c)
-      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
+  (if (<a href="../possible">possible</a> e c)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
 </pre>
 <pre>
 (forall (e c)
-  (iff (<a href="../impossible/index.html">impossible</a> e c)
-       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c) (not (<a href="../possible/index.html">possible</a> e c)))))
+  (iff (<a href="../impossible">impossible</a> e c)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c) (not (<a href="../possible">possible</a> e c)))))
 </pre>
 <pre>
 (forall (e e1 e2)
-  (if (<a href="../and'/index.html">and'</a> e e1 e2)
-      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventuality/index.html">eventuality</a> e1) (<a href="../eventuality/index.html">eventuality</a> e2)
-           (iff (<a href="../Rexist/index.html">Rexist</a> e)
-                (and (<a href="../Rexist/index.html">Rexist</a> e1) (<a href="../Rexist/index.html">Rexist</a> e2))))))
+  (if (<a href="../and'">and'</a> e e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2)
+           (iff (<a href="../Rexist">Rexist</a> e)
+                (and (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2))))))
 </pre>
 <pre>
 (forall (e e1 e2)
-  (if (<a href="../imply'/index.html">imply'</a> e e1 e2)
-      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventuality/index.html">eventuality</a> e2)
-           (or (<a href="../eventuality/index.html">eventuality</a> e1) (<a href="../eventualities/index.html">eventualities</a> e1)))))
+  (if (<a href="../imply'">imply'</a> e e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventuality">eventuality</a> e2)
+           (or (<a href="../eventuality">eventuality</a> e1) (<a href="../eventualities">eventualities</a> e1)))))
 </pre>
 <pre>
 (forall (e e1 e2)
-  (if (<a href="../or'/index.html">or'</a> e e1 e2)
-      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventuality/index.html">eventuality</a> e1) (<a href="../eventuality/index.html">eventuality</a> e2)
-           (iff (<a href="../Rexist/index.html">Rexist</a> e)
-                (or (<a href="../Rexist/index.html">Rexist</a> e1) (<a href="../Rexist/index.html">Rexist</a> e2))))))
+  (if (<a href="../or'">or'</a> e e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2)
+           (iff (<a href="../Rexist">Rexist</a> e)
+                (or (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2))))))
 </pre>
 <pre>
 (forall (e p)
-  (if (<a href="../pred/index.html">pred</a> p e)
-      (and (<a href="../predicate/index.html">predicate</a> p) (<a href="../eventuality/index.html">eventuality</a> e))))
+  (if (<a href="../pred">pred</a> p e)
+      (and (<a href="../predicate">predicate</a> p) (<a href="../eventuality">eventuality</a> e))))
 </pre>
 <pre>
 (forall (e s)
-  (if (<a href="../disjunction/index.html">disjunction</a> e s)
-      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> s)
-           (iff (<a href="../Rexist/index.html">Rexist</a> e)
+  (if (<a href="../disjunction">disjunction</a> e s)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> s)
+           (iff (<a href="../Rexist">Rexist</a> e)
                 (exists (e1)
-                  (and (<a href="../member/index.html">member</a> e1 s) (<a href="../Rexist/index.html">Rexist</a> e1)))))))
+                  (and (<a href="../member">member</a> e1 s) (<a href="../Rexist">Rexist</a> e1)))))))
 </pre>
 <pre>
 (forall (e t)
-  (if (<a href="../atTime/index.html">atTime</a> e t) (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../instant/index.html">instant</a> t))))
+  (if (<a href="../atTime">atTime</a> e t) (and (<a href="../eventuality">eventuality</a> e) (<a href="../instant">instant</a> t))))
 </pre>
 <pre>
 (forall (e t)
-  (iff (<a href="../during/index.html">during</a> e t)
-       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../properInterval/index.html">properInterval</a> t)
-            (forall (t1) (if (<a href="../insideTime/index.html">insideTime</a> t1 t) (<a href="../atTime/index.html">atTime</a> e t1))))))
+  (iff (<a href="../during">during</a> e t)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../properInterval">properInterval</a> t)
+            (forall (t1) (if (<a href="../insideTime">insideTime</a> t1 t) (<a href="../atTime">atTime</a> e t1))))))
 </pre>
 <pre>
 (forall (e x n)
-  (if (<a href="../argn/index.html">argn</a> x n e)
-      (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../eventuality/index.html">eventuality</a> e))))
+  (if (<a href="../argn">argn</a> x n e)
+      (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../eventuality">eventuality</a> e))))
 </pre>
 <pre>
 (forall (e)
-  (iff (<a href="../eventuality/index.html">eventuality</a> e)
-       (<a href="../argn/index.html">argn</a> e 0 e)))
+  (iff (<a href="../eventuality">eventuality</a> e)
+       (<a href="../argn">argn</a> e 0 e)))
 </pre>
 <pre>
 (forall (e)
-  (iff (<a href="../eventuality/index.html">eventuality</a> e)
+  (iff (<a href="../eventuality">eventuality</a> e)
        (exists (p n)
-         (and (<a href="../pred/index.html">pred</a> p e) (<a href="../arity/index.html">arity</a> n e)
+         (and (<a href="../pred">pred</a> p e) (<a href="../arity">arity</a> n e)
               (forall (i)
-                (if (and (<a href="../posInteger/index.html">posInteger</a> i)
-                         (<a href="../leq/index.html">leq</a> i n))
+                (if (and (<a href="../posInteger">posInteger</a> i)
+                         (<a href="../leq">leq</a> i n))
                     (exists (x)
-                      (<a href="../argn/index.html">argn</a> x i e))))))))
+                      (<a href="../argn">argn</a> x i e))))))))
 </pre>
 <pre>
-(forall (e) (if (<a href="../event/index.html">event</a> e) (<a href="../eventuality/index.html">eventuality</a> e)))
-</pre>
-<pre>
-(forall (e1 e2)
-  (if (<a href="../change/index.html">change</a> e1 e2)
-      (and (<a href="../eventuality/index.html">eventuality</a> e1) (<a href="../eventuality/index.html">eventuality</a> e2))))
+(forall (e) (if (<a href="../event">event</a> e) (<a href="../eventuality">eventuality</a> e)))
 </pre>
 <pre>
 (forall (e1 e2)
-  (if (<a href="../gen/index.html">gen</a> e1 e2)
-      (and (<a href="../eventuality/index.html">eventuality</a> e1) (<a href="../eventuality/index.html">eventuality</a> e2))))
+  (if (<a href="../change">change</a> e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2))))
 </pre>
 <pre>
 (forall (e1 e2)
-  (if (<a href="../not'/index.html">not'</a> e1 e2)
-      (and (<a href="../eventuality/index.html">eventuality</a> e1) (<a href="../eventuality/index.html">eventuality</a> e2)
-           (iff (<a href="../Rexist/index.html">Rexist</a> e1)
-                (not (<a href="../Rexist/index.html">Rexist</a> e2))))))
+  (if (<a href="../gen">gen</a> e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2))))
 </pre>
 <pre>
 (forall (e1 e2)
-  (if (and (<a href="../not'/index.html">not'</a> e1 e2) (<a href="../Rexist/index.html">Rexist</a> e1))
-      (and (<a href="../eventuality/index.html">eventuality</a> e1) (<a href="../eventuality/index.html">eventuality</a> e2)
-           (not (<a href="../Rexist/index.html">Rexist</a> e2)))))
+  (if (<a href="../not'">not'</a> e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2)
+           (iff (<a href="../Rexist">Rexist</a> e1)
+                (not (<a href="../Rexist">Rexist</a> e2))))))
+</pre>
+<pre>
+(forall (e1 e2)
+  (if (and (<a href="../not'">not'</a> e1 e2) (<a href="../Rexist">Rexist</a> e1))
+      (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2)
+           (not (<a href="../Rexist">Rexist</a> e2)))))
 </pre>
 <pre>
 (forall (n e)
-  (if (<a href="../arity/index.html">arity</a> n e)
-      (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../eventuality/index.html">eventuality</a> e))))
+  (if (<a href="../arity">arity</a> n e)
+      (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../eventuality">eventuality</a> e))))
 </pre>
 <pre>
 (forall (s e c)
-  (if (<a href="../eventuality/index.html">eventuality</a> e)
-      (iff (<a href="../alsoRequired/index.html">alsoRequired</a> s e c)
-           (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../eventualities/index.html">eventualities</a> c)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../alsoRequired">alsoRequired</a> s e c)
+           (and (<a href="../eventualities">eventualities</a> s) (<a href="../eventualities">eventualities</a> c)
                 (exists (s1 c1)
-                  (and (<a href="../union/index.html">union</a> s1 c1 s) (<a href="../subset/index.html">subset</a> c1 c)
-                       (<a href="../minimallyProves/index.html">minimallyProves</a> s1 e)))))))
+                  (and (<a href="../union">union</a> s1 c1 s) (<a href="../subset">subset</a> c1 c)
+                       (<a href="../minimallyProves">minimallyProves</a> s1 e)))))))
 </pre>
 <pre>
 (forall (s e)
-   (iff (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e)
-        (and (<a href="../scale/index.html">scale</a> s) (<a href="../eventuality/index.html">eventuality</a> e)
-             (forall (s0) (if (<a href="../argn/index.html">argn</a> s0 1 e) (<a href="../set/index.html">set</a> s0)))
-             (forall (x) (if (<a href="../argn/index.html">argn</a> x 2 e) (exists (y) (<a href="../at/index.html">at</a> x y s))))
+   (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
+        (and (<a href="../scale">scale</a> s) (<a href="../eventuality">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn">argn</a> s0 1 e) (<a href="../set">set</a> s0)))
+             (forall (x) (if (<a href="../argn">argn</a> x 2 e) (exists (y) (<a href="../at">at</a> x y s))))
              (forall (e1 e2 s1 s2 x1 x2)
-                (if (and (<a href="../instance/index.html">instance</a> e1 e) (<a href="../argn/index.html">argn</a> s1 1 e1)
-                                         (<a href="../argn/index.html">argn</a> x1 2 e1)
-                         (<a href="../instance/index.html">instance</a> e2 e) (<a href="../argn/index.html">argn</a> s2 1 e2)
-                                         (<a href="../argn/index.html">argn</a> x2 2 e2)
-                         (<a href="../subset/index.html">subset</a> s1 s2))
-                    (<a href="../leqs/index.html">leqs</a> x1 x2 s))))))
+                (if (and (<a href="../instance">instance</a> e1 e) (<a href="../argn">argn</a> s1 1 e1)
+                                         (<a href="../argn">argn</a> x1 2 e1)
+                         (<a href="../instance">instance</a> e2 e) (<a href="../argn">argn</a> s2 1 e2)
+                                         (<a href="../argn">argn</a> x2 2 e2)
+                         (<a href="../subset">subset</a> s1 s2))
+                    (<a href="../leqs">leqs</a> x1 x2 s))))))
 </pre>
 <pre>
 (forall (s e)
-  (if (<a href="../causalComplex/index.html">causalComplex</a> s e)
-      (and (<a href="../eventuality/index.html">eventuality</a> e)
-           (or (<a href="../eventualities/index.html">eventualities</a> s)
-               (<a href="../eventuality/index.html">eventuality</a> s)))))
+  (if (<a href="../causalComplex">causalComplex</a> s e)
+      (and (<a href="../eventuality">eventuality</a> e)
+           (or (<a href="../eventualities">eventualities</a> s)
+               (<a href="../eventuality">eventuality</a> s)))))
 </pre>
 <pre>
 (forall (s)
-  (iff (<a href="../eventualities/index.html">eventualities</a> s)
-       (and (<a href="../set/index.html">set</a> s)
+  (iff (<a href="../eventualities">eventualities</a> s)
+       (and (<a href="../set">set</a> s)
             (forall (e)
-              (if (<a href="../member/index.html">member</a> e s)
-                  (<a href="../eventuality/index.html">eventuality</a> e))))))
+              (if (<a href="../member">member</a> e s)
+                  (<a href="../eventuality">eventuality</a> e))))))
 </pre>
 <pre>
 (forall (t e)
-  (if (<a href="../eventuality/index.html">eventuality</a> e)
-      (iff (<a href="../begins/index.html">begins</a> t e)
-           (exists (t1) (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t1 e) (<a href="../begins/index.html">begins</a> t t1))))))
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../begins">begins</a> t e)
+           (exists (t1) (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../begins">begins</a> t t1))))))
 </pre>
 <pre>
 (forall (t e)
-  (if (<a href="../eventuality/index.html">eventuality</a> e)
-      (iff (<a href="../ends/index.html">ends</a> t e)
-           (exists (t1) (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t1 e) (<a href="../ends/index.html">ends</a> t t1))))))
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../ends">ends</a> t e)
+           (exists (t1) (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../ends">ends</a> t t1))))))
 </pre>
 <pre>
 (forall (t e)
-  (if (<a href="../eventuality/index.html">eventuality</a> e)
-      (iff (<a href="../insideTime/index.html">insideTime</a> t e)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../insideTime">insideTime</a> t e)
            (exists (t1)
-             (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t1 e) (<a href="../insideTime/index.html">insideTime</a> t t1))))))
+             (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../insideTime">insideTime</a> t t1))))))
 </pre>
 <pre>
 (forall (t1 t2)
-  (if (<a href="../before/index.html">before</a> t1 t2)
-      (and (or (<a href="../temporalEntity/index.html">temporalEntity</a> t1) (<a href="../tseq/index.html">tseq</a> t1) (<a href="../eventuality/index.html">eventuality</a> t1))
-           (or (<a href="../temporalEntity/index.html">temporalEntity</a> t2) (<a href="../tseq/index.html">tseq</a> t2) (<a href="../eventuality/index.html">eventuality</a> t2)))))
+  (if (<a href="../before">before</a> t1 t2)
+      (and (or (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../tseq">tseq</a> t1) (<a href="../eventuality">eventuality</a> t1))
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
 </pre>
 <pre>
 (forall (t1 t2)
-  (if (<a href="../begins/index.html">begins</a> t1 t2)
-      (and (<a href="../instant/index.html">instant</a> t1)
-           (or (<a href="../temporalEntity/index.html">temporalEntity</a> t2) (<a href="../tseq/index.html">tseq</a> t2) (<a href="../eventuality/index.html">eventuality</a> t2)))))
+  (if (<a href="../begins">begins</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
 </pre>
 <pre>
 (forall (t1 t2)
-  (if (<a href="../ends/index.html">ends</a> t1 t2)
-      (and (<a href="../instant/index.html">instant</a> t1)
-           (or (<a href="../temporalEntity/index.html">temporalEntity</a> t2) (<a href="../tseq/index.html">tseq</a> t2) (<a href="../eventuality/index.html">eventuality</a> t2)))))
+  (if (<a href="../ends">ends</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
 </pre>
 <pre>
 (forall (t1 t2)
-  (if (<a href="../insideTime/index.html">insideTime</a> t1 t2)
-      (and (<a href="../instant/index.html">instant</a> t1)
-           (or (<a href="../temporalEntity/index.html">temporalEntity</a> t2) (<a href="../tseq/index.html">tseq</a> t2) (<a href="../eventuality/index.html">eventuality</a> t2)))))
+  (if (<a href="../insideTime">insideTime</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
 </pre>
 <pre>
 (forall (x e1 y e2)
-  (iff (<a href="../subst/index.html">subst</a> x e1 y e2)
+  (iff (<a href="../subst">subst</a> x e1 y e2)
        (exists (p n)
-         (and (<a href="../pred/index.html">pred</a> p e1) (<a href="../pred/index.html">pred</a> p e2) (<a href="../arity/index.html">arity</a> n e1) (<a href="../arity/index.html">arity</a> n e2)
-              (<a href="../noSubstTypelt/index.html">noSubstTypelt</a> x e1 y e2)
+         (and (<a href="../pred">pred</a> p e1) (<a href="../pred">pred</a> p e2) (<a href="../arity">arity</a> n e1) (<a href="../arity">arity</a> n e2)
+              (<a href="../noSubstTypelt">noSubstTypelt</a> x e1 y e2)
               (forall (i z1 z2)
-                (if (and (<a href="../posInteger/index.html">posInteger</a> i) (<a href="../leq/index.html">leq</a> i n)
-                         (<a href="../argn/index.html">argn</a> z1 i e1) (<a href="../argn/index.html">argn</a> z2 i e2))
-                    (and (iff (<a href="../eventuality/index.html">eventuality</a> z1)
-                              (<a href="../eventuality/index.html">eventuality</a> z2))
-                         (if (not (<a href="../eventuality/index.html">eventuality</a> z1))
-                             (and (if (<a href="../nequal/index.html">nequal</a> z1 x)
+                (if (and (<a href="../posInteger">posInteger</a> i) (<a href="../leq">leq</a> i n)
+                         (<a href="../argn">argn</a> z1 i e1) (<a href="../argn">argn</a> z2 i e2))
+                    (and (iff (<a href="../eventuality">eventuality</a> z1)
+                              (<a href="../eventuality">eventuality</a> z2))
+                         (if (not (<a href="../eventuality">eventuality</a> z1))
+                             (and (if (<a href="../nequal">nequal</a> z1 x)
                                       (equal z2 z1))
                                   (if (equal z1 x)
                                       (equal z2 y))))
-                         (if (<a href="../eventuality/index.html">eventuality</a> z1)
-                             (<a href="../subst/index.html">subst</a> x z1 y z2)))))))))
+                         (if (<a href="../eventuality">eventuality</a> z1)
+                             (<a href="../subst">subst</a> x z1 y z2)))))))))
 </pre>
 <pre>
 (forall (y e)
-  (iff (<a href="../onlyarg*/index.html">onlyarg*</a> y e)
-       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../nequal/index.html">nequal</a> y e)
+  (iff (<a href="../onlyarg*">onlyarg*</a> y e)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../nequal">nequal</a> y e)
             (forall (y1)
-              (if (<a href="../arg/index.html">arg</a> y1 e)
+              (if (<a href="../arg">arg</a> y1 e)
                   (or (equal y1 y)
-                      (<a href="../onlyarg*/index.html">onlyarg*</a> y y1)))))))
+                      (<a href="../onlyarg*">onlyarg*</a> y y1)))))))
 </pre>
 </section>
 

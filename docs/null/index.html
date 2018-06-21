@@ -23,118 +23,118 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (s u)
-  (if (<a href="../null/index.html">null</a> s) (<a href="../durationOf/index.html">durationOf</a> 0 s u)))
+  (if (<a href="../null">null</a> s) (<a href="../durationOf">durationOf</a> 0 s u)))
 </pre>
 <pre>
 (forall (s)
-  (iff (<a href="../null/index.html">null</a> s)
-       (and (<a href="../set/index.html">set</a> s)
+  (iff (<a href="../null">null</a> s)
+       (and (<a href="../set">set</a> s)
             (forall (x)
-              (not (<a href="../member/index.html">member</a> x s))))))
+              (not (<a href="../member">member</a> x s))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
    (forall (s1 f)
-      (iff (<a href="../vertical3/index.html">vertical3</a> s1 f)
+      (iff (<a href="../vertical3">vertical3</a> s1 f)
            (exists (s)
-              (and (<a href="../domain/index.html">domain</a> s f) (<a href="../subset/index.html">subset</a> s1 s) (not (<a href="../null/index.html">null</a> s1))
+              (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
                    (not (exists (x1 x2)
-                           (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
-                                (or (<a href="../rightOf/index.html">rightOf</a> x1 x2 f)
-                                    (<a href="../above2/index.html">above2</a> x1 x2 f)))))))))
+                           (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                                (or (<a href="../rightOf">rightOf</a> x1 x2 f)
+                                    (<a href="../above2">above2</a> x1 x2 f)))))))))
 </pre>
 <pre>
 (forall (e s s1 s2 s3)
-  (if (and (<a href="../set/index.html">set</a>' e s) (<a href="../Rexist/index.html">Rexist</a> e) (not (<a href="../null/index.html">null</a> s))
-           (<a href="../singleton/index.html">singleton</a> s2 e) (<a href="../null/index.html">null</a> s3))
-      (and (<a href="../compositeEntity/index.html">compositeEntity</a> s) (<a href="../componentsOf/index.html">componentsOf</a> s s)
-           (<a href="../propertiesOf/index.html">propertiesOf</a> s2 s) (<a href="../relationsOf/index.html">relationsOf</a> s3 s))))
+  (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
+           (<a href="../singleton">singleton</a> s2 e) (<a href="../null">null</a> s3))
+      (and (<a href="../compositeEntity">compositeEntity</a> s) (<a href="../componentsOf">componentsOf</a> s s)
+           (<a href="../propertiesOf">propertiesOf</a> s2 s) (<a href="../relationsOf">relationsOf</a> s3 s))))
 </pre>
 <pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)
-             (if (<a href="../member/index.html">member</a> z s1) (<a href="../set/index.html">set</a> z)))
+             (if (<a href="../member">member</a> z s1) (<a href="../set">set</a> z)))
            (exists (w)
-             (and (<a href="../member/index.html">member</a> w s1) (<a href="../null/index.html">null</a> w)))
-           (<a href="../subset/index.html">subset</a>' e x y)
-           (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
-           (<a href="../card/index.html">card</a>' m n u))
-      (<a href="../measure/index.html">measure</a> m s)))
+             (and (<a href="../member">member</a> w s1) (<a href="../null">null</a> w)))
+           (<a href="../subset">subset</a>' e x y)
+           (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+           (<a href="../card">card</a>' m n u))
+      (<a href="../measure">measure</a> m s)))
 </pre>
 <pre>
 (forall (e1 e)
-  (iff (<a href="../instance/index.html">instance</a> e1 e)
-       (and (<a href="../partialInstance/index.html">partialInstance</a> e1 e)
+  (iff (<a href="../instance">instance</a> e1 e)
+       (and (<a href="../partialInstance">partialInstance</a> e1 e)
             (forall (s1)
-              (if (<a href="../parameters/index.html">parameters</a> s1 e1)
-                  (<a href="../null/index.html">null</a> s1))))))
+              (if (<a href="../parameters">parameters</a> s1 e1)
+                  (<a href="../null">null</a> s1))))))
 </pre>
 <pre>
 (forall (n s)
-  (iff (<a href="../card/index.html">card</a> n s)
-       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../set/index.html">set</a> s)
-            (or (and (<a href="../null/index.html">null</a> s) (equal n 0))
+  (iff (<a href="../card">card</a> n s)
+       (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../set">set</a> s)
+            (or (and (<a href="../null">null</a> s) (equal n 0))
                 (exists (s1 x m)
-                  (and (<a href="../addElt/index.html">addElt</a> s s1 x)
-                       (not (<a href="../member/index.html">member</a> x s1))
-                       (<a href="../card/index.html">card</a> m s1)
-                       (<a href="../sum/index.html">sum</a> n m 1)))))))
+                  (and (<a href="../addElt">addElt</a> s s1 x)
+                       (not (<a href="../member">member</a> x s1))
+                       (<a href="../card">card</a> m s1)
+                       (<a href="../sum">sum</a> n m 1)))))))
 </pre>
 <pre>
 (forall (s u)
-  (if (<a href="../null/index.html">null</a> s) (<a href="../durationOf/index.html">durationOf</a> 0 s u)))
+  (if (<a href="../null">null</a> s) (<a href="../durationOf">durationOf</a> 0 s u)))
 </pre>
 <pre>
 (forall (s x)
-  (iff (<a href="../singleton/index.html">singleton</a> s x)
+  (iff (<a href="../singleton">singleton</a> s x)
        (exists (s1)
-         (and (<a href="../addElt/index.html">addElt</a> s s1 x) (<a href="../null/index.html">null</a> s1)))))
+         (and (<a href="../addElt">addElt</a> s s1 x) (<a href="../null">null</a> s1)))))
 </pre>
 <pre>
 (forall (s)
-  (iff (<a href="../null/index.html">null</a> s)
-       (and (<a href="../set/index.html">set</a> s)
+  (iff (<a href="../null">null</a> s)
+       (and (<a href="../set">set</a> s)
             (forall (x)
-              (not (<a href="../member/index.html">member</a> x s))))))
+              (not (<a href="../member">member</a> x s))))))
 </pre>
 <pre>
 (forall (s1 e x y)
   (if (and (forall (s2)
-             (if (<a href="../member/index.html">member</a> s2 s1)
-                 (<a href="../set/index.html">set</a> s2)))
-            (<a href="../subset/index.html">subset</a>' e x y))
+             (if (<a href="../member">member</a> s2 s1)
+                 (<a href="../set">set</a> s2)))
+            (<a href="../subset">subset</a>' e x y))
        (exists (s)
-          (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
+          (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
                (forall (z)
-                 (if (and (<a href="../member/index.html">member</a> z s1) (<a href="../null/index.html">null</a> z))
-                     (<a href="../bottom/index.html">bottom</a> z s)))))))
+                 (if (and (<a href="../member">member</a> z s1) (<a href="../null">null</a> z))
+                     (<a href="../bottom">bottom</a> z s)))))))
 </pre>
 <pre>
 (forall (s1 f)
-  (iff (<a href="../horizontal2/index.html">horizontal2</a> s1 f)
+  (iff (<a href="../horizontal2">horizontal2</a> s1 f)
        (exists (s)
-         (and (<a href="../domain/index.html">domain</a> s f) (<a href="../subset/index.html">subset</a> s1 s) (not (<a href="../null/index.html">null</a> s1))
+         (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
               (not (exists (x1 x2)
-                     (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
-                          (or (<a href="../above2/index.html">above2</a> x1 x2 f)
-                              (<a href="../above3/index.html">above3</a> x1 x2 f)))))))))
+                     (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                          (or (<a href="../above2">above2</a> x1 x2 f)
+                              (<a href="../above3">above3</a> x1 x2 f)))))))))
 </pre>
 <pre>
 (forall (s1 f)
-  (iff (<a href="../vertical2/index.html">vertical2</a> s1 f)
+  (iff (<a href="../vertical2">vertical2</a> s1 f)
        (exists (s)
-         (and (<a href="../domain/index.html">domain</a> s f) (<a href="../subset/index.html">subset</a> s1 s) (not (<a href="../null/index.html">null</a> s1))
+         (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
               (not (exists (x1 x2)
-                     (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
-                          (or (<a href="../rightOf/index.html">rightOf</a> x1 x2 f)
-                              (<a href="../above3/index.html">above3</a> x1 x2 f)))))))))
+                     (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                          (or (<a href="../rightOf">rightOf</a> x1 x2 f)
+                              (<a href="../above3">above3</a> x1 x2 f)))))))))
 </pre>
 <pre>
 (forall (s1 x)
-  (if (<a href="../componentsOf/index.html">componentsOf</a> s1 x)
-      (and (<a href="../set/index.html">set</a> s1) (<a href="../compositeEntity/index.html">compositeEntity</a> x) (not (<a href="../null/index.html">null</a> s1)))))
+  (if (<a href="../componentsOf">componentsOf</a> s1 x)
+      (and (<a href="../set">set</a> s1) (<a href="../compositeEntity">compositeEntity</a> x) (not (<a href="../null">null</a> s1)))))
 </pre>
 </section>
 

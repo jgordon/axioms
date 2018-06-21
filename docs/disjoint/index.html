@@ -23,24 +23,24 @@
 <h2>All Axioms</h2>
 <pre>
 (forall (m s1 s2 x y)
-  (if (and (<a href="../measure/index.html">measure</a> m s1) (<a href="../function/index.html">function</a> m s1 s2) (<a href="../disjoint/index.html">disjoint</a> s1 s2)
-           (<a href="../map/index.html">map</a> m x y))
-      (<a href="../at/index.html">at</a> x y s2)))
+  (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)
+           (<a href="../map">map</a> m x y))
+      (<a href="../at">at</a> x y s2)))
 </pre>
 <pre>
 (forall (s1 s2)
-   (if (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s2))
-       (iff (<a href="../disjoint/index.html">disjoint</a> s1 s2)
+   (if (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
+       (iff (<a href="../disjoint">disjoint</a> s1 s2)
             (exists (s3 s4)
-               (and (<a href="../componentsOf/index.html">componentsOf</a> s3 s1) (<a href="../componentsOf/index.html">componentsOf</a> s4 s2)
-                    (<a href="../disjoint/index.html">disjoint</a> s3 s4))))))
+               (and (<a href="../componentsOf">componentsOf</a> s3 s1) (<a href="../componentsOf">componentsOf</a> s4 s2)
+                    (<a href="../disjoint">disjoint</a> s3 s4))))))
 </pre>
 <pre>
 (forall (s1 s2)
-  (if (and (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2))
-      (iff (<a href="../disjoint/index.html">disjoint</a> s1 s2)
+  (if (and (<a href="../set">set</a> s1) (<a href="../set">set</a> s2))
+      (iff (<a href="../disjoint">disjoint</a> s1 s2)
            (not (exists (x)
-                  (and (<a href="../member/index.html">member</a> x s1) (<a href="../member/index.html">member</a> x s2)))))))
+                  (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
 </pre>
 </section>
 

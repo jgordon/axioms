@@ -23,61 +23,61 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (u)
-  (if (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../interval/index.html">interval</a> u)))
+  (if (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../interval">interval</a> u)))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (d t u)
-  (if (<a href="../durationOf/index.html">durationOf</a> d t u)
-      (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> d) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
-           (or (<a href="../temporalEntity/index.html">temporalEntity</a> t) (<a href="../tseq/index.html">tseq</a> t) (<a href="../eventuality/index.html">eventuality</a> t)))))
+  (if (<a href="../durationOf">durationOf</a> d t u)
+      (and (<a href="../nonNegInteger">nonNegInteger</a> d) (<a href="../temporalUnit">temporalUnit</a> u)
+           (or (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../tseq">tseq</a> t) (<a href="../eventuality">eventuality</a> t)))))
 </pre>
 <pre>
 (forall (n s t u)
-  (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
-           (forall (t1) (if (<a href="../member/index.html">member</a> t1 t) (<a href="../durationOf/index.html">durationOf</a> 1 t1 u)))
-           (<a href="../rate/index.html">rate</a> n s t))
-      (<a href="../rate/index.html">rate</a> n s u)))
+  (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
+           (forall (t1) (if (<a href="../member">member</a> t1 t) (<a href="../durationOf">durationOf</a> 1 t1 u)))
+           (<a href="../rate">rate</a> n s t))
+      (<a href="../rate">rate</a> n s u)))
 </pre>
 <pre>
 (forall (s d t1 t2 t n1 n2 u)
-  (if (and (<a href="../periodicTseq/index.html">periodicTseq</a> s) (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
-           (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2))
-      (iff (<a href="../gapDuration/index.html">gapDuration</a> d s u) (<a href="../durationOf/index.html">durationOf</a> d t u))))
+  (if (and (<a href="../periodicTseq">periodicTseq</a> s) (<a href="../successiveElts">successiveElts</a> t1 t2 s)
+           (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../intervalBetween">intervalBetween</a> t t1 t2))
+      (iff (<a href="../gapDuration">gapDuration</a> d s u) (<a href="../durationOf">durationOf</a> d t u))))
 </pre>
 <pre>
 (forall (s s0)
-  (iff (<a href="../rateScale/index.html">rateScale</a> s s0)
-       (and (forall (s1) (if (<a href="../member/index.html">member</a> s1 s0) (<a href="../eventualities/index.html">eventualities</a> s1)))
+  (iff (<a href="../rateScale">rateScale</a> s s0)
+       (and (forall (s1) (if (<a href="../member">member</a> s1 s0) (<a href="../eventualities">eventualities</a> s1)))
             (exists (u e s1 s2)
-              (and (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../lts/index.html">lts</a>' e s1 s2 s0)
+              (and (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../lts">lts</a>' e s1 s2 s0)
                    (forall (s3 s4)
-                     (iff (and (<a href="../lts/index.html">lts</a>' e s3 s4 s0) (<a href="../Rexist/index.html">Rexist</a> e))
+                     (iff (and (<a href="../lts">lts</a>' e s3 s4 s0) (<a href="../Rexist">Rexist</a> e))
                           (exists (r1 r2)
-                            (and (<a href="../rate/index.html">rate</a> r1 s3 u) (<a href="../rate/index.html">rate</a> r2 s4 u)
-                                 (<a href="../lt/index.html">lt</a> r1 r2)))))
-                   (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e))))))
+                            (and (<a href="../rate">rate</a> r1 s3 u) (<a href="../rate">rate</a> r2 s4 u)
+                                 (<a href="../lt">lt</a> r1 r2)))))
+                   (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e))))))
 </pre>
 <pre>
 (forall (s)
-  (iff (<a href="../roughlyPeriodicTseq/index.html">roughlyPeriodicTseq</a> s u)
-       (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
+  (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)
+       (and (<a href="../tseq">tseq</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
             (exists (s0 d)
-              (and (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s0)
+              (and (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s0)
                    (forall (t1 t2 t3 t4)
-                     (if (and (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
-                              (<a href="../successiveElts/index.html">successiveElts</a> t3 t4 s))
+                     (if (and (<a href="../successiveElts">successiveElts</a> t1 t2 s)
+                              (<a href="../successiveElts">successiveElts</a> t3 t4 s))
                          (exists (t12 t34 e d)
-                           (and (<a href="../intervalBetween/index.html">intervalBetween</a> t12 t1 t2)
-                                (<a href="../intervalBetween/index.html">intervalBetween</a> t34 t3 t4)
-                                (<a href="../durationOf/index.html">durationOf</a>' e d t12 u)
-                                (<a href="../sameHOM/index.html">sameHOM</a> t12 t34 s0 e))))))))))
+                           (and (<a href="../intervalBetween">intervalBetween</a> t12 t1 t2)
+                                (<a href="../intervalBetween">intervalBetween</a> t34 t3 t4)
+                                (<a href="../durationOf">durationOf</a>' e d t12 u)
+                                (<a href="../sameHOM">sameHOM</a> t12 t34 s0 e))))))))))
 </pre>
 <pre>
 (forall (u)
-  (if (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../interval/index.html">interval</a> u)))
+  (if (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../interval">interval</a> u)))
 </pre>
 </section>
 

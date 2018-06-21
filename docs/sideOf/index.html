@@ -19,55 +19,55 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (c p)
-  (iff (<a href="../sideOf/index.html">sideOf</a> c p)
+  (iff (<a href="../sideOf">sideOf</a> c p)
        (exists (c1 c2 v1 v2 x1 x2)
-         (and (<a href="../vertex/index.html">vertex</a> v1 c1 c x1) (<a href="../vertex/index.html">vertex</a> v2 c c2 x2)
-              (<a href="../nequal/index.html">nequal</a> x1 x2)
-              (<a href="../subfigure/index.html">subfigure</a> v1 p) (<a href="../subfigure/index.html">subfigure</a> v2 p)))))
+         (and (<a href="../vertex">vertex</a> v1 c1 c x1) (<a href="../vertex">vertex</a> v2 c c2 x2)
+              (<a href="../nequal">nequal</a> x1 x2)
+              (<a href="../subfigure">subfigure</a> v1 p) (<a href="../subfigure">subfigure</a> v2 p)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
    (forall (c p s)
-      (if (<a href="../polyhedron/index.html">polyhedron</a> p s)
-          (iff (<a href="../edge/index.html">edge</a> c p)
-               (exists (f) (and (<a href="../face/index.html">face</a> f p) (<a href="../sideOf/index.html">sideOf</a> c f))))))
+      (if (<a href="../polyhedron">polyhedron</a> p s)
+          (iff (<a href="../edge">edge</a> c p)
+               (exists (f) (and (<a href="../face">face</a> f p) (<a href="../sideOf">sideOf</a> c f))))))
 </pre>
 <pre>
    (forall (p d c v x)
-      (if (and (<a href="../square/index.html">square</a> p) (<a href="../sideOf/index.html">sideOf</a> c p) (<a href="../diagonal/index.html">diagonal</a> d p) (<a href="../vertex/index.html">vertex</a> v c d x))
-          (<a href="../45Degrees/index.html">45Degrees</a> v)))
+      (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
+          (<a href="../45Degrees">45Degrees</a> v)))
 </pre>
 <pre>
 (forall (c p)
-  (iff (<a href="../sideOf/index.html">sideOf</a> c p)
+  (iff (<a href="../sideOf">sideOf</a> c p)
        (exists (c1 c2 v1 v2 x1 x2)
-         (and (<a href="../vertex/index.html">vertex</a> v1 c1 c x1) (<a href="../vertex/index.html">vertex</a> v2 c c2 x2)
-              (<a href="../nequal/index.html">nequal</a> x1 x2)
-              (<a href="../subfigure/index.html">subfigure</a> v1 p) (<a href="../subfigure/index.html">subfigure</a> v2 p)))))
+         (and (<a href="../vertex">vertex</a> v1 c1 c x1) (<a href="../vertex">vertex</a> v2 c c2 x2)
+              (<a href="../nequal">nequal</a> x1 x2)
+              (<a href="../subfigure">subfigure</a> v1 p) (<a href="../subfigure">subfigure</a> v2 p)))))
 </pre>
 <pre>
 (forall (p n)
-  (iff (<a href="../polygon/index.html">polygon</a> p n)
+  (iff (<a href="../polygon">polygon</a> p n)
        (exists (s)
          (and (forall (c)
-                (iff (<a href="../member/index.html">member</a> c s) (<a href="../sideOf/index.html">sideOf</a> c p)))
+                (iff (<a href="../member">member</a> c s) (<a href="../sideOf">sideOf</a> c p)))
               (forall (x)
-                (if (<a href="../inside/index.html">inside</a> x p)
+                (if (<a href="../inside">inside</a> x p)
                     (exists (c)
-                      (and (<a href="../member/index.html">member</a> c s)
-                        (or (<a href="../inside/index.html">inside</a> x c) (<a href="../endpoint/index.html">endpoint</a> x l))))))
-              (<a href="../closed/index.html">closed</a> p) (<a href="../planar/index.html">planar</a> p)
-              (<a href="../card/index.html">card</a> n s)))))
+                      (and (<a href="../member">member</a> c s)
+                        (or (<a href="../inside">inside</a> x c) (<a href="../endpoint">endpoint</a> x l))))))
+              (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
+              (<a href="../card">card</a> n s)))))
 </pre>
 <pre>
 (forall (p)
-  (iff (<a href="../rhombus/index.html">rhombus</a> p)
-       (and (<a href="../quadrilateral/index.html">quadrilateral</a> p)
+  (iff (<a href="../rhombus">rhombus</a> p)
+       (and (<a href="../quadrilateral">quadrilateral</a> p)
             (exists (d u)
               (forall (c)
-                (if (<a href="../sideOf/index.html">sideOf</a> c p) (<a href="../length/index.html">length</a> d c u)))))))
+                (if (<a href="../sideOf">sideOf</a> c p) (<a href="../length">length</a> d c u)))))))
 </pre>
 </section>
 

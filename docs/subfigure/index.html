@@ -19,74 +19,74 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (f1 f2)
-  (iff (<a href="../subfigure/index.html">subfigure</a> f1 f2)
-       (or (<a href="../inside/index.html">inside</a> f1 f2) (<a href="../onBoundary/index.html">onBoundary</a> f1 f2))))
+  (iff (<a href="../subfigure">subfigure</a> f1 f2)
+       (or (<a href="../inside">inside</a> f1 f2) (<a href="../onBoundary">onBoundary</a> f1 f2))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
    (forall (f v c1 c2 o)
-      (iff (<a href="../anchorFramework/index.html">anchorFramework</a> f v c1 c2 o)
-           (and (<a href="../framework/index.html">framework</a> f) (<a href="../vertex/index.html">vertex</a> v c1 c2 o)
-                (forall (a1) (if (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../subfigure/index.html">subfigure</a> c1 a1)))
-                (<a href="../origin/index.html">origin</a> o f))))
+      (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
+           (and (<a href="../framework">framework</a> f) (<a href="../vertex">vertex</a> v c1 c2 o)
+                (forall (a1) (if (<a href="../xAxis">xAxis</a> a1 f) (<a href="../subfigure">subfigure</a> c1 a1)))
+                (<a href="../origin">origin</a> o f))))
 </pre>
 <pre>
    (forall (p s)
-      (iff (<a href="../polyhedron/index.html">polyhedron</a> p s)
+      (iff (<a href="../polyhedron">polyhedron</a> p s)
            (exists ( r)
-              (and (<a href="../surface/index.html">surface</a> r p) (<a href="../closed/index.html">closed</a> r)
+              (and (<a href="../surface">surface</a> r p) (<a href="../closed">closed</a> r)
                    (forall (f)
-                      (if (<a href="../member/index.html">member</a> f s) (and (<a href="../polygon2/index.html">polygon2</a> f) (<a href="../inside/index.html">inside</a> f r))))
+                      (if (<a href="../member">member</a> f s) (and (<a href="../polygon2">polygon2</a> f) (<a href="../inside">inside</a> f r))))
                    (forall (x)
-                      (if (and (<a href="../point/index.html">point</a> x) (<a href="../inside/index.html">inside</a> x r))
+                      (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x r))
                           (exists (f)
-                             (and (<a href="../member/index.html">member</a> f s) (<a href="../subfigure/index.html">subfigure</a> x f)))))
+                             (and (<a href="../member">member</a> f s) (<a href="../subfigure">subfigure</a> x f)))))
                    (forall (x)
-                      (if (and (<a href="../point/index.html">point</a> x) (<a href="../member/index.html">member</a> f1 s) (<a href="../member/index.html">member</a> f2 s)
-                               (<a href="../inside/index.html">inside</a> x f1) (<a href="../inside/index.html">inside</a> x f2))
+                      (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
+                               (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
                           (equal f1 f2)))))))
 </pre>
 <pre>
    (forall (p)
-      (if (<a href="../volume/index.html">volume</a> p)
-          (iff (<a href="../convex/index.html">convex</a> p)
+      (if (<a href="../volume">volume</a> p)
+          (iff (<a href="../convex">convex</a> p)
                (forall (c x x1 x2)
-                  (if (and (<a href="../onBorder/index.html">onBorder</a> x1 p) (<a href="../onBorder/index.html">onBorder</a> x2 p)
-                           (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2) (<a href="../inside/index.html">inside</a> x c)
-                      (<a href="../subfigure/index.html">subfigure</a> x p))))))
+                  (if (and (<a href="../onBorder">onBorder</a> x1 p) (<a href="../onBorder">onBorder</a> x2 p)
+                           (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c)
+                      (<a href="../subfigure">subfigure</a> x p))))))
 </pre>
 <pre>
 (forall (c p)
-  (iff (<a href="../sideOf/index.html">sideOf</a> c p)
+  (iff (<a href="../sideOf">sideOf</a> c p)
        (exists (c1 c2 v1 v2 x1 x2)
-         (and (<a href="../vertex/index.html">vertex</a> v1 c1 c x1) (<a href="../vertex/index.html">vertex</a> v2 c c2 x2)
-              (<a href="../nequal/index.html">nequal</a> x1 x2)
-              (<a href="../subfigure/index.html">subfigure</a> v1 p) (<a href="../subfigure/index.html">subfigure</a> v2 p)))))
+         (and (<a href="../vertex">vertex</a> v1 c1 c x1) (<a href="../vertex">vertex</a> v2 c c2 x2)
+              (<a href="../nequal">nequal</a> x1 x2)
+              (<a href="../subfigure">subfigure</a> v1 p) (<a href="../subfigure">subfigure</a> v2 p)))))
 </pre>
 <pre>
 (forall (c)
-  (if (<a href="../linear/index.html">linear</a> c)
-      (and (exists (c1) (and (<a href="../line/index.html">line</a> c1) (<a href="../subfigure/index.html">subfigure</a> c c1)))
+  (if (<a href="../linear">linear</a> c)
+      (and (exists (c1) (and (<a href="../line">line</a> c1) (<a href="../subfigure">subfigure</a> c c1)))
            (forall (c1 c2)
-             (if (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2)
-                      (<a href="../subfigure/index.html">subfigure</a> c c1) (<a href="../subfigure/index.html">subfigure</a> c c2))
+             (if (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2)
+                      (<a href="../subfigure">subfigure</a> c c1) (<a href="../subfigure">subfigure</a> c c2))
                   (equal c1 c2))))))
 </pre>
 <pre>
 (forall (f1 f2)
-  (iff (<a href="../subfigure/index.html">subfigure</a> f1 f2)
-       (or (<a href="../inside/index.html">inside</a> f1 f2) (<a href="../onBoundary/index.html">onBoundary</a> f1 f2))))
+  (iff (<a href="../subfigure">subfigure</a> f1 f2)
+       (or (<a href="../inside">inside</a> f1 f2) (<a href="../onBoundary">onBoundary</a> f1 f2))))
 </pre>
 <pre>
 (forall (r)
-  (if (and (<a href="../region/index.html">region</a> r) (<a href="../planar/index.html">planar</a> r))
-      (iff (<a href="../convex/index.html">convex</a> r)
+  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
+      (iff (<a href="../convex">convex</a> r)
            (forall (c x x1 x2)
-             (if (and (<a href="../onBoundary/index.html">onBoundary</a> x1 r) (<a href="../onBoundary/index.html">onBoundary</a> x2 r)
-                      (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2) (<a href="../inside/index.html">inside</a> x c))
-                 (<a href="../subfigure/index.html">subfigure</a> x r))))))`
+             (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
+                      (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
+                 (<a href="../subfigure">subfigure</a> x r))))))`
 </pre>
 </section>
 

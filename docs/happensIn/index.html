@@ -23,47 +23,47 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (e t)
-  (iff (<a href="../happensIn/index.html">happensIn</a> e t)
+  (iff (<a href="../happensIn">happensIn</a> e t)
        (exists (t1)
-         (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t1 e)
+         (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e)
               (forall (t2)
-                (if (or (<a href="../begins/index.html">begins</a> t2 t1) (<a href="../insideTime/index.html">insideTime</a> t2 t1)
-                        (<a href="../ends/index.html">ends</a> t2 t1))
-                    (or (<a href="../begins/index.html">begins</a> t2 t) (<a href="../insideTime/index.html">insideTime</a> t2 t)
-                        (<a href="../ends/index.html">ends</a> t2 t))))))))
+                (if (or (<a href="../begins">begins</a> t2 t1) (<a href="../insideTime">insideTime</a> t2 t1)
+                        (<a href="../ends">ends</a> t2 t1))
+                    (or (<a href="../begins">begins</a> t2 t) (<a href="../insideTime">insideTime</a> t2 t)
+                        (<a href="../ends">ends</a> t2 t))))))))
 </pre>
 <pre>
-(forall (e0 e t) (if (<a href="../happensIn/index.html">happensIn</a>' e0 e t) (<a href="../temporal/index.html">temporal</a> e0)))
+(forall (e0 e t) (if (<a href="../happensIn">happensIn</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e t)
-  (iff (<a href="../happensIn/index.html">happensIn</a> e t)
+  (iff (<a href="../happensIn">happensIn</a> e t)
        (exists (t1)
-         (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t1 e)
+         (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e)
               (forall (t2)
-                (if (or (<a href="../begins/index.html">begins</a> t2 t1) (<a href="../insideTime/index.html">insideTime</a> t2 t1)
-                        (<a href="../ends/index.html">ends</a> t2 t1))
-                    (or (<a href="../begins/index.html">begins</a> t2 t) (<a href="../insideTime/index.html">insideTime</a> t2 t)
-                        (<a href="../ends/index.html">ends</a> t2 t))))))))
+                (if (or (<a href="../begins">begins</a> t2 t1) (<a href="../insideTime">insideTime</a> t2 t1)
+                        (<a href="../ends">ends</a> t2 t1))
+                    (or (<a href="../begins">begins</a> t2 t) (<a href="../insideTime">insideTime</a> t2 t)
+                        (<a href="../ends">ends</a> t2 t))))))))
 </pre>
 <pre>
-(forall (e0 e t) (if (<a href="../happensIn/index.html">happensIn</a>' e0 e t) (<a href="../temporal/index.html">temporal</a> e0)))
+(forall (e0 e t) (if (<a href="../happensIn">happensIn</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
 </pre>
 <pre>
 (forall (s s0 t f n)
-  (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../set/index.html">set</a> t) (<a href="../powerSet/index.html">powerSet</a> s0 s)
+  (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)
            (forall (t1)
-             (if (<a href="../member/index.html">member</a> t1 t) (<a href="../interval/index.html">interval</a> t1)))
-           (<a href="../function/index.html">function</a> f t s0)
+             (if (<a href="../member">member</a> t1 t) (<a href="../interval">interval</a> t1)))
+           (<a href="../function">function</a> f t s0)
            (forall (t1 s1)
-             (if (<a href="../map/index.html">map</a> f t1 s1)
+             (if (<a href="../map">map</a> f t1 s1)
                  (and (forall (e)
-                        (if (<a href="../member/index.html">member</a> e s1) (<a href="../happensIn/index.html">happensIn</a> e t1)))
-                      (<a href="../card/index.html">card</a> n s1)))))
-      (<a href="../rate/index.html">rate</a> n s t)))
+                        (if (<a href="../member">member</a> e s1) (<a href="../happensIn">happensIn</a> e t1)))
+                      (<a href="../card">card</a> n s1)))))
+      (<a href="../rate">rate</a> n s t)))
 </pre>
 </section>
 

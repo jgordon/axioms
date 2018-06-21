@@ -23,56 +23,56 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (e e1 e2)
-  (if (<a href="../eventSequence/index.html">eventSequence</a> e e1 e2)
-      (and (<a href="../event/index.html">event</a> e) (<a href="../subevent/index.html">subevent</a> e1 e) (<a href="../subevent/index.html">subevent</a> e2 e))))
+  (if (<a href="../eventSequence">eventSequence</a> e e1 e2)
+      (and (<a href="../event">event</a> e) (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))
 </pre>
 <pre>
 (forall (e e1 e2)
-  (iff (<a href="../eventSequence/index.html">eventSequence</a> e e1 e2)
-       (and (<a href="../event/index.html">event</a> e1) (<a href="../event/index.html">event</a> e2) (<a href="../and'/index.html">and'</a> e e1 e2) (<a href="../beforeOrMeets/index.html">beforeOrMeets</a> e1 e2))))
+  (iff (<a href="../eventSequence">eventSequence</a> e e1 e2)
+       (and (<a href="../event">event</a> e1) (<a href="../event">event</a> e2) (<a href="../and'">and'</a> e e1 e2) (<a href="../beforeOrMeets">beforeOrMeets</a> e1 e2))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e e1 e2)
-  (if (<a href="../eventSequence/index.html">eventSequence</a> e e1 e2)
-      (and (<a href="../event/index.html">event</a> e) (<a href="../subevent/index.html">subevent</a> e1 e) (<a href="../subevent/index.html">subevent</a> e2 e))))
+  (if (<a href="../eventSequence">eventSequence</a> e e1 e2)
+      (and (<a href="../event">event</a> e) (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))
 </pre>
 <pre>
 (forall (e e1 e2)
-  (iff (<a href="../eventSequence/index.html">eventSequence</a> e e1 e2)
-       (and (<a href="../event/index.html">event</a> e1) (<a href="../event/index.html">event</a> e2) (<a href="../and'/index.html">and'</a> e e1 e2) (<a href="../beforeOrMeets/index.html">beforeOrMeets</a> e1 e2))))
+  (iff (<a href="../eventSequence">eventSequence</a> e e1 e2)
+       (and (<a href="../event">event</a> e1) (<a href="../event">event</a> e2) (<a href="../and'">and'</a> e e1 e2) (<a href="../beforeOrMeets">beforeOrMeets</a> e1 e2))))
 </pre>
 <pre>
 (forall (e e1 e2)
-  (iff (<a href="../repeatUntil/index.html">repeatUntil</a> e e1 e2)
+  (iff (<a href="../repeatUntil">repeatUntil</a> e e1 e2)
        (exists (e3 e4 e5)
-         (and (<a href="../eventSequence/index.html">eventSequence</a>' e e3 e4) (<a href="../instance/index.html">instance</a> e3 e1) (<a href="../cond/index.html">cond</a> e4 e2 e5)
-              (or (<a href="../repeatUntil/index.html">repeatUntil</a> e5 e1 e2) (<a href="../instance/index.html">instance</a> e5 e1))))))
+         (and (<a href="../eventSequence">eventSequence</a>' e e3 e4) (<a href="../instance">instance</a> e3 e1) (<a href="../cond">cond</a> e4 e2 e5)
+              (or (<a href="../repeatUntil">repeatUntil</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e1))))))
 </pre>
 <pre>
 (forall (e e1 e2)
-  (iff (<a href="../whileDo/index.html">whileDo</a> e e1 e2)
+  (iff (<a href="../whileDo">whileDo</a> e e1 e2)
        (exists (e3 e4 e5)
-         (and (<a href="../cond/index.html">cond</a> e e1 e3) (<a href="../eventSequence/index.html">eventSequence</a>' e3 e4 e5) (<a href="../instance/index.html">instance</a> e4 e2)
-              (or (<a href="../whileDo/index.html">whileDo</a> e5 e1 e2) (<a href="../instance/index.html">instance</a> e5 e2))))))
+         (and (<a href="../cond">cond</a> e e1 e3) (<a href="../eventSequence">eventSequence</a>' e3 e4 e5) (<a href="../instance">instance</a> e4 e2)
+              (or (<a href="../whileDo">whileDo</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e2))))))
 </pre>
 <pre>
 (forall (e e1)
-  (iff (<a href="../iteration/index.html">iteration</a> e e1)
+  (iff (<a href="../iteration">iteration</a> e e1)
        (exists (e2 e3)
-         (and (<a href="../eventSequence/index.html">eventSequence</a>' e e2 e3) (<a href="../instance/index.html">instance</a> e2 e1)
-              (or (<a href="../iteration/index.html">iteration</a> e3 e1) (<a href="../instance/index.html">instance</a> e3 e1))))))
+         (and (<a href="../eventSequence">eventSequence</a>' e e2 e3) (<a href="../instance">instance</a> e2 e1)
+              (or (<a href="../iteration">iteration</a> e3 e1) (<a href="../instance">instance</a> e3 e1))))))
 </pre>
 <pre>
 (forall (e s e1)
-  (iff (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e s x e1)
+  (iff (<a href="../forAllOfSeq">forAllOfSeq</a> e s x e1)
        (exists (y e2 l e3 s1)
-         (or (and (<a href="../length/index.html">length</a> 1 s) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1) (equal e e2))
-             (and (<a href="../length/index.html">length</a> l s) (<a href="../gt/index.html">gt</a> l 1) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1)
-                  (<a href="../eventSequence/index.html">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e3 s1 x e1)
-                  (<a href="../rest/index.html">rest</a> s1 s))))))
+         (or (and (<a href="../length">length</a> 1 s) (<a href="../first">first</a> y s) (<a href="../subst">subst</a> y e2 x e1) (equal e e2))
+             (and (<a href="../length">length</a> l s) (<a href="../gt">gt</a> l 1) (<a href="../first">first</a> y s) (<a href="../subst">subst</a> y e2 x e1)
+                  (<a href="../eventSequence">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq">forAllOfSeq</a> e3 s1 x e1)
+                  (<a href="../rest">rest</a> s1 s))))))
 </pre>
 </section>
 

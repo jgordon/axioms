@@ -23,53 +23,53 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (a e)
-  (iff (<a href="../agentOf/index.html">agentOf</a> a e)
-       (and (<a href="../agent/index.html">agent</a> a) (<a href="../cause/index.html">cause</a> a e))))
+  (iff (<a href="../agentOf">agentOf</a> a e)
+       (and (<a href="../agent">agent</a> a) (<a href="../cause">cause</a> a e))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (a e)
-  (if (<a href="../difficult/index.html">difficult</a> e a)
-      (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e))))
+  (if (<a href="../difficult">difficult</a> e a)
+      (and (<a href="../agent">agent</a> a) (<a href="../agentOf">agentOf</a> a e))))
 </pre>
 <pre>
 (forall (a e)
-  (iff (<a href="../agentOf/index.html">agentOf</a> a e)
-       (and (<a href="../agent/index.html">agent</a> a) (<a href="../cause/index.html">cause</a> a e))))
+  (iff (<a href="../agentOf">agentOf</a> a e)
+       (and (<a href="../agent">agent</a> a) (<a href="../cause">cause</a> a e))))
 </pre>
 <pre>
 (forall (a e)
-  (iff (<a href="../do/index.html">do</a> a e)
-       (and (<a href="../agentOf/index.html">agentOf</a> a e) (<a href="../Rexist/index.html">Rexist</a> e))))
+  (iff (<a href="../do">do</a> a e)
+       (and (<a href="../agentOf">agentOf</a> a e) (<a href="../Rexist">Rexist</a> e))))
 </pre>
 <pre>
 (forall (e1 e a)
-  (iff (<a href="../difficult/index.html">difficult</a>' e1 e a)
-       (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e)
+  (iff (<a href="../difficult">difficult</a>' e1 e a)
+       (and (<a href="../agent">agent</a> a) (<a href="../agentOf">agentOf</a> a e)
             (exists (s)
-              (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../scaleFor/index.html">scaleFor</a> s e1))))))
+              (and (<a href="../difficultyScale">difficultyScale</a> s e) (<a href="../scaleFor">scaleFor</a> s e1))))))
 </pre>
 <pre>
 (forall (s1 s a)
-  (iff (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
-       (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../subset/index.html">subset</a> s1 s) (<a href="../agent/index.html">agent</a> a)
+  (iff (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
+       (and (<a href="../eventualities">eventualities</a> s) (<a href="../subset">subset</a> s1 s) (<a href="../agent">agent</a> a)
             (forall (e)
-              (iff (<a href="../member/index.html">member</a> e s1)
-                   (and (not (<a href="../agentOf/index.html">agentOf</a> a e))
+              (iff (<a href="../member">member</a> e s1)
+                   (and (not (<a href="../agentOf">agentOf</a> a e))
                         (not (exists (e1)
-                               (and (<a href="../agentOf/index.html">agentOf</a> a e1)
-                                    (<a href="../cause/index.html">cause</a> e1 e))))))))))
+                               (and (<a href="../agentOf">agentOf</a> a e1)
+                                    (<a href="../cause">cause</a> e1 e))))))))))
 </pre>
 <pre>
 (forall (y e)
-  (iff (<a href="../instrumentOf/index.html">instrumentOf</a> y e)
+  (iff (<a href="../instrumentOf">instrumentOf</a> y e)
        (exists (a e1)
-         (and (<a href="../agentOf/index.html">agentOf</a> a e1) (<a href="../changeIn/index.html">changeIn</a>' e1 y)
-              (or (<a href="../cause/index.html">cause</a> e1 e)
+         (and (<a href="../agentOf">agentOf</a> a e1) (<a href="../changeIn">changeIn</a>' e1 y)
+              (or (<a href="../cause">cause</a> e1 e)
                   (exists (e2)
-                    (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../and'/index.html">and'</a> e e1 e2))))))))
+                    (and (<a href="../cause">cause</a> e1 e2) (<a href="../and'">and'</a> e e1 e2))))))))
 </pre>
 </section>
 

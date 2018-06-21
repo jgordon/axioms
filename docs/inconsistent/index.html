@@ -23,47 +23,47 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (s1 s2)
-  (iff (<a href="../inconsistent/index.html">inconsistent</a> s1 s2)
-       (and (<a href="../eventualities/index.html">eventualities</a> s1) (<a href="../eventualities/index.html">eventualities</a> s2)
+  (iff (<a href="../inconsistent">inconsistent</a> s1 s2)
+       (and (<a href="../eventualities">eventualities</a> s1) (<a href="../eventualities">eventualities</a> s2)
             (exists (e1 e2)
-              (and (<a href="../imply/index.html">imply</a> s1 e1) (<a href="../imply/index.html">imply</a> s2 e2) (<a href="../not'/index.html">not'</a> e2 e1))))))
+              (and (<a href="../imply">imply</a> s1 e1) (<a href="../imply">imply</a> s2 e2) (<a href="../not'">not'</a> e2 e1))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e e1 e2)
-  (if (<a href="../change/index.html">change</a>' e e1 e2)
-      (or (<a href="../inconsistent/index.html">inconsistent</a> e1 e2)
+  (if (<a href="../change">change</a>' e e1 e2)
+      (or (<a href="../inconsistent">inconsistent</a> e1 e2)
           (exists (e3 e4 e5 e6)
-            (and (<a href="../change/index.html">change</a>' e4 e1 e3) (<a href="../change/index.html">change</a>' e5 e3 e2) (<a href="../and'/index.html">and'</a> e6 e4 e5)
-                 (<a href="../gen/index.html">gen</a> e6 e))))))
+            (and (<a href="../change">change</a>' e4 e1 e3) (<a href="../change">change</a>' e5 e3 e2) (<a href="../and'">and'</a> e6 e4 e5)
+                 (<a href="../gen">gen</a> e6 e))))))
 </pre>
 <pre>
 (forall (e e1 e2)
-  (if (and (<a href="../change/index.html">change</a> e1 e2) (etc))
-      (<a href="../inconsistent/index.html">inconsistent</a> e1 e2)))
+  (if (and (<a href="../change">change</a> e1 e2) (etc))
+      (<a href="../inconsistent">inconsistent</a> e1 e2)))
 </pre>
 <pre>
 (forall (e e1 e3)
-  (if (<a href="../subst/index.html">subst</a> e3 e3 e1 e1)
-      (iff (<a href="../changeFrom/index.html">changeFrom</a>' e e1)
+  (if (<a href="../subst">subst</a> e3 e3 e1 e1)
+      (iff (<a href="../changeFrom">changeFrom</a>' e e1)
            (exists (e2 e5)
-             (and (<a href="../change/index.html">change</a>' e5 e1 e2) (<a href="../gen/index.html">gen</a> e5 e) (<a href="../inconsistent/index.html">inconsistent</a> e3 e2))))))
+             (and (<a href="../change">change</a>' e5 e1 e2) (<a href="../gen">gen</a> e5 e) (<a href="../inconsistent">inconsistent</a> e3 e2))))))
 </pre>
 <pre>
 (forall (e e2 e4)
-  (if (<a href="../subst/index.html">subst</a> e4 e4 e2 e2)
-      (iff (<a href="../changeTo/index.html">changeTo</a>' e e2)
+  (if (<a href="../subst">subst</a> e4 e4 e2 e2)
+      (iff (<a href="../changeTo">changeTo</a>' e e2)
            (exists (e1 e5)
-             (and (<a href="../change/index.html">change</a>' e5 e1 e2) (<a href="../gen/index.html">gen</a> e5 e) (<a href="../inconsistent/index.html">inconsistent</a> e4 e1))))))
+             (and (<a href="../change">change</a>' e5 e1 e2) (<a href="../gen">gen</a> e5 e) (<a href="../inconsistent">inconsistent</a> e4 e1))))))
 </pre>
 <pre>
 (forall (s1 s2)
-  (iff (<a href="../inconsistent/index.html">inconsistent</a> s1 s2)
-       (and (<a href="../eventualities/index.html">eventualities</a> s1) (<a href="../eventualities/index.html">eventualities</a> s2)
+  (iff (<a href="../inconsistent">inconsistent</a> s1 s2)
+       (and (<a href="../eventualities">eventualities</a> s1) (<a href="../eventualities">eventualities</a> s2)
             (exists (e1 e2)
-              (and (<a href="../imply/index.html">imply</a> s1 e1) (<a href="../imply/index.html">imply</a> s2 e2) (<a href="../not'/index.html">not'</a> e2 e1))))))
+              (and (<a href="../imply">imply</a> s1 e1) (<a href="../imply">imply</a> s2 e2) (<a href="../not'">not'</a> e2 e1))))))
 </pre>
 </section>
 

@@ -19,50 +19,50 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (c c1 c2 x)
-   (if (<a href="../joinedCurves/index.html">joinedCurves</a> c c1 c2 x)
-       (<a href="../curve/index.html">curve</a> c)))
+   (if (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
+       (<a href="../curve">curve</a> c)))
 </pre>
 <pre>
 (forall (c c1 c2 x)
-  (iff (<a href="../joinedCurves/index.html">joinedCurves</a> c c1 c2 x)
-       (and (<a href="../curve/index.html">curve</a> c1) (<a href="../curve/index.html">curve</a> c2) (<a href="../nequal/index.html">nequal</a> c1 c2)
-            (<a href="../endpoint/index.html">endpoint</a> x c1) (<a href="../endpoint/index.html">endpoint</a> x c2)
+  (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
+       (and (<a href="../curve">curve</a> c1) (<a href="../curve">curve</a> c2) (<a href="../nequal">nequal</a> c1 c2)
+            (<a href="../endpoint">endpoint</a> x c1) (<a href="../endpoint">endpoint</a> x c2)
             (forall (y)
-              (iff (<a href="../inside/index.html">inside</a> y c)
-                   (or (<a href="../inside/index.html">inside</a> y c1) (<a href="../inside/index.html">inside</a> y c2)
+              (iff (<a href="../inside">inside</a> y c)
+                   (or (<a href="../inside">inside</a> y c1) (<a href="../inside">inside</a> y c2)
                        (equal y x))))
             (forall (z)
-              (iff (<a href="../endpoint/index.html">endpoint</a> z c)
-                   (and (<a href="../nequal/index.html">nequal</a> z x)
-                        (or (<a href="../endpoint/index.html">endpoint</a> z c1) (<a href="../endpoint/index.html">endpoint</a> z c2))))))))
+              (iff (<a href="../endpoint">endpoint</a> z c)
+                   (and (<a href="../nequal">nequal</a> z x)
+                        (or (<a href="../endpoint">endpoint</a> z c1) (<a href="../endpoint">endpoint</a> z c2))))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (c c1 c2 x)
-   (if (<a href="../joinedCurves/index.html">joinedCurves</a> c c1 c2 x)
-       (<a href="../curve/index.html">curve</a> c)))
+   (if (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
+       (<a href="../curve">curve</a> c)))
 </pre>
 <pre>
 (forall (c c1 c2 x)
-  (iff (<a href="../joinedCurves/index.html">joinedCurves</a> c c1 c2 x)
-       (and (<a href="../curve/index.html">curve</a> c1) (<a href="../curve/index.html">curve</a> c2) (<a href="../nequal/index.html">nequal</a> c1 c2)
-            (<a href="../endpoint/index.html">endpoint</a> x c1) (<a href="../endpoint/index.html">endpoint</a> x c2)
+  (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
+       (and (<a href="../curve">curve</a> c1) (<a href="../curve">curve</a> c2) (<a href="../nequal">nequal</a> c1 c2)
+            (<a href="../endpoint">endpoint</a> x c1) (<a href="../endpoint">endpoint</a> x c2)
             (forall (y)
-              (iff (<a href="../inside/index.html">inside</a> y c)
-                   (or (<a href="../inside/index.html">inside</a> y c1) (<a href="../inside/index.html">inside</a> y c2)
+              (iff (<a href="../inside">inside</a> y c)
+                   (or (<a href="../inside">inside</a> y c1) (<a href="../inside">inside</a> y c2)
                        (equal y x))))
             (forall (z)
-              (iff (<a href="../endpoint/index.html">endpoint</a> z c)
-                   (and (<a href="../nequal/index.html">nequal</a> z x)
-                        (or (<a href="../endpoint/index.html">endpoint</a> z c1) (<a href="../endpoint/index.html">endpoint</a> z c2))))))))
+              (iff (<a href="../endpoint">endpoint</a> z c)
+                   (and (<a href="../nequal">nequal</a> z x)
+                        (or (<a href="../endpoint">endpoint</a> z c1) (<a href="../endpoint">endpoint</a> z c2))))))))
 </pre>
 <pre>
 (forall (v c1 c2 x)
-  (iff (<a href="../vertex/index.html">vertex</a> v c1 c2 x)
-       (and (<a href="../linear/index.html">linear</a> c1) (<a href="../linear/index.html">linear</a> c2) (not (<a href="../linear/index.html">linear</a> v))
-            (<a href="../joinedCurves/index.html">joinedCurves</a> v c1 c2 x))))
+  (iff (<a href="../vertex">vertex</a> v c1 c2 x)
+       (and (<a href="../linear">linear</a> c1) (<a href="../linear">linear</a> c2) (not (<a href="../linear">linear</a> v))
+            (<a href="../joinedCurves">joinedCurves</a> v c1 c2 x))))
 </pre>
 </section>
 

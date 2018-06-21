@@ -23,42 +23,42 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (s1 s)
-   (iff (<a href="../subscale/index.html">subscale</a> s1 s)
-        (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s)
-             (forall (x) (if (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> x s)))
+   (iff (<a href="../subscale">subscale</a> s1 s)
+        (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s)
+             (forall (x) (if (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> x s)))
              (forall (x y)
-                (iff (<a href="../lts/index.html">lts</a> x y s1)
-                     (and (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s1)
-                          (<a href="../lts/index.html">lts</a> x y s)))))))
+                (iff (<a href="../lts">lts</a> x y s1)
+                     (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)
+                          (<a href="../lts">lts</a> x y s)))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (f s1 s3)
-   (iff (<a href="../functionInto/index.html">functionInto</a> f s1 s3)
+   (iff (<a href="../functionInto">functionInto</a> f s1 s3)
         (exists (s2)
-          (and (or (<a href="../subset/index.html">subset</a> s2 s3) (<a href="../subscale/index.html">subscale</a> s2 s3))
-               (<a href="../function/index.html">function</a> f s1 s2)))))
+          (and (or (<a href="../subset">subset</a> s2 s3) (<a href="../subscale">subscale</a> s2 s3))
+               (<a href="../function">function</a> f s1 s2)))))
 </pre>
 <pre>
 (forall (s1 s)
-   (iff (<a href="../subscale/index.html">subscale</a> s1 s)
-        (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s)
-             (forall (x) (if (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> x s)))
+   (iff (<a href="../subscale">subscale</a> s1 s)
+        (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s)
+             (forall (x) (if (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> x s)))
              (forall (x y)
-                (iff (<a href="../lts/index.html">lts</a> x y s1)
-                     (and (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s1)
-                          (<a href="../lts/index.html">lts</a> x y s)))))))
+                (iff (<a href="../lts">lts</a> x y s1)
+                     (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)
+                          (<a href="../lts">lts</a> x y s)))))))
 </pre>
 <pre>
-(forall (s1 s) (if (<a href="../Hi/index.html">Hi</a> s1 s) (<a href="../subscale/index.html">subscale</a> s1 s)))
+(forall (s1 s) (if (<a href="../Hi">Hi</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
 </pre>
 <pre>
-(forall (s1 s) (if (<a href="../Lo/index.html">Lo</a> s1 s) (<a href="../subscale/index.html">subscale</a> s1 s)))
+(forall (s1 s) (if (<a href="../Lo">Lo</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
 </pre>
 <pre>
-(forall (s1 s) (if (<a href="../Md/index.html">Md</a> s1 s) (<a href="../subscale/index.html">subscale</a> s1 s)))
+(forall (s1 s) (if (<a href="../Md">Md</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
 </pre>
 </section>
 

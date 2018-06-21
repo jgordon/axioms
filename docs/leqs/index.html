@@ -23,90 +23,90 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (x y s)
-   (iff (<a href="../leqs/index.html">leqs</a> x y s)
-        (or (<a href="../lts/index.html">lts</a> x y s)
-            (and (<a href="../onScale/index.html">onScale</a> x s) (equal x y)))))
+   (iff (<a href="../leqs">leqs</a> x y s)
+        (or (<a href="../lts">lts</a> x y s)
+            (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (s e e1 e2 d d1 d2 c)
-  (if (and (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c)
-           (<a href="../and'/index.html">and'</a> e e1 e2) (<a href="../likelihood/index.html">likelihood</a> d e c))
-      (and (<a href="../leqs/index.html">leqs</a> d d1 s) (<a href="../leqs/index.html">leqs</a> d d2 s))))
+  (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
+           (<a href="../and'">and'</a> e e1 e2) (<a href="../likelihood">likelihood</a> d e c))
+      (and (<a href="../leqs">leqs</a> d d1 s) (<a href="../leqs">leqs</a> d d2 s))))
 </pre>
 <pre>
 (forall (s e e1 e2 d d1 d2 c)
-  (if (and (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c)
-           (<a href="../or'/index.html">or'</a> e e1 e2) (<a href="../likelihood/index.html">likelihood</a> d e c))
-      (and (<a href="../leqs/index.html">leqs</a> d1 d s) (<a href="../leqs/index.html">leqs</a> d2 d s))))
+  (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
+           (<a href="../or'">or'</a> e e1 e2) (<a href="../likelihood">likelihood</a> d e c))
+      (and (<a href="../leqs">leqs</a> d1 d s) (<a href="../leqs">leqs</a> d2 d s))))
 </pre>
 <pre>
 (forall (s e)
-   (iff (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e)
-        (and (<a href="../scale/index.html">scale</a> s) (<a href="../eventuality/index.html">eventuality</a> e)
-             (forall (s0) (if (<a href="../argn/index.html">argn</a> s0 1 e) (<a href="../set/index.html">set</a> s0)))
-             (forall (x) (if (<a href="../argn/index.html">argn</a> x 2 e) (exists (y) (<a href="../at/index.html">at</a> x y s))))
+   (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
+        (and (<a href="../scale">scale</a> s) (<a href="../eventuality">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn">argn</a> s0 1 e) (<a href="../set">set</a> s0)))
+             (forall (x) (if (<a href="../argn">argn</a> x 2 e) (exists (y) (<a href="../at">at</a> x y s))))
              (forall (e1 e2 s1 s2 x1 x2)
-                (if (and (<a href="../instance/index.html">instance</a> e1 e) (<a href="../argn/index.html">argn</a> s1 1 e1)
-                                         (<a href="../argn/index.html">argn</a> x1 2 e1)
-                         (<a href="../instance/index.html">instance</a> e2 e) (<a href="../argn/index.html">argn</a> s2 1 e2)
-                                         (<a href="../argn/index.html">argn</a> x2 2 e2)
-                         (<a href="../subset/index.html">subset</a> s1 s2))
-                    (<a href="../leqs/index.html">leqs</a> x1 x2 s))))))
+                (if (and (<a href="../instance">instance</a> e1 e) (<a href="../argn">argn</a> s1 1 e1)
+                                         (<a href="../argn">argn</a> x1 2 e1)
+                         (<a href="../instance">instance</a> e2 e) (<a href="../argn">argn</a> s2 1 e2)
+                                         (<a href="../argn">argn</a> x2 2 e2)
+                         (<a href="../subset">subset</a> s1 s2))
+                    (<a href="../leqs">leqs</a> x1 x2 s))))))
 </pre>
 <pre>
 (forall (s s1 s2)
-   (if (<a href="../compositeScale/index.html">compositeScale</a> s s1 s2)
+   (if (<a href="../compositeScale">compositeScale</a> s s1 s2)
        (and (exists (s3)
-               (and (<a href="../componentsOf/index.html">componentsOf</a> s3 s1) (<a href="../componentsOf/index.html">componentsOf</a> s3 s2)
-                    (<a href="../componentsOf/index.html">componentsOf</a> s3 s)))
+               (and (<a href="../componentsOf">componentsOf</a> s3 s1) (<a href="../componentsOf">componentsOf</a> s3 s2)
+                    (<a href="../componentsOf">componentsOf</a> s3 s)))
             (forall (x y)
-               (if (and (<a href="../lts/index.html">lts</a> x y s1) (<a href="../leqs/index.html">leqs</a> x y s2))
-                   (<a href="../lts/index.html">lts</a> x y s)))
+               (if (and (<a href="../lts">lts</a> x y s1) (<a href="../leqs">leqs</a> x y s2))
+                   (<a href="../lts">lts</a> x y s)))
             (forall (x y)
-               (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../lts/index.html">lts</a> x y s2))
-                   (<a href="../lts/index.html">lts</a> x y s))))))
+               (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../lts">lts</a> x y s2))
+                   (<a href="../lts">lts</a> x y s))))))
 </pre>
 <pre>
 (forall (s1 e1 d1 s2 e2 d2 c s)
-  (if (and (<a href="../alsoRequired/index.html">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired/index.html">alsoRequired</a> s2 e2 c) (<a href="../subset/index.html">subset</a> s2 s1)
-           (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s))
-      (<a href="../leqs/index.html">leqs</a> d1 d2 s)))
+  (if (and (<a href="../alsoRequired">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired">alsoRequired</a> s2 e2 c) (<a href="../subset">subset</a> s2 s1)
+           (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c) (<a href="../likelihoodScale">likelihoodScale</a> s))
+      (<a href="../leqs">leqs</a> d1 d2 s)))
 </pre>
 <pre>
 (forall (x s)
-   (iff (<a href="../bottom/index.html">bottom</a> x s)
-        (and (<a href="../inScale/index.html">inScale</a> x s)
+   (iff (<a href="../bottom">bottom</a> x s)
+        (and (<a href="../inScale">inScale</a> x s)
              (forall (y)
-               (if (<a href="../inScale/index.html">inScale</a> y s) (<a href="../leqs/index.html">leqs</a> x y s))))))
+               (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> x y s))))))
 </pre>
 <pre>
 (forall (x s)
-   (iff (<a href="../top/index.html">top</a> x s)
-        (and (<a href="../inScale/index.html">inScale</a> x s)
+   (iff (<a href="../top">top</a> x s)
+        (and (<a href="../inScale">inScale</a> x s)
              (forall (y)
-               (if (<a href="../inScale/index.html">inScale</a> y s) (<a href="../leqs/index.html">leqs</a> y x s))))))
+               (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> y x s))))))
 </pre>
 <pre>
 (forall (x y s)
-   (if (and (<a href="../leqs/index.html">leqs</a> x y s) (<a href="../leqs/index.html">leqs</a> y x s))
+   (if (and (<a href="../leqs">leqs</a> x y s) (<a href="../leqs">leqs</a> y x s))
        (equal x y)))
 </pre>
 <pre>
 (forall (x y s)
-   (iff (<a href="../leqs/index.html">leqs</a> x y s)
-        (or (<a href="../lts/index.html">lts</a> x y s)
-            (and (<a href="../onScale/index.html">onScale</a> x s) (equal x y)))))
+   (iff (<a href="../leqs">leqs</a> x y s)
+        (or (<a href="../lts">lts</a> x y s)
+            (and (<a href="../onScale">onScale</a> x s) (equal x y)))))
 </pre>
 <pre>
 (forall (x y s1 m)
-  (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../measure/index.html">measure</a> m s1))
-      (iff (<a href="../sameHOM/index.html">sameHOM</a> x y s1 m)
+  (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
+      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m)
            (exists (f f2)
-             (and (<a href="../proportion/index.html">proportion</a> f y x m) (<a href="../product/index.html">product</a> f2 f f)
-                  (<a href="../leq/index.html">leq</a> f2 10))))))
+             (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
+                  (<a href="../leq">leq</a> f2 10))))))
 </pre>
 </section>
 

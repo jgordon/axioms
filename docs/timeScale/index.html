@@ -23,37 +23,37 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (t)
-  (iff (<a href="../timeScale/index.html">timeScale</a> t)
+  (iff (<a href="../timeScale">timeScale</a> t)
        (exists (s e t2 t3)
          (and (forall (t1)
-                (iff (<a href="../member/index.html">member</a> t1 s)
-                     (or (<a href="../instant/index.html">instant</a> t1) (<a href="../interval/index.html">interval</a> t1))))
-              (<a href="../before/index.html">before</a>' e t2 t3)
-              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> t s e)))))
+                (iff (<a href="../member">member</a> t1 s)
+                     (or (<a href="../instant">instant</a> t1) (<a href="../interval">interval</a> t1))))
+              (<a href="../before">before</a>' e t2 t3)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> t s e)))))
 </pre>
 <pre>
-(forall (t) (if (<a href="../timeScale/index.html">timeScale</a> t) (<a href="../ground/index.html">ground</a> t)))
+(forall (t) (if (<a href="../timeScale">timeScale</a> t) (<a href="../ground">ground</a> t)))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (s e t)
-  (if (and (<a href="../timeScale/index.html">timeScale</a> s) (<a href="../atTime/index.html">atTime</a> e t))
-      (<a href="../at/index.html">at</a> e t s)))
+  (if (and (<a href="../timeScale">timeScale</a> s) (<a href="../atTime">atTime</a> e t))
+      (<a href="../at">at</a> e t s)))
 </pre>
 <pre>
 (forall (t)
-  (iff (<a href="../timeScale/index.html">timeScale</a> t)
+  (iff (<a href="../timeScale">timeScale</a> t)
        (exists (s e t2 t3)
          (and (forall (t1)
-                (iff (<a href="../member/index.html">member</a> t1 s)
-                     (or (<a href="../instant/index.html">instant</a> t1) (<a href="../interval/index.html">interval</a> t1))))
-              (<a href="../before/index.html">before</a>' e t2 t3)
-              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> t s e)))))
+                (iff (<a href="../member">member</a> t1 s)
+                     (or (<a href="../instant">instant</a> t1) (<a href="../interval">interval</a> t1))))
+              (<a href="../before">before</a>' e t2 t3)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> t s e)))))
 </pre>
 <pre>
-(forall (t) (if (<a href="../timeScale/index.html">timeScale</a> t) (<a href="../ground/index.html">ground</a> t)))
+(forall (t) (if (<a href="../timeScale">timeScale</a> t) (<a href="../ground">ground</a> t)))
 </pre>
 </section>
 

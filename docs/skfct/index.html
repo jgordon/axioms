@@ -23,43 +23,43 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (x x1 y y1 e)
-  (iff (<a href="../skfct/index.html">skfct</a> y1 y x1 x e)
-       (and (<a href="../fd/index.html">fd</a> y x e)
+  (iff (<a href="../skfct">skfct</a> y1 y x1 x e)
+       (and (<a href="../fd">fd</a> y x e)
             (exists (e1)
-              (and (<a href="../subst2/index.html">subst2</a> x y e x1 y1 e1)
-                   (if (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../Rexist/index.html">Rexist</a> e1)))))))
+              (and (<a href="../subst2">subst2</a> x y e x1 y1 e1)
+                   (if (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1)))))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (c1 c x1 x y e e1)
-  (if (and (<a href="../skfct/index.html">skfct</a> c1 c x1 x e) (<a href="../fd/index.html">fd</a> c y e) (<a href="../nequal/index.html">nequal</a> x y)
-           (<a href="../subst2/index.html">subst2</a> c1 x1 e1 c x e))
-      (<a href="../fd/index.html">fd</a> c1 y e1)))
+  (if (and (<a href="../skfct">skfct</a> c1 c x1 x e) (<a href="../fd">fd</a> c y e) (<a href="../nequal">nequal</a> x y)
+           (<a href="../subst2">subst2</a> c1 x1 e1 c x e))
+      (<a href="../fd">fd</a> c1 y e1)))
 </pre>
 <pre>
 (forall (s1 x y e)
-  (iff (<a href="../rangeFd/index.html">rangeFd</a> s1 y x e)
+  (iff (<a href="../rangeFd">rangeFd</a> s1 y x e)
        (forall (y1)
-         (iff (<a href="../member/index.html">member</a> y1 s1)
-              (exists (x1) (<a href="../skfct/index.html">skfct</a> y1 y x1 x e))))))
+         (iff (<a href="../member">member</a> y1 s1)
+              (exists (x1) (<a href="../skfct">skfct</a> y1 y x1 x e))))))
 </pre>
 <pre>
 (forall (x x1 y y1 e)
-  (iff (<a href="../skfct/index.html">skfct</a> y1 y x1 x e)
-       (and (<a href="../fd/index.html">fd</a> y x e)
+  (iff (<a href="../skfct">skfct</a> y1 y x1 x e)
+       (and (<a href="../fd">fd</a> y x e)
             (exists (e1)
-              (and (<a href="../subst2/index.html">subst2</a> x y e x1 y1 e1)
-                   (if (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../Rexist/index.html">Rexist</a> e1)))))))
+              (and (<a href="../subst2">subst2</a> x y e x1 y1 e1)
+                   (if (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1)))))))
 </pre>
 <pre>
 (forall (y1 y x1 x e s1 s2)
-  (if (and (<a href="../skfct/index.html">skfct</a> y1 y x1 x e) (<a href="../typelt/index.html">typelt</a> x s1) (<a href="../rangeFd/index.html">rangeFd</a> s2 y x e))
+  (if (and (<a href="../skfct">skfct</a> y1 y x1 x e) (<a href="../typelt">typelt</a> x s1) (<a href="../rangeFd">rangeFd</a> s2 y x e))
       (exists (f)
-        (and (<a href="../function0/index.html">function0</a> f s1 s2)
+        (and (<a href="../function0">function0</a> f s1 s2)
              (forall (p)
-               (iff (<a href="../pair/index.html">pair</a> p x1 y1) (<a href="../member/index.html">member</a> p f)))))))
+               (iff (<a href="../pair">pair</a> p x1 y1) (<a href="../member">member</a> p f)))))))
 </pre>
 </section>
 

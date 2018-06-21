@@ -23,34 +23,34 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (e x)
-  (iff (<a href="../changeIn/index.html">changeIn</a>' e x)
+  (iff (<a href="../changeIn">changeIn</a>' e x)
        (exists (e1 e2 e3)
-         (and (<a href="../arg*/index.html">arg*</a> x e1) (<a href="../arg*/index.html">arg*</a> x e2) (<a href="../change/index.html">change</a>' e3 e1 e2) (<a href="../gen/index.html">gen</a> e3 e)))))
+         (and (<a href="../arg*">arg*</a> x e1) (<a href="../arg*">arg*</a> x e2) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e x)
-  (iff (<a href="../changeIn/index.html">changeIn</a>' e x)
+  (iff (<a href="../changeIn">changeIn</a>' e x)
        (exists (e1 e2 e3)
-         (and (<a href="../arg*/index.html">arg*</a> x e1) (<a href="../arg*/index.html">arg*</a> x e2) (<a href="../change/index.html">change</a>' e3 e1 e2) (<a href="../gen/index.html">gen</a> e3 e)))))
+         (and (<a href="../arg*">arg*</a> x e1) (<a href="../arg*">arg*</a> x e2) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
 </pre>
 <pre>
 (forall (x e)
-  (iff (<a href="../objectOf/index.html">objectOf</a> x e)
-       (or (<a href="../changeIn/index.html">changeIn</a>' e x)
+  (iff (<a href="../objectOf">objectOf</a> x e)
+       (or (<a href="../changeIn">changeIn</a>' e x)
            (exists (e1 e2)
-             (and (<a href="../and'/index.html">and'</a> e e1 e2) (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../objectOf/index.html">objectOf</a> x e2))))))
+             (and (<a href="../and'">and'</a> e e1 e2) (<a href="../cause">cause</a> e1 e2) (<a href="../objectOf">objectOf</a> x e2))))))
 </pre>
 <pre>
 (forall (y e)
-  (iff (<a href="../instrumentOf/index.html">instrumentOf</a> y e)
+  (iff (<a href="../instrumentOf">instrumentOf</a> y e)
        (exists (a e1)
-         (and (<a href="../agentOf/index.html">agentOf</a> a e1) (<a href="../changeIn/index.html">changeIn</a>' e1 y)
-              (or (<a href="../cause/index.html">cause</a> e1 e)
+         (and (<a href="../agentOf">agentOf</a> a e1) (<a href="../changeIn">changeIn</a>' e1 y)
+              (or (<a href="../cause">cause</a> e1 e)
                   (exists (e2)
-                    (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../and'/index.html">and'</a> e e1 e2))))))))
+                    (and (<a href="../cause">cause</a> e1 e2) (<a href="../and'">and'</a> e e1 e2))))))))
 </pre>
 </section>
 

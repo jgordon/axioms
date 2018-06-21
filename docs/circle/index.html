@@ -19,21 +19,21 @@
 <h2>All Axioms</h2>
 <pre>
    (forall (c r x u)
-      (iff (<a href="../circle/index.html">circle</a> c x)
+      (iff (<a href="../circle">circle</a> c x)
            (exists (r d)
-              (and (<a href="../border/index.html">border</a> c r) (<a href="../planar/index.html">planar</a> r) (<a href="../inside/index.html">inside</a> x r)
+              (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
                    (forall (c1 x1)
-                      (if (and (<a href="../inside/index.html">inside</a> x1 c) (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c1 x x1))
-                          (<a href="../length/index.html">length</a> d c1 u)))))))
+                      (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                          (<a href="../length">length</a> d c1 u)))))))
 </pre>
 <pre>
    (forall (c)
-      (if (<a href="../curve/index.html">curve</a> c)
-          (iff (<a href="../closed/index.html">closed</a> c)
-               (and (not (exists (x) (<a href="../endpoint/index.html">endpoint</a> x c)))
+      (if (<a href="../curve">curve</a> c)
+          (iff (<a href="../closed">closed</a> c)
+               (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
                     (exists (r c1 x1)
-                       (and (<a href="../circle/index.html">circle</a> c1 x1) (<a href="../boundary/index.html">boundary</a> c r)
-                            (<a href="../inside/index.html">inside</a> c r)))))))
+                       (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
+                            (<a href="../inside">inside</a> c r)))))))
 </pre>
 </section>
 

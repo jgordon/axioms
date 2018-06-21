@@ -23,54 +23,54 @@
 <h2>Characterizing Axioms</h2>
 <pre>
 (forall (e1 e2)
-  (if (<a href="../enable/index.html">enable</a> e1 e2) (not (<a href="../before/index.html">before</a> e2 e1))))
+  (if (<a href="../enable">enable</a> e1 e2) (not (<a href="../before">before</a> e2 e1))))
 </pre>
 <pre>
 (forall (e1 e2)
-  (iff (<a href="../enable/index.html">enable</a> e1 e2)
+  (iff (<a href="../enable">enable</a> e1 e2)
        (forall (e3)
-         (if (<a href="../not'/index.html">not'</a> e3 e1)
+         (if (<a href="../not'">not'</a> e3 e1)
              (exists (e4)
-               (and (<a href="../not'/index.html">not'</a> e4 e2) (<a href="../cause/index.html">cause</a> e3 e4)))))))
+               (and (<a href="../not'">not'</a> e4 e2) (<a href="../cause">cause</a> e3 e4)))))))
 </pre>
 <pre>
 (forall (e1 e2)
-  (iff (<a href="../enable/index.html">enable</a> e1 e2)
+  (iff (<a href="../enable">enable</a> e1 e2)
        (forall (s)
-         (if (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../enable0/index.html">enable0</a> e1 e2 s)))))
+         (if (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../enable0">enable0</a> e1 e2 s)))))
 </pre>
 </section>
 <section>
 <h2>All Axioms</h2>
 <pre>
 (forall (e1 e2)
-  (if (<a href="../enable/index.html">enable</a> e1 e2) (not (<a href="../before/index.html">before</a> e2 e1))))
+  (if (<a href="../enable">enable</a> e1 e2) (not (<a href="../before">before</a> e2 e1))))
 </pre>
 <pre>
 (forall (e1 e2)
-  (iff (<a href="../enable/index.html">enable</a> e1 e2)
+  (iff (<a href="../enable">enable</a> e1 e2)
        (forall (e3)
-         (if (<a href="../not'/index.html">not'</a> e3 e1)
+         (if (<a href="../not'">not'</a> e3 e1)
              (exists (e4)
-               (and (<a href="../not'/index.html">not'</a> e4 e2) (<a href="../cause/index.html">cause</a> e3 e4)))))))
+               (and (<a href="../not'">not'</a> e4 e2) (<a href="../cause">cause</a> e3 e4)))))))
 </pre>
 <pre>
 (forall (e1 e2)
-  (iff (<a href="../enable/index.html">enable</a> e1 e2)
+  (iff (<a href="../enable">enable</a> e1 e2)
        (forall (s)
-         (if (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../enable0/index.html">enable0</a> e1 e2 s)))))
+         (if (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../enable0">enable0</a> e1 e2 s)))))
 </pre>
 <pre>
 (forall (p x e2)
-  (if (<a href="../perceive/index.html">perceive</a>' e2 p x)
+  (if (<a href="../perceive">perceive</a>' e2 p x)
       (exists (e1 s)
-        (and (<a href="../near/index.html">near</a>' e1 x p s) (<a href="../enable/index.html">enable</a> e1 e2)))))
+        (and (<a href="../near">near</a>' e1 x p s) (<a href="../enable">enable</a> e1 e2)))))
 </pre>
 <pre>
 (forall (p x e2)
-  (if (and (<a href="../person/index.html">person</a> p) (<a href="../perceive/index.html">perceive</a>' e2 p x))
+  (if (and (<a href="../person">person</a> p) (<a href="../perceive">perceive</a>' e2 p x))
       (exists (o e1)
-        (and (<a href="../senseOrgan/index.html">senseOrgan</a> o p) (<a href="../intact/index.html">intact</a>' e1 o) (<a href="../enable/index.html">enable</a> e1 e2)))))
+        (and (<a href="../senseOrgan">senseOrgan</a> o p) (<a href="../intact">intact</a>' e1 o) (<a href="../enable">enable</a> e1 e2)))))
 </pre>
 </section>
 
