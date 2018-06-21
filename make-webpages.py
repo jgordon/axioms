@@ -188,7 +188,8 @@ for pred in preds:
             fout.write('<section>\n')
             fout.write('<h2>Summary</h2>\n')
             fout.write('<pre>' + preds[pred]['predication'] + '</pre>')
-            fout.write('<p>' + preds[pred]['gloss'] + '</p>\n')
+            fout.write('<p>' + re.sub(r'`([^`]+)`', r'<code>\1</code>',
+                                      preds[pred]['gloss']) + '</p>\n')
             fout.write('</section>\n')
         if 'characterizing' in preds[pred]:
             fout.write('<section>\n')
