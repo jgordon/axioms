@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: agent</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: agent</h1>
+<pre>(agent a)</pre><p>a is an agent.</p><h2>Characterizing Axioms</h2><pre>(forall (a e)
+  (if (<a href="../agent/index.html">agent</a> a)
+      (iff (<a href="../dcause/index.html">dcause</a> a e)
+           (exists (e1)
+             (and (<a href="../will/index.html">will</a>' e1 a e) (<a href="../dcause/index.html">dcause</a> e1 e))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (a e)
+  (if (<a href="../agent/index.html">agent</a> a)
+      (iff (<a href="../dcause/index.html">dcause</a> a e)
+           (exists (e1)
+             (and (<a href="../will/index.html">will</a>' e1 a e) (<a href="../dcause/index.html">dcause</a> e1 e))))))
+
+
+(forall (a e)
+  (if (<a href="../difficult/index.html">difficult</a> e a)
+      (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e))))
+
+
+(forall (a e)
+  (iff (<a href="../agentOf/index.html">agentOf</a> a e)
+       (and (<a href="../agent/index.html">agent</a> a) (<a href="../cause/index.html">cause</a> a e))))
+
+
+(forall (a e2)
+  (and (if (<a href="../eventuality/index.html">eventuality</a> a)
+           (iff (<a href="../cause/index.html">cause</a> a e2) (<a href="../cause0/index.html">cause0</a> a e2)))
+       (if (<a href="../agent/index.html">agent</a> a)
+           (iff (<a href="../cause/index.html">cause</a> a e2)
+                (exists (e1)
+                  (and (<a href="../will/index.html">will</a>' e1 a e2) (<a href="../cause0/index.html">cause0</a> e1 e2)))))
+       (if (not (or (<a href="../eventuality/index.html">eventuality</a> a) (<a href="../agent/index.html">agent</a> a)))
+           (not (<a href="../cause/index.html">cause</a> a e2)))))
+
+
+(forall (a x m)
+  (if (and (<a href="../perceive/index.html">perceive</a> a x) (<a href="../mind/index.html">mind</a> m a))
+      (and (<a href="../agent/index.html">agent</a> a) (<a href="../externalTo/index.html">externalTo</a> x m))))
+
+
+(forall (a)
+  (if (and (<a href="../agent/index.html">agent</a> a) (etc))
+      (exists (e) (<a href="../cause/index.html">cause</a> a e))))
+
+
+(forall (e1 e a)
+  (iff (<a href="../difficult/index.html">difficult</a>' e1 e a)
+       (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e)
+            (exists (s)
+              (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../scaleFor/index.html">scaleFor</a> s e1))))))
+
+
+(forall (p)
+  (if (<a href="../person/index.html">person</a> p)
+      (<a href="../agent/index.html">agent</a> p)))
+
+
+(forall (s)
+  (if (<a href="../collective/index.html">collective</a> s)
+      (forall (a) (if (<a href="../member/index.html">member</a> a s) (<a href="../agent/index.html">agent</a> a)))))
+
+
+(forall (s1 s a)
+  (iff (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
+       (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../subset/index.html">subset</a> s1 s) (<a href="../agent/index.html">agent</a> a)
+            (forall (e)
+              (iff (<a href="../member/index.html">member</a> e s1)
+                   (and (not (<a href="../agentOf/index.html">agentOf</a> a e))
+                        (not (exists (e1)
+                               (and (<a href="../agentOf/index.html">agentOf</a> a e1)
+                                    (<a href="../cause/index.html">cause</a> e1 e))))))))))
+
+
+</pre>
+</body>
+
+</html>

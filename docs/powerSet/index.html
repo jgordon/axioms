@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: powerSet</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: powerSet</h1>
+<pre>(powerSet s0 s)</pre><p>s0 is the set of all of s's subsets.</p><h2>Characterizing Axioms</h2><pre>(forall (s0 s)
+  (iff (<a href="../powerSet/index.html">powerSet</a> s0 s)
+       (forall (s1)
+         (iff (<a href="../member/index.html">member</a> s1 s0)
+              (<a href="../subset/index.html">subset</a> s1 s)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (s s0 t f n)
+  (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../set/index.html">set</a> t) (<a href="../powerSet/index.html">powerSet</a> s0 s)
+           (forall (t1)
+             (if (<a href="../member/index.html">member</a> t1 t) (<a href="../interval/index.html">interval</a> t1)))
+           (<a href="../function/index.html">function</a> f t s0)
+           (forall (t1 s1)
+             (if (<a href="../map/index.html">map</a> f t1 s1)
+                 (and (forall (e)
+                        (if (<a href="../member/index.html">member</a> e s1) (<a href="../happensIn/index.html">happensIn</a> e t1)))
+                      (<a href="../card/index.html">card</a> n s1)))))
+      (<a href="../rate/index.html">rate</a> n s t)))
+
+
+(forall (s0 s)
+  (iff (<a href="../powerSet/index.html">powerSet</a> s0 s)
+       (forall (s1)
+         (iff (<a href="../member/index.html">member</a> s1 s0)
+              (<a href="../subset/index.html">subset</a> s1 s)))))
+
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: ray</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: ray</h1>
+<pre>(ray c)</pre><p>c is a ray.</p><h2>Characterizing Axioms</h2><pre>(forall (c)
+  (if (<a href="../ray/index.html">ray</a> c)
+      (exists (x)
+        (and (<a href="../endpoint/index.html">endpoint</a> x c)
+             (forall (x1)
+               (if (<a href="../endpoint/index.html">endpoint</a> x1 c) (equal x1 x)))))))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (d f)
+      (iff (<a href="../direction/index.html">direction</a> d f)
+           (exists (o)
+              (and (<a href="../ray/index.html">ray</a> d) (<a href="../endpoint/index.html">endpoint</a> o d) (<a href="../origin/index.html">origin</a> o f)))))
+
+
+(forall (c)
+  (if (<a href="../ray/index.html">ray</a> c)
+      (exists (x)
+        (and (<a href="../endpoint/index.html">endpoint</a> x c)
+             (forall (x1)
+               (if (<a href="../endpoint/index.html">endpoint</a> x1 c) (equal x1 x)))))))
+
+
+(forall (c)
+  (iff (<a href="../linear/index.html">linear</a> c)
+       (or (<a href="../line/index.html">line</a> c) (<a href="../ray/index.html">ray</a> c) (<a href="../lineSegment/index.html">lineSegment</a> c))))
+
+
+</pre>
+</body>
+
+</html>

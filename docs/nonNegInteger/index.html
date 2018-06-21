@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: nonNegInteger</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: nonNegInteger</h1>
+<pre>(nonNegInteger n)</pre><p>n is a nonnegative integer.</p><h2>Characterizing Axioms</h2><pre>(forall (n)
+   (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n)
+       (exists (n1)
+          (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1) (<a href="../successor/index.html">successor</a> n1 n)))))
+
+
+(forall (n)
+   (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../product/index.html">product</a> 0 n 0)))
+
+
+(forall (n)
+   (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../product/index.html">product</a> n n 1)))
+
+
+(forall (n)
+   (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../sum/index.html">sum</a> n n 0)))
+
+
+(forall (n) (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../fraction/index.html">fraction</a> n n 1)))
+
+
+(forall (n) (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../number/index.html">number</a> n)))
+
+
+</pre><h2>All Axioms</h2><pre>(<a href="../nonNegInteger/index.html">nonNegInteger</a> 0)
+
+
+(forall (a b)
+   (if (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> a) (<a href="../posInteger/index.html">posInteger</a> b))
+       (exists (f) (<a href="../fraction/index.html">fraction</a> f a b))))
+
+
+(forall (d t u)
+  (if (<a href="../durationOf/index.html">durationOf</a> d t u)
+      (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> d) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
+           (or (<a href="../temporalEntity/index.html">temporalEntity</a> t) (<a href="../tseq/index.html">tseq</a> t) (<a href="../eventuality/index.html">eventuality</a> t)))))
+
+
+(forall (e x n)
+  (if (<a href="../argn/index.html">argn</a> x n e)
+      (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../eventuality/index.html">eventuality</a> e))))
+
+
+(forall (n e)
+  (if (<a href="../arity/index.html">arity</a> n e)
+      (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../eventuality/index.html">eventuality</a> e))))
+
+
+(forall (n s)
+  (iff (<a href="../card/index.html">card</a> n s)
+       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../set/index.html">set</a> s)
+            (or (and (<a href="../null/index.html">null</a> s) (equal n 0))
+                (exists (s1 x m)
+                  (and (<a href="../addElt/index.html">addElt</a> s s1 x)
+                       (not (<a href="../member/index.html">member</a> x s1))
+                       (<a href="../card/index.html">card</a> m s1)
+                       (<a href="../sum/index.html">sum</a> n m 1)))))))
+
+
+(forall (n)
+   (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n)
+       (exists (n1)
+          (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1) (<a href="../successor/index.html">successor</a> n1 n)))))
+
+
+(forall (n)
+   (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../product/index.html">product</a> 0 n 0)))
+
+
+(forall (n)
+   (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../product/index.html">product</a> n n 1)))
+
+
+(forall (n)
+   (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../sum/index.html">sum</a> n n 0)))
+
+
+(forall (n)
+   (iff (<a href="../posInteger/index.html">posInteger</a> n)
+        (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../nequal/index.html">nequal</a> n 0))))
+
+
+(forall (n) (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../fraction/index.html">fraction</a> n n 1)))
+
+
+(forall (n) (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../number/index.html">number</a> n)))
+
+
+(forall (n1 n)
+   (if (<a href="../successor/index.html">successor</a> n1 n)
+       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1) (<a href="../nonNegInteger/index.html">nonNegInteger</a> n))))
+
+
+(forall (n1 n2 n3)
+   (if (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n2) (<a href="../nonNegInteger/index.html">nonNegInteger</a> n3)
+            (<a href="../product/index.html">product</a> n1 n2 n3))
+       (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1)))
+
+
+(forall (n1 n2 n3)
+   (if (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n2) (<a href="../nonNegInteger/index.html">nonNegInteger</a> n3) (<a href="../sum/index.html">sum</a> n1 n2 n3))
+       (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1)))
+
+
+(forall (n1 n2)
+   (if (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1) (<a href="../nonNegInteger/index.html">nonNegInteger</a> n2))
+       (iff (<a href="../lt/index.html">lt</a> n1 n2)
+            (exists (n3) (and (<a href="../posInteger/index.html">posInteger</a> n3) (<a href="../sum/index.html">sum</a> n2 n1 n3))))))
+
+
+(not (exists (n) (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../successor/index.html">successor</a> 0 n))))
+
+
+</pre>
+</body>
+
+</html>

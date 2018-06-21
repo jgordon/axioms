@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: diagonal</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: diagonal</h1>
+<h2>All Axioms</h2><pre>   (forall (p d c v x)
+      (if (and (<a href="../square/index.html">square</a> p) (<a href="../sideOf/index.html">sideOf</a> c p) (<a href="../diagonal/index.html">diagonal</a> d p) (<a href="../vertex/index.html">vertex</a> v c d x))
+          (<a href="../45Degrees/index.html">45Degrees</a> v)))
+
+
+   (forall (p d)
+      (if (<a href="../square/index.html">square</a> p)
+          (iff (<a href="../diagonal/index.html">diagonal</a> d p)
+               (exists (v1 v2 x1 x2 c1 c2 c3 c4)
+                  (and (<a href="../vertex/index.html">vertex</a> v1 c1 c2 x1) (<a href="../vertexOf/index.html">vertexOf</a> v1 p)
+                       (<a href="../vertex/index.html">vertex</a> v2 c3 c4 x2) (<a href="../vertexOf/index.html">vertexOf</a> v2 p)
+                       (<a href="../nequal/index.html">nequal</a> c1 c3) (<a href="../nequal/index.html">nequal</a> c1 c4)
+                       (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> d x1 x2))))))
+
+
+</pre>
+</body>
+
+</html>

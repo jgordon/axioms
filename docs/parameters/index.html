@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: parameters</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: parameters</h1>
+<pre>(parameters s e)</pre><p>s is the set of typical elements that appear</p><h2>Characterizing Axioms</h2><pre>(forall (s e)
+  (iff (<a href="../parameters/index.html">parameters</a> s e)
+       (forall (x)
+         (iff (<a href="../member/index.html">member</a> x s)
+              (exists (s1)
+                (and (<a href="../arg*/index.html">arg*</a> x e) (<a href="../typelt/index.html">typelt</a> x s1)))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e1 e)
+  (iff (<a href="../instance/index.html">instance</a> e1 e)
+       (and (<a href="../partialInstance/index.html">partialInstance</a> e1 e)
+            (forall (s1)
+              (if (<a href="../parameters/index.html">parameters</a> s1 e1)
+                  (<a href="../null/index.html">null</a> s1))))))
+
+
+(forall (e1 e)
+  (iff (<a href="../partialInstance/index.html">partialInstance</a> e1 e)
+       (forall (s x)
+         (if (and (<a href="../member/index.html">member</a> x s) (<a href="../parameters/index.html">parameters</a> s e))
+             (exists (x1 s1)
+               (and (<a href="../subst/index.html">subst</a> x e x1 e1) (<a href="../typelt/index.html">typelt</a> x s1)
+                    (or (<a href="../member/index.html">member</a> x1 s1)
+                        (exists (s2)
+                          (and (<a href="../typelt/index.html">typelt</a> x1 s2)
+                               (<a href="../subset/index.html">subset</a> s2 s1))))))))))
+
+
+(forall (s e)
+  (iff (<a href="../parameters/index.html">parameters</a> s e)
+       (forall (x)
+         (iff (<a href="../member/index.html">member</a> x s)
+              (exists (s1)
+                (and (<a href="../arg*/index.html">arg*</a> x e) (<a href="../typelt/index.html">typelt</a> x s1)))))))
+
+
+</pre>
+</body>
+
+</html>

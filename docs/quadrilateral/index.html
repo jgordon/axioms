@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: quadrilateral</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: quadrilateral</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (p)
+  (iff (<a href="../quadrilateral/index.html">quadrilateral</a> p) (<a href="../polygon/index.html">polygon</a> p 4)))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (p)
+  (iff (<a href="../quadrilateral/index.html">quadrilateral</a> p) (<a href="../polygon/index.html">polygon</a> p 4)))
+
+
+(forall (p)
+  (iff (<a href="../rectangle/index.html">rectangle</a> p)
+       (and (<a href="../quadrilateral/index.html">quadrilateral</a> p)
+            (forall (v) (iff (<a href="../vertexOf/index.html">vertexOf</a> v p) (<a href="../rightAngle/index.html">rightAngle</a> v))))))
+
+
+(forall (p)
+  (iff (<a href="../rhombus/index.html">rhombus</a> p)
+       (and (<a href="../quadrilateral/index.html">quadrilateral</a> p)
+            (exists (d u)
+              (forall (c)
+                (if (<a href="../sideOf/index.html">sideOf</a> c p) (<a href="../length/index.html">length</a> d c u)))))))
+
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: singleton</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: singleton</h1>
+<pre>(singleton s x)</pre><p>s consists of the single element x.</p><h2>Characterizing Axioms</h2><pre>(forall (s x)
+  (iff (<a href="../singleton/index.html">singleton</a> s x)
+       (exists (s1)
+         (and (<a href="../addElt/index.html">addElt</a> s s1 x) (<a href="../null/index.html">null</a> s1)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e s s1 s2 s3)
+  (if (and (<a href="../set/index.html">set</a>' e s) (<a href="../Rexist/index.html">Rexist</a> e) (not (<a href="../null/index.html">null</a> s))
+           (<a href="../singleton/index.html">singleton</a> s2 e) (<a href="../null/index.html">null</a> s3))
+      (and (<a href="../compositeEntity/index.html">compositeEntity</a> s) (<a href="../componentsOf/index.html">componentsOf</a> s s)
+           (<a href="../propertiesOf/index.html">propertiesOf</a> s2 s) (<a href="../relationsOf/index.html">relationsOf</a> s3 s))))
+
+
+(forall (e s)
+  (if (and (<a href="../sequence/index.html">sequence</a>' e s) (<a href="../Rexist/index.html">Rexist</a> e)
+           (exists (x) (<a href="../inSeq/index.html">inSeq</a> x s)))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
+             (forall (x) (iff (<a href="../member/index.html">member</a> x s1) (<a href="../inSeq/index.html">inSeq</a> x s)))
+             (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
+             (<a href="../singleton/index.html">singleton</a> s2 e) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 s)
+             (forall (e1)
+               (iff (<a href="../member/index.html">member</a> e1 s3)
+                    (exists (x y)
+                      (and (<a href="../beforeInSeq/index.html">beforeInSeq</a>' e1 x y s)
+                           (<a href="../Rexist/index.html">Rexist</a> e1)))))
+             (<a href="../relationsOf/index.html">relationsOf</a> s3 s)))))
+
+
+(forall (f a1 a2 s)
+  (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../yAxis/index.html">yAxis</a> a2 f))
+      (exists (s o)
+        (and (<a href="../intersection/index.html">intersection</a> s a1 a2) (<a href="../singleton/index.html">singleton</a> s o)
+             (<a href="../origin/index.html">origin</a> o f)))))
+
+
+(forall (p x y e1 e2 e3)
+  (if (and (<a href="../pair0/index.html">pair0</a>' e1 p) (<a href="../first/index.html">first</a>' e2 x p) (<a href="../second/index.html">second</a>' e3 y p)
+           (<a href="../Rexist/index.html">Rexist</a> e1) (<a href="../Rexist/index.html">Rexist</a> e2) (<a href="../Rexist/index.html">Rexist</a> e3))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity/index.html">compositeEntity</a> p)
+             (<a href="../doubleton/index.html">doubleton</a> s1 x y) (<a href="../componentsOf/index.html">componentsOf</a> s1 p)
+             (<a href="../singleton/index.html">singleton</a> s2 e1) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 p)
+             (<a href="../doubleton/index.html">doubleton</a> s3 e2 e3) (<a href="../relationsOf/index.html">relationsOf</a> s3 p)))))
+
+
+(forall (s x y)
+  (iff (<a href="../doubleton/index.html">doubleton</a> s x y)
+       (exists (s1)
+         (and (<a href="../nequal/index.html">nequal</a> x y)
+              (<a href="../addElt/index.html">addElt</a> s s1 x)
+              (<a href="../singleton/index.html">singleton</a> s1 y)))))
+
+
+(forall (s x)
+  (iff (<a href="../singleton/index.html">singleton</a> s x)
+       (exists (s1)
+         (and (<a href="../addElt/index.html">addElt</a> s s1 x) (<a href="../null/index.html">null</a> s1)))))
+
+
+</pre>
+</body>
+
+</html>

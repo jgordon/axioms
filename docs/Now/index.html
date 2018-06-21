@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: Now</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: Now</h1>
+<pre>(Now t)</pre><p>t is an instant stipulated to be Now.</p><h2>Characterizing Axioms</h2><pre>(forall (e t)
+  (if (<a href="../Now/index.html">Now</a> t)
+      (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../atTime/index.html">atTime</a> e t))))
+
+
+</pre><h2>All Axioms</h2><pre>(exists (t) (<a href="../Now/index.html">Now</a> t))
+
+
+(forall (e t)
+  (if (<a href="../Now/index.html">Now</a> t)
+      (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../atTime/index.html">atTime</a> e t))))
+
+
+(forall (t2 t2)
+  (if (and (<a href="../Now/index.html">Now</a> t1) (<a href="../Now/index.html">Now</a> t2))
+      (equal t1 t2)))
+
+
+</pre>
+</body>
+
+</html>

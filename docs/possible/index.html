@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: possible</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: possible</h1>
+<pre>(possible e c)</pre><p>e is possible with respect to a set of constraints c.</p><h2>Characterizing Axioms</h2><pre>(forall (e c)
+  (if (<a href="../possible/index.html">possible</a> e c)
+      (<a href="../PosMod/index.html">PosMod</a> e possible)))
+
+
+(forall (e c)
+  (if (<a href="../possible/index.html">possible</a> e c)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
+
+
+(forall (e c)
+  (iff (<a href="../possible/index.html">possible</a> e c)
+       (forall (e1)
+         (if (<a href="../not'/index.html">not'</a> e1 e)
+             (not (<a href="../imply/index.html">imply</a> c e1))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (a e c)
+  (iff (<a href="../able/index.html">able</a> a e c)
+       (exists (s s1 e1)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e) (<a href="../cause/index.html">cause</a>' e1 a e) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
+              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../possible/index.html">possible</a> e1 c))))))
+
+
+(forall (d e c s)
+  (if (and (<a href="../likelihood/index.html">likelihood</a> d1 e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../bottom/index.html">bottom</a> d s))
+      (iff (<a href="../lts/index.html">lts</a> d d1 s) (<a href="../possible/index.html">possible</a> e c))))
+
+
+(forall (e a c t)
+  (iff (<a href="../executable/index.html">executable</a> e a c t)
+       (exists (s)
+         (and (<a href="../enabled/index.html">enabled</a> s e t)
+              (or (exists (e1)
+                    (and (<a href="../dcause/index.html">dcause</a>' e1 a e) (<a href="../possible/index.html">possible</a> e1 c)))
+                  (exists (e2)
+                    (and (<a href="../cause/index.html">cause</a> e2 e)
+                         (<a href="../executable/index.html">executable</a> e2 a c t))))))))
+
+
+(forall (e c e1)
+  (if (and (<a href="../possible/index.html">possible</a> e c) (<a href="../not'/index.html">not'</a> e1 e))
+      (not (<a href="../necessary/index.html">necessary</a> e1 c))))
+
+
+(forall (e c)
+  (if (<a href="../possible/index.html">possible</a> e c)
+      (<a href="../PosMod/index.html">PosMod</a> e possible)))
+
+
+(forall (e c)
+  (if (<a href="../possible/index.html">possible</a> e c)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
+
+
+(forall (e c)
+  (iff (<a href="../impossible/index.html">impossible</a> e c)
+       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c) (not (<a href="../possible/index.html">possible</a> e c)))))
+
+
+(forall (e c)
+  (iff (<a href="../possible/index.html">possible</a> e c)
+       (forall (e1)
+         (if (<a href="../not'/index.html">not'</a> e1 e)
+             (not (<a href="../imply/index.html">imply</a> c e1))))))
+
+
+</pre>
+</body>
+
+</html>

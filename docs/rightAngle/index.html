@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: rightAngle</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: rightAngle</h1>
+<h2>All Axioms</h2><pre>   (forall (v)
+      (iff (<a href="../rightAngle/index.html">rightAngle</a> v)
+           (exists (v0 f c1 c2 o u)
+              (and (<a href="../equalAngle/index.html">equalAngle</a> v v0) (<a href="../anchorPoint/index.html">anchorPoint</a> x v0 f c1 c2 o u)
+                   (<a href="../xCoordinate/index.html">xCoordinate</a> o x f)))))
+
+
+(forall (p)
+  (iff (<a href="../rectangle/index.html">rectangle</a> p)
+       (and (<a href="../quadrilateral/index.html">quadrilateral</a> p)
+            (forall (v) (iff (<a href="../vertexOf/index.html">vertexOf</a> v p) (<a href="../rightAngle/index.html">rightAngle</a> v))))))
+
+
+</pre>
+</body>
+
+</html>

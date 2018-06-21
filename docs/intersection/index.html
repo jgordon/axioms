@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: intersection</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: intersection</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (s s1 s2)
+  (iff (<a href="../intersection/index.html">intersection</a> s s1 s2)
+       (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
+            (forall (x)
+              (iff (<a href="../member/index.html">member</a> x s)
+                   (and (<a href="../member/index.html">member</a> x s1) (<a href="../member/index.html">member</a> x s2)))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (f a1 a2 s)
+  (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../yAxis/index.html">yAxis</a> a2 f))
+      (exists (s o)
+        (and (<a href="../intersection/index.html">intersection</a> s a1 a2) (<a href="../singleton/index.html">singleton</a> s o)
+             (<a href="../origin/index.html">origin</a> o f)))))
+
+
+(forall (s s1 s2)
+  (iff (<a href="../intersection/index.html">intersection</a> s s1 s2)
+       (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
+            (forall (x)
+              (iff (<a href="../member/index.html">member</a> x s)
+                   (and (<a href="../member/index.html">member</a> x s1) (<a href="../member/index.html">member</a> x s2)))))))
+
+
+</pre>
+</body>
+
+</html>

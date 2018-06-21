@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: compositeScale</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: compositeScale</h1>
+<pre>(compositeScale s s1 s2)</pre><p>Scale s is a composite scale whose</p><h2>Characterizing Axioms</h2><pre>(forall (s s1 s2)
+   (if (<a href="../compositeScale/index.html">compositeScale</a> s s1 s2)
+       (and (exists (s3)
+               (and (<a href="../componentsOf/index.html">componentsOf</a> s3 s1) (<a href="../componentsOf/index.html">componentsOf</a> s3 s2)
+                    (<a href="../componentsOf/index.html">componentsOf</a> s3 s)))
+            (forall (x y)
+               (if (and (<a href="../lts/index.html">lts</a> x y s1) (<a href="../leqs/index.html">leqs</a> x y s2))
+                   (<a href="../lts/index.html">lts</a> x y s)))
+            (forall (x y)
+               (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../lts/index.html">lts</a> x y s2))
+                   (<a href="../lts/index.html">lts</a> x y s))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (s s1 s2)
+   (if (<a href="../compositeScale/index.html">compositeScale</a> s s1 s2)
+       (and (exists (s3)
+               (and (<a href="../componentsOf/index.html">componentsOf</a> s3 s1) (<a href="../componentsOf/index.html">componentsOf</a> s3 s2)
+                    (<a href="../componentsOf/index.html">componentsOf</a> s3 s)))
+            (forall (x y)
+               (if (and (<a href="../lts/index.html">lts</a> x y s1) (<a href="../leqs/index.html">leqs</a> x y s2))
+                   (<a href="../lts/index.html">lts</a> x y s)))
+            (forall (x y)
+               (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../lts/index.html">lts</a> x y s2))
+                   (<a href="../lts/index.html">lts</a> x y s))))))
+
+
+</pre>
+</body>
+
+</html>

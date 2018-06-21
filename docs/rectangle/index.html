@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: rectangle</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: rectangle</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (p)
+  (iff (<a href="../rectangle/index.html">rectangle</a> p)
+       (and (<a href="../quadrilateral/index.html">quadrilateral</a> p)
+            (forall (v) (iff (<a href="../vertexOf/index.html">vertexOf</a> v p) (<a href="../rightAngle/index.html">rightAngle</a> v))))))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (p s)
+      (iff (<a href="../rectangularParallelepiped/index.html">rectangularParallelepiped</a> p s)
+           (and (<a href="../polyhedron/index.html">polyhedron</a> p s)
+                (forall (f)
+                   (if (<a href="../member/index.html">member</a> f s) (<a href="../rectangle/index.html">rectangle</a> f))))))
+
+
+(forall (p)
+  (iff (<a href="../rectangle/index.html">rectangle</a> p)
+       (and (<a href="../quadrilateral/index.html">quadrilateral</a> p)
+            (forall (v) (iff (<a href="../vertexOf/index.html">vertexOf</a> v p) (<a href="../rightAngle/index.html">rightAngle</a> v))))))
+
+
+(forall (p)
+  (iff (<a href="../square/index.html">square</a> p)
+       (and (<a href="../rhombus/index.html">rhombus</a> p) (<a href="../rectangle/index.html">rectangle</a> p))))
+
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: number</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: number</h1>
+<pre>(number n)</pre><p>n is a number.</p><h2>All Axioms</h2><pre>(forall (f a b)
+  (if (<a href="../fraction/index.html">fraction</a> f a b)
+      (and (<a href="../number/index.html">number</a> a) (<a href="../number/index.html">number</a> b) (<a href="../nequal/index.html">nequal</a> b 0))))
+
+
+(forall (f a b)
+  (if (<a href="../fraction/index.html">fraction</a> f a b) (<a href="../number/index.html">number</a> f)))
+
+
+(forall (n) (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../number/index.html">number</a> n)))
+
+
+(forall (s)
+  (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)
+      (exists (s1 e x y)
+        (and (<a href="../lt/index.html">lt</a>' e x y)
+             (forall (n)
+               (if (<a href="../member/index.html">member</a> n s1)
+                   (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
+             (<a href="../member/index.html">member</a> 0 s1)
+             (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
+
+
+(forall (s1 e x y)
+  (if (and (<a href="../lt/index.html">lt</a>' e x y)
+           (forall (n)
+             (if (<a href="../member/index.html">member</a> n s1)
+                 (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
+           (<a href="../member/index.html">member</a> 0 s1))
+      (exists (s)
+        (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)))))
+
+
+</pre>
+</body>
+
+</html>

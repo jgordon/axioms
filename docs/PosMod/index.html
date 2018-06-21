@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: PosMod</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: PosMod</h1>
+<pre>(PosMod e p)</pre><p>The positive modality p holds of eventuality e.</p><h2>Characterizing Axioms</h2><pre>(forall (e p) (if (<a href="../PosMod/index.html">PosMod</a> e p) (<a href="../predicate/index.html">predicate</a> p)))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e c)
+  (if (<a href="../necessary/index.html">necessary</a> e c)
+      (<a href="../PosMod/index.html">PosMod</a> e necessary)))
+
+
+(forall (e c)
+  (if (<a href="../possible/index.html">possible</a> e c)
+      (<a href="../PosMod/index.html">PosMod</a> e possible)))
+
+
+(forall (e p) (if (<a href="../PosMod/index.html">PosMod</a> e p) (<a href="../predicate/index.html">predicate</a> p)))
+
+
+(forall (e) (if (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../PosMod/index.html">PosMod</a> e Rexist)))
+
+
+(forall (e1 e2 m)
+  (if (and (<a href="../PosMod/index.html">PosMod</a> e1 m) (<a href="../imply/index.html">imply</a> e1 e2))
+      (<a href="../PosMod/index.html">PosMod</a> e2 m)))
+
+
+</pre>
+</body>
+
+</html>

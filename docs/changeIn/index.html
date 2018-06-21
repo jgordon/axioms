@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: changeIn</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: changeIn</h1>
+<pre>(changeIn x)</pre><p>There is a change in some property of x.</p><h2>Characterizing Axioms</h2><pre>(forall (e x)
+  (iff (<a href="../changeIn/index.html">changeIn</a>' e x)
+       (exists (e1 e2 e3)
+         (and (<a href="../arg*/index.html">arg*</a> x e1) (<a href="../arg*/index.html">arg*</a> x e2) (<a href="../change/index.html">change</a>' e3 e1 e2) (<a href="../gen/index.html">gen</a> e3 e)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e x)
+  (iff (<a href="../changeIn/index.html">changeIn</a>' e x)
+       (exists (e1 e2 e3)
+         (and (<a href="../arg*/index.html">arg*</a> x e1) (<a href="../arg*/index.html">arg*</a> x e2) (<a href="../change/index.html">change</a>' e3 e1 e2) (<a href="../gen/index.html">gen</a> e3 e)))))
+
+
+(forall (x e)
+  (iff (<a href="../objectOf/index.html">objectOf</a> x e)
+       (or (<a href="../changeIn/index.html">changeIn</a>' e x)
+           (exists (e1 e2)
+             (and (<a href="../and'/index.html">and'</a> e e1 e2) (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../objectOf/index.html">objectOf</a> x e2))))))
+
+
+(forall (y e)
+  (iff (<a href="../instrumentOf/index.html">instrumentOf</a> y e)
+       (exists (a e1)
+         (and (<a href="../agentOf/index.html">agentOf</a> a e1) (<a href="../changeIn/index.html">changeIn</a>' e1 y)
+              (or (<a href="../cause/index.html">cause</a> e1 e)
+                  (exists (e2)
+                    (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../and'/index.html">and'</a> e e1 e2))))))))
+
+
+</pre>
+</body>
+
+</html>

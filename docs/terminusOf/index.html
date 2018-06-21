@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: terminusOf</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: terminusOf</h1>
+<pre>(terminusOf x e)</pre><p>e is a change in an “at” relation and x is</p><h2>Characterizing Axioms</h2><pre>(forall (w e)
+  (iff (<a href="../terminusOf/index.html">terminusOf</a> w e)
+       (exists (x z e1 e2 s)
+         (and (<a href="../at/index.html">at</a>' e1 x z s) (<a href="../at/index.html">at</a>' e2 x w s) (<a href="../change/index.html">change</a>' e e1 e2)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (w e)
+  (iff (<a href="../terminusOf/index.html">terminusOf</a> w e)
+       (exists (x z e1 e2 s)
+         (and (<a href="../at/index.html">at</a>' e1 x z s) (<a href="../at/index.html">at</a>' e2 x w s) (<a href="../change/index.html">change</a>' e e1 e2)))))
+
+
+</pre>
+</body>
+
+</html>

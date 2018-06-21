@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: onBorder</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: onBorder</h1>
+<h2>All Axioms</h2><pre>   (forall (p)
+      (if (<a href="../volume/index.html">volume</a> p)
+          (iff (<a href="../convex/index.html">convex</a> p)
+               (forall (c x x1 x2)
+                  (if (and (<a href="../onBorder/index.html">onBorder</a> x1 p) (<a href="../onBorder/index.html">onBorder</a> x2 p)
+                           (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2) (<a href="../inside/index.html">inside</a> x c)
+                      (<a href="../subfigure/index.html">subfigure</a> x p))))))
+
+
+</pre>
+</body>
+
+</html>

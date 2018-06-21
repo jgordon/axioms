@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: subst2</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: subst2</h1>
+<pre>(subst2 x1 x2 e1 y1 y2 e2)</pre><p>The pair <x1,x2> plays the same role in e1</p><h2>Characterizing Axioms</h2><pre>(forall (x1 x2 e1 y1 y2 e2)
+  (iff (<a href="../subst2/index.html">subst2</a> x1 x2 e1 y1 y2 e2)
+       (exists (e3)
+         (and (<a href="../subst/index.html">subst</a> x1 e1 y1 e3)
+              (<a href="../subst/index.html">subst</a> x2 e3 y2 e2)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (c1 c x1 x y e e1)
+  (if (and (<a href="../skfct/index.html">skfct</a> c1 c x1 x e) (<a href="../fd/index.html">fd</a> c y e) (<a href="../nequal/index.html">nequal</a> x y)
+           (<a href="../subst2/index.html">subst2</a> c1 x1 e1 c x e))
+      (<a href="../fd/index.html">fd</a> c1 y e1)))
+
+
+(forall (e x1 y1 s)
+   (iff (<a href="../lts/index.html">lts</a>' e1 x1 y1 s)
+        (exists (e x y e1)
+           (and (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
+                (<a href="../subst2/index.html">subst2</a> x y e x1 y1 e1)))))
+
+
+(forall (s)
+   (if (<a href="../scale/index.html">scale</a> s)
+       (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
+            (exists (s1 e x y s2 s3)
+               (and (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
+                    (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
+                    (<a href="../subset/index.html">subset</a> s2 s3) (<a href="../relationsOf/index.html">relationsOf</a> s3 s)
+                    (forall (e1)
+                       (if (<a href="../member/index.html">member</a> e1 s2)
+                           (exists (x1 y1)
+                              (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> y1 s1)
+                                   (<a href="../subst2/index.html">subst2</a> x1 y1 e1 x y e))))))))))
+
+
+(forall (x x1 y y1 e)
+  (iff (<a href="../skfct/index.html">skfct</a> y1 y x1 x e)
+       (and (<a href="../fd/index.html">fd</a> y x e)
+            (exists (e1)
+              (and (<a href="../subst2/index.html">subst2</a> x y e x1 y1 e1)
+                   (if (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../Rexist/index.html">Rexist</a> e1)))))))
+
+
+(forall (x y e s)
+  (if (and (<a href="../fd/index.html">fd</a> y x e) (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../typelt/index.html">typelt</a> x s) (<a href="../member/index.html">member</a> x1 s))
+      (exists (y1 e1)
+        (and (<a href="../subst2/index.html">subst2</a> x y e x1 y1 e1) (<a href="../Rexist/index.html">Rexist</a> e1)))))
+
+
+(forall (x1 x2 e1 y1 y2 e2)
+  (iff (<a href="../subst2/index.html">subst2</a> x1 x2 e1 y1 y2 e2)
+       (exists (e3)
+         (and (<a href="../subst/index.html">subst</a> x1 e1 y1 e3)
+              (<a href="../subst/index.html">subst</a> x2 e3 y2 e2)))))
+
+
+</pre>
+</body>
+
+</html>

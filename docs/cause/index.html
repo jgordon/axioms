@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: cause</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: cause</h1>
+<pre>(cause e1 e2)</pre><p>Eventuality or agent e1 causes eventuality e2.</p><h2>Characterizing Axioms</h2><pre>(forall (e1 e2)
+  (if (<a href="../cause/index.html">cause</a> e1 e2)
+      (<a href="../tcause/index.html">tcause</a> e1 e2)))
+
+
+(forall (e1 e2)
+  (if (<a href="../cause/index.html">cause</a> e1 e2) (not (<a href="../before/index.html">before</a> e2 e1))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (a e c)
+  (iff (<a href="../able/index.html">able</a> a e c)
+       (exists (s s1 e1)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e) (<a href="../cause/index.html">cause</a>' e1 a e) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
+              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../possible/index.html">possible</a> e1 c))))))
+
+
+(forall (a e)
+  (iff (<a href="../agentOf/index.html">agentOf</a> a e)
+       (and (<a href="../agent/index.html">agent</a> a) (<a href="../cause/index.html">cause</a> a e))))
+
+
+(forall (a e2)
+  (and (if (<a href="../eventuality/index.html">eventuality</a> a)
+           (iff (<a href="../cause/index.html">cause</a> a e2) (<a href="../cause0/index.html">cause0</a> a e2)))
+       (if (<a href="../agent/index.html">agent</a> a)
+           (iff (<a href="../cause/index.html">cause</a> a e2)
+                (exists (e1)
+                  (and (<a href="../will/index.html">will</a>' e1 a e2) (<a href="../cause0/index.html">cause0</a> e1 e2)))))
+       (if (not (or (<a href="../eventuality/index.html">eventuality</a> a) (<a href="../agent/index.html">agent</a> a)))
+           (not (<a href="../cause/index.html">cause</a> a e2)))))
+
+
+(forall (a)
+  (if (and (<a href="../agent/index.html">agent</a> a) (etc))
+      (exists (e) (<a href="../cause/index.html">cause</a> a e))))
+
+
+(forall (e a c t)
+  (iff (<a href="../executable/index.html">executable</a> e a c t)
+       (exists (s)
+         (and (<a href="../enabled/index.html">enabled</a> s e t)
+              (or (exists (e1)
+                    (and (<a href="../dcause/index.html">dcause</a>' e1 a e) (<a href="../possible/index.html">possible</a> e1 c)))
+                  (exists (e2)
+                    (and (<a href="../cause/index.html">cause</a> e2 e)
+                         (<a href="../executable/index.html">executable</a> e2 a c t))))))))
+
+
+(forall (e1 a e)
+  (if (and (<a href="../will/index.html">will</a>' e1 a e) (<a href="../cause/index.html">cause</a> e1 e))
+      (<a href="../dcause/index.html">dcause</a> e1 e)))
+
+
+(forall (e1 e2 q c)
+  (iff (<a href="../tcauseq/index.html">tcauseq</a> e1 e2 q c)
+       (exists (s)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likelihood/index.html">likelihood</a> q s1 c)
+              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../cause/index.html">cause</a> e1 e2))))))
+
+
+(forall (e1 e2 s)
+  (iff (<a href="../enable0/index.html">enable0</a> e1 e2 s)
+       (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
+            (not (<a href="../cause/index.html">cause</a> e1 e2)))))
+
+
+(forall (e1 e2 t1)
+  (if (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../atTime/index.html">atTime</a> e1 t1) (etc))
+      (exists (t2)
+        (and (not (<a href="../before/index.html">before</a> t2 t1)) (<a href="../atTime/index.html">atTime</a> e2 t2)))))
+
+
+(forall (e1 e2)
+  (if (<a href="../cause/index.html">cause</a> e1 e2)
+      (<a href="../tcause/index.html">tcause</a> e1 e2)))
+
+
+(forall (e1 e2)
+  (if (<a href="../cause/index.html">cause</a> e1 e2) (not (<a href="../before/index.html">before</a> e2 e1))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../allow/index.html">allow</a> e1 e2)
+       (forall (e4)
+         (if (<a href="../not'/index.html">not'</a> e4 e2) (not (<a href="../cause/index.html">cause</a> e1 e4))))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../dcause/index.html">dcause</a> e1 e2)
+       (and (<a href="../cause/index.html">cause</a> e1 e2)
+            (not (exists (e3)
+                   (and (<a href="../cause/index.html">cause</a> e1 e3) (<a href="../cause/index.html">cause</a> e3 e2)))))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../enable/index.html">enable</a> e1 e2)
+       (forall (e3)
+         (if (<a href="../not'/index.html">not'</a> e3 e1)
+             (exists (e4)
+               (and (<a href="../not'/index.html">not'</a> e4 e2) (<a href="../cause/index.html">cause</a> e3 e4)))))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../partiallyCause/index.html">partiallyCause</a> e1 e2)
+       (exists (e3 e4)
+         (and (not (<a href="../cause/index.html">cause</a> e1 e2)) (not (<a href="../cause/index.html">cause</a> e3 e2))
+              (<a href="../and'/index.html">and'</a> e4 e1 e3) (<a href="../cause/index.html">cause</a> e4 e2)))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../prevent/index.html">prevent</a> e1 e2)
+       (exists (e4)
+         (and (<a href="../not'/index.html">not'</a> e4 e2) (<a href="../cause/index.html">cause</a> e1 e4)))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../tcause/index.html">tcause</a> e1 e2)
+       (exists (s c)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likely/index.html">likely</a> s1 c)
+              (if (<a href="../Rexist/index.html">Rexist</a> s)
+                  (<a href="../cause/index.html">cause</a> e1 e2))))))
+
+
+(forall (s1 s a)
+  (iff (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
+       (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../subset/index.html">subset</a> s1 s) (<a href="../agent/index.html">agent</a> a)
+            (forall (e)
+              (iff (<a href="../member/index.html">member</a> e s1)
+                   (and (not (<a href="../agentOf/index.html">agentOf</a> a e))
+                        (not (exists (e1)
+                               (and (<a href="../agentOf/index.html">agentOf</a> a e1)
+                                    (<a href="../cause/index.html">cause</a> e1 e))))))))))
+
+
+(forall (x e)
+  (iff (<a href="../objectOf/index.html">objectOf</a> x e)
+       (or (<a href="../changeIn/index.html">changeIn</a>' e x)
+           (exists (e1 e2)
+             (and (<a href="../and'/index.html">and'</a> e e1 e2) (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../objectOf/index.html">objectOf</a> x e2))))))
+
+
+(forall (y e)
+  (iff (<a href="../instrumentOf/index.html">instrumentOf</a> y e)
+       (exists (a e1)
+         (and (<a href="../agentOf/index.html">agentOf</a> a e1) (<a href="../changeIn/index.html">changeIn</a>' e1 y)
+              (or (<a href="../cause/index.html">cause</a> e1 e)
+                  (exists (e2)
+                    (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../and'/index.html">and'</a> e e1 e2))))))))
+
+
+</pre>
+</body>
+
+</html>

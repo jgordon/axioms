@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: parallel</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: parallel</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (f1 f2)
+  (iff (<a href="../parallel/index.html">parallel</a> f1 f2)
+       (exists (c1 c2)
+         (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2) (<a href="../inside/index.html">inside</a> f1 c1) (<a href="../inside/index.html">inside</a> f2 c2)))))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (d c f)
+      (iff (<a href="../directionOf/index.html">directionOf</a> d c f)
+           (and (<a href="../direction/index.html">direction</a> d f) (<a href="../parallel/index.html">parallel</a> c f))))
+
+
+(forall (c1 c2)
+  (if (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2))
+      (iff (<a href="../parallel/index.html">parallel</a> c1 c2)
+           (and (<a href="../coplanar/index.html">coplanar</a> c1 c2)
+                (not (exists (f)
+                       (and (<a href="../inside/index.html">inside</a> f c1) (<a href="../inside/index.html">inside</a> f c2))))))))
+
+
+(forall (f1 f2)
+  (iff (<a href="../parallel/index.html">parallel</a> f1 f2)
+       (exists (c1 c2)
+         (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2) (<a href="../inside/index.html">inside</a> f1 c1) (<a href="../inside/index.html">inside</a> f2 c2)))))
+
+
+</pre>
+</body>
+
+</html>

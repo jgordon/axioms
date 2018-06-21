@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: intervalBetween</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: intervalBetween</h1>
+<pre>(intervalBetween t t1 t2)</pre><p>t is the interval between t1 and t2.</p><h2>Characterizing Axioms</h2><pre>(forall (t t1 t2)
+  (iff (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2)
+       (exists (t3 t4)
+         (and (<a href="../ends/index.html">ends</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2)
+              (<a href="../begins/index.html">begins</a> t3 t) (<a href="../ends/index.html">ends</a> t4 t)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (s d t1 t2 t n1 n2 u)
+  (if (and (<a href="../periodicTseq/index.html">periodicTseq</a> s) (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
+           (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2))
+      (iff (<a href="../gapDuration/index.html">gapDuration</a> d s u) (<a href="../durationOf/index.html">durationOf</a> d t u))))
+
+
+(forall (s t1 t2 t3 t4)
+  (if (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../first/index.html">first</a> t1 s) (<a href="../begins/index.html">begins</a> t3 t1)
+           (<a href="../last/index.html">last</a> t2 s) (<a href="../ends/index.html">ends</a> t4 t2))
+      (forall (t)
+        (iff (<a href="../convexHull/index.html">convexHull</a> t s)
+             (<a href="../intervalBetween/index.html">intervalBetween</a> t t3 t4)))))
+
+
+(forall (s)
+  (iff (<a href="../periodicTseq/index.html">periodicTseq</a> s)
+       (and (<a href="../tseq/index.html">tseq</a> s)
+            (exists (d u)
+              (forall (t1 t2)
+                (if (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
+                    (exists (t)
+                      (and (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2)
+                           (<a href="../durationOf/index.html">durationOf</a> d t u)))))))))
+
+
+(forall (s)
+  (iff (<a href="../roughlyPeriodicTseq/index.html">roughlyPeriodicTseq</a> s u)
+       (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
+            (exists (s0 d)
+              (and (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s0)
+                   (forall (t1 t2 t3 t4)
+                     (if (and (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
+                              (<a href="../successiveElts/index.html">successiveElts</a> t3 t4 s))
+                         (exists (t12 t34 e d)
+                           (and (<a href="../intervalBetween/index.html">intervalBetween</a> t12 t1 t2)
+                                (<a href="../intervalBetween/index.html">intervalBetween</a> t34 t3 t4)
+                                (<a href="../durationOf/index.html">durationOf</a>' e d t12 u)
+                                (<a href="../sameHOM/index.html">sameHOM</a> t12 t34 s0 e))))))))))
+
+
+(forall (t t1 t2)
+  (iff (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2)
+       (exists (t3 t4)
+         (and (<a href="../ends/index.html">ends</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2)
+              (<a href="../begins/index.html">begins</a> t3 t) (<a href="../ends/index.html">ends</a> t4 t)))))
+
+
+</pre>
+</body>
+
+</html>

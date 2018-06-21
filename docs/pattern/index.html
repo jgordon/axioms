@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: pattern</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: pattern</h1>
+<pre>(pattern x)</pre><p>x is a pattern.</p><h2>Characterizing Axioms</h2><pre>(forall (x)
+  (if (<a href="../pattern/index.html">pattern</a> x)
+      (iff (<a href="../patternParameters/index.html">patternParameters</a> s x)
+           (forall (y)
+             (iff (<a href="../member/index.html">member</a> y s)
+                  (exists (s1)
+                         (and (<a href="../componentOf/index.html">componentOf</a> y x)
+                              (<a href="../typelt/index.html">typelt</a> y s1))))))))
+
+
+(forall (x)
+  (iff (<a href="../pattern/index.html">pattern</a> x)
+       (exists (y s1)
+              (and (<a href="../componentOf/index.html">componentOf</a> y x) (<a href="../typelt/index.html">typelt</a> y s1)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (x x1 s)
+  (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
+      (iff (<a href="../incompleteInstance/index.html">incompleteInstance</a> x1 x)
+           (and (exists (y y1 s1 p p1)
+                  (and (<a href="../member/index.html">member</a> y s) (<a href="../typelt/index.html">typelt</a> y s1)
+                       (<a href="../componentOf/index.html">componentOf</a> y1 x1) (<a href="../member/index.html">member</a> y1 s1)
+                       (<a href="../propOrRelOf/index.html">propOrRelOf</a> p x) (<a href="../arg*/index.html">arg*</a> y p)
+                       (<a href="../subst/index.html">subst</a> y1 p1 y p) (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1)))
+                (exists (p y)
+                  (and (<a href="../propOrRelOf/index.html">propOrRelOf</a> p x) (<a href="../arg*/index.html">arg*</a> y p)
+                       (forall (y1 p1)
+                         (if (<a href="../subst/index.html">subst</a> y1 p1 y p)
+                             (not (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))
+
+
+(forall (x x1 s)
+  (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
+      (iff (<a href="../patternInstance/index.html">patternInstance</a> x1 x)
+           (forall (y s1)
+             (if (and (<a href="../member/index.html">member</a> y s) (<a href="../typelt/index.html">typelt</a> y s1))
+                 (exists (y1)
+                        (and (<a href="../member/index.html">member</a> y1 s1) (<a href="../componentOf/index.html">componentOf</a> y1 x1)
+                             (forall (p)
+                               (if (and (<a href="../propOrRelOf/index.html">propOrRelOf</a> p x)
+                                        (<a href="../arg*/index.html">arg*</a> y p))
+                                   (exists (p1)
+                                          (and (<a href="../subst/index.html">subst</a> y1 p1 y p)
+                                               (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))))
+
+
+(forall (x)
+  (if (<a href="../pattern/index.html">pattern</a> x)
+      (iff (<a href="../patternParameters/index.html">patternParameters</a> s x)
+           (forall (y)
+             (iff (<a href="../member/index.html">member</a> y s)
+                  (exists (s1)
+                         (and (<a href="../componentOf/index.html">componentOf</a> y x)
+                              (<a href="../typelt/index.html">typelt</a> y s1))))))))
+
+
+(forall (x)
+  (iff (<a href="../pattern/index.html">pattern</a> x)
+       (exists (y s1)
+              (and (<a href="../componentOf/index.html">componentOf</a> y x) (<a href="../typelt/index.html">typelt</a> y s1)))))
+
+
+</pre>
+</body>
+
+</html>

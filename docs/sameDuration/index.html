@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: sameDuration</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: sameDuration</h1>
+<pre>(sameDuration t1 t2)</pre><p>Temporal entities t1 and t2 have the same</p><h2>Characterizing Axioms</h2><pre>(forall (t1 t2)
+  (if (<a href="../sameDuration/index.html">sameDuration</a> t1 t2)
+      (and (<a href="../temporalEntity/index.html">temporalEntity</a> t1) (<a href="../temporalEntity/index.html">temporalEntity</a> t2))))
+
+
+(forall (t1 t2)
+  (iff (<a href="../sameDuration/index.html">sameDuration</a> t1 t2) (<a href="../sameDuration/index.html">sameDuration</a> t2 t1)))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (d t u)
+  (if (<a href="../interval/index.html">interval</a> t)
+      (iff (<a href="../durationOf/index.html">durationOf</a> d t u)
+           (exists (s)
+             (and (<a href="../concatenation/index.html">concatenation</a> t s)
+                  (forall (t1)
+                    (if (<a href="../member/index.html">member</a> t1 s) (<a href="../sameDuration/index.html">sameDuration</a> t1 u)))
+                  (<a href="../card/index.html">card</a> d s))))))
+
+
+(forall (t)
+  (if (<a href="../temporalEntity/index.html">temporalEntity</a> t) (<a href="../sameDuration/index.html">sameDuration</a> t t)))
+
+
+(forall (t1 t2 t3)
+  (if (and (<a href="../sameDuration/index.html">sameDuration</a> t1 t2) (<a href="../sameDuration/index.html">sameDuration</a> t2 t3))
+      (<a href="../sameDuration/index.html">sameDuration</a> t1 t3)))
+
+
+(forall (t1 t2)
+  (if (<a href="../sameDuration/index.html">sameDuration</a> t1 t2)
+      (and (<a href="../temporalEntity/index.html">temporalEntity</a> t1) (<a href="../temporalEntity/index.html">temporalEntity</a> t2))))
+
+
+(forall (t1 t2)
+  (if (and (<a href="../instant/index.html">instant</a> t1) (<a href="../instant/index.html">instant</a> t2))
+      (<a href="../sameDuration/index.html">sameDuration</a> t1 t2)))
+
+
+(forall (t1 t2)
+  (iff (<a href="../sameDuration/index.html">sameDuration</a> t1 t2) (<a href="../sameDuration/index.html">sameDuration</a> t2 t1)))
+
+
+</pre>
+</body>
+
+</html>

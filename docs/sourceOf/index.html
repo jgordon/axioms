@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: sourceOf</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: sourceOf</h1>
+<pre>(sourceOf x e)</pre><p>e is a change in an “at” relation and x is the</p><h2>Characterizing Axioms</h2><pre>(forall (z e)
+  (iff (<a href="../sourceOf/index.html">sourceOf</a> z e)
+       (exists (x w e1 e2 s)
+         (and (<a href="../at/index.html">at</a>' e1 x z s) (<a href="../at/index.html">at</a>' e2 x w s) (<a href="../change/index.html">change</a>' e e1 e2)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (z e)
+  (iff (<a href="../sourceOf/index.html">sourceOf</a> z e)
+       (exists (x w e1 e2 s)
+         (and (<a href="../at/index.html">at</a>' e1 x z s) (<a href="../at/index.html">at</a>' e2 x w s) (<a href="../change/index.html">change</a>' e e1 e2)))))
+
+
+</pre>
+</body>
+
+</html>

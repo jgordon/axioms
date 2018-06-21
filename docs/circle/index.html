@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: circle</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: circle</h1>
+<h2>All Axioms</h2><pre>   (forall (c r x u)
+      (iff (<a href="../circle/index.html">circle</a> c x)
+           (exists (r d)
+              (and (<a href="../border/index.html">border</a> c r) (<a href="../planar/index.html">planar</a> r) (<a href="../inside/index.html">inside</a> x r)
+                   (forall (c1 x1)
+                      (if (and (<a href="../inside/index.html">inside</a> x1 c) (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c1 x x1))
+                          (<a href="../length/index.html">length</a> d c1 u)))))))
+
+
+   (forall (c)
+      (if (<a href="../curve/index.html">curve</a> c)
+          (iff (<a href="../closed/index.html">closed</a> c)
+               (and (not (exists (x) (<a href="../endpoint/index.html">endpoint</a> x c)))
+                    (exists (r c1 x1)
+                       (and (<a href="../circle/index.html">circle</a> c1 x1) (<a href="../boundary/index.html">boundary</a> c r)
+                            (<a href="../inside/index.html">inside</a> c r)))))))
+
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: properSubset</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: properSubset</h1>
+<pre>(properSubset s1 s2)</pre><p>s1 is a proper subset of s2.</p><h2>Characterizing Axioms</h2><pre>(forall (s1 s2)
+  (iff (<a href="../properSubset/index.html">properSubset</a> s1 s2)
+       (and (<a href="../subset/index.html">subset</a> s1 s2) (<a href="../nequal/index.html">nequal</a> s1 s2))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (s1 e2)
+  (iff (<a href="../minimallyProves/index.html">minimallyProves</a> s1 e2)
+       (and (not (<a href="../member/index.html">member</a> e2 s1))
+            (<a href="../imply/index.html">imply</a> s1 e2)
+            (not (exists (s2)
+                   (and (<a href="../properSubset/index.html">properSubset</a> s2 s1)
+                        (<a href="../imply/index.html">imply</a> s2 e2)))))))
+
+
+(forall (s1 s2)
+  (iff (<a href="../properSubset/index.html">properSubset</a> s1 s2)
+       (and (<a href="../subset/index.html">subset</a> s1 s2) (<a href="../nequal/index.html">nequal</a> s1 s2))))
+
+
+</pre>
+</body>
+
+</html>

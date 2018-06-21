@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: allow</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: allow</h1>
+<pre>(allow e1 e2)</pre><p>e1 doesn't cause not e2.</p><h2>Characterizing Axioms</h2><pre>(forall (e1 e2)
+  (iff (<a href="../allow/index.html">allow</a> e1 e2)
+       (forall (e4)
+         (if (<a href="../not'/index.html">not'</a> e4 e2) (not (<a href="../cause/index.html">cause</a> e1 e4))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e1 e2)
+  (iff (<a href="../allow/index.html">allow</a> e1 e2)
+       (forall (e4)
+         (if (<a href="../not'/index.html">not'</a> e4 e2) (not (<a href="../cause/index.html">cause</a> e1 e4))))))
+
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: edge</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: edge</h1>
+<h2>All Axioms</h2><pre>   (forall (c p s)
+      (if (<a href="../polyhedron/index.html">polyhedron</a> p s)
+          (iff (<a href="../edge/index.html">edge</a> c p)
+               (exists (f) (and (<a href="../face/index.html">face</a> f p) (<a href="../sideOf/index.html">sideOf</a> c f))))))
+
+
+   (forall (x p s)
+      (if (<a href="../polyhedron/index.html">polyhedron</a> p s)
+          (iff (<a href="../vertex3/index.html">vertex3</a> x p)
+               (exists (c) (and (<a href="../edge/index.html">edge</a> c p) (<a href="../endpoint/index.html">endpoint</a> x c)))))
+
+
+</pre>
+</body>
+
+</html>

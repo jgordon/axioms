@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: nequal</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: nequal</h1>
+<pre>(nequal x y)</pre><p>x is not equal to y.</p><h2>Characterizing Axioms</h2><pre>(forall (x y)
+  (iff (<a href="../nequal/index.html">nequal</a> x y)
+       (not (equal x y))))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (c v u)
+      (iff (<a href="../baseOfAngle/index.html">baseOfAngle</a> c v u)
+           (exists (c1 c2 x0 x1 x2)
+              (and (<a href="../vertex/index.html">vertex</a> v c1 c2 x0) (<a href="../nequal/index.html">nequal</a> x1 x2)
+                   (<a href="../endpoint/index.html">endpoint</a> x1 c1) (<a href="../distance/index.html">distance</a> 1 x0 x1 u)
+                   (<a href="../endpoint/index.html">endpoint</a> x2 c2) (<a href="../distance/index.html">distance</a> 1 x0 x2 u)
+                   (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2)))))
+
+
+   (forall (f a3)
+      (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../zAxis/index.html">zAxis</a> a3 f))
+          (forall (a)
+             (if (<a href="../nequal/index.html">nequal</a> a a3) (not (<a href="../zAxis/index.html">zAxis</a> a f))))))
+
+
+   (forall (p d)
+      (if (<a href="../square/index.html">square</a> p)
+          (iff (<a href="../diagonal/index.html">diagonal</a> d p)
+               (exists (v1 v2 x1 x2 c1 c2 c3 c4)
+                  (and (<a href="../vertex/index.html">vertex</a> v1 c1 c2 x1) (<a href="../vertexOf/index.html">vertexOf</a> v1 p)
+                       (<a href="../vertex/index.html">vertex</a> v2 c3 c4 x2) (<a href="../vertexOf/index.html">vertexOf</a> v2 p)
+                       (<a href="../nequal/index.html">nequal</a> c1 c3) (<a href="../nequal/index.html">nequal</a> c1 c4)
+                       (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> d x1 x2))))))
+
+
+(forall (c c1 c2 x)
+  (iff (<a href="../joinedCurves/index.html">joinedCurves</a> c c1 c2 x)
+       (and (<a href="../curve/index.html">curve</a> c1) (<a href="../curve/index.html">curve</a> c2) (<a href="../nequal/index.html">nequal</a> c1 c2)
+            (<a href="../endpoint/index.html">endpoint</a> x c1) (<a href="../endpoint/index.html">endpoint</a> x c2)
+            (forall (y)
+              (iff (<a href="../inside/index.html">inside</a> y c)
+                   (or (<a href="../inside/index.html">inside</a> y c1) (<a href="../inside/index.html">inside</a> y c2)
+                       (equal y x))))
+            (forall (z)
+              (iff (<a href="../endpoint/index.html">endpoint</a> z c)
+                   (and (<a href="../nequal/index.html">nequal</a> z x)
+                        (or (<a href="../endpoint/index.html">endpoint</a> z c1) (<a href="../endpoint/index.html">endpoint</a> z c2))))))))
+
+
+(forall (c p)
+  (iff (<a href="../sideOf/index.html">sideOf</a> c p)
+       (exists (c1 c2 v1 v2 x1 x2)
+         (and (<a href="../vertex/index.html">vertex</a> v1 c1 c x1) (<a href="../vertex/index.html">vertex</a> v2 c c2 x2)
+              (<a href="../nequal/index.html">nequal</a> x1 x2)
+              (<a href="../subfigure/index.html">subfigure</a> v1 p) (<a href="../subfigure/index.html">subfigure</a> v2 p)))))
+
+
+(forall (c)
+  (if (<a href="../lineSegment/index.html">lineSegment</a> c)
+      (exists (x1 x2)
+        (and (<a href="../endpoint/index.html">endpoint</a> x1 lc (<a href="../endpoint/index.html">endpoint</a> x2 c)
+             (<a href="../nequal/index.html">nequal</a> x1 x2)))))
+
+
+(forall (c)
+  (iff (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2)
+       (and (<a href="../lineSegment/index.html">lineSegment</a> c)
+            (<a href="../endpoint/index.html">endpoint</a> x1 c) (<a href="../endpoint/index.html">endpoint</a> x2 c)
+            (<a href="../nequal/index.html">nequal</a> x1 x2))))
+
+
+(forall (c1 c x1 x y e e1)
+  (if (and (<a href="../skfct/index.html">skfct</a> c1 c x1 x e) (<a href="../fd/index.html">fd</a> c y e) (<a href="../nequal/index.html">nequal</a> x y)
+           (<a href="../subst2/index.html">subst2</a> c1 x1 e1 c x e))
+      (<a href="../fd/index.html">fd</a> c1 y e1)))
+
+
+(forall (e)
+   (iff (<a href="../event/index.html">event</a> e)
+        (or (exists (e1 e2)
+               (and (<a href="../nequal/index.html">nequal</a> e1 e2) (<a href="../change/index.html">change</a>' e e1 e2)))
+            (exists (e0 e1 e2)
+               (and (<a href="../nequal/index.html">nequal</a> e1 e2) (<a href="../change/index.html">change</a>' e0 e1 e2) (<a href="../gen/index.html">gen</a> e e0)))
+            (exists (e1)
+              (<a href="../subevent/index.html">subevent</a> e1 e)))))
+
+
+(forall (f a b)
+  (if (<a href="../fraction/index.html">fraction</a> f a b)
+      (and (<a href="../number/index.html">number</a> a) (<a href="../number/index.html">number</a> b) (<a href="../nequal/index.html">nequal</a> b 0))))
+
+
+(forall (f)
+  (if (<a href="../framework/index.html">framework</a> f)
+      (exists (a1 a2)
+        (and (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../yAxis/index.html">yAxis</a> a2 f)
+             (forall (a)
+               (and (if (<a href="../nequal/index.html">nequal</a> a a1) (not (<a href="../xAxis/index.html">xAxis</a> a f)))
+                    (if (<a href="../nequal/index.html">nequal</a> a a2) (not (<a href="../yAxis/index.html">yAxis</a> a f)))))))))
+
+
+(forall (n)
+   (iff (<a href="../posInteger/index.html">posInteger</a> n)
+        (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../nequal/index.html">nequal</a> n 0))))
+
+
+(forall (s s1 x)
+  (iff (<a href="../deleteElt/index.html">deleteElt</a> s s1 x)
+       (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1)
+            (forall (y)
+              (iff (<a href="../member/index.html">member</a> y s)
+                   (and (<a href="../member/index.html">member</a> y s1) (<a href="../nequal/index.html">nequal</a> y x)))))))
+
+
+(forall (s x y)
+  (iff (<a href="../doubleton/index.html">doubleton</a> s x y)
+       (exists (s1)
+         (and (<a href="../nequal/index.html">nequal</a> x y)
+              (<a href="../addElt/index.html">addElt</a> s s1 x)
+              (<a href="../singleton/index.html">singleton</a> s1 y)))))
+
+
+(forall (s1 s2)
+  (iff (<a href="../properSubset/index.html">properSubset</a> s1 s2)
+       (and (<a href="../subset/index.html">subset</a> s1 s2) (<a href="../nequal/index.html">nequal</a> s1 s2))))
+
+
+(forall (s3 x)
+  (if (<a href="../relationsOf/index.html">relationsOf</a> s3 x)
+      (and (<a href="../set/index.html">set</a> s3) (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+           (forall (e)
+             (if (<a href="../member/index.html">member</a> e s3)
+                 (exists (y z)
+                   (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y x) (<a href="../arg*/index.html">arg*</a> y e)
+                        (<a href="../nequal/index.html">nequal</a> z y) (<a href="../arg*/index.html">arg*</a> z e))))))))
+
+
+(forall (t e)
+  (iff (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e)
+       (or (and (<a href="../instant/index.html">instant</a> t) (<a href="../atTime/index.html">atTime</a> e t)
+                (forall (t1)
+                  (if (<a href="../nequal/index.html">nequal</a> t1 t) (not (<a href="../atTime/index.html">atTime</a> e t1)))))
+           (and (<a href="../interval/index.html">interval</a> t) (<a href="../during/index.html">during</a> e t)
+                (forall (t1)
+                  (if (<a href="../atTime/index.html">atTime</a> e t1)
+                      (or (<a href="../insideTime/index.html">insideTime</a> t1 t) (<a href="../begins/index.html">begins</a> t1 t)
+                          (<a href="../ends/index.html">ends</a> t1 t)))))
+           (and (<a href="../tseq/index.html">tseq</a> t)
+                (forall (t1)
+                  (if (and (<a href="../member/index.html">member</a> t1 t) (<a href="../instant/index.html">instant</a> t1))
+                      (<a href="../atTime/index.html">atTime</a> e t1)))
+                (forall (t1)
+                  (if (and (<a href="../member/index.html">member</a> t1 t) (<a href="../interval/index.html">interval</a> t1))
+                      (<a href="../during/index.html">during</a> e t1)))
+                (forall (t1)
+                  (if (and (<a href="../instant/index.html">instant</a> t1) (<a href="../atTime/index.html">atTime</a> e t1))
+                      (or (<a href="../member/index.html">member</a> t1 t)
+                          (exists (t2)
+                            (and (<a href="../interval/index.html">interval</a> t2) (<a href="../member/index.html">member</a> t2 t)
+                                 (or (<a href="../begins/index.html">begins</a> t1 t2)
+                                     (<a href="../insideTime/index.html">insideTime</a> t1 t2)
+                                     (<a href="../ends/index.html">ends</a> t1 t2)))))))))))
+
+
+(forall (t)
+  (iff (<a href="../properInterval/index.html">properInterval</a> t)
+       (or (exists (t1 t2)
+             (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../ends/index.html">ends</a> t2 t) (<a href="../nequal/index.html">nequal</a> t1 t2)))
+           (<a href="../posInfInterval/index.html">posInfInterval</a> t))))
+
+
+(forall (x e1 y e2)
+  (iff (<a href="../subst/index.html">subst</a> x e1 y e2)
+       (exists (p n)
+         (and (<a href="../pred/index.html">pred</a> p e1) (<a href="../pred/index.html">pred</a> p e2) (<a href="../arity/index.html">arity</a> n e1) (<a href="../arity/index.html">arity</a> n e2)
+              (<a href="../noSubstTypelt/index.html">noSubstTypelt</a> x e1 y e2)
+              (forall (i z1 z2)
+                (if (and (<a href="../posInteger/index.html">posInteger</a> i) (<a href="../leq/index.html">leq</a> i n)
+                         (<a href="../argn/index.html">argn</a> z1 i e1) (<a href="../argn/index.html">argn</a> z2 i e2))
+                    (and (iff (<a href="../eventuality/index.html">eventuality</a> z1)
+                              (<a href="../eventuality/index.html">eventuality</a> z2))
+                         (if (not (<a href="../eventuality/index.html">eventuality</a> z1))
+                             (and (if (<a href="../nequal/index.html">nequal</a> z1 x)
+                                      (equal z2 z1))
+                                  (if (equal z1 x)
+                                      (equal z2 y))))
+                         (if (<a href="../eventuality/index.html">eventuality</a> z1)
+                             (<a href="../subst/index.html">subst</a> x z1 y z2)))))))))
+
+
+(forall (x y)
+  (iff (<a href="../nequal/index.html">nequal</a> x y)
+       (not (equal x y))))
+
+
+(forall (y e)
+  (iff (<a href="../onlyarg*/index.html">onlyarg*</a> y e)
+       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../nequal/index.html">nequal</a> y e)
+            (forall (y1)
+              (if (<a href="../arg/index.html">arg</a> y1 e)
+                  (or (equal y1 y)
+                      (<a href="../onlyarg*/index.html">onlyarg*</a> y y1)))))))
+
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: intDuring</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: intDuring</h1>
+<pre>(intDuring t1 t2)</pre><p>Interval t1 begins after and ends before</p><h2>Characterizing Axioms</h2><pre>(forall (t1 t2)
+  (iff (<a href="../intDuring/index.html">intDuring</a> t1 t2)
+       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
+            (exists (t3 t4)
+              (and (<a href="../begins/index.html">begins</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t4 t3)))
+            (exists (t5)
+              (and (<a href="../ends/index.html">ends</a> t5 t1)
+                   (forall (t6)
+                     (if (<a href="../ends/index.html">ends</a> t6 t2) (<a href="../before/index.html">before</a> t5 t6))))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (t1 t2)
+  (iff (<a href="../intDuring/index.html">intDuring</a> t1 t2)
+       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
+            (exists (t3 t4)
+              (and (<a href="../begins/index.html">begins</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t4 t3)))
+            (exists (t5)
+              (and (<a href="../ends/index.html">ends</a> t5 t1)
+                   (forall (t6)
+                     (if (<a href="../ends/index.html">ends</a> t6 t2) (<a href="../before/index.html">before</a> t5 t6))))))))
+
+
+</pre>
+</body>
+
+</html>

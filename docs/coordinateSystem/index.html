@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: coordinateSystem</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: coordinateSystem</h1>
+<h2>All Axioms</h2><pre>   (forall (f)
+      (iff (<a href="../coordinateSystem/index.html">coordinateSystem</a> f)
+           (and (<a href="../framework/index.html">framework</a> f)
+                (forall (a1) (if (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../numeric/index.html">numeric</a> a1)))
+                (forall (a2) (if (<a href="../yAxis/index.html">yAxis</a> a2 f) (<a href="../numeric/index.html">numeric</a> a2)))
+                (forall (a3) (if (<a href="../zAxis/index.html">zAxis</a> a3 f) (<a href="../numeric/index.html">numeric</a> a3)))
+                (forall (o) (if (<a href="../origin/index.html">origin</a> o f) (equal o 0)))
+                (forall (x1 x2) (iff (<a href="../rightOf/index.html">rightOf</a> x1 x2 f) (<a href="../gt/index.html">gt</a> x1 x2)))
+                (forall (y1 y2) (iff (<a href="../above2/index.html">above2</a> y1 y2 f) (<a href="../gt/index.html">gt</a> y1 y2)))
+                (forall (z1 z2) (iff (<a href="../above3/index.html">above3</a> z1 z2 f) (<a href="../gt/index.html">gt</a> z1 z2))))))
+
+
+</pre>
+</body>
+
+</html>

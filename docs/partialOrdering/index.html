@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: partialOrdering</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: partialOrdering</h1>
+<pre>(partialOrdering e x y s)</pre><p>e is a partial ordering on the components</p><h2>Characterizing Axioms</h2><pre>(forall (e x y s)
+   (if (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
+       (and (<a href="../scale/index.html">scale</a> s) (<a href="../arg*/index.html">arg*</a> x e) (<a href="../arg*/index.html">arg*</a> y e))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e t1 t2 s)
+  (if (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../before/index.html">before</a>' e t1 t2))
+      (<a href="../partialOrdering/index.html">partialOrdering</a> e t1 t2 s)))
+
+
+(forall (e x y s)
+   (if (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
+       (and (<a href="../scale/index.html">scale</a> s) (<a href="../arg*/index.html">arg*</a> x e) (<a href="../arg*/index.html">arg*</a> y e))))
+
+
+(forall (e x1 y1 s)
+   (iff (<a href="../lts/index.html">lts</a>' e1 x1 y1 s)
+        (exists (e x y e1)
+           (and (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
+                (<a href="../subst2/index.html">subst2</a> x y e x1 y1 e1)))))
+
+
+(forall (s s1 e)
+   (iff (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
+        (and (<a href="../scale/index.html">scale</a> s) (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
+             (exists (x y)
+               (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)))))
+
+
+(forall (s)
+   (if (<a href="../scale/index.html">scale</a> s)
+       (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
+            (exists (s1 e x y s2 s3)
+               (and (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
+                    (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
+                    (<a href="../subset/index.html">subset</a> s2 s3) (<a href="../relationsOf/index.html">relationsOf</a> s3 s)
+                    (forall (e1)
+                       (if (<a href="../member/index.html">member</a> e1 s2)
+                           (exists (x1 y1)
+                              (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> y1 s1)
+                                   (<a href="../subst2/index.html">subst2</a> x1 y1 e1 x y e))))))))))
+
+
+</pre>
+</body>
+
+</html>

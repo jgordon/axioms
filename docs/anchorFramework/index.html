@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: anchorFramework</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: anchorFramework</h1>
+<h2>All Axioms</h2><pre>   (forall (f v c1 c2 o)
+      (iff (<a href="../anchorFramework/index.html">anchorFramework</a> f v c1 c2 o)
+           (and (<a href="../framework/index.html">framework</a> f) (<a href="../vertex/index.html">vertex</a> v c1 c2 o)
+                (forall (a1) (if (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../subfigure/index.html">subfigure</a> c1 a1)))
+                (<a href="../origin/index.html">origin</a> o f))))
+
+
+(forall (x v f c1 c2 o u)
+  (iff (<a href="../anchorPoint/index.html">anchorPoint</a> x v f c1 c2 o u)
+       (and (<a href="../anchorFramework/index.html">anchorFramework</a> f v c1 c2 o)
+            (<a href="../inside/index.html">inside</a> x c2) (<a href="../distance/index.html">distance</a> 1 o x u))))
+
+
+</pre>
+</body>
+
+</html>

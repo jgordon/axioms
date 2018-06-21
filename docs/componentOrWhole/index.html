@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: componentOrWhole</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: componentOrWhole</h1>
+<pre>(componentOrWhole y x)</pre><p>y is either a component of x or x itself.</p><h2>Characterizing Axioms</h2><pre>(forall (x1 x)
+  (iff (<a href="../componentOrWhole/index.html">componentOrWhole</a> x1 x)
+       (or (equal x1 x) (<a href="../componentOf/index.html">componentOf</a> x1 x))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (s2 x)
+  (if (<a href="../propertiesOf/index.html">propertiesOf</a> s2 x)
+      (and (<a href="../set/index.html">set</a> s2) (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+           (forall (e)
+             (if (<a href="../member/index.html">member</a> e s2)
+                 (exists (y)
+                   (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y x)
+                        (<a href="../onlyarg*/index.html">onlyarg*</a> y e))))))))
+
+
+(forall (s3 x)
+  (if (<a href="../relationsOf/index.html">relationsOf</a> s3 x)
+      (and (<a href="../set/index.html">set</a> s3) (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+           (forall (e)
+             (if (<a href="../member/index.html">member</a> e s3)
+                 (exists (y z)
+                   (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y x) (<a href="../arg*/index.html">arg*</a> y e)
+                        (<a href="../nequal/index.html">nequal</a> z y) (<a href="../arg*/index.html">arg*</a> z e))))))))
+
+
+(forall (x1 x)
+  (iff (<a href="../componentOrWhole/index.html">componentOrWhole</a> x1 x)
+       (or (equal x1 x) (<a href="../componentOf/index.html">componentOf</a> x1 x))))
+
+
+(forall (y x)
+  (iff (<a href="../externalTo/index.html">externalTo</a> y x)
+       (not (exists (y1 x1)
+              (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y1 y)
+                   (<a href="../componentOrWhole/index.html">componentOrWhole</a> x1 x)
+                   (equal y1 x1))))))
+
+
+</pre>
+</body>
+
+</html>

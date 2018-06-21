@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: vertex</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: vertex</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (v c1 c2 x)
+  (iff (<a href="../vertex/index.html">vertex</a> v c1 c2 x)
+       (<a href="../vertex/index.html">vertex</a> v c2 c1 x)))
+
+
+(forall (v c1 c2 x)
+  (iff (<a href="../vertex/index.html">vertex</a> v c1 c2 x)
+       (and (<a href="../linear/index.html">linear</a> c1) (<a href="../linear/index.html">linear</a> c2) (not (<a href="../linear/index.html">linear</a> v))
+            (<a href="../joinedCurves/index.html">joinedCurves</a> v c1 c2 x))))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (c v u)
+      (iff (<a href="../baseOfAngle/index.html">baseOfAngle</a> c v u)
+           (exists (c1 c2 x0 x1 x2)
+              (and (<a href="../vertex/index.html">vertex</a> v c1 c2 x0) (<a href="../nequal/index.html">nequal</a> x1 x2)
+                   (<a href="../endpoint/index.html">endpoint</a> x1 c1) (<a href="../distance/index.html">distance</a> 1 x0 x1 u)
+                   (<a href="../endpoint/index.html">endpoint</a> x2 c2) (<a href="../distance/index.html">distance</a> 1 x0 x2 u)
+                   (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2)))))
+
+
+   (forall (f v c1 c2 o)
+      (iff (<a href="../anchorFramework/index.html">anchorFramework</a> f v c1 c2 o)
+           (and (<a href="../framework/index.html">framework</a> f) (<a href="../vertex/index.html">vertex</a> v c1 c2 o)
+                (forall (a1) (if (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../subfigure/index.html">subfigure</a> c1 a1)))
+                (<a href="../origin/index.html">origin</a> o f))))
+
+
+   (forall (p d c v x)
+      (if (and (<a href="../square/index.html">square</a> p) (<a href="../sideOf/index.html">sideOf</a> c p) (<a href="../diagonal/index.html">diagonal</a> d p) (<a href="../vertex/index.html">vertex</a> v c d x))
+          (<a href="../45Degrees/index.html">45Degrees</a> v)))
+
+
+   (forall (p d)
+      (if (<a href="../square/index.html">square</a> p)
+          (iff (<a href="../diagonal/index.html">diagonal</a> d p)
+               (exists (v1 v2 x1 x2 c1 c2 c3 c4)
+                  (and (<a href="../vertex/index.html">vertex</a> v1 c1 c2 x1) (<a href="../vertexOf/index.html">vertexOf</a> v1 p)
+                       (<a href="../vertex/index.html">vertex</a> v2 c3 c4 x2) (<a href="../vertexOf/index.html">vertexOf</a> v2 p)
+                       (<a href="../nequal/index.html">nequal</a> c1 c3) (<a href="../nequal/index.html">nequal</a> c1 c4)
+                       (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> d x1 x2))))))
+
+
+(forall (c p)
+  (iff (<a href="../sideOf/index.html">sideOf</a> c p)
+       (exists (c1 c2 v1 v2 x1 x2)
+         (and (<a href="../vertex/index.html">vertex</a> v1 c1 c x1) (<a href="../vertex/index.html">vertex</a> v2 c c2 x2)
+              (<a href="../nequal/index.html">nequal</a> x1 x2)
+              (<a href="../subfigure/index.html">subfigure</a> v1 p) (<a href="../subfigure/index.html">subfigure</a> v2 p)))))
+
+
+(forall (v c1 c2 x)
+  (iff (<a href="../vertex/index.html">vertex</a> v c1 c2 x)
+       (<a href="../vertex/index.html">vertex</a> v c2 c1 x)))
+
+
+(forall (v c1 c2 x)
+  (iff (<a href="../vertex/index.html">vertex</a> v c1 c2 x)
+       (and (<a href="../linear/index.html">linear</a> c1) (<a href="../linear/index.html">linear</a> c2) (not (<a href="../linear/index.html">linear</a> v))
+            (<a href="../joinedCurves/index.html">joinedCurves</a> v c1 c2 x))))
+
+
+</pre>
+</body>
+
+</html>

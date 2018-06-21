@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: iteration</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: iteration</h1>
+<pre>(iteration e e1)</pre><p>e is the event consisting of iterations of</p><h2>Characterizing Axioms</h2><pre>(forall (e e1)
+  (iff (<a href="../iteration/index.html">iteration</a> e e1)
+       (exists (e2 e3)
+         (and (<a href="../eventSequence/index.html">eventSequence</a>' e e2 e3) (<a href="../instance/index.html">instance</a> e2 e1)
+              (or (<a href="../iteration/index.html">iteration</a> e3 e1) (<a href="../instance/index.html">instance</a> e3 e1))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e e1)
+  (iff (<a href="../iteration/index.html">iteration</a> e e1)
+       (exists (e2 e3)
+         (and (<a href="../eventSequence/index.html">eventSequence</a>' e e2 e3) (<a href="../instance/index.html">instance</a> e2 e1)
+              (or (<a href="../iteration/index.html">iteration</a> e3 e1) (<a href="../instance/index.html">instance</a> e3 e1))))))
+
+
+</pre>
+</body>
+
+</html>

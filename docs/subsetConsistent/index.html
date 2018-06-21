@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: subsetConsistent</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: subsetConsistent</h1>
+<pre>(subsetConsistent s e)</pre><p>s is a scale whose ordering is consistent</p><h2>Characterizing Axioms</h2><pre>(forall (s e)
+   (iff (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e)
+        (and (<a href="../scale/index.html">scale</a> s) (<a href="../eventuality/index.html">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn/index.html">argn</a> s0 1 e) (<a href="../set/index.html">set</a> s0)))
+             (forall (x) (if (<a href="../argn/index.html">argn</a> x 2 e) (exists (y) (<a href="../at/index.html">at</a> x y s))))
+             (forall (e1 e2 s1 s2 x1 x2)
+                (if (and (<a href="../instance/index.html">instance</a> e1 e) (<a href="../argn/index.html">argn</a> s1 1 e1)
+                                         (<a href="../argn/index.html">argn</a> x1 2 e1)
+                         (<a href="../instance/index.html">instance</a> e2 e) (<a href="../argn/index.html">argn</a> s2 1 e2)
+                                         (<a href="../argn/index.html">argn</a> x2 2 e2)
+                         (<a href="../subset/index.html">subset</a> s1 s2))
+                    (<a href="../leqs/index.html">leqs</a> x1 x2 s))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (s e)
+   (iff (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e)
+        (and (<a href="../scale/index.html">scale</a> s) (<a href="../eventuality/index.html">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn/index.html">argn</a> s0 1 e) (<a href="../set/index.html">set</a> s0)))
+             (forall (x) (if (<a href="../argn/index.html">argn</a> x 2 e) (exists (y) (<a href="../at/index.html">at</a> x y s))))
+             (forall (e1 e2 s1 s2 x1 x2)
+                (if (and (<a href="../instance/index.html">instance</a> e1 e) (<a href="../argn/index.html">argn</a> s1 1 e1)
+                                         (<a href="../argn/index.html">argn</a> x1 2 e1)
+                         (<a href="../instance/index.html">instance</a> e2 e) (<a href="../argn/index.html">argn</a> s2 1 e2)
+                                         (<a href="../argn/index.html">argn</a> x2 2 e2)
+                         (<a href="../subset/index.html">subset</a> s1 s2))
+                    (<a href="../leqs/index.html">leqs</a> x1 x2 s))))))
+
+
+(forall (s s1 e)
+  (if (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../difficultiesWith/index.html">difficultiesWith</a>' e1 s e))
+      (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e1)))
+
+
+</pre>
+</body>
+
+</html>

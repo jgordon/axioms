@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: enable0</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: enable0</h1>
+<pre>(enable0 e1 e2 s)</pre><p>Eventuality e1 is a member of a causal</p><h2>Characterizing Axioms</h2><pre>(forall (e1 e2 s)
+  (iff (<a href="../enable0/index.html">enable0</a> e1 e2 s)
+       (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
+            (not (<a href="../cause/index.html">cause</a> e1 e2)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e1 e2 s)
+  (iff (<a href="../enable0/index.html">enable0</a> e1 e2 s)
+       (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
+            (not (<a href="../cause/index.html">cause</a> e1 e2)))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../enable/index.html">enable</a> e1 e2)
+       (forall (s)
+         (if (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../enable0/index.html">enable0</a> e1 e2 s)))))
+
+
+(forall (s e t)
+  (iff (<a href="../enabled/index.html">enabled</a> s e t)
+       (forall (e1)
+         (if (<a href="../enable0/index.html">enable0</a> e1 e s) (<a href="../atTime/index.html">atTime</a> e1 t)))))
+
+
+</pre>
+</body>
+
+</html>

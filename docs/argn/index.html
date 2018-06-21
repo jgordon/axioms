@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: argn</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: argn</h1>
+<pre>(argn x n e)</pre><p>x is the nth argument of e.</p><h2>Characterizing Axioms</h2><pre>(forall (e x n)
+  (if (<a href="../argn/index.html">argn</a> x n e)
+      (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../eventuality/index.html">eventuality</a> e))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e x n)
+  (if (<a href="../argn/index.html">argn</a> x n e)
+      (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../eventuality/index.html">eventuality</a> e))))
+
+
+(forall (e x y z)
+  (if (<a href="../give/index.html">give</a>' e x y z)
+      (<a href="../argn/index.html">argn</a> e 0 e)))
+
+
+(forall (e x y z)
+  (if (<a href="../give/index.html">give</a>' e x y z)
+      (<a href="../argn/index.html">argn</a> x 1 e)))
+
+
+(forall (e x y z)
+  (if (<a href="../give/index.html">give</a>' e x y z)
+      (<a href="../argn/index.html">argn</a> y 2 e)))
+
+
+(forall (e x y z)
+  (if (<a href="../give/index.html">give</a>' e x y z)
+      (<a href="../argn/index.html">argn</a> z 3 e)))
+
+
+(forall (e x)
+  (iff (<a href="../arg/index.html">arg</a> x e)
+       (exists (n)
+         (<a href="../argn/index.html">argn</a> x n e))))
+
+
+(forall (e)
+  (iff (<a href="../eventuality/index.html">eventuality</a> e)
+       (<a href="../argn/index.html">argn</a> e 0 e)))
+
+
+(forall (e)
+  (iff (<a href="../eventuality/index.html">eventuality</a> e)
+       (exists (p n)
+         (and (<a href="../pred/index.html">pred</a> p e) (<a href="../arity/index.html">arity</a> n e)
+              (forall (i)
+                (if (and (<a href="../posInteger/index.html">posInteger</a> i)
+                         (<a href="../leq/index.html">leq</a> i n))
+                    (exists (x)
+                      (<a href="../argn/index.html">argn</a> x i e))))))))
+
+
+(forall (s e)
+   (iff (<a href="../scaleFor/index.html">scaleFor</a> s e)
+        (exists (s1)
+           (and (<a href="../Hi/index.html">Hi</a> s1 s)
+                (forall (e1 x y)
+                   (if (and (<a href="../at/index.html">at</a>' e1 x y s1) (<a href="../argn/index.html">argn</a> x 1 e))
+                       (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../Rexist/index.html">Rexist</a> e1))))))))
+
+
+(forall (s e)
+   (iff (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e)
+        (and (<a href="../scale/index.html">scale</a> s) (<a href="../eventuality/index.html">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn/index.html">argn</a> s0 1 e) (<a href="../set/index.html">set</a> s0)))
+             (forall (x) (if (<a href="../argn/index.html">argn</a> x 2 e) (exists (y) (<a href="../at/index.html">at</a> x y s))))
+             (forall (e1 e2 s1 s2 x1 x2)
+                (if (and (<a href="../instance/index.html">instance</a> e1 e) (<a href="../argn/index.html">argn</a> s1 1 e1)
+                                         (<a href="../argn/index.html">argn</a> x1 2 e1)
+                         (<a href="../instance/index.html">instance</a> e2 e) (<a href="../argn/index.html">argn</a> s2 1 e2)
+                                         (<a href="../argn/index.html">argn</a> x2 2 e2)
+                         (<a href="../subset/index.html">subset</a> s1 s2))
+                    (<a href="../leqs/index.html">leqs</a> x1 x2 s))))))
+
+
+(forall (x e1 y e2)
+  (iff (<a href="../subst/index.html">subst</a> x e1 y e2)
+       (exists (p n)
+         (and (<a href="../pred/index.html">pred</a> p e1) (<a href="../pred/index.html">pred</a> p e2) (<a href="../arity/index.html">arity</a> n e1) (<a href="../arity/index.html">arity</a> n e2)
+              (<a href="../noSubstTypelt/index.html">noSubstTypelt</a> x e1 y e2)
+              (forall (i z1 z2)
+                (if (and (<a href="../posInteger/index.html">posInteger</a> i) (<a href="../leq/index.html">leq</a> i n)
+                         (<a href="../argn/index.html">argn</a> z1 i e1) (<a href="../argn/index.html">argn</a> z2 i e2))
+                    (and (iff (<a href="../eventuality/index.html">eventuality</a> z1)
+                              (<a href="../eventuality/index.html">eventuality</a> z2))
+                         (if (not (<a href="../eventuality/index.html">eventuality</a> z1))
+                             (and (if (<a href="../nequal/index.html">nequal</a> z1 x)
+                                      (equal z2 z1))
+                                  (if (equal z1 x)
+                                      (equal z2 y))))
+                         (if (<a href="../eventuality/index.html">eventuality</a> z1)
+                             (<a href="../subst/index.html">subst</a> x z1 y z2)))))))))
+
+
+</pre>
+</body>
+
+</html>

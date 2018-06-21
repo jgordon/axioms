@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: mind</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: mind</h1>
+<pre>(mind m p)</pre><p>m is p's mind.</p><h2>Characterizing Axioms</h2><pre>(forall (m p)
+  (if (<a href="../mind/index.html">mind</a> m p)
+      (<a href="../compositeEntity/index.html">compositeEntity</a> m)))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (a x m)
+  (if (and (<a href="../perceive/index.html">perceive</a> a x) (<a href="../mind/index.html">mind</a> m a))
+      (and (<a href="../agent/index.html">agent</a> a) (<a href="../externalTo/index.html">externalTo</a> x m))))
+
+
+(forall (m p)
+  (if (<a href="../mind/index.html">mind</a> m p)
+      (<a href="../compositeEntity/index.html">compositeEntity</a> m)))
+
+
+(forall (p)
+  (if (<a href="../person/index.html">person</a> p)
+      (exists (b m)
+        (and (<a href="../body/index.html">body</a> b p) (<a href="../mind/index.html">mind</a> m p)))))
+
+
+</pre>
+</body>
+
+</html>

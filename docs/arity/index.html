@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: arity</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: arity</h1>
+<pre>(arity n e)</pre><p>n is the arity or the number of arguments of e.</p><h2>Characterizing Axioms</h2><pre>(forall (n e)
+  (if (<a href="../arity/index.html">arity</a> n e)
+      (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../eventuality/index.html">eventuality</a> e))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e x y z)
+  (if (<a href="../give/index.html">give</a>' e x y z)
+      (<a href="../arity/index.html">arity</a> 3 e)))
+
+
+(forall (e)
+  (iff (<a href="../eventuality/index.html">eventuality</a> e)
+       (exists (p n)
+         (and (<a href="../pred/index.html">pred</a> p e) (<a href="../arity/index.html">arity</a> n e)
+              (forall (i)
+                (if (and (<a href="../posInteger/index.html">posInteger</a> i)
+                         (<a href="../leq/index.html">leq</a> i n))
+                    (exists (x)
+                      (<a href="../argn/index.html">argn</a> x i e))))))))
+
+
+(forall (n e)
+  (if (<a href="../arity/index.html">arity</a> n e)
+      (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../eventuality/index.html">eventuality</a> e))))
+
+
+(forall (x e1 y e2)
+  (iff (<a href="../subst/index.html">subst</a> x e1 y e2)
+       (exists (p n)
+         (and (<a href="../pred/index.html">pred</a> p e1) (<a href="../pred/index.html">pred</a> p e2) (<a href="../arity/index.html">arity</a> n e1) (<a href="../arity/index.html">arity</a> n e2)
+              (<a href="../noSubstTypelt/index.html">noSubstTypelt</a> x e1 y e2)
+              (forall (i z1 z2)
+                (if (and (<a href="../posInteger/index.html">posInteger</a> i) (<a href="../leq/index.html">leq</a> i n)
+                         (<a href="../argn/index.html">argn</a> z1 i e1) (<a href="../argn/index.html">argn</a> z2 i e2))
+                    (and (iff (<a href="../eventuality/index.html">eventuality</a> z1)
+                              (<a href="../eventuality/index.html">eventuality</a> z2))
+                         (if (not (<a href="../eventuality/index.html">eventuality</a> z1))
+                             (and (if (<a href="../nequal/index.html">nequal</a> z1 x)
+                                      (equal z2 z1))
+                                  (if (equal z1 x)
+                                      (equal z2 y))))
+                         (if (<a href="../eventuality/index.html">eventuality</a> z1)
+                             (<a href="../subst/index.html">subst</a> x z1 y z2)))))))))
+
+
+</pre>
+</body>
+
+</html>

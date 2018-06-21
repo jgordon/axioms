@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: surface</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: surface</h1>
+<pre>(surface r v)</pre><p>Region r is the surface of volume v.</p><h2>Characterizing Axioms</h2><pre>(forall (r v)
+  (if (<a href="../surface/index.html">surface</a> r v)
+      (and (<a href="../region/index.html">region</a> r) (<a href="../volume/index.html">volume</a> v))))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (p s)
+      (iff (<a href="../polyhedron/index.html">polyhedron</a> p s)
+           (exists ( r)
+              (and (<a href="../surface/index.html">surface</a> r p) (<a href="../closed/index.html">closed</a> r)
+                   (forall (f)
+                      (if (<a href="../member/index.html">member</a> f s) (and (<a href="../polygon2/index.html">polygon2</a> f) (<a href="../inside/index.html">inside</a> f r))))
+                   (forall (x)
+                      (if (and (<a href="../point/index.html">point</a> x) (<a href="../inside/index.html">inside</a> x r))
+                          (exists (f)
+                             (and (<a href="../member/index.html">member</a> f s) (<a href="../subfigure/index.html">subfigure</a> x f)))))
+                   (forall (x)
+                      (if (and (<a href="../point/index.html">point</a> x) (<a href="../member/index.html">member</a> f1 s) (<a href="../member/index.html">member</a> f2 s)
+                               (<a href="../inside/index.html">inside</a> x f1) (<a href="../inside/index.html">inside</a> x f2))
+                          (equal f1 f2)))))))
+
+
+   (forall (p2 s)
+      (iff (<a href="../polyhedron2/index.html">polyhedron2</a> p2 s)
+           (exists (p) (and (<a href="../polyhedron/index.html">polyhedron</a> p s) (<a href="../surface/index.html">surface</a> p2 p)))))
+
+
+(forall (f1 f2)
+  (iff (<a href="../onBoundary/index.html">onBoundary</a> f1 f2)
+       (or (and (<a href="../point/index.html">point</a> f1) (<a href="../curve/index.html">curve</a> f2) (<a href="../endpoint/index.html">endpoint</a> f1 f2))
+           (exists (b) (and (<a href="../region/index.html">region</a> f2) (<a href="../border/index.html">border</a> b f2) (<a href="../inside/index.html">inside</a> f1 b)))
+           (exists (b)
+             (and (<a href="../volume/index.html">volume</a> f2) (<a href="../surface/index.html">surface</a> b f2) (<a href="../inside/index.html">inside</a> f1 b))))))
+
+
+(forall (r v)
+  (if (<a href="../surface/index.html">surface</a> r v)
+      (and (<a href="../region/index.html">region</a> r) (<a href="../volume/index.html">volume</a> v))))
+
+
+</pre>
+</body>
+
+</html>

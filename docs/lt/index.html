@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: lt</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: lt</h1>
+<pre>(lt n1 n2)</pre><p>n1 is less than n2; n1 < n2.</p><h2>All Axioms</h2><pre>   (forall (x s0 s1)
+      (if (and (<a href="../onScale/index.html">onScale</a> x s1) (<a href="../Hi/index.html">Hi</a> s1 s0) (etc))
+          (exists (s2 s3 s4 n3 n4)
+             (and (<a href="../componentsOf/index.html">componentsOf</a> s2 s0) (<a href="../union/index.html">union</a> s2 s3 s4)
+                  (forall (y) (iff (<a href="../member/index.html">member</a> y s3) (<a href="../lts/index.html">lts</a> y x s0)))
+                  (forall (z) (iff (<a href="../member/index.html">member</a> z s4) (<a href="../lts/index.html">lts</a> x z s0)))
+                  (<a href="../card/index.html">card</a> n3 s3) (<a href="../card/index.html">card</a> n4 s4) (<a href="../lt/index.html">lt</a> n4 n3)))))
+
+
+   (forall (x y z)
+      (iff (<a href="../nearer/index.html">nearer</a> x y z)
+           (exists (d1 d2)
+              (and (<a href="../distance/index.html">distance</a> d1 x z u) (<a href="../distance/index.html">distance</a> d2 y z u)
+                   (<a href="../lt/index.html">lt</a> d1 d2)))))
+
+
+(forall (f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction/index.html">fraction</a> f1 a1 b1) (<a href="../fraction/index.html">fraction</a> f2 a2 b2)
+            (<a href="../product/index.html">product</a> c1 a1 b2) (<a href="../product/index.html">product</a> c2 a2 b1))
+       (iff (<a href="../lt/index.html">lt</a> f1 f2) (<a href="../lt/index.html">lt</a> c1 c2))))
+
+
+(forall (n1 n2)
+   (if (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1) (<a href="../nonNegInteger/index.html">nonNegInteger</a> n2))
+       (iff (<a href="../lt/index.html">lt</a> n1 n2)
+            (exists (n3) (and (<a href="../posInteger/index.html">posInteger</a> n3) (<a href="../sum/index.html">sum</a> n2 n1 n3))))))
+
+
+(forall (n1 n2)
+  (iff (<a href="../gt/index.html">gt</a> n1 n2) (<a href="../lt/index.html">lt</a> n2 n1)))
+
+
+(forall (n1 n2)
+  (iff (<a href="../leq/index.html">leq</a> n1 n2)
+       (or (<a href="../lt/index.html">lt</a> n1 n2) (equal n1 n2))))
+
+
+(forall (s s0)
+  (iff (<a href="../rateScale/index.html">rateScale</a> s s0)
+       (and (forall (s1) (if (<a href="../member/index.html">member</a> s1 s0) (<a href="../eventualities/index.html">eventualities</a> s1)))
+            (exists (u e s1 s2)
+              (and (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../lts/index.html">lts</a>' e s1 s2 s0)
+                   (forall (s3 s4)
+                     (iff (and (<a href="../lts/index.html">lts</a>' e s3 s4 s0) (<a href="../Rexist/index.html">Rexist</a> e))
+                          (exists (r1 r2)
+                            (and (<a href="../rate/index.html">rate</a> r1 s3 u) (<a href="../rate/index.html">rate</a> r2 s4 u)
+                                 (<a href="../lt/index.html">lt</a> r1 r2)))))
+                   (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e))))))
+
+
+(forall (s)
+  (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)
+      (exists (s1 e x y)
+        (and (<a href="../lt/index.html">lt</a>' e x y)
+             (forall (n)
+               (if (<a href="../member/index.html">member</a> n s1)
+                   (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
+             (<a href="../member/index.html">member</a> 0 s1)
+             (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
+
+
+(forall (s1 e x y)
+  (if (and (<a href="../lt/index.html">lt</a>' e x y)
+           (forall (n)
+             (if (<a href="../member/index.html">member</a> n s1)
+                 (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
+           (<a href="../member/index.html">member</a> 0 s1))
+      (exists (s)
+        (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)))))
+
+
+(forall (t1 t2)
+  (iff (<a href="../shorterDuration/index.html">shorterDuration</a> t1 t2)
+       (and (<a href="../interval/index.html">interval</a> t1) (<a href="../interval/index.html">interval</a> t2)
+            (exists (d1 d2 u)
+              (and (<a href="../durationOf/index.html">durationOf</a> d1 t1 u) (<a href="../durationOf/index.html">durationOf</a> d2 t2 u)
+                   (<a href="../lt/index.html">lt</a> d1 d2))))))
+
+
+(forall (x y s)
+  (iff (<a href="../beforeInSeq/index.html">beforeInSeq</a> x y s)
+       (exists (n1 n2)
+         (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../nth/index.html">nth</a> x n1 s) (<a href="../nth/index.html">nth</a> y n2 s)
+              (<a href="../lt/index.html">lt</a> n1 n2)))))
+
+
+</pre>
+</body>
+
+</html>

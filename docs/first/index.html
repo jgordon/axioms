@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: first</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: first</h1>
+<pre>(first t s)</pre><p>t is the first temporal entity in temporal sequence s.</p><h2>All Axioms</h2><pre>(forall (e s e1)
+  (iff (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e s x e1)
+       (exists (y e2 l e3 s1)
+         (or (and (<a href="../length/index.html">length</a> 1 s) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1) (equal e e2))
+             (and (<a href="../length/index.html">length</a> l s) (<a href="../gt/index.html">gt</a> l 1) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1)
+                  (<a href="../eventSequence/index.html">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e3 s1 x e1)
+                  (<a href="../rest/index.html">rest</a> s1 s))))))
+
+
+(forall (f s1 s2)
+  (iff (<a href="../function0/index.html">function0</a> f s1 s2)
+       (and (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2) (<a href="../set/index.html">set</a> f)
+            A function is a set of pairs where the first elements
+            come from s1 and the second elements come from s2.
+            (forall (p)
+              (if (<a href="../member/index.html">member</a> p f)
+                  (exists (x y)
+                    (and (<a href="../member/index.html">member</a> x s1) (<a href="../member/index.html">member</a> y s2)
+                         (<a href="../pair/index.html">pair</a> p x y)))))
+            There is a value of the function for every element of
+            s1.
+            (forall (x)
+              (if (<a href="../member/index.html">member</a> x s1)
+                  (exists (p)
+                    (and (<a href="../member/index.html">member</a> p f) (<a href="../first/index.html">first</a> x p)))))
+            The value is unique.
+            (forall (p1 p2 x)
+              (if (and (<a href="../first/index.html">first</a> x p1) (<a href="../first/index.html">first</a> x p2)
+                       (<a href="../member/index.html">member</a> p1 f) (<a href="../member/index.html">member</a> p2 f))
+                  (equal p1 p2)))
+            Every element of s2 is the value of a member of s1 under
+            the function f.
+            (forall (y)
+              (if (<a href="../member/index.html">member</a> y s2)
+                  (exists (p)
+                    (and (<a href="../member/index.html">member</a> p f) (<a href="../second/index.html">second</a> y p))))))))
+
+
+(forall (f x y)
+  (iff (<a href="../map/index.html">map</a> f x y)
+       (exists (s1 s2 p)
+         (and (<a href="../function0/index.html">function0</a> f s1 s2) (<a href="../member/index.html">member</a> p f)
+              (<a href="../first/index.html">first</a> x p) (<a href="../second/index.html">second</a> y p)))))
+
+
+(forall (p x y e1 e2 e3)
+  (if (and (<a href="../pair0/index.html">pair0</a>' e1 p) (<a href="../first/index.html">first</a>' e2 x p) (<a href="../second/index.html">second</a>' e3 y p)
+           (<a href="../Rexist/index.html">Rexist</a> e1) (<a href="../Rexist/index.html">Rexist</a> e2) (<a href="../Rexist/index.html">Rexist</a> e3))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity/index.html">compositeEntity</a> p)
+             (<a href="../doubleton/index.html">doubleton</a> s1 x y) (<a href="../componentsOf/index.html">componentsOf</a> s1 p)
+             (<a href="../singleton/index.html">singleton</a> s2 e1) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 p)
+             (<a href="../doubleton/index.html">doubleton</a> s3 e2 e3) (<a href="../relationsOf/index.html">relationsOf</a> s3 p)))))
+
+
+(forall (p x y)
+  (if (<a href="../pair/index.html">pair</a> p x y)
+      (and (<a href="../first/index.html">first</a> x p) (<a href="../second/index.html">second</a> y p))))
+
+
+(forall (s s1 e x y)
+   (if (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
+            (<a href="../beforeInSeq/index.html">beforeInSeq</a>' e x y s))
+       (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
+            (forall (z)
+              (if (<a href="../first/index.html">first</a> z s)
+                  (<a href="../bottom/index.html">bottom</a> z s))))))
+
+
+(forall (s t)
+  (if (<a href="../tseq/index.html">tseq</a> s)
+      (iff (<a href="../first/index.html">first</a> t s)
+           (and (<a href="../member/index.html">member</a> t s)
+                (forall (t1)
+                  (if (<a href="../member/index.html">member</a> t1 s)
+                      (or (equal t1 t) (<a href="../before/index.html">before</a> t t1))))))))
+
+
+(forall (s t1 t2 t3 t4)
+  (if (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../first/index.html">first</a> t1 s) (<a href="../begins/index.html">begins</a> t3 t1)
+           (<a href="../last/index.html">last</a> t2 s) (<a href="../ends/index.html">ends</a> t4 t2))
+      (forall (t)
+        (iff (<a href="../convexHull/index.html">convexHull</a> t s)
+             (<a href="../intervalBetween/index.html">intervalBetween</a> t t3 t4)))))
+
+
+(forall (s y)
+  (if (<a href="../sequence/index.html">sequence</a> s)
+      (iff (<a href="../first/index.html">first</a> y s) (<a href="../nth/index.html">nth</a> y 1 s))))
+
+
+(forall (t s)
+  (if (<a href="../tseq/index.html">tseq</a> s)
+      (iff (<a href="../begins/index.html">begins</a> t s)
+           (exists (t1) (and (<a href="../first/index.html">first</a> t1 s) (<a href="../begins/index.html">begins</a> t t1))))))
+
+
+</pre>
+</body>
+
+</html>

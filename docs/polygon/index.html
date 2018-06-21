@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: polygon</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: polygon</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (p n)
+  (iff (<a href="../polygon/index.html">polygon</a> p n)
+       (exists (s)
+         (and (forall (c)
+                (iff (<a href="../member/index.html">member</a> c s) (<a href="../sideOf/index.html">sideOf</a> c p)))
+              (forall (x)
+                (if (<a href="../inside/index.html">inside</a> x p)
+                    (exists (c)
+                      (and (<a href="../member/index.html">member</a> c s)
+                        (or (<a href="../inside/index.html">inside</a> x c) (<a href="../endpoint/index.html">endpoint</a> x l))))))
+              (<a href="../closed/index.html">closed</a> p) (<a href="../planar/index.html">planar</a> p)
+              (<a href="../card/index.html">card</a> n s)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (p n)
+  (iff (<a href="../polygon/index.html">polygon</a> p n)
+       (exists (s)
+         (and (forall (c)
+                (iff (<a href="../member/index.html">member</a> c s) (<a href="../sideOf/index.html">sideOf</a> c p)))
+              (forall (x)
+                (if (<a href="../inside/index.html">inside</a> x p)
+                    (exists (c)
+                      (and (<a href="../member/index.html">member</a> c s)
+                        (or (<a href="../inside/index.html">inside</a> x c) (<a href="../endpoint/index.html">endpoint</a> x l))))))
+              (<a href="../closed/index.html">closed</a> p) (<a href="../planar/index.html">planar</a> p)
+              (<a href="../card/index.html">card</a> n s)))))
+
+
+(forall (p)
+  (iff (<a href="../quadrilateral/index.html">quadrilateral</a> p) (<a href="../polygon/index.html">polygon</a> p 4)))
+
+
+(forall (r)
+  (iff (<a href="../polygon2/index.html">polygon2</a> r)
+       (exists (c) (and (<a href="../border/index.html">border</a> c r) (<a href="../polygon/index.html">polygon</a> c)))))
+
+
+</pre>
+</body>
+
+</html>

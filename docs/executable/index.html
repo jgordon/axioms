@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: executable</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: executable</h1>
+<pre>(executable e a c)</pre><p>Action e is executable by agent a under</p><h2>Characterizing Axioms</h2><pre>(forall (e a c t)
+  (iff (<a href="../executable/index.html">executable</a> e a c t)
+       (exists (s)
+         (and (<a href="../enabled/index.html">enabled</a> s e t)
+              (or (exists (e1)
+                    (and (<a href="../dcause/index.html">dcause</a>' e1 a e) (<a href="../possible/index.html">possible</a> e1 c)))
+                  (exists (e2)
+                    (and (<a href="../cause/index.html">cause</a> e2 e)
+                         (<a href="../executable/index.html">executable</a> e2 a c t))))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e a c t)
+  (iff (<a href="../executable/index.html">executable</a> e a c t)
+       (exists (s)
+         (and (<a href="../enabled/index.html">enabled</a> s e t)
+              (or (exists (e1)
+                    (and (<a href="../dcause/index.html">dcause</a>' e1 a e) (<a href="../possible/index.html">possible</a> e1 c)))
+                  (exists (e2)
+                    (and (<a href="../cause/index.html">cause</a> e2 e)
+                         (<a href="../executable/index.html">executable</a> e2 a c t))))))))
+
+
+</pre>
+</body>
+
+</html>

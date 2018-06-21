@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: pair0</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: pair0</h1>
+<pre>(pair0 p)</pre><p>p is an ordered pair.</p><h2>Characterizing Axioms</h2><pre>(forall (p)
+  (iff (<a href="../pair0/index.html">pair0</a> p)
+       (exists (x y) (<a href="../pair/index.html">pair</a> p x y))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (p x y e1 e2 e3)
+  (if (and (<a href="../pair0/index.html">pair0</a>' e1 p) (<a href="../first/index.html">first</a>' e2 x p) (<a href="../second/index.html">second</a>' e3 y p)
+           (<a href="../Rexist/index.html">Rexist</a> e1) (<a href="../Rexist/index.html">Rexist</a> e2) (<a href="../Rexist/index.html">Rexist</a> e3))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity/index.html">compositeEntity</a> p)
+             (<a href="../doubleton/index.html">doubleton</a> s1 x y) (<a href="../componentsOf/index.html">componentsOf</a> s1 p)
+             (<a href="../singleton/index.html">singleton</a> s2 e1) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 p)
+             (<a href="../doubleton/index.html">doubleton</a> s3 e2 e3) (<a href="../relationsOf/index.html">relationsOf</a> s3 p)))))
+
+
+(forall (p)
+  (iff (<a href="../pair0/index.html">pair0</a> p)
+       (exists (x y) (<a href="../pair/index.html">pair</a> p x y))))
+
+
+</pre>
+</body>
+
+</html>

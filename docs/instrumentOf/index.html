@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: instrumentOf</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: instrumentOf</h1>
+<pre>(instrumentOf x e)</pre><p>x is an instrument used in e.</p><h2>Characterizing Axioms</h2><pre>(forall (y e)
+  (iff (<a href="../instrumentOf/index.html">instrumentOf</a> y e)
+       (exists (a e1)
+         (and (<a href="../agentOf/index.html">agentOf</a> a e1) (<a href="../changeIn/index.html">changeIn</a>' e1 y)
+              (or (<a href="../cause/index.html">cause</a> e1 e)
+                  (exists (e2)
+                    (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../and'/index.html">and'</a> e e1 e2))))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (y e)
+  (iff (<a href="../instrumentOf/index.html">instrumentOf</a> y e)
+       (exists (a e1)
+         (and (<a href="../agentOf/index.html">agentOf</a> a e1) (<a href="../changeIn/index.html">changeIn</a>' e1 y)
+              (or (<a href="../cause/index.html">cause</a> e1 e)
+                  (exists (e2)
+                    (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../and'/index.html">and'</a> e e1 e2))))))))
+
+
+</pre>
+</body>
+
+</html>

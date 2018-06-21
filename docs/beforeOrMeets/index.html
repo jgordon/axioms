@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: beforeOrMeets</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: beforeOrMeets</h1>
+<pre>(beforeOrMeets t1 t2)</pre><p>The end of t1 is before or equal to the</p><h2>Characterizing Axioms</h2><pre>(forall (t1 t2)
+  (iff (<a href="../beforeOrMeets/index.html">beforeOrMeets</a> t1 t2)
+       (exists (t3 t4)
+         (and (<a href="../ends/index.html">ends</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2)
+              (or (<a href="../before/index.html">before</a> t3 t4) (equal t3 t4))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e e1 e2)
+  (iff (<a href="../eventSequence/index.html">eventSequence</a> e e1 e2)
+       (and (<a href="../event/index.html">event</a> e1) (<a href="../event/index.html">event</a> e2) (<a href="../and'/index.html">and'</a> e e1 e2) (<a href="../beforeOrMeets/index.html">beforeOrMeets</a> e1 e2))))
+
+
+(forall (t1 t2)
+  (iff (<a href="../beforeOrMeets/index.html">beforeOrMeets</a> t1 t2)
+       (exists (t3 t4)
+         (and (<a href="../ends/index.html">ends</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2)
+              (or (<a href="../before/index.html">before</a> t3 t4) (equal t3 t4))))))
+
+
+</pre>
+</body>
+
+</html>

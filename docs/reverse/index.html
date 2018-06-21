@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: reverse</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: reverse</h1>
+<pre>(reverse s1 s)</pre><p>s1 is the reverse of scale s.</p><h2>Characterizing Axioms</h2><pre>(forall (s1 s)
+   (iff (<a href="../reverse/index.html">reverse</a> s1 s)
+        (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s)
+             (forall (x y)
+                (and (iff (<a href="../inScale/index.html">inScale</a> x s) (<a href="../inScale/index.html">inScale</a> x s1))
+                     (iff (<a href="../lts/index.html">lts</a> x y s) (<a href="../lts/index.html">lts</a> y x s1)))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (s1 s)
+   (iff (<a href="../reverse/index.html">reverse</a> s1 s)
+        (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s)
+             (forall (x y)
+                (and (iff (<a href="../inScale/index.html">inScale</a> x s) (<a href="../inScale/index.html">inScale</a> x s1))
+                     (iff (<a href="../lts/index.html">lts</a> x y s) (<a href="../lts/index.html">lts</a> y x s1)))))))
+
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,855 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: member</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: member</h1>
+<pre>(member x s)</pre><p>x is a member of s.</p><h2>Characterizing Axioms</h2><pre>(forall (x s)
+  (if (<a href="../member/index.html">member</a> x s)
+      (<a href="../set/index.html">set</a> s)))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (f a1 a2 s)
+      (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../zAxis/index.html">zAxis</a> a3 f) (<a href="../origin/index.html">origin</a> o f))
+          (<a href="../member/index.html">member</a> o a3)))
+
+
+   (forall (p s f)
+      (if (<a href="../polyhedron/index.html">polyhedron</a> p s)
+          (iff (<a href="../face/index.html">face</a> f p) (<a href="../member/index.html">member</a> f s))))
+
+
+   (forall (p s)
+      (iff (<a href="../cube/index.html">cube</a> p s)
+           (and (<a href="../polyhedron/index.html">polyhedron</a> p s)
+                (forall (f)
+                   (if (<a href="../member/index.html">member</a> f s) (<a href="../square/index.html">square</a> f))))))
+
+
+   (forall (p s)
+      (iff (<a href="../polyhedron/index.html">polyhedron</a> p s)
+           (exists ( r)
+              (and (<a href="../surface/index.html">surface</a> r p) (<a href="../closed/index.html">closed</a> r)
+                   (forall (f)
+                      (if (<a href="../member/index.html">member</a> f s) (and (<a href="../polygon2/index.html">polygon2</a> f) (<a href="../inside/index.html">inside</a> f r))))
+                   (forall (x)
+                      (if (and (<a href="../point/index.html">point</a> x) (<a href="../inside/index.html">inside</a> x r))
+                          (exists (f)
+                             (and (<a href="../member/index.html">member</a> f s) (<a href="../subfigure/index.html">subfigure</a> x f)))))
+                   (forall (x)
+                      (if (and (<a href="../point/index.html">point</a> x) (<a href="../member/index.html">member</a> f1 s) (<a href="../member/index.html">member</a> f2 s)
+                               (<a href="../inside/index.html">inside</a> x f1) (<a href="../inside/index.html">inside</a> x f2))
+                          (equal f1 f2)))))))
+
+
+   (forall (p s)
+      (iff (<a href="../rectangularParallelepiped/index.html">rectangularParallelepiped</a> p s)
+           (and (<a href="../polyhedron/index.html">polyhedron</a> p s)
+                (forall (f)
+                   (if (<a href="../member/index.html">member</a> f s) (<a href="../rectangle/index.html">rectangle</a> f))))))
+
+
+   (forall (s1 f)
+      (iff (<a href="../vertical3/index.html">vertical3</a> s1 f)
+           (exists (s)
+              (and (<a href="../domain/index.html">domain</a> s f) (<a href="../subset/index.html">subset</a> s1 s) (not (<a href="../null/index.html">null</a> s1))
+                   (not (exists (x1 x2)
+                           (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
+                                (or (<a href="../rightOf/index.html">rightOf</a> x1 x2 f)
+                                    (<a href="../above2/index.html">above2</a> x1 x2 f)))))))))
+
+
+   (forall (x s0 s1)
+      (if (and (<a href="../onScale/index.html">onScale</a> x s1) (<a href="../Hi/index.html">Hi</a> s1 s0) (etc))
+          (exists (s2 s3 s4 n3 n4)
+             (and (<a href="../componentsOf/index.html">componentsOf</a> s2 s0) (<a href="../union/index.html">union</a> s2 s3 s4)
+                  (forall (y) (iff (<a href="../member/index.html">member</a> y s3) (<a href="../lts/index.html">lts</a> y x s0)))
+                  (forall (z) (iff (<a href="../member/index.html">member</a> z s4) (<a href="../lts/index.html">lts</a> x z s0)))
+                  (<a href="../card/index.html">card</a> n3 s3) (<a href="../card/index.html">card</a> n4 s4) (<a href="../lt/index.html">lt</a> n4 n3)))))
+
+
+   (forall (z1 x f)
+      (iff (<a href="../zCoordinate/index.html">zCoordinate</a> z1 x f)
+           (exists (v a1)
+              (and (<a href="../vertical3/index.html">vertical3</a> v f) (<a href="../member/index.html">member</a> x v) (<a href="../zAxis/index.html">zAxis</a> a3 f)
+                   (<a href="../member/index.html">member</a> z1 v) (<a href="../member/index.html">member</a> z1 a3)))))
+
+
+(forall (a e c)
+  (iff (<a href="../able/index.html">able</a> a e c)
+       (exists (s s1 e1)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e) (<a href="../cause/index.html">cause</a>' e1 a e) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
+              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../possible/index.html">possible</a> e1 c))))))
+
+
+(forall (b p)
+  (if (<a href="../body/index.html">body</a> b p)
+      (and (<a href="../spatialSystem/index.html">spatialSystem</a> b)
+           (exists (s)
+             (and (<a href="../componentsOf/index.html">componentsOf</a> s b)
+                  (forall (x)
+                    (iff (<a href="../member/index.html">member</a> x s) (<a href="../bodyPart/index.html">bodyPart</a> x p))))))))
+
+
+(forall (d t u)
+  (if (<a href="../interval/index.html">interval</a> t)
+      (iff (<a href="../durationOf/index.html">durationOf</a> d t u)
+           (exists (s)
+             (and (<a href="../concatenation/index.html">concatenation</a> t s)
+                  (forall (t1)
+                    (if (<a href="../member/index.html">member</a> t1 s) (<a href="../sameDuration/index.html">sameDuration</a> t1 u)))
+                  (<a href="../card/index.html">card</a> d s))))))
+
+
+(forall (e s)
+  (if (<a href="../disjunction/index.html">disjunction</a> e s)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> s)
+           (iff (<a href="../Rexist/index.html">Rexist</a> e)
+                (exists (e1)
+                  (and (<a href="../member/index.html">member</a> e1 s) (<a href="../Rexist/index.html">Rexist</a> e1)))))))
+
+
+(forall (e s)
+  (if (and (<a href="../sequence/index.html">sequence</a>' e s) (<a href="../Rexist/index.html">Rexist</a> e)
+           (exists (x) (<a href="../inSeq/index.html">inSeq</a> x s)))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
+             (forall (x) (iff (<a href="../member/index.html">member</a> x s1) (<a href="../inSeq/index.html">inSeq</a> x s)))
+             (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
+             (<a href="../singleton/index.html">singleton</a> s2 e) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 s)
+             (forall (e1)
+               (iff (<a href="../member/index.html">member</a> e1 s3)
+                    (exists (x y)
+                      (and (<a href="../beforeInSeq/index.html">beforeInSeq</a>' e1 x y s)
+                           (<a href="../Rexist/index.html">Rexist</a> e1)))))
+             (<a href="../relationsOf/index.html">relationsOf</a> s3 s)))))
+
+
+(forall (e x y s1 s m n u)
+  (if (and (forall (z)
+             (if (<a href="../member/index.html">member</a> z s1) (<a href="../set/index.html">set</a> z)))
+           (exists (w)
+             (and (<a href="../member/index.html">member</a> w s1) (<a href="../null/index.html">null</a> w)))
+           (<a href="../subset/index.html">subset</a>' e x y)
+           (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
+           (<a href="../card/index.html">card</a>' m n u))
+      (<a href="../measure/index.html">measure</a> m s)))
+
+
+(forall (e x y s1 s)
+   (if (and (<a href="../at/index.html">at</a>' e x y s1) (<a href="../Hi/index.html">Hi</a> s1 s) (etc))
+       (exists (c a g g1)
+          (and (<a href="../member/index.html">member</a> e c) (<a href="../goal/index.html">goal</a> g a)
+               (or (<a href="../causalComplex/index.html">causalComplex</a> c g)
+                   (and (<a href="../not'/index.html">not'</a> g1 g) (<a href="../causalComplex/index.html">causalComplex</a> c g1)))))))
+
+
+(forall (e x)
+  (iff (<a href="../propOrRelOf/index.html">propOrRelOf</a> e x)
+       (exists (s)
+         (and (<a href="../member/index.html">member</a> e s)
+              (or (<a href="../propertiesOf/index.html">propertiesOf</a> s x) (<a href="../relationsOf/index.html">relationsOf</a> s x))))))
+
+
+(forall (e x)
+  (iff (<a href="../relationOf/index.html">relationOf</a> e x)
+       (exists (s)
+         (and (<a href="../relationsOf/index.html">relationsOf</a> s x) (<a href="../member/index.html">member</a> e s)))))
+
+
+(forall (e1 e)
+   (if (<a href="../subevent/index.html">subevent</a> e1 e)
+        (exists (s1 s2 s3)
+          (and (<a href="../compositeEntity/index.html">compositeEntity</a> e)
+               (<a href="../componentsOf/index.html">componentsOf</a> s1 e) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 e)
+               (<a href="../relationsOf/index.html">relationsOf</a> s3 e)
+               (forall (e2)
+                 (iff (<a href="../member/index.html">member</a> e2 s1) (<a href="../subevent/index.html">subevent</a> e2 e)))
+               (forall (e2)
+                 (if (<a href="../member/index.html">member</a> e2 s1)
+                     (exists (e3)
+                       (and (<a href="../event/index.html">event</a>' e3 e2) (<a href="../member/index.html">member</a> e3 s2)))))
+               (forall (e2)
+                 (if (<a href="../member/index.html">member</a> e2 s1)
+                     (exists (e3)
+                       (and (<a href="../subevent/index.html">subevent</a>' e3 e2 e)
+                            (<a href="../member/index.html">member</a> e3 s3)))))))))
+
+
+(forall (e1 e)
+  (iff (<a href="../partialInstance/index.html">partialInstance</a> e1 e)
+       (forall (s x)
+         (if (and (<a href="../member/index.html">member</a> x s) (<a href="../parameters/index.html">parameters</a> s e))
+             (exists (x1 s1)
+               (and (<a href="../subst/index.html">subst</a> x e x1 e1) (<a href="../typelt/index.html">typelt</a> x s1)
+                    (or (<a href="../member/index.html">member</a> x1 s1)
+                        (exists (s2)
+                          (and (<a href="../typelt/index.html">typelt</a> x1 s2)
+                               (<a href="../subset/index.html">subset</a> s2 s1))))))))))
+
+
+(forall (e1 e2 q c)
+  (iff (<a href="../tcauseq/index.html">tcauseq</a> e1 e2 q c)
+       (exists (s)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likelihood/index.html">likelihood</a> q s1 c)
+              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../cause/index.html">cause</a> e1 e2))))))
+
+
+(forall (e1 e2 s)
+  (iff (<a href="../enable0/index.html">enable0</a> e1 e2 s)
+       (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
+            (not (<a href="../cause/index.html">cause</a> e1 e2)))))
+
+
+(forall (e1 e2)
+  (if (<a href="../cause0/index.html">cause0</a> e1 e2)
+      (exists (s)
+        (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../causallyInvolved/index.html">causallyInvolved</a> e1 e2)
+       (exists (s) (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../tcause/index.html">tcause</a> e1 e2)
+       (exists (s c)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likely/index.html">likely</a> s1 c)
+              (if (<a href="../Rexist/index.html">Rexist</a> s)
+                  (<a href="../cause/index.html">cause</a> e1 e2))))))
+
+
+(forall (e1 y x)
+  (iff (<a href="../holdsFor/index.html">holdsFor</a> e1 y x)
+       (exists (s e2)
+         (and (<a href="../subst/index.html">subst</a> y e2 x e1) (<a href="../typelt/index.html">typelt</a> x s) (<a href="../member/index.html">member</a> y s)
+              (<a href="../Rexist/index.html">Rexist</a> e2)))))
+
+
+(forall (f s)
+  (iff (<a href="../identityFunction/index.html">identityFunction</a> f s)
+       (and (<a href="../function/index.html">function</a> f s s)
+            (forall (x) (if (<a href="../member/index.html">member</a> x s) (<a href="../map/index.html">map</a> f x x))))))
+
+
+(forall (f s1 s2)
+  (iff (<a href="../function0/index.html">function0</a> f s1 s2)
+       (and (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2) (<a href="../set/index.html">set</a> f)
+            A function is a set of pairs where the first elements
+            come from s1 and the second elements come from s2.
+            (forall (p)
+              (if (<a href="../member/index.html">member</a> p f)
+                  (exists (x y)
+                    (and (<a href="../member/index.html">member</a> x s1) (<a href="../member/index.html">member</a> y s2)
+                         (<a href="../pair/index.html">pair</a> p x y)))))
+            There is a value of the function for every element of
+            s1.
+            (forall (x)
+              (if (<a href="../member/index.html">member</a> x s1)
+                  (exists (p)
+                    (and (<a href="../member/index.html">member</a> p f) (<a href="../first/index.html">first</a> x p)))))
+            The value is unique.
+            (forall (p1 p2 x)
+              (if (and (<a href="../first/index.html">first</a> x p1) (<a href="../first/index.html">first</a> x p2)
+                       (<a href="../member/index.html">member</a> p1 f) (<a href="../member/index.html">member</a> p2 f))
+                  (equal p1 p2)))
+            Every element of s2 is the value of a member of s1 under
+            the function f.
+            (forall (y)
+              (if (<a href="../member/index.html">member</a> y s2)
+                  (exists (p)
+                    (and (<a href="../member/index.html">member</a> p f) (<a href="../second/index.html">second</a> y p))))))))
+
+
+(forall (f x y)
+  (iff (<a href="../map/index.html">map</a> f x y)
+       (exists (s1 s2 p)
+         (and (<a href="../function0/index.html">function0</a> f s1 s2) (<a href="../member/index.html">member</a> p f)
+              (<a href="../first/index.html">first</a> x p) (<a href="../second/index.html">second</a> y p)))))
+
+
+(forall (n s t u)
+  (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
+           (forall (t1) (if (<a href="../member/index.html">member</a> t1 t) (<a href="../durationOf/index.html">durationOf</a> 1 t1 u)))
+           (<a href="../rate/index.html">rate</a> n s t))
+      (<a href="../rate/index.html">rate</a> n s u)))
+
+
+(forall (n s)
+  (iff (<a href="../card/index.html">card</a> n s)
+       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../set/index.html">set</a> s)
+            (or (and (<a href="../null/index.html">null</a> s) (equal n 0))
+                (exists (s1 x m)
+                  (and (<a href="../addElt/index.html">addElt</a> s s1 x)
+                       (not (<a href="../member/index.html">member</a> x s1))
+                       (<a href="../card/index.html">card</a> m s1)
+                       (<a href="../sum/index.html">sum</a> n m 1)))))))
+
+
+(forall (p n)
+  (iff (<a href="../polygon/index.html">polygon</a> p n)
+       (exists (s)
+         (and (forall (c)
+                (iff (<a href="../member/index.html">member</a> c s) (<a href="../sideOf/index.html">sideOf</a> c p)))
+              (forall (x)
+                (if (<a href="../inside/index.html">inside</a> x p)
+                    (exists (c)
+                      (and (<a href="../member/index.html">member</a> c s)
+                        (or (<a href="../inside/index.html">inside</a> x c) (<a href="../endpoint/index.html">endpoint</a> x l))))))
+              (<a href="../closed/index.html">closed</a> p) (<a href="../planar/index.html">planar</a> p)
+              (<a href="../card/index.html">card</a> n s)))))
+
+
+(forall (p s1)
+  (if (and (<a href="../person/index.html">person</a> p) (<a href="../bodyPartsOf/index.html">bodyPartsOf</a> s1 p))
+      (exists (s2)
+        (and (<a href="../subset/index.html">subset</a> s2 s1)
+             (forall (x)
+               (if (<a href="../member/index.html">member</a> x s2)
+                   (exists (e1 e2 y z)
+                     (and (<a href="../move/index.html">move</a>' e2 x y z) (<a href="../will/index.html">will</a>' e1 p e2)
+                          (<a href="../dcause/index.html">dcause</a> e1 e2)))))))))
+
+
+(forall (p x)
+  (if (and (<a href="../person/index.html">person</a> p) (<a href="../bodyPartsOf/index.html">bodyPartsOf</a> s1 p))
+      (exists (s2)
+        (and (<a href="../subset/index.html">subset</a> s2 s1)
+             (forall (o)
+               (iff (<a href="../member/index.html">member</a> o s2) (<a href="../senseOrgan/index.html">senseOrgan</a> o p)))))))
+
+
+(forall (s e t1)
+  (if (and (<a href="../causalComplex/index.html">causalComplex</a> s e)
+           (forall (e1) (if (<a href="../member/index.html">member</a> e1 s) (<a href="../atTime/index.html">atTime</a> e1 t1))))
+      (exists (t2)
+        (and (not (<a href="../before/index.html">before</a> t2 t1)) (<a href="../atTime/index.html">atTime</a> e t2)))))
+
+
+(forall (s e)
+  (iff (<a href="../difficultiesWith/index.html">difficultiesWith</a> s e)
+       (forall (e1)
+         (iff (<a href="../member/index.html">member</a> e1 s)
+              (exists (e2)
+                (and (<a href="../not'/index.html">not'</a> e2 e) (<a href="../tcause/index.html">tcause</a> e1 e2)))))))
+
+
+(forall (s e)
+  (iff (<a href="../parameters/index.html">parameters</a> s e)
+       (forall (x)
+         (iff (<a href="../member/index.html">member</a> x s)
+              (exists (s1)
+                (and (<a href="../arg*/index.html">arg*</a> x e) (<a href="../typelt/index.html">typelt</a> x s1)))))))
+
+
+(forall (s n1 n2)
+  (iff (<a href="../ints/index.html">ints</a> s n1 n2)
+       (and (<a href="../posInteger/index.html">posInteger</a> n1) (<a href="../posInteger/index.html">posInteger</a> n2) (<a href="../set/index.html">set</a> s)
+            (forall (n)
+              (iff (<a href="../member/index.html">member</a> n s)
+                   (and (<a href="../posInteger/index.html">posInteger</a> n) (<a href="../leq/index.html">leq</a> n1 n) (<a href="../leq/index.html">leq</a> n n2)))))))
+
+
+(forall (s s0 t f n)
+  (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../set/index.html">set</a> t) (<a href="../powerSet/index.html">powerSet</a> s0 s)
+           (forall (t1)
+             (if (<a href="../member/index.html">member</a> t1 t) (<a href="../interval/index.html">interval</a> t1)))
+           (<a href="../function/index.html">function</a> f t s0)
+           (forall (t1 s1)
+             (if (<a href="../map/index.html">map</a> f t1 s1)
+                 (and (forall (e)
+                        (if (<a href="../member/index.html">member</a> e s1) (<a href="../happensIn/index.html">happensIn</a> e t1)))
+                      (<a href="../card/index.html">card</a> n s1)))))
+      (<a href="../rate/index.html">rate</a> n s t)))
+
+
+(forall (s s0)
+  (iff (<a href="../rateScale/index.html">rateScale</a> s s0)
+       (and (forall (s1) (if (<a href="../member/index.html">member</a> s1 s0) (<a href="../eventualities/index.html">eventualities</a> s1)))
+            (exists (u e s1 s2)
+              (and (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../lts/index.html">lts</a>' e s1 s2 s0)
+                   (forall (s3 s4)
+                     (iff (and (<a href="../lts/index.html">lts</a>' e s3 s4 s0) (<a href="../Rexist/index.html">Rexist</a> e))
+                          (exists (r1 r2)
+                            (and (<a href="../rate/index.html">rate</a> r1 s3 u) (<a href="../rate/index.html">rate</a> r2 s4 u)
+                                 (<a href="../lt/index.html">lt</a> r1 r2)))))
+                   (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e))))))
+
+
+(forall (s s1 e1 e)
+  (if (and (<a href="../causalComplex/index.html">causalComplex</a> s e) (<a href="../member/index.html">member</a> e1 s) (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1))
+      (not (<a href="../causalComplex/index.html">causalComplex</a> s1 e))))
+
+
+(forall (s s1 s2)
+  (iff (<a href="../intersection/index.html">intersection</a> s s1 s2)
+       (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
+            (forall (x)
+              (iff (<a href="../member/index.html">member</a> x s)
+                   (and (<a href="../member/index.html">member</a> x s1) (<a href="../member/index.html">member</a> x s2)))))))
+
+
+(forall (s s1 s2)
+  (iff (<a href="../setdiff/index.html">setdiff</a> s s1 s2)
+       (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
+            (forall (x)
+              (iff (<a href="../member/index.html">member</a> x s)
+                   (and (<a href="../member/index.html">member</a> x s1)
+                        (not (<a href="../member/index.html">member</a> x s2))))))))
+
+
+(forall (s s1 s2)
+  (iff (<a href="../union/index.html">union</a> s s1 s2)
+       (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
+            (forall (x)
+              (iff (<a href="../member/index.html">member</a> x s)
+                   (or (<a href="../member/index.html">member</a> x s1) (<a href="../member/index.html">member</a> x s2)))))))
+
+
+(forall (s s1 t u d d1 d2)
+  (if (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../tseq/index.html">tseq</a> s1) (not (<a href="../member/index.html">member</a> t s1)) (<a href="../addElt/index.html">addElt</a> s s1 t)
+           (<a href="../durationOf/index.html">durationOf</a> d1 s1 u) (<a href="../durationOf/index.html">durationOf</a> d2 t u) (<a href="../sum/index.html">sum</a> d d1 d2))
+      (<a href="../durationOf/index.html">durationOf</a> d s u)))
+
+
+(forall (s s1 x)
+  (iff (<a href="../addElt/index.html">addElt</a> s s1 x)
+       (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1)
+            (forall (y)
+              (iff (<a href="../member/index.html">member</a> y s)
+                   (or (equal y x) (<a href="../member/index.html">member</a> y s1)))))))
+
+
+(forall (s s1 x)
+  (iff (<a href="../deleteElt/index.html">deleteElt</a> s s1 x)
+       (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1)
+            (forall (y)
+              (iff (<a href="../member/index.html">member</a> y s)
+                   (and (<a href="../member/index.html">member</a> y s1) (<a href="../nequal/index.html">nequal</a> y x)))))))
+
+
+(forall (s t)
+  (if (<a href="../tseq/index.html">tseq</a> s)
+      (iff (<a href="../first/index.html">first</a> t s)
+           (and (<a href="../member/index.html">member</a> t s)
+                (forall (t1)
+                  (if (<a href="../member/index.html">member</a> t1 s)
+                      (or (equal t1 t) (<a href="../before/index.html">before</a> t t1))))))))
+
+
+(forall (s t)
+  (if (<a href="../tseq/index.html">tseq</a> s)
+      (iff (<a href="../last/index.html">last</a> t s)
+           (and (<a href="../member/index.html">member</a> t s)
+                (forall (t1)
+                  (if (<a href="../member/index.html">member</a> t1 s)
+                      (or (equal t1 t) (<a href="../before/index.html">before</a> t1 t))))))))
+
+
+(forall (s t1 t2)
+  (iff (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
+       (and (<a href="../member/index.html">member</a> t1 s) (<a href="../member/index.html">member</a> t2 s) (<a href="../before/index.html">before</a> t1 t2)
+            (not (exists (t)
+                   (and (<a href="../member/index.html">member</a> t s) (<a href="../before/index.html">before</a> t1 t)
+                        (<a href="../before/index.html">before</a> t t2)))))))
+
+
+(forall (s x e y e1)
+  (if (and (<a href="../dset/index.html">dset</a> s x e) (<a href="../subst/index.html">subst</a> x e y e1) (<a href="../Rexist/index.html">Rexist</a> e)
+           (<a href="../notSubsetTypelt/index.html">notSubsetTypelt</a> y s))
+      (iff (<a href="../member/index.html">member</a> y s) (<a href="../Rexist/index.html">Rexist</a> e1))))
+
+
+(forall (s)
+   (if (<a href="../scale/index.html">scale</a> s)
+       (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
+            (exists (s1 e x y s2 s3)
+               (and (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
+                    (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
+                    (<a href="../subset/index.html">subset</a> s2 s3) (<a href="../relationsOf/index.html">relationsOf</a> s3 s)
+                    (forall (e1)
+                       (if (<a href="../member/index.html">member</a> e1 s2)
+                           (exists (x1 y1)
+                              (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> y1 s1)
+                                   (<a href="../subst2/index.html">subst2</a> x1 y1 e1 x y e))))))))))
+
+
+(forall (s)
+  (if (<a href="../collective/index.html">collective</a> s)
+      (forall (a) (if (<a href="../member/index.html">member</a> a s) (<a href="../agent/index.html">agent</a> a)))))
+
+
+(forall (s)
+  (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)
+      (exists (s1 e x y)
+        (and (<a href="../lt/index.html">lt</a>' e x y)
+             (forall (n)
+               (if (<a href="../member/index.html">member</a> n s1)
+                   (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
+             (<a href="../member/index.html">member</a> 0 s1)
+             (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
+
+
+(forall (s)
+  (if (<a href="../set/index.html">set</a> s)
+      (iff (<a href="../Rexist/index.html">Rexist</a> s)
+           (forall (e)
+             (if (<a href="../member/index.html">member</a> e s) (<a href="../Rexist/index.html">Rexist</a> e))))))
+
+
+(forall (s)
+  (iff (<a href="../eventualities/index.html">eventualities</a> s)
+       (and (<a href="../set/index.html">set</a> s)
+            (forall (e)
+              (if (<a href="../member/index.html">member</a> e s)
+                  (<a href="../eventuality/index.html">eventuality</a> e))))))
+
+
+(forall (s)
+  (iff (<a href="../likelihoodScale/index.html">likelihoodScale</a> s)
+       (exists (s1 e r d1 d2)
+         (and (forall (d)
+                (iff (<a href="../member/index.html">member</a> d s1) (exists (e c) (<a href="../likelihood/index.html">likelihood</a> d e c))))
+              (<a href="../lowerLikelihood/index.html">lowerLikelihood</a>' r d1 d2)
+              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 r)))))
+
+
+(forall (s)
+  (iff (<a href="../null/index.html">null</a> s)
+       (and (<a href="../set/index.html">set</a> s)
+            (forall (x)
+              (not (<a href="../member/index.html">member</a> x s))))))
+
+
+(forall (s)
+  (iff (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s)
+       (exists (s1 e t1 t2)
+         (and (forall (t) (if (<a href="../member/index.html">member</a> t s1) (<a href="../interval/index.html">interval</a> t)))
+              (<a href="../shorterDuration/index.html">shorterDuration</a>' e t1 t2)
+              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
+
+
+(forall (s)
+  (iff (<a href="../tseq/index.html">tseq</a> s)
+       (and (forall (t) (if (<a href="../member/index.html">member</a> t s) (<a href="../temporalEntity/index.html">temporalEntity</a> t)))
+            (forall (t1 t2)
+              (if (and (<a href="../member/index.html">member</a> t1 s) (<a href="../member/index.html">member</a> t2 s))
+                  (and (or (equal t1 t2) (<a href="../before/index.html">before</a> t1 t2)
+                           (<a href="../before/index.html">before</a> t2 t1))
+                       (if (<a href="../before/index.html">before</a> t1 t2)
+                           (exists (t3)
+                             (and (not (<a href="../member/index.html">member</a> t3 s))
+                                  (<a href="../before/index.html">before</a> t1 t3)
+                                  (<a href="../before/index.html">before</a> t3 t2))))))))))
+
+
+(forall (s0 s)
+  (iff (<a href="../powerSet/index.html">powerSet</a> s0 s)
+       (forall (s1)
+         (iff (<a href="../member/index.html">member</a> s1 s0)
+              (<a href="../subset/index.html">subset</a> s1 s)))))
+
+
+(forall (s1 e x y)
+  (if (and (<a href="../lt/index.html">lt</a>' e x y)
+           (forall (n)
+             (if (<a href="../member/index.html">member</a> n s1)
+                 (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
+           (<a href="../member/index.html">member</a> 0 s1))
+      (exists (s)
+        (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)))))
+
+
+(forall (s1 e x y)
+  (if (and (forall (s2)
+             (if (<a href="../member/index.html">member</a> s2 s1)
+                 (<a href="../set/index.html">set</a> s2)))
+            (<a href="../subset/index.html">subset</a>' e x y))
+       (exists (s)
+          (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
+               (forall (z)
+                 (if (and (<a href="../member/index.html">member</a> z s1) (<a href="../null/index.html">null</a> z))
+                     (<a href="../bottom/index.html">bottom</a> z s)))))))
+
+
+(forall (s1 e2)
+  (iff (<a href="../minimallyProves/index.html">minimallyProves</a> s1 e2)
+       (and (not (<a href="../member/index.html">member</a> e2 s1))
+            (<a href="../imply/index.html">imply</a> s1 e2)
+            (not (exists (s2)
+                   (and (<a href="../properSubset/index.html">properSubset</a> s2 s1)
+                        (<a href="../imply/index.html">imply</a> s2 e2)))))))
+
+
+(forall (s1 f)
+  (iff (<a href="../horizontal2/index.html">horizontal2</a> s1 f)
+       (exists (s)
+         (and (<a href="../domain/index.html">domain</a> s f) (<a href="../subset/index.html">subset</a> s1 s) (not (<a href="../null/index.html">null</a> s1))
+              (not (exists (x1 x2)
+                     (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
+                          (or (<a href="../above2/index.html">above2</a> x1 x2 f)
+                              (<a href="../above3/index.html">above3</a> x1 x2 f)))))))))
+
+
+(forall (s1 f)
+  (iff (<a href="../vertical2/index.html">vertical2</a> s1 f)
+       (exists (s)
+         (and (<a href="../domain/index.html">domain</a> s f) (<a href="../subset/index.html">subset</a> s1 s) (not (<a href="../null/index.html">null</a> s1))
+              (not (exists (x1 x2)
+                     (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
+                          (or (<a href="../rightOf/index.html">rightOf</a> x1 x2 f)
+                              (<a href="../above3/index.html">above3</a> x1 x2 f)))))))))
+
+
+(forall (s1 s a)
+  (iff (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
+       (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../subset/index.html">subset</a> s1 s) (<a href="../agent/index.html">agent</a> a)
+            (forall (e)
+              (iff (<a href="../member/index.html">member</a> e s1)
+                   (and (not (<a href="../agentOf/index.html">agentOf</a> a e))
+                        (not (exists (e1)
+                               (and (<a href="../agentOf/index.html">agentOf</a> a e1)
+                                    (<a href="../cause/index.html">cause</a> e1 e))))))))))
+
+
+(forall (s1 s2)
+  (if (<a href="../set/index.html">set</a> s1)
+      (iff (equal s1 s2)
+           (and (<a href="../set/index.html">set</a> s2)
+                (forall (x)
+                  (iff (<a href="../member/index.html">member</a> x s1)
+                       (<a href="../member/index.html">member</a> x s2)))))))
+
+
+(forall (s1 s2)
+  (if (and (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2))
+      (iff (<a href="../disjoint/index.html">disjoint</a> s1 s2)
+           (not (exists (x)
+                  (and (<a href="../member/index.html">member</a> x s1) (<a href="../member/index.html">member</a> x s2)))))))
+
+
+(forall (s1 s2)
+  (iff (<a href="../subset/index.html">subset</a> s1 s2)
+       (and (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
+            (forall (x)
+              (if (<a href="../member/index.html">member</a> x s1)
+                  (<a href="../member/index.html">member</a> x s2))))))
+
+
+(forall (s1 x y e)
+  (iff (<a href="../rangeFd/index.html">rangeFd</a> s1 y x e)
+       (forall (y1)
+         (iff (<a href="../member/index.html">member</a> y1 s1)
+              (exists (x1) (<a href="../skfct/index.html">skfct</a> y1 y x1 x e))))))
+
+
+(forall (s1)
+  (iff (<a href="../frequent/index.html">frequent</a> s1)
+       (exists (s s0 s2)
+         (and (<a href="../member/index.html">member</a> s1 s0) (<a href="../rateScale/index.html">rateScale</a> s s0) (<a href="../Hi/index.html">Hi</a> s2 s)
+              (<a href="../inScale/index.html">inScale</a> s1 s2)))))
+
+
+(forall (s2 x)
+  (if (<a href="../propertiesOf/index.html">propertiesOf</a> s2 x)
+      (and (<a href="../set/index.html">set</a> s2) (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+           (forall (e)
+             (if (<a href="../member/index.html">member</a> e s2)
+                 (exists (y)
+                   (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y x)
+                        (<a href="../onlyarg*/index.html">onlyarg*</a> y e))))))))
+
+
+(forall (s3 x)
+  (if (<a href="../relationsOf/index.html">relationsOf</a> s3 x)
+      (and (<a href="../set/index.html">set</a> s3) (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+           (forall (e)
+             (if (<a href="../member/index.html">member</a> e s3)
+                 (exists (y z)
+                   (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y x) (<a href="../arg*/index.html">arg*</a> y e)
+                        (<a href="../nequal/index.html">nequal</a> z y) (<a href="../arg*/index.html">arg*</a> z e))))))))
+
+
+(forall (t e)
+  (iff (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e)
+       (or (and (<a href="../instant/index.html">instant</a> t) (<a href="../atTime/index.html">atTime</a> e t)
+                (forall (t1)
+                  (if (<a href="../nequal/index.html">nequal</a> t1 t) (not (<a href="../atTime/index.html">atTime</a> e t1)))))
+           (and (<a href="../interval/index.html">interval</a> t) (<a href="../during/index.html">during</a> e t)
+                (forall (t1)
+                  (if (<a href="../atTime/index.html">atTime</a> e t1)
+                      (or (<a href="../insideTime/index.html">insideTime</a> t1 t) (<a href="../begins/index.html">begins</a> t1 t)
+                          (<a href="../ends/index.html">ends</a> t1 t)))))
+           (and (<a href="../tseq/index.html">tseq</a> t)
+                (forall (t1)
+                  (if (and (<a href="../member/index.html">member</a> t1 t) (<a href="../instant/index.html">instant</a> t1))
+                      (<a href="../atTime/index.html">atTime</a> e t1)))
+                (forall (t1)
+                  (if (and (<a href="../member/index.html">member</a> t1 t) (<a href="../interval/index.html">interval</a> t1))
+                      (<a href="../during/index.html">during</a> e t1)))
+                (forall (t1)
+                  (if (and (<a href="../instant/index.html">instant</a> t1) (<a href="../atTime/index.html">atTime</a> e t1))
+                      (or (<a href="../member/index.html">member</a> t1 t)
+                          (exists (t2)
+                            (and (<a href="../interval/index.html">interval</a> t2) (<a href="../member/index.html">member</a> t2 t)
+                                 (or (<a href="../begins/index.html">begins</a> t1 t2)
+                                     (<a href="../insideTime/index.html">insideTime</a> t1 t2)
+                                     (<a href="../ends/index.html">ends</a> t1 t2)))))))))))
+
+
+(forall (t s)
+  (if (<a href="../tseq/index.html">tseq</a> s)
+      (if (exists (t1)
+            (and (<a href="../member/index.html">member</a> t1 s)
+                 (or (equal t1 t) (<a href="../insideTime/index.html">insideTime</a> t t1))))
+          (<a href="../insideTime/index.html">insideTime</a> t s))))
+
+
+(forall (t s)
+  (if (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../insideTime/index.html">insideTime</a> t s))
+      (and (not (<a href="../begins/index.html">begins</a> t s)) (not (<a href="../ends/index.html">ends</a> t s))
+           (exists (t1)
+             (and (<a href="../member/index.html">member</a> t1 s)
+                  (or (equal t1 t) (<a href="../insideTime/index.html">insideTime</a> t t1)
+                      (<a href="../begins/index.html">begins</a> t t1) (<a href="../ends/index.html">ends</a> t t1)))))))
+
+
+(forall (t s)
+  (iff (<a href="../concatenation/index.html">concatenation</a> t s)
+       (and (<a href="../properInterval/index.html">properInterval</a> t)
+            (forall (t1) (if (<a href="../member/index.html">member</a> t1 s) (<a href="../properInterval/index.html">properInterval</a> t1)))
+            (exists (t1 t2)
+              (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../member/index.html">member</a> t2 s) (<a href="../begins/index.html">begins</a> t1 t2)))
+            (exists (t1 t2)
+              (and (<a href="../ends/index.html">ends</a> t1 t) (<a href="../member/index.html">member</a> t2 s) (<a href="../ends/index.html">ends</a> t1 t2)))
+            (forall (t1)
+              (if (<a href="../insideTime/index.html">insideTime</a> t1 t)
+                  (exists (t2)
+                    (and (<a href="../member/index.html">member</a> t2 s)
+                         (or (<a href="../insideTime/index.html">insideTime</a> t1 t2) (<a href="../begins/index.html">begins</a> t1 t2)
+                             (<a href="../ends/index.html">ends</a> t1 t2))))))
+            (forall (t1 t2)
+              (if (and (<a href="../member/index.html">member</a> t1 s) (<a href="../member/index.html">member</a> t2 s))
+                  (or (equal t1 t2) (not (<a href="../intOverlap/index.html">intOverlap</a> t1 t2))))))))
+
+
+(forall (t)
+  (iff (<a href="../timeScale/index.html">timeScale</a> t)
+       (exists (s e t2 t3)
+         (and (forall (t1)
+                (iff (<a href="../member/index.html">member</a> t1 s)
+                     (or (<a href="../instant/index.html">instant</a> t1) (<a href="../interval/index.html">interval</a> t1))))
+              (<a href="../before/index.html">before</a>' e t2 t3)
+              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> t s e)))))
+
+
+(forall (x e1 y e2)
+  (iff (<a href="../noSubstTypelt/index.html">noSubstTypelt</a> x e1 y e2)
+       (exists (s) (and (<a href="../typelt/index.html">typelt</a>' e1 x s) (<a href="../member/index.html">member</a> y s)))))
+
+
+(forall (x s y e1 e2)
+  (if (and (<a href="../typelt/index.html">typelt</a> x s) (<a href="../member/index.html">member</a> y s) (<a href="../subst/index.html">subst</a> x e1 y e2)
+           (<a href="../Rexist/index.html">Rexist</a> e1))
+      (<a href="../Rexist/index.html">Rexist</a> e2)))
+
+
+(forall (x s)
+  (if (<a href="../member/index.html">member</a> x s)
+      (<a href="../set/index.html">set</a> s)))
+
+
+(forall (x x1 s)
+  (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
+      (iff (<a href="../incompleteInstance/index.html">incompleteInstance</a> x1 x)
+           (and (exists (y y1 s1 p p1)
+                  (and (<a href="../member/index.html">member</a> y s) (<a href="../typelt/index.html">typelt</a> y s1)
+                       (<a href="../componentOf/index.html">componentOf</a> y1 x1) (<a href="../member/index.html">member</a> y1 s1)
+                       (<a href="../propOrRelOf/index.html">propOrRelOf</a> p x) (<a href="../arg*/index.html">arg*</a> y p)
+                       (<a href="../subst/index.html">subst</a> y1 p1 y p) (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1)))
+                (exists (p y)
+                  (and (<a href="../propOrRelOf/index.html">propOrRelOf</a> p x) (<a href="../arg*/index.html">arg*</a> y p)
+                       (forall (y1 p1)
+                         (if (<a href="../subst/index.html">subst</a> y1 p1 y p)
+                             (not (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))
+
+
+(forall (x x1 s)
+  (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
+      (iff (<a href="../patternInstance/index.html">patternInstance</a> x1 x)
+           (forall (y s1)
+             (if (and (<a href="../member/index.html">member</a> y s) (<a href="../typelt/index.html">typelt</a> y s1))
+                 (exists (y1)
+                        (and (<a href="../member/index.html">member</a> y1 s1) (<a href="../componentOf/index.html">componentOf</a> y1 x1)
+                             (forall (p)
+                               (if (and (<a href="../propOrRelOf/index.html">propOrRelOf</a> p x)
+                                        (<a href="../arg*/index.html">arg*</a> y p))
+                                   (exists (p1)
+                                          (and (<a href="../subst/index.html">subst</a> y1 p1 y p)
+                                               (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))))
+
+
+(forall (x y e s)
+  (if (and (<a href="../fd/index.html">fd</a> y x e) (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../typelt/index.html">typelt</a> x s) (<a href="../member/index.html">member</a> x1 s))
+      (exists (y1 e1)
+        (and (<a href="../subst2/index.html">subst2</a> x y e x1 y1 e1) (<a href="../Rexist/index.html">Rexist</a> e1)))))
+
+
+(forall (x)
+  (if (<a href="../pattern/index.html">pattern</a> x)
+      (iff (<a href="../patternParameters/index.html">patternParameters</a> s x)
+           (forall (y)
+             (iff (<a href="../member/index.html">member</a> y s)
+                  (exists (s1)
+                         (and (<a href="../componentOf/index.html">componentOf</a> y x)
+                              (<a href="../typelt/index.html">typelt</a> y s1))))))))
+
+
+(forall (x1 x f)
+  (iff (<a href="../xCoordinate/index.html">xCoordinate</a> x1 x f)
+       (exists (v a1)
+         (and (<a href="../vertical2/index.html">vertical2</a> v f) (<a href="../member/index.html">member</a> x v) (<a href="../xAxis/index.html">xAxis</a> a1 f)
+              (<a href="../member/index.html">member</a> x1 v) (<a href="../member/index.html">member</a> x1 a1)))))
+
+
+(forall (y x)
+  (iff (<a href="../componentOf/index.html">componentOf</a> y x)
+       (and (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+            (exists (s)
+              (and (<a href="../componentsOf/index.html">componentsOf</a> s x) (<a href="../member/index.html">member</a> y s))))))
+
+
+(forall (y1 x f)
+  (iff (<a href="../yCoordinate/index.html">yCoordinate</a> y1 x f)
+       (exists (h a2)
+         (and (<a href="../horizontal2/index.html">horizontal2</a> h f) (<a href="../member/index.html">member</a> x h) (<a href="../yAxis/index.html">yAxis</a> a2 f)
+              (<a href="../member/index.html">member</a> y1 h) (<a href="../member/index.html">member</a> y1 a2)))))
+
+
+(forall (y1 y x1 x e s1 s2)
+  (if (and (<a href="../skfct/index.html">skfct</a> y1 y x1 x e) (<a href="../typelt/index.html">typelt</a> x s1) (<a href="../rangeFd/index.html">rangeFd</a> s2 y x e))
+      (exists (f)
+        (and (<a href="../function0/index.html">function0</a> f s1 s2)
+             (forall (p)
+               (iff (<a href="../pair/index.html">pair</a> p x1 y1) (<a href="../member/index.html">member</a> p f)))))))
+
+
+</pre>
+</body>
+
+</html>

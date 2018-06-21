@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: will</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: will</h1>
+<h2>All Axioms</h2><pre>(forall (a e)
+  (if (<a href="../agent/index.html">agent</a> a)
+      (iff (<a href="../dcause/index.html">dcause</a> a e)
+           (exists (e1)
+             (and (<a href="../will/index.html">will</a>' e1 a e) (<a href="../dcause/index.html">dcause</a> e1 e))))))
+
+
+(forall (a e2)
+  (and (if (<a href="../eventuality/index.html">eventuality</a> a)
+           (iff (<a href="../cause/index.html">cause</a> a e2) (<a href="../cause0/index.html">cause0</a> a e2)))
+       (if (<a href="../agent/index.html">agent</a> a)
+           (iff (<a href="../cause/index.html">cause</a> a e2)
+                (exists (e1)
+                  (and (<a href="../will/index.html">will</a>' e1 a e2) (<a href="../cause0/index.html">cause0</a> e1 e2)))))
+       (if (not (or (<a href="../eventuality/index.html">eventuality</a> a) (<a href="../agent/index.html">agent</a> a)))
+           (not (<a href="../cause/index.html">cause</a> a e2)))))
+
+
+(forall (e1 a e)
+  (if (and (<a href="../will/index.html">will</a>' e1 a e) (<a href="../cause/index.html">cause</a> e1 e))
+      (<a href="../dcause/index.html">dcause</a> e1 e)))
+
+
+(forall (p s1)
+  (if (and (<a href="../person/index.html">person</a> p) (<a href="../bodyPartsOf/index.html">bodyPartsOf</a> s1 p))
+      (exists (s2)
+        (and (<a href="../subset/index.html">subset</a> s2 s1)
+             (forall (x)
+               (if (<a href="../member/index.html">member</a> x s2)
+                   (exists (e1 e2 y z)
+                     (and (<a href="../move/index.html">move</a>' e2 x y z) (<a href="../will/index.html">will</a>' e1 p e2)
+                          (<a href="../dcause/index.html">dcause</a> e1 e2)))))))))
+
+
+(forall (p)
+  (if (<a href="../person/index.html">person</a> p)
+      (exists (e1 e2 x)
+        (and (<a href="../lift/index.html">lift</a>' e2 p x) (<a href="../arm/index.html">arm</a> x p) (<a href="../will/index.html">will</a>' e1 p e2)
+             (<a href="../dcause/index.html">dcause</a> e1 e2)))))
+
+
+</pre>
+</body>
+
+</html>

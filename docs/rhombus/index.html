@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: rhombus</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: rhombus</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (p)
+  (iff (<a href="../rhombus/index.html">rhombus</a> p)
+       (and (<a href="../quadrilateral/index.html">quadrilateral</a> p)
+            (exists (d u)
+              (forall (c)
+                (if (<a href="../sideOf/index.html">sideOf</a> c p) (<a href="../length/index.html">length</a> d c u)))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (p)
+  (iff (<a href="../rhombus/index.html">rhombus</a> p)
+       (and (<a href="../quadrilateral/index.html">quadrilateral</a> p)
+            (exists (d u)
+              (forall (c)
+                (if (<a href="../sideOf/index.html">sideOf</a> c p) (<a href="../length/index.html">length</a> d c u)))))))
+
+
+(forall (p)
+  (iff (<a href="../square/index.html">square</a> p)
+       (and (<a href="../rhombus/index.html">rhombus</a> p) (<a href="../rectangle/index.html">rectangle</a> p))))
+
+
+</pre>
+</body>
+
+</html>

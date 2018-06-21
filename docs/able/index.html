@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: able</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: able</h1>
+<pre>(able a e c)</pre><p>Agent a is able to do e under constraints c.</p><h2>Characterizing Axioms</h2><pre>(forall (a e c)
+  (iff (<a href="../able/index.html">able</a> a e c)
+       (exists (s s1 e1)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e) (<a href="../cause/index.html">cause</a>' e1 a e) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
+              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../possible/index.html">possible</a> e1 c))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (a e c)
+  (iff (<a href="../able/index.html">able</a> a e c)
+       (exists (s s1 e1)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e) (<a href="../cause/index.html">cause</a>' e1 a e) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
+              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../possible/index.html">possible</a> e1 c))))))
+
+
+(forall (e1 a e c)
+  (iff (<a href="../ability/index.html">ability</a> e1 a e c) (<a href="../able/index.html">able</a>' e1 a e c)))
+
+
+</pre>
+</body>
+
+</html>

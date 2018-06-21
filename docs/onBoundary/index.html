@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: onBoundary</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: onBoundary</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (f1 f2)
+  (iff (<a href="../onBoundary/index.html">onBoundary</a> f1 f2)
+       (or (and (<a href="../point/index.html">point</a> f1) (<a href="../curve/index.html">curve</a> f2) (<a href="../endpoint/index.html">endpoint</a> f1 f2))
+           (exists (b) (and (<a href="../region/index.html">region</a> f2) (<a href="../border/index.html">border</a> b f2) (<a href="../inside/index.html">inside</a> f1 b)))
+           (exists (b)
+             (and (<a href="../volume/index.html">volume</a> f2) (<a href="../surface/index.html">surface</a> b f2) (<a href="../inside/index.html">inside</a> f1 b))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (f1 f2)
+  (iff (<a href="../onBoundary/index.html">onBoundary</a> f1 f2)
+       (or (and (<a href="../point/index.html">point</a> f1) (<a href="../curve/index.html">curve</a> f2) (<a href="../endpoint/index.html">endpoint</a> f1 f2))
+           (exists (b) (and (<a href="../region/index.html">region</a> f2) (<a href="../border/index.html">border</a> b f2) (<a href="../inside/index.html">inside</a> f1 b)))
+           (exists (b)
+             (and (<a href="../volume/index.html">volume</a> f2) (<a href="../surface/index.html">surface</a> b f2) (<a href="../inside/index.html">inside</a> f1 b))))))
+
+
+(forall (f1 f2)
+  (iff (<a href="../subfigure/index.html">subfigure</a> f1 f2)
+       (or (<a href="../inside/index.html">inside</a> f1 f2) (<a href="../onBoundary/index.html">onBoundary</a> f1 f2))))
+
+
+(forall (r)
+  (if (and (<a href="../region/index.html">region</a> r) (<a href="../planar/index.html">planar</a> r))
+      (iff (<a href="../convex/index.html">convex</a> r)
+           (forall (c x x1 x2)
+             (if (and (<a href="../onBoundary/index.html">onBoundary</a> x1 r) (<a href="../onBoundary/index.html">onBoundary</a> x2 r)
+                      (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2) (<a href="../inside/index.html">inside</a> x c))
+                 (<a href="../subfigure/index.html">subfigure</a> x r))))))`
+
+
+(forall (r1 r2)
+  (iff (<a href="../tpp/index.html">tpp</a> r1 r2)
+       (and (forall (x)
+              (if (<a href="../inside/index.html">inside</a> x r1) (<a href="../inside/index.html">inside</a> x r2)))
+            (forall (x)
+              (if (<a href="../onBoundary/index.html">onBoundary</a> x r1)
+                  (or (<a href="../inside/index.html">inside</a> x r2) (<a href="../onBoundary/index.html">onBoundary</a> x r2))))
+            (exists (x)
+              (and (<a href="../onBoundary/index.html">onBoundary</a> x r1) (<a href="../onBoundary/index.html">onBoundary</a> x r2))))))
+
+
+</pre>
+</body>
+
+</html>

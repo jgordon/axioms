@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: changeTo</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: changeTo</h1>
+<pre>(changeTo e2)</pre><p>There is a change into eventuality e2.</p><h2>All Axioms</h2><pre>(forall (e e2 e4)
+  (if (<a href="../subst/index.html">subst</a> e4 e4 e2 e2)
+      (iff (<a href="../changeTo/index.html">changeTo</a>' e e2)
+           (exists (e1 e5)
+             (and (<a href="../change/index.html">change</a>' e5 e1 e2) (<a href="../gen/index.html">gen</a> e5 e) (<a href="../inconsistent/index.html">inconsistent</a> e4 e1))))))
+
+
+</pre>
+</body>
+
+</html>

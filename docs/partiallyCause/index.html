@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: partiallyCause</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: partiallyCause</h1>
+<pre>(partiallyCause e1 e2)</pre><p>e1 together with something else causes e2.</p><h2>Characterizing Axioms</h2><pre>(forall (e1 e2)
+  (iff (<a href="../partiallyCause/index.html">partiallyCause</a> e1 e2)
+       (exists (e3 e4)
+         (and (not (<a href="../cause/index.html">cause</a> e1 e2)) (not (<a href="../cause/index.html">cause</a> e3 e2))
+              (<a href="../and'/index.html">and'</a> e4 e1 e3) (<a href="../cause/index.html">cause</a> e4 e2)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e1 e2)
+  (iff (<a href="../partiallyCause/index.html">partiallyCause</a> e1 e2)
+       (exists (e3 e4)
+         (and (not (<a href="../cause/index.html">cause</a> e1 e2)) (not (<a href="../cause/index.html">cause</a> e3 e2))
+              (<a href="../and'/index.html">and'</a> e4 e1 e3) (<a href="../cause/index.html">cause</a> e4 e2)))))
+
+
+</pre>
+</body>
+
+</html>

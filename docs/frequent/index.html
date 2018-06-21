@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: frequent</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: frequent</h1>
+<pre>(frequent s1)</pre><p>Set s1 of eventualities is in the high region of a rate</p><h2>Characterizing Axioms</h2><pre>(forall (s1)
+  (iff (<a href="../frequent/index.html">frequent</a> s1)
+       (exists (s s0 s2)
+         (and (<a href="../member/index.html">member</a> s1 s0) (<a href="../rateScale/index.html">rateScale</a> s s0) (<a href="../Hi/index.html">Hi</a> s2 s)
+              (<a href="../inScale/index.html">inScale</a> s1 s2)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (s1)
+  (iff (<a href="../frequent/index.html">frequent</a> s1)
+       (exists (s s0 s2)
+         (and (<a href="../member/index.html">member</a> s1 s0) (<a href="../rateScale/index.html">rateScale</a> s s0) (<a href="../Hi/index.html">Hi</a> s2 s)
+              (<a href="../inScale/index.html">inScale</a> s1 s2)))))
+
+
+</pre>
+</body>
+
+</html>

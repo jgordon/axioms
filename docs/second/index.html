@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: second</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: second</h1>
+<pre>(second y p)</pre><p>y is the second element of a pair.</p><h2>All Axioms</h2><pre>(forall (f s1 s2)
+  (iff (<a href="../function0/index.html">function0</a> f s1 s2)
+       (and (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2) (<a href="../set/index.html">set</a> f)
+            A function is a set of pairs where the first elements
+            come from s1 and the second elements come from s2.
+            (forall (p)
+              (if (<a href="../member/index.html">member</a> p f)
+                  (exists (x y)
+                    (and (<a href="../member/index.html">member</a> x s1) (<a href="../member/index.html">member</a> y s2)
+                         (<a href="../pair/index.html">pair</a> p x y)))))
+            There is a value of the function for every element of
+            s1.
+            (forall (x)
+              (if (<a href="../member/index.html">member</a> x s1)
+                  (exists (p)
+                    (and (<a href="../member/index.html">member</a> p f) (<a href="../first/index.html">first</a> x p)))))
+            The value is unique.
+            (forall (p1 p2 x)
+              (if (and (<a href="../first/index.html">first</a> x p1) (<a href="../first/index.html">first</a> x p2)
+                       (<a href="../member/index.html">member</a> p1 f) (<a href="../member/index.html">member</a> p2 f))
+                  (equal p1 p2)))
+            Every element of s2 is the value of a member of s1 under
+            the function f.
+            (forall (y)
+              (if (<a href="../member/index.html">member</a> y s2)
+                  (exists (p)
+                    (and (<a href="../member/index.html">member</a> p f) (<a href="../second/index.html">second</a> y p))))))))
+
+
+(forall (f x y)
+  (iff (<a href="../map/index.html">map</a> f x y)
+       (exists (s1 s2 p)
+         (and (<a href="../function0/index.html">function0</a> f s1 s2) (<a href="../member/index.html">member</a> p f)
+              (<a href="../first/index.html">first</a> x p) (<a href="../second/index.html">second</a> y p)))))
+
+
+(forall (p x y e1 e2 e3)
+  (if (and (<a href="../pair0/index.html">pair0</a>' e1 p) (<a href="../first/index.html">first</a>' e2 x p) (<a href="../second/index.html">second</a>' e3 y p)
+           (<a href="../Rexist/index.html">Rexist</a> e1) (<a href="../Rexist/index.html">Rexist</a> e2) (<a href="../Rexist/index.html">Rexist</a> e3))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity/index.html">compositeEntity</a> p)
+             (<a href="../doubleton/index.html">doubleton</a> s1 x y) (<a href="../componentsOf/index.html">componentsOf</a> s1 p)
+             (<a href="../singleton/index.html">singleton</a> s2 e1) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 p)
+             (<a href="../doubleton/index.html">doubleton</a> s3 e2 e3) (<a href="../relationsOf/index.html">relationsOf</a> s3 p)))))
+
+
+(forall (p x y)
+  (if (<a href="../pair/index.html">pair</a> p x y)
+      (and (<a href="../first/index.html">first</a> x p) (<a href="../second/index.html">second</a> y p))))
+
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: relationsOf</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: relationsOf</h1>
+<pre>(relationsOf s3 x)</pre><p>s3 is the set of relations of composite entity x.</p><h2>Characterizing Axioms</h2><pre>(forall (s3 x)
+  (if (<a href="../relationsOf/index.html">relationsOf</a> s3 x)
+      (and (<a href="../set/index.html">set</a> s3) (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+           (forall (e)
+             (if (<a href="../member/index.html">member</a> e s3)
+                 (exists (y z)
+                   (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y x) (<a href="../arg*/index.html">arg*</a> y e)
+                        (<a href="../nequal/index.html">nequal</a> z y) (<a href="../arg*/index.html">arg*</a> z e))))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e s s1 s2 s3)
+  (if (and (<a href="../set/index.html">set</a>' e s) (<a href="../Rexist/index.html">Rexist</a> e) (not (<a href="../null/index.html">null</a> s))
+           (<a href="../singleton/index.html">singleton</a> s2 e) (<a href="../null/index.html">null</a> s3))
+      (and (<a href="../compositeEntity/index.html">compositeEntity</a> s) (<a href="../componentsOf/index.html">componentsOf</a> s s)
+           (<a href="../propertiesOf/index.html">propertiesOf</a> s2 s) (<a href="../relationsOf/index.html">relationsOf</a> s3 s))))
+
+
+(forall (e s)
+  (if (and (<a href="../sequence/index.html">sequence</a>' e s) (<a href="../Rexist/index.html">Rexist</a> e)
+           (exists (x) (<a href="../inSeq/index.html">inSeq</a> x s)))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
+             (forall (x) (iff (<a href="../member/index.html">member</a> x s1) (<a href="../inSeq/index.html">inSeq</a> x s)))
+             (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
+             (<a href="../singleton/index.html">singleton</a> s2 e) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 s)
+             (forall (e1)
+               (iff (<a href="../member/index.html">member</a> e1 s3)
+                    (exists (x y)
+                      (and (<a href="../beforeInSeq/index.html">beforeInSeq</a>' e1 x y s)
+                           (<a href="../Rexist/index.html">Rexist</a> e1)))))
+             (<a href="../relationsOf/index.html">relationsOf</a> s3 s)))))
+
+
+(forall (e x)
+  (iff (<a href="../propOrRelOf/index.html">propOrRelOf</a> e x)
+       (exists (s)
+         (and (<a href="../member/index.html">member</a> e s)
+              (or (<a href="../propertiesOf/index.html">propertiesOf</a> s x) (<a href="../relationsOf/index.html">relationsOf</a> s x))))))
+
+
+(forall (e x)
+  (iff (<a href="../relationOf/index.html">relationOf</a> e x)
+       (exists (s)
+         (and (<a href="../relationsOf/index.html">relationsOf</a> s x) (<a href="../member/index.html">member</a> e s)))))
+
+
+(forall (e1 e)
+   (if (<a href="../subevent/index.html">subevent</a> e1 e)
+        (exists (s1 s2 s3)
+          (and (<a href="../compositeEntity/index.html">compositeEntity</a> e)
+               (<a href="../componentsOf/index.html">componentsOf</a> s1 e) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 e)
+               (<a href="../relationsOf/index.html">relationsOf</a> s3 e)
+               (forall (e2)
+                 (iff (<a href="../member/index.html">member</a> e2 s1) (<a href="../subevent/index.html">subevent</a> e2 e)))
+               (forall (e2)
+                 (if (<a href="../member/index.html">member</a> e2 s1)
+                     (exists (e3)
+                       (and (<a href="../event/index.html">event</a>' e3 e2) (<a href="../member/index.html">member</a> e3 s2)))))
+               (forall (e2)
+                 (if (<a href="../member/index.html">member</a> e2 s1)
+                     (exists (e3)
+                       (and (<a href="../subevent/index.html">subevent</a>' e3 e2 e)
+                            (<a href="../member/index.html">member</a> e3 s3)))))))))
+
+
+(forall (p x y e1 e2 e3)
+  (if (and (<a href="../pair0/index.html">pair0</a>' e1 p) (<a href="../first/index.html">first</a>' e2 x p) (<a href="../second/index.html">second</a>' e3 y p)
+           (<a href="../Rexist/index.html">Rexist</a> e1) (<a href="../Rexist/index.html">Rexist</a> e2) (<a href="../Rexist/index.html">Rexist</a> e3))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity/index.html">compositeEntity</a> p)
+             (<a href="../doubleton/index.html">doubleton</a> s1 x y) (<a href="../componentsOf/index.html">componentsOf</a> s1 p)
+             (<a href="../singleton/index.html">singleton</a> s2 e1) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 p)
+             (<a href="../doubleton/index.html">doubleton</a> s3 e2 e3) (<a href="../relationsOf/index.html">relationsOf</a> s3 p)))))
+
+
+(forall (s)
+   (if (<a href="../scale/index.html">scale</a> s)
+       (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
+            (exists (s1 e x y s2 s3)
+               (and (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
+                    (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
+                    (<a href="../subset/index.html">subset</a> s2 s3) (<a href="../relationsOf/index.html">relationsOf</a> s3 s)
+                    (forall (e1)
+                       (if (<a href="../member/index.html">member</a> e1 s2)
+                           (exists (x1 y1)
+                              (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> y1 s1)
+                                   (<a href="../subst2/index.html">subst2</a> x1 y1 e1 x y e))))))))))
+
+
+(forall (s3 x)
+  (if (<a href="../relationsOf/index.html">relationsOf</a> s3 x)
+      (and (<a href="../set/index.html">set</a> s3) (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+           (forall (e)
+             (if (<a href="../member/index.html">member</a> e s3)
+                 (exists (y z)
+                   (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y x) (<a href="../arg*/index.html">arg*</a> y e)
+                        (<a href="../nequal/index.html">nequal</a> z y) (<a href="../arg*/index.html">arg*</a> z e))))))))
+
+
+(forall (x)
+  (iff (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+       (exists (s1 s2 s3)
+         (and (<a href="../componentsOf/index.html">componentsOf</a> s1 x) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 x)
+              (<a href="../relationsOf/index.html">relationsOf</a> s3 x)))))
+
+
+</pre>
+</body>
+
+</html>

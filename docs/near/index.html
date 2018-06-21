@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: near</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: near</h1>
+<h2>All Axioms</h2><pre>   (forall (x z)
+      (iff (<a href="../near/index.html">near</a> x z)
+           (exists (s s1)
+              (and (<a href="../nearnessScale/index.html">nearnessScale</a> s z) (<a href="../Lo/index.html">Lo</a> s1 s) (<a href="../onScale/index.html">onScale</a> x s1)))))
+
+
+(forall (p x e2)
+  (if (<a href="../perceive/index.html">perceive</a>' e2 p x)
+      (exists (e1 s)
+        (and (<a href="../near/index.html">near</a>' e1 x p s) (<a href="../enable/index.html">enable</a> e1 e2)))))
+
+
+</pre>
+</body>
+
+</html>

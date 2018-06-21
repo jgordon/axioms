@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: repeatUntil</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: repeatUntil</h1>
+<pre>(repeatUntil e e1 e2)</pre><p>e is the event consisting of iterations of</p><h2>Characterizing Axioms</h2><pre>(forall (e e1 e2)
+  (iff (<a href="../repeatUntil/index.html">repeatUntil</a> e e1 e2)
+       (exists (e3 e4 e5)
+         (and (<a href="../eventSequence/index.html">eventSequence</a>' e e3 e4) (<a href="../instance/index.html">instance</a> e3 e1) (<a href="../cond/index.html">cond</a> e4 e2 e5)
+              (or (<a href="../repeatUntil/index.html">repeatUntil</a> e5 e1 e2) (<a href="../instance/index.html">instance</a> e5 e1))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e e1 e2)
+  (iff (<a href="../repeatUntil/index.html">repeatUntil</a> e e1 e2)
+       (exists (e3 e4 e5)
+         (and (<a href="../eventSequence/index.html">eventSequence</a>' e e3 e4) (<a href="../instance/index.html">instance</a> e3 e1) (<a href="../cond/index.html">cond</a> e4 e2 e5)
+              (or (<a href="../repeatUntil/index.html">repeatUntil</a> e5 e1 e2) (<a href="../instance/index.html">instance</a> e5 e1))))))
+
+
+</pre>
+</body>
+
+</html>

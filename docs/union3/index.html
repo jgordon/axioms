@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: union3</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: union3</h1>
+<pre>(union3 s s1 s2 s3)</pre><p>s is the union of s1, s2 and s3.</p><h2>Characterizing Axioms</h2><pre>(forall (s s1 s2 s3)
+  (iff (<a href="../union3/index.html">union3</a> s s1 s2 s3)
+       (exists (s4)
+         (and (<a href="../union/index.html">union</a> s s1 s4) (<a href="../union/index.html">union</a> s4 s2 s3)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (s s1 s2 s3)
+  (iff (<a href="../union3/index.html">union3</a> s s1 s2 s3)
+       (exists (s4)
+         (and (<a href="../union/index.html">union</a> s s1 s4) (<a href="../union/index.html">union</a> s4 s2 s3)))))
+
+
+</pre>
+</body>
+
+</html>

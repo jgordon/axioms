@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: horizontal2</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: horizontal2</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (s1 f)
+  (iff (<a href="../horizontal2/index.html">horizontal2</a> s1 f)
+       (exists (s)
+         (and (<a href="../domain/index.html">domain</a> s f) (<a href="../subset/index.html">subset</a> s1 s) (not (<a href="../null/index.html">null</a> s1))
+              (not (exists (x1 x2)
+                     (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
+                          (or (<a href="../above2/index.html">above2</a> x1 x2 f)
+                              (<a href="../above3/index.html">above3</a> x1 x2 f)))))))))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (s f)
+      (iff (<a href="../horizontal3/index.html">horizontal3</a> s f)
+           (or (<a href="../horizontal2/index.html">horizontal2</a> s f) (<a href="../vertical2/index.html">vertical2</a> s f))))
+
+
+(forall (a1 f)
+  (if (<a href="../xAxis/index.html">xAxis</a> a1 f)
+      (and (<a href="../framework/index.html">framework</a> f) (<a href="../horizontal2/index.html">horizontal2</a> a1 f))))
+
+
+(forall (s1 f)
+  (iff (<a href="../horizontal2/index.html">horizontal2</a> s1 f)
+       (exists (s)
+         (and (<a href="../domain/index.html">domain</a> s f) (<a href="../subset/index.html">subset</a> s1 s) (not (<a href="../null/index.html">null</a> s1))
+              (not (exists (x1 x2)
+                     (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
+                          (or (<a href="../above2/index.html">above2</a> x1 x2 f)
+                              (<a href="../above3/index.html">above3</a> x1 x2 f)))))))))
+
+
+(forall (s1 s2 f)
+  (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../horizontal2/index.html">horizontal2</a> s1 f) (<a href="../vertical2/index.html">vertical2</a> s2 f))
+      (<a href="../independentScales/index.html">independentScales</a> s1 s2)))
+
+
+(forall (y1 x f)
+  (iff (<a href="../yCoordinate/index.html">yCoordinate</a> y1 x f)
+       (exists (h a2)
+         (and (<a href="../horizontal2/index.html">horizontal2</a> h f) (<a href="../member/index.html">member</a> x h) (<a href="../yAxis/index.html">yAxis</a> a2 f)
+              (<a href="../member/index.html">member</a> y1 h) (<a href="../member/index.html">member</a> y1 a2)))))
+
+
+</pre>
+</body>
+
+</html>

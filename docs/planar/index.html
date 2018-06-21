@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: planar</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: planar</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (r)
+  (iff (<a href="../planar/index.html">planar</a> r)
+       (exists (r1) (and (<a href="../plane/index.html">plane</a> r1) (<a href="../inside/index.html">inside</a> r r1)))))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (c r x u)
+      (iff (<a href="../circle/index.html">circle</a> c x)
+           (exists (r d)
+              (and (<a href="../border/index.html">border</a> c r) (<a href="../planar/index.html">planar</a> r) (<a href="../inside/index.html">inside</a> x r)
+                   (forall (c1 x1)
+                      (if (and (<a href="../inside/index.html">inside</a> x1 c) (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c1 x x1))
+                          (<a href="../length/index.html">length</a> d c1 u)))))))
+
+
+(forall (p n)
+  (iff (<a href="../polygon/index.html">polygon</a> p n)
+       (exists (s)
+         (and (forall (c)
+                (iff (<a href="../member/index.html">member</a> c s) (<a href="../sideOf/index.html">sideOf</a> c p)))
+              (forall (x)
+                (if (<a href="../inside/index.html">inside</a> x p)
+                    (exists (c)
+                      (and (<a href="../member/index.html">member</a> c s)
+                        (or (<a href="../inside/index.html">inside</a> x c) (<a href="../endpoint/index.html">endpoint</a> x l))))))
+              (<a href="../closed/index.html">closed</a> p) (<a href="../planar/index.html">planar</a> p)
+              (<a href="../card/index.html">card</a> n s)))))
+
+
+(forall (r)
+  (if (and (<a href="../region/index.html">region</a> r) (<a href="../planar/index.html">planar</a> r))
+      (iff (<a href="../concave/index.html">concave</a> r) (not (<a href="../convex/index.html">convex</a> r)))))
+
+
+(forall (r)
+  (if (and (<a href="../region/index.html">region</a> r) (<a href="../planar/index.html">planar</a> r))
+      (iff (<a href="../convex/index.html">convex</a> r)
+           (forall (c x x1 x2)
+             (if (and (<a href="../onBoundary/index.html">onBoundary</a> x1 r) (<a href="../onBoundary/index.html">onBoundary</a> x2 r)
+                      (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2) (<a href="../inside/index.html">inside</a> x c))
+                 (<a href="../subfigure/index.html">subfigure</a> x r))))))`
+
+
+(forall (r)
+  (iff (<a href="../planar/index.html">planar</a> r)
+       (exists (r1) (and (<a href="../plane/index.html">plane</a> r1) (<a href="../inside/index.html">inside</a> r r1)))))
+
+
+</pre>
+</body>
+
+</html>

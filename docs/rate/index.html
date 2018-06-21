@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: rate</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: rate</h1>
+<pre>(rate n s t)</pre><p>Eventualities in s occur n times in every element of t,</p><h2>All Axioms</h2><pre>(forall (n s t u)
+  (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
+           (forall (t1) (if (<a href="../member/index.html">member</a> t1 t) (<a href="../durationOf/index.html">durationOf</a> 1 t1 u)))
+           (<a href="../rate/index.html">rate</a> n s t))
+      (<a href="../rate/index.html">rate</a> n s u)))
+
+
+(forall (r1 r2 s u1 u2 j)
+  (if (and (<a href="../rate/index.html">rate</a> r1 s u1) (<a href="../product/index.html">product</a> r2 j r1)
+           (forall (t n1 n2)
+             (iff (and (<a href="../durationOf/index.html">durationOf</a> n1 t u1) (<a href="../durationOf/index.html">durationOf</a> n2 t u2))
+                  (<a href="../product/index.html">product</a> n1 j n2))))
+      (<a href="../rate/index.html">rate</a> r2 s u2)))
+
+
+(forall (s s0 t f n)
+  (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../set/index.html">set</a> t) (<a href="../powerSet/index.html">powerSet</a> s0 s)
+           (forall (t1)
+             (if (<a href="../member/index.html">member</a> t1 t) (<a href="../interval/index.html">interval</a> t1)))
+           (<a href="../function/index.html">function</a> f t s0)
+           (forall (t1 s1)
+             (if (<a href="../map/index.html">map</a> f t1 s1)
+                 (and (forall (e)
+                        (if (<a href="../member/index.html">member</a> e s1) (<a href="../happensIn/index.html">happensIn</a> e t1)))
+                      (<a href="../card/index.html">card</a> n s1)))))
+      (<a href="../rate/index.html">rate</a> n s t)))
+
+
+(forall (s s0)
+  (iff (<a href="../rateScale/index.html">rateScale</a> s s0)
+       (and (forall (s1) (if (<a href="../member/index.html">member</a> s1 s0) (<a href="../eventualities/index.html">eventualities</a> s1)))
+            (exists (u e s1 s2)
+              (and (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../lts/index.html">lts</a>' e s1 s2 s0)
+                   (forall (s3 s4)
+                     (iff (and (<a href="../lts/index.html">lts</a>' e s3 s4 s0) (<a href="../Rexist/index.html">Rexist</a> e))
+                          (exists (r1 r2)
+                            (and (<a href="../rate/index.html">rate</a> r1 s3 u) (<a href="../rate/index.html">rate</a> r2 s4 u)
+                                 (<a href="../lt/index.html">lt</a> r1 r2)))))
+                   (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e))))))
+
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: lowerLikelihood</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: lowerLikelihood</h1>
+<pre>(lowerLikelihood d1 d2)</pre><p>d1 is a lower likelihood than d2.</p><h2>All Axioms</h2><pre>(forall (d1 d2)
+  (iff (<a href="../leqLikelihood/index.html">leqLikelihood</a> d1 d2)
+       (or (<a href="../lowerLikelihood/index.html">lowerLikelihood</a> d1 d2) (equal d1 d2))))
+
+
+(forall (s)
+  (iff (<a href="../likelihoodScale/index.html">likelihoodScale</a> s)
+       (exists (s1 e r d1 d2)
+         (and (forall (d)
+                (iff (<a href="../member/index.html">member</a> d s1) (exists (e c) (<a href="../likelihood/index.html">likelihood</a> d e c))))
+              (<a href="../lowerLikelihood/index.html">lowerLikelihood</a>' r d1 d2)
+              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 r)))))
+
+
+</pre>
+</body>
+
+</html>

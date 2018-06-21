@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: enable</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: enable</h1>
+<pre>(enable e1 e2)</pre><p>Eventuality e1 is a member of every causal</p><h2>Characterizing Axioms</h2><pre>(forall (e1 e2)
+  (if (<a href="../enable/index.html">enable</a> e1 e2) (not (<a href="../before/index.html">before</a> e2 e1))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../enable/index.html">enable</a> e1 e2)
+       (forall (e3)
+         (if (<a href="../not'/index.html">not'</a> e3 e1)
+             (exists (e4)
+               (and (<a href="../not'/index.html">not'</a> e4 e2) (<a href="../cause/index.html">cause</a> e3 e4)))))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../enable/index.html">enable</a> e1 e2)
+       (forall (s)
+         (if (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../enable0/index.html">enable0</a> e1 e2 s)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e1 e2)
+  (if (<a href="../enable/index.html">enable</a> e1 e2) (not (<a href="../before/index.html">before</a> e2 e1))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../enable/index.html">enable</a> e1 e2)
+       (forall (e3)
+         (if (<a href="../not'/index.html">not'</a> e3 e1)
+             (exists (e4)
+               (and (<a href="../not'/index.html">not'</a> e4 e2) (<a href="../cause/index.html">cause</a> e3 e4)))))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../enable/index.html">enable</a> e1 e2)
+       (forall (s)
+         (if (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../enable0/index.html">enable0</a> e1 e2 s)))))
+
+
+(forall (p x e2)
+  (if (<a href="../perceive/index.html">perceive</a>' e2 p x)
+      (exists (e1 s)
+        (and (<a href="../near/index.html">near</a>' e1 x p s) (<a href="../enable/index.html">enable</a> e1 e2)))))
+
+
+(forall (p x e2)
+  (if (and (<a href="../person/index.html">person</a> p) (<a href="../perceive/index.html">perceive</a>' e2 p x))
+      (exists (o e1)
+        (and (<a href="../senseOrgan/index.html">senseOrgan</a> o p) (<a href="../intact/index.html">intact</a>' e1 o) (<a href="../enable/index.html">enable</a> e1 e2)))))
+
+
+</pre>
+</body>
+
+</html>

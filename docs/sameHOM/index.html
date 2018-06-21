@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: sameHOM</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: sameHOM</h1>
+<pre>(sameHOM x y s1 m)</pre><p>Two elements x and y of a scale s1 are of the</p><h2>Characterizing Axioms</h2><pre>(forall (x y s1 m)
+  (if (<a href="../sameHOM/index.html">sameHOM</a> x y s1 m)
+      (and (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s1) (<a href="../measure/index.html">measure</a> m s1))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (s)
+  (iff (<a href="../roughlyPeriodicTseq/index.html">roughlyPeriodicTseq</a> s u)
+       (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
+            (exists (s0 d)
+              (and (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s0)
+                   (forall (t1 t2 t3 t4)
+                     (if (and (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
+                              (<a href="../successiveElts/index.html">successiveElts</a> t3 t4 s))
+                         (exists (t12 t34 e d)
+                           (and (<a href="../intervalBetween/index.html">intervalBetween</a> t12 t1 t2)
+                                (<a href="../intervalBetween/index.html">intervalBetween</a> t34 t3 t4)
+                                (<a href="../durationOf/index.html">durationOf</a>' e d t12 u)
+                                (<a href="../sameHOM/index.html">sameHOM</a> t12 t34 s0 e))))))))))
+
+
+(forall (x y s1 m)
+  (if (<a href="../sameHOM/index.html">sameHOM</a> x y s1 m)
+      (and (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s1) (<a href="../measure/index.html">measure</a> m s1))))
+
+
+(forall (x y s1 m)
+  (if (and (<a href="../gts/index.html">gts</a> x y s1) (<a href="../measure/index.html">measure</a> m s1))
+      (iff (<a href="../sameHOM/index.html">sameHOM</a> x y s1 m) (<a href="../sameHOM/index.html">sameHOM</a> y x s1 m))))
+
+
+(forall (x y s1 m)
+  (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../measure/index.html">measure</a> m s1))
+      (iff (<a href="../sameHOM/index.html">sameHOM</a> x y s1 m)
+           (exists (f f2)
+             (and (<a href="../proportion/index.html">proportion</a> f y x m) (<a href="../product/index.html">product</a> f2 f f)
+                  (<a href="../leq/index.html">leq</a> f2 10))))))
+
+
+</pre>
+</body>
+
+</html>

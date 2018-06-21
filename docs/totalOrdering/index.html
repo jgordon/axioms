@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: totalOrdering</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: totalOrdering</h1>
+<pre>(totalOrdering e x y s)</pre><p> e, the partial ordering on the components</p><h2>All Axioms</h2><pre>(forall (e x y s)
+   (if (<a href="../lts/index.html">lts</a>' e x y s)
+       (iff (<a href="../totalOrdering/index.html">totalOrdering</a> e x y s)
+            (forall (x1 y1)
+               (if (and (<a href="../inScale/index.html">inScale</a> x1 s) (<a href="../inScale/index.html">inScale</a> y1 s))
+                   (or (<a href="../lts/index.html">lts</a> x1 y1 s) (equal x1 y1)
+                       (<a href="../lts/index.html">lts</a> y1 x1 s)))))))
+
+
+</pre>
+</body>
+
+</html>

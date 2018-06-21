@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: impossible</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: impossible</h1>
+<pre>(impossible e c)</pre><p>e is impossible with respect to a set of</p><h2>Characterizing Axioms</h2><pre>(forall (e c)
+  (iff (<a href="../impossible/index.html">impossible</a> e c)
+       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c) (not (<a href="../possible/index.html">possible</a> e c)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (d e c s)
+  (if (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s))
+      (iff (<a href="../bottom/index.html">bottom</a> d s)
+           (<a href="../impossible/index.html">impossible</a> e c))))
+
+
+(forall (e c)
+  (iff (<a href="../impossible/index.html">impossible</a> e c)
+       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c) (not (<a href="../possible/index.html">possible</a> e c)))))
+
+
+</pre>
+</body>
+
+</html>

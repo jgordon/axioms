@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: event</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: event</h1>
+<pre>(event e)</pre><p>e is an event.</p><h2>Characterizing Axioms</h2><pre>(forall (e)
+   (iff (<a href="../event/index.html">event</a> e)
+        (or (exists (e1 e2)
+               (and (<a href="../nequal/index.html">nequal</a> e1 e2) (<a href="../change/index.html">change</a>' e e1 e2)))
+            (exists (e0 e1 e2)
+               (and (<a href="../nequal/index.html">nequal</a> e1 e2) (<a href="../change/index.html">change</a>' e0 e1 e2) (<a href="../gen/index.html">gen</a> e e0)))
+            (exists (e1)
+              (<a href="../subevent/index.html">subevent</a> e1 e)))))
+
+
+(forall (e) (if (<a href="../event/index.html">event</a> e) (<a href="../eventuality/index.html">eventuality</a> e)))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e e1 e2)
+   (if (and (<a href="../and'/index.html">and'</a> e e1 e2) (<a href="../event/index.html">event</a> e1))
+       (and (<a href="../subevent/index.html">subevent</a> e1 e) (<a href="../event/index.html">event</a> e))))
+
+
+(forall (e e1 e2)
+  (if (<a href="../cond/index.html">cond</a> e e1 e2)
+      (and (<a href="../subevent/index.html">subevent</a> e2 e) (<a href="../event/index.html">event</a> e))))
+
+
+(forall (e e1 e2)
+  (if (<a href="../eventSequence/index.html">eventSequence</a> e e1 e2)
+      (and (<a href="../event/index.html">event</a> e) (<a href="../subevent/index.html">subevent</a> e1 e) (<a href="../subevent/index.html">subevent</a> e2 e))))
+
+
+(forall (e e1 e2)
+  (if (and (<a href="../and'/index.html">and'</a> e e1 e2) (<a href="../event/index.html">event</a> e2))
+      (and (<a href="../subevent/index.html">subevent</a> e2 e) (<a href="../event/index.html">event</a> e))))
+
+
+(forall (e e1 e2)
+  (iff (<a href="../cond/index.html">cond</a> e e1 e2)
+       (and (<a href="../imply'/index.html">imply'</a> e e1 e2) (<a href="../event/index.html">event</a> e2)
+            (forall (t)
+              (if (<a href="../begins/index.html">begins</a> t e2)
+                  (<a href="../atTime/index.html">atTime</a> e1 t))))))
+
+
+(forall (e e1 e2)
+  (iff (<a href="../eventSequence/index.html">eventSequence</a> e e1 e2)
+       (and (<a href="../event/index.html">event</a> e1) (<a href="../event/index.html">event</a> e2) (<a href="../and'/index.html">and'</a> e e1 e2) (<a href="../beforeOrMeets/index.html">beforeOrMeets</a> e1 e2))))
+
+
+(forall (e)
+   (iff (<a href="../event/index.html">event</a> e)
+        (or (exists (e1 e2)
+               (and (<a href="../nequal/index.html">nequal</a> e1 e2) (<a href="../change/index.html">change</a>' e e1 e2)))
+            (exists (e0 e1 e2)
+               (and (<a href="../nequal/index.html">nequal</a> e1 e2) (<a href="../change/index.html">change</a>' e0 e1 e2) (<a href="../gen/index.html">gen</a> e e0)))
+            (exists (e1)
+              (<a href="../subevent/index.html">subevent</a> e1 e)))))
+
+
+(forall (e) (if (<a href="../event/index.html">event</a> e) (<a href="../eventuality/index.html">eventuality</a> e)))
+
+
+(forall (e1 e)
+   (if (<a href="../subevent/index.html">subevent</a> e1 e)
+        (exists (s1 s2 s3)
+          (and (<a href="../compositeEntity/index.html">compositeEntity</a> e)
+               (<a href="../componentsOf/index.html">componentsOf</a> s1 e) (<a href="../propertiesOf/index.html">propertiesOf</a> s2 e)
+               (<a href="../relationsOf/index.html">relationsOf</a> s3 e)
+               (forall (e2)
+                 (iff (<a href="../member/index.html">member</a> e2 s1) (<a href="../subevent/index.html">subevent</a> e2 e)))
+               (forall (e2)
+                 (if (<a href="../member/index.html">member</a> e2 s1)
+                     (exists (e3)
+                       (and (<a href="../event/index.html">event</a>' e3 e2) (<a href="../member/index.html">member</a> e3 s2)))))
+               (forall (e2)
+                 (if (<a href="../member/index.html">member</a> e2 s1)
+                     (exists (e3)
+                       (and (<a href="../subevent/index.html">subevent</a>' e3 e2 e)
+                            (<a href="../member/index.html">member</a> e3 s3)))))))))
+
+
+(forall (e1 e2)
+  (if (<a href="../subevent/index.html">subevent</a> e1 e2)
+      (and (<a href="../event/index.html">event</a> e1) (<a href="../event/index.html">event</a> e2))))
+
+
+</pre>
+</body>
+
+</html>

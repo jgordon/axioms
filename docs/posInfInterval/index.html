@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: posInfInterval</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: posInfInterval</h1>
+<pre>(posInfInterval t)</pre><p>t is a positive infinite interval.</p><h2>Characterizing Axioms</h2><pre>(forall (t)
+  (iff (<a href="../posInfInterval/index.html">posInfInterval</a> t)
+       (and (<a href="../interval/index.html">interval</a> t)
+            (not (exists (t2) (<a href="../ends/index.html">ends</a> t2 t))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e)
+  (iff (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> e)
+       (or (<a href="../posInfInterval/index.html">posInfInterval</a> e)
+           (exists (t)
+             (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../posInfInterval/index.html">posInfInterval</a> t))))))
+
+
+(forall (t)
+  (iff (<a href="../posInfInterval/index.html">posInfInterval</a> t)
+       (and (<a href="../interval/index.html">interval</a> t)
+            (not (exists (t2) (<a href="../ends/index.html">ends</a> t2 t))))))
+
+
+(forall (t)
+  (iff (<a href="../properInterval/index.html">properInterval</a> t)
+       (or (exists (t1 t2)
+             (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../ends/index.html">ends</a> t2 t) (<a href="../nequal/index.html">nequal</a> t1 t2)))
+           (<a href="../posInfInterval/index.html">posInfInterval</a> t))))
+
+
+(forall (t1 t2 t)
+  (if (and (<a href="../posInfInterval/index.html">posInfInterval</a> t) (<a href="../begins/index.html">begins</a> t1 t) (<a href="../insideTime/index.html">insideTime</a> t2 t))
+      (<a href="../before/index.html">before</a> t1 t2)))
+
+
+</pre>
+</body>
+
+</html>

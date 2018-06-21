@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: tcauseq</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: tcauseq</h1>
+<pre>(tcauseq e1 e2 q)</pre><p>e1 tends to cause e2 with likelihood q.</p><h2>Characterizing Axioms</h2><pre>(forall (e1 e2 q c)
+  (iff (<a href="../tcauseq/index.html">tcauseq</a> e1 e2 q c)
+       (exists (s)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likelihood/index.html">likelihood</a> q s1 c)
+              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../cause/index.html">cause</a> e1 e2))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e1 e2 q c)
+  (iff (<a href="../tcauseq/index.html">tcauseq</a> e1 e2 q c)
+       (exists (s)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likelihood/index.html">likelihood</a> q s1 c)
+              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../cause/index.html">cause</a> e1 e2))))))
+
+
+</pre>
+</body>
+
+</html>

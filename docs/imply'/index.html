@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: imply'</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: imply'</h1>
+<pre>(imply' e e1 e2)</pre><p>e is the eventuality of an implicational relation</p><h2>Characterizing Axioms</h2><pre>(forall (e e1 e2)
+  (if (<a href="../imply'/index.html">imply'</a> e e1 e2)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventuality/index.html">eventuality</a> e2)
+           (or (<a href="../eventuality/index.html">eventuality</a> e1) (<a href="../eventualities/index.html">eventualities</a> e1)))))
+
+
+(forall (e e1 e2)
+  (if (<a href="../imply'/index.html">imply'</a> e e1 e2)
+      (iff (<a href="../Rexist/index.html">Rexist</a> e)
+           (if (<a href="../Rexist/index.html">Rexist</a> e1) (<a href="../Rexist/index.html">Rexist</a> e2)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e e1 e2)
+  (if (<a href="../imply'/index.html">imply'</a> e e1 e2)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventuality/index.html">eventuality</a> e2)
+           (or (<a href="../eventuality/index.html">eventuality</a> e1) (<a href="../eventualities/index.html">eventualities</a> e1)))))
+
+
+(forall (e e1 e2)
+  (if (<a href="../imply'/index.html">imply'</a> e e1 e2)
+      (iff (<a href="../Rexist/index.html">Rexist</a> e)
+           (if (<a href="../Rexist/index.html">Rexist</a> e1) (<a href="../Rexist/index.html">Rexist</a> e2)))))
+
+
+(forall (e e1 e2)
+  (if (and (<a href="../imply'/index.html">imply'</a> e e1 e2) (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../Rexist/index.html">Rexist</a> e1))
+      (<a href="../Rexist/index.html">Rexist</a> e2)))
+
+
+(forall (e e1 e2)
+  (iff (<a href="../cond/index.html">cond</a> e e1 e2)
+       (and (<a href="../imply'/index.html">imply'</a> e e1 e2) (<a href="../event/index.html">event</a> e2)
+            (forall (t)
+              (if (<a href="../begins/index.html">begins</a> t e2)
+                  (<a href="../atTime/index.html">atTime</a> e1 t))))))
+
+
+(forall (e1 e2 e3 i1 i2 i3)
+  (if (and (<a href="../imply'/index.html">imply'</a> i1 e1 e2) (<a href="../imply'/index.html">imply'</a> i2 e2 e3) (<a href="../imply'/index.html">imply'</a> i3 e1 e3)
+           (<a href="../Rexist/index.html">Rexist</a> i1) (<a href="../Rexist/index.html">Rexist</a> i2))
+      (<a href="../Rexist/index.html">Rexist</a> i3)))
+
+
+</pre>
+</body>
+
+</html>

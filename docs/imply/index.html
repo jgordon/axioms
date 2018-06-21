@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: imply</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: imply</h1>
+<h2>All Axioms</h2><pre>(exists (e1 e2)
+  (and (<a href="../imply/index.html">imply</a> e1 e2) (not (<a href="../gen/index.html">gen</a> e1 e2))))
+
+
+(forall (d e c s e1)
+  (if (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../at/index.html">at</a>' e1 e d s))
+      (<a href="../imply/index.html">imply</a> c e1)))
+
+
+(forall (e c)
+  (iff (<a href="../necessary/index.html">necessary</a> e c)
+       (<a href="../imply/index.html">imply</a> c e)))
+
+
+(forall (e c)
+  (iff (<a href="../possible/index.html">possible</a> e c)
+       (forall (e1)
+         (if (<a href="../not'/index.html">not'</a> e1 e)
+             (not (<a href="../imply/index.html">imply</a> c e1))))))
+
+
+(forall (e1 e2 m)
+  (if (and (<a href="../PosMod/index.html">PosMod</a> e1 m) (<a href="../imply/index.html">imply</a> e1 e2))
+      (<a href="../PosMod/index.html">PosMod</a> e2 m)))
+
+
+(forall (s1 e2)
+  (iff (<a href="../minimallyProves/index.html">minimallyProves</a> s1 e2)
+       (and (not (<a href="../member/index.html">member</a> e2 s1))
+            (<a href="../imply/index.html">imply</a> s1 e2)
+            (not (exists (s2)
+                   (and (<a href="../properSubset/index.html">properSubset</a> s2 s1)
+                        (<a href="../imply/index.html">imply</a> s2 e2)))))))
+
+
+(forall (s1 s2)
+  (iff (<a href="../inconsistent/index.html">inconsistent</a> s1 s2)
+       (and (<a href="../eventualities/index.html">eventualities</a> s1) (<a href="../eventualities/index.html">eventualities</a> s2)
+            (exists (e1 e2)
+              (and (<a href="../imply/index.html">imply</a> s1 e1) (<a href="../imply/index.html">imply</a> s2 e2) (<a href="../not'/index.html">not'</a> e2 e1))))))
+
+
+</pre>
+</body>
+
+</html>

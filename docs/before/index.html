@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: before</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: before</h1>
+<pre>(before t1 t2)</pre><p>t1 is before t2.</p><h2>Characterizing Axioms</h2><pre>(forall (e t1 t2) (if (<a href="../before/index.html">before</a>' e t1 t2) (<a href="../temporal/index.html">temporal</a> e)))
+
+
+(forall (t1 t2)
+  (if (<a href="../before/index.html">before</a> t1 t2)
+      (and (or (<a href="../temporalEntity/index.html">temporalEntity</a> t1) (<a href="../tseq/index.html">tseq</a> t1) (<a href="../eventuality/index.html">eventuality</a> t1))
+           (or (<a href="../temporalEntity/index.html">temporalEntity</a> t2) (<a href="../tseq/index.html">tseq</a> t2) (<a href="../eventuality/index.html">eventuality</a> t2)))))
+
+
+(forall (t1 t2)
+  (if (<a href="../before/index.html">before</a> t1 t2)
+      (not (<a href="../before/index.html">before</a> t2 t1))))
+
+
+(forall (t1 t2)
+  (iff (<a href="../before/index.html">before</a> t1 t2)
+       (exists (t3 t4)
+         (and (<a href="../ends/index.html">ends</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t3 t4)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e t1 t2 s)
+  (if (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../before/index.html">before</a>' e t1 t2))
+      (<a href="../partialOrdering/index.html">partialOrdering</a> e t1 t2 s)))
+
+
+(forall (e t1 t2) (if (<a href="../before/index.html">before</a>' e t1 t2) (<a href="../temporal/index.html">temporal</a> e)))
+
+
+(forall (e1 e2 t1)
+  (if (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../atTime/index.html">atTime</a> e1 t1) (etc))
+      (exists (t2)
+        (and (not (<a href="../before/index.html">before</a> t2 t1)) (<a href="../atTime/index.html">atTime</a> e2 t2)))))
+
+
+(forall (e1 e2)
+  (if (<a href="../cause/index.html">cause</a> e1 e2) (not (<a href="../before/index.html">before</a> e2 e1))))
+
+
+(forall (e1 e2)
+  (if (<a href="../change/index.html">change</a> e1 e2) (not (<a href="../before/index.html">before</a> e2 e1))))
+
+
+(forall (e1 e2)
+  (if (<a href="../enable/index.html">enable</a> e1 e2) (not (<a href="../before/index.html">before</a> e2 e1))))
+
+
+(forall (s e t1 t1)
+  (if (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../before/index.html">before</a>' e t1 t2))
+      (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s e)))
+
+
+(forall (s e t1)
+  (if (and (<a href="../causalComplex/index.html">causalComplex</a> s e)
+           (forall (e1) (if (<a href="../member/index.html">member</a> e1 s) (<a href="../atTime/index.html">atTime</a> e1 t1))))
+      (exists (t2)
+        (and (not (<a href="../before/index.html">before</a> t2 t1)) (<a href="../atTime/index.html">atTime</a> e t2)))))
+
+
+(forall (s t)
+  (if (<a href="../tseq/index.html">tseq</a> s)
+      (iff (<a href="../first/index.html">first</a> t s)
+           (and (<a href="../member/index.html">member</a> t s)
+                (forall (t1)
+                  (if (<a href="../member/index.html">member</a> t1 s)
+                      (or (equal t1 t) (<a href="../before/index.html">before</a> t t1))))))))
+
+
+(forall (s t)
+  (if (<a href="../tseq/index.html">tseq</a> s)
+      (iff (<a href="../last/index.html">last</a> t s)
+           (and (<a href="../member/index.html">member</a> t s)
+                (forall (t1)
+                  (if (<a href="../member/index.html">member</a> t1 s)
+                      (or (equal t1 t) (<a href="../before/index.html">before</a> t1 t))))))))
+
+
+(forall (s t1 t2)
+  (iff (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
+       (and (<a href="../member/index.html">member</a> t1 s) (<a href="../member/index.html">member</a> t2 s) (<a href="../before/index.html">before</a> t1 t2)
+            (not (exists (t)
+                   (and (<a href="../member/index.html">member</a> t s) (<a href="../before/index.html">before</a> t1 t)
+                        (<a href="../before/index.html">before</a> t t2)))))))
+
+
+(forall (s)
+  (iff (<a href="../tseq/index.html">tseq</a> s)
+       (and (forall (t) (if (<a href="../member/index.html">member</a> t s) (<a href="../temporalEntity/index.html">temporalEntity</a> t)))
+            (forall (t1 t2)
+              (if (and (<a href="../member/index.html">member</a> t1 s) (<a href="../member/index.html">member</a> t2 s))
+                  (and (or (equal t1 t2) (<a href="../before/index.html">before</a> t1 t2)
+                           (<a href="../before/index.html">before</a> t2 t1))
+                       (if (<a href="../before/index.html">before</a> t1 t2)
+                           (exists (t3)
+                             (and (not (<a href="../member/index.html">member</a> t3 s))
+                                  (<a href="../before/index.html">before</a> t1 t3)
+                                  (<a href="../before/index.html">before</a> t3 t2))))))))))
+
+
+(forall (t)
+  (iff (<a href="../timeScale/index.html">timeScale</a> t)
+       (exists (s e t2 t3)
+         (and (forall (t1)
+                (iff (<a href="../member/index.html">member</a> t1 s)
+                     (or (<a href="../instant/index.html">instant</a> t1) (<a href="../interval/index.html">interval</a> t1))))
+              (<a href="../before/index.html">before</a>' e t2 t3)
+              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> t s e)))))
+
+
+(forall (t) (not (<a href="../before/index.html">before</a> t t)))
+
+
+(forall (t1 t2 t)
+  (if (and (<a href="../posInfInterval/index.html">posInfInterval</a> t) (<a href="../begins/index.html">begins</a> t1 t) (<a href="../insideTime/index.html">insideTime</a> t2 t))
+      (<a href="../before/index.html">before</a> t1 t2)))
+
+
+(forall (t1 t2 t3 t)
+  (if (<a href="../properIntervalEv/index.html">properIntervalEv</a> t)
+      (and (if (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../ends/index.html">ends</a> t3 t))
+               (<a href="../before/index.html">before</a> t1 t3))
+           (if (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../insideTime/index.html">insideTime</a> t2 t))
+               (<a href="../before/index.html">before</a> t1 t2))
+           (if (and (<a href="../insideTime/index.html">insideTime</a> t2 t) (<a href="../ends/index.html">ends</a> t3 t))
+               (<a href="../before/index.html">before</a> t2 t3)))))
+
+
+(forall (t1 t2 t3)
+  (if (and (<a href="../before/index.html">before</a> t1 t2) (<a href="../before/index.html">before</a> t2 t3))
+      (<a href="../before/index.html">before</a> t1 t3)))
+
+
+(forall (t1 t2)
+  (if (<a href="../before/index.html">before</a> t1 t2)
+      (and (or (<a href="../temporalEntity/index.html">temporalEntity</a> t1) (<a href="../tseq/index.html">tseq</a> t1) (<a href="../eventuality/index.html">eventuality</a> t1))
+           (or (<a href="../temporalEntity/index.html">temporalEntity</a> t2) (<a href="../tseq/index.html">tseq</a> t2) (<a href="../eventuality/index.html">eventuality</a> t2)))))
+
+
+(forall (t1 t2)
+  (if (<a href="../before/index.html">before</a> t1 t2)
+      (not (<a href="../before/index.html">before</a> t2 t1))))
+
+
+(forall (t1 t2)
+  (iff (<a href="../before/index.html">before</a> t1 t2)
+       (exists (t3 t4)
+         (and (<a href="../ends/index.html">ends</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t3 t4)))))
+
+
+(forall (t1 t2)
+  (iff (<a href="../beforeOrMeets/index.html">beforeOrMeets</a> t1 t2)
+       (exists (t3 t4)
+         (and (<a href="../ends/index.html">ends</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2)
+              (or (<a href="../before/index.html">before</a> t3 t4) (equal t3 t4))))))
+
+
+(forall (t1 t2)
+  (iff (<a href="../intDuring/index.html">intDuring</a> t1 t2)
+       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
+            (exists (t3 t4)
+              (and (<a href="../begins/index.html">begins</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t4 t3)))
+            (exists (t5)
+              (and (<a href="../ends/index.html">ends</a> t5 t1)
+                   (forall (t6)
+                     (if (<a href="../ends/index.html">ends</a> t6 t2) (<a href="../before/index.html">before</a> t5 t6))))))))
+
+
+(forall (t1 t2)
+  (iff (<a href="../intFinishes/index.html">intFinishes</a> t1 t2)
+       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
+            (exists (t3 t4)
+              (and (<a href="../begins/index.html">begins</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t4 t3)))
+            (or (exists (t)
+                  (and (<a href="../ends/index.html">ends</a> t t1) (<a href="../ends/index.html">ends</a> t t2)))
+                (and (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> t1)
+                     (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> t2))))))
+
+
+</pre>
+</body>
+
+</html>

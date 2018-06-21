@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: agentOf</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: agentOf</h1>
+<pre>(agentOf a e)</pre><p>Agent a is the agent or cause of eventuality e.</p><h2>Characterizing Axioms</h2><pre>(forall (a e)
+  (iff (<a href="../agentOf/index.html">agentOf</a> a e)
+       (and (<a href="../agent/index.html">agent</a> a) (<a href="../cause/index.html">cause</a> a e))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (a e)
+  (if (<a href="../difficult/index.html">difficult</a> e a)
+      (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e))))
+
+
+(forall (a e)
+  (iff (<a href="../agentOf/index.html">agentOf</a> a e)
+       (and (<a href="../agent/index.html">agent</a> a) (<a href="../cause/index.html">cause</a> a e))))
+
+
+(forall (a e)
+  (iff (<a href="../do/index.html">do</a> a e)
+       (and (<a href="../agentOf/index.html">agentOf</a> a e) (<a href="../Rexist/index.html">Rexist</a> e))))
+
+
+(forall (e1 e a)
+  (iff (<a href="../difficult/index.html">difficult</a>' e1 e a)
+       (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e)
+            (exists (s)
+              (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../scaleFor/index.html">scaleFor</a> s e1))))))
+
+
+(forall (s1 s a)
+  (iff (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
+       (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../subset/index.html">subset</a> s1 s) (<a href="../agent/index.html">agent</a> a)
+            (forall (e)
+              (iff (<a href="../member/index.html">member</a> e s1)
+                   (and (not (<a href="../agentOf/index.html">agentOf</a> a e))
+                        (not (exists (e1)
+                               (and (<a href="../agentOf/index.html">agentOf</a> a e1)
+                                    (<a href="../cause/index.html">cause</a> e1 e))))))))))
+
+
+(forall (y e)
+  (iff (<a href="../instrumentOf/index.html">instrumentOf</a> y e)
+       (exists (a e1)
+         (and (<a href="../agentOf/index.html">agentOf</a> a e1) (<a href="../changeIn/index.html">changeIn</a>' e1 y)
+              (or (<a href="../cause/index.html">cause</a> e1 e)
+                  (exists (e2)
+                    (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../and'/index.html">and'</a> e e1 e2))))))))
+
+
+</pre>
+</body>
+
+</html>

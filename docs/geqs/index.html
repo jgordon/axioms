@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: geqs</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: geqs</h1>
+<pre>(geqs x y s)</pre><p>x is greater than or equal to y in the partial ordering</p><h2>Characterizing Axioms</h2><pre>(forall (x y s)
+   (iff (<a href="../geqs/index.html">geqs</a> x y s)
+        (or (<a href="../gts/index.html">gts</a> x y s)
+            (and (<a href="../onScale/index.html">onScale</a> x s) (equal x y)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (x y s)
+   (iff (<a href="../geqs/index.html">geqs</a> x y s)
+        (or (<a href="../gts/index.html">gts</a> x y s)
+            (and (<a href="../onScale/index.html">onScale</a> x s) (equal x y)))))
+
+
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: lineSegment</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: lineSegment</h1>
+<pre>(lineSegment c)</pre><p>c is a line segment.</p><h2>Characterizing Axioms</h2><pre>(forall (c)
+  (if (<a href="../lineSegment/index.html">lineSegment</a> c)
+      (exists (x1 x2)
+        (and (<a href="../endpoint/index.html">endpoint</a> x1 lc (<a href="../endpoint/index.html">endpoint</a> x2 c)
+             (<a href="../nequal/index.html">nequal</a> x1 x2)))))
+
+
+(forall (d c u)
+  (iff (<a href="../lineSegment/index.html">lineSegment</a> c)
+       (iff (<a href="../length/index.html">length</a> d c u)
+            (exists (x1 x2)
+              (and (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2)
+                   (<a href="../distance/index.html">distance</a> d x1 x2 u))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (c)
+  (if (<a href="../lineSegment/index.html">lineSegment</a> c)
+      (exists (x1 x2)
+        (and (<a href="../endpoint/index.html">endpoint</a> x1 lc (<a href="../endpoint/index.html">endpoint</a> x2 c)
+             (<a href="../nequal/index.html">nequal</a> x1 x2)))))
+
+
+(forall (c)
+  (iff (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2)
+       (and (<a href="../lineSegment/index.html">lineSegment</a> c)
+            (<a href="../endpoint/index.html">endpoint</a> x1 c) (<a href="../endpoint/index.html">endpoint</a> x2 c)
+            (<a href="../nequal/index.html">nequal</a> x1 x2))))
+
+
+(forall (c)
+  (iff (<a href="../linear/index.html">linear</a> c)
+       (or (<a href="../line/index.html">line</a> c) (<a href="../ray/index.html">ray</a> c) (<a href="../lineSegment/index.html">lineSegment</a> c))))
+
+
+(forall (d c u)
+  (iff (<a href="../lineSegment/index.html">lineSegment</a> c)
+       (iff (<a href="../length/index.html">length</a> d c u)
+            (exists (x1 x2)
+              (and (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2)
+                   (<a href="../distance/index.html">distance</a> d x1 x2 u))))))
+
+
+</pre>
+</body>
+
+</html>

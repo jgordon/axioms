@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: lts</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: lts</h1>
+<pre>(lts x y s)</pre><p>x is less than y on scale s.</p><h2>Characterizing Axioms</h2><pre>(forall (e x y s)
+   (if (<a href="../lts/index.html">lts</a>' e x y s)
+       (iff (<a href="../totalOrdering/index.html">totalOrdering</a> e x y s)
+            (forall (x1 y1)
+               (if (and (<a href="../inScale/index.html">inScale</a> x1 s) (<a href="../inScale/index.html">inScale</a> y1 s))
+                   (or (<a href="../lts/index.html">lts</a> x1 y1 s) (equal x1 y1)
+                       (<a href="../lts/index.html">lts</a> y1 x1 s)))))))
+
+
+(forall (e x1 y1 s)
+   (iff (<a href="../lts/index.html">lts</a>' e1 x1 y1 s)
+        (exists (e x y e1)
+           (and (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
+                (<a href="../subst2/index.html">subst2</a> x y e x1 y1 e1)))))
+
+
+(forall (x y s)
+   (if (<a href="../lts/index.html">lts</a> x y s)
+       (and (<a href="../onScale/index.html">onScale</a> x s) (<a href="../onScale/index.html">onScale</a> y s))))
+
+
+(forall (x y s)
+   (if (<a href="../lts/index.html">lts</a> x y s)
+       (and (or (<a href="../inScale/index.html">inScale</a> x s)
+                (exists (x1) (and (<a href="../at/index.html">at</a> x x1 s) (<a href="../inScale/index.html">inScale</a> x1 s))))
+            (or (<a href="../inScale/index.html">inScale</a> y s)
+                (exists (y1) (and (<a href="../at/index.html">at</a> y y1 s) (<a href="../inScale/index.html">inScale</a> y1 s)))))))
+
+
+(forall (x y s)
+  (if (<a href="../lts/index.html">lts</a> x y s)
+      (not (<a href="../lts/index.html">lts</a> y x s))))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (x s0 s1)
+      (if (and (<a href="../onScale/index.html">onScale</a> x s1) (<a href="../Hi/index.html">Hi</a> s1 s0) (etc))
+          (exists (s2 s3 s4 n3 n4)
+             (and (<a href="../componentsOf/index.html">componentsOf</a> s2 s0) (<a href="../union/index.html">union</a> s2 s3 s4)
+                  (forall (y) (iff (<a href="../member/index.html">member</a> y s3) (<a href="../lts/index.html">lts</a> y x s0)))
+                  (forall (z) (iff (<a href="../member/index.html">member</a> z s4) (<a href="../lts/index.html">lts</a> x z s0)))
+                  (<a href="../card/index.html">card</a> n3 s3) (<a href="../card/index.html">card</a> n4 s4) (<a href="../lt/index.html">lt</a> n4 n3)))))
+
+
+(forall (d e c s)
+  (if (and (<a href="../likelihood/index.html">likelihood</a> d1 e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../bottom/index.html">bottom</a> d s))
+      (iff (<a href="../lts/index.html">lts</a> d d1 s) (<a href="../possible/index.html">possible</a> e c))))
+
+
+(forall (e x y s)
+   (if (<a href="../lts/index.html">lts</a>' e x y s)
+       (iff (<a href="../totalOrdering/index.html">totalOrdering</a> e x y s)
+            (forall (x1 y1)
+               (if (and (<a href="../inScale/index.html">inScale</a> x1 s) (<a href="../inScale/index.html">inScale</a> y1 s))
+                   (or (<a href="../lts/index.html">lts</a> x1 y1 s) (equal x1 y1)
+                       (<a href="../lts/index.html">lts</a> y1 x1 s)))))))
+
+
+(forall (e x y z s)
+  (iff (<a href="../decrease/index.html">decrease</a> x s)
+       (exists (y z e1 e2)
+         (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../lts/index.html">lts</a> z y s)
+              (<a href="../vertical/index.html">vertical</a> s) (<a href="../change/index.html">change</a> e1 e2)))))
+
+
+(forall (e x y z s)
+  (iff (<a href="../increase/index.html">increase</a> x s)
+       (exists (y z e1 e2)
+         (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../lts/index.html">lts</a> y z s)
+              (<a href="../vertical/index.html">vertical</a> s) (<a href="../change/index.html">change</a> e1 e2)))))
+
+
+(forall (e x1 y1 s)
+   (iff (<a href="../lts/index.html">lts</a>' e1 x1 y1 s)
+        (exists (e x y e1)
+           (and (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
+                (<a href="../subst2/index.html">subst2</a> x y e x1 y1 e1)))))
+
+
+(forall (e1 e2 c)
+  (iff (<a href="../moreLikely/index.html">moreLikely</a> e1 e2 c)
+       (exists (s d1 d2)
+         (and (<a href="../likelihoodScale/index.html">likelihoodScale</a> s)
+              (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c)
+              (<a href="../lts/index.html">lts</a> d2 d1 s)))))
+
+
+(forall (f s1 s2)
+   (if (and (<a href="../function/index.html">function</a> f s1 s2) (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s2))
+       (iff (<a href="../monotoneIncreasing/index.html">monotoneIncreasing</a> f)
+            (forall (x1 x2 y1 y2)
+               (if (and (<a href="../map/index.html">map</a> f x1 y1) (<a href="../map/index.html">map</a> f x2 y2) (<a href="../lts/index.html">lts</a> x1 x2 s1))
+                   (<a href="../lts/index.html">lts</a> y1 y2 s2))))))
+
+
+(forall (s s0)
+  (iff (<a href="../rateScale/index.html">rateScale</a> s s0)
+       (and (forall (s1) (if (<a href="../member/index.html">member</a> s1 s0) (<a href="../eventualities/index.html">eventualities</a> s1)))
+            (exists (u e s1 s2)
+              (and (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../lts/index.html">lts</a>' e s1 s2 s0)
+                   (forall (s3 s4)
+                     (iff (and (<a href="../lts/index.html">lts</a>' e s3 s4 s0) (<a href="../Rexist/index.html">Rexist</a> e))
+                          (exists (r1 r2)
+                            (and (<a href="../rate/index.html">rate</a> r1 s3 u) (<a href="../rate/index.html">rate</a> r2 s4 u)
+                                 (<a href="../lt/index.html">lt</a> r1 r2)))))
+                   (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e))))))
+
+
+(forall (s s1 s2 x y)
+   (if (and (<a href="../Hi/index.html">Hi</a> s1 s) (<a href="../Lo/index.html">Lo</a> s2 s) (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s2))
+       (<a href="../lts/index.html">lts</a> y x s)))
+
+
+(forall (s s1 s2)
+   (if (<a href="../compositeScale/index.html">compositeScale</a> s s1 s2)
+       (and (exists (s3)
+               (and (<a href="../componentsOf/index.html">componentsOf</a> s3 s1) (<a href="../componentsOf/index.html">componentsOf</a> s3 s2)
+                    (<a href="../componentsOf/index.html">componentsOf</a> s3 s)))
+            (forall (x y)
+               (if (and (<a href="../lts/index.html">lts</a> x y s1) (<a href="../leqs/index.html">leqs</a> x y s2))
+                   (<a href="../lts/index.html">lts</a> x y s)))
+            (forall (x y)
+               (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../lts/index.html">lts</a> x y s2))
+                   (<a href="../lts/index.html">lts</a> x y s))))))
+
+
+(forall (s1 s)
+   (iff (<a href="../reverse/index.html">reverse</a> s1 s)
+        (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s)
+             (forall (x y)
+                (and (iff (<a href="../inScale/index.html">inScale</a> x s) (<a href="../inScale/index.html">inScale</a> x s1))
+                     (iff (<a href="../lts/index.html">lts</a> x y s) (<a href="../lts/index.html">lts</a> y x s1)))))))
+
+
+(forall (s1 s)
+   (iff (<a href="../subscale/index.html">subscale</a> s1 s)
+        (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s)
+             (forall (x) (if (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> x s)))
+             (forall (x y)
+                (iff (<a href="../lts/index.html">lts</a> x y s1)
+                     (and (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s1)
+                          (<a href="../lts/index.html">lts</a> x y s)))))))
+
+
+(forall (s1 s2)
+  (iff (<a href="../independentScales/index.html">independentScales</a> s1 s2)
+       (exists (x1 x2 y1 y2)
+         (and (<a href="../lts/index.html">lts</a> x1 x2 s1) (<a href="../lts/index.html">lts</a> x1 x2 s2)
+              (<a href="../lts/index.html">lts</a> y1 y2 s1) (<a href="../lts/index.html">lts</a> y2 y1 s2)))))
+
+
+(forall (x s)
+  (not (<a href="../lts/index.html">lts</a> x x s)))
+
+
+(forall (x y s)
+   (if (<a href="../lts/index.html">lts</a> x y s)
+       (and (<a href="../onScale/index.html">onScale</a> x s) (<a href="../onScale/index.html">onScale</a> y s))))
+
+
+(forall (x y s)
+   (if (<a href="../lts/index.html">lts</a> x y s)
+       (and (or (<a href="../inScale/index.html">inScale</a> x s)
+                (exists (x1) (and (<a href="../at/index.html">at</a> x x1 s) (<a href="../inScale/index.html">inScale</a> x1 s))))
+            (or (<a href="../inScale/index.html">inScale</a> y s)
+                (exists (y1) (and (<a href="../at/index.html">at</a> y y1 s) (<a href="../inScale/index.html">inScale</a> y1 s)))))))
+
+
+(forall (x y s)
+   (iff (<a href="../leqs/index.html">leqs</a> x y s)
+        (or (<a href="../lts/index.html">lts</a> x y s)
+            (and (<a href="../onScale/index.html">onScale</a> x s) (equal x y)))))
+
+
+(forall (x y s)
+  (if (<a href="../lts/index.html">lts</a> x y s)
+      (not (<a href="../lts/index.html">lts</a> y x s))))
+
+
+(forall (x y s)
+  (iff (<a href="../gts/index.html">gts</a> y x s)
+       (<a href="../lts/index.html">lts</a> x y s)))
+
+
+(forall (x y z s)
+   (if (and (<a href="../lts/index.html">lts</a> x y s) (<a href="../lts/index.html">lts</a> y z s))
+       (<a href="../lts/index.html">lts</a> x z s)))
+
+
+(forall (x1 x2 y1 y2 s)
+   (and (if (<a href="../at/index.html">at</a> x1 y1 s)
+            (iff (<a href="../lts/index.html">lts</a> x1 y2 s) (<a href="../lts/index.html">lts</a> y1 y2 s)))
+        (if (<a href="../at/index.html">at</a> x2 y2 s)
+            (iff (<a href="../lts/index.html">lts</a> y1 x2 s) (<a href="../lts/index.html">lts</a> y1 y2 s)))
+        (if (and (<a href="../at/index.html">at</a> x1 y1 s) (<a href="../at/index.html">at</a> x2 y2 s))
+            (iff (<a href="../lts/index.html">lts</a> x1 x2 s) (<a href="../lts/index.html">lts</a> y1 y2 s)))))
+
+
+</pre>
+</body>
+
+</html>

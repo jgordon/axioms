@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: difficult</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: difficult</h1>
+<pre>(difficult e a)</pre><p>Action e is difficult for agent a.</p><h2>Characterizing Axioms</h2><pre>(forall (a e)
+  (if (<a href="../difficult/index.html">difficult</a> e a)
+      (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e))))
+
+
+(forall (e1 e a)
+  (iff (<a href="../difficult/index.html">difficult</a>' e1 e a)
+       (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e)
+            (exists (s)
+              (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../scaleFor/index.html">scaleFor</a> s e1))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (a e)
+  (if (<a href="../difficult/index.html">difficult</a> e a)
+      (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e))))
+
+
+(forall (e1 e a)
+  (iff (<a href="../difficult/index.html">difficult</a>' e1 e a)
+       (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e)
+            (exists (s)
+              (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../scaleFor/index.html">scaleFor</a> s e1))))))
+
+
+</pre>
+</body>
+
+</html>

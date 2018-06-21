@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: arg</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: arg</h1>
+<pre>(arg x e)</pre><p>x is an argument of e.</p><h2>Characterizing Axioms</h2><pre>(forall (e x)
+  (iff (<a href="../arg/index.html">arg</a> x e)
+       (exists (n)
+         (<a href="../argn/index.html">argn</a> x n e))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e x)
+  (iff (<a href="../arg/index.html">arg</a> x e)
+       (exists (n)
+         (<a href="../argn/index.html">argn</a> x n e))))
+
+
+(forall (x e1)
+  (iff (<a href="../arg*/index.html">arg*</a> x e1)
+       (or (<a href="../arg/index.html">arg</a> x e1)
+           (exists (e2)
+             (and (<a href="../arg/index.html">arg</a> e2 e1) (<a href="../arg*/index.html">arg*</a> x e2))))))
+
+
+(forall (y e)
+  (iff (<a href="../onlyarg*/index.html">onlyarg*</a> y e)
+       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../nequal/index.html">nequal</a> y e)
+            (forall (y1)
+              (if (<a href="../arg/index.html">arg</a> y1 e)
+                  (or (equal y1 y)
+                      (<a href="../onlyarg*/index.html">onlyarg*</a> y y1)))))))
+
+
+</pre>
+</body>
+
+</html>

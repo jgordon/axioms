@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: gt</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: gt</h1>
+<pre>(gt n1 n2)</pre><p>n1 is greater than n2.</p><h2>Characterizing Axioms</h2><pre>(forall (n1 n2)
+  (iff (<a href="../gt/index.html">gt</a> n1 n2) (<a href="../lt/index.html">lt</a> n2 n1)))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (f)
+      (iff (<a href="../coordinateSystem/index.html">coordinateSystem</a> f)
+           (and (<a href="../framework/index.html">framework</a> f)
+                (forall (a1) (if (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../numeric/index.html">numeric</a> a1)))
+                (forall (a2) (if (<a href="../yAxis/index.html">yAxis</a> a2 f) (<a href="../numeric/index.html">numeric</a> a2)))
+                (forall (a3) (if (<a href="../zAxis/index.html">zAxis</a> a3 f) (<a href="../numeric/index.html">numeric</a> a3)))
+                (forall (o) (if (<a href="../origin/index.html">origin</a> o f) (equal o 0)))
+                (forall (x1 x2) (iff (<a href="../rightOf/index.html">rightOf</a> x1 x2 f) (<a href="../gt/index.html">gt</a> x1 x2)))
+                (forall (y1 y2) (iff (<a href="../above2/index.html">above2</a> y1 y2 f) (<a href="../gt/index.html">gt</a> y1 y2)))
+                (forall (z1 z2) (iff (<a href="../above3/index.html">above3</a> z1 z2 f) (<a href="../gt/index.html">gt</a> z1 z2))))))
+
+
+   (forall (v1 v2)
+      (iff (<a href="../gtAngle/index.html">gtAngle</a> v1 v2)
+           (exists (c1 c2 d1 d2 u)
+              (and (<a href="../baseOfAngle/index.html">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle/index.html">baseOfAngle</a> c2 v2 u)
+                   (<a href="../length/index.html">length</a> d1 c1 u) (<a href="../length/index.html">length</a> d2 c2 u) (<a href="../gt/index.html">gt</a> d1 d2)))))
+
+
+(forall (e s e1)
+  (iff (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e s x e1)
+       (exists (y e2 l e3 s1)
+         (or (and (<a href="../length/index.html">length</a> 1 s) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1) (equal e e2))
+             (and (<a href="../length/index.html">length</a> l s) (<a href="../gt/index.html">gt</a> l 1) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1)
+                  (<a href="../eventSequence/index.html">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e3 s1 x e1)
+                  (<a href="../rest/index.html">rest</a> s1 s))))))
+
+
+(forall (n1 n2)
+  (iff (<a href="../geq/index.html">geq</a> n1 n2)
+       (or (<a href="../gt/index.html">gt</a> n1 n2) (equal n1 n2))))
+
+
+(forall (n1 n2)
+  (iff (<a href="../gt/index.html">gt</a> n1 n2) (<a href="../lt/index.html">lt</a> n2 n1)))
+
+
+</pre>
+</body>
+
+</html>

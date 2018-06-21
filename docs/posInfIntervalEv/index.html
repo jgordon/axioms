@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: posInfIntervalEv</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: posInfIntervalEv</h1>
+<pre>(posInfIntervalEv e)</pre><p>e is a positive infinite interval or an</p><h2>Characterizing Axioms</h2><pre>(forall (e)
+  (iff (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> e)
+       (or (<a href="../posInfInterval/index.html">posInfInterval</a> e)
+           (exists (t)
+             (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../posInfInterval/index.html">posInfInterval</a> t))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e)
+  (iff (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> e)
+       (or (<a href="../posInfInterval/index.html">posInfInterval</a> e)
+           (exists (t)
+             (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../posInfInterval/index.html">posInfInterval</a> t))))))
+
+
+(forall (e)
+  (iff (<a href="../properIntervalEv/index.html">properIntervalEv</a> e)
+       (or (<a href="../properInterval/index.html">properInterval</a> e)
+           (exists (t)
+             (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../properInterval/index.html">properInterval</a> t)))
+           (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> e))))
+
+
+(forall (t1 t2)
+  (iff (<a href="../intFinishes/index.html">intFinishes</a> t1 t2)
+       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
+            (exists (t3 t4)
+              (and (<a href="../begins/index.html">begins</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t4 t3)))
+            (or (exists (t)
+                  (and (<a href="../ends/index.html">ends</a> t t1) (<a href="../ends/index.html">ends</a> t t2)))
+                (and (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> t1)
+                     (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> t2))))))
+
+
+</pre>
+</body>
+
+</html>

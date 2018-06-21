@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: necessary</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: necessary</h1>
+<pre>(necessary e c)</pre><p>e is necessary with respect to a set of constraints c.</p><h2>Characterizing Axioms</h2><pre>(forall (e c)
+  (if (<a href="../necessary/index.html">necessary</a> e c)
+      (<a href="../PosMod/index.html">PosMod</a> e necessary)))
+
+
+(forall (e c)
+  (if (<a href="../necessary/index.html">necessary</a> e c)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
+
+
+(forall (e c)
+  (iff (<a href="../necessary/index.html">necessary</a> e c)
+       (<a href="../imply/index.html">imply</a> c e)))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (d e c s)
+  (if (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s))
+      (iff (<a href="../top/index.html">top</a> d s) (<a href="../necessary/index.html">necessary</a> e c))))
+
+
+(forall (e c e1)
+  (if (and (<a href="../possible/index.html">possible</a> e c) (<a href="../not'/index.html">not'</a> e1 e))
+      (not (<a href="../necessary/index.html">necessary</a> e1 c))))
+
+
+(forall (e c)
+  (if (<a href="../necessary/index.html">necessary</a> e c)
+      (<a href="../PosMod/index.html">PosMod</a> e necessary)))
+
+
+(forall (e c)
+  (if (<a href="../necessary/index.html">necessary</a> e c)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
+
+
+(forall (e c)
+  (iff (<a href="../necessary/index.html">necessary</a> e c)
+       (<a href="../imply/index.html">imply</a> c e)))
+
+
+</pre>
+</body>
+
+</html>

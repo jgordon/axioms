@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: concatenation</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: concatenation</h1>
+<pre>(concatenation t s)</pre><p>Interval t is the concatenation of the</p><h2>Characterizing Axioms</h2><pre>(forall (t s)
+  (iff (<a href="../concatenation/index.html">concatenation</a> t s)
+       (and (<a href="../properInterval/index.html">properInterval</a> t)
+            (forall (t1) (if (<a href="../member/index.html">member</a> t1 s) (<a href="../properInterval/index.html">properInterval</a> t1)))
+            (exists (t1 t2)
+              (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../member/index.html">member</a> t2 s) (<a href="../begins/index.html">begins</a> t1 t2)))
+            (exists (t1 t2)
+              (and (<a href="../ends/index.html">ends</a> t1 t) (<a href="../member/index.html">member</a> t2 s) (<a href="../ends/index.html">ends</a> t1 t2)))
+            (forall (t1)
+              (if (<a href="../insideTime/index.html">insideTime</a> t1 t)
+                  (exists (t2)
+                    (and (<a href="../member/index.html">member</a> t2 s)
+                         (or (<a href="../insideTime/index.html">insideTime</a> t1 t2) (<a href="../begins/index.html">begins</a> t1 t2)
+                             (<a href="../ends/index.html">ends</a> t1 t2))))))
+            (forall (t1 t2)
+              (if (and (<a href="../member/index.html">member</a> t1 s) (<a href="../member/index.html">member</a> t2 s))
+                  (or (equal t1 t2) (not (<a href="../intOverlap/index.html">intOverlap</a> t1 t2))))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (d t u)
+  (if (<a href="../interval/index.html">interval</a> t)
+      (iff (<a href="../durationOf/index.html">durationOf</a> d t u)
+           (exists (s)
+             (and (<a href="../concatenation/index.html">concatenation</a> t s)
+                  (forall (t1)
+                    (if (<a href="../member/index.html">member</a> t1 s) (<a href="../sameDuration/index.html">sameDuration</a> t1 u)))
+                  (<a href="../card/index.html">card</a> d s))))))
+
+
+(forall (t s)
+  (iff (<a href="../concatenation/index.html">concatenation</a> t s)
+       (and (<a href="../properInterval/index.html">properInterval</a> t)
+            (forall (t1) (if (<a href="../member/index.html">member</a> t1 s) (<a href="../properInterval/index.html">properInterval</a> t1)))
+            (exists (t1 t2)
+              (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../member/index.html">member</a> t2 s) (<a href="../begins/index.html">begins</a> t1 t2)))
+            (exists (t1 t2)
+              (and (<a href="../ends/index.html">ends</a> t1 t) (<a href="../member/index.html">member</a> t2 s) (<a href="../ends/index.html">ends</a> t1 t2)))
+            (forall (t1)
+              (if (<a href="../insideTime/index.html">insideTime</a> t1 t)
+                  (exists (t2)
+                    (and (<a href="../member/index.html">member</a> t2 s)
+                         (or (<a href="../insideTime/index.html">insideTime</a> t1 t2) (<a href="../begins/index.html">begins</a> t1 t2)
+                             (<a href="../ends/index.html">ends</a> t1 t2))))))
+            (forall (t1 t2)
+              (if (and (<a href="../member/index.html">member</a> t1 s) (<a href="../member/index.html">member</a> t2 s))
+                  (or (equal t1 t2) (not (<a href="../intOverlap/index.html">intOverlap</a> t1 t2))))))))
+
+
+</pre>
+</body>
+
+</html>

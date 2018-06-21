@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: replaceElt</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: replaceElt</h1>
+<pre>(replaceElt s s1 x y)</pre><p>s is obtained from s1 by replacing x with y.</p><h2>Characterizing Axioms</h2><pre>(forall (s s1 x y)
+  (iff (<a href="../replaceElt/index.html">replaceElt</a> s s1 x y)
+       (exists (s2)
+         (and (<a href="../deleteElt/index.html">deleteElt</a> s2 s1 x)
+              (<a href="../addElt/index.html">addElt</a> s s2 y)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (s s1 x y)
+  (iff (<a href="../replaceElt/index.html">replaceElt</a> s s1 x y)
+       (exists (s2)
+         (and (<a href="../deleteElt/index.html">deleteElt</a> s2 s1 x)
+              (<a href="../addElt/index.html">addElt</a> s s2 y)))))
+
+
+</pre>
+</body>
+
+</html>

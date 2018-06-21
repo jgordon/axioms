@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: deleteElt</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: deleteElt</h1>
+<pre>(deleteElt s s1 x)</pre><p>s is obtained from s1 by deleting x.</p><h2>Characterizing Axioms</h2><pre>(forall (s s1 x)
+  (iff (<a href="../deleteElt/index.html">deleteElt</a> s s1 x)
+       (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1)
+            (forall (y)
+              (iff (<a href="../member/index.html">member</a> y s)
+                   (and (<a href="../member/index.html">member</a> y s1) (<a href="../nequal/index.html">nequal</a> y x)))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (e1 e2 q c)
+  (iff (<a href="../tcauseq/index.html">tcauseq</a> e1 e2 q c)
+       (exists (s)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likelihood/index.html">likelihood</a> q s1 c)
+              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../cause/index.html">cause</a> e1 e2))))))
+
+
+(forall (e1 e2)
+  (iff (<a href="../tcause/index.html">tcause</a> e1 e2)
+       (exists (s c)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likely/index.html">likely</a> s1 c)
+              (if (<a href="../Rexist/index.html">Rexist</a> s)
+                  (<a href="../cause/index.html">cause</a> e1 e2))))))
+
+
+(forall (s s1 e1 e)
+  (if (and (<a href="../causalComplex/index.html">causalComplex</a> s e) (<a href="../member/index.html">member</a> e1 s) (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1))
+      (not (<a href="../causalComplex/index.html">causalComplex</a> s1 e))))
+
+
+(forall (s s1 x y)
+  (iff (<a href="../replaceElt/index.html">replaceElt</a> s s1 x y)
+       (exists (s2)
+         (and (<a href="../deleteElt/index.html">deleteElt</a> s2 s1 x)
+              (<a href="../addElt/index.html">addElt</a> s s2 y)))))
+
+
+(forall (s s1 x)
+  (iff (<a href="../deleteElt/index.html">deleteElt</a> s s1 x)
+       (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1)
+            (forall (y)
+              (iff (<a href="../member/index.html">member</a> y s)
+                   (and (<a href="../member/index.html">member</a> y s1) (<a href="../nequal/index.html">nequal</a> y x)))))))
+
+
+</pre>
+</body>
+
+</html>

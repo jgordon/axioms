@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: nearer</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: nearer</h1>
+<h2>All Axioms</h2><pre>   (forall (s z)
+      (iff (<a href="../nearnessScale/index.html">nearnessScale</a> s z)
+           (exists (s0 e x y u)
+              (and (<a href="../nearer/index.html">nearer</a>' e x y z u) (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e)))))
+
+
+   (forall (x y z)
+      (iff (<a href="../nearer/index.html">nearer</a> x y z)
+           (exists (d1 d2)
+              (and (<a href="../distance/index.html">distance</a> d1 x z u) (<a href="../distance/index.html">distance</a> d2 y z u)
+                   (<a href="../lt/index.html">lt</a> d1 d2)))))
+
+
+</pre>
+</body>
+
+</html>

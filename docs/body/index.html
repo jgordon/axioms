@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: body</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: body</h1>
+<pre>(body b p)</pre><p>b is p's body.</p><h2>Characterizing Axioms</h2><pre>(forall (b p)
+  (if (<a href="../body/index.html">body</a> b p)
+      (<a href="../physobj/index.html">physobj</a> b)))
+
+
+(forall (b p)
+  (if (<a href="../body/index.html">body</a> b p)
+      (and (<a href="../spatialSystem/index.html">spatialSystem</a> b)
+           (exists (s)
+             (and (<a href="../componentsOf/index.html">componentsOf</a> s b)
+                  (forall (x)
+                    (iff (<a href="../member/index.html">member</a> x s) (<a href="../bodyPart/index.html">bodyPart</a> x p))))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (b p)
+  (if (<a href="../body/index.html">body</a> b p)
+      (<a href="../physobj/index.html">physobj</a> b)))
+
+
+(forall (b p)
+  (if (<a href="../body/index.html">body</a> b p)
+      (and (<a href="../spatialSystem/index.html">spatialSystem</a> b)
+           (exists (s)
+             (and (<a href="../componentsOf/index.html">componentsOf</a> s b)
+                  (forall (x)
+                    (iff (<a href="../member/index.html">member</a> x s) (<a href="../bodyPart/index.html">bodyPart</a> x p))))))))
+
+
+(forall (p s)
+  (iff (<a href="../bodyPartsOf/index.html">bodyPartsOf</a> s p)
+       (exists (b)
+         (and (<a href="../person/index.html">person</a> p) (<a href="../body/index.html">body</a> b p) (<a href="../componentsOf/index.html">componentsOf</a> s b)))))
+
+
+(forall (p)
+  (if (<a href="../person/index.html">person</a> p)
+      (exists (b m)
+        (and (<a href="../body/index.html">body</a> b p) (<a href="../mind/index.html">mind</a> m p)))))
+
+
+</pre>
+</body>
+
+</html>

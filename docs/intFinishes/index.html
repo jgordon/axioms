@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: intFinishes</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: intFinishes</h1>
+<pre>(intFinishes t1 t2)</pre><p>Interval t1 begins inside interval t2, and</p><h2>Characterizing Axioms</h2><pre>(forall (t1 t2)
+  (iff (<a href="../intFinishes/index.html">intFinishes</a> t1 t2)
+       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
+            (exists (t3 t4)
+              (and (<a href="../begins/index.html">begins</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t4 t3)))
+            (or (exists (t)
+                  (and (<a href="../ends/index.html">ends</a> t t1) (<a href="../ends/index.html">ends</a> t t2)))
+                (and (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> t1)
+                     (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> t2))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (t1 t2)
+  (iff (<a href="../intFinishes/index.html">intFinishes</a> t1 t2)
+       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
+            (exists (t3 t4)
+              (and (<a href="../begins/index.html">begins</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t4 t3)))
+            (or (exists (t)
+                  (and (<a href="../ends/index.html">ends</a> t t1) (<a href="../ends/index.html">ends</a> t t2)))
+                (and (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> t1)
+                     (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> t2))))))
+
+
+</pre>
+</body>
+
+</html>

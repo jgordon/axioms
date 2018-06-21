@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: eventualities</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: eventualities</h1>
+<pre>(eventualities s)</pre><p>s is a set of eventualities.</p><h2>Characterizing Axioms</h2><pre>(forall (s)
+  (iff (<a href="../eventualities/index.html">eventualities</a> s)
+       (and (<a href="../set/index.html">set</a> s)
+            (forall (e)
+              (if (<a href="../member/index.html">member</a> e s)
+                  (<a href="../eventuality/index.html">eventuality</a> e))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (d e c)
+  (if (<a href="../likelihood/index.html">likelihood</a> d e c)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
+
+
+(forall (e c)
+  (if (<a href="../necessary/index.html">necessary</a> e c)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
+
+
+(forall (e c)
+  (if (<a href="../possible/index.html">possible</a> e c)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
+
+
+(forall (e c)
+  (iff (<a href="../impossible/index.html">impossible</a> e c)
+       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c) (not (<a href="../possible/index.html">possible</a> e c)))))
+
+
+(forall (e e1 e2)
+  (if (<a href="../imply'/index.html">imply'</a> e e1 e2)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventuality/index.html">eventuality</a> e2)
+           (or (<a href="../eventuality/index.html">eventuality</a> e1) (<a href="../eventualities/index.html">eventualities</a> e1)))))
+
+
+(forall (e s)
+  (if (<a href="../disjunction/index.html">disjunction</a> e s)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> s)
+           (iff (<a href="../Rexist/index.html">Rexist</a> e)
+                (exists (e1)
+                  (and (<a href="../member/index.html">member</a> e1 s) (<a href="../Rexist/index.html">Rexist</a> e1)))))))
+
+
+(forall (n s t u)
+  (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
+           (forall (t1) (if (<a href="../member/index.html">member</a> t1 t) (<a href="../durationOf/index.html">durationOf</a> 1 t1 u)))
+           (<a href="../rate/index.html">rate</a> n s t))
+      (<a href="../rate/index.html">rate</a> n s u)))
+
+
+(forall (s e c)
+  (if (<a href="../eventuality/index.html">eventuality</a> e)
+      (iff (<a href="../alsoRequired/index.html">alsoRequired</a> s e c)
+           (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../eventualities/index.html">eventualities</a> c)
+                (exists (s1 c1)
+                  (and (<a href="../union/index.html">union</a> s1 c1 s) (<a href="../subset/index.html">subset</a> c1 c)
+                       (<a href="../minimallyProves/index.html">minimallyProves</a> s1 e)))))))
+
+
+(forall (s e)
+  (if (<a href="../causalComplex/index.html">causalComplex</a> s e)
+      (and (<a href="../eventuality/index.html">eventuality</a> e)
+           (or (<a href="../eventualities/index.html">eventualities</a> s)
+               (<a href="../eventuality/index.html">eventuality</a> s)))))
+
+
+(forall (s s0 t f n)
+  (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../set/index.html">set</a> t) (<a href="../powerSet/index.html">powerSet</a> s0 s)
+           (forall (t1)
+             (if (<a href="../member/index.html">member</a> t1 t) (<a href="../interval/index.html">interval</a> t1)))
+           (<a href="../function/index.html">function</a> f t s0)
+           (forall (t1 s1)
+             (if (<a href="../map/index.html">map</a> f t1 s1)
+                 (and (forall (e)
+                        (if (<a href="../member/index.html">member</a> e s1) (<a href="../happensIn/index.html">happensIn</a> e t1)))
+                      (<a href="../card/index.html">card</a> n s1)))))
+      (<a href="../rate/index.html">rate</a> n s t)))
+
+
+(forall (s s0)
+  (iff (<a href="../rateScale/index.html">rateScale</a> s s0)
+       (and (forall (s1) (if (<a href="../member/index.html">member</a> s1 s0) (<a href="../eventualities/index.html">eventualities</a> s1)))
+            (exists (u e s1 s2)
+              (and (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../lts/index.html">lts</a>' e s1 s2 s0)
+                   (forall (s3 s4)
+                     (iff (and (<a href="../lts/index.html">lts</a>' e s3 s4 s0) (<a href="../Rexist/index.html">Rexist</a> e))
+                          (exists (r1 r2)
+                            (and (<a href="../rate/index.html">rate</a> r1 s3 u) (<a href="../rate/index.html">rate</a> r2 s4 u)
+                                 (<a href="../lt/index.html">lt</a> r1 r2)))))
+                   (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e))))))
+
+
+(forall (s)
+  (iff (<a href="../eventualities/index.html">eventualities</a> s)
+       (and (<a href="../set/index.html">set</a> s)
+            (forall (e)
+              (if (<a href="../member/index.html">member</a> e s)
+                  (<a href="../eventuality/index.html">eventuality</a> e))))))
+
+
+(forall (s1 s a)
+  (iff (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
+       (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../subset/index.html">subset</a> s1 s) (<a href="../agent/index.html">agent</a> a)
+            (forall (e)
+              (iff (<a href="../member/index.html">member</a> e s1)
+                   (and (not (<a href="../agentOf/index.html">agentOf</a> a e))
+                        (not (exists (e1)
+                               (and (<a href="../agentOf/index.html">agentOf</a> a e1)
+                                    (<a href="../cause/index.html">cause</a> e1 e))))))))))
+
+
+(forall (s1 s2)
+  (iff (<a href="../inconsistent/index.html">inconsistent</a> s1 s2)
+       (and (<a href="../eventualities/index.html">eventualities</a> s1) (<a href="../eventualities/index.html">eventualities</a> s2)
+            (exists (e1 e2)
+              (and (<a href="../imply/index.html">imply</a> s1 e1) (<a href="../imply/index.html">imply</a> s2 e2) (<a href="../not'/index.html">not'</a> e2 e1))))))
+
+
+</pre>
+</body>
+
+</html>

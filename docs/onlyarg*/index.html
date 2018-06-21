@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: onlyarg*</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: onlyarg*</h1>
+<pre>(onlyarg* y e)</pre><p>y is the only arg* of e, after recursing</p><h2>Characterizing Axioms</h2><pre>(forall (y e)
+  (iff (<a href="../onlyarg*/index.html">onlyarg*</a> y e)
+       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../nequal/index.html">nequal</a> y e)
+            (forall (y1)
+              (if (<a href="../arg/index.html">arg</a> y1 e)
+                  (or (equal y1 y)
+                      (<a href="../onlyarg*/index.html">onlyarg*</a> y y1)))))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (s2 x)
+  (if (<a href="../propertiesOf/index.html">propertiesOf</a> s2 x)
+      (and (<a href="../set/index.html">set</a> s2) (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+           (forall (e)
+             (if (<a href="../member/index.html">member</a> e s2)
+                 (exists (y)
+                   (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y x)
+                        (<a href="../onlyarg*/index.html">onlyarg*</a> y e))))))))
+
+
+(forall (y e)
+  (iff (<a href="../onlyarg*/index.html">onlyarg*</a> y e)
+       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../nequal/index.html">nequal</a> y e)
+            (forall (y1)
+              (if (<a href="../arg/index.html">arg</a> y1 e)
+                  (or (equal y1 y)
+                      (<a href="../onlyarg*/index.html">onlyarg*</a> y y1)))))))
+
+
+</pre>
+</body>
+
+</html>

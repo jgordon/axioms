@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: spatialSystem</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: spatialSystem</h1>
+<h2>All Axioms</h2><pre>(forall (b p)
+  (if (<a href="../body/index.html">body</a> b p)
+      (and (<a href="../spatialSystem/index.html">spatialSystem</a> b)
+           (exists (s)
+             (and (<a href="../componentsOf/index.html">componentsOf</a> s b)
+                  (forall (x)
+                    (iff (<a href="../member/index.html">member</a> x s) (<a href="../bodyPart/index.html">bodyPart</a> x p))))))))
+
+
+</pre>
+</body>
+
+</html>

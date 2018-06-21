@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: 45Degrees</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: 45Degrees</h1>
+<h2>All Axioms</h2><pre>   (forall (p d c v x)
+      (if (and (<a href="../square/index.html">square</a> p) (<a href="../sideOf/index.html">sideOf</a> c p) (<a href="../diagonal/index.html">diagonal</a> d p) (<a href="../vertex/index.html">vertex</a> v c d x))
+          (<a href="../45Degrees/index.html">45Degrees</a> v)))
+
+
+   (forall (v)
+      (iff (<a href="../45Degrees/index.html">45Degrees</a> v)
+           (exists (v0 x f c1 c2 o u d)
+              (and (<a href="../equalAngle/index.html">equalAngle</a> v v0) (<a href="../anchorPoint/index.html">anchorPoint</a> x v f c1 c2 o u)
+                   (<a href="../xCoordinate/index.html">xCoordinate</a> x1 x f) (<a href="../yCoordinate/index.html">yCoordinate</a> y1 x f)
+                   (<a href="../distance/index.html">distance</a> d o x1 u) (<a href="../distance/index.html">distance</a> d o y1 u)))))
+
+
+</pre>
+</body>
+
+</html>

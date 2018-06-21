@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: plane</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: plane</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (r)
+  (iff (<a href="../plane/index.html">plane</a> r)
+       (forall (c x1 x2)
+         (if (and (<a href="../line/index.html">line</a> c) (<a href="../inside/index.html">inside</a> x1 c) (<a href="../inside/index.html">inside</a> x2 c)
+                  (<a href="../inside/index.html">inside</a> x1 r) (<a href="../inside/index.html">inside</a> x2 r))
+             (<a href="../inside/index.html">inside</a> c r)))))
+
+
+</pre><h2>All Axioms</h2><pre>(forall (f1 f2)
+  (iff (<a href="../coplanar/index.html">coplanar</a> f1 f2)
+       (exists (p)
+         (and (<a href="../plane/index.html">plane</a> p) (<a href="../inside/index.html">inside</a> f1 p) (<a href="../inside/index.html">inside</a> f2 p)))))
+
+
+(forall (r)
+  (iff (<a href="../planar/index.html">planar</a> r)
+       (exists (r1) (and (<a href="../plane/index.html">plane</a> r1) (<a href="../inside/index.html">inside</a> r r1)))))
+
+
+(forall (r)
+  (iff (<a href="../plane/index.html">plane</a> r)
+       (forall (c x1 x2)
+         (if (and (<a href="../line/index.html">line</a> c) (<a href="../inside/index.html">inside</a> x1 c) (<a href="../inside/index.html">inside</a> x2 c)
+                  (<a href="../inside/index.html">inside</a> x1 r) (<a href="../inside/index.html">inside</a> x2 r))
+             (<a href="../inside/index.html">inside</a> c r)))))
+
+
+</pre>
+</body>
+
+</html>

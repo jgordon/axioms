@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: independentScales</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: independentScales</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (s1 s2)
+  (iff (<a href="../independentScales/index.html">independentScales</a> s1 s2)
+       (exists (x1 x2 y1 y2)
+         (and (<a href="../lts/index.html">lts</a> x1 x2 s1) (<a href="../lts/index.html">lts</a> x1 x2 s2)
+              (<a href="../lts/index.html">lts</a> y1 y2 s1) (<a href="../lts/index.html">lts</a> y2 y1 s2)))))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (s1 s2 f)
+      (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../horizontal3/index.html">horizontal3</a> s1 f) (<a href="../vertical3/index.html">vertical3</a> s2 f))
+          (<a href="../independentScales/index.html">independentScales</a> s1 s2)))
+
+
+(forall (s1 s2 f)
+  (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../horizontal2/index.html">horizontal2</a> s1 f) (<a href="../vertical2/index.html">vertical2</a> s2 f))
+      (<a href="../independentScales/index.html">independentScales</a> s1 s2)))
+
+
+(forall (s1 s2)
+  (iff (<a href="../independentScales/index.html">independentScales</a> s1 s2)
+       (exists (x1 x2 y1 y2)
+         (and (<a href="../lts/index.html">lts</a> x1 x2 s1) (<a href="../lts/index.html">lts</a> x1 x2 s2)
+              (<a href="../lts/index.html">lts</a> y1 y2 s1) (<a href="../lts/index.html">lts</a> y2 y1 s2)))))
+
+
+</pre>
+</body>
+
+</html>

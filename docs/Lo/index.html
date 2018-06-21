@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: Lo</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: Lo</h1>
+<pre>(Lo s1 s)</pre><p>s1 is the low region of scale s.</p><h2>Characterizing Axioms</h2><pre>(forall (s1 s)
+   (if (<a href="../Lo/index.html">Lo</a> s1 s)
+       (forall (x)
+         (iff (<a href="../bottom/index.html">bottom</a> x s) (<a href="../bottom/index.html">bottom</a> x s1)))))
+
+
+(forall (s1 s) (if (<a href="../Lo/index.html">Lo</a> s1 s) (<a href="../subscale/index.html">subscale</a> s1 s)))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (x z)
+      (iff (<a href="../near/index.html">near</a> x z)
+           (exists (s s1)
+              (and (<a href="../nearnessScale/index.html">nearnessScale</a> s z) (<a href="../Lo/index.html">Lo</a> s1 s) (<a href="../onScale/index.html">onScale</a> x s1)))))
+
+
+(forall (s s1 s2 x y)
+   (if (and (<a href="../Hi/index.html">Hi</a> s1 s) (<a href="../Lo/index.html">Lo</a> s2 s) (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s2))
+       (<a href="../lts/index.html">lts</a> y x s)))
+
+
+(forall (s1 s)
+   (if (<a href="../Lo/index.html">Lo</a> s1 s)
+       (forall (x)
+         (iff (<a href="../bottom/index.html">bottom</a> x s) (<a href="../bottom/index.html">bottom</a> x s1)))))
+
+
+(forall (s1 s) (if (<a href="../Lo/index.html">Lo</a> s1 s) (<a href="../subscale/index.html">subscale</a> s1 s)))
+
+
+</pre>
+</body>
+
+</html>

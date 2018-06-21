@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: product</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: product</h1>
+<pre>(product n1 n2 n3)</pre><p>n1 is the product of n2 and n3; n1 = n2*n3.</p><h2>Characterizing Axioms</h2><pre>(forall (n n1 n2)
+   (iff (<a href="../product/index.html">product</a> n n1 n2) (<a href="../product/index.html">product</a> n n2 n1)))
+
+
+</pre><h2>All Axioms</h2><pre>   (forall (v)
+      (iff (<a href="../30Degrees/index.html">30Degrees</a> v)
+           (exists (v0 x f c1 c2 o u d1 d2)
+              (and (<a href="../equalAngle/index.html">equalAngle</a> v v0) (<a href="../anchorPoint/index.html">anchorPoint</a> x v f c1 c2 o u)
+                   (<a href="../xCoordinate/index.html">xCoordinate</a> x1 x f) (<a href="../yCoordinate/index.html">yCoordinate</a> y1 x f)
+                   (<a href="../distance/index.html">distance</a> d1 o y1 u) (<a href="../distance/index.html">distance</a> d2 o x u)
+                   (<a href="../product/index.html">product</a> d2 d1 2)))))
+
+
+(forall (f f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction/index.html">fraction</a> f1 a1 b1) (<a href="../fraction/index.html">fraction</a> f2 a2 b2)
+            (<a href="../product/index.html">product</a> c1 a1 a2) (<a href="../product/index.html">product</a> c2 b1 b2))
+       (iff (<a href="../product/index.html">product</a> f f1 f2) (<a href="../fraction/index.html">fraction</a> f c1 c2))))
+
+
+(forall (f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction/index.html">fraction</a> f1 a1 b1) (<a href="../fraction/index.html">fraction</a> f2 a2 b2)
+            (<a href="../product/index.html">product</a> c1 a1 b2) (<a href="../product/index.html">product</a> c2 a2 b1))
+       (iff (<a href="../lt/index.html">lt</a> f1 f2) (<a href="../lt/index.html">lt</a> c1 c2))))
+
+
+(forall (f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction/index.html">fraction</a> f1 a1 b1) (<a href="../fraction/index.html">fraction</a> f2 a2 b2)
+            (<a href="../product/index.html">product</a> c1 a1 b2) (<a href="../product/index.html">product</a> c2 a2 b1))
+       (iff (equal f1 f2) (equal c1 c2))))
+
+
+(forall (n n1 n2 n3 n4 n5 n6)
+   (if (and (<a href="../sum/index.html">sum</a> n4 n2 n3) (<a href="../product/index.html">product</a> n5 n1 n2) (<a href="../product/index.html">product</a> n6 n1 n3))
+       (iff (<a href="../product/index.html">product</a> n n1 n4) (<a href="../sum/index.html">sum</a> n n5 n6))))
+
+
+(forall (n n1 n2 n3 n4 n5)
+   (if (and (<a href="../product/index.html">product</a> n4 n2 n3) (<a href="../product/index.html">product</a> n5 n1 n2))
+       (iff (<a href="../product/index.html">product</a> n n1 n4) (<a href="../product/index.html">product</a> n n5 n3))))
+
+
+(forall (n n1 n2 n3 n4)
+   (if (and (<a href="../successor/index.html">successor</a> n3 n2) (<a href="../product/index.html">product</a> n4 n1 n2))
+       (iff (<a href="../product/index.html">product</a> n n1 n3) (<a href="../sum/index.html">sum</a> n n4 n1))))
+
+
+(forall (n n1 n2)
+   (iff (<a href="../product/index.html">product</a> n n1 n2) (<a href="../product/index.html">product</a> n n2 n1)))
+
+
+(forall (n)
+   (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../product/index.html">product</a> 0 n 0)))
+
+
+(forall (n)
+   (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../product/index.html">product</a> n n 1)))
+
+
+(forall (n1 n2 n3)
+   (if (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n2) (<a href="../nonNegInteger/index.html">nonNegInteger</a> n3)
+            (<a href="../product/index.html">product</a> n1 n2 n3))
+       (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1)))
+
+
+(forall (r1 r2 s u1 u2 j)
+  (if (and (<a href="../rate/index.html">rate</a> r1 s u1) (<a href="../product/index.html">product</a> r2 j r1)
+           (forall (t n1 n2)
+             (iff (and (<a href="../durationOf/index.html">durationOf</a> n1 t u1) (<a href="../durationOf/index.html">durationOf</a> n2 t u2))
+                  (<a href="../product/index.html">product</a> n1 j n2))))
+      (<a href="../rate/index.html">rate</a> r2 s u2)))
+
+
+(forall (x y s1 m)
+  (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../measure/index.html">measure</a> m s1))
+      (iff (<a href="../sameHOM/index.html">sameHOM</a> x y s1 m)
+           (exists (f f2)
+             (and (<a href="../proportion/index.html">proportion</a> f y x m) (<a href="../product/index.html">product</a> f2 f f)
+                  (<a href="../leq/index.html">leq</a> f2 10))))))
+
+
+</pre>
+</body>
+
+</html>

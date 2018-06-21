@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+
+<html lang=" en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: framework</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<h1>Predicate: framework</h1>
+<h2>Characterizing Axioms</h2><pre>(forall (f)
+  (if (<a href="../framework/index.html">framework</a> f)
+      (exists (a1 a2)
+        (and (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../yAxis/index.html">yAxis</a> a2 f)
+             (forall (a)
+               (and (if (<a href="../nequal/index.html">nequal</a> a a1) (not (<a href="../xAxis/index.html">xAxis</a> a f)))
+                    (if (<a href="../nequal/index.html">nequal</a> a a2) (not (<a href="../yAxis/index.html">yAxis</a> a f)))))))))
+
+
+(forall (f)
+  (if (<a href="../framework/index.html">framework</a> f)
+      (exists (s)
+        (and (<a href="../set/index.html">set</a> s) (<a href="../domain/index.html">domain</a> s f)))))
+
+
+</pre><h2>All Axioms</h2><pre>    (forall (a3 f)
+      (if (<a href="../zAxis/index.html">zAxis</a> a3 f)
+          (and (<a href="../framework/index.html">framework</a> f) (<a href="../vertical3/index.html">vertical3</a> a3 f))))
+
+
+   (forall (f a1 a2 s)
+      (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../zAxis/index.html">zAxis</a> a3 f) (<a href="../origin/index.html">origin</a> o f))
+          (<a href="../member/index.html">member</a> o a3)))
+
+
+   (forall (f a3)
+      (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../zAxis/index.html">zAxis</a> a3 f))
+          (forall (a)
+             (if (<a href="../nequal/index.html">nequal</a> a a3) (not (<a href="../zAxis/index.html">zAxis</a> a f))))))
+
+
+   (forall (f v c1 c2 o)
+      (iff (<a href="../anchorFramework/index.html">anchorFramework</a> f v c1 c2 o)
+           (and (<a href="../framework/index.html">framework</a> f) (<a href="../vertex/index.html">vertex</a> v c1 c2 o)
+                (forall (a1) (if (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../subfigure/index.html">subfigure</a> c1 a1)))
+                (<a href="../origin/index.html">origin</a> o f))))
+
+
+   (forall (f)
+      (if (<a href="../framework/index.html">framework</a> f)
+         (iff (<a href="../2D/index.html">2D</a> f)
+              (not (exists (a3) (<a href="../zAxis/index.html">zAxis</a> a3 f))))))
+
+
+   (forall (f)
+      (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../3D/index.html">3D</a> f))
+          (exists (a3) (<a href="../zAxis/index.html">zAxis</a> a3 f))))
+
+
+   (forall (f)
+      (iff (<a href="../coordinateSystem/index.html">coordinateSystem</a> f)
+           (and (<a href="../framework/index.html">framework</a> f)
+                (forall (a1) (if (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../numeric/index.html">numeric</a> a1)))
+                (forall (a2) (if (<a href="../yAxis/index.html">yAxis</a> a2 f) (<a href="../numeric/index.html">numeric</a> a2)))
+                (forall (a3) (if (<a href="../zAxis/index.html">zAxis</a> a3 f) (<a href="../numeric/index.html">numeric</a> a3)))
+                (forall (o) (if (<a href="../origin/index.html">origin</a> o f) (equal o 0)))
+                (forall (x1 x2) (iff (<a href="../rightOf/index.html">rightOf</a> x1 x2 f) (<a href="../gt/index.html">gt</a> x1 x2)))
+                (forall (y1 y2) (iff (<a href="../above2/index.html">above2</a> y1 y2 f) (<a href="../gt/index.html">gt</a> y1 y2)))
+                (forall (z1 z2) (iff (<a href="../above3/index.html">above3</a> z1 z2 f) (<a href="../gt/index.html">gt</a> z1 z2))))))
+
+
+   (forall (s1 s2 f)
+      (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../horizontal3/index.html">horizontal3</a> s1 f) (<a href="../vertical3/index.html">vertical3</a> s2 f))
+          (<a href="../independentScales/index.html">independentScales</a> s1 s2)))
+
+
+(forall (a1 f)
+  (if (<a href="../xAxis/index.html">xAxis</a> a1 f)
+      (and (<a href="../framework/index.html">framework</a> f) (<a href="../horizontal2/index.html">horizontal2</a> a1 f))))
+
+
+(forall (a2 f)
+  (if (<a href="../yAxis/index.html">yAxis</a> a2 f)
+      (and (<a href="../framework/index.html">framework</a> f) (<a href="../vertical2/index.html">vertical2</a> a2 f))))
+
+
+(forall (f a1 a2 s)
+  (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../yAxis/index.html">yAxis</a> a2 f))
+      (exists (s o)
+        (and (<a href="../intersection/index.html">intersection</a> s a1 a2) (<a href="../singleton/index.html">singleton</a> s o)
+             (<a href="../origin/index.html">origin</a> o f)))))
+
+
+(forall (f)
+  (if (<a href="../framework/index.html">framework</a> f)
+      (exists (a1 a2)
+        (and (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../yAxis/index.html">yAxis</a> a2 f)
+             (forall (a)
+               (and (if (<a href="../nequal/index.html">nequal</a> a a1) (not (<a href="../xAxis/index.html">xAxis</a> a f)))
+                    (if (<a href="../nequal/index.html">nequal</a> a a2) (not (<a href="../yAxis/index.html">yAxis</a> a f)))))))))
+
+
+(forall (f)
+  (if (<a href="../framework/index.html">framework</a> f)
+      (exists (s)
+        (and (<a href="../set/index.html">set</a> s) (<a href="../domain/index.html">domain</a> s f)))))
+
+
+(forall (s1 s2 f)
+  (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../horizontal2/index.html">horizontal2</a> s1 f) (<a href="../vertical2/index.html">vertical2</a> s2 f))
+      (<a href="../independentScales/index.html">independentScales</a> s1 s2)))
+
+
+</pre>
+</body>
+
+</html>
