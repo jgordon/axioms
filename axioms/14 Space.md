@@ -362,7 +362,7 @@ endpoints that lie inside the figure.
 ```
 (forall (c p)
   (iff (sideOf c p)
-       (exist (c1 c2 v1 v2 x1 x2)
+       (exists (c1 c2 v1 v2 x1 x2)
          (and (vertex v1 c1 c x1) (vertex v2 c c2 x2)
               (nequal x1 x2)
               (subfigure v1 p) (subfigure v2 p)))))
@@ -373,12 +373,12 @@ A polygon is then a closed curve that is made up of n sides.
 ```
 (forall (p n)
   (iff (polygon p n)
-       (exist (s)
+       (exists (s)
          (and (forall (c)
                 (iff (member c s) (sideOf c p)))
               (forall (x)
                 (if (inside x p)
-                    (exist (c)
+                    (exists (c)
                       (and (member c s)
                         (or (inside x c) (endpoint x l))))))
               (closed p) (planar p)
@@ -1033,7 +1033,7 @@ y-axis.
 ```
    (forall (v)
       (iff (rightAngle v)
-           (exist (v0 f c1 c2 o u)
+           (exists (v0 f c1 c2 o u)
               (and (equalAngle v v0) (anchorPoint x v0 f c1 c2 o u)
                    (xCoordinate o x f)))))
 ```
@@ -1048,7 +1048,7 @@ equal anchored angle are both greater than the origin.
 ```
    (forall (v)
       (iff (acuteAngle v)
-           (exist (v0 x f c1 c2 o u)
+           (exists (v0 x f c1 c2 o u)
               (and (equalAngle v v0) (anchorPoint x v0 f c1 c2 o u)
                    (xCoordinate x1 x f) (yCoordinate y1 x f)
                    (xAxis a1 f) (yAxis a2 f)
@@ -1062,7 +1062,7 @@ than the origin.
 ```
    (forall (v)
       (iff (obtuseAngle v)
-           (exist (v0 x f c1 c2 o u)
+           (exists (v0 x f c1 c2 o u)
               (and (equalAngle v v0) (anchorPoint x v0 f c1 c2 o u)
                    (xCoordinate x1 x f) (yCoordinate y1 x f)
                    (xAxis a1 f) (yAxis a2 f)
@@ -1081,7 +1081,7 @@ x- and y-coordinates are equal.
 ```
    (forall (v)
       (iff (45Degrees v)
-           (exist (v0 x f c1 c2 o u d)
+           (exists (v0 x f c1 c2 o u d)
               (and (equalAngle v v0) (anchorPoint x v f c1 c2 o u)
                    (xCoordinate x1 x f) (yCoordinate y1 x f)
                    (distance d o x1 u) (distance d o y1 u)))))
@@ -1095,7 +1095,7 @@ from the origin to the anchor point is twice the y-coordinate.
 ```
    (forall (v)
       (iff (30Degrees v)
-           (exist (v0 x f c1 c2 o u d1 d2)
+           (exists (v0 x f c1 c2 o u d1 d2)
               (and (equalAngle v v0) (anchorPoint x v f c1 c2 o u)
                    (xCoordinate x1 x f) (yCoordinate y1 x f)
                    (distance d1 o y1 u) (distance d2 o x u)
