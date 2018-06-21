@@ -30,6 +30,8 @@ bad_preds = ['forall', 'exists', 'iff', 'if', 'and', 'equal', 'not', 'or']
 
 # Read all glosses first.
 for fname in axiom_files:
+    in_gloss = False
+    predname = ''
     with open('axioms/' + fname, 'r') as fin:
         for line in fin:
             line = line.rstrip()
@@ -44,6 +46,11 @@ for fname in axiom_files:
                 gloss = m.group(3)
                 preds[predname]['predication'] = predication
                 preds[predname]['gloss'] = gloss
+                in_gloss = True
+            elif line[0] == ' ' and in_gloss:
+                preds[predname]['gloss'] += line
+            elif line == '' or '#' in line or '(' in line:
+                in_gloss = False
 
 for fname in axiom_files:
     with open('axioms/' + fname, 'r') as fin:
