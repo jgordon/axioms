@@ -118,7 +118,7 @@ def ensure_dir(file_path):
 html_header = """
 <!DOCTYPE html>
 
-<html lang=" en">
+<html lang="en">
 
 <head>
 <meta charset="utf-8">
@@ -131,18 +131,25 @@ html_header = """
 </head>
 
 <body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
 <h1>Predicate: <code>%s</code></h1>
+</header>
 """
 
 
 html_header_index = """
 <!DOCTYPE html>
 
-<html lang=" en">
+<html lang="en">
 
 <head>
 <meta charset="utf-8">
-<title>Axioms Index</title>
+<title>Index of Predicates</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -151,7 +158,9 @@ html_header_index = """
 </head>
 
 <body>
-<h1>Axioms Index</h1>
+<header>
+<h1>Index of Predicates</h1>
+</header>
 """
 
 html_footer = """
@@ -165,7 +174,8 @@ with open('docs/index.html', 'w') as fout:
     fout.write(html_header_index)
     fout.write('<ul>')
     for pred in sorted(preds):
-        fout.write('<li><a href="' + pred + '">' + pred + '</a></li>')
+        fout.write('<li><a href="' + pred + '"><code>' + pred +
+                   '</code></a></li>')
     fout.write('</ul>')
     fout.write(html_footer)
 
