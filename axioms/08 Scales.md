@@ -359,12 +359,8 @@ but one of the tasks also has obstruction C, that's the harder task.)
                     (leqs x1 x2 s))))))
 ```
 
-8.29
-```
-(forall (s1 s2 x1 x2 s)
-  (if (and (subset s1 s2) (r s1 x1) (r s2 x2))
-      (leqs x1 x2 s)))
-```
+8.29 Example schema for using a mapping from sets to points on a scale;
+see book p. 144.
 
 8.30 We can construct composite scales out of existing scales.
 
