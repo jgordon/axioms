@@ -27,6 +27,12 @@ section {
     margin: 3em 0;
 }
 
-pre {
+pre, code {
     font-family: 'Inconsolata', 'Menlo', monospace;
+}
+
+pre {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6pt;
 }

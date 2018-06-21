@@ -14,13 +14,23 @@
 </head>
 
 <body>
-<h1>Predicate: inSeq</h1>
-<pre>(inSeq y s)</pre><p>y is an element of the sequence s.</p><h2>Characterizing Axioms</h2><pre>(forall (x s)
+<h1>Predicate: <code>inSeq</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(inSeq y s)</pre><p>y is an element of the sequence s.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (x s)
   (iff (<a href="../inSeq/index.html">inSeq</a> x s)
        (exists (n) (<a href="../nth/index.html">nth</a> x n s))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e s)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e s)
   (if (and (<a href="../sequence/index.html">sequence</a>' e s) (<a href="../Rexist/index.html">Rexist</a> e)
            (exists (x) (<a href="../inSeq/index.html">inSeq</a> x s)))
       (exists (s1 s2 s3)
@@ -34,14 +44,14 @@
                       (and (<a href="../beforeInSeq/index.html">beforeInSeq</a>' e1 x y s)
                            (<a href="../Rexist/index.html">Rexist</a> e1)))))
              (<a href="../relationsOf/index.html">relationsOf</a> s3 s)))))
-
-
+</pre>
+<pre>
 (forall (x s)
   (iff (<a href="../inSeq/index.html">inSeq</a> x s)
        (exists (n) (<a href="../nth/index.html">nth</a> x n s))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

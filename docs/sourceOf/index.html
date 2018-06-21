@@ -14,20 +14,30 @@
 </head>
 
 <body>
-<h1>Predicate: sourceOf</h1>
-<pre>(sourceOf x e)</pre><p>e is a change in an “at” relation and x is the</p><h2>Characterizing Axioms</h2><pre>(forall (z e)
+<h1>Predicate: <code>sourceOf</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(sourceOf x e)</pre><p>e is a change in an “at” relation and x is the</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (z e)
   (iff (<a href="../sourceOf/index.html">sourceOf</a> z e)
        (exists (x w e1 e2 s)
          (and (<a href="../at/index.html">at</a>' e1 x z s) (<a href="../at/index.html">at</a>' e2 x w s) (<a href="../change/index.html">change</a>' e e1 e2)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (z e)
-  (iff (<a href="../sourceOf/index.html">sourceOf</a> z e)
-       (exists (x w e1 e2 s)
-         (and (<a href="../at/index.html">at</a>' e1 x z s) (<a href="../at/index.html">at</a>' e2 x w s) (<a href="../change/index.html">change</a>' e e1 e2)))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (z e)
+  (iff (<a href="../sourceOf/index.html">sourceOf</a> z e)
+       (exists (x w e1 e2 s)
+         (and (<a href="../at/index.html">at</a>' e1 x z s) (<a href="../at/index.html">at</a>' e2 x w s) (<a href="../change/index.html">change</a>' e e1 e2)))))
+</pre>
+</section>
+
 </body>
 
 </html>

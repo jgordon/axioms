@@ -120,7 +120,7 @@ html_header = """
 </head>
 
 <body>
-<h1>Predicate: %s</h1>
+<h1>Predicate: <code>%s</code></h1>
 """
 
 
@@ -164,18 +164,25 @@ for pred in preds:
     with open(fname, 'w') as fout:
         fout.write(html_header % (pred, pred))
         if 'predication' in preds[pred]:
+            fout.write('<section>\n')
+            fout.write('<h2>Summary</h2>\n')
             fout.write('<pre>' + preds[pred]['predication'] + '</pre>')
-            fout.write('<p>' + preds[pred]['gloss'] + '</p>')
+            fout.write('<p>' + preds[pred]['gloss'] + '</p>\n')
+            fout.write('</section>\n')
         if 'characterizing' in preds[pred]:
-            fout.write('<h2>Characterizing Axioms</h2>')
-            fout.write('<pre>')
+            fout.write('<section>\n')
+            fout.write('<h2>Characterizing Axioms</h2>\n')
             for axiom in sorted(preds[pred]['characterizing']):
-                fout.write(axiom + '\n\n')
-            fout.write('</pre>')
+                fout.write('<pre>\n')
+                fout.write(axiom)
+                fout.write('</pre>\n')
+            fout.write('</section>\n')
         if 'all axioms' in preds[pred]:
-            fout.write('<h2>All Axioms</h2>')
-            fout.write('<pre>')
+            fout.write('<section>\n')
+            fout.write('<h2>All Axioms</h2>\n')
             for axiom in sorted(preds[pred]['all axioms']):
-                fout.write(axiom + '\n\n')
-            fout.write('</pre>')
+                fout.write('<pre>\n')
+                fout.write(axiom)
+                fout.write('</pre>\n')
+            fout.write('</section>\n')
         fout.write(html_footer)

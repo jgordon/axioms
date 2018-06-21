@@ -14,8 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: roughlyPeriodicTseq</h1>
-<pre>(roughlyPeriodicTseq s)</pre><p>Temporal sequence s is roughly periodic, in</p><h2>Characterizing Axioms</h2><pre>(forall (s)
+<h1>Predicate: <code>roughlyPeriodicTseq</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(roughlyPeriodicTseq s)</pre><p>Temporal sequence s is roughly periodic, in</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s)
   (iff (<a href="../roughlyPeriodicTseq/index.html">roughlyPeriodicTseq</a> s u)
        (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
             (exists (s0 d)
@@ -28,24 +35,27 @@
                                 (<a href="../intervalBetween/index.html">intervalBetween</a> t34 t3 t4)
                                 (<a href="../durationOf/index.html">durationOf</a>' e d t12 u)
                                 (<a href="../sameHOM/index.html">sameHOM</a> t12 t34 s0 e))))))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s)
-  (iff (<a href="../roughlyPeriodicTseq/index.html">roughlyPeriodicTseq</a> s u)
-       (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
-            (exists (s0 d)
-              (and (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s0)
-                   (forall (t1 t2 t3 t4)
-                     (if (and (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
-                              (<a href="../successiveElts/index.html">successiveElts</a> t3 t4 s))
-                         (exists (t12 t34 e d)
-                           (and (<a href="../intervalBetween/index.html">intervalBetween</a> t12 t1 t2)
-                                (<a href="../intervalBetween/index.html">intervalBetween</a> t34 t3 t4)
-                                (<a href="../durationOf/index.html">durationOf</a>' e d t12 u)
-                                (<a href="../sameHOM/index.html">sameHOM</a> t12 t34 s0 e))))))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s)
+  (iff (<a href="../roughlyPeriodicTseq/index.html">roughlyPeriodicTseq</a> s u)
+       (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
+            (exists (s0 d)
+              (and (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s0)
+                   (forall (t1 t2 t3 t4)
+                     (if (and (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
+                              (<a href="../successiveElts/index.html">successiveElts</a> t3 t4 s))
+                         (exists (t12 t34 e d)
+                           (and (<a href="../intervalBetween/index.html">intervalBetween</a> t12 t1 t2)
+                                (<a href="../intervalBetween/index.html">intervalBetween</a> t34 t3 t4)
+                                (<a href="../durationOf/index.html">durationOf</a>' e d t12 u)
+                                (<a href="../sameHOM/index.html">sameHOM</a> t12 t34 s0 e))))))))))
+</pre>
+</section>
+
 </body>
 
 </html>

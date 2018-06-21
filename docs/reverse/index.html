@@ -14,24 +14,34 @@
 </head>
 
 <body>
-<h1>Predicate: reverse</h1>
-<pre>(reverse s1 s)</pre><p>s1 is the reverse of scale s.</p><h2>Characterizing Axioms</h2><pre>(forall (s1 s)
+<h1>Predicate: <code>reverse</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(reverse s1 s)</pre><p>s1 is the reverse of scale s.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s1 s)
    (iff (<a href="../reverse/index.html">reverse</a> s1 s)
         (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s)
              (forall (x y)
                 (and (iff (<a href="../inScale/index.html">inScale</a> x s) (<a href="../inScale/index.html">inScale</a> x s1))
                      (iff (<a href="../lts/index.html">lts</a> x y s) (<a href="../lts/index.html">lts</a> y x s1)))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s1 s)
-   (iff (<a href="../reverse/index.html">reverse</a> s1 s)
-        (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s)
-             (forall (x y)
-                (and (iff (<a href="../inScale/index.html">inScale</a> x s) (<a href="../inScale/index.html">inScale</a> x s1))
-                     (iff (<a href="../lts/index.html">lts</a> x y s) (<a href="../lts/index.html">lts</a> y x s1)))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s1 s)
+   (iff (<a href="../reverse/index.html">reverse</a> s1 s)
+        (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s)
+             (forall (x y)
+                (and (iff (<a href="../inScale/index.html">inScale</a> x s) (<a href="../inScale/index.html">inScale</a> x s1))
+                     (iff (<a href="../lts/index.html">lts</a> x y s) (<a href="../lts/index.html">lts</a> y x s1)))))))
+</pre>
+</section>
+
 </body>
 
 </html>

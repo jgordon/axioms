@@ -14,25 +14,28 @@
 </head>
 
 <body>
-<h1>Predicate: polyhedron</h1>
-<h2>All Axioms</h2><pre>   (forall (c p s)
+<h1>Predicate: <code>polyhedron</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (c p s)
       (if (<a href="../polyhedron/index.html">polyhedron</a> p s)
           (iff (<a href="../edge/index.html">edge</a> c p)
                (exists (f) (and (<a href="../face/index.html">face</a> f p) (<a href="../sideOf/index.html">sideOf</a> c f))))))
-
-
+</pre>
+<pre>
    (forall (p s f)
       (if (<a href="../polyhedron/index.html">polyhedron</a> p s)
           (iff (<a href="../face/index.html">face</a> f p) (<a href="../member/index.html">member</a> f s))))
-
-
+</pre>
+<pre>
    (forall (p s)
       (iff (<a href="../cube/index.html">cube</a> p s)
            (and (<a href="../polyhedron/index.html">polyhedron</a> p s)
                 (forall (f)
                    (if (<a href="../member/index.html">member</a> f s) (<a href="../square/index.html">square</a> f))))))
-
-
+</pre>
+<pre>
    (forall (p s)
       (iff (<a href="../polyhedron/index.html">polyhedron</a> p s)
            (exists ( r)
@@ -47,27 +50,27 @@
                       (if (and (<a href="../point/index.html">point</a> x) (<a href="../member/index.html">member</a> f1 s) (<a href="../member/index.html">member</a> f2 s)
                                (<a href="../inside/index.html">inside</a> x f1) (<a href="../inside/index.html">inside</a> x f2))
                           (equal f1 f2)))))))
-
-
+</pre>
+<pre>
    (forall (p s)
       (iff (<a href="../rectangularParallelepiped/index.html">rectangularParallelepiped</a> p s)
            (and (<a href="../polyhedron/index.html">polyhedron</a> p s)
                 (forall (f)
                    (if (<a href="../member/index.html">member</a> f s) (<a href="../rectangle/index.html">rectangle</a> f))))))
-
-
+</pre>
+<pre>
    (forall (p2 s)
       (iff (<a href="../polyhedron2/index.html">polyhedron2</a> p2 s)
            (exists (p) (and (<a href="../polyhedron/index.html">polyhedron</a> p s) (<a href="../surface/index.html">surface</a> p2 p)))))
-
-
+</pre>
+<pre>
    (forall (x p s)
       (if (<a href="../polyhedron/index.html">polyhedron</a> p s)
           (iff (<a href="../vertex3/index.html">vertex3</a> x p)
                (exists (c) (and (<a href="../edge/index.html">edge</a> c p) (<a href="../endpoint/index.html">endpoint</a> x c)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

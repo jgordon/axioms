@@ -14,24 +14,34 @@
 </head>
 
 <body>
-<h1>Predicate: disjunction</h1>
-<pre>(disjunction e s)</pre><p>e is the eventuality of some member of s existing.</p><h2>Characterizing Axioms</h2><pre>(forall (e s)
+<h1>Predicate: <code>disjunction</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(disjunction e s)</pre><p>e is the eventuality of some member of s existing.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e s)
   (if (<a href="../disjunction/index.html">disjunction</a> e s)
       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> s)
            (iff (<a href="../Rexist/index.html">Rexist</a> e)
                 (exists (e1)
                   (and (<a href="../member/index.html">member</a> e1 s) (<a href="../Rexist/index.html">Rexist</a> e1)))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e s)
-  (if (<a href="../disjunction/index.html">disjunction</a> e s)
-      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> s)
-           (iff (<a href="../Rexist/index.html">Rexist</a> e)
-                (exists (e1)
-                  (and (<a href="../member/index.html">member</a> e1 s) (<a href="../Rexist/index.html">Rexist</a> e1)))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e s)
+  (if (<a href="../disjunction/index.html">disjunction</a> e s)
+      (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> s)
+           (iff (<a href="../Rexist/index.html">Rexist</a> e)
+                (exists (e1)
+                  (and (<a href="../member/index.html">member</a> e1 s) (<a href="../Rexist/index.html">Rexist</a> e1)))))))
+</pre>
+</section>
+
 </body>
 
 </html>

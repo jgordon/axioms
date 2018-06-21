@@ -14,48 +14,58 @@
 </head>
 
 <body>
-<h1>Predicate: argn</h1>
-<pre>(argn x n e)</pre><p>x is the nth argument of e.</p><h2>Characterizing Axioms</h2><pre>(forall (e x n)
+<h1>Predicate: <code>argn</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(argn x n e)</pre><p>x is the nth argument of e.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e x n)
   (if (<a href="../argn/index.html">argn</a> x n e)
       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../eventuality/index.html">eventuality</a> e))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e x n)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e x n)
   (if (<a href="../argn/index.html">argn</a> x n e)
       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../eventuality/index.html">eventuality</a> e))))
-
-
+</pre>
+<pre>
 (forall (e x y z)
   (if (<a href="../give/index.html">give</a>' e x y z)
       (<a href="../argn/index.html">argn</a> e 0 e)))
-
-
+</pre>
+<pre>
 (forall (e x y z)
   (if (<a href="../give/index.html">give</a>' e x y z)
       (<a href="../argn/index.html">argn</a> x 1 e)))
-
-
+</pre>
+<pre>
 (forall (e x y z)
   (if (<a href="../give/index.html">give</a>' e x y z)
       (<a href="../argn/index.html">argn</a> y 2 e)))
-
-
+</pre>
+<pre>
 (forall (e x y z)
   (if (<a href="../give/index.html">give</a>' e x y z)
       (<a href="../argn/index.html">argn</a> z 3 e)))
-
-
+</pre>
+<pre>
 (forall (e x)
   (iff (<a href="../arg/index.html">arg</a> x e)
        (exists (n)
          (<a href="../argn/index.html">argn</a> x n e))))
-
-
+</pre>
+<pre>
 (forall (e)
   (iff (<a href="../eventuality/index.html">eventuality</a> e)
        (<a href="../argn/index.html">argn</a> e 0 e)))
-
-
+</pre>
+<pre>
 (forall (e)
   (iff (<a href="../eventuality/index.html">eventuality</a> e)
        (exists (p n)
@@ -65,8 +75,8 @@
                          (<a href="../leq/index.html">leq</a> i n))
                     (exists (x)
                       (<a href="../argn/index.html">argn</a> x i e))))))))
-
-
+</pre>
+<pre>
 (forall (s e)
    (iff (<a href="../scaleFor/index.html">scaleFor</a> s e)
         (exists (s1)
@@ -74,8 +84,8 @@
                 (forall (e1 x y)
                    (if (and (<a href="../at/index.html">at</a>' e1 x y s1) (<a href="../argn/index.html">argn</a> x 1 e))
                        (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../Rexist/index.html">Rexist</a> e1))))))))
-
-
+</pre>
+<pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e)
         (and (<a href="../scale/index.html">scale</a> s) (<a href="../eventuality/index.html">eventuality</a> e)
@@ -88,8 +98,8 @@
                                          (<a href="../argn/index.html">argn</a> x2 2 e2)
                          (<a href="../subset/index.html">subset</a> s1 s2))
                     (<a href="../leqs/index.html">leqs</a> x1 x2 s))))))
-
-
+</pre>
+<pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst/index.html">subst</a> x e1 y e2)
        (exists (p n)
@@ -107,9 +117,9 @@
                                       (equal z2 y))))
                          (if (<a href="../eventuality/index.html">eventuality</a> z1)
                              (<a href="../subst/index.html">subst</a> x z1 y z2)))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

@@ -14,36 +14,46 @@
 </head>
 
 <body>
-<h1>Predicate: person</h1>
-<pre>(person p)</pre><p>p is a person.</p><h2>Characterizing Axioms</h2><pre>(forall (p)
+<h1>Predicate: <code>person</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(person p)</pre><p>p is a person.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (p)
   (if (<a href="../person/index.html">person</a> p)
       (<a href="../agent/index.html">agent</a> p)))
-
-
+</pre>
+<pre>
 (forall (p)
   (if (<a href="../person/index.html">person</a> p)
       (<a href="../physobj/index.html">physobj</a> p)))
-
-
+</pre>
+<pre>
 (forall (p)
   (if (<a href="../person/index.html">person</a> p)
       (exists (b m)
         (and (<a href="../body/index.html">body</a> b p) (<a href="../mind/index.html">mind</a> m p)))))
-
-
+</pre>
+<pre>
 (forall (p)
   (if (<a href="../person/index.html">person</a> p)
       (exists (e1 e2 x)
         (and (<a href="../lift/index.html">lift</a>' e2 p x) (<a href="../arm/index.html">arm</a> x p) (<a href="../will/index.html">will</a>' e1 p e2)
              (<a href="../dcause/index.html">dcause</a> e1 e2)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (p s)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (p s)
   (iff (<a href="../bodyPartsOf/index.html">bodyPartsOf</a> s p)
        (exists (b)
          (and (<a href="../person/index.html">person</a> p) (<a href="../body/index.html">body</a> b p) (<a href="../componentsOf/index.html">componentsOf</a> s b)))))
-
-
+</pre>
+<pre>
 (forall (p s1)
   (if (and (<a href="../person/index.html">person</a> p) (<a href="../bodyPartsOf/index.html">bodyPartsOf</a> s1 p))
       (exists (s2)
@@ -53,46 +63,46 @@
                    (exists (e1 e2 y z)
                      (and (<a href="../move/index.html">move</a>' e2 x y z) (<a href="../will/index.html">will</a>' e1 p e2)
                           (<a href="../dcause/index.html">dcause</a> e1 e2)))))))))
-
-
+</pre>
+<pre>
 (forall (p x e2)
   (if (and (<a href="../person/index.html">person</a> p) (<a href="../perceive/index.html">perceive</a>' e2 p x))
       (exists (o e1)
         (and (<a href="../senseOrgan/index.html">senseOrgan</a> o p) (<a href="../intact/index.html">intact</a>' e1 o) (<a href="../enable/index.html">enable</a> e1 e2)))))
-
-
+</pre>
+<pre>
 (forall (p x)
   (if (and (<a href="../person/index.html">person</a> p) (<a href="../bodyPartsOf/index.html">bodyPartsOf</a> s1 p))
       (exists (s2)
         (and (<a href="../subset/index.html">subset</a> s2 s1)
              (forall (o)
                (iff (<a href="../member/index.html">member</a> o s2) (<a href="../senseOrgan/index.html">senseOrgan</a> o p)))))))
-
-
+</pre>
+<pre>
 (forall (p)
   (if (<a href="../person/index.html">person</a> p)
       (<a href="../agent/index.html">agent</a> p)))
-
-
+</pre>
+<pre>
 (forall (p)
   (if (<a href="../person/index.html">person</a> p)
       (<a href="../physobj/index.html">physobj</a> p)))
-
-
+</pre>
+<pre>
 (forall (p)
   (if (<a href="../person/index.html">person</a> p)
       (exists (b m)
         (and (<a href="../body/index.html">body</a> b p) (<a href="../mind/index.html">mind</a> m p)))))
-
-
+</pre>
+<pre>
 (forall (p)
   (if (<a href="../person/index.html">person</a> p)
       (exists (e1 e2 x)
         (and (<a href="../lift/index.html">lift</a>' e2 p x) (<a href="../arm/index.html">arm</a> x p) (<a href="../will/index.html">will</a>' e1 p e2)
              (<a href="../dcause/index.html">dcause</a> e1 e2)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

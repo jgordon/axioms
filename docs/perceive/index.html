@@ -14,31 +14,41 @@
 </head>
 
 <body>
-<h1>Predicate: perceive</h1>
-<pre>(perceive a x)</pre><p>Agent a perceives x.</p><h2>Characterizing Axioms</h2><pre>(forall (p x e2)
-  (if (<a href="../perceive/index.html">perceive</a>' e2 p x)
-      (exists (e1 s)
-        (and (<a href="../near/index.html">near</a>' e1 x p s) (<a href="../enable/index.html">enable</a> e1 e2)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (a x m)
-  (if (and (<a href="../perceive/index.html">perceive</a> a x) (<a href="../mind/index.html">mind</a> m a))
-      (and (<a href="../agent/index.html">agent</a> a) (<a href="../externalTo/index.html">externalTo</a> x m))))
-
-
+<h1>Predicate: <code>perceive</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(perceive a x)</pre><p>Agent a perceives x.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (p x e2)
   (if (<a href="../perceive/index.html">perceive</a>' e2 p x)
       (exists (e1 s)
         (and (<a href="../near/index.html">near</a>' e1 x p s) (<a href="../enable/index.html">enable</a> e1 e2)))))
-
-
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (a x m)
+  (if (and (<a href="../perceive/index.html">perceive</a> a x) (<a href="../mind/index.html">mind</a> m a))
+      (and (<a href="../agent/index.html">agent</a> a) (<a href="../externalTo/index.html">externalTo</a> x m))))
+</pre>
+<pre>
+(forall (p x e2)
+  (if (<a href="../perceive/index.html">perceive</a>' e2 p x)
+      (exists (e1 s)
+        (and (<a href="../near/index.html">near</a>' e1 x p s) (<a href="../enable/index.html">enable</a> e1 e2)))))
+</pre>
+<pre>
 (forall (p x e2)
   (if (and (<a href="../person/index.html">person</a> p) (<a href="../perceive/index.html">perceive</a>' e2 p x))
       (exists (o e1)
         (and (<a href="../senseOrgan/index.html">senseOrgan</a> o p) (<a href="../intact/index.html">intact</a>' e1 o) (<a href="../enable/index.html">enable</a> e1 e2)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

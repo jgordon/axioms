@@ -14,26 +14,36 @@
 </head>
 
 <body>
-<h1>Predicate: forAllOfSeq</h1>
-<pre>(forAllOfSeq e s x e1)</pre><p>e is the event consisting of iterations of</p><h2>Characterizing Axioms</h2><pre>(forall (e s e1)
+<h1>Predicate: <code>forAllOfSeq</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(forAllOfSeq e s x e1)</pre><p>e is the event consisting of iterations of</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e s e1)
   (iff (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e s x e1)
        (exists (y e2 l e3 s1)
          (or (and (<a href="../length/index.html">length</a> 1 s) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1) (equal e e2))
              (and (<a href="../length/index.html">length</a> l s) (<a href="../gt/index.html">gt</a> l 1) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1)
                   (<a href="../eventSequence/index.html">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e3 s1 x e1)
                   (<a href="../rest/index.html">rest</a> s1 s))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e s e1)
-  (iff (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e s x e1)
-       (exists (y e2 l e3 s1)
-         (or (and (<a href="../length/index.html">length</a> 1 s) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1) (equal e e2))
-             (and (<a href="../length/index.html">length</a> l s) (<a href="../gt/index.html">gt</a> l 1) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1)
-                  (<a href="../eventSequence/index.html">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e3 s1 x e1)
-                  (<a href="../rest/index.html">rest</a> s1 s))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e s e1)
+  (iff (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e s x e1)
+       (exists (y e2 l e3 s1)
+         (or (and (<a href="../length/index.html">length</a> 1 s) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1) (equal e e2))
+             (and (<a href="../length/index.html">length</a> l s) (<a href="../gt/index.html">gt</a> l 1) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1)
+                  (<a href="../eventSequence/index.html">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e3 s1 x e1)
+                  (<a href="../rest/index.html">rest</a> s1 s))))))
+</pre>
+</section>
+
 </body>
 
 </html>

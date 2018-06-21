@@ -14,29 +14,36 @@
 </head>
 
 <body>
-<h1>Predicate: disjoint</h1>
-<pre>(disjoint s1 s2)</pre><p>The component sets of scales s1 and s2 are disjoint.</p><h2>All Axioms</h2><pre>(forall (m s1 s2 x y)
+<h1>Predicate: <code>disjoint</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(disjoint s1 s2)</pre><p>The component sets of scales s1 and s2 are disjoint.</p>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (m s1 s2 x y)
   (if (and (<a href="../measure/index.html">measure</a> m s1) (<a href="../function/index.html">function</a> m s1 s2) (<a href="../disjoint/index.html">disjoint</a> s1 s2)
            (<a href="../map/index.html">map</a> m x y))
       (<a href="../at/index.html">at</a> x y s2)))
-
-
+</pre>
+<pre>
 (forall (s1 s2)
    (if (and (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s2))
        (iff (<a href="../disjoint/index.html">disjoint</a> s1 s2)
             (exists (s3 s4)
                (and (<a href="../componentsOf/index.html">componentsOf</a> s3 s1) (<a href="../componentsOf/index.html">componentsOf</a> s4 s2)
                     (<a href="../disjoint/index.html">disjoint</a> s3 s4))))))
-
-
+</pre>
+<pre>
 (forall (s1 s2)
   (if (and (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2))
       (iff (<a href="../disjoint/index.html">disjoint</a> s1 s2)
            (not (exists (x)
                   (and (<a href="../member/index.html">member</a> x s1) (<a href="../member/index.html">member</a> x s2)))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

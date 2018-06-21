@@ -14,8 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: interval</h1>
-<pre>(interval t)</pre><p>t is an interval of time.</p><h2>Characterizing Axioms</h2><pre>(forall (d t u)
+<h1>Predicate: <code>interval</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(interval t)</pre><p>t is an interval of time.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (d t u)
   (if (<a href="../interval/index.html">interval</a> t)
       (iff (<a href="../durationOf/index.html">durationOf</a> d t u)
            (exists (s)
@@ -23,12 +30,15 @@
                   (forall (t1)
                     (if (<a href="../member/index.html">member</a> t1 s) (<a href="../sameDuration/index.html">sameDuration</a> t1 u)))
                   (<a href="../card/index.html">card</a> d s))))))
-
-
+</pre>
+<pre>
 (forall (t) (if (<a href="../interval/index.html">interval</a> t) (<a href="../temporalEntity/index.html">temporalEntity</a> t)))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (d t u)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (d t u)
   (if (<a href="../interval/index.html">interval</a> t)
       (iff (<a href="../durationOf/index.html">durationOf</a> d t u)
            (exists (s)
@@ -36,8 +46,8 @@
                   (forall (t1)
                     (if (<a href="../member/index.html">member</a> t1 s) (<a href="../sameDuration/index.html">sameDuration</a> t1 u)))
                   (<a href="../card/index.html">card</a> d s))))))
-
-
+</pre>
+<pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../set/index.html">set</a> t) (<a href="../powerSet/index.html">powerSet</a> s0 s)
            (forall (t1)
@@ -49,16 +59,16 @@
                         (if (<a href="../member/index.html">member</a> e s1) (<a href="../happensIn/index.html">happensIn</a> e t1)))
                       (<a href="../card/index.html">card</a> n s1)))))
       (<a href="../rate/index.html">rate</a> n s t)))
-
-
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s)
        (exists (s1 e t1 t2)
          (and (forall (t) (if (<a href="../member/index.html">member</a> t s1) (<a href="../interval/index.html">interval</a> t)))
               (<a href="../shorterDuration/index.html">shorterDuration</a>' e t1 t2)
               (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
-
-
+</pre>
+<pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e)
        (or (and (<a href="../instant/index.html">instant</a> t) (<a href="../atTime/index.html">atTime</a> e t)
@@ -84,19 +94,19 @@
                                  (or (<a href="../begins/index.html">begins</a> t1 t2)
                                      (<a href="../insideTime/index.html">insideTime</a> t1 t2)
                                      (<a href="../ends/index.html">ends</a> t1 t2)))))))))))
-
-
+</pre>
+<pre>
 (forall (t)
   (if (<a href="../temporalEntity/index.html">temporalEntity</a> t)
       (or (<a href="../interval/index.html">interval</a> t) (<a href="../instant/index.html">instant</a> t))))
-
-
+</pre>
+<pre>
 (forall (t)
   (iff (<a href="../posInfInterval/index.html">posInfInterval</a> t)
        (and (<a href="../interval/index.html">interval</a> t)
             (not (exists (t2) (<a href="../ends/index.html">ends</a> t2 t))))))
-
-
+</pre>
+<pre>
 (forall (t)
   (iff (<a href="../timeScale/index.html">timeScale</a> t)
        (exists (s e t2 t3)
@@ -105,24 +115,24 @@
                      (or (<a href="../instant/index.html">instant</a> t1) (<a href="../interval/index.html">interval</a> t1))))
               (<a href="../before/index.html">before</a>' e t2 t3)
               (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> t s e)))))
-
-
+</pre>
+<pre>
 (forall (t) (if (<a href="../interval/index.html">interval</a> t) (<a href="../temporalEntity/index.html">temporalEntity</a> t)))
-
-
+</pre>
+<pre>
 (forall (t1 t2)
   (iff (<a href="../shorterDuration/index.html">shorterDuration</a> t1 t2)
        (and (<a href="../interval/index.html">interval</a> t1) (<a href="../interval/index.html">interval</a> t2)
             (exists (d1 d2 u)
               (and (<a href="../durationOf/index.html">durationOf</a> d1 t1 u) (<a href="../durationOf/index.html">durationOf</a> d2 t2 u)
                    (<a href="../lt/index.html">lt</a> d1 d2))))))
-
-
+</pre>
+<pre>
 (forall (u)
   (if (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../interval/index.html">interval</a> u)))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

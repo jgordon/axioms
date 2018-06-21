@@ -14,26 +14,29 @@
 </head>
 
 <body>
-<h1>Predicate: nearnessScale</h1>
-<h2>All Axioms</h2><pre>   (forall (s z)
+<h1>Predicate: <code>nearnessScale</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (s z)
       (iff (<a href="../nearnessScale/index.html">nearnessScale</a> s z)
            (exists (s0 e x y u)
               (and (<a href="../nearer/index.html">nearer</a>' e x y z u) (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e)))))
-
-
+</pre>
+<pre>
    (forall (x z)
       (iff (<a href="../far/index.html">far</a> x z)
            (exists (s s2)
               (and (<a href="../nearnessScale/index.html">nearnessScale</a> s z) (<a href="../Hi/index.html">Hi</a> s2 s) (<a href="../onScale/index.html">onScale</a> x s2)))))
-
-
+</pre>
+<pre>
    (forall (x z)
       (iff (<a href="../near/index.html">near</a> x z)
            (exists (s s1)
               (and (<a href="../nearnessScale/index.html">nearnessScale</a> s z) (<a href="../Lo/index.html">Lo</a> s1 s) (<a href="../onScale/index.html">onScale</a> x s1)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

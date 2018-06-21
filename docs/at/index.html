@@ -14,61 +14,71 @@
 </head>
 
 <body>
-<h1>Predicate: at</h1>
-<pre>(at x y s)</pre><p>x is at component y in composite entity s.</p><h2>Characterizing Axioms</h2><pre>(forall (x y s)
+<h1>Predicate: <code>at</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(at x y s)</pre><p>x is at component y in composite entity s.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (x y s)
   (if (<a href="../at/index.html">at</a> x y s)
       (<a href="../ground/index.html">ground</a> s)))
-
-
+</pre>
+<pre>
 (forall (x y s)
   (if (<a href="../at/index.html">at</a> x y s)
       (and (<a href="../componentOf/index.html">componentOf</a> y s) (<a href="../externalTo/index.html">externalTo</a> x s))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (d e c s e1)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (d e c s e1)
   (if (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../at/index.html">at</a>' e1 e d s))
       (<a href="../imply/index.html">imply</a> c e1)))
-
-
+</pre>
+<pre>
 (forall (e x y s1 s)
    (if (and (<a href="../at/index.html">at</a>' e x y s1) (<a href="../Hi/index.html">Hi</a> s1 s) (etc))
        (exists (c a g g1)
           (and (<a href="../member/index.html">member</a> e c) (<a href="../goal/index.html">goal</a> g a)
                (or (<a href="../causalComplex/index.html">causalComplex</a> c g)
                    (and (<a href="../not'/index.html">not'</a> g1 g) (<a href="../causalComplex/index.html">causalComplex</a> c g1)))))))
-
-
+</pre>
+<pre>
 (forall (e x y z s)
   (iff (<a href="../decrease/index.html">decrease</a> x s)
        (exists (y z e1 e2)
          (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../lts/index.html">lts</a> z y s)
               (<a href="../vertical/index.html">vertical</a> s) (<a href="../change/index.html">change</a> e1 e2)))))
-
-
+</pre>
+<pre>
 (forall (e x y z s)
   (iff (<a href="../increase/index.html">increase</a> x s)
        (exists (y z e1 e2)
          (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../lts/index.html">lts</a> y z s)
               (<a href="../vertical/index.html">vertical</a> s) (<a href="../change/index.html">change</a> e1 e2)))))
-
-
+</pre>
+<pre>
 (forall (e x y z)
   (iff (<a href="../move/index.html">move</a>' e x y z)
        (exists (e1 e2 e3 s)
          (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../change/index.html">change</a>' e3 e1 e2) (<a href="../gen/index.html">gen</a> e3 e)))))
-
-
+</pre>
+<pre>
 (forall (m s1 s2 x y)
   (if (and (<a href="../measure/index.html">measure</a> m s1) (<a href="../function/index.html">function</a> m s1 s2) (<a href="../disjoint/index.html">disjoint</a> s1 s2)
            (<a href="../map/index.html">map</a> m x y))
       (<a href="../at/index.html">at</a> x y s2)))
-
-
+</pre>
+<pre>
 (forall (s e t)
   (if (and (<a href="../timeScale/index.html">timeScale</a> s) (<a href="../atTime/index.html">atTime</a> e t))
       (<a href="../at/index.html">at</a> e t s)))
-
-
+</pre>
+<pre>
 (forall (s e)
    (iff (<a href="../scaleFor/index.html">scaleFor</a> s e)
         (exists (s1)
@@ -76,8 +86,8 @@
                 (forall (e1 x y)
                    (if (and (<a href="../at/index.html">at</a>' e1 x y s1) (<a href="../argn/index.html">argn</a> x 1 e))
                        (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../Rexist/index.html">Rexist</a> e1))))))))
-
-
+</pre>
+<pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e)
         (and (<a href="../scale/index.html">scale</a> s) (<a href="../eventuality/index.html">eventuality</a> e)
@@ -90,39 +100,39 @@
                                          (<a href="../argn/index.html">argn</a> x2 2 e2)
                          (<a href="../subset/index.html">subset</a> s1 s2))
                     (<a href="../leqs/index.html">leqs</a> x1 x2 s))))))
-
-
+</pre>
+<pre>
 (forall (w e)
   (iff (<a href="../terminusOf/index.html">terminusOf</a> w e)
        (exists (x z e1 e2 s)
          (and (<a href="../at/index.html">at</a>' e1 x z s) (<a href="../at/index.html">at</a>' e2 x w s) (<a href="../change/index.html">change</a>' e e1 e2)))))
-
-
+</pre>
+<pre>
 (forall (x s)
    (iff (<a href="../onScale/index.html">onScale</a> x s)
         (or (<a href="../inScale/index.html">inScale</a> x s)
             (exists (y)
                (and (<a href="../inScale/index.html">inScale</a> y s) (<a href="../at/index.html">at</a> x y s))))))
-
-
+</pre>
+<pre>
 (forall (x y s)
    (if (<a href="../lts/index.html">lts</a> x y s)
        (and (or (<a href="../inScale/index.html">inScale</a> x s)
                 (exists (x1) (and (<a href="../at/index.html">at</a> x x1 s) (<a href="../inScale/index.html">inScale</a> x1 s))))
             (or (<a href="../inScale/index.html">inScale</a> y s)
                 (exists (y1) (and (<a href="../at/index.html">at</a> y y1 s) (<a href="../inScale/index.html">inScale</a> y1 s)))))))
-
-
+</pre>
+<pre>
 (forall (x y s)
   (if (<a href="../at/index.html">at</a> x y s)
       (<a href="../ground/index.html">ground</a> s)))
-
-
+</pre>
+<pre>
 (forall (x y s)
   (if (<a href="../at/index.html">at</a> x y s)
       (and (<a href="../componentOf/index.html">componentOf</a> y s) (<a href="../externalTo/index.html">externalTo</a> x s))))
-
-
+</pre>
+<pre>
 (forall (x1 x2 y1 y2 s)
    (and (if (<a href="../at/index.html">at</a> x1 y1 s)
             (iff (<a href="../lts/index.html">lts</a> x1 y2 s) (<a href="../lts/index.html">lts</a> y1 y2 s)))
@@ -130,15 +140,15 @@
             (iff (<a href="../lts/index.html">lts</a> y1 x2 s) (<a href="../lts/index.html">lts</a> y1 y2 s)))
         (if (and (<a href="../at/index.html">at</a> x1 y1 s) (<a href="../at/index.html">at</a> x2 y2 s))
             (iff (<a href="../lts/index.html">lts</a> x1 x2 s) (<a href="../lts/index.html">lts</a> y1 y2 s)))))
-
-
+</pre>
+<pre>
 (forall (z e)
   (iff (<a href="../sourceOf/index.html">sourceOf</a> z e)
        (exists (x w e1 e2 s)
          (and (<a href="../at/index.html">at</a>' e1 x z s) (<a href="../at/index.html">at</a>' e2 x w s) (<a href="../change/index.html">change</a>' e e1 e2)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

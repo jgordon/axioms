@@ -14,36 +14,43 @@
 </head>
 
 <body>
-<h1>Predicate: last</h1>
-<pre>(last t s)</pre><p>t is the last temporal entity in temporal sequence s.</p><h2>All Axioms</h2><pre>(forall (s t)
+<h1>Predicate: <code>last</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(last t s)</pre><p>t is the last temporal entity in temporal sequence s.</p>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s t)
   (if (<a href="../tseq/index.html">tseq</a> s)
       (iff (<a href="../last/index.html">last</a> t s)
            (and (<a href="../member/index.html">member</a> t s)
                 (forall (t1)
                   (if (<a href="../member/index.html">member</a> t1 s)
                       (or (equal t1 t) (<a href="../before/index.html">before</a> t1 t))))))))
-
-
+</pre>
+<pre>
 (forall (s t1 t2 t3 t4)
   (if (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../first/index.html">first</a> t1 s) (<a href="../begins/index.html">begins</a> t3 t1)
            (<a href="../last/index.html">last</a> t2 s) (<a href="../ends/index.html">ends</a> t4 t2))
       (forall (t)
         (iff (<a href="../convexHull/index.html">convexHull</a> t s)
              (<a href="../intervalBetween/index.html">intervalBetween</a> t t3 t4)))))
-
-
+</pre>
+<pre>
 (forall (s y n)
   (if (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../length/index.html">length</a> n s))
       (iff (<a href="../last/index.html">last</a> y s) (<a href="../nth/index.html">nth</a> y n s))))
-
-
+</pre>
+<pre>
 (forall (t s)
   (if (<a href="../tseq/index.html">tseq</a> s)
       (iff (<a href="../ends/index.html">ends</a> t s)
            (exists (t1) (and (<a href="../last/index.html">last</a> t1 s) (<a href="../ends/index.html">ends</a> t t1))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

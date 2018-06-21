@@ -14,8 +14,11 @@
 </head>
 
 <body>
-<h1>Predicate: above2</h1>
-<h2>All Axioms</h2><pre>   (forall (f)
+<h1>Predicate: <code>above2</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (f)
       (iff (<a href="../coordinateSystem/index.html">coordinateSystem</a> f)
            (and (<a href="../framework/index.html">framework</a> f)
                 (forall (a1) (if (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../numeric/index.html">numeric</a> a1)))
@@ -25,8 +28,8 @@
                 (forall (x1 x2) (iff (<a href="../rightOf/index.html">rightOf</a> x1 x2 f) (<a href="../gt/index.html">gt</a> x1 x2)))
                 (forall (y1 y2) (iff (<a href="../above2/index.html">above2</a> y1 y2 f) (<a href="../gt/index.html">gt</a> y1 y2)))
                 (forall (z1 z2) (iff (<a href="../above3/index.html">above3</a> z1 z2 f) (<a href="../gt/index.html">gt</a> z1 z2))))))
-
-
+</pre>
+<pre>
    (forall (s1 f)
       (iff (<a href="../vertical3/index.html">vertical3</a> s1 f)
            (exists (s)
@@ -35,8 +38,8 @@
                            (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
                                 (or (<a href="../rightOf/index.html">rightOf</a> x1 x2 f)
                                     (<a href="../above2/index.html">above2</a> x1 x2 f)))))))))
-
-
+</pre>
+<pre>
 (forall (s1 f)
   (iff (<a href="../horizontal2/index.html">horizontal2</a> s1 f)
        (exists (s)
@@ -45,9 +48,9 @@
                      (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
                           (or (<a href="../above2/index.html">above2</a> x1 x2 f)
                               (<a href="../above3/index.html">above3</a> x1 x2 f)))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

@@ -14,25 +14,14 @@
 </head>
 
 <body>
-<h1>Predicate: timeScale</h1>
-<pre>(timeScale t)</pre><p>t is a scale whose elements are temporal entities and</p><h2>Characterizing Axioms</h2><pre>(forall (t)
-  (iff (<a href="../timeScale/index.html">timeScale</a> t)
-       (exists (s e t2 t3)
-         (and (forall (t1)
-                (iff (<a href="../member/index.html">member</a> t1 s)
-                     (or (<a href="../instant/index.html">instant</a> t1) (<a href="../interval/index.html">interval</a> t1))))
-              (<a href="../before/index.html">before</a>' e t2 t3)
-              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> t s e)))))
-
-
-(forall (t) (if (<a href="../timeScale/index.html">timeScale</a> t) (<a href="../ground/index.html">ground</a> t)))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s e t)
-  (if (and (<a href="../timeScale/index.html">timeScale</a> s) (<a href="../atTime/index.html">atTime</a> e t))
-      (<a href="../at/index.html">at</a> e t s)))
-
-
+<h1>Predicate: <code>timeScale</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(timeScale t)</pre><p>t is a scale whose elements are temporal entities and</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (t)
   (iff (<a href="../timeScale/index.html">timeScale</a> t)
        (exists (s e t2 t3)
@@ -41,12 +30,33 @@
                      (or (<a href="../instant/index.html">instant</a> t1) (<a href="../interval/index.html">interval</a> t1))))
               (<a href="../before/index.html">before</a>' e t2 t3)
               (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> t s e)))))
-
-
-(forall (t) (if (<a href="../timeScale/index.html">timeScale</a> t) (<a href="../ground/index.html">ground</a> t)))
-
-
 </pre>
+<pre>
+(forall (t) (if (<a href="../timeScale/index.html">timeScale</a> t) (<a href="../ground/index.html">ground</a> t)))
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s e t)
+  (if (and (<a href="../timeScale/index.html">timeScale</a> s) (<a href="../atTime/index.html">atTime</a> e t))
+      (<a href="../at/index.html">at</a> e t s)))
+</pre>
+<pre>
+(forall (t)
+  (iff (<a href="../timeScale/index.html">timeScale</a> t)
+       (exists (s e t2 t3)
+         (and (forall (t1)
+                (iff (<a href="../member/index.html">member</a> t1 s)
+                     (or (<a href="../instant/index.html">instant</a> t1) (<a href="../interval/index.html">interval</a> t1))))
+              (<a href="../before/index.html">before</a>' e t2 t3)
+              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> t s e)))))
+</pre>
+<pre>
+(forall (t) (if (<a href="../timeScale/index.html">timeScale</a> t) (<a href="../ground/index.html">ground</a> t)))
+</pre>
+</section>
+
 </body>
 
 </html>

@@ -14,32 +14,42 @@
 </head>
 
 <body>
-<h1>Predicate: difficult</h1>
-<pre>(difficult e a)</pre><p>Action e is difficult for agent a.</p><h2>Characterizing Axioms</h2><pre>(forall (a e)
+<h1>Predicate: <code>difficult</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(difficult e a)</pre><p>Action e is difficult for agent a.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (a e)
   (if (<a href="../difficult/index.html">difficult</a> e a)
       (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e))))
-
-
-(forall (e1 e a)
-  (iff (<a href="../difficult/index.html">difficult</a>' e1 e a)
-       (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e)
-            (exists (s)
-              (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../scaleFor/index.html">scaleFor</a> s e1))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (a e)
-  (if (<a href="../difficult/index.html">difficult</a> e a)
-      (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e))))
-
-
-(forall (e1 e a)
-  (iff (<a href="../difficult/index.html">difficult</a>' e1 e a)
-       (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e)
-            (exists (s)
-              (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../scaleFor/index.html">scaleFor</a> s e1))))))
-
-
 </pre>
+<pre>
+(forall (e1 e a)
+  (iff (<a href="../difficult/index.html">difficult</a>' e1 e a)
+       (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e)
+            (exists (s)
+              (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../scaleFor/index.html">scaleFor</a> s e1))))))
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (a e)
+  (if (<a href="../difficult/index.html">difficult</a> e a)
+      (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e))))
+</pre>
+<pre>
+(forall (e1 e a)
+  (iff (<a href="../difficult/index.html">difficult</a>' e1 e a)
+       (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e)
+            (exists (s)
+              (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../scaleFor/index.html">scaleFor</a> s e1))))))
+</pre>
+</section>
+
 </body>
 
 </html>

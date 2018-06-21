@@ -14,24 +14,34 @@
 </head>
 
 <body>
-<h1>Predicate: moreLikely</h1>
-<pre>(moreLikely e1 e2 c)</pre><p>e1 is more likely than e2 given constraints c.</p><h2>Characterizing Axioms</h2><pre>(forall (e1 e2 c)
+<h1>Predicate: <code>moreLikely</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(moreLikely e1 e2 c)</pre><p>e1 is more likely than e2 given constraints c.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e1 e2 c)
   (iff (<a href="../moreLikely/index.html">moreLikely</a> e1 e2 c)
        (exists (s d1 d2)
          (and (<a href="../likelihoodScale/index.html">likelihoodScale</a> s)
               (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c)
               (<a href="../lts/index.html">lts</a> d2 d1 s)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e1 e2 c)
-  (iff (<a href="../moreLikely/index.html">moreLikely</a> e1 e2 c)
-       (exists (s d1 d2)
-         (and (<a href="../likelihoodScale/index.html">likelihoodScale</a> s)
-              (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c)
-              (<a href="../lts/index.html">lts</a> d2 d1 s)))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e1 e2 c)
+  (iff (<a href="../moreLikely/index.html">moreLikely</a> e1 e2 c)
+       (exists (s d1 d2)
+         (and (<a href="../likelihoodScale/index.html">likelihoodScale</a> s)
+              (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c)
+              (<a href="../lts/index.html">lts</a> d2 d1 s)))))
+</pre>
+</section>
+
 </body>
 
 </html>

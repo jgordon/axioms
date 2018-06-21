@@ -14,34 +14,37 @@
 </head>
 
 <body>
-<h1>Predicate: zAxis</h1>
-<h2>All Axioms</h2><pre>    (forall (a3 f)
+<h1>Predicate: <code>zAxis</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+    (forall (a3 f)
       (if (<a href="../zAxis/index.html">zAxis</a> a3 f)
           (and (<a href="../framework/index.html">framework</a> f) (<a href="../vertical3/index.html">vertical3</a> a3 f))))
-
-
+</pre>
+<pre>
    (forall (f a1 a2 s)
       (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../zAxis/index.html">zAxis</a> a3 f) (<a href="../origin/index.html">origin</a> o f))
           (<a href="../member/index.html">member</a> o a3)))
-
-
+</pre>
+<pre>
    (forall (f a3)
       (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../zAxis/index.html">zAxis</a> a3 f))
           (forall (a)
              (if (<a href="../nequal/index.html">nequal</a> a a3) (not (<a href="../zAxis/index.html">zAxis</a> a f))))))
-
-
+</pre>
+<pre>
    (forall (f)
       (if (<a href="../framework/index.html">framework</a> f)
          (iff (<a href="../2D/index.html">2D</a> f)
               (not (exists (a3) (<a href="../zAxis/index.html">zAxis</a> a3 f))))))
-
-
+</pre>
+<pre>
    (forall (f)
       (if (and (<a href="../framework/index.html">framework</a> f) (<a href="../3D/index.html">3D</a> f))
           (exists (a3) (<a href="../zAxis/index.html">zAxis</a> a3 f))))
-
-
+</pre>
+<pre>
    (forall (f)
       (iff (<a href="../coordinateSystem/index.html">coordinateSystem</a> f)
            (and (<a href="../framework/index.html">framework</a> f)
@@ -52,16 +55,16 @@
                 (forall (x1 x2) (iff (<a href="../rightOf/index.html">rightOf</a> x1 x2 f) (<a href="../gt/index.html">gt</a> x1 x2)))
                 (forall (y1 y2) (iff (<a href="../above2/index.html">above2</a> y1 y2 f) (<a href="../gt/index.html">gt</a> y1 y2)))
                 (forall (z1 z2) (iff (<a href="../above3/index.html">above3</a> z1 z2 f) (<a href="../gt/index.html">gt</a> z1 z2))))))
-
-
+</pre>
+<pre>
    (forall (z1 x f)
       (iff (<a href="../zCoordinate/index.html">zCoordinate</a> z1 x f)
            (exists (v a1)
               (and (<a href="../vertical3/index.html">vertical3</a> v f) (<a href="../member/index.html">member</a> x v) (<a href="../zAxis/index.html">zAxis</a> a3 f)
                    (<a href="../member/index.html">member</a> z1 v) (<a href="../member/index.html">member</a> z1 a3)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

@@ -14,46 +14,56 @@
 </head>
 
 <body>
-<h1>Predicate: Hi</h1>
-<pre>(Hi s1 s)</pre><p>s1 is the high region of scale s.</p><h2>Characterizing Axioms</h2><pre>(forall (s1 s)
+<h1>Predicate: <code>Hi</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(Hi s1 s)</pre><p>s1 is the high region of scale s.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s1 s)
    (if (<a href="../Hi/index.html">Hi</a> s1 s)
        (forall (x)
          (iff (<a href="../top/index.html">top</a> x s) (<a href="../top/index.html">top</a> x s1)))))
-
-
+</pre>
+<pre>
 (forall (s1 s) (if (<a href="../Hi/index.html">Hi</a> s1 s) (<a href="../subscale/index.html">subscale</a> s1 s)))
-
-
-</pre><h2>All Axioms</h2><pre>   (forall (x s0 s1)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (x s0 s1)
       (if (and (<a href="../onScale/index.html">onScale</a> x s1) (<a href="../Hi/index.html">Hi</a> s1 s0) (etc))
           (exists (s2 s3 s4 n3 n4)
              (and (<a href="../componentsOf/index.html">componentsOf</a> s2 s0) (<a href="../union/index.html">union</a> s2 s3 s4)
                   (forall (y) (iff (<a href="../member/index.html">member</a> y s3) (<a href="../lts/index.html">lts</a> y x s0)))
                   (forall (z) (iff (<a href="../member/index.html">member</a> z s4) (<a href="../lts/index.html">lts</a> x z s0)))
                   (<a href="../card/index.html">card</a> n3 s3) (<a href="../card/index.html">card</a> n4 s4) (<a href="../lt/index.html">lt</a> n4 n3)))))
-
-
+</pre>
+<pre>
    (forall (x z)
       (iff (<a href="../far/index.html">far</a> x z)
            (exists (s s2)
               (and (<a href="../nearnessScale/index.html">nearnessScale</a> s z) (<a href="../Hi/index.html">Hi</a> s2 s) (<a href="../onScale/index.html">onScale</a> x s2)))))
-
-
+</pre>
+<pre>
 (forall (e c)
   (iff (<a href="../likely/index.html">likely</a> e c)
        (exists (s d s1)
          (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../Hi/index.html">Hi</a> s1 s)
               (<a href="../inScale/index.html">inScale</a> d s1)))))
-
-
+</pre>
+<pre>
 (forall (e x y s1 s)
    (if (and (<a href="../at/index.html">at</a>' e x y s1) (<a href="../Hi/index.html">Hi</a> s1 s) (etc))
        (exists (c a g g1)
           (and (<a href="../member/index.html">member</a> e c) (<a href="../goal/index.html">goal</a> g a)
                (or (<a href="../causalComplex/index.html">causalComplex</a> c g)
                    (and (<a href="../not'/index.html">not'</a> g1 g) (<a href="../causalComplex/index.html">causalComplex</a> c g1)))))))
-
-
+</pre>
+<pre>
 (forall (s e)
    (iff (<a href="../scaleFor/index.html">scaleFor</a> s e)
         (exists (s1)
@@ -61,30 +71,30 @@
                 (forall (e1 x y)
                    (if (and (<a href="../at/index.html">at</a>' e1 x y s1) (<a href="../argn/index.html">argn</a> x 1 e))
                        (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../Rexist/index.html">Rexist</a> e1))))))))
-
-
+</pre>
+<pre>
 (forall (s s1 s2 x y)
    (if (and (<a href="../Hi/index.html">Hi</a> s1 s) (<a href="../Lo/index.html">Lo</a> s2 s) (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s2))
        (<a href="../lts/index.html">lts</a> y x s)))
-
-
+</pre>
+<pre>
 (forall (s1 s)
    (if (<a href="../Hi/index.html">Hi</a> s1 s)
        (forall (x)
          (iff (<a href="../top/index.html">top</a> x s) (<a href="../top/index.html">top</a> x s1)))))
-
-
+</pre>
+<pre>
 (forall (s1 s) (if (<a href="../Hi/index.html">Hi</a> s1 s) (<a href="../subscale/index.html">subscale</a> s1 s)))
-
-
+</pre>
+<pre>
 (forall (s1)
   (iff (<a href="../frequent/index.html">frequent</a> s1)
        (exists (s s0 s2)
          (and (<a href="../member/index.html">member</a> s1 s0) (<a href="../rateScale/index.html">rateScale</a> s s0) (<a href="../Hi/index.html">Hi</a> s2 s)
               (<a href="../inScale/index.html">inScale</a> s1 s2)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

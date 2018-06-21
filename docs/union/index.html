@@ -14,24 +14,34 @@
 </head>
 
 <body>
-<h1>Predicate: union</h1>
-<pre>(union s s1 s2)</pre><p>s is the union of s1 and s2.</p><h2>Characterizing Axioms</h2><pre>(forall (s s1 s2)
+<h1>Predicate: <code>union</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(union s s1 s2)</pre><p>s is the union of s1 and s2.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s s1 s2)
   (iff (<a href="../union/index.html">union</a> s s1 s2)
        (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
             (forall (x)
               (iff (<a href="../member/index.html">member</a> x s)
                    (or (<a href="../member/index.html">member</a> x s1) (<a href="../member/index.html">member</a> x s2)))))))
-
-
-</pre><h2>All Axioms</h2><pre>   (forall (x s0 s1)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (x s0 s1)
       (if (and (<a href="../onScale/index.html">onScale</a> x s1) (<a href="../Hi/index.html">Hi</a> s1 s0) (etc))
           (exists (s2 s3 s4 n3 n4)
              (and (<a href="../componentsOf/index.html">componentsOf</a> s2 s0) (<a href="../union/index.html">union</a> s2 s3 s4)
                   (forall (y) (iff (<a href="../member/index.html">member</a> y s3) (<a href="../lts/index.html">lts</a> y x s0)))
                   (forall (z) (iff (<a href="../member/index.html">member</a> z s4) (<a href="../lts/index.html">lts</a> x z s0)))
                   (<a href="../card/index.html">card</a> n3 s3) (<a href="../card/index.html">card</a> n4 s4) (<a href="../lt/index.html">lt</a> n4 n3)))))
-
-
+</pre>
+<pre>
 (forall (s e c)
   (if (<a href="../eventuality/index.html">eventuality</a> e)
       (iff (<a href="../alsoRequired/index.html">alsoRequired</a> s e c)
@@ -39,23 +49,23 @@
                 (exists (s1 c1)
                   (and (<a href="../union/index.html">union</a> s1 c1 s) (<a href="../subset/index.html">subset</a> c1 c)
                        (<a href="../minimallyProves/index.html">minimallyProves</a> s1 e)))))))
-
-
+</pre>
+<pre>
 (forall (s s1 s2 s3)
   (iff (<a href="../union3/index.html">union3</a> s s1 s2 s3)
        (exists (s4)
          (and (<a href="../union/index.html">union</a> s s1 s4) (<a href="../union/index.html">union</a> s4 s2 s3)))))
-
-
+</pre>
+<pre>
 (forall (s s1 s2)
   (iff (<a href="../union/index.html">union</a> s s1 s2)
        (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
             (forall (x)
               (iff (<a href="../member/index.html">member</a> x s)
                    (or (<a href="../member/index.html">member</a> x s1) (<a href="../member/index.html">member</a> x s2)))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

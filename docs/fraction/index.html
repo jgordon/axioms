@@ -14,60 +14,70 @@
 </head>
 
 <body>
-<h1>Predicate: fraction</h1>
-<pre>(fraction f a b)</pre><p>f is the fraction whose numerator is a and</p><h2>Characterizing Axioms</h2><pre>(forall (f a b)
+<h1>Predicate: <code>fraction</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(fraction f a b)</pre><p>f is the fraction whose numerator is a and</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (f a b)
   (if (<a href="../fraction/index.html">fraction</a> f a b)
       (and (<a href="../number/index.html">number</a> a) (<a href="../number/index.html">number</a> b) (<a href="../nequal/index.html">nequal</a> b 0))))
-
-
+</pre>
+<pre>
 (forall (f a b)
   (if (<a href="../fraction/index.html">fraction</a> f a b) (<a href="../number/index.html">number</a> f)))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (a b)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (a b)
    (if (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> a) (<a href="../posInteger/index.html">posInteger</a> b))
        (exists (f) (<a href="../fraction/index.html">fraction</a> f a b))))
-
-
+</pre>
+<pre>
 (forall (f a b)
   (if (<a href="../fraction/index.html">fraction</a> f a b)
       (and (<a href="../number/index.html">number</a> a) (<a href="../number/index.html">number</a> b) (<a href="../nequal/index.html">nequal</a> b 0))))
-
-
+</pre>
+<pre>
 (forall (f a b)
   (if (<a href="../fraction/index.html">fraction</a> f a b) (<a href="../number/index.html">number</a> f)))
-
-
+</pre>
+<pre>
 (forall (f f1 f2 a1 a2 b1 b2 c1 c2)
    (if (and (<a href="../fraction/index.html">fraction</a> f1 a1 b1) (<a href="../fraction/index.html">fraction</a> f2 a2 b2)
             (<a href="../product/index.html">product</a> c1 a1 a2) (<a href="../product/index.html">product</a> c2 b1 b2))
        (iff (<a href="../product/index.html">product</a> f f1 f2) (<a href="../fraction/index.html">fraction</a> f c1 c2))))
-
-
+</pre>
+<pre>
 (forall (f x y m s1)
   (if (and (<a href="../measure/index.html">measure</a> m s1) (<a href="../inScale/index.html">inScale</a> x s1) (<a href="../inScale/index.html">inScale</a> y s1))
       (iff (<a href="../proportion/index.html">proportion</a> f x y m)
            (exists (n1 n2)
              (and (<a href="../map/index.html">map</a> m x n1) (<a href="../map/index.html">map</a> m y n2)
                   (<a href="../fraction/index.html">fraction</a> f n1 n2))))))
-
-
+</pre>
+<pre>
 (forall (f1 f2 a1 a2 b1 b2 c1 c2)
    (if (and (<a href="../fraction/index.html">fraction</a> f1 a1 b1) (<a href="../fraction/index.html">fraction</a> f2 a2 b2)
             (<a href="../product/index.html">product</a> c1 a1 b2) (<a href="../product/index.html">product</a> c2 a2 b1))
        (iff (<a href="../lt/index.html">lt</a> f1 f2) (<a href="../lt/index.html">lt</a> c1 c2))))
-
-
+</pre>
+<pre>
 (forall (f1 f2 a1 a2 b1 b2 c1 c2)
    (if (and (<a href="../fraction/index.html">fraction</a> f1 a1 b1) (<a href="../fraction/index.html">fraction</a> f2 a2 b2)
             (<a href="../product/index.html">product</a> c1 a1 b2) (<a href="../product/index.html">product</a> c2 a2 b1))
        (iff (equal f1 f2) (equal c1 c2))))
-
-
-(forall (n) (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../fraction/index.html">fraction</a> n n 1)))
-
-
 </pre>
+<pre>
+(forall (n) (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../fraction/index.html">fraction</a> n n 1)))
+</pre>
+</section>
+
 </body>
 
 </html>

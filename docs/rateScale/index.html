@@ -14,8 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: rateScale</h1>
-<pre>(rateScale s s0)</pre><p>s is a scale whose elements are the sets of</p><h2>Characterizing Axioms</h2><pre>(forall (s s0)
+<h1>Predicate: <code>rateScale</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(rateScale s s0)</pre><p>s is a scale whose elements are the sets of</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s s0)
   (iff (<a href="../rateScale/index.html">rateScale</a> s s0)
        (and (forall (s1) (if (<a href="../member/index.html">member</a> s1 s0) (<a href="../eventualities/index.html">eventualities</a> s1)))
             (exists (u e s1 s2)
@@ -26,9 +33,12 @@
                             (and (<a href="../rate/index.html">rate</a> r1 s3 u) (<a href="../rate/index.html">rate</a> r2 s4 u)
                                  (<a href="../lt/index.html">lt</a> r1 r2)))))
                    (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s s0)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s s0)
   (iff (<a href="../rateScale/index.html">rateScale</a> s s0)
        (and (forall (s1) (if (<a href="../member/index.html">member</a> s1 s0) (<a href="../eventualities/index.html">eventualities</a> s1)))
             (exists (u e s1 s2)
@@ -39,16 +49,16 @@
                             (and (<a href="../rate/index.html">rate</a> r1 s3 u) (<a href="../rate/index.html">rate</a> r2 s4 u)
                                  (<a href="../lt/index.html">lt</a> r1 r2)))))
                    (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e))))))
-
-
+</pre>
+<pre>
 (forall (s1)
   (iff (<a href="../frequent/index.html">frequent</a> s1)
        (exists (s s0 s2)
          (and (<a href="../member/index.html">member</a> s1 s0) (<a href="../rateScale/index.html">rateScale</a> s s0) (<a href="../Hi/index.html">Hi</a> s2 s)
               (<a href="../inScale/index.html">inScale</a> s1 s2)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

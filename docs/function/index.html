@@ -14,8 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: function</h1>
-<pre>(function f s1 s2)</pre><p>f is a function from a set or scale s1 onto</p><h2>Characterizing Axioms</h2><pre>(forall (f s1 s2)
+<h1>Predicate: <code>function</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(function f s1 s2)</pre><p>f is a function from a set or scale s1 onto</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (f s1 s2)
    (iff (<a href="../function/index.html">function</a> f s1 s2)
         (exists (s3 s4)
            (and (if (<a href="../set/index.html">set</a> s1) (equal s3 s1))
@@ -23,22 +30,25 @@
                 (if (<a href="../set/index.html">set</a> s2) (equal s4 s2))
                 (if (<a href="../scale/index.html">scale</a> s2) (<a href="../componentsOf/index.html">componentsOf</a> s4 s2))
                 (<a href="../function0/index.html">function0</a> f s3 s4)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (f s)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (f s)
   (iff (<a href="../identityFunction/index.html">identityFunction</a> f s)
        (and (<a href="../function/index.html">function</a> f s s)
             (forall (x) (if (<a href="../member/index.html">member</a> x s) (<a href="../map/index.html">map</a> f x x))))))
-
-
+</pre>
+<pre>
 (forall (f s1 s2)
    (if (and (<a href="../function/index.html">function</a> f s1 s2) (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s2))
        (iff (<a href="../monotoneIncreasing/index.html">monotoneIncreasing</a> f)
             (forall (x1 x2 y1 y2)
                (if (and (<a href="../map/index.html">map</a> f x1 y1) (<a href="../map/index.html">map</a> f x2 y2) (<a href="../lts/index.html">lts</a> x1 x2 s1))
                    (<a href="../lts/index.html">lts</a> y1 y2 s2))))))
-
-
+</pre>
+<pre>
 (forall (f s1 s2)
    (iff (<a href="../function/index.html">function</a> f s1 s2)
         (exists (s3 s4)
@@ -47,21 +57,21 @@
                 (if (<a href="../set/index.html">set</a> s2) (equal s4 s2))
                 (if (<a href="../scale/index.html">scale</a> s2) (<a href="../componentsOf/index.html">componentsOf</a> s4 s2))
                 (<a href="../function0/index.html">function0</a> f s3 s4)))))
-
-
+</pre>
+<pre>
 (forall (f s1 s3)
    (iff (<a href="../functionInto/index.html">functionInto</a> f s1 s3)
         (exists (s2)
           (and (or (<a href="../subset/index.html">subset</a> s2 s3) (<a href="../subscale/index.html">subscale</a> s2 s3))
                (<a href="../function/index.html">function</a> f s1 s2)))))
-
-
+</pre>
+<pre>
 (forall (m s1 s2 x y)
   (if (and (<a href="../measure/index.html">measure</a> m s1) (<a href="../function/index.html">function</a> m s1 s2) (<a href="../disjoint/index.html">disjoint</a> s1 s2)
            (<a href="../map/index.html">map</a> m x y))
       (<a href="../at/index.html">at</a> x y s2)))
-
-
+</pre>
+<pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../set/index.html">set</a> t) (<a href="../powerSet/index.html">powerSet</a> s0 s)
            (forall (t1)
@@ -73,9 +83,9 @@
                         (if (<a href="../member/index.html">member</a> e s1) (<a href="../happensIn/index.html">happensIn</a> e t1)))
                       (<a href="../card/index.html">card</a> n s1)))))
       (<a href="../rate/index.html">rate</a> n s t)))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

@@ -14,62 +14,72 @@
 </head>
 
 <body>
-<h1>Predicate: gen</h1>
-<pre>(gen e1 e2)</pre><p>e1 generates or entails the existence of e2.</p><h2>Characterizing Axioms</h2><pre>(forall (e1 e2 t)
+<h1>Predicate: <code>gen</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(gen e1 e2)</pre><p>e1 generates or entails the existence of e2.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e1 e2 t)
   (if (<a href="../gen/index.html">gen</a> e1 e2)
       (iff (<a href="../atTime/index.html">atTime</a> e1 t)
            (<a href="../atTime/index.html">atTime</a> e2 t))))
-
-
+</pre>
+<pre>
 (forall (e1 e2 x s)
   (if (<a href="../gen/index.html">gen</a> e1 e2)
       (iff (<a href="../atLoc/index.html">atLoc</a> e1 x s)
            (<a href="../atLoc/index.html">atLoc</a> e2 x s))))
-
-
+</pre>
+<pre>
 (forall (e1 e2)
   (if (<a href="../gen/index.html">gen</a> e1 e2)
       (and (<a href="../eventuality/index.html">eventuality</a> e1) (<a href="../eventuality/index.html">eventuality</a> e2))))
-
-
-</pre><h2>All Axioms</h2><pre>(exists (e1 e2)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(exists (e1 e2)
   (and (<a href="../imply/index.html">imply</a> e1 e2) (not (<a href="../gen/index.html">gen</a> e1 e2))))
-
-
+</pre>
+<pre>
 (forall (e e1 e2)
   (if (<a href="../change/index.html">change</a>' e e1 e2)
       (or (<a href="../inconsistent/index.html">inconsistent</a> e1 e2)
           (exists (e3 e4 e5 e6)
             (and (<a href="../change/index.html">change</a>' e4 e1 e3) (<a href="../change/index.html">change</a>' e5 e3 e2) (<a href="../and'/index.html">and'</a> e6 e4 e5)
                  (<a href="../gen/index.html">gen</a> e6 e))))))
-
-
+</pre>
+<pre>
 (forall (e e1 e3)
   (if (<a href="../subst/index.html">subst</a> e3 e3 e1 e1)
       (iff (<a href="../changeFrom/index.html">changeFrom</a>' e e1)
            (exists (e2 e5)
              (and (<a href="../change/index.html">change</a>' e5 e1 e2) (<a href="../gen/index.html">gen</a> e5 e) (<a href="../inconsistent/index.html">inconsistent</a> e3 e2))))))
-
-
+</pre>
+<pre>
 (forall (e e2 e4)
   (if (<a href="../subst/index.html">subst</a> e4 e4 e2 e2)
       (iff (<a href="../changeTo/index.html">changeTo</a>' e e2)
            (exists (e1 e5)
              (and (<a href="../change/index.html">change</a>' e5 e1 e2) (<a href="../gen/index.html">gen</a> e5 e) (<a href="../inconsistent/index.html">inconsistent</a> e4 e1))))))
-
-
+</pre>
+<pre>
 (forall (e x y z)
   (iff (<a href="../move/index.html">move</a>' e x y z)
        (exists (e1 e2 e3 s)
          (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../change/index.html">change</a>' e3 e1 e2) (<a href="../gen/index.html">gen</a> e3 e)))))
-
-
+</pre>
+<pre>
 (forall (e x)
   (iff (<a href="../changeIn/index.html">changeIn</a>' e x)
        (exists (e1 e2 e3)
          (and (<a href="../arg*/index.html">arg*</a> x e1) (<a href="../arg*/index.html">arg*</a> x e2) (<a href="../change/index.html">change</a>' e3 e1 e2) (<a href="../gen/index.html">gen</a> e3 e)))))
-
-
+</pre>
+<pre>
 (forall (e)
    (iff (<a href="../event/index.html">event</a> e)
         (or (exists (e1 e2)
@@ -78,40 +88,40 @@
                (and (<a href="../nequal/index.html">nequal</a> e1 e2) (<a href="../change/index.html">change</a>' e0 e1 e2) (<a href="../gen/index.html">gen</a> e e0)))
             (exists (e1)
               (<a href="../subevent/index.html">subevent</a> e1 e)))))
-
-
+</pre>
+<pre>
 (forall (e) (not (<a href="../gen/index.html">gen</a> e e)))
-
-
+</pre>
+<pre>
 (forall (e1 e2 t)
   (if (<a href="../gen/index.html">gen</a> e1 e2)
       (iff (<a href="../atTime/index.html">atTime</a> e1 t)
            (<a href="../atTime/index.html">atTime</a> e2 t))))
-
-
+</pre>
+<pre>
 (forall (e1 e2 x s)
   (if (<a href="../gen/index.html">gen</a> e1 e2)
       (iff (<a href="../atLoc/index.html">atLoc</a> e1 x s)
            (<a href="../atLoc/index.html">atLoc</a> e2 x s))))
-
-
+</pre>
+<pre>
 (forall (e1 e2)
   (if (<a href="../gen/index.html">gen</a> e1 e2)
       (and (<a href="../eventuality/index.html">eventuality</a> e1) (<a href="../eventuality/index.html">eventuality</a> e2))))
-
-
+</pre>
+<pre>
 (forall (e1 e2)
   (if (and (<a href="../gen/index.html">gen</a> e1 e2) (<a href="../Rexist/index.html">Rexist</a> e1))
       (<a href="../Rexist/index.html">Rexist</a> e2)))
-
-
+</pre>
+<pre>
 (forall (e1 x)
   (if (<a href="../run/index.html">run</a>' e1 x)
       (exists (e2)
         (and (<a href="../go/index.html">go</a>' e2 x) (<a href="../gen/index.html">gen</a> e1 e2)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

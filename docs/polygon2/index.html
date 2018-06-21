@@ -14,13 +14,19 @@
 </head>
 
 <body>
-<h1>Predicate: polygon2</h1>
-<h2>Characterizing Axioms</h2><pre>(forall (r)
+<h1>Predicate: <code>polygon2</code></h1>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (r)
   (iff (<a href="../polygon2/index.html">polygon2</a> r)
        (exists (c) (and (<a href="../border/index.html">border</a> c r) (<a href="../polygon/index.html">polygon</a> c)))))
-
-
-</pre><h2>All Axioms</h2><pre>   (forall (p s)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (p s)
       (iff (<a href="../polyhedron/index.html">polyhedron</a> p s)
            (exists ( r)
               (and (<a href="../surface/index.html">surface</a> r p) (<a href="../closed/index.html">closed</a> r)
@@ -34,14 +40,14 @@
                       (if (and (<a href="../point/index.html">point</a> x) (<a href="../member/index.html">member</a> f1 s) (<a href="../member/index.html">member</a> f2 s)
                                (<a href="../inside/index.html">inside</a> x f1) (<a href="../inside/index.html">inside</a> x f2))
                           (equal f1 f2)))))))
-
-
+</pre>
+<pre>
 (forall (r)
   (iff (<a href="../polygon2/index.html">polygon2</a> r)
        (exists (c) (and (<a href="../border/index.html">border</a> c r) (<a href="../polygon/index.html">polygon</a> c)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

@@ -14,17 +14,20 @@
 </head>
 
 <body>
-<h1>Predicate: spatialSystem</h1>
-<h2>All Axioms</h2><pre>(forall (b p)
+<h1>Predicate: <code>spatialSystem</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (b p)
   (if (<a href="../body/index.html">body</a> b p)
       (and (<a href="../spatialSystem/index.html">spatialSystem</a> b)
            (exists (s)
              (and (<a href="../componentsOf/index.html">componentsOf</a> s b)
                   (forall (x)
                     (iff (<a href="../member/index.html">member</a> x s) (<a href="../bodyPart/index.html">bodyPart</a> x p))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

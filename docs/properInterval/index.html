@@ -14,28 +14,38 @@
 </head>
 
 <body>
-<h1>Predicate: properInterval</h1>
-<pre>(properInterval t)</pre><p>The beginning and end of interval t are</p><h2>Characterizing Axioms</h2><pre>(forall (t)
+<h1>Predicate: <code>properInterval</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(properInterval t)</pre><p>The beginning and end of interval t are</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (t)
   (iff (<a href="../properInterval/index.html">properInterval</a> t)
        (or (exists (t1 t2)
              (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../ends/index.html">ends</a> t2 t) (<a href="../nequal/index.html">nequal</a> t1 t2)))
            (<a href="../posInfInterval/index.html">posInfInterval</a> t))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e t)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e t)
   (iff (<a href="../during/index.html">during</a> e t)
        (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../properInterval/index.html">properInterval</a> t)
             (forall (t1) (if (<a href="../insideTime/index.html">insideTime</a> t1 t) (<a href="../atTime/index.html">atTime</a> e t1))))))
-
-
+</pre>
+<pre>
 (forall (e)
   (iff (<a href="../properIntervalEv/index.html">properIntervalEv</a> e)
        (or (<a href="../properInterval/index.html">properInterval</a> e)
            (exists (t)
              (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../properInterval/index.html">properInterval</a> t)))
            (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> e))))
-
-
+</pre>
+<pre>
 (forall (t s)
   (iff (<a href="../concatenation/index.html">concatenation</a> t s)
        (and (<a href="../properInterval/index.html">properInterval</a> t)
@@ -53,16 +63,16 @@
             (forall (t1 t2)
               (if (and (<a href="../member/index.html">member</a> t1 s) (<a href="../member/index.html">member</a> t2 s))
                   (or (equal t1 t2) (not (<a href="../intOverlap/index.html">intOverlap</a> t1 t2))))))))
-
-
+</pre>
+<pre>
 (forall (t)
   (iff (<a href="../properInterval/index.html">properInterval</a> t)
        (or (exists (t1 t2)
              (and (<a href="../begins/index.html">begins</a> t1 t) (<a href="../ends/index.html">ends</a> t2 t) (<a href="../nequal/index.html">nequal</a> t1 t2)))
            (<a href="../posInfInterval/index.html">posInfInterval</a> t))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

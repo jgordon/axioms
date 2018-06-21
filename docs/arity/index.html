@@ -14,17 +14,27 @@
 </head>
 
 <body>
-<h1>Predicate: arity</h1>
-<pre>(arity n e)</pre><p>n is the arity or the number of arguments of e.</p><h2>Characterizing Axioms</h2><pre>(forall (n e)
+<h1>Predicate: <code>arity</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(arity n e)</pre><p>n is the arity or the number of arguments of e.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (n e)
   (if (<a href="../arity/index.html">arity</a> n e)
       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../eventuality/index.html">eventuality</a> e))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e x y z)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e x y z)
   (if (<a href="../give/index.html">give</a>' e x y z)
       (<a href="../arity/index.html">arity</a> 3 e)))
-
-
+</pre>
+<pre>
 (forall (e)
   (iff (<a href="../eventuality/index.html">eventuality</a> e)
        (exists (p n)
@@ -34,13 +44,13 @@
                          (<a href="../leq/index.html">leq</a> i n))
                     (exists (x)
                       (<a href="../argn/index.html">argn</a> x i e))))))))
-
-
+</pre>
+<pre>
 (forall (n e)
   (if (<a href="../arity/index.html">arity</a> n e)
       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../eventuality/index.html">eventuality</a> e))))
-
-
+</pre>
+<pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst/index.html">subst</a> x e1 y e2)
        (exists (p n)
@@ -58,9 +68,9 @@
                                       (equal z2 y))))
                          (if (<a href="../eventuality/index.html">eventuality</a> z1)
                              (<a href="../subst/index.html">subst</a> x z1 y z2)))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

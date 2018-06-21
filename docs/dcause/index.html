@@ -14,21 +14,31 @@
 </head>
 
 <body>
-<h1>Predicate: dcause</h1>
-<pre>(dcause e1 e2)</pre><p>Eventuality or agent e1 directly causes eventuality e2</p><h2>Characterizing Axioms</h2><pre>(forall (e1 e2)
+<h1>Predicate: <code>dcause</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(dcause e1 e2)</pre><p>Eventuality or agent e1 directly causes eventuality e2</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e1 e2)
   (iff (<a href="../dcause/index.html">dcause</a> e1 e2)
        (and (<a href="../cause/index.html">cause</a> e1 e2)
             (not (exists (e3)
                    (and (<a href="../cause/index.html">cause</a> e1 e3) (<a href="../cause/index.html">cause</a> e3 e2)))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (a e)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (a e)
   (if (<a href="../agent/index.html">agent</a> a)
       (iff (<a href="../dcause/index.html">dcause</a> a e)
            (exists (e1)
              (and (<a href="../will/index.html">will</a>' e1 a e) (<a href="../dcause/index.html">dcause</a> e1 e))))))
-
-
+</pre>
+<pre>
 (forall (e a c t)
   (iff (<a href="../executable/index.html">executable</a> e a c t)
        (exists (s)
@@ -38,20 +48,20 @@
                   (exists (e2)
                     (and (<a href="../cause/index.html">cause</a> e2 e)
                          (<a href="../executable/index.html">executable</a> e2 a c t))))))))
-
-
+</pre>
+<pre>
 (forall (e1 a e)
   (if (and (<a href="../will/index.html">will</a>' e1 a e) (<a href="../cause/index.html">cause</a> e1 e))
       (<a href="../dcause/index.html">dcause</a> e1 e)))
-
-
+</pre>
+<pre>
 (forall (e1 e2)
   (iff (<a href="../dcause/index.html">dcause</a> e1 e2)
        (and (<a href="../cause/index.html">cause</a> e1 e2)
             (not (exists (e3)
                    (and (<a href="../cause/index.html">cause</a> e1 e3) (<a href="../cause/index.html">cause</a> e3 e2)))))))
-
-
+</pre>
+<pre>
 (forall (p s1)
   (if (and (<a href="../person/index.html">person</a> p) (<a href="../bodyPartsOf/index.html">bodyPartsOf</a> s1 p))
       (exists (s2)
@@ -61,16 +71,16 @@
                    (exists (e1 e2 y z)
                      (and (<a href="../move/index.html">move</a>' e2 x y z) (<a href="../will/index.html">will</a>' e1 p e2)
                           (<a href="../dcause/index.html">dcause</a> e1 e2)))))))))
-
-
+</pre>
+<pre>
 (forall (p)
   (if (<a href="../person/index.html">person</a> p)
       (exists (e1 e2 x)
         (and (<a href="../lift/index.html">lift</a>' e2 p x) (<a href="../arm/index.html">arm</a> x p) (<a href="../will/index.html">will</a>' e1 p e2)
              (<a href="../dcause/index.html">dcause</a> e1 e2)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

@@ -14,15 +14,22 @@
 </head>
 
 <body>
-<h1>Predicate: changeFrom</h1>
-<pre>(changeFrom e1)</pre><p>There is a change out of eventuality e1.</p><h2>All Axioms</h2><pre>(forall (e e1 e3)
+<h1>Predicate: <code>changeFrom</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(changeFrom e1)</pre><p>There is a change out of eventuality e1.</p>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e e1 e3)
   (if (<a href="../subst/index.html">subst</a> e3 e3 e1 e1)
       (iff (<a href="../changeFrom/index.html">changeFrom</a>' e e1)
            (exists (e2 e5)
              (and (<a href="../change/index.html">change</a>' e5 e1 e2) (<a href="../gen/index.html">gen</a> e5 e) (<a href="../inconsistent/index.html">inconsistent</a> e3 e2))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

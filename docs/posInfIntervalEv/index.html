@@ -14,29 +14,39 @@
 </head>
 
 <body>
-<h1>Predicate: posInfIntervalEv</h1>
-<pre>(posInfIntervalEv e)</pre><p>e is a positive infinite interval or an</p><h2>Characterizing Axioms</h2><pre>(forall (e)
+<h1>Predicate: <code>posInfIntervalEv</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(posInfIntervalEv e)</pre><p>e is a positive infinite interval or an</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e)
   (iff (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> e)
        (or (<a href="../posInfInterval/index.html">posInfInterval</a> e)
            (exists (t)
              (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../posInfInterval/index.html">posInfInterval</a> t))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e)
   (iff (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> e)
        (or (<a href="../posInfInterval/index.html">posInfInterval</a> e)
            (exists (t)
              (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../posInfInterval/index.html">posInfInterval</a> t))))))
-
-
+</pre>
+<pre>
 (forall (e)
   (iff (<a href="../properIntervalEv/index.html">properIntervalEv</a> e)
        (or (<a href="../properInterval/index.html">properInterval</a> e)
            (exists (t)
              (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../properInterval/index.html">properInterval</a> t)))
            (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> e))))
-
-
+</pre>
+<pre>
 (forall (t1 t2)
   (iff (<a href="../intFinishes/index.html">intFinishes</a> t1 t2)
        (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
@@ -46,9 +56,9 @@
                   (and (<a href="../ends/index.html">ends</a> t t1) (<a href="../ends/index.html">ends</a> t t2)))
                 (and (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> t1)
                      (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> t2))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

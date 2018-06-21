@@ -14,22 +14,32 @@
 </head>
 
 <body>
-<h1>Predicate: decrease</h1>
-<pre>(decrease x s)</pre><p>x decreases on scale s.</p><h2>Characterizing Axioms</h2><pre>(forall (e x y z s)
+<h1>Predicate: <code>decrease</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(decrease x s)</pre><p>x decreases on scale s.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e x y z s)
   (iff (<a href="../decrease/index.html">decrease</a> x s)
        (exists (y z e1 e2)
          (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../lts/index.html">lts</a> z y s)
               (<a href="../vertical/index.html">vertical</a> s) (<a href="../change/index.html">change</a> e1 e2)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e x y z s)
-  (iff (<a href="../decrease/index.html">decrease</a> x s)
-       (exists (y z e1 e2)
-         (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../lts/index.html">lts</a> z y s)
-              (<a href="../vertical/index.html">vertical</a> s) (<a href="../change/index.html">change</a> e1 e2)))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e x y z s)
+  (iff (<a href="../decrease/index.html">decrease</a> x s)
+       (exists (y z e1 e2)
+         (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../lts/index.html">lts</a> z y s)
+              (<a href="../vertical/index.html">vertical</a> s) (<a href="../change/index.html">change</a> e1 e2)))))
+</pre>
+</section>
+
 </body>
 
 </html>

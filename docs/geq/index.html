@@ -14,17 +14,27 @@
 </head>
 
 <body>
-<h1>Predicate: geq</h1>
-<pre>(geq n1 n2)</pre><p>n1 is greater than or equal to n2.</p><h2>Characterizing Axioms</h2><pre>(forall (n1 n2)
+<h1>Predicate: <code>geq</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(geq n1 n2)</pre><p>n1 is greater than or equal to n2.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (n1 n2)
   (iff (<a href="../geq/index.html">geq</a> n1 n2)
        (or (<a href="../gt/index.html">gt</a> n1 n2) (equal n1 n2))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (n1 n2)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (n1 n2)
   (iff (<a href="../geq/index.html">geq</a> n1 n2)
        (or (<a href="../gt/index.html">gt</a> n1 n2) (equal n1 n2))))
-
-
+</pre>
+<pre>
 (forall (s)
   (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)
       (exists (s1 e x y)
@@ -34,8 +44,8 @@
                    (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
              (<a href="../member/index.html">member</a> 0 s1)
              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
-
-
+</pre>
+<pre>
 (forall (s1 e x y)
   (if (and (<a href="../lt/index.html">lt</a>' e x y)
            (forall (n)
@@ -44,9 +54,9 @@
            (<a href="../member/index.html">member</a> 0 s1))
       (exists (s)
         (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

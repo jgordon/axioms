@@ -14,13 +14,23 @@
 </head>
 
 <body>
-<h1>Predicate: componentOrWhole</h1>
-<pre>(componentOrWhole y x)</pre><p>y is either a component of x or x itself.</p><h2>Characterizing Axioms</h2><pre>(forall (x1 x)
+<h1>Predicate: <code>componentOrWhole</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(componentOrWhole y x)</pre><p>y is either a component of x or x itself.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (x1 x)
   (iff (<a href="../componentOrWhole/index.html">componentOrWhole</a> x1 x)
        (or (equal x1 x) (<a href="../componentOf/index.html">componentOf</a> x1 x))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s2 x)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s2 x)
   (if (<a href="../propertiesOf/index.html">propertiesOf</a> s2 x)
       (and (<a href="../set/index.html">set</a> s2) (<a href="../compositeEntity/index.html">compositeEntity</a> x)
            (forall (e)
@@ -28,8 +38,8 @@
                  (exists (y)
                    (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y x)
                         (<a href="../onlyarg*/index.html">onlyarg*</a> y e))))))))
-
-
+</pre>
+<pre>
 (forall (s3 x)
   (if (<a href="../relationsOf/index.html">relationsOf</a> s3 x)
       (and (<a href="../set/index.html">set</a> s3) (<a href="../compositeEntity/index.html">compositeEntity</a> x)
@@ -38,22 +48,22 @@
                  (exists (y z)
                    (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y x) (<a href="../arg*/index.html">arg*</a> y e)
                         (<a href="../nequal/index.html">nequal</a> z y) (<a href="../arg*/index.html">arg*</a> z e))))))))
-
-
+</pre>
+<pre>
 (forall (x1 x)
   (iff (<a href="../componentOrWhole/index.html">componentOrWhole</a> x1 x)
        (or (equal x1 x) (<a href="../componentOf/index.html">componentOf</a> x1 x))))
-
-
+</pre>
+<pre>
 (forall (y x)
   (iff (<a href="../externalTo/index.html">externalTo</a> y x)
        (not (exists (y1 x1)
               (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y1 y)
                    (<a href="../componentOrWhole/index.html">componentOrWhole</a> x1 x)
                    (equal y1 x1))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

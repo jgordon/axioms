@@ -14,52 +14,62 @@
 </head>
 
 <body>
-<h1>Predicate: arg*</h1>
-<pre>(arg* x e)</pre><p>x is an argument of e or an arg* of an argument of e.</p><h2>Characterizing Axioms</h2><pre>(forall (x e1)
+<h1>Predicate: <code>arg*</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(arg* x e)</pre><p>x is an argument of e or an arg* of an argument of e.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (x e1)
   (iff (<a href="../arg*/index.html">arg*</a> x e1)
        (or (<a href="../arg/index.html">arg</a> x e1)
            (exists (e2)
              (and (<a href="../arg/index.html">arg</a> e2 e1) (<a href="../arg*/index.html">arg*</a> x e2))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e x y s)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e x y s)
    (if (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)
        (and (<a href="../scale/index.html">scale</a> s) (<a href="../arg*/index.html">arg*</a> x e) (<a href="../arg*/index.html">arg*</a> y e))))
-
-
+</pre>
+<pre>
 (forall (e x)
   (iff (<a href="../changeIn/index.html">changeIn</a>' e x)
        (exists (e1 e2 e3)
          (and (<a href="../arg*/index.html">arg*</a> x e1) (<a href="../arg*/index.html">arg*</a> x e2) (<a href="../change/index.html">change</a>' e3 e1 e2) (<a href="../gen/index.html">gen</a> e3 e)))))
-
-
+</pre>
+<pre>
 (forall (e1 e2)
   (if (<a href="../change/index.html">change</a> e1 e2)
       (exists (x)
         (and (<a href="../arg*/index.html">arg*</a> x e1) (<a href="../arg*/index.html">arg*</a> x e2)))))
-
-
+</pre>
+<pre>
 (forall (s e)
   (iff (<a href="../parameters/index.html">parameters</a> s e)
        (forall (x)
          (iff (<a href="../member/index.html">member</a> x s)
               (exists (s1)
                 (and (<a href="../arg*/index.html">arg*</a> x e) (<a href="../typelt/index.html">typelt</a> x s1)))))))
-
-
+</pre>
+<pre>
 (forall (s x e)
   (if (<a href="../dset/index.html">dset</a> s x e)
       (and (<a href="../set/index.html">set</a> s) (<a href="../typelt/index.html">typelt</a> x s) (<a href="../arg*/index.html">arg*</a> x e))))
-
-
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../ground/index.html">ground</a> s)
        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
             (exists (e y s1)
               (and (<a href="../componentsOf/index.html">componentsOf</a> s1 s) (<a href="../typelt/index.html">typelt</a> y s1) (<a href="../arg*/index.html">arg*</a> y e)
                    (if (<a href="../Rexist/index.html">Rexist</a> s) (<a href="../Rexist/index.html">Rexist</a> e)))))))
-
-
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../ground/index.html">ground</a> s)
        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
@@ -71,8 +81,8 @@
                            (and (<a href="../subst/index.html">subst</a> y e y1 e1)
                                 (if (<a href="../Rexist/index.html">Rexist</a> s)
                                     (<a href="../Rexist/index.html">Rexist</a> e1)))))))))))
-
-
+</pre>
+<pre>
 (forall (s3 x)
   (if (<a href="../relationsOf/index.html">relationsOf</a> s3 x)
       (and (<a href="../set/index.html">set</a> s3) (<a href="../compositeEntity/index.html">compositeEntity</a> x)
@@ -81,15 +91,15 @@
                  (exists (y z)
                    (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y x) (<a href="../arg*/index.html">arg*</a> y e)
                         (<a href="../nequal/index.html">nequal</a> z y) (<a href="../arg*/index.html">arg*</a> z e))))))))
-
-
+</pre>
+<pre>
 (forall (x e1)
   (iff (<a href="../arg*/index.html">arg*</a> x e1)
        (or (<a href="../arg/index.html">arg</a> x e1)
            (exists (e2)
              (and (<a href="../arg/index.html">arg</a> e2 e1) (<a href="../arg*/index.html">arg*</a> x e2))))))
-
-
+</pre>
+<pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
       (iff (<a href="../incompleteInstance/index.html">incompleteInstance</a> x1 x)
@@ -103,8 +113,8 @@
                        (forall (y1 p1)
                          (if (<a href="../subst/index.html">subst</a> y1 p1 y p)
                              (not (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))
-
-
+</pre>
+<pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
       (iff (<a href="../patternInstance/index.html">patternInstance</a> x1 x)
@@ -118,16 +128,16 @@
                                    (exists (p1)
                                           (and (<a href="../subst/index.html">subst</a> y1 p1 y p)
                                                (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))))
-
-
+</pre>
+<pre>
 (forall (x y e)
   (if (<a href="../fd/index.html">fd</a> y x e)
       (and (<a href="../arg*/index.html">arg*</a> x e) (<a href="../arg*/index.html">arg*</a> y e)
            (exists (s)
              (<a href="../typelt/index.html">typelt</a> x s)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

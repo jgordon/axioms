@@ -14,22 +14,29 @@
 </head>
 
 <body>
-<h1>Predicate: rate</h1>
-<pre>(rate n s t)</pre><p>Eventualities in s occur n times in every element of t,</p><h2>All Axioms</h2><pre>(forall (n s t u)
+<h1>Predicate: <code>rate</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(rate n s t)</pre><p>Eventualities in s occur n times in every element of t,</p>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (n s t u)
   (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
            (forall (t1) (if (<a href="../member/index.html">member</a> t1 t) (<a href="../durationOf/index.html">durationOf</a> 1 t1 u)))
            (<a href="../rate/index.html">rate</a> n s t))
       (<a href="../rate/index.html">rate</a> n s u)))
-
-
+</pre>
+<pre>
 (forall (r1 r2 s u1 u2 j)
   (if (and (<a href="../rate/index.html">rate</a> r1 s u1) (<a href="../product/index.html">product</a> r2 j r1)
            (forall (t n1 n2)
              (iff (and (<a href="../durationOf/index.html">durationOf</a> n1 t u1) (<a href="../durationOf/index.html">durationOf</a> n2 t u2))
                   (<a href="../product/index.html">product</a> n1 j n2))))
       (<a href="../rate/index.html">rate</a> r2 s u2)))
-
-
+</pre>
+<pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../set/index.html">set</a> t) (<a href="../powerSet/index.html">powerSet</a> s0 s)
            (forall (t1)
@@ -41,8 +48,8 @@
                         (if (<a href="../member/index.html">member</a> e s1) (<a href="../happensIn/index.html">happensIn</a> e t1)))
                       (<a href="../card/index.html">card</a> n s1)))))
       (<a href="../rate/index.html">rate</a> n s t)))
-
-
+</pre>
+<pre>
 (forall (s s0)
   (iff (<a href="../rateScale/index.html">rateScale</a> s s0)
        (and (forall (s1) (if (<a href="../member/index.html">member</a> s1 s0) (<a href="../eventualities/index.html">eventualities</a> s1)))
@@ -54,9 +61,9 @@
                             (and (<a href="../rate/index.html">rate</a> r1 s3 u) (<a href="../rate/index.html">rate</a> r2 s4 u)
                                  (<a href="../lt/index.html">lt</a> r1 r2)))))
                    (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

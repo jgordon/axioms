@@ -14,22 +14,32 @@
 </head>
 
 <body>
-<h1>Predicate: aggregate</h1>
-<pre>(aggregate x y z)</pre><p>x is a composite entity whose components are y</p><h2>Characterizing Axioms</h2><pre>(forall (x y z)
+<h1>Predicate: <code>aggregate</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(aggregate x y z)</pre><p>x is a composite entity whose components are y</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (x y z)
   (iff (<a href="../aggregate/index.html">aggregate</a> x y z)
        (and (<a href="../compositeEntity/index.html">compositeEntity</a> x)
             (exists (s)
               (and (<a href="../componentsOf/index.html">componentsOf</a> s x) (<a href="../doubleton/index.html">doubleton</a> s y z))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (x y z)
-  (iff (<a href="../aggregate/index.html">aggregate</a> x y z)
-       (and (<a href="../compositeEntity/index.html">compositeEntity</a> x)
-            (exists (s)
-              (and (<a href="../componentsOf/index.html">componentsOf</a> s x) (<a href="../doubleton/index.html">doubleton</a> s y z))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (x y z)
+  (iff (<a href="../aggregate/index.html">aggregate</a> x y z)
+       (and (<a href="../compositeEntity/index.html">compositeEntity</a> x)
+            (exists (s)
+              (and (<a href="../componentsOf/index.html">componentsOf</a> s x) (<a href="../doubleton/index.html">doubleton</a> s y z))))))
+</pre>
+</section>
+
 </body>
 
 </html>

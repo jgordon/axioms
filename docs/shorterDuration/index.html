@@ -14,32 +14,42 @@
 </head>
 
 <body>
-<h1>Predicate: shorterDuration</h1>
-<pre>(shorterDuration t1 t2)</pre><p> Interval t1 has shorter duration than</p><h2>Characterizing Axioms</h2><pre>(forall (t1 t2)
-  (iff (<a href="../shorterDuration/index.html">shorterDuration</a> t1 t2)
-       (and (<a href="../interval/index.html">interval</a> t1) (<a href="../interval/index.html">interval</a> t2)
-            (exists (d1 d2 u)
-              (and (<a href="../durationOf/index.html">durationOf</a> d1 t1 u) (<a href="../durationOf/index.html">durationOf</a> d2 t2 u)
-                   (<a href="../lt/index.html">lt</a> d1 d2))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s)
-  (iff (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s)
-       (exists (s1 e t1 t2)
-         (and (forall (t) (if (<a href="../member/index.html">member</a> t s1) (<a href="../interval/index.html">interval</a> t)))
-              (<a href="../shorterDuration/index.html">shorterDuration</a>' e t1 t2)
-              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
-
-
+<h1>Predicate: <code>shorterDuration</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(shorterDuration t1 t2)</pre><p> Interval t1 has shorter duration than</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (t1 t2)
   (iff (<a href="../shorterDuration/index.html">shorterDuration</a> t1 t2)
        (and (<a href="../interval/index.html">interval</a> t1) (<a href="../interval/index.html">interval</a> t2)
             (exists (d1 d2 u)
               (and (<a href="../durationOf/index.html">durationOf</a> d1 t1 u) (<a href="../durationOf/index.html">durationOf</a> d2 t2 u)
                    (<a href="../lt/index.html">lt</a> d1 d2))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s)
+  (iff (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s)
+       (exists (s1 e t1 t2)
+         (and (forall (t) (if (<a href="../member/index.html">member</a> t s1) (<a href="../interval/index.html">interval</a> t)))
+              (<a href="../shorterDuration/index.html">shorterDuration</a>' e t1 t2)
+              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
+</pre>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../shorterDuration/index.html">shorterDuration</a> t1 t2)
+       (and (<a href="../interval/index.html">interval</a> t1) (<a href="../interval/index.html">interval</a> t2)
+            (exists (d1 d2 u)
+              (and (<a href="../durationOf/index.html">durationOf</a> d1 t1 u) (<a href="../durationOf/index.html">durationOf</a> d2 t2 u)
+                   (<a href="../lt/index.html">lt</a> d1 d2))))))
+</pre>
+</section>
+
 </body>
 
 </html>

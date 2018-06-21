@@ -14,16 +14,22 @@
 </head>
 
 <body>
-<h1>Predicate: intOverlap</h1>
-<h2>Characterizing Axioms</h2><pre>(forall (t1 t2)
+<h1>Predicate: <code>intOverlap</code></h1>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (t1 t2)
   (iff (<a href="../intOverlap/index.html">intOverlap</a> t1 t2)
        (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
             (exists (t)
               (or (and (<a href="../begins/index.html">begins</a> t t1) (<a href="../insideTime/index.html">insideTime</a> t t2))
                   (and (<a href="../begins/index.html">begins</a> t t2) (<a href="../insideTime/index.html">insideTime</a> t t1)))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (t s)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (t s)
   (iff (<a href="../concatenation/index.html">concatenation</a> t s)
        (and (<a href="../properInterval/index.html">properInterval</a> t)
             (forall (t1) (if (<a href="../member/index.html">member</a> t1 s) (<a href="../properInterval/index.html">properInterval</a> t1)))
@@ -40,17 +46,17 @@
             (forall (t1 t2)
               (if (and (<a href="../member/index.html">member</a> t1 s) (<a href="../member/index.html">member</a> t2 s))
                   (or (equal t1 t2) (not (<a href="../intOverlap/index.html">intOverlap</a> t1 t2))))))))
-
-
+</pre>
+<pre>
 (forall (t1 t2)
   (iff (<a href="../intOverlap/index.html">intOverlap</a> t1 t2)
        (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
             (exists (t)
               (or (and (<a href="../begins/index.html">begins</a> t t1) (<a href="../insideTime/index.html">insideTime</a> t t2))
                   (and (<a href="../begins/index.html">begins</a> t t2) (<a href="../insideTime/index.html">insideTime</a> t t1)))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

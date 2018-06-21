@@ -14,32 +14,42 @@
 </head>
 
 <body>
-<h1>Predicate: PosMod</h1>
-<pre>(PosMod e p)</pre><p>The positive modality p holds of eventuality e.</p><h2>Characterizing Axioms</h2><pre>(forall (e p) (if (<a href="../PosMod/index.html">PosMod</a> e p) (<a href="../predicate/index.html">predicate</a> p)))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e c)
+<h1>Predicate: <code>PosMod</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(PosMod e p)</pre><p>The positive modality p holds of eventuality e.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e p) (if (<a href="../PosMod/index.html">PosMod</a> e p) (<a href="../predicate/index.html">predicate</a> p)))
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e c)
   (if (<a href="../necessary/index.html">necessary</a> e c)
       (<a href="../PosMod/index.html">PosMod</a> e necessary)))
-
-
+</pre>
+<pre>
 (forall (e c)
   (if (<a href="../possible/index.html">possible</a> e c)
       (<a href="../PosMod/index.html">PosMod</a> e possible)))
-
-
+</pre>
+<pre>
 (forall (e p) (if (<a href="../PosMod/index.html">PosMod</a> e p) (<a href="../predicate/index.html">predicate</a> p)))
-
-
+</pre>
+<pre>
 (forall (e) (if (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../PosMod/index.html">PosMod</a> e Rexist)))
-
-
+</pre>
+<pre>
 (forall (e1 e2 m)
   (if (and (<a href="../PosMod/index.html">PosMod</a> e1 m) (<a href="../imply/index.html">imply</a> e1 e2))
       (<a href="../PosMod/index.html">PosMod</a> e2 m)))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

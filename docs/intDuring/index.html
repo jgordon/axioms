@@ -14,8 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: intDuring</h1>
-<pre>(intDuring t1 t2)</pre><p>Interval t1 begins after and ends before</p><h2>Characterizing Axioms</h2><pre>(forall (t1 t2)
+<h1>Predicate: <code>intDuring</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(intDuring t1 t2)</pre><p>Interval t1 begins after and ends before</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (t1 t2)
   (iff (<a href="../intDuring/index.html">intDuring</a> t1 t2)
        (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
             (exists (t3 t4)
@@ -24,20 +31,23 @@
               (and (<a href="../ends/index.html">ends</a> t5 t1)
                    (forall (t6)
                      (if (<a href="../ends/index.html">ends</a> t6 t2) (<a href="../before/index.html">before</a> t5 t6))))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (t1 t2)
-  (iff (<a href="../intDuring/index.html">intDuring</a> t1 t2)
-       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
-            (exists (t3 t4)
-              (and (<a href="../begins/index.html">begins</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t4 t3)))
-            (exists (t5)
-              (and (<a href="../ends/index.html">ends</a> t5 t1)
-                   (forall (t6)
-                     (if (<a href="../ends/index.html">ends</a> t6 t2) (<a href="../before/index.html">before</a> t5 t6))))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../intDuring/index.html">intDuring</a> t1 t2)
+       (and (<a href="../properIntervalEv/index.html">properIntervalEv</a> t1) (<a href="../properIntervalEv/index.html">properIntervalEv</a> t2)
+            (exists (t3 t4)
+              (and (<a href="../begins/index.html">begins</a> t3 t1) (<a href="../begins/index.html">begins</a> t4 t2) (<a href="../before/index.html">before</a> t4 t3)))
+            (exists (t5)
+              (and (<a href="../ends/index.html">ends</a> t5 t1)
+                   (forall (t6)
+                     (if (<a href="../ends/index.html">ends</a> t6 t2) (<a href="../before/index.html">before</a> t5 t6))))))))
+</pre>
+</section>
+
 </body>
 
 </html>

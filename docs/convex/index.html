@@ -14,12 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: convex</h1>
-<h2>All Axioms</h2><pre>   (forall (p)
+<h1>Predicate: <code>convex</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (p)
       (if (<a href="../volume/index.html">volume</a> p)
           (iff (<a href="../concave/index.html">concave</a> p) (not (<a href="../convex/index.html">convex</a> p)))))
-
-
+</pre>
+<pre>
    (forall (p)
       (if (<a href="../volume/index.html">volume</a> p)
           (iff (<a href="../convex/index.html">convex</a> p)
@@ -27,13 +30,13 @@
                   (if (and (<a href="../onBorder/index.html">onBorder</a> x1 p) (<a href="../onBorder/index.html">onBorder</a> x2 p)
                            (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2) (<a href="../inside/index.html">inside</a> x c)
                       (<a href="../subfigure/index.html">subfigure</a> x p))))))
-
-
+</pre>
+<pre>
 (forall (r)
   (if (and (<a href="../region/index.html">region</a> r) (<a href="../planar/index.html">planar</a> r))
       (iff (<a href="../concave/index.html">concave</a> r) (not (<a href="../convex/index.html">convex</a> r)))))
-
-
+</pre>
+<pre>
 (forall (r)
   (if (and (<a href="../region/index.html">region</a> r) (<a href="../planar/index.html">planar</a> r))
       (iff (<a href="../convex/index.html">convex</a> r)
@@ -41,9 +44,9 @@
              (if (and (<a href="../onBoundary/index.html">onBoundary</a> x1 r) (<a href="../onBoundary/index.html">onBoundary</a> x2 r)
                       (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2) (<a href="../inside/index.html">inside</a> x c))
                  (<a href="../subfigure/index.html">subfigure</a> x r))))))`
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

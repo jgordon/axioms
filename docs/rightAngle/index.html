@@ -14,21 +14,24 @@
 </head>
 
 <body>
-<h1>Predicate: rightAngle</h1>
-<h2>All Axioms</h2><pre>   (forall (v)
+<h1>Predicate: <code>rightAngle</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (v)
       (iff (<a href="../rightAngle/index.html">rightAngle</a> v)
            (exists (v0 f c1 c2 o u)
               (and (<a href="../equalAngle/index.html">equalAngle</a> v v0) (<a href="../anchorPoint/index.html">anchorPoint</a> x v0 f c1 c2 o u)
                    (<a href="../xCoordinate/index.html">xCoordinate</a> o x f)))))
-
-
+</pre>
+<pre>
 (forall (p)
   (iff (<a href="../rectangle/index.html">rectangle</a> p)
        (and (<a href="../quadrilateral/index.html">quadrilateral</a> p)
             (forall (v) (iff (<a href="../vertexOf/index.html">vertexOf</a> v p) (<a href="../rightAngle/index.html">rightAngle</a> v))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

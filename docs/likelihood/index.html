@@ -14,73 +14,83 @@
 </head>
 
 <body>
-<h1>Predicate: likelihood</h1>
-<pre>(likelihood d e c)</pre><p>d is the likelihood of e really existing, given</p><h2>Characterizing Axioms</h2><pre>(forall (d e c)
+<h1>Predicate: <code>likelihood</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(likelihood d e c)</pre><p>d is the likelihood of e really existing, given</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (d e c)
   (if (<a href="../likelihood/index.html">likelihood</a> d e c)
       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (d e c s e1)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (d e c s e1)
   (if (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../at/index.html">at</a>' e1 e d s))
       (<a href="../imply/index.html">imply</a> c e1)))
-
-
+</pre>
+<pre>
 (forall (d e c s)
   (if (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s))
       (iff (<a href="../bottom/index.html">bottom</a> d s)
            (<a href="../impossible/index.html">impossible</a> e c))))
-
-
+</pre>
+<pre>
 (forall (d e c s)
   (if (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s))
       (iff (<a href="../top/index.html">top</a> d s) (<a href="../necessary/index.html">necessary</a> e c))))
-
-
+</pre>
+<pre>
 (forall (d e c s)
   (if (and (<a href="../likelihood/index.html">likelihood</a> d1 e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../bottom/index.html">bottom</a> d s))
       (iff (<a href="../lts/index.html">lts</a> d d1 s) (<a href="../possible/index.html">possible</a> e c))))
-
-
+</pre>
+<pre>
 (forall (d e c)
   (if (<a href="../likelihood/index.html">likelihood</a> d e c)
       (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../eventualities/index.html">eventualities</a> c))))
-
-
+</pre>
+<pre>
 (forall (e c)
   (iff (<a href="../likely/index.html">likely</a> e c)
        (exists (s d s1)
          (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../Hi/index.html">Hi</a> s1 s)
               (<a href="../inScale/index.html">inScale</a> d s1)))))
-
-
+</pre>
+<pre>
 (forall (e1 e2 c)
   (iff (<a href="../moreLikely/index.html">moreLikely</a> e1 e2 c)
        (exists (s d1 d2)
          (and (<a href="../likelihoodScale/index.html">likelihoodScale</a> s)
               (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c)
               (<a href="../lts/index.html">lts</a> d2 d1 s)))))
-
-
+</pre>
+<pre>
 (forall (e1 e2 q c)
   (iff (<a href="../tcauseq/index.html">tcauseq</a> e1 e2 q c)
        (exists (s)
          (and (<a href="../causalComplex/index.html">causalComplex</a> s e2) (<a href="../member/index.html">member</a> e1 s)
               (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likelihood/index.html">likelihood</a> q s1 c)
               (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../cause/index.html">cause</a> e1 e2))))))
-
-
+</pre>
+<pre>
 (forall (s e e1 e2 d d1 d2 c)
   (if (and (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c)
            (<a href="../and'/index.html">and'</a> e e1 e2) (<a href="../likelihood/index.html">likelihood</a> d e c))
       (and (<a href="../leqs/index.html">leqs</a> d d1 s) (<a href="../leqs/index.html">leqs</a> d d2 s))))
-
-
+</pre>
+<pre>
 (forall (s e e1 e2 d d1 d2 c)
   (if (and (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c)
            (<a href="../or'/index.html">or'</a> e e1 e2) (<a href="../likelihood/index.html">likelihood</a> d e c))
       (and (<a href="../leqs/index.html">leqs</a> d1 d s) (<a href="../leqs/index.html">leqs</a> d2 d s))))
-
-
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../likelihoodScale/index.html">likelihoodScale</a> s)
        (exists (s1 e r d1 d2)
@@ -88,15 +98,15 @@
                 (iff (<a href="../member/index.html">member</a> d s1) (exists (e c) (<a href="../likelihood/index.html">likelihood</a> d e c))))
               (<a href="../lowerLikelihood/index.html">lowerLikelihood</a>' r d1 d2)
               (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 r)))))
-
-
+</pre>
+<pre>
 (forall (s1 e1 d1 s2 e2 d2 c s)
   (if (and (<a href="../alsoRequired/index.html">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired/index.html">alsoRequired</a> s2 e2 c) (<a href="../subset/index.html">subset</a> s2 s1)
            (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s))
       (<a href="../leqs/index.html">leqs</a> d1 d2 s)))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

@@ -14,26 +14,36 @@
 </head>
 
 <body>
-<h1>Predicate: Now</h1>
-<pre>(Now t)</pre><p>t is an instant stipulated to be Now.</p><h2>Characterizing Axioms</h2><pre>(forall (e t)
-  (if (<a href="../Now/index.html">Now</a> t)
-      (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../atTime/index.html">atTime</a> e t))))
-
-
-</pre><h2>All Axioms</h2><pre>(exists (t) (<a href="../Now/index.html">Now</a> t))
-
-
+<h1>Predicate: <code>Now</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(Now t)</pre><p>t is an instant stipulated to be Now.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (e t)
   (if (<a href="../Now/index.html">Now</a> t)
       (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../atTime/index.html">atTime</a> e t))))
-
-
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(exists (t) (<a href="../Now/index.html">Now</a> t))
+</pre>
+<pre>
+(forall (e t)
+  (if (<a href="../Now/index.html">Now</a> t)
+      (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../atTime/index.html">atTime</a> e t))))
+</pre>
+<pre>
 (forall (t2 t2)
   (if (and (<a href="../Now/index.html">Now</a> t1) (<a href="../Now/index.html">Now</a> t2))
       (equal t1 t2)))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

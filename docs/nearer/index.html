@@ -14,21 +14,24 @@
 </head>
 
 <body>
-<h1>Predicate: nearer</h1>
-<h2>All Axioms</h2><pre>   (forall (s z)
+<h1>Predicate: <code>nearer</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (s z)
       (iff (<a href="../nearnessScale/index.html">nearnessScale</a> s z)
            (exists (s0 e x y u)
               (and (<a href="../nearer/index.html">nearer</a>' e x y z u) (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e)))))
-
-
+</pre>
+<pre>
    (forall (x y z)
       (iff (<a href="../nearer/index.html">nearer</a> x y z)
            (exists (d1 d2)
               (and (<a href="../distance/index.html">distance</a> d1 x z u) (<a href="../distance/index.html">distance</a> d2 y z u)
                    (<a href="../lt/index.html">lt</a> d1 d2)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

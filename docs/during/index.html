@@ -14,25 +14,35 @@
 </head>
 
 <body>
-<h1>Predicate: during</h1>
-<pre>(during e t)</pre><p>Eventuality e is occurring at every instant</p><h2>Characterizing Axioms</h2><pre>(forall (e t)
+<h1>Predicate: <code>during</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(during e t)</pre><p>Eventuality e is occurring at every instant</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e t)
   (iff (<a href="../during/index.html">during</a> e t)
        (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../properInterval/index.html">properInterval</a> t)
             (forall (t1) (if (<a href="../insideTime/index.html">insideTime</a> t1 t) (<a href="../atTime/index.html">atTime</a> e t1))))))
-
-
+</pre>
+<pre>
 (forall (e0 e t) (if (<a href="../during/index.html">during</a>' e0 e t) (<a href="../temporal/index.html">temporal</a> e0)))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e t)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e t)
   (iff (<a href="../during/index.html">during</a> e t)
        (and (<a href="../eventuality/index.html">eventuality</a> e) (<a href="../properInterval/index.html">properInterval</a> t)
             (forall (t1) (if (<a href="../insideTime/index.html">insideTime</a> t1 t) (<a href="../atTime/index.html">atTime</a> e t1))))))
-
-
+</pre>
+<pre>
 (forall (e0 e t) (if (<a href="../during/index.html">during</a>' e0 e t) (<a href="../temporal/index.html">temporal</a> e0)))
-
-
+</pre>
+<pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e)
        (or (and (<a href="../instant/index.html">instant</a> t) (<a href="../atTime/index.html">atTime</a> e t)
@@ -58,9 +68,9 @@
                                  (or (<a href="../begins/index.html">begins</a> t1 t2)
                                      (<a href="../insideTime/index.html">insideTime</a> t1 t2)
                                      (<a href="../ends/index.html">ends</a> t1 t2)))))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

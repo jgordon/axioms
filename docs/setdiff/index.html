@@ -14,26 +14,36 @@
 </head>
 
 <body>
-<h1>Predicate: setdiff</h1>
-<pre>(setdiff s s1 s2)</pre><p>s is the set difference of s1 and s2.</p><h2>Characterizing Axioms</h2><pre>(forall (s s1 s2)
+<h1>Predicate: <code>setdiff</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(setdiff s s1 s2)</pre><p>s is the set difference of s1 and s2.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s s1 s2)
   (iff (<a href="../setdiff/index.html">setdiff</a> s s1 s2)
        (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
             (forall (x)
               (iff (<a href="../member/index.html">member</a> x s)
                    (and (<a href="../member/index.html">member</a> x s1)
                         (not (<a href="../member/index.html">member</a> x s2))))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s s1 s2)
-  (iff (<a href="../setdiff/index.html">setdiff</a> s s1 s2)
-       (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
-            (forall (x)
-              (iff (<a href="../member/index.html">member</a> x s)
-                   (and (<a href="../member/index.html">member</a> x s1)
-                        (not (<a href="../member/index.html">member</a> x s2))))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s s1 s2)
+  (iff (<a href="../setdiff/index.html">setdiff</a> s s1 s2)
+       (and (<a href="../set/index.html">set</a> s) (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
+            (forall (x)
+              (iff (<a href="../member/index.html">member</a> x s)
+                   (and (<a href="../member/index.html">member</a> x s1)
+                        (not (<a href="../member/index.html">member</a> x s2))))))))
+</pre>
+</section>
+
 </body>
 
 </html>

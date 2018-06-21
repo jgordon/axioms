@@ -14,19 +14,26 @@
 </head>
 
 <body>
-<h1>Predicate: number</h1>
-<pre>(number n)</pre><p>n is a number.</p><h2>All Axioms</h2><pre>(forall (f a b)
+<h1>Predicate: <code>number</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(number n)</pre><p>n is a number.</p>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (f a b)
   (if (<a href="../fraction/index.html">fraction</a> f a b)
       (and (<a href="../number/index.html">number</a> a) (<a href="../number/index.html">number</a> b) (<a href="../nequal/index.html">nequal</a> b 0))))
-
-
+</pre>
+<pre>
 (forall (f a b)
   (if (<a href="../fraction/index.html">fraction</a> f a b) (<a href="../number/index.html">number</a> f)))
-
-
+</pre>
+<pre>
 (forall (n) (if (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../number/index.html">number</a> n)))
-
-
+</pre>
+<pre>
 (forall (s)
   (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)
       (exists (s1 e x y)
@@ -36,8 +43,8 @@
                    (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
              (<a href="../member/index.html">member</a> 0 s1)
              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
-
-
+</pre>
+<pre>
 (forall (s1 e x y)
   (if (and (<a href="../lt/index.html">lt</a>' e x y)
            (forall (n)
@@ -46,9 +53,9 @@
            (<a href="../member/index.html">member</a> 0 s1))
       (exists (s)
         (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

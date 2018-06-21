@@ -14,26 +14,14 @@
 </head>
 
 <body>
-<h1>Predicate: rest</h1>
-<pre>(rest s1 s)</pre><p>s1 is the rest of the sequence s after the first element</p><h2>Characterizing Axioms</h2><pre>(forall (s1 s)
-  (iff (<a href="../rest/index.html">rest</a> s1 s)
-       (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../sequence/index.html">sequence</a> s1)
-            (forall (i x)
-              (iff (<a href="../map/index.html">map</a> s1 i x)
-                   (exists (j)
-                     (and (<a href="../posInteger/index.html">posInteger</a> i) (<a href="../successor/index.html">successor</a> j i)
-                          (<a href="../map/index.html">map</a> s j x))))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e s e1)
-  (iff (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e s x e1)
-       (exists (y e2 l e3 s1)
-         (or (and (<a href="../length/index.html">length</a> 1 s) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1) (equal e e2))
-             (and (<a href="../length/index.html">length</a> l s) (<a href="../gt/index.html">gt</a> l 1) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1)
-                  (<a href="../eventSequence/index.html">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e3 s1 x e1)
-                  (<a href="../rest/index.html">rest</a> s1 s))))))
-
-
+<h1>Predicate: <code>rest</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(rest s1 s)</pre><p>s1 is the rest of the sequence s after the first element</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (s1 s)
   (iff (<a href="../rest/index.html">rest</a> s1 s)
        (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../sequence/index.html">sequence</a> s1)
@@ -42,9 +30,31 @@
                    (exists (j)
                      (and (<a href="../posInteger/index.html">posInteger</a> i) (<a href="../successor/index.html">successor</a> j i)
                           (<a href="../map/index.html">map</a> s j x))))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e s e1)
+  (iff (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e s x e1)
+       (exists (y e2 l e3 s1)
+         (or (and (<a href="../length/index.html">length</a> 1 s) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1) (equal e e2))
+             (and (<a href="../length/index.html">length</a> l s) (<a href="../gt/index.html">gt</a> l 1) (<a href="../first/index.html">first</a> y s) (<a href="../subst/index.html">subst</a> y e2 x e1)
+                  (<a href="../eventSequence/index.html">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq/index.html">forAllOfSeq</a> e3 s1 x e1)
+                  (<a href="../rest/index.html">rest</a> s1 s))))))
+</pre>
+<pre>
+(forall (s1 s)
+  (iff (<a href="../rest/index.html">rest</a> s1 s)
+       (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../sequence/index.html">sequence</a> s1)
+            (forall (i x)
+              (iff (<a href="../map/index.html">map</a> s1 i x)
+                   (exists (j)
+                     (and (<a href="../posInteger/index.html">posInteger</a> i) (<a href="../successor/index.html">successor</a> j i)
+                          (<a href="../map/index.html">map</a> s j x))))))))
+</pre>
+</section>
+
 </body>
 
 </html>

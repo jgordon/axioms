@@ -14,26 +14,36 @@
 </head>
 
 <body>
-<h1>Predicate: instrumentOf</h1>
-<pre>(instrumentOf x e)</pre><p>x is an instrument used in e.</p><h2>Characterizing Axioms</h2><pre>(forall (y e)
+<h1>Predicate: <code>instrumentOf</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(instrumentOf x e)</pre><p>x is an instrument used in e.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (y e)
   (iff (<a href="../instrumentOf/index.html">instrumentOf</a> y e)
        (exists (a e1)
          (and (<a href="../agentOf/index.html">agentOf</a> a e1) (<a href="../changeIn/index.html">changeIn</a>' e1 y)
               (or (<a href="../cause/index.html">cause</a> e1 e)
                   (exists (e2)
                     (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../and'/index.html">and'</a> e e1 e2))))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (y e)
-  (iff (<a href="../instrumentOf/index.html">instrumentOf</a> y e)
-       (exists (a e1)
-         (and (<a href="../agentOf/index.html">agentOf</a> a e1) (<a href="../changeIn/index.html">changeIn</a>' e1 y)
-              (or (<a href="../cause/index.html">cause</a> e1 e)
-                  (exists (e2)
-                    (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../and'/index.html">and'</a> e e1 e2))))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (y e)
+  (iff (<a href="../instrumentOf/index.html">instrumentOf</a> y e)
+       (exists (a e1)
+         (and (<a href="../agentOf/index.html">agentOf</a> a e1) (<a href="../changeIn/index.html">changeIn</a>' e1 y)
+              (or (<a href="../cause/index.html">cause</a> e1 e)
+                  (exists (e2)
+                    (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../and'/index.html">and'</a> e e1 e2))))))))
+</pre>
+</section>
+
 </body>
 
 </html>

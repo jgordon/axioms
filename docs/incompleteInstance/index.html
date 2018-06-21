@@ -14,8 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: incompleteInstance</h1>
-<pre>(incompleteInstance x1 x)</pre><p>Composite entity x1 is a partial instance</p><h2>All Axioms</h2><pre>(forall (x x1 s)
+<h1>Predicate: <code>incompleteInstance</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(incompleteInstance x1 x)</pre><p>Composite entity x1 is a partial instance</p>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (x x1 s)
   (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
       (iff (<a href="../incompleteInstance/index.html">incompleteInstance</a> x1 x)
            (and (exists (y y1 s1 p p1)
@@ -28,9 +35,9 @@
                        (forall (y1 p1)
                          (if (<a href="../subst/index.html">subst</a> y1 p1 y p)
                              (not (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

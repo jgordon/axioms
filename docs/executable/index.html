@@ -14,8 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: executable</h1>
-<pre>(executable e a c)</pre><p>Action e is executable by agent a under</p><h2>Characterizing Axioms</h2><pre>(forall (e a c t)
+<h1>Predicate: <code>executable</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(executable e a c)</pre><p>Action e is executable by agent a under</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e a c t)
   (iff (<a href="../executable/index.html">executable</a> e a c t)
        (exists (s)
          (and (<a href="../enabled/index.html">enabled</a> s e t)
@@ -24,20 +31,23 @@
                   (exists (e2)
                     (and (<a href="../cause/index.html">cause</a> e2 e)
                          (<a href="../executable/index.html">executable</a> e2 a c t))))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e a c t)
-  (iff (<a href="../executable/index.html">executable</a> e a c t)
-       (exists (s)
-         (and (<a href="../enabled/index.html">enabled</a> s e t)
-              (or (exists (e1)
-                    (and (<a href="../dcause/index.html">dcause</a>' e1 a e) (<a href="../possible/index.html">possible</a> e1 c)))
-                  (exists (e2)
-                    (and (<a href="../cause/index.html">cause</a> e2 e)
-                         (<a href="../executable/index.html">executable</a> e2 a c t))))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e a c t)
+  (iff (<a href="../executable/index.html">executable</a> e a c t)
+       (exists (s)
+         (and (<a href="../enabled/index.html">enabled</a> s e t)
+              (or (exists (e1)
+                    (and (<a href="../dcause/index.html">dcause</a>' e1 a e) (<a href="../possible/index.html">possible</a> e1 c)))
+                  (exists (e2)
+                    (and (<a href="../cause/index.html">cause</a> e2 e)
+                         (<a href="../executable/index.html">executable</a> e2 a c t))))))))
+</pre>
+</section>
+
 </body>
 
 </html>

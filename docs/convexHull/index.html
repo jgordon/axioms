@@ -14,16 +14,23 @@
 </head>
 
 <body>
-<h1>Predicate: convexHull</h1>
-<pre>(convexHull t s)</pre><p>Interval t is the convex hull of temporal</p><h2>All Axioms</h2><pre>(forall (s t1 t2 t3 t4)
+<h1>Predicate: <code>convexHull</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(convexHull t s)</pre><p>Interval t is the convex hull of temporal</p>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s t1 t2 t3 t4)
   (if (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../first/index.html">first</a> t1 s) (<a href="../begins/index.html">begins</a> t3 t1)
            (<a href="../last/index.html">last</a> t2 s) (<a href="../ends/index.html">ends</a> t4 t2))
       (forall (t)
         (iff (<a href="../convexHull/index.html">convexHull</a> t s)
              (<a href="../intervalBetween/index.html">intervalBetween</a> t t3 t4)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

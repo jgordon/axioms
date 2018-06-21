@@ -14,15 +14,22 @@
 </head>
 
 <body>
-<h1>Predicate: ground</h1>
-<pre>(ground s)</pre><p>The components of s are sufficiently similar for it to be</p><h2>Characterizing Axioms</h2><pre>(forall (s)
+<h1>Predicate: <code>ground</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(ground s)</pre><p>The components of s are sufficiently similar for it to be</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s)
   (iff (<a href="../ground/index.html">ground</a> s)
        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
             (exists (e y s1)
               (and (<a href="../componentsOf/index.html">componentsOf</a> s1 s) (<a href="../typelt/index.html">typelt</a> y s1) (<a href="../arg*/index.html">arg*</a> y e)
                    (if (<a href="../Rexist/index.html">Rexist</a> s) (<a href="../Rexist/index.html">Rexist</a> e)))))))
-
-
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../ground/index.html">ground</a> s)
        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
@@ -34,20 +41,23 @@
                            (and (<a href="../subst/index.html">subst</a> y e y1 e1)
                                 (if (<a href="../Rexist/index.html">Rexist</a> s)
                                     (<a href="../Rexist/index.html">Rexist</a> e1)))))))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s)
   (if (<a href="../scale/index.html">scale</a> s) (<a href="../ground/index.html">ground</a> s)))
-
-
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../ground/index.html">ground</a> s)
        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
             (exists (e y s1)
               (and (<a href="../componentsOf/index.html">componentsOf</a> s1 s) (<a href="../typelt/index.html">typelt</a> y s1) (<a href="../arg*/index.html">arg*</a> y e)
                    (if (<a href="../Rexist/index.html">Rexist</a> s) (<a href="../Rexist/index.html">Rexist</a> e)))))))
-
-
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../ground/index.html">ground</a> s)
        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
@@ -59,20 +69,20 @@
                            (and (<a href="../subst/index.html">subst</a> y e y1 e1)
                                 (if (<a href="../Rexist/index.html">Rexist</a> s)
                                     (<a href="../Rexist/index.html">Rexist</a> e1)))))))))))
-
-
+</pre>
+<pre>
 (forall (s) (if (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../ground/index.html">ground</a> s)))
-
-
+</pre>
+<pre>
 (forall (t) (if (<a href="../timeScale/index.html">timeScale</a> t) (<a href="../ground/index.html">ground</a> t)))
-
-
+</pre>
+<pre>
 (forall (x y s)
   (if (<a href="../at/index.html">at</a> x y s)
       (<a href="../ground/index.html">ground</a> s)))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

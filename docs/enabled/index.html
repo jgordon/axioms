@@ -14,14 +14,24 @@
 </head>
 
 <body>
-<h1>Predicate: enabled</h1>
-<pre>(enabled s e t)</pre><p>All the enabling conditions for causal complex s</p><h2>Characterizing Axioms</h2><pre>(forall (s e t)
+<h1>Predicate: <code>enabled</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(enabled s e t)</pre><p>All the enabling conditions for causal complex s</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s e t)
   (iff (<a href="../enabled/index.html">enabled</a> s e t)
        (forall (e1)
          (if (<a href="../enable0/index.html">enable0</a> e1 e s) (<a href="../atTime/index.html">atTime</a> e1 t)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e a c t)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e a c t)
   (iff (<a href="../executable/index.html">executable</a> e a c t)
        (exists (s)
          (and (<a href="../enabled/index.html">enabled</a> s e t)
@@ -30,15 +40,15 @@
                   (exists (e2)
                     (and (<a href="../cause/index.html">cause</a> e2 e)
                          (<a href="../executable/index.html">executable</a> e2 a c t))))))))
-
-
+</pre>
+<pre>
 (forall (s e t)
   (iff (<a href="../enabled/index.html">enabled</a> s e t)
        (forall (e1)
          (if (<a href="../enable0/index.html">enable0</a> e1 e s) (<a href="../atTime/index.html">atTime</a> e1 t)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

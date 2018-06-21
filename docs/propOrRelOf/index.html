@@ -14,21 +14,31 @@
 </head>
 
 <body>
-<h1>Predicate: propOrRelOf</h1>
-<pre>(propOrRelOf e x)</pre><p>e is one of the properties or relations of x.</p><h2>Characterizing Axioms</h2><pre>(forall (e x)
+<h1>Predicate: <code>propOrRelOf</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(propOrRelOf e x)</pre><p>e is one of the properties or relations of x.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e x)
   (iff (<a href="../propOrRelOf/index.html">propOrRelOf</a> e x)
        (exists (s)
          (and (<a href="../member/index.html">member</a> e s)
               (or (<a href="../propertiesOf/index.html">propertiesOf</a> s x) (<a href="../relationsOf/index.html">relationsOf</a> s x))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e x)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e x)
   (iff (<a href="../propOrRelOf/index.html">propOrRelOf</a> e x)
        (exists (s)
          (and (<a href="../member/index.html">member</a> e s)
               (or (<a href="../propertiesOf/index.html">propertiesOf</a> s x) (<a href="../relationsOf/index.html">relationsOf</a> s x))))))
-
-
+</pre>
+<pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
       (iff (<a href="../incompleteInstance/index.html">incompleteInstance</a> x1 x)
@@ -42,8 +52,8 @@
                        (forall (y1 p1)
                          (if (<a href="../subst/index.html">subst</a> y1 p1 y p)
                              (not (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))
-
-
+</pre>
+<pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
       (iff (<a href="../patternInstance/index.html">patternInstance</a> x1 x)
@@ -57,9 +67,9 @@
                                    (exists (p1)
                                           (and (<a href="../subst/index.html">subst</a> y1 p1 y p)
                                                (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

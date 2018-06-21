@@ -14,48 +14,14 @@
 </head>
 
 <body>
-<h1>Predicate: card</h1>
-<pre>(card n s)</pre><p>n is the cardinality of s.</p><h2>Characterizing Axioms</h2><pre>(forall (n s)
-  (iff (<a href="../card/index.html">card</a> n s)
-       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../set/index.html">set</a> s)
-            (or (and (<a href="../null/index.html">null</a> s) (equal n 0))
-                (exists (s1 x m)
-                  (and (<a href="../addElt/index.html">addElt</a> s s1 x)
-                       (not (<a href="../member/index.html">member</a> x s1))
-                       (<a href="../card/index.html">card</a> m s1)
-                       (<a href="../sum/index.html">sum</a> n m 1)))))))
-
-
-</pre><h2>All Axioms</h2><pre>   (forall (x s0 s1)
-      (if (and (<a href="../onScale/index.html">onScale</a> x s1) (<a href="../Hi/index.html">Hi</a> s1 s0) (etc))
-          (exists (s2 s3 s4 n3 n4)
-             (and (<a href="../componentsOf/index.html">componentsOf</a> s2 s0) (<a href="../union/index.html">union</a> s2 s3 s4)
-                  (forall (y) (iff (<a href="../member/index.html">member</a> y s3) (<a href="../lts/index.html">lts</a> y x s0)))
-                  (forall (z) (iff (<a href="../member/index.html">member</a> z s4) (<a href="../lts/index.html">lts</a> x z s0)))
-                  (<a href="../card/index.html">card</a> n3 s3) (<a href="../card/index.html">card</a> n4 s4) (<a href="../lt/index.html">lt</a> n4 n3)))))
-
-
-(forall (d t u)
-  (if (<a href="../interval/index.html">interval</a> t)
-      (iff (<a href="../durationOf/index.html">durationOf</a> d t u)
-           (exists (s)
-             (and (<a href="../concatenation/index.html">concatenation</a> t s)
-                  (forall (t1)
-                    (if (<a href="../member/index.html">member</a> t1 s) (<a href="../sameDuration/index.html">sameDuration</a> t1 u)))
-                  (<a href="../card/index.html">card</a> d s))))))
-
-
-(forall (e x y s1 s m n u)
-  (if (and (forall (z)
-             (if (<a href="../member/index.html">member</a> z s1) (<a href="../set/index.html">set</a> z)))
-           (exists (w)
-             (and (<a href="../member/index.html">member</a> w s1) (<a href="../null/index.html">null</a> w)))
-           (<a href="../subset/index.html">subset</a>' e x y)
-           (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
-           (<a href="../card/index.html">card</a>' m n u))
-      (<a href="../measure/index.html">measure</a> m s)))
-
-
+<h1>Predicate: <code>card</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(card n s)</pre><p>n is the cardinality of s.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (n s)
   (iff (<a href="../card/index.html">card</a> n s)
        (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../set/index.html">set</a> s)
@@ -65,8 +31,52 @@
                        (not (<a href="../member/index.html">member</a> x s1))
                        (<a href="../card/index.html">card</a> m s1)
                        (<a href="../sum/index.html">sum</a> n m 1)))))))
-
-
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (x s0 s1)
+      (if (and (<a href="../onScale/index.html">onScale</a> x s1) (<a href="../Hi/index.html">Hi</a> s1 s0) (etc))
+          (exists (s2 s3 s4 n3 n4)
+             (and (<a href="../componentsOf/index.html">componentsOf</a> s2 s0) (<a href="../union/index.html">union</a> s2 s3 s4)
+                  (forall (y) (iff (<a href="../member/index.html">member</a> y s3) (<a href="../lts/index.html">lts</a> y x s0)))
+                  (forall (z) (iff (<a href="../member/index.html">member</a> z s4) (<a href="../lts/index.html">lts</a> x z s0)))
+                  (<a href="../card/index.html">card</a> n3 s3) (<a href="../card/index.html">card</a> n4 s4) (<a href="../lt/index.html">lt</a> n4 n3)))))
+</pre>
+<pre>
+(forall (d t u)
+  (if (<a href="../interval/index.html">interval</a> t)
+      (iff (<a href="../durationOf/index.html">durationOf</a> d t u)
+           (exists (s)
+             (and (<a href="../concatenation/index.html">concatenation</a> t s)
+                  (forall (t1)
+                    (if (<a href="../member/index.html">member</a> t1 s) (<a href="../sameDuration/index.html">sameDuration</a> t1 u)))
+                  (<a href="../card/index.html">card</a> d s))))))
+</pre>
+<pre>
+(forall (e x y s1 s m n u)
+  (if (and (forall (z)
+             (if (<a href="../member/index.html">member</a> z s1) (<a href="../set/index.html">set</a> z)))
+           (exists (w)
+             (and (<a href="../member/index.html">member</a> w s1) (<a href="../null/index.html">null</a> w)))
+           (<a href="../subset/index.html">subset</a>' e x y)
+           (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
+           (<a href="../card/index.html">card</a>' m n u))
+      (<a href="../measure/index.html">measure</a> m s)))
+</pre>
+<pre>
+(forall (n s)
+  (iff (<a href="../card/index.html">card</a> n s)
+       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../set/index.html">set</a> s)
+            (or (and (<a href="../null/index.html">null</a> s) (equal n 0))
+                (exists (s1 x m)
+                  (and (<a href="../addElt/index.html">addElt</a> s s1 x)
+                       (not (<a href="../member/index.html">member</a> x s1))
+                       (<a href="../card/index.html">card</a> m s1)
+                       (<a href="../sum/index.html">sum</a> n m 1)))))))
+</pre>
+<pre>
 (forall (p n)
   (iff (<a href="../polygon/index.html">polygon</a> p n)
        (exists (s)
@@ -79,8 +89,8 @@
                         (or (<a href="../inside/index.html">inside</a> x c) (<a href="../endpoint/index.html">endpoint</a> x l))))))
               (<a href="../closed/index.html">closed</a> p) (<a href="../planar/index.html">planar</a> p)
               (<a href="../card/index.html">card</a> n s)))))
-
-
+</pre>
+<pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../set/index.html">set</a> t) (<a href="../powerSet/index.html">powerSet</a> s0 s)
            (forall (t1)
@@ -92,9 +102,9 @@
                         (if (<a href="../member/index.html">member</a> e s1) (<a href="../happensIn/index.html">happensIn</a> e t1)))
                       (<a href="../card/index.html">card</a> n s1)))))
       (<a href="../rate/index.html">rate</a> n s t)))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

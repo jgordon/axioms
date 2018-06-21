@@ -14,31 +14,34 @@
 </head>
 
 <body>
-<h1>Predicate: baseOfAngle</h1>
-<h2>All Axioms</h2><pre>   (forall (c v u)
+<h1>Predicate: <code>baseOfAngle</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (c v u)
       (iff (<a href="../baseOfAngle/index.html">baseOfAngle</a> c v u)
            (exists (c1 c2 x0 x1 x2)
               (and (<a href="../vertex/index.html">vertex</a> v c1 c2 x0) (<a href="../nequal/index.html">nequal</a> x1 x2)
                    (<a href="../endpoint/index.html">endpoint</a> x1 c1) (<a href="../distance/index.html">distance</a> 1 x0 x1 u)
                    (<a href="../endpoint/index.html">endpoint</a> x2 c2) (<a href="../distance/index.html">distance</a> 1 x0 x2 u)
                    (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c x1 x2)))))
-
-
+</pre>
+<pre>
    (forall (v1 v2)
       (iff (<a href="../gtAngle/index.html">gtAngle</a> v1 v2)
            (exists (c1 c2 d1 d2 u)
               (and (<a href="../baseOfAngle/index.html">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle/index.html">baseOfAngle</a> c2 v2 u)
                    (<a href="../length/index.html">length</a> d1 c1 u) (<a href="../length/index.html">length</a> d2 c2 u) (<a href="../gt/index.html">gt</a> d1 d2)))))
-
-
+</pre>
+<pre>
 (forall (v1 v2)
   (iff (<a href="../equalAngle/index.html">equalAngle</a> v1 v2)
        (exists (c1 c2 d u)
          (and (<a href="../baseOfAngle/index.html">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle/index.html">baseOfAngle</a> c2 v2 u)
               (<a href="../length/index.html">length</a> d c1 u) (<a href="../length/index.html">length</a> d c2 u)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

@@ -14,8 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: compositeScale</h1>
-<pre>(compositeScale s s1 s2)</pre><p>Scale s is a composite scale whose</p><h2>Characterizing Axioms</h2><pre>(forall (s s1 s2)
+<h1>Predicate: <code>compositeScale</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(compositeScale s s1 s2)</pre><p>Scale s is a composite scale whose</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s s1 s2)
    (if (<a href="../compositeScale/index.html">compositeScale</a> s s1 s2)
        (and (exists (s3)
                (and (<a href="../componentsOf/index.html">componentsOf</a> s3 s1) (<a href="../componentsOf/index.html">componentsOf</a> s3 s2)
@@ -26,22 +33,25 @@
             (forall (x y)
                (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../lts/index.html">lts</a> x y s2))
                    (<a href="../lts/index.html">lts</a> x y s))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s s1 s2)
-   (if (<a href="../compositeScale/index.html">compositeScale</a> s s1 s2)
-       (and (exists (s3)
-               (and (<a href="../componentsOf/index.html">componentsOf</a> s3 s1) (<a href="../componentsOf/index.html">componentsOf</a> s3 s2)
-                    (<a href="../componentsOf/index.html">componentsOf</a> s3 s)))
-            (forall (x y)
-               (if (and (<a href="../lts/index.html">lts</a> x y s1) (<a href="../leqs/index.html">leqs</a> x y s2))
-                   (<a href="../lts/index.html">lts</a> x y s)))
-            (forall (x y)
-               (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../lts/index.html">lts</a> x y s2))
-                   (<a href="../lts/index.html">lts</a> x y s))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s s1 s2)
+   (if (<a href="../compositeScale/index.html">compositeScale</a> s s1 s2)
+       (and (exists (s3)
+               (and (<a href="../componentsOf/index.html">componentsOf</a> s3 s1) (<a href="../componentsOf/index.html">componentsOf</a> s3 s2)
+                    (<a href="../componentsOf/index.html">componentsOf</a> s3 s)))
+            (forall (x y)
+               (if (and (<a href="../lts/index.html">lts</a> x y s1) (<a href="../leqs/index.html">leqs</a> x y s2))
+                   (<a href="../lts/index.html">lts</a> x y s)))
+            (forall (x y)
+               (if (and (<a href="../leqs/index.html">leqs</a> x y s1) (<a href="../lts/index.html">lts</a> x y s2))
+                   (<a href="../lts/index.html">lts</a> x y s))))))
+</pre>
+</section>
+
 </body>
 
 </html>

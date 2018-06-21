@@ -14,33 +14,39 @@
 </head>
 
 <body>
-<h1>Predicate: parallel</h1>
-<h2>Characterizing Axioms</h2><pre>(forall (f1 f2)
+<h1>Predicate: <code>parallel</code></h1>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (f1 f2)
   (iff (<a href="../parallel/index.html">parallel</a> f1 f2)
        (exists (c1 c2)
          (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2) (<a href="../inside/index.html">inside</a> f1 c1) (<a href="../inside/index.html">inside</a> f2 c2)))))
-
-
-</pre><h2>All Axioms</h2><pre>   (forall (d c f)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (d c f)
       (iff (<a href="../directionOf/index.html">directionOf</a> d c f)
            (and (<a href="../direction/index.html">direction</a> d f) (<a href="../parallel/index.html">parallel</a> c f))))
-
-
+</pre>
+<pre>
 (forall (c1 c2)
   (if (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2))
       (iff (<a href="../parallel/index.html">parallel</a> c1 c2)
            (and (<a href="../coplanar/index.html">coplanar</a> c1 c2)
                 (not (exists (f)
                        (and (<a href="../inside/index.html">inside</a> f c1) (<a href="../inside/index.html">inside</a> f c2))))))))
-
-
+</pre>
+<pre>
 (forall (f1 f2)
   (iff (<a href="../parallel/index.html">parallel</a> f1 f2)
        (exists (c1 c2)
          (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2) (<a href="../inside/index.html">inside</a> f1 c1) (<a href="../inside/index.html">inside</a> f2 c2)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

@@ -14,26 +14,36 @@
 </head>
 
 <body>
-<h1>Predicate: likely</h1>
-<pre>(likely e c)</pre><p>e is likely, given constraints c.</p><h2>Characterizing Axioms</h2><pre>(forall (e c)
+<h1>Predicate: <code>likely</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(likely e c)</pre><p>e is likely, given constraints c.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e c)
   (iff (<a href="../likely/index.html">likely</a> e c)
        (exists (s d s1)
          (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../Hi/index.html">Hi</a> s1 s)
               (<a href="../inScale/index.html">inScale</a> d s1)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e c)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e c)
   (iff (<a href="../likely/index.html">likely</a> e c)
        (exists (s d s1)
          (and (<a href="../likelihood/index.html">likelihood</a> d e c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../Hi/index.html">Hi</a> s1 s)
               (<a href="../inScale/index.html">inScale</a> d s1)))))
-
-
+</pre>
+<pre>
 (forall (e e1 c)
   (if (and (<a href="../likely/index.html">likely</a> e c) (<a href="../not'/index.html">not'</a> e1 e))
       (not (<a href="../likely/index.html">likely</a> e1 c))))
-
-
+</pre>
+<pre>
 (forall (e1 e2)
   (iff (<a href="../tcause/index.html">tcause</a> e1 e2)
        (exists (s c)
@@ -41,9 +51,9 @@
               (<a href="../deleteElt/index.html">deleteElt</a> s1 s e1) (<a href="../likely/index.html">likely</a> s1 c)
               (if (<a href="../Rexist/index.html">Rexist</a> s)
                   (<a href="../cause/index.html">cause</a> e1 e2))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

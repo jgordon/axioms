@@ -14,15 +14,22 @@
 </head>
 
 <body>
-<h1>Predicate: monotoneIncreasing</h1>
-<pre>(monotoneIncreasing f)</pre><p>Function f is monotone-increasing</p><h2>All Axioms</h2><pre>(forall (f s1 s2)
+<h1>Predicate: <code>monotoneIncreasing</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(monotoneIncreasing f)</pre><p>Function f is monotone-increasing</p>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (f s1 s2)
    (if (and (<a href="../function/index.html">function</a> f s1 s2) (<a href="../scale/index.html">scale</a> s1) (<a href="../scale/index.html">scale</a> s2))
        (iff (<a href="../monotoneIncreasing/index.html">monotoneIncreasing</a> f)
             (forall (x1 x2 y1 y2)
                (if (and (<a href="../map/index.html">map</a> f x1 y1) (<a href="../map/index.html">map</a> f x2 y2) (<a href="../lts/index.html">lts</a> x1 x2 s1))
                    (<a href="../lts/index.html">lts</a> y1 y2 s2))))))
-
-
+</pre>
+<pre>
 (forall (m s1)
   (iff (<a href="../measure/index.html">measure</a> m s1)
        (exists (s2)
@@ -30,9 +37,9 @@
               (<a href="../functionInto/index.html">functionInto</a> m s1 s2)
               (<a href="../monotoneIncreasing/index.html">monotoneIncreasing</a> m)
               (forall (x) (if (<a href="../bottom/index.html">bottom</a> x s1) (<a href="../map/index.html">map</a> m x 0)))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

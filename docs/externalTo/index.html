@@ -14,34 +14,44 @@
 </head>
 
 <body>
-<h1>Predicate: externalTo</h1>
-<pre>(externalTo y x)</pre><p>Neither y nor any of its components is equal</p><h2>Characterizing Axioms</h2><pre>(forall (y x)
-  (iff (<a href="../externalTo/index.html">externalTo</a> y x)
-       (not (exists (y1 x1)
-              (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y1 y)
-                   (<a href="../componentOrWhole/index.html">componentOrWhole</a> x1 x)
-                   (equal y1 x1))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (a x m)
-  (if (and (<a href="../perceive/index.html">perceive</a> a x) (<a href="../mind/index.html">mind</a> m a))
-      (and (<a href="../agent/index.html">agent</a> a) (<a href="../externalTo/index.html">externalTo</a> x m))))
-
-
-(forall (x y s)
-  (if (<a href="../at/index.html">at</a> x y s)
-      (and (<a href="../componentOf/index.html">componentOf</a> y s) (<a href="../externalTo/index.html">externalTo</a> x s))))
-
-
+<h1>Predicate: <code>externalTo</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(externalTo y x)</pre><p>Neither y nor any of its components is equal</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (y x)
   (iff (<a href="../externalTo/index.html">externalTo</a> y x)
        (not (exists (y1 x1)
               (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y1 y)
                    (<a href="../componentOrWhole/index.html">componentOrWhole</a> x1 x)
                    (equal y1 x1))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (a x m)
+  (if (and (<a href="../perceive/index.html">perceive</a> a x) (<a href="../mind/index.html">mind</a> m a))
+      (and (<a href="../agent/index.html">agent</a> a) (<a href="../externalTo/index.html">externalTo</a> x m))))
+</pre>
+<pre>
+(forall (x y s)
+  (if (<a href="../at/index.html">at</a> x y s)
+      (and (<a href="../componentOf/index.html">componentOf</a> y s) (<a href="../externalTo/index.html">externalTo</a> x s))))
+</pre>
+<pre>
+(forall (y x)
+  (iff (<a href="../externalTo/index.html">externalTo</a> y x)
+       (not (exists (y1 x1)
+              (and (<a href="../componentOrWhole/index.html">componentOrWhole</a> y1 y)
+                   (<a href="../componentOrWhole/index.html">componentOrWhole</a> x1 x)
+                   (equal y1 x1))))))
+</pre>
+</section>
+
 </body>
 
 </html>

@@ -14,23 +14,14 @@
 </head>
 
 <body>
-<h1>Predicate: scaleFor</h1>
-<pre>(scaleFor s e)</pre><p>The property e corresponds to being in the Hi region</p><h2>Characterizing Axioms</h2><pre>(forall (s e)
-   (iff (<a href="../scaleFor/index.html">scaleFor</a> s e)
-        (exists (s1)
-           (and (<a href="../Hi/index.html">Hi</a> s1 s)
-                (forall (e1 x y)
-                   (if (and (<a href="../at/index.html">at</a>' e1 x y s1) (<a href="../argn/index.html">argn</a> x 1 e))
-                       (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../Rexist/index.html">Rexist</a> e1))))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e1 e a)
-  (iff (<a href="../difficult/index.html">difficult</a>' e1 e a)
-       (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e)
-            (exists (s)
-              (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../scaleFor/index.html">scaleFor</a> s e1))))))
-
-
+<h1>Predicate: <code>scaleFor</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(scaleFor s e)</pre><p>The property e corresponds to being in the Hi region</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (s e)
    (iff (<a href="../scaleFor/index.html">scaleFor</a> s e)
         (exists (s1)
@@ -38,9 +29,28 @@
                 (forall (e1 x y)
                    (if (and (<a href="../at/index.html">at</a>' e1 x y s1) (<a href="../argn/index.html">argn</a> x 1 e))
                        (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../Rexist/index.html">Rexist</a> e1))))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e1 e a)
+  (iff (<a href="../difficult/index.html">difficult</a>' e1 e a)
+       (and (<a href="../agent/index.html">agent</a> a) (<a href="../agentOf/index.html">agentOf</a> a e)
+            (exists (s)
+              (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../scaleFor/index.html">scaleFor</a> s e1))))))
+</pre>
+<pre>
+(forall (s e)
+   (iff (<a href="../scaleFor/index.html">scaleFor</a> s e)
+        (exists (s1)
+           (and (<a href="../Hi/index.html">Hi</a> s1 s)
+                (forall (e1 x y)
+                   (if (and (<a href="../at/index.html">at</a>' e1 x y s1) (<a href="../argn/index.html">argn</a> x 1 e))
+                       (iff (<a href="../Rexist/index.html">Rexist</a> e) (<a href="../Rexist/index.html">Rexist</a> e1))))))))
+</pre>
+</section>
+
 </body>
 
 </html>

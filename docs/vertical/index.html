@@ -14,34 +14,44 @@
 </head>
 
 <body>
-<h1>Predicate: vertical</h1>
-<pre>(vertical s)</pre><p>Scale s is a real or metaphorical vertical scale.</p><h2>Characterizing Axioms</h2><pre>(forall (s) (if (<a href="../vertical/index.html">vertical</a> s) (<a href="../scale/index.html">scale</a> s)))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e x y z s)
+<h1>Predicate: <code>vertical</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(vertical s)</pre><p>Scale s is a real or metaphorical vertical scale.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s) (if (<a href="../vertical/index.html">vertical</a> s) (<a href="../scale/index.html">scale</a> s)))
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e x y z s)
   (iff (<a href="../decrease/index.html">decrease</a> x s)
        (exists (y z e1 e2)
          (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../lts/index.html">lts</a> z y s)
               (<a href="../vertical/index.html">vertical</a> s) (<a href="../change/index.html">change</a> e1 e2)))))
-
-
+</pre>
+<pre>
 (forall (e x y z s)
   (iff (<a href="../increase/index.html">increase</a> x s)
        (exists (y z e1 e2)
          (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../lts/index.html">lts</a> y z s)
               (<a href="../vertical/index.html">vertical</a> s) (<a href="../change/index.html">change</a> e1 e2)))))
-
-
-(forall (s) (if (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../vertical/index.html">vertical</a> s)))
-
-
-(forall (s) (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s) (<a href="../vertical/index.html">vertical</a> s)))
-
-
-(forall (s) (if (<a href="../vertical/index.html">vertical</a> s) (<a href="../scale/index.html">scale</a> s)))
-
-
 </pre>
+<pre>
+(forall (s) (if (<a href="../likelihoodScale/index.html">likelihoodScale</a> s) (<a href="../vertical/index.html">vertical</a> s)))
+</pre>
+<pre>
+(forall (s) (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s) (<a href="../vertical/index.html">vertical</a> s)))
+</pre>
+<pre>
+(forall (s) (if (<a href="../vertical/index.html">vertical</a> s) (<a href="../scale/index.html">scale</a> s)))
+</pre>
+</section>
+
 </body>
 
 </html>

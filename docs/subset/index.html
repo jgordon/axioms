@@ -14,16 +14,26 @@
 </head>
 
 <body>
-<h1>Predicate: subset</h1>
-<pre>(subset s1 s2)</pre><p>s1 is a subset of s2.</p><h2>Characterizing Axioms</h2><pre>(forall (s1 s2)
+<h1>Predicate: <code>subset</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(subset s1 s2)</pre><p>s1 is a subset of s2.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s1 s2)
   (iff (<a href="../subset/index.html">subset</a> s1 s2)
        (and (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
             (forall (x)
               (if (<a href="../member/index.html">member</a> x s1)
                   (<a href="../member/index.html">member</a> x s2))))))
-
-
-</pre><h2>All Axioms</h2><pre>   (forall (s1 f)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (s1 f)
       (iff (<a href="../vertical3/index.html">vertical3</a> s1 f)
            (exists (s)
               (and (<a href="../domain/index.html">domain</a> s f) (<a href="../subset/index.html">subset</a> s1 s) (not (<a href="../null/index.html">null</a> s1))
@@ -31,8 +41,8 @@
                            (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
                                 (or (<a href="../rightOf/index.html">rightOf</a> x1 x2 f)
                                     (<a href="../above2/index.html">above2</a> x1 x2 f)))))))))
-
-
+</pre>
+<pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)
              (if (<a href="../member/index.html">member</a> z s1) (<a href="../set/index.html">set</a> z)))
@@ -42,8 +52,8 @@
            (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
            (<a href="../card/index.html">card</a>' m n u))
       (<a href="../measure/index.html">measure</a> m s)))
-
-
+</pre>
+<pre>
 (forall (e1 e)
   (iff (<a href="../partialInstance/index.html">partialInstance</a> e1 e)
        (forall (s x)
@@ -54,15 +64,15 @@
                         (exists (s2)
                           (and (<a href="../typelt/index.html">typelt</a> x1 s2)
                                (<a href="../subset/index.html">subset</a> s2 s1))))))))))
-
-
+</pre>
+<pre>
 (forall (f s1 s3)
    (iff (<a href="../functionInto/index.html">functionInto</a> f s1 s3)
         (exists (s2)
           (and (or (<a href="../subset/index.html">subset</a> s2 s3) (<a href="../subscale/index.html">subscale</a> s2 s3))
                (<a href="../function/index.html">function</a> f s1 s2)))))
-
-
+</pre>
+<pre>
 (forall (p s1)
   (if (and (<a href="../person/index.html">person</a> p) (<a href="../bodyPartsOf/index.html">bodyPartsOf</a> s1 p))
       (exists (s2)
@@ -72,16 +82,16 @@
                    (exists (e1 e2 y z)
                      (and (<a href="../move/index.html">move</a>' e2 x y z) (<a href="../will/index.html">will</a>' e1 p e2)
                           (<a href="../dcause/index.html">dcause</a> e1 e2)))))))))
-
-
+</pre>
+<pre>
 (forall (p x)
   (if (and (<a href="../person/index.html">person</a> p) (<a href="../bodyPartsOf/index.html">bodyPartsOf</a> s1 p))
       (exists (s2)
         (and (<a href="../subset/index.html">subset</a> s2 s1)
              (forall (o)
                (iff (<a href="../member/index.html">member</a> o s2) (<a href="../senseOrgan/index.html">senseOrgan</a> o p)))))))
-
-
+</pre>
+<pre>
 (forall (s e c)
   (if (<a href="../eventuality/index.html">eventuality</a> e)
       (iff (<a href="../alsoRequired/index.html">alsoRequired</a> s e c)
@@ -89,8 +99,8 @@
                 (exists (s1 c1)
                   (and (<a href="../union/index.html">union</a> s1 c1 s) (<a href="../subset/index.html">subset</a> c1 c)
                        (<a href="../minimallyProves/index.html">minimallyProves</a> s1 e)))))))
-
-
+</pre>
+<pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e)
         (and (<a href="../scale/index.html">scale</a> s) (<a href="../eventuality/index.html">eventuality</a> e)
@@ -103,8 +113,8 @@
                                          (<a href="../argn/index.html">argn</a> x2 2 e2)
                          (<a href="../subset/index.html">subset</a> s1 s2))
                     (<a href="../leqs/index.html">leqs</a> x1 x2 s))))))
-
-
+</pre>
+<pre>
 (forall (s)
    (if (<a href="../scale/index.html">scale</a> s)
        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
@@ -117,15 +127,15 @@
                            (exists (x1 y1)
                               (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> y1 s1)
                                    (<a href="../subst2/index.html">subst2</a> x1 y1 e1 x y e))))))))))
-
-
+</pre>
+<pre>
 (forall (s0 s)
   (iff (<a href="../powerSet/index.html">powerSet</a> s0 s)
        (forall (s1)
          (iff (<a href="../member/index.html">member</a> s1 s0)
               (<a href="../subset/index.html">subset</a> s1 s)))))
-
-
+</pre>
+<pre>
 (forall (s1 e x y)
   (if (and (forall (s2)
              (if (<a href="../member/index.html">member</a> s2 s1)
@@ -136,14 +146,14 @@
                (forall (z)
                  (if (and (<a href="../member/index.html">member</a> z s1) (<a href="../null/index.html">null</a> z))
                      (<a href="../bottom/index.html">bottom</a> z s)))))))
-
-
+</pre>
+<pre>
 (forall (s1 e1 d1 s2 e2 d2 c s)
   (if (and (<a href="../alsoRequired/index.html">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired/index.html">alsoRequired</a> s2 e2 c) (<a href="../subset/index.html">subset</a> s2 s1)
            (<a href="../likelihood/index.html">likelihood</a> d1 e1 c) (<a href="../likelihood/index.html">likelihood</a> d2 e2 c) (<a href="../likelihoodScale/index.html">likelihoodScale</a> s))
       (<a href="../leqs/index.html">leqs</a> d1 d2 s)))
-
-
+</pre>
+<pre>
 (forall (s1 f)
   (iff (<a href="../horizontal2/index.html">horizontal2</a> s1 f)
        (exists (s)
@@ -152,8 +162,8 @@
                      (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
                           (or (<a href="../above2/index.html">above2</a> x1 x2 f)
                               (<a href="../above3/index.html">above3</a> x1 x2 f)))))))))
-
-
+</pre>
+<pre>
 (forall (s1 f)
   (iff (<a href="../vertical2/index.html">vertical2</a> s1 f)
        (exists (s)
@@ -162,8 +172,8 @@
                      (and (<a href="../member/index.html">member</a> x1 s1) (<a href="../member/index.html">member</a> x2 s1)
                           (or (<a href="../rightOf/index.html">rightOf</a> x1 x2 f)
                               (<a href="../above3/index.html">above3</a> x1 x2 f)))))))))
-
-
+</pre>
+<pre>
 (forall (s1 s a)
   (iff (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
        (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../subset/index.html">subset</a> s1 s) (<a href="../agent/index.html">agent</a> a)
@@ -173,28 +183,28 @@
                         (not (exists (e1)
                                (and (<a href="../agentOf/index.html">agentOf</a> a e1)
                                     (<a href="../cause/index.html">cause</a> e1 e))))))))))
-
-
+</pre>
+<pre>
 (forall (s1 s2)
   (iff (<a href="../properSubset/index.html">properSubset</a> s1 s2)
        (and (<a href="../subset/index.html">subset</a> s1 s2) (<a href="../nequal/index.html">nequal</a> s1 s2))))
-
-
+</pre>
+<pre>
 (forall (s1 s2)
   (iff (<a href="../subset/index.html">subset</a> s1 s2)
        (and (<a href="../set/index.html">set</a> s1) (<a href="../set/index.html">set</a> s2)
             (forall (x)
               (if (<a href="../member/index.html">member</a> x s1)
                   (<a href="../member/index.html">member</a> x s2))))))
-
-
+</pre>
+<pre>
 (forall (y s)
   (iff (<a href="../notSubsetTypelt/index.html">notSubsetTypelt</a> y s)
        (not (exists (s1)
               (and (<a href="../typelt/index.html">typelt</a> y s1) (<a href="../subset/index.html">subset</a> s1 s))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

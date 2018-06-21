@@ -14,18 +14,21 @@
 </head>
 
 <body>
-<h1>Predicate: concave</h1>
-<h2>All Axioms</h2><pre>   (forall (p)
+<h1>Predicate: <code>concave</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (p)
       (if (<a href="../volume/index.html">volume</a> p)
           (iff (<a href="../concave/index.html">concave</a> p) (not (<a href="../convex/index.html">convex</a> p)))))
-
-
+</pre>
+<pre>
 (forall (r)
   (if (and (<a href="../region/index.html">region</a> r) (<a href="../planar/index.html">planar</a> r))
       (iff (<a href="../concave/index.html">concave</a> r) (not (<a href="../convex/index.html">convex</a> r)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

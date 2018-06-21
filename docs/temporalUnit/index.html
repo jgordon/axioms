@@ -14,30 +14,40 @@
 </head>
 
 <body>
-<h1>Predicate: temporalUnit</h1>
-<pre>(temporalUnit u)</pre><p>Interval u is a temporal unit.</p><h2>Characterizing Axioms</h2><pre>(forall (u)
+<h1>Predicate: <code>temporalUnit</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(temporalUnit u)</pre><p>Interval u is a temporal unit.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (u)
   (if (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../interval/index.html">interval</a> u)))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (d t u)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (d t u)
   (if (<a href="../durationOf/index.html">durationOf</a> d t u)
       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> d) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
            (or (<a href="../temporalEntity/index.html">temporalEntity</a> t) (<a href="../tseq/index.html">tseq</a> t) (<a href="../eventuality/index.html">eventuality</a> t)))))
-
-
+</pre>
+<pre>
 (forall (n s t u)
   (if (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
            (forall (t1) (if (<a href="../member/index.html">member</a> t1 t) (<a href="../durationOf/index.html">durationOf</a> 1 t1 u)))
            (<a href="../rate/index.html">rate</a> n s t))
       (<a href="../rate/index.html">rate</a> n s u)))
-
-
+</pre>
+<pre>
 (forall (s d t1 t2 t n1 n2 u)
   (if (and (<a href="../periodicTseq/index.html">periodicTseq</a> s) (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
            (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2))
       (iff (<a href="../gapDuration/index.html">gapDuration</a> d s u) (<a href="../durationOf/index.html">durationOf</a> d t u))))
-
-
+</pre>
+<pre>
 (forall (s s0)
   (iff (<a href="../rateScale/index.html">rateScale</a> s s0)
        (and (forall (s1) (if (<a href="../member/index.html">member</a> s1 s0) (<a href="../eventualities/index.html">eventualities</a> s1)))
@@ -49,8 +59,8 @@
                             (and (<a href="../rate/index.html">rate</a> r1 s3 u) (<a href="../rate/index.html">rate</a> r2 s4 u)
                                  (<a href="../lt/index.html">lt</a> r1 r2)))))
                    (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e))))))
-
-
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../roughlyPeriodicTseq/index.html">roughlyPeriodicTseq</a> s u)
        (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
@@ -64,13 +74,13 @@
                                 (<a href="../intervalBetween/index.html">intervalBetween</a> t34 t3 t4)
                                 (<a href="../durationOf/index.html">durationOf</a>' e d t12 u)
                                 (<a href="../sameHOM/index.html">sameHOM</a> t12 t34 s0 e))))))))))
-
-
+</pre>
+<pre>
 (forall (u)
   (if (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../interval/index.html">interval</a> u)))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

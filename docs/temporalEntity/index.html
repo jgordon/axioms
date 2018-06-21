@@ -14,22 +14,32 @@
 </head>
 
 <body>
-<h1>Predicate: temporalEntity</h1>
-<pre>(temporalEntity t)</pre><p>t is an instant or an interval.</p><h2>Characterizing Axioms</h2><pre>(forall (t)
+<h1>Predicate: <code>temporalEntity</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(temporalEntity t)</pre><p>t is an instant or an interval.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (t)
   (if (<a href="../temporalEntity/index.html">temporalEntity</a> t)
       (or (<a href="../interval/index.html">interval</a> t) (<a href="../instant/index.html">instant</a> t))))
-
-
+</pre>
+<pre>
 (forall (t)
   (if (<a href="../temporalEntity/index.html">temporalEntity</a> t) (<a href="../sameDuration/index.html">sameDuration</a> t t)))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (d t u)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (d t u)
   (if (<a href="../durationOf/index.html">durationOf</a> d t u)
       (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> d) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
            (or (<a href="../temporalEntity/index.html">temporalEntity</a> t) (<a href="../tseq/index.html">tseq</a> t) (<a href="../eventuality/index.html">eventuality</a> t)))))
-
-
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../tseq/index.html">tseq</a> s)
        (and (forall (t) (if (<a href="../member/index.html">member</a> t s) (<a href="../temporalEntity/index.html">temporalEntity</a> t)))
@@ -42,63 +52,63 @@
                              (and (not (<a href="../member/index.html">member</a> t3 s))
                                   (<a href="../before/index.html">before</a> t1 t3)
                                   (<a href="../before/index.html">before</a> t3 t2))))))))))
-
-
+</pre>
+<pre>
 (forall (t t1 t2)
   (if (and (<a href="../temporalEntity/index.html">temporalEntity</a> t) (<a href="../begins/index.html">begins</a> t1 t) (<a href="../begins/index.html">begins</a> t2 t))
       (equal t1 t2)))
-
-
+</pre>
+<pre>
 (forall (t t1 t2)
   (if (and (<a href="../temporalEntity/index.html">temporalEntity</a> t) (<a href="../ends/index.html">ends</a> t1 t) (<a href="../ends/index.html">ends</a> t2 t))
       (equal t1 t2)))
-
-
+</pre>
+<pre>
 (forall (t)
   (if (<a href="../temporalEntity/index.html">temporalEntity</a> t)
       (or (<a href="../interval/index.html">interval</a> t) (<a href="../instant/index.html">instant</a> t))))
-
-
+</pre>
+<pre>
 (forall (t)
   (if (<a href="../temporalEntity/index.html">temporalEntity</a> t) (<a href="../sameDuration/index.html">sameDuration</a> t t)))
-
-
+</pre>
+<pre>
 (forall (t) (if (<a href="../instant/index.html">instant</a> t) (<a href="../temporalEntity/index.html">temporalEntity</a> t)))
-
-
+</pre>
+<pre>
 (forall (t) (if (<a href="../interval/index.html">interval</a> t) (<a href="../temporalEntity/index.html">temporalEntity</a> t)))
-
-
+</pre>
+<pre>
 (forall (t1 t2)
   (if (<a href="../before/index.html">before</a> t1 t2)
       (and (or (<a href="../temporalEntity/index.html">temporalEntity</a> t1) (<a href="../tseq/index.html">tseq</a> t1) (<a href="../eventuality/index.html">eventuality</a> t1))
            (or (<a href="../temporalEntity/index.html">temporalEntity</a> t2) (<a href="../tseq/index.html">tseq</a> t2) (<a href="../eventuality/index.html">eventuality</a> t2)))))
-
-
+</pre>
+<pre>
 (forall (t1 t2)
   (if (<a href="../begins/index.html">begins</a> t1 t2)
       (and (<a href="../instant/index.html">instant</a> t1)
            (or (<a href="../temporalEntity/index.html">temporalEntity</a> t2) (<a href="../tseq/index.html">tseq</a> t2) (<a href="../eventuality/index.html">eventuality</a> t2)))))
-
-
+</pre>
+<pre>
 (forall (t1 t2)
   (if (<a href="../ends/index.html">ends</a> t1 t2)
       (and (<a href="../instant/index.html">instant</a> t1)
            (or (<a href="../temporalEntity/index.html">temporalEntity</a> t2) (<a href="../tseq/index.html">tseq</a> t2) (<a href="../eventuality/index.html">eventuality</a> t2)))))
-
-
+</pre>
+<pre>
 (forall (t1 t2)
   (if (<a href="../insideTime/index.html">insideTime</a> t1 t2)
       (and (<a href="../instant/index.html">instant</a> t1)
            (or (<a href="../temporalEntity/index.html">temporalEntity</a> t2) (<a href="../tseq/index.html">tseq</a> t2) (<a href="../eventuality/index.html">eventuality</a> t2)))))
-
-
+</pre>
+<pre>
 (forall (t1 t2)
   (if (<a href="../sameDuration/index.html">sameDuration</a> t1 t2)
       (and (<a href="../temporalEntity/index.html">temporalEntity</a> t1) (<a href="../temporalEntity/index.html">temporalEntity</a> t2))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

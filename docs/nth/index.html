@@ -14,41 +14,48 @@
 </head>
 
 <body>
-<h1>Predicate: nth</h1>
-<pre>(nth y i s)</pre><p>y is the ith element of sequence s.</p><h2>All Axioms</h2><pre>(forall (s n y)
+<h1>Predicate: <code>nth</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(nth y i s)</pre><p>y is the ith element of sequence s.</p>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s n y)
   (if (<a href="../sequence/index.html">sequence</a> s)
       (iff (<a href="../nth/index.html">nth</a> y n s) (<a href="../map/index.html">map</a> s n y))))
-
-
+</pre>
+<pre>
 (forall (s y n)
   (if (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../length/index.html">length</a> n s))
       (iff (<a href="../last/index.html">last</a> y s) (<a href="../nth/index.html">nth</a> y n s))))
-
-
+</pre>
+<pre>
 (forall (s y)
   (if (<a href="../sequence/index.html">sequence</a> s)
       (iff (<a href="../first/index.html">first</a> y s) (<a href="../nth/index.html">nth</a> y 1 s))))
-
-
+</pre>
+<pre>
 (forall (x s)
   (iff (<a href="../inSeq/index.html">inSeq</a> x s)
        (exists (n) (<a href="../nth/index.html">nth</a> x n s))))
-
-
+</pre>
+<pre>
 (forall (x y s)
   (iff (<a href="../beforeInSeq/index.html">beforeInSeq</a> x y s)
        (exists (n1 n2)
          (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../nth/index.html">nth</a> x n1 s) (<a href="../nth/index.html">nth</a> y n2 s)
               (<a href="../lt/index.html">lt</a> n1 n2)))))
-
-
+</pre>
+<pre>
 (forall (x1 x2 s)
   (iff (<a href="../successiveElts/index.html">successiveElts</a> x1 x2 s)
        (exists (n1 n2)
          (and (<a href="../successor/index.html">successor</a> n2 n1) (<a href="../nth/index.html">nth</a> x1 n1 s) (<a href="../nth/index.html">nth</a> x2 n2 s)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

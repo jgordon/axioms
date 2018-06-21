@@ -14,30 +14,36 @@
 </head>
 
 <body>
-<h1>Predicate: anchorPoint</h1>
-<h2>Characterizing Axioms</h2><pre>(forall (x v f c1 c2 o u)
+<h1>Predicate: <code>anchorPoint</code></h1>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (x v f c1 c2 o u)
   (iff (<a href="../anchorPoint/index.html">anchorPoint</a> x v f c1 c2 o u)
        (and (<a href="../anchorFramework/index.html">anchorFramework</a> f v c1 c2 o)
             (<a href="../inside/index.html">inside</a> x c2) (<a href="../distance/index.html">distance</a> 1 o x u))))
-
-
-</pre><h2>All Axioms</h2><pre>   (forall (v)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (v)
       (iff (<a href="../30Degrees/index.html">30Degrees</a> v)
            (exists (v0 x f c1 c2 o u d1 d2)
               (and (<a href="../equalAngle/index.html">equalAngle</a> v v0) (<a href="../anchorPoint/index.html">anchorPoint</a> x v f c1 c2 o u)
                    (<a href="../xCoordinate/index.html">xCoordinate</a> x1 x f) (<a href="../yCoordinate/index.html">yCoordinate</a> y1 x f)
                    (<a href="../distance/index.html">distance</a> d1 o y1 u) (<a href="../distance/index.html">distance</a> d2 o x u)
                    (<a href="../product/index.html">product</a> d2 d1 2)))))
-
-
+</pre>
+<pre>
    (forall (v)
       (iff (<a href="../45Degrees/index.html">45Degrees</a> v)
            (exists (v0 x f c1 c2 o u d)
               (and (<a href="../equalAngle/index.html">equalAngle</a> v v0) (<a href="../anchorPoint/index.html">anchorPoint</a> x v f c1 c2 o u)
                    (<a href="../xCoordinate/index.html">xCoordinate</a> x1 x f) (<a href="../yCoordinate/index.html">yCoordinate</a> y1 x f)
                    (<a href="../distance/index.html">distance</a> d o x1 u) (<a href="../distance/index.html">distance</a> d o y1 u)))))
-
-
+</pre>
+<pre>
    (forall (v)
       (iff (<a href="../acuteAngle/index.html">acuteAngle</a> v)
            (exists (v0 x f c1 c2 o u)
@@ -45,8 +51,8 @@
                    (<a href="../xCoordinate/index.html">xCoordinate</a> x1 x f) (<a href="../yCoordinate/index.html">yCoordinate</a> y1 x f)
                    (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../yAxis/index.html">yAxis</a> a2 f)
                    (<a href="../gts/index.html">gts</a> x1 o a1) (<a href="../gts/index.html">gts</a> y1 o a2)))))
-
-
+</pre>
+<pre>
    (forall (v)
       (iff (<a href="../obtuseAngle/index.html">obtuseAngle</a> v)
            (exists (v0 x f c1 c2 o u)
@@ -54,22 +60,22 @@
                    (<a href="../xCoordinate/index.html">xCoordinate</a> x1 x f) (<a href="../yCoordinate/index.html">yCoordinate</a> y1 x f)
                    (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../yAxis/index.html">yAxis</a> a2 f)
                    (<a href="../gts/index.html">gts</a> o x1 a1) (<a href="../gts/index.html">gts</a> y1 o a2)))))
-
-
+</pre>
+<pre>
    (forall (v)
       (iff (<a href="../rightAngle/index.html">rightAngle</a> v)
            (exists (v0 f c1 c2 o u)
               (and (<a href="../equalAngle/index.html">equalAngle</a> v v0) (<a href="../anchorPoint/index.html">anchorPoint</a> x v0 f c1 c2 o u)
                    (<a href="../xCoordinate/index.html">xCoordinate</a> o x f)))))
-
-
+</pre>
+<pre>
 (forall (x v f c1 c2 o u)
   (iff (<a href="../anchorPoint/index.html">anchorPoint</a> x v f c1 c2 o u)
        (and (<a href="../anchorFramework/index.html">anchorFramework</a> f v c1 c2 o)
             (<a href="../inside/index.html">inside</a> x c2) (<a href="../distance/index.html">distance</a> 1 o x u))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

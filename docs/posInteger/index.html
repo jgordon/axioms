@@ -14,17 +14,27 @@
 </head>
 
 <body>
-<h1>Predicate: posInteger</h1>
-<pre>(posInteger n)</pre><p>n is a positive integer.</p><h2>Characterizing Axioms</h2><pre>(forall (n)
+<h1>Predicate: <code>posInteger</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(posInteger n)</pre><p>n is a positive integer.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (n)
    (iff (<a href="../posInteger/index.html">posInteger</a> n)
         (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../nequal/index.html">nequal</a> n 0))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (a b)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (a b)
    (if (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> a) (<a href="../posInteger/index.html">posInteger</a> b))
        (exists (f) (<a href="../fraction/index.html">fraction</a> f a b))))
-
-
+</pre>
+<pre>
 (forall (e)
   (iff (<a href="../eventuality/index.html">eventuality</a> e)
        (exists (p n)
@@ -34,27 +44,27 @@
                          (<a href="../leq/index.html">leq</a> i n))
                     (exists (x)
                       (<a href="../argn/index.html">argn</a> x i e))))))))
-
-
+</pre>
+<pre>
 (forall (n)
    (iff (<a href="../posInteger/index.html">posInteger</a> n)
         (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n) (<a href="../nequal/index.html">nequal</a> n 0))))
-
-
+</pre>
+<pre>
 (forall (n1 n2)
    (if (and (<a href="../nonNegInteger/index.html">nonNegInteger</a> n1) (<a href="../nonNegInteger/index.html">nonNegInteger</a> n2))
        (iff (<a href="../lt/index.html">lt</a> n1 n2)
             (exists (n3) (and (<a href="../posInteger/index.html">posInteger</a> n3) (<a href="../sum/index.html">sum</a> n2 n1 n3))))))
-
-
+</pre>
+<pre>
 (forall (s n1 n2)
   (iff (<a href="../ints/index.html">ints</a> s n1 n2)
        (and (<a href="../posInteger/index.html">posInteger</a> n1) (<a href="../posInteger/index.html">posInteger</a> n2) (<a href="../set/index.html">set</a> s)
             (forall (n)
               (iff (<a href="../member/index.html">member</a> n s)
                    (and (<a href="../posInteger/index.html">posInteger</a> n) (<a href="../leq/index.html">leq</a> n1 n) (<a href="../leq/index.html">leq</a> n n2)))))))
-
-
+</pre>
+<pre>
 (forall (s1 s)
   (iff (<a href="../rest/index.html">rest</a> s1 s)
        (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../sequence/index.html">sequence</a> s1)
@@ -63,8 +73,8 @@
                    (exists (j)
                      (and (<a href="../posInteger/index.html">posInteger</a> i) (<a href="../successor/index.html">successor</a> j i)
                           (<a href="../map/index.html">map</a> s j x))))))))
-
-
+</pre>
+<pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst/index.html">subst</a> x e1 y e2)
        (exists (p n)
@@ -82,9 +92,9 @@
                                       (equal z2 y))))
                          (if (<a href="../eventuality/index.html">eventuality</a> z1)
                              (<a href="../subst/index.html">subst</a> x z1 y z2)))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

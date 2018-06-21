@@ -14,16 +14,26 @@
 </head>
 
 <body>
-<h1>Predicate: scaleOrderedByDuration</h1>
-<pre>(scaleOrderedByDuration s)</pre><p>Scale s is a scale whose elements are</p><h2>Characterizing Axioms</h2><pre>(forall (s)
+<h1>Predicate: <code>scaleOrderedByDuration</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(scaleOrderedByDuration s)</pre><p>Scale s is a scale whose elements are</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s)
   (iff (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s)
        (exists (s1 e t1 t2)
          (and (forall (t) (if (<a href="../member/index.html">member</a> t s1) (<a href="../interval/index.html">interval</a> t)))
               (<a href="../shorterDuration/index.html">shorterDuration</a>' e t1 t2)
               (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s)
   (iff (<a href="../roughlyPeriodicTseq/index.html">roughlyPeriodicTseq</a> s u)
        (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../temporalUnit/index.html">temporalUnit</a> u)
             (exists (s0 d)
@@ -36,17 +46,17 @@
                                 (<a href="../intervalBetween/index.html">intervalBetween</a> t34 t3 t4)
                                 (<a href="../durationOf/index.html">durationOf</a>' e d t12 u)
                                 (<a href="../sameHOM/index.html">sameHOM</a> t12 t34 s0 e))))))))))
-
-
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s)
        (exists (s1 e t1 t2)
          (and (forall (t) (if (<a href="../member/index.html">member</a> t s1) (<a href="../interval/index.html">interval</a> t)))
               (<a href="../shorterDuration/index.html">shorterDuration</a>' e t1 t2)
               (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

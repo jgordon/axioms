@@ -14,22 +14,32 @@
 </head>
 
 <body>
-<h1>Predicate: replaceElt</h1>
-<pre>(replaceElt s s1 x y)</pre><p>s is obtained from s1 by replacing x with y.</p><h2>Characterizing Axioms</h2><pre>(forall (s s1 x y)
+<h1>Predicate: <code>replaceElt</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(replaceElt s s1 x y)</pre><p>s is obtained from s1 by replacing x with y.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s s1 x y)
   (iff (<a href="../replaceElt/index.html">replaceElt</a> s s1 x y)
        (exists (s2)
          (and (<a href="../deleteElt/index.html">deleteElt</a> s2 s1 x)
               (<a href="../addElt/index.html">addElt</a> s s2 y)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s s1 x y)
-  (iff (<a href="../replaceElt/index.html">replaceElt</a> s s1 x y)
-       (exists (s2)
-         (and (<a href="../deleteElt/index.html">deleteElt</a> s2 s1 x)
-              (<a href="../addElt/index.html">addElt</a> s s2 y)))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s s1 x y)
+  (iff (<a href="../replaceElt/index.html">replaceElt</a> s s1 x y)
+       (exists (s2)
+         (and (<a href="../deleteElt/index.html">deleteElt</a> s2 s1 x)
+              (<a href="../addElt/index.html">addElt</a> s s2 y)))))
+</pre>
+</section>
+
 </body>
 
 </html>

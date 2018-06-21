@@ -14,29 +14,39 @@
 </head>
 
 <body>
-<h1>Predicate: difficultiesWith</h1>
-<pre>(difficultiesWith s e)</pre><p>s is the set of obstructions tending to</p><h2>Characterizing Axioms</h2><pre>(forall (s e)
+<h1>Predicate: <code>difficultiesWith</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(difficultiesWith s e)</pre><p>s is the set of obstructions tending to</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s e)
   (iff (<a href="../difficultiesWith/index.html">difficultiesWith</a> s e)
        (forall (e1)
          (iff (<a href="../member/index.html">member</a> e1 s)
               (exists (e2)
                 (and (<a href="../not'/index.html">not'</a> e2 e) (<a href="../tcause/index.html">tcause</a> e1 e2)))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s e)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s e)
   (iff (<a href="../difficultiesWith/index.html">difficultiesWith</a> s e)
        (forall (e1)
          (iff (<a href="../member/index.html">member</a> e1 s)
               (exists (e2)
                 (and (<a href="../not'/index.html">not'</a> e2 e) (<a href="../tcause/index.html">tcause</a> e1 e2)))))))
-
-
+</pre>
+<pre>
 (forall (s s1 e)
   (if (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../difficultiesWith/index.html">difficultiesWith</a>' e1 s e))
       (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e1)))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

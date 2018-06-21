@@ -14,24 +14,14 @@
 </head>
 
 <body>
-<h1>Predicate: periodicTseq</h1>
-<pre>(periodicTseq s)</pre><p>Temporal sequence s is periodic, in that the</p><h2>Characterizing Axioms</h2><pre>(forall (s)
-  (iff (<a href="../periodicTseq/index.html">periodicTseq</a> s)
-       (and (<a href="../tseq/index.html">tseq</a> s)
-            (exists (d u)
-              (forall (t1 t2)
-                (if (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
-                    (exists (t)
-                      (and (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2)
-                           (<a href="../durationOf/index.html">durationOf</a> d t u)))))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s d t1 t2 t n1 n2 u)
-  (if (and (<a href="../periodicTseq/index.html">periodicTseq</a> s) (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
-           (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2))
-      (iff (<a href="../gapDuration/index.html">gapDuration</a> d s u) (<a href="../durationOf/index.html">durationOf</a> d t u))))
-
-
+<h1>Predicate: <code>periodicTseq</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(periodicTseq s)</pre><p>Temporal sequence s is periodic, in that the</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (s)
   (iff (<a href="../periodicTseq/index.html">periodicTseq</a> s)
        (and (<a href="../tseq/index.html">tseq</a> s)
@@ -41,9 +31,29 @@
                     (exists (t)
                       (and (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2)
                            (<a href="../durationOf/index.html">durationOf</a> d t u)))))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s d t1 t2 t n1 n2 u)
+  (if (and (<a href="../periodicTseq/index.html">periodicTseq</a> s) (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
+           (<a href="../temporalUnit/index.html">temporalUnit</a> u) (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2))
+      (iff (<a href="../gapDuration/index.html">gapDuration</a> d s u) (<a href="../durationOf/index.html">durationOf</a> d t u))))
+</pre>
+<pre>
+(forall (s)
+  (iff (<a href="../periodicTseq/index.html">periodicTseq</a> s)
+       (and (<a href="../tseq/index.html">tseq</a> s)
+            (exists (d u)
+              (forall (t1 t2)
+                (if (<a href="../successiveElts/index.html">successiveElts</a> t1 t2 s)
+                    (exists (t)
+                      (and (<a href="../intervalBetween/index.html">intervalBetween</a> t t1 t2)
+                           (<a href="../durationOf/index.html">durationOf</a> d t u)))))))))
+</pre>
+</section>
+
 </body>
 
 </html>

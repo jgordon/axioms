@@ -14,30 +14,37 @@
 </head>
 
 <body>
-<h1>Predicate: temporal</h1>
-<pre>(temporal e)</pre><p>e is a temporal property, i.e., `atTime`, `during`,</p><h2>All Axioms</h2><pre>(forall (e d t u)
+<h1>Predicate: <code>temporal</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(temporal e)</pre><p>e is a temporal property, i.e., `atTime`, `during`,</p>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e d t u)
   (if (<a href="../durationOf/index.html">durationOf</a>' e d t u) (<a href="../temporal/index.html">temporal</a> e)))
-
-
-(forall (e t1 t2) (if (<a href="../before/index.html">before</a>' e t1 t2) (<a href="../temporal/index.html">temporal</a> e)))
-
-
-(forall (e) (iff (<a href="../nontemporal/index.html">nontemporal</a> e) (not (<a href="../temporal/index.html">temporal</a> e))))
-
-
-(forall (e0 e t) (if (<a href="../atTime/index.html">atTime</a>' e0 e t) (<a href="../temporal/index.html">temporal</a> e0)))
-
-
-(forall (e0 e t) (if (<a href="../during/index.html">during</a>' e0 e t) (<a href="../temporal/index.html">temporal</a> e0)))
-
-
-(forall (e0 e t) (if (<a href="../happensIn/index.html">happensIn</a>' e0 e t) (<a href="../temporal/index.html">temporal</a> e0)))
-
-
-(forall (e0 e t) (if (<a href="../timeSpanOf/index.html">timeSpanOf</a>' e0 t e) (<a href="../temporal/index.html">temporal</a> e0)))
-
-
 </pre>
+<pre>
+(forall (e t1 t2) (if (<a href="../before/index.html">before</a>' e t1 t2) (<a href="../temporal/index.html">temporal</a> e)))
+</pre>
+<pre>
+(forall (e) (iff (<a href="../nontemporal/index.html">nontemporal</a> e) (not (<a href="../temporal/index.html">temporal</a> e))))
+</pre>
+<pre>
+(forall (e0 e t) (if (<a href="../atTime/index.html">atTime</a>' e0 e t) (<a href="../temporal/index.html">temporal</a> e0)))
+</pre>
+<pre>
+(forall (e0 e t) (if (<a href="../during/index.html">during</a>' e0 e t) (<a href="../temporal/index.html">temporal</a> e0)))
+</pre>
+<pre>
+(forall (e0 e t) (if (<a href="../happensIn/index.html">happensIn</a>' e0 e t) (<a href="../temporal/index.html">temporal</a> e0)))
+</pre>
+<pre>
+(forall (e0 e t) (if (<a href="../timeSpanOf/index.html">timeSpanOf</a>' e0 t e) (<a href="../temporal/index.html">temporal</a> e0)))
+</pre>
+</section>
+
 </body>
 
 </html>

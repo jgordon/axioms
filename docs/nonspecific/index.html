@@ -14,27 +14,37 @@
 </head>
 
 <body>
-<h1>Predicate: nonspecific</h1>
-<pre>(nonspecific x)</pre><p>x is a typical element or functionally dependent on</p><h2>Characterizing Axioms</h2><pre>(forall (x)
+<h1>Predicate: <code>nonspecific</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(nonspecific x)</pre><p>x is a typical element or functionally dependent on</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (x)
   (iff (<a href="../nonspecific/index.html">nonspecific</a> x)
        (or (exists (s) (<a href="../typelt/index.html">typelt</a> x s))
            (exists (y s e)
              (and (<a href="../typelt/index.html">typelt</a> y s) (<a href="../fd/index.html">fd</a> x y e))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (x)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (x)
   (iff (<a href="../nonspecific/index.html">nonspecific</a> x)
        (or (exists (s) (<a href="../typelt/index.html">typelt</a> x s))
            (exists (y s e)
              (and (<a href="../typelt/index.html">typelt</a> y s) (<a href="../fd/index.html">fd</a> x y e))))))
-
-
+</pre>
+<pre>
 (forall (x)
   (iff (<a href="../specific/index.html">specific</a> x)
        (not (<a href="../nonspecific/index.html">nonspecific</a> x))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

@@ -14,15 +14,25 @@
 </head>
 
 <body>
-<h1>Predicate: componentOf</h1>
-<pre>(componentOf y x)</pre><p>y is a component of x.</p><h2>Characterizing Axioms</h2><pre>(forall (y x)
+<h1>Predicate: <code>componentOf</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(componentOf y x)</pre><p>y is a component of x.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (y x)
   (iff (<a href="../componentOf/index.html">componentOf</a> y x)
        (and (<a href="../compositeEntity/index.html">compositeEntity</a> x)
             (exists (s)
               (and (<a href="../componentsOf/index.html">componentsOf</a> s x) (<a href="../member/index.html">member</a> y s))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s)
   (iff (<a href="../ground/index.html">ground</a> s)
        (and (<a href="../compositeEntity/index.html">compositeEntity</a> s)
             (exists (e y)
@@ -33,8 +43,8 @@
                            (and (<a href="../subst/index.html">subst</a> y e y1 e1)
                                 (if (<a href="../Rexist/index.html">Rexist</a> s)
                                     (<a href="../Rexist/index.html">Rexist</a> e1)))))))))))
-
-
+</pre>
+<pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
       (iff (<a href="../incompleteInstance/index.html">incompleteInstance</a> x1 x)
@@ -48,8 +58,8 @@
                        (forall (y1 p1)
                          (if (<a href="../subst/index.html">subst</a> y1 p1 y p)
                              (not (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))
-
-
+</pre>
+<pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
       (iff (<a href="../patternInstance/index.html">patternInstance</a> x1 x)
@@ -63,13 +73,13 @@
                                    (exists (p1)
                                           (and (<a href="../subst/index.html">subst</a> y1 p1 y p)
                                                (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))))
-
-
+</pre>
+<pre>
 (forall (x y s)
   (if (<a href="../at/index.html">at</a> x y s)
       (and (<a href="../componentOf/index.html">componentOf</a> y s) (<a href="../externalTo/index.html">externalTo</a> x s))))
-
-
+</pre>
+<pre>
 (forall (x)
   (if (<a href="../pattern/index.html">pattern</a> x)
       (iff (<a href="../patternParameters/index.html">patternParameters</a> s x)
@@ -78,32 +88,32 @@
                   (exists (s1)
                          (and (<a href="../componentOf/index.html">componentOf</a> y x)
                               (<a href="../typelt/index.html">typelt</a> y s1))))))))
-
-
+</pre>
+<pre>
 (forall (x)
   (iff (<a href="../pattern/index.html">pattern</a> x)
        (exists (y s1)
               (and (<a href="../componentOf/index.html">componentOf</a> y x) (<a href="../typelt/index.html">typelt</a> y s1)))))
-
-
+</pre>
+<pre>
 (forall (x1 x)
   (iff (<a href="../componentOrWhole/index.html">componentOrWhole</a> x1 x)
        (or (equal x1 x) (<a href="../componentOf/index.html">componentOf</a> x1 x))))
-
-
+</pre>
+<pre>
 (forall (y s)
    (iff (<a href="../inScale/index.html">inScale</a> y s)
         (and (<a href="../scale/index.html">scale</a> s) (<a href="../componentOf/index.html">componentOf</a> y s))))
-
-
+</pre>
+<pre>
 (forall (y x)
   (iff (<a href="../componentOf/index.html">componentOf</a> y x)
        (and (<a href="../compositeEntity/index.html">compositeEntity</a> x)
             (exists (s)
               (and (<a href="../componentsOf/index.html">componentsOf</a> s x) (<a href="../member/index.html">member</a> y s))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

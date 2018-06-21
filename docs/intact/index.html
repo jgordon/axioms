@@ -14,14 +14,17 @@
 </head>
 
 <body>
-<h1>Predicate: intact</h1>
-<h2>All Axioms</h2><pre>(forall (p x e2)
+<h1>Predicate: <code>intact</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (p x e2)
   (if (and (<a href="../person/index.html">person</a> p) (<a href="../perceive/index.html">perceive</a>' e2 p x))
       (exists (o e1)
         (and (<a href="../senseOrgan/index.html">senseOrgan</a> o p) (<a href="../intact/index.html">intact</a>' e1 o) (<a href="../enable/index.html">enable</a> e1 e2)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

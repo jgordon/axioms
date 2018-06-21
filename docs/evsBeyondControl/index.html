@@ -14,26 +14,14 @@
 </head>
 
 <body>
-<h1>Predicate: evsBeyondControl</h1>
-<pre>(evsBeyondControl s1 s a)</pre><p>s1 is the subset of eventualities in s</p><h2>Characterizing Axioms</h2><pre>(forall (s1 s a)
-  (iff (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
-       (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../subset/index.html">subset</a> s1 s) (<a href="../agent/index.html">agent</a> a)
-            (forall (e)
-              (iff (<a href="../member/index.html">member</a> e s1)
-                   (and (not (<a href="../agentOf/index.html">agentOf</a> a e))
-                        (not (exists (e1)
-                               (and (<a href="../agentOf/index.html">agentOf</a> a e1)
-                                    (<a href="../cause/index.html">cause</a> e1 e))))))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (a e c)
-  (iff (<a href="../able/index.html">able</a> a e c)
-       (exists (s s1 e1)
-         (and (<a href="../causalComplex/index.html">causalComplex</a> s e) (<a href="../cause/index.html">cause</a>' e1 a e) (<a href="../member/index.html">member</a> e1 s)
-              (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
-              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../possible/index.html">possible</a> e1 c))))))
-
-
+<h1>Predicate: <code>evsBeyondControl</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(evsBeyondControl s1 s a)</pre><p>s1 is the subset of eventualities in s</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (s1 s a)
   (iff (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
        (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../subset/index.html">subset</a> s1 s) (<a href="../agent/index.html">agent</a> a)
@@ -43,9 +31,31 @@
                         (not (exists (e1)
                                (and (<a href="../agentOf/index.html">agentOf</a> a e1)
                                     (<a href="../cause/index.html">cause</a> e1 e))))))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (a e c)
+  (iff (<a href="../able/index.html">able</a> a e c)
+       (exists (s s1 e1)
+         (and (<a href="../causalComplex/index.html">causalComplex</a> s e) (<a href="../cause/index.html">cause</a>' e1 a e) (<a href="../member/index.html">member</a> e1 s)
+              (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
+              (if (<a href="../Rexist/index.html">Rexist</a> s1) (<a href="../possible/index.html">possible</a> e1 c))))))
+</pre>
+<pre>
+(forall (s1 s a)
+  (iff (<a href="../evsBeyondControl/index.html">evsBeyondControl</a> s1 s a)
+       (and (<a href="../eventualities/index.html">eventualities</a> s) (<a href="../subset/index.html">subset</a> s1 s) (<a href="../agent/index.html">agent</a> a)
+            (forall (e)
+              (iff (<a href="../member/index.html">member</a> e s1)
+                   (and (not (<a href="../agentOf/index.html">agentOf</a> a e))
+                        (not (exists (e1)
+                               (and (<a href="../agentOf/index.html">agentOf</a> a e1)
+                                    (<a href="../cause/index.html">cause</a> e1 e))))))))))
+</pre>
+</section>
+
 </body>
 
 </html>

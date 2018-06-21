@@ -14,26 +14,36 @@
 </head>
 
 <body>
-<h1>Predicate: changeIn</h1>
-<pre>(changeIn x)</pre><p>There is a change in some property of x.</p><h2>Characterizing Axioms</h2><pre>(forall (e x)
+<h1>Predicate: <code>changeIn</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(changeIn x)</pre><p>There is a change in some property of x.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e x)
   (iff (<a href="../changeIn/index.html">changeIn</a>' e x)
        (exists (e1 e2 e3)
          (and (<a href="../arg*/index.html">arg*</a> x e1) (<a href="../arg*/index.html">arg*</a> x e2) (<a href="../change/index.html">change</a>' e3 e1 e2) (<a href="../gen/index.html">gen</a> e3 e)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e x)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e x)
   (iff (<a href="../changeIn/index.html">changeIn</a>' e x)
        (exists (e1 e2 e3)
          (and (<a href="../arg*/index.html">arg*</a> x e1) (<a href="../arg*/index.html">arg*</a> x e2) (<a href="../change/index.html">change</a>' e3 e1 e2) (<a href="../gen/index.html">gen</a> e3 e)))))
-
-
+</pre>
+<pre>
 (forall (x e)
   (iff (<a href="../objectOf/index.html">objectOf</a> x e)
        (or (<a href="../changeIn/index.html">changeIn</a>' e x)
            (exists (e1 e2)
              (and (<a href="../and'/index.html">and'</a> e e1 e2) (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../objectOf/index.html">objectOf</a> x e2))))))
-
-
+</pre>
+<pre>
 (forall (y e)
   (iff (<a href="../instrumentOf/index.html">instrumentOf</a> y e)
        (exists (a e1)
@@ -41,9 +51,9 @@
               (or (<a href="../cause/index.html">cause</a> e1 e)
                   (exists (e2)
                     (and (<a href="../cause/index.html">cause</a> e1 e2) (<a href="../and'/index.html">and'</a> e e1 e2))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

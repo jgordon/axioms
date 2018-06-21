@@ -14,12 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: joinedCurves</h1>
-<h2>Characterizing Axioms</h2><pre>(forall (c c1 c2 x)
+<h1>Predicate: <code>joinedCurves</code></h1>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (c c1 c2 x)
    (if (<a href="../joinedCurves/index.html">joinedCurves</a> c c1 c2 x)
        (<a href="../curve/index.html">curve</a> c)))
-
-
+</pre>
+<pre>
 (forall (c c1 c2 x)
   (iff (<a href="../joinedCurves/index.html">joinedCurves</a> c c1 c2 x)
        (and (<a href="../curve/index.html">curve</a> c1) (<a href="../curve/index.html">curve</a> c2) (<a href="../nequal/index.html">nequal</a> c1 c2)
@@ -32,13 +35,16 @@
               (iff (<a href="../endpoint/index.html">endpoint</a> z c)
                    (and (<a href="../nequal/index.html">nequal</a> z x)
                         (or (<a href="../endpoint/index.html">endpoint</a> z c1) (<a href="../endpoint/index.html">endpoint</a> z c2))))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (c c1 c2 x)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (c c1 c2 x)
    (if (<a href="../joinedCurves/index.html">joinedCurves</a> c c1 c2 x)
        (<a href="../curve/index.html">curve</a> c)))
-
-
+</pre>
+<pre>
 (forall (c c1 c2 x)
   (iff (<a href="../joinedCurves/index.html">joinedCurves</a> c c1 c2 x)
        (and (<a href="../curve/index.html">curve</a> c1) (<a href="../curve/index.html">curve</a> c2) (<a href="../nequal/index.html">nequal</a> c1 c2)
@@ -51,15 +57,15 @@
               (iff (<a href="../endpoint/index.html">endpoint</a> z c)
                    (and (<a href="../nequal/index.html">nequal</a> z x)
                         (or (<a href="../endpoint/index.html">endpoint</a> z c1) (<a href="../endpoint/index.html">endpoint</a> z c2))))))))
-
-
+</pre>
+<pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex/index.html">vertex</a> v c1 c2 x)
        (and (<a href="../linear/index.html">linear</a> c1) (<a href="../linear/index.html">linear</a> c2) (not (<a href="../linear/index.html">linear</a> v))
             (<a href="../joinedCurves/index.html">joinedCurves</a> v c1 c2 x))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

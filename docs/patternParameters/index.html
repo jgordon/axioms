@@ -14,8 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: patternParameters</h1>
-<pre>(patternParameters s x)</pre><p>s is the set of parameters of x</p><h2>All Axioms</h2><pre>(forall (x x1 s)
+<h1>Predicate: <code>patternParameters</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(patternParameters s x)</pre><p>s is the set of parameters of x</p>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (x x1 s)
   (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
       (iff (<a href="../incompleteInstance/index.html">incompleteInstance</a> x1 x)
            (and (exists (y y1 s1 p p1)
@@ -28,8 +35,8 @@
                        (forall (y1 p1)
                          (if (<a href="../subst/index.html">subst</a> y1 p1 y p)
                              (not (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))
-
-
+</pre>
+<pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
       (iff (<a href="../patternInstance/index.html">patternInstance</a> x1 x)
@@ -43,8 +50,8 @@
                                    (exists (p1)
                                           (and (<a href="../subst/index.html">subst</a> y1 p1 y p)
                                                (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))))
-
-
+</pre>
+<pre>
 (forall (x)
   (if (<a href="../pattern/index.html">pattern</a> x)
       (iff (<a href="../patternParameters/index.html">patternParameters</a> s x)
@@ -53,9 +60,9 @@
                   (exists (s1)
                          (and (<a href="../componentOf/index.html">componentOf</a> y x)
                               (<a href="../typelt/index.html">typelt</a> y s1))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

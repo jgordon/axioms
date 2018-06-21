@@ -14,35 +14,41 @@
 </head>
 
 <body>
-<h1>Predicate: plane</h1>
-<h2>Characterizing Axioms</h2><pre>(forall (r)
+<h1>Predicate: <code>plane</code></h1>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (r)
   (iff (<a href="../plane/index.html">plane</a> r)
        (forall (c x1 x2)
          (if (and (<a href="../line/index.html">line</a> c) (<a href="../inside/index.html">inside</a> x1 c) (<a href="../inside/index.html">inside</a> x2 c)
                   (<a href="../inside/index.html">inside</a> x1 r) (<a href="../inside/index.html">inside</a> x2 r))
              (<a href="../inside/index.html">inside</a> c r)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (f1 f2)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (f1 f2)
   (iff (<a href="../coplanar/index.html">coplanar</a> f1 f2)
        (exists (p)
          (and (<a href="../plane/index.html">plane</a> p) (<a href="../inside/index.html">inside</a> f1 p) (<a href="../inside/index.html">inside</a> f2 p)))))
-
-
+</pre>
+<pre>
 (forall (r)
   (iff (<a href="../planar/index.html">planar</a> r)
        (exists (r1) (and (<a href="../plane/index.html">plane</a> r1) (<a href="../inside/index.html">inside</a> r r1)))))
-
-
+</pre>
+<pre>
 (forall (r)
   (iff (<a href="../plane/index.html">plane</a> r)
        (forall (c x1 x2)
          (if (and (<a href="../line/index.html">line</a> c) (<a href="../inside/index.html">inside</a> x1 c) (<a href="../inside/index.html">inside</a> x2 c)
                   (<a href="../inside/index.html">inside</a> x1 r) (<a href="../inside/index.html">inside</a> x2 r))
              (<a href="../inside/index.html">inside</a> c r)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

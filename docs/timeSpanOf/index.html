@@ -14,10 +14,17 @@
 </head>
 
 <body>
-<h1>Predicate: timeSpanOf</h1>
-<pre>(timeSpanOf t e)</pre><p>Temporal entity or sequence t is all the</p><h2>Characterizing Axioms</h2><pre>(forall (e0 e t) (if (<a href="../timeSpanOf/index.html">timeSpanOf</a>' e0 t e) (<a href="../temporal/index.html">temporal</a> e0)))
-
-
+<h1>Predicate: <code>timeSpanOf</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(timeSpanOf t e)</pre><p>Temporal entity or sequence t is all the</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e0 e t) (if (<a href="../timeSpanOf/index.html">timeSpanOf</a>' e0 t e) (<a href="../temporal/index.html">temporal</a> e0)))
+</pre>
+<pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e)
        (or (and (<a href="../instant/index.html">instant</a> t) (<a href="../atTime/index.html">atTime</a> e t)
@@ -43,15 +50,18 @@
                                  (or (<a href="../begins/index.html">begins</a> t1 t2)
                                      (<a href="../insideTime/index.html">insideTime</a> t1 t2)
                                      (<a href="../ends/index.html">ends</a> t1 t2)))))))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (d e u)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (d e u)
   (if (<a href="../eventuality/index.html">eventuality</a> e)
       (iff (<a href="../durationOf/index.html">durationOf</a> d e u)
            (exists (t)
              (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../durationOf/index.html">durationOf</a> d t u))))))
-
-
+</pre>
+<pre>
 (forall (e t)
   (iff (<a href="../happensIn/index.html">happensIn</a> e t)
        (exists (t1)
@@ -61,45 +71,45 @@
                         (<a href="../ends/index.html">ends</a> t2 t1))
                     (or (<a href="../begins/index.html">begins</a> t2 t) (<a href="../insideTime/index.html">insideTime</a> t2 t)
                         (<a href="../ends/index.html">ends</a> t2 t))))))))
-
-
+</pre>
+<pre>
 (forall (e)
   (iff (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> e)
        (or (<a href="../posInfInterval/index.html">posInfInterval</a> e)
            (exists (t)
              (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../posInfInterval/index.html">posInfInterval</a> t))))))
-
-
+</pre>
+<pre>
 (forall (e)
   (iff (<a href="../properIntervalEv/index.html">properIntervalEv</a> e)
        (or (<a href="../properInterval/index.html">properInterval</a> e)
            (exists (t)
              (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e) (<a href="../properInterval/index.html">properInterval</a> t)))
            (<a href="../posInfIntervalEv/index.html">posInfIntervalEv</a> e))))
-
-
+</pre>
+<pre>
 (forall (e0 e t) (if (<a href="../timeSpanOf/index.html">timeSpanOf</a>' e0 t e) (<a href="../temporal/index.html">temporal</a> e0)))
-
-
+</pre>
+<pre>
 (forall (t e)
   (if (<a href="../eventuality/index.html">eventuality</a> e)
       (iff (<a href="../begins/index.html">begins</a> t e)
            (exists (t1) (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t1 e) (<a href="../begins/index.html">begins</a> t t1))))))
-
-
+</pre>
+<pre>
 (forall (t e)
   (if (<a href="../eventuality/index.html">eventuality</a> e)
       (iff (<a href="../ends/index.html">ends</a> t e)
            (exists (t1) (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t1 e) (<a href="../ends/index.html">ends</a> t t1))))))
-
-
+</pre>
+<pre>
 (forall (t e)
   (if (<a href="../eventuality/index.html">eventuality</a> e)
       (iff (<a href="../insideTime/index.html">insideTime</a> t e)
            (exists (t1)
              (and (<a href="../timeSpanOf/index.html">timeSpanOf</a> t1 e) (<a href="../insideTime/index.html">insideTime</a> t t1))))))
-
-
+</pre>
+<pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf/index.html">timeSpanOf</a> t e)
        (or (and (<a href="../instant/index.html">instant</a> t) (<a href="../atTime/index.html">atTime</a> e t)
@@ -125,9 +135,9 @@
                                  (or (<a href="../begins/index.html">begins</a> t1 t2)
                                      (<a href="../insideTime/index.html">insideTime</a> t1 t2)
                                      (<a href="../ends/index.html">ends</a> t1 t2)))))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

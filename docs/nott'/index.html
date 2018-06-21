@@ -14,20 +14,30 @@
 </head>
 
 <body>
-<h1>Predicate: nott'</h1>
-<pre>(nott' e1 e2)</pre><p>e1 is the eventuality of nothing of e2's type existing.</p><h2>Characterizing Axioms</h2><pre>(forall (e1 e2)
+<h1>Predicate: <code>nott'</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(nott' e1 e2)</pre><p>e1 is the eventuality of nothing of e2's type existing.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e1 e2)
   (if (<a href="../nott'/index.html">nott'</a> e1 e2)
       (exists (e3)
         (and (<a href="../instance/index.html">instance</a> e2 e3) (<a href="../not'/index.html">not'</a> e1 e3)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e1 e2)
-  (if (<a href="../nott'/index.html">nott'</a> e1 e2)
-      (exists (e3)
-        (and (<a href="../instance/index.html">instance</a> e2 e3) (<a href="../not'/index.html">not'</a> e1 e3)))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e1 e2)
+  (if (<a href="../nott'/index.html">nott'</a> e1 e2)
+      (exists (e3)
+        (and (<a href="../instance/index.html">instance</a> e2 e3) (<a href="../not'/index.html">not'</a> e1 e3)))))
+</pre>
+</section>
+
 </body>
 
 </html>

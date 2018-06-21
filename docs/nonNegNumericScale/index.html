@@ -14,35 +14,14 @@
 </head>
 
 <body>
-<h1>Predicate: nonNegNumericScale</h1>
-<pre>(nonNegNumericScale s)</pre><p> s is a scale whose elements are nonnegative</p><h2>Characterizing Axioms</h2><pre>(forall (s)
-  (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)
-      (exists (s1 e x y)
-        (and (<a href="../lt/index.html">lt</a>' e x y)
-             (forall (n)
-               (if (<a href="../member/index.html">member</a> n s1)
-                   (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
-             (<a href="../member/index.html">member</a> 0 s1)
-             (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
-
-
-(forall (s) (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s) (<a href="../vertical/index.html">vertical</a> s)))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (f s)
-  (if (and (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s) (<a href="../identityFunction/index.html">identityFunction</a> f s))
-      (<a href="../measure/index.html">measure</a> f s)))
-
-
-(forall (m s1)
-  (iff (<a href="../measure/index.html">measure</a> m s1)
-       (exists (s2)
-         (and (<a href="../scale/index.html">scale</a> s1) (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s2)
-              (<a href="../functionInto/index.html">functionInto</a> m s1 s2)
-              (<a href="../monotoneIncreasing/index.html">monotoneIncreasing</a> m)
-              (forall (x) (if (<a href="../bottom/index.html">bottom</a> x s1) (<a href="../map/index.html">map</a> m x 0)))))))
-
-
+<h1>Predicate: <code>nonNegNumericScale</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(nonNegNumericScale s)</pre><p> s is a scale whose elements are nonnegative</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (s)
   (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)
       (exists (s1 e x y)
@@ -52,11 +31,42 @@
                    (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
              (<a href="../member/index.html">member</a> 0 s1)
              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
-
-
+</pre>
+<pre>
 (forall (s) (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s) (<a href="../vertical/index.html">vertical</a> s)))
-
-
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (f s)
+  (if (and (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s) (<a href="../identityFunction/index.html">identityFunction</a> f s))
+      (<a href="../measure/index.html">measure</a> f s)))
+</pre>
+<pre>
+(forall (m s1)
+  (iff (<a href="../measure/index.html">measure</a> m s1)
+       (exists (s2)
+         (and (<a href="../scale/index.html">scale</a> s1) (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s2)
+              (<a href="../functionInto/index.html">functionInto</a> m s1 s2)
+              (<a href="../monotoneIncreasing/index.html">monotoneIncreasing</a> m)
+              (forall (x) (if (<a href="../bottom/index.html">bottom</a> x s1) (<a href="../map/index.html">map</a> m x 0)))))))
+</pre>
+<pre>
+(forall (s)
+  (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)
+      (exists (s1 e x y)
+        (and (<a href="../lt/index.html">lt</a>' e x y)
+             (forall (n)
+               (if (<a href="../member/index.html">member</a> n s1)
+                   (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
+             (<a href="../member/index.html">member</a> 0 s1)
+             (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
+</pre>
+<pre>
+(forall (s) (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s) (<a href="../vertical/index.html">vertical</a> s)))
+</pre>
+<pre>
 (forall (s1 e x y)
   (if (and (<a href="../lt/index.html">lt</a>' e x y)
            (forall (n)
@@ -65,9 +75,9 @@
            (<a href="../member/index.html">member</a> 0 s1))
       (exists (s)
         (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

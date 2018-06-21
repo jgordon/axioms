@@ -14,12 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: linear</h1>
-<h2>Characterizing Axioms</h2><pre>(forall (c)
+<h1>Predicate: <code>linear</code></h1>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (c)
   (if (<a href="../linear/index.html">linear</a> c)
       (<a href="../curve/index.html">curve</a> c)))
-
-
+</pre>
+<pre>
 (forall (c)
   (if (<a href="../linear/index.html">linear</a> c)
       (and (exists (c1) (and (<a href="../line/index.html">line</a> c1) (<a href="../subfigure/index.html">subfigure</a> c c1)))
@@ -27,18 +30,21 @@
              (if (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2)
                       (<a href="../subfigure/index.html">subfigure</a> c c1) (<a href="../subfigure/index.html">subfigure</a> c c2))
                   (equal c1 c2))))))
-
-
+</pre>
+<pre>
 (forall (c)
   (iff (<a href="../linear/index.html">linear</a> c)
        (or (<a href="../line/index.html">line</a> c) (<a href="../ray/index.html">ray</a> c) (<a href="../lineSegment/index.html">lineSegment</a> c))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (c)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (c)
   (if (<a href="../linear/index.html">linear</a> c)
       (<a href="../curve/index.html">curve</a> c)))
-
-
+</pre>
+<pre>
 (forall (c)
   (if (<a href="../linear/index.html">linear</a> c)
       (and (exists (c1) (and (<a href="../line/index.html">line</a> c1) (<a href="../subfigure/index.html">subfigure</a> c c1)))
@@ -46,20 +52,20 @@
              (if (and (<a href="../line/index.html">line</a> c1) (<a href="../line/index.html">line</a> c2)
                       (<a href="../subfigure/index.html">subfigure</a> c c1) (<a href="../subfigure/index.html">subfigure</a> c c2))
                   (equal c1 c2))))))
-
-
+</pre>
+<pre>
 (forall (c)
   (iff (<a href="../linear/index.html">linear</a> c)
        (or (<a href="../line/index.html">line</a> c) (<a href="../ray/index.html">ray</a> c) (<a href="../lineSegment/index.html">lineSegment</a> c))))
-
-
+</pre>
+<pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex/index.html">vertex</a> v c1 c2 x)
        (and (<a href="../linear/index.html">linear</a> c1) (<a href="../linear/index.html">linear</a> c2) (not (<a href="../linear/index.html">linear</a> v))
             (<a href="../joinedCurves/index.html">joinedCurves</a> v c1 c2 x))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

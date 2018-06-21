@@ -14,22 +14,32 @@
 </head>
 
 <body>
-<h1>Predicate: whileDo</h1>
-<pre>(whileDo e e1 e2)</pre><p>e is the event consisting of iterations of event e2</p><h2>Characterizing Axioms</h2><pre>(forall (e e1 e2)
+<h1>Predicate: <code>whileDo</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(whileDo e e1 e2)</pre><p>e is the event consisting of iterations of event e2</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e e1 e2)
   (iff (<a href="../whileDo/index.html">whileDo</a> e e1 e2)
        (exists (e3 e4 e5)
          (and (<a href="../cond/index.html">cond</a> e e1 e3) (<a href="../eventSequence/index.html">eventSequence</a>' e3 e4 e5) (<a href="../instance/index.html">instance</a> e4 e2)
               (or (<a href="../whileDo/index.html">whileDo</a> e5 e1 e2) (<a href="../instance/index.html">instance</a> e5 e2))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e e1 e2)
-  (iff (<a href="../whileDo/index.html">whileDo</a> e e1 e2)
-       (exists (e3 e4 e5)
-         (and (<a href="../cond/index.html">cond</a> e e1 e3) (<a href="../eventSequence/index.html">eventSequence</a>' e3 e4 e5) (<a href="../instance/index.html">instance</a> e4 e2)
-              (or (<a href="../whileDo/index.html">whileDo</a> e5 e1 e2) (<a href="../instance/index.html">instance</a> e5 e2))))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e e1 e2)
+  (iff (<a href="../whileDo/index.html">whileDo</a> e e1 e2)
+       (exists (e3 e4 e5)
+         (and (<a href="../cond/index.html">cond</a> e e1 e3) (<a href="../eventSequence/index.html">eventSequence</a>' e3 e4 e5) (<a href="../instance/index.html">instance</a> e4 e2)
+              (or (<a href="../whileDo/index.html">whileDo</a> e5 e1 e2) (<a href="../instance/index.html">instance</a> e5 e2))))))
+</pre>
+</section>
+
 </body>
 
 </html>

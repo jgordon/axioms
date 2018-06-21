@@ -14,8 +14,11 @@
 </head>
 
 <body>
-<h1>Predicate: numeric</h1>
-<h2>All Axioms</h2><pre>   (forall (f)
+<h1>Predicate: <code>numeric</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (f)
       (iff (<a href="../coordinateSystem/index.html">coordinateSystem</a> f)
            (and (<a href="../framework/index.html">framework</a> f)
                 (forall (a1) (if (<a href="../xAxis/index.html">xAxis</a> a1 f) (<a href="../numeric/index.html">numeric</a> a1)))
@@ -25,9 +28,9 @@
                 (forall (x1 x2) (iff (<a href="../rightOf/index.html">rightOf</a> x1 x2 f) (<a href="../gt/index.html">gt</a> x1 x2)))
                 (forall (y1 y2) (iff (<a href="../above2/index.html">above2</a> y1 y2 f) (<a href="../gt/index.html">gt</a> y1 y2)))
                 (forall (z1 z2) (iff (<a href="../above3/index.html">above3</a> z1 z2 f) (<a href="../gt/index.html">gt</a> z1 z2))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

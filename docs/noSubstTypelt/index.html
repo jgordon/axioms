@@ -14,17 +14,27 @@
 </head>
 
 <body>
-<h1>Predicate: noSubstTypelt</h1>
-<pre>(noSubstTypelt x e1 y e2)</pre><p> It is not the case that e1 is a typical</p><h2>Characterizing Axioms</h2><pre>(forall (x e1 y e2)
+<h1>Predicate: <code>noSubstTypelt</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(noSubstTypelt x e1 y e2)</pre><p> It is not the case that e1 is a typical</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (x e1 y e2)
   (iff (<a href="../noSubstTypelt/index.html">noSubstTypelt</a> x e1 y e2)
        (exists (s) (and (<a href="../typelt/index.html">typelt</a>' e1 x s) (<a href="../member/index.html">member</a> y s)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (x e1 y e2)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (x e1 y e2)
   (iff (<a href="../noSubstTypelt/index.html">noSubstTypelt</a> x e1 y e2)
        (exists (s) (and (<a href="../typelt/index.html">typelt</a>' e1 x s) (<a href="../member/index.html">member</a> y s)))))
-
-
+</pre>
+<pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst/index.html">subst</a> x e1 y e2)
        (exists (p n)
@@ -42,9 +52,9 @@
                                       (equal z2 y))))
                          (if (<a href="../eventuality/index.html">eventuality</a> z1)
                              (<a href="../subst/index.html">subst</a> x z1 y z2)))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

@@ -14,20 +14,30 @@
 </head>
 
 <body>
-<h1>Predicate: scaleDefinedBy</h1>
-<pre>(scaleDefinedBy s s1 e)</pre><p>s is the scale with components s1 and</p><h2>Characterizing Axioms</h2><pre>(forall (s s1 e)
+<h1>Predicate: <code>scaleDefinedBy</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(scaleDefinedBy s s1 e)</pre><p>s is the scale with components s1 and</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s s1 e)
    (iff (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
         (and (<a href="../scale/index.html">scale</a> s) (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
              (exists (x y)
                (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)))))
-
-
-</pre><h2>All Axioms</h2><pre>   (forall (s z)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (s z)
       (iff (<a href="../nearnessScale/index.html">nearnessScale</a> s z)
            (exists (s0 e x y u)
               (and (<a href="../nearer/index.html">nearer</a>' e x y z u) (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e)))))
-
-
+</pre>
+<pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)
              (if (<a href="../member/index.html">member</a> z s1) (<a href="../set/index.html">set</a> z)))
@@ -37,13 +47,13 @@
            (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
            (<a href="../card/index.html">card</a>' m n u))
       (<a href="../measure/index.html">measure</a> m s)))
-
-
+</pre>
+<pre>
 (forall (s e t1 t1)
   (if (and (<a href="../tseq/index.html">tseq</a> s) (<a href="../before/index.html">before</a>' e t1 t2))
       (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s e)))
-
-
+</pre>
+<pre>
 (forall (s s0)
   (iff (<a href="../rateScale/index.html">rateScale</a> s s0)
        (and (forall (s1) (if (<a href="../member/index.html">member</a> s1 s0) (<a href="../eventualities/index.html">eventualities</a> s1)))
@@ -55,8 +65,8 @@
                             (and (<a href="../rate/index.html">rate</a> r1 s3 u) (<a href="../rate/index.html">rate</a> r2 s4 u)
                                  (<a href="../lt/index.html">lt</a> r1 r2)))))
                    (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s0 e))))))
-
-
+</pre>
+<pre>
 (forall (s s1 e x y)
    (if (and (<a href="../sequence/index.html">sequence</a> s) (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
             (<a href="../beforeInSeq/index.html">beforeInSeq</a>' e x y s))
@@ -64,15 +74,15 @@
             (forall (z)
               (if (<a href="../first/index.html">first</a> z s)
                   (<a href="../bottom/index.html">bottom</a> z s))))))
-
-
+</pre>
+<pre>
 (forall (s s1 e)
    (iff (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)
         (and (<a href="../scale/index.html">scale</a> s) (<a href="../componentsOf/index.html">componentsOf</a> s1 s)
              (exists (x y)
                (<a href="../partialOrdering/index.html">partialOrdering</a> e x y s)))))
-
-
+</pre>
+<pre>
 (forall (s)
   (if (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)
       (exists (s1 e x y)
@@ -82,8 +92,8 @@
                    (and (<a href="../geq/index.html">geq</a> n 0) (<a href="../number/index.html">number</a> n))))
              (<a href="../member/index.html">member</a> 0 s1)
              (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
-
-
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../likelihoodScale/index.html">likelihoodScale</a> s)
        (exists (s1 e r d1 d2)
@@ -91,16 +101,16 @@
                 (iff (<a href="../member/index.html">member</a> d s1) (exists (e c) (<a href="../likelihood/index.html">likelihood</a> d e c))))
               (<a href="../lowerLikelihood/index.html">lowerLikelihood</a>' r d1 d2)
               (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 r)))))
-
-
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../scaleOrderedByDuration/index.html">scaleOrderedByDuration</a> s)
        (exists (s1 e t1 t2)
          (and (forall (t) (if (<a href="../member/index.html">member</a> t s1) (<a href="../interval/index.html">interval</a> t)))
               (<a href="../shorterDuration/index.html">shorterDuration</a>' e t1 t2)
               (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e)))))
-
-
+</pre>
+<pre>
 (forall (s1 e x y)
   (if (and (<a href="../lt/index.html">lt</a>' e x y)
            (forall (n)
@@ -109,8 +119,8 @@
            (<a href="../member/index.html">member</a> 0 s1))
       (exists (s)
         (and (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale/index.html">nonNegNumericScale</a> s)))))
-
-
+</pre>
+<pre>
 (forall (s1 e x y)
   (if (and (forall (s2)
              (if (<a href="../member/index.html">member</a> s2 s1)
@@ -121,8 +131,8 @@
                (forall (z)
                  (if (and (<a href="../member/index.html">member</a> z s1) (<a href="../null/index.html">null</a> z))
                      (<a href="../bottom/index.html">bottom</a> z s)))))))
-
-
+</pre>
+<pre>
 (forall (t)
   (iff (<a href="../timeScale/index.html">timeScale</a> t)
        (exists (s e t2 t3)
@@ -131,9 +141,9 @@
                      (or (<a href="../instant/index.html">instant</a> t1) (<a href="../interval/index.html">interval</a> t1))))
               (<a href="../before/index.html">before</a>' e t2 t3)
               (<a href="../scaleDefinedBy/index.html">scaleDefinedBy</a> t s e)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

@@ -14,8 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: subsetConsistent</h1>
-<pre>(subsetConsistent s e)</pre><p>s is a scale whose ordering is consistent</p><h2>Characterizing Axioms</h2><pre>(forall (s e)
+<h1>Predicate: <code>subsetConsistent</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(subsetConsistent s e)</pre><p>s is a scale whose ordering is consistent</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s e)
    (iff (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e)
         (and (<a href="../scale/index.html">scale</a> s) (<a href="../eventuality/index.html">eventuality</a> e)
              (forall (s0) (if (<a href="../argn/index.html">argn</a> s0 1 e) (<a href="../set/index.html">set</a> s0)))
@@ -27,9 +34,12 @@
                                          (<a href="../argn/index.html">argn</a> x2 2 e2)
                          (<a href="../subset/index.html">subset</a> s1 s2))
                     (<a href="../leqs/index.html">leqs</a> x1 x2 s))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s e)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s e)
    (iff (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e)
         (and (<a href="../scale/index.html">scale</a> s) (<a href="../eventuality/index.html">eventuality</a> e)
              (forall (s0) (if (<a href="../argn/index.html">argn</a> s0 1 e) (<a href="../set/index.html">set</a> s0)))
@@ -41,14 +51,14 @@
                                          (<a href="../argn/index.html">argn</a> x2 2 e2)
                          (<a href="../subset/index.html">subset</a> s1 s2))
                     (<a href="../leqs/index.html">leqs</a> x1 x2 s))))))
-
-
+</pre>
+<pre>
 (forall (s s1 e)
   (if (and (<a href="../difficultyScale/index.html">difficultyScale</a> s e) (<a href="../difficultiesWith/index.html">difficultiesWith</a>' e1 s e))
       (<a href="../subsetConsistent/index.html">subsetConsistent</a> s e1)))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

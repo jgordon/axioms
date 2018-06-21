@@ -14,8 +14,15 @@
 </head>
 
 <body>
-<h1>Predicate: patternInstance</h1>
-<pre>(patternInstance e1 e)</pre><p>e1 is a complete instantiation of e; all</p><h2>All Axioms</h2><pre>(forall (x x1 s)
+<h1>Predicate: <code>patternInstance</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(patternInstance e1 e)</pre><p>e1 is a complete instantiation of e; all</p>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (x x1 s)
   (if (and (<a href="../pattern/index.html">pattern</a> x) (<a href="../patternParameters/index.html">patternParameters</a> s x))
       (iff (<a href="../patternInstance/index.html">patternInstance</a> x1 x)
            (forall (y s1)
@@ -28,9 +35,9 @@
                                    (exists (p1)
                                           (and (<a href="../subst/index.html">subst</a> y1 p1 y p)
                                                (<a href="../propOrRelOf/index.html">propOrRelOf</a> p1 x1))))))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

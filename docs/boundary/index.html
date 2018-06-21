@@ -14,16 +14,19 @@
 </head>
 
 <body>
-<h1>Predicate: boundary</h1>
-<h2>All Axioms</h2><pre>   (forall (c r x u)
+<h1>Predicate: <code>boundary</code></h1>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (c r x u)
       (iff (<a href="../sphere/index.html">sphere</a> p x)
            (exists (r d)
               (and (<a href="../boundary/index.html">boundary</a> r p) (<a href="../inside/index.html">inside</a> x p)
                    (forall (c1 x1)
                       (if (and (<a href="../inside/index.html">inside</a> x1 r) (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c1 x x1))
                           (<a href="../length/index.html">length</a> d c1 u)))))))
-
-
+</pre>
+<pre>
    (forall (c)
       (if (<a href="../curve/index.html">curve</a> c)
           (iff (<a href="../closed/index.html">closed</a> c)
@@ -31,9 +34,9 @@
                     (exists (r c1 x1)
                        (and (<a href="../circle/index.html">circle</a> c1 x1) (<a href="../boundary/index.html">boundary</a> c r)
                             (<a href="../inside/index.html">inside</a> c r)))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

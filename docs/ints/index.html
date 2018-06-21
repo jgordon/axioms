@@ -14,37 +14,47 @@
 </head>
 
 <body>
-<h1>Predicate: ints</h1>
-<pre>(ints s n1 n2)</pre><p>s is the set of positive integers from n1 to n2,</p><h2>Characterizing Axioms</h2><pre>(forall (s n1 n2)
-  (iff (<a href="../ints/index.html">ints</a> s n1 n2)
-       (and (<a href="../posInteger/index.html">posInteger</a> n1) (<a href="../posInteger/index.html">posInteger</a> n2) (<a href="../set/index.html">set</a> s)
-            (forall (n)
-              (iff (<a href="../member/index.html">member</a> n s)
-                   (and (<a href="../posInteger/index.html">posInteger</a> n) (<a href="../leq/index.html">leq</a> n1 n) (<a href="../leq/index.html">leq</a> n n2)))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (n s)
-  (if (<a href="../sequence/index.html">sequence</a> s)
-      (iff (<a href="../length/index.html">length</a> n s)
-           (exists (s1 s2)
-             (and (<a href="../function0/index.html">function0</a> s s1 s2) (<a href="../ints/index.html">ints</a> s1 1 n))))))
-
-
+<h1>Predicate: <code>ints</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(ints s n1 n2)</pre><p>s is the set of positive integers from n1 to n2,</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (s n1 n2)
   (iff (<a href="../ints/index.html">ints</a> s n1 n2)
        (and (<a href="../posInteger/index.html">posInteger</a> n1) (<a href="../posInteger/index.html">posInteger</a> n2) (<a href="../set/index.html">set</a> s)
             (forall (n)
               (iff (<a href="../member/index.html">member</a> n s)
                    (and (<a href="../posInteger/index.html">posInteger</a> n) (<a href="../leq/index.html">leq</a> n1 n) (<a href="../leq/index.html">leq</a> n n2)))))))
-
-
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (n s)
+  (if (<a href="../sequence/index.html">sequence</a> s)
+      (iff (<a href="../length/index.html">length</a> n s)
+           (exists (s1 s2)
+             (and (<a href="../function0/index.html">function0</a> s s1 s2) (<a href="../ints/index.html">ints</a> s1 1 n))))))
+</pre>
+<pre>
+(forall (s n1 n2)
+  (iff (<a href="../ints/index.html">ints</a> s n1 n2)
+       (and (<a href="../posInteger/index.html">posInteger</a> n1) (<a href="../posInteger/index.html">posInteger</a> n2) (<a href="../set/index.html">set</a> s)
+            (forall (n)
+              (iff (<a href="../member/index.html">member</a> n s)
+                   (and (<a href="../posInteger/index.html">posInteger</a> n) (<a href="../leq/index.html">leq</a> n1 n) (<a href="../leq/index.html">leq</a> n n2)))))))
+</pre>
+<pre>
 (forall (s)
   (iff (<a href="../sequence/index.html">sequence</a> s)
        (exists (s1 s2 n)
          (and (<a href="../function0/index.html">function0</a> s s1 s2) (<a href="../ints/index.html">ints</a> s1 1 n)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

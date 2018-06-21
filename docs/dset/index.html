@@ -14,24 +14,34 @@
 </head>
 
 <body>
-<h1>Predicate: dset</h1>
-<pre>(dset s x e)</pre><p>s is the set with typical element x defined by the</p><h2>Characterizing Axioms</h2><pre>(forall (s x e)
-  (if (<a href="../dset/index.html">dset</a> s x e)
-      (and (<a href="../set/index.html">set</a> s) (<a href="../typelt/index.html">typelt</a> x s) (<a href="../arg*/index.html">arg*</a> x e))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s x e y e1)
-  (if (and (<a href="../dset/index.html">dset</a> s x e) (<a href="../subst/index.html">subst</a> x e y e1) (<a href="../Rexist/index.html">Rexist</a> e)
-           (<a href="../notSubsetTypelt/index.html">notSubsetTypelt</a> y s))
-      (iff (<a href="../member/index.html">member</a> y s) (<a href="../Rexist/index.html">Rexist</a> e1))))
-
-
+<h1>Predicate: <code>dset</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(dset s x e)</pre><p>s is the set with typical element x defined by the</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
 (forall (s x e)
   (if (<a href="../dset/index.html">dset</a> s x e)
       (and (<a href="../set/index.html">set</a> s) (<a href="../typelt/index.html">typelt</a> x s) (<a href="../arg*/index.html">arg*</a> x e))))
-
-
 </pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s x e y e1)
+  (if (and (<a href="../dset/index.html">dset</a> s x e) (<a href="../subst/index.html">subst</a> x e y e1) (<a href="../Rexist/index.html">Rexist</a> e)
+           (<a href="../notSubsetTypelt/index.html">notSubsetTypelt</a> y s))
+      (iff (<a href="../member/index.html">member</a> y s) (<a href="../Rexist/index.html">Rexist</a> e1))))
+</pre>
+<pre>
+(forall (s x e)
+  (if (<a href="../dset/index.html">dset</a> s x e)
+      (and (<a href="../set/index.html">set</a> s) (<a href="../typelt/index.html">typelt</a> x s) (<a href="../arg*/index.html">arg*</a> x e))))
+</pre>
+</section>
+
 </body>
 
 </html>

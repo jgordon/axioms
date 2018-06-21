@@ -14,40 +14,50 @@
 </head>
 
 <body>
-<h1>Predicate: border</h1>
-<pre>(border c r)</pre><p>Curve c is the border of region r.</p><h2>Characterizing Axioms</h2><pre>(forall (c r)
+<h1>Predicate: <code>border</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(border c r)</pre><p>Curve c is the border of region r.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (c r)
   (if (<a href="../border/index.html">border</a> c r)
       (and (<a href="../curve/index.html">curve</a> c) (<a href="../region/index.html">region</a> r))))
-
-
-</pre><h2>All Axioms</h2><pre>   (forall (c r x u)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+   (forall (c r x u)
       (iff (<a href="../circle/index.html">circle</a> c x)
            (exists (r d)
               (and (<a href="../border/index.html">border</a> c r) (<a href="../planar/index.html">planar</a> r) (<a href="../inside/index.html">inside</a> x r)
                    (forall (c1 x1)
                       (if (and (<a href="../inside/index.html">inside</a> x1 c) (<a href="../lineSegmentFromTo/index.html">lineSegmentFromTo</a> c1 x x1))
                           (<a href="../length/index.html">length</a> d c1 u)))))))
-
-
+</pre>
+<pre>
 (forall (c r)
   (if (<a href="../border/index.html">border</a> c r)
       (and (<a href="../curve/index.html">curve</a> c) (<a href="../region/index.html">region</a> r))))
-
-
+</pre>
+<pre>
 (forall (f1 f2)
   (iff (<a href="../onBoundary/index.html">onBoundary</a> f1 f2)
        (or (and (<a href="../point/index.html">point</a> f1) (<a href="../curve/index.html">curve</a> f2) (<a href="../endpoint/index.html">endpoint</a> f1 f2))
            (exists (b) (and (<a href="../region/index.html">region</a> f2) (<a href="../border/index.html">border</a> b f2) (<a href="../inside/index.html">inside</a> f1 b)))
            (exists (b)
              (and (<a href="../volume/index.html">volume</a> f2) (<a href="../surface/index.html">surface</a> b f2) (<a href="../inside/index.html">inside</a> f1 b))))))
-
-
+</pre>
+<pre>
 (forall (r)
   (iff (<a href="../polygon2/index.html">polygon2</a> r)
        (exists (c) (and (<a href="../border/index.html">border</a> c r) (<a href="../polygon/index.html">polygon</a> c)))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

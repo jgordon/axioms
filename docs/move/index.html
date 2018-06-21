@@ -14,19 +14,29 @@
 </head>
 
 <body>
-<h1>Predicate: move</h1>
-<pre>(move x y z)</pre><p>x moves from y to z.</p><h2>Characterizing Axioms</h2><pre>(forall (e x y z)
+<h1>Predicate: <code>move</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(move x y z)</pre><p>x moves from y to z.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (e x y z)
   (iff (<a href="../move/index.html">move</a>' e x y z)
        (exists (e1 e2 e3 s)
          (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../change/index.html">change</a>' e3 e1 e2) (<a href="../gen/index.html">gen</a> e3 e)))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (e x y z)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (e x y z)
   (iff (<a href="../move/index.html">move</a>' e x y z)
        (exists (e1 e2 e3 s)
          (and (<a href="../at/index.html">at</a>' e1 x y s) (<a href="../at/index.html">at</a>' e2 x z s) (<a href="../change/index.html">change</a>' e3 e1 e2) (<a href="../gen/index.html">gen</a> e3 e)))))
-
-
+</pre>
+<pre>
 (forall (p s1)
   (if (and (<a href="../person/index.html">person</a> p) (<a href="../bodyPartsOf/index.html">bodyPartsOf</a> s1 p))
       (exists (s2)
@@ -36,9 +46,9 @@
                    (exists (e1 e2 y z)
                      (and (<a href="../move/index.html">move</a>' e2 x y z) (<a href="../will/index.html">will</a>' e1 p e2)
                           (<a href="../dcause/index.html">dcause</a> e1 e2)))))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>

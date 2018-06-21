@@ -14,30 +14,40 @@
 </head>
 
 <body>
-<h1>Predicate: rangeFd</h1>
-<pre>(rangeFd s y x e)</pre><p>s is the range of the values of the entity y that</p><h2>Characterizing Axioms</h2><pre>(forall (s1 x y e)
+<h1>Predicate: <code>rangeFd</code></h1>
+<section>
+<h2>Summary</h2>
+<pre>(rangeFd s y x e)</pre><p>s is the range of the values of the entity y that</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<pre>
+(forall (s1 x y e)
   (iff (<a href="../rangeFd/index.html">rangeFd</a> s1 y x e)
        (forall (y1)
          (iff (<a href="../member/index.html">member</a> y1 s1)
               (exists (x1) (<a href="../skfct/index.html">skfct</a> y1 y x1 x e))))))
-
-
-</pre><h2>All Axioms</h2><pre>(forall (s1 x y e)
+</pre>
+</section>
+<section>
+<h2>All Axioms</h2>
+<pre>
+(forall (s1 x y e)
   (iff (<a href="../rangeFd/index.html">rangeFd</a> s1 y x e)
        (forall (y1)
          (iff (<a href="../member/index.html">member</a> y1 s1)
               (exists (x1) (<a href="../skfct/index.html">skfct</a> y1 y x1 x e))))))
-
-
+</pre>
+<pre>
 (forall (y1 y x1 x e s1 s2)
   (if (and (<a href="../skfct/index.html">skfct</a> y1 y x1 x e) (<a href="../typelt/index.html">typelt</a> x s1) (<a href="../rangeFd/index.html">rangeFd</a> s2 y x e))
       (exists (f)
         (and (<a href="../function0/index.html">function0</a> f s1 s2)
              (forall (p)
                (iff (<a href="../pair/index.html">pair</a> p x1 y1) (<a href="../member/index.html">member</a> p f)))))))
-
-
 </pre>
+</section>
+
 </body>
 
 </html>
