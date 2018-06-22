@@ -102,21 +102,21 @@
 </div>
 <div class="axiom">
 <pre>
-   (forall (x z)
-      (iff (<a href="../far">far</a> x z)
-           (exists (s s2)
-              (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Hi">Hi</a> s2 s) (<a href="../onScale">onScale</a> x s2)))))
+(forall (x z)
+   (iff (<a href="../far">far</a> x z)
+        (exists (s s2)
+           (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Hi">Hi</a> s2 s) (<a href="../onScale">onScale</a> x s2)))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (x s0 s1)
-      (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
-          (exists (s2 s3 s4 n3 n4)
-             (and (<a href="../componentsOf">componentsOf</a> s2 s0) (<a href="../union">union</a> s2 s3 s4)
-                  (forall (y) (iff (<a href="../member">member</a> y s3) (<a href="../lts">lts</a> y x s0)))
-                  (forall (z) (iff (<a href="../member">member</a> z s4) (<a href="../lts">lts</a> x z s0)))
-                  (<a href="../card">card</a> n3 s3) (<a href="../card">card</a> n4 s4) (<a href="../lt">lt</a> n4 n3)))))
+(forall (x s0 s1)
+   (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
+       (exists (s2 s3 s4 n3 n4)
+          (and (<a href="../componentsOf">componentsOf</a> s2 s0) (<a href="../union">union</a> s2 s3 s4)
+               (forall (y) (iff (<a href="../member">member</a> y s3) (<a href="../lts">lts</a> y x s0)))
+               (forall (z) (iff (<a href="../member">member</a> z s4) (<a href="../lts">lts</a> x z s0)))
+               (<a href="../card">card</a> n3 s3) (<a href="../card">card</a> n4 s4) (<a href="../lt">lt</a> n4 n3)))))
 </pre>
 </div>
 <div class="axiom">

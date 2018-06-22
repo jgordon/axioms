@@ -23,22 +23,34 @@
 <h1>Predicate: <code>45Degrees</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (v)
+   (iff (<a href="../45Degrees">45Degrees</a> v)
+        (exists (v0 x f c1 c2 o u d)
+           (and (<a href="../equalAngle">equalAngle</a> v v0) (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
+                (<a href="../xCoordinate">xCoordinate</a> x1 x f) (<a href="../yCoordinate">yCoordinate</a> y1 x f)
+                (<a href="../distance">distance</a> d o x1 u) (<a href="../distance">distance</a> d o y1 u)))))
+</pre>
+</div></section>
+<section>
 <h2>All Axioms</h2>
 <div class="axiom">
 <pre>
-   (forall (v)
-      (iff (<a href="../45Degrees">45Degrees</a> v)
-           (exists (v0 x f c1 c2 o u d)
-              (and (<a href="../equalAngle">equalAngle</a> v v0) (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
-                   (<a href="../xCoordinate">xCoordinate</a> x1 x f) (<a href="../yCoordinate">yCoordinate</a> y1 x f)
-                   (<a href="../distance">distance</a> d o x1 u) (<a href="../distance">distance</a> d o y1 u)))))
+(forall (v)
+   (iff (<a href="../45Degrees">45Degrees</a> v)
+        (exists (v0 x f c1 c2 o u d)
+           (and (<a href="../equalAngle">equalAngle</a> v v0) (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
+                (<a href="../xCoordinate">xCoordinate</a> x1 x f) (<a href="../yCoordinate">yCoordinate</a> y1 x f)
+                (<a href="../distance">distance</a> d o x1 u) (<a href="../distance">distance</a> d o y1 u)))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (p d c v x)
-      (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
-          (<a href="../45Degrees">45Degrees</a> v)))
+(forall (p d c v x)
+   (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
+       (<a href="../45Degrees">45Degrees</a> v)))
 </pre>
 </div>
 </section>

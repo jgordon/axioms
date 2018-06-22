@@ -213,8 +213,8 @@ It is often convenient to characterize a line segment by its endpoints.
             (nequal x1 x2))))
 ```
 
-A plane is a region such that if a line passes through any two points in the
-region, it is inside the region.
+A plane is a region such that if a line passes through any two points in
+the region, it is inside the region.
 
 ```
 (forall (r)
@@ -431,7 +431,7 @@ systems are as follows:
 - `(lts x y s)`: x is less than y on scale s.
 - `(leqs x y s)`: x is less than or equal to y on scale s.
 
-Among the constraints on the arguments of "lts" and "leqs" is the constraint
+Among the constraints on the arguments of `lts` and `leqs` is the constraint
 that x and y are components of s.
 
 By defining frameworks only in terms of scales, or partial orderings, rather
@@ -439,11 +439,11 @@ than assuming numeric scales, we characterize the concepts in a more general
 way. We can, for example, talk about one person being "above" another in
 an org chart.
 
-We first need the notion of "independent" scales. Two scales are independent
-if their components overlap and if you can't predict the relation between two
-elements on one scale from their relation on the other. That is, for some
-pairs of elements the order is preserved when we go from one scale to the
-other, and for other pairs the order is reversed.
+We first need the notion of "independent" scales. Two scales are
+independent if their components overlap and if you can't predict the
+relation between two elements on one scale from their relation on the
+other. That is, for some pairs of elements the order is preserved when we
+go from one scale to the other, and for other pairs the order is reversed.
 
 ```
 (forall (s1 s2)
@@ -464,10 +464,10 @@ even linear. We then define a coordinate system as a framework whose
 constituent scales are numeric.
 
 For the remainder of this development we will refer to the two partial
-orderings as "rightOf" and "above". But first we have to discuss an
+orderings as `rightOf` and `above`. But first we have to discuss an
 ambiguity. The relation "above" has two interpretations. In the
 two-dimensional case, it means farther away from the observer. We'll
-call this relation "above2". In the three-dimensional case, it means
+call this relation `above2`. In the three-dimensional case, it means
 farther away from the Earth. We'll call this "above3". There is a similar
 ambiguity in the terms "horizontal" and "vertical". In the
 two-dimensional case, the y-axis is vertical. In the three-dimensional
@@ -603,67 +603,67 @@ We define a subset of the domain to be `vertical3` if no element of it
 is above2 or rightOf any other.
 
 ```
-   (forall (s1 f)
-      (iff (vertical3 s1 f)
-           (exists (s)
-              (and (domain s f) (subset s1 s) (not (null s1))
-                   (not (exists (x1 x2)
-                           (and (member x1 s1) (member x2 s1)
-                                (or (rightOf x1 x2 f)
-                                    (above2 x1 x2 f)))))))))
+(forall (s1 f)
+   (iff (vertical3 s1 f)
+        (exists (s)
+           (and (domain s f) (subset s1 s) (not (null s1))
+                (not (exists (x1 x2)
+                        (and (member x1 s1) (member x2 s1)
+                             (or (rightOf x1 x2 f)
+                                 (above2 x1 x2 f)))))))))
 ```
 
 A subset of the domain is horizontal3 if it is either `horizontal2`
 or `vertical2`.
 
 ```
-   (forall (s f)
-      (iff (horizontal3 s f)
-           (or (horizontal2 s f) (vertical2 s f))))
+(forall (s f)
+   (iff (horizontal3 s f)
+        (or (horizontal2 s f) (vertical2 s f))))
 ```
 
-Horizontal3 and vertical3 sets are independent scales.
+`horizontal3` and `vertical3` sets are independent scales.
 
 ```
-   (forall (s1 s2 f)
-      (if (and (framework f) (horizontal3 s1 f) (vertical3 s2 f))
-          (independentScales s1 s2)))
+(forall (s1 s2 f)
+   (if (and (framework f) (horizontal3 s1 f) (vertical3 s2 f))
+       (independentScales s1 s2)))
 ```
 
-We can stipulate a vertical3 set to be the z-axis of a framework.
+We can stipulate a `vertical3` set to be the z-axis of a framework.
 
 ```
-    (forall (a3 f)
-      (if (zAxis a3 f)
-          (and (framework f) (vertical3 a3 f))))
+(forall (a3 f)
+   (if (zAxis a3 f)
+       (and (framework f) (vertical3 a3 f))))
 ```
 
 The z-axis, if it exists, is unique.
 
 ```
-   (forall (f a3)
-      (if (and (framework f) (zAxis a3 f))
-          (forall (a)
-             (if (nequal a a3) (not (zAxis a f))))))
+(forall (f a3)
+   (if (and (framework f) (zAxis a3 f))
+       (forall (a)
+          (if (nequal a a3) (not (zAxis a f))))))
 ```
 
 The z-axis contains the origin.
 
 ```
-   (forall (f a1 a2 s)
-      (if (and (framework f) (zAxis a3 f) (origin o f))
-          (member o a3)))
+(forall (f a1 a2 s)
+   (if (and (framework f) (zAxis a3 f) (origin o f))
+       (member o a3)))
 ```
 
 We can define the z-coordinate of an element in a framework just
 as we defined x- and y-coordinates.
 
 ```
-   (forall (z1 x f)
-      (iff (zCoordinate z1 x f)
-           (exists (v a1)
-              (and (vertical3 v f) (member x v) (zAxis a3 f)
-                   (member z1 v) (member z1 a3)))))
+(forall (z1 x f)
+   (iff (zCoordinate z1 x f)
+        (exists (v a1)
+           (and (vertical3 v f) (member x v) (zAxis a3 f)
+                (member z1 v) (member z1 a3)))))
 ```
 
 Every framework has an x-axis and a y-axis. It is two-dimensional
@@ -671,18 +671,18 @@ if and only if it lacks a z-axis. We condition this on f being a
 framework to preserve the predicate 2D for other uses as well.
 
 ```
-   (forall (f)
-      (if (framework f)
-         (iff (2D f)
-              (not (exists (a3) (zAxis a3 f))))))
+(forall (f)
+  (if (framework f)
+      (iff (2D f)
+           (not (exists (a3) (zAxis a3 f))))))
 ```
 
 If a framework is three-dimensional, it has a z-axis.
 
 ```
-   (forall (f)
-      (if (and (framework f) (3D f))
-          (exists (a3) (zAxis a3 f))))
+(forall (f)
+  (if (and (framework f) (3D f))
+      (exists (a3) (zAxis a3 f))))
 ```
 
 We steer clear of dealing with higher dimensions.
@@ -691,16 +691,16 @@ Finally, we can define a coordinate system as a framework in which all
 the axes are numeric and the partial ordering is "greater than".
 
 ```
-   (forall (f)
-      (iff (coordinateSystem f)
-           (and (framework f)
-                (forall (a1) (if (xAxis a1 f) (numeric a1)))
-                (forall (a2) (if (yAxis a2 f) (numeric a2)))
-                (forall (a3) (if (zAxis a3 f) (numeric a3)))
-                (forall (o) (if (origin o f) (equal o 0)))
-                (forall (x1 x2) (iff (rightOf x1 x2 f) (gt x1 x2)))
-                (forall (y1 y2) (iff (above2 y1 y2 f) (gt y1 y2)))
-                (forall (z1 z2) (iff (above3 z1 z2 f) (gt z1 z2))))))
+(forall (f)
+  (iff (coordinateSystem f)
+       (and (framework f)
+            (forall (a1) (if (xAxis a1 f) (numeric a1)))
+            (forall (a2) (if (yAxis a2 f) (numeric a2)))
+            (forall (a3) (if (zAxis a3 f) (numeric a3)))
+            (forall (o) (if (origin o f) (equal o 0)))
+            (forall (x1 x2) (iff (rightOf x1 x2 f) (gt x1 x2)))
+            (forall (y1 y2) (iff (above2 y1 y2 f) (gt y1 y2)))
+            (forall (z1 z2) (iff (above3 z1 z2 f) (gt z1 z2))))))
 ```
 
 
@@ -779,26 +779,26 @@ A circle c around a center x is a figure in which every line segment
 from the center to a point inside the circle is constant.
 
 ```
-   (forall (c r x u)
-      (iff (circle c x)
-           (exists (r d)
-              (and (border c r) (planar r) (inside x r)
-                   (forall (c1 x1)
-                      (if (and (inside x1 c) (lineSegmentFromTo c1 x x1))
-                          (length d c1 u)))))))
+(forall (c r x u)
+   (iff (circle c x)
+        (exists (r d)
+           (and (border c r) (planar r) (inside x r)
+                (forall (c1 x1)
+                   (if (and (inside x1 c) (lineSegmentFromTo c1 x x1))
+                       (length d c1 u)))))))
 ```
 
 We are now in a position to give one characterization of a closed curve.
 It has no endpoints and can be covered by a large enough circle.
 
 ```
-   (forall (c)
-      (if (curve c)
-          (iff (closed c)
-               (and (not (exists (x) (endpoint x c)))
-                    (exists (r c1 x1)
-                       (and (circle c1 x1) (boundary c r)
-                            (inside c r)))))))
+(forall (c)
+   (if (curve c)
+       (iff (closed c)
+            (and (not (exists (x) (endpoint x c)))
+                 (exists (r c1 x1)
+                    (and (circle c1 x1) (boundary c r)
+                         (inside c r)))))))
 ```
 
 We can define qualitative terms like "near" and "far" as outlined in
@@ -806,11 +806,11 @@ Gordon and Hobbs, Chapter 12, and exemplified numerous times in the rest
 of the book. We first define the partial ordering "nearer".
 
 ```
-   (forall (x y z)
-      (iff (nearer x y z)
-           (exists (d1 d2)
-              (and (distance d1 x z u) (distance d2 y z u)
-                   (lt d1 d2)))))
+(forall (x y z)
+   (iff (nearer x y z)
+        (exists (d1 d2)
+           (and (distance d1 x z u) (distance d2 y z u)
+                (lt d1 d2)))))
 ```
 
 The expression `(nearer x y z)` says that x is nearer than y is to z.
@@ -818,10 +818,10 @@ The expression `(nearer x y z)` says that x is nearer than y is to z.
 Then "nearness" scale is a scale whose partial ordering is `nearer`.
 
 ```
-   (forall (s z)
-      (iff (nearnessScale s z)
-           (exists (s0 e x y u)
-              (and (nearer' e x y z u) (scaleDefinedBy s s0 e)))))
+(forall (s z)
+   (iff (nearnessScale s z)
+        (exists (s0 e x y u)
+           (and (nearer' e x y z u) (scaleDefinedBy s s0 e)))))
 ```
 
 The expression `(nearnessScale s z)` says that s is the scale for
@@ -832,35 +832,35 @@ Then `near` and `far` are defined as the Lo and Hi regions of the
 nearness scale, respectively.
 
 ```
-   (forall (x z)
-      (iff (near x z)
-           (exists (s s1)
-              (and (nearnessScale s z) (Lo s1 s) (onScale x s1)))))
+(forall (x z)
+   (iff (near x z)
+        (exists (s s1)
+           (and (nearnessScale s z) (Lo s1 s) (onScale x s1)))))
 ```
 
 ```
-   (forall (x z)
-      (iff (far x z)
-           (exists (s s2)
-              (and (nearnessScale s z) (Hi s2 s) (onScale x s2)))))
+(forall (x z)
+   (iff (far x z)
+        (exists (s s2)
+           (and (nearnessScale s z) (Hi s2 s) (onScale x s2)))))
 ```
 
 As described in Chapter 12 of Gordon and Hobbs (2017), there are
 two principal classes of inference that can be drawn about something
-in the Hi region of a scale -- the distributional and the functional.
+in the `Hi` region of a scale -- the distributional and the functional.
 
 A rather crude example of a distributional inference is that an entity
-in the Hi region is defeasibly higher on the scale than the median
+in the `Hi` region is defeasibly higher on the scale than the median
 of a comparison set. That is, there are more things smaller than larger.
 
 ```
-   (forall (x s0 s1)
-      (if (and (onScale x s1) (Hi s1 s0) (etc))
-          (exists (s2 s3 s4 n3 n4)
-             (and (componentsOf s2 s0) (union s2 s3 s4)
-                  (forall (y) (iff (member y s3) (lts y x s0)))
-                  (forall (z) (iff (member z s4) (lts x z s0)))
-                  (card n3 s3) (card n4 s4) (lt n4 n3)))))
+(forall (x s0 s1)
+   (if (and (onScale x s1) (Hi s1 s0) (etc))
+       (exists (s2 s3 s4 n3 n4)
+          (and (componentsOf s2 s0) (union s2 s3 s4)
+               (forall (y) (iff (member y s3) (lts y x s0)))
+               (forall (z) (iff (member z s4) (lts x z s0)))
+               (card n3 s3) (card n4 s4) (lt n4 n3)))))
 ```
 
 In this axiom x is the entity in the Hi region, s0 is the scale,
@@ -917,13 +917,13 @@ We construct an isosceles triangle whose apex is a given vertex, by
 identifying a point a unit distance out on each leg from the vertex.
 
 ```
-   (forall (c v u)
-      (iff (baseOfAngle c v u)
-           (exists (c1 c2 x0 x1 x2)
-              (and (vertex v c1 c2 x0) (nequal x1 x2)
-                   (endpoint x1 c1) (distance 1 x0 x1 u)
-                   (endpoint x2 c2) (distance 1 x0 x2 u)
-                   (lineSegmentFromTo c x1 x2)))))
+(forall (c v u)
+   (iff (baseOfAngle c v u)
+        (exists (c1 c2 x0 x1 x2)
+           (and (vertex v c1 c2 x0) (nequal x1 x2)
+                (endpoint x1 c1) (distance 1 x0 x1 u)
+                (endpoint x2 c2) (distance 1 x0 x2 u)
+                (lineSegmentFromTo c x1 x2)))))
 ```
 
 We have constructed an isosceles triangle whose apex at x0 is the vertex
@@ -964,44 +964,43 @@ reflexive, symmetric, and transitive.
 A "greater than" relation can be defined in a similar manner.
 
 ```
-   (forall (v1 v2)
-      (iff (gtAngle v1 v2)
-           (exists (c1 c2 d1 d2 u)
-              (and (baseOfAngle c1 v1 u) (baseOfAngle c2 v2 u)
-                   (length d1 c1 u) (length d2 c2 u) (gt d1 d2)))))
+(forall (v1 v2)
+   (iff (gtAngle v1 v2)
+        (exists (c1 c2 d1 d2 u)
+           (and (baseOfAngle c1 v1 u) (baseOfAngle c2 v2 u)
+                (length d1 c1 u) (length d2 c2 u) (gt d1 d2)))))
 ```
 
 It is easy to show this relation is anti-reflexive, anti-symmetric,
 and transitive.
 
 ```
-   (forall (v) (not (gtAngle v v)))
+(forall (v) (not (gtAngle v v)))
 ```
 
 ```
-   (forall (v1 v2)
-      (iff (gtAngle v1 v2) (not (gtAngle v2 v1))))
+(forall (v1 v2)
+   (iff (gtAngle v1 v2) (not (gtAngle v2 v1))))
 ```
 
 ```
-   (forall (v1 v2 v3)
-      (if (and (gtAngle v1 v2) (gtAngle v2 v3))
-          (gtAngle v1 v3)))
+(forall (v1 v2 v3)
+   (if (and (gtAngle v1 v2) (gtAngle v2 v3))
+       (gtAngle v1 v3)))
 ```
 
-To be able to talk about the size of an angle in more detail,
-we posit a framework (not necessarily a coordinate system) whose
-x-axis contains one of the sides of the angle and whose origin
-coincides with the vertex. Then the size of the angle can be
-correlated with the y-coordinate. We call this framework an "anchor
-framework" for the vertex.
+To be able to talk about the size of an angle in more detail, we posit a
+framework (not necessarily a coordinate system) whose x-axis contains one
+of the sides of the angle and whose origin coincides with the vertex. Then
+the size of the angle can be correlated with the y-coordinate. We call
+this framework an "anchor framework" for the vertex.
 
 ```
-   (forall (f v c1 c2 o)
-      (iff (anchorFramework f v c1 c2 o)
-           (and (framework f) (vertex v c1 c2 o)
-                (forall (a1) (if (xAxis a1 f) (subfigure c1 a1)))
-                (origin o f))))
+(forall (f v c1 c2 o)
+   (iff (anchorFramework f v c1 c2 o)
+        (and (framework f) (vertex v c1 c2 o)
+             (forall (a1) (if (xAxis a1 f) (subfigure c1 a1)))
+             (origin o f))))
 ```
 
 We pick an arbitrary point on the side c2 of the vertex -- let's again
@@ -1031,11 +1030,11 @@ An angle is a right angle if the anchor point of an equal angle lies on the
 y-axis.
 
 ```
-   (forall (v)
-      (iff (rightAngle v)
-           (exists (v0 f c1 c2 o u)
-              (and (equalAngle v v0) (anchorPoint x v0 f c1 c2 o u)
-                   (xCoordinate o x f)))))
+(forall (v)
+   (iff (rightAngle v)
+        (exists (v0 f c1 c2 o u)
+           (and (equalAngle v v0) (anchorPoint x v0 f c1 c2 o u)
+                (xCoordinate o x f)))))
 ```
 
 The anchor point lies on the y-axis since its x-coordinate is the
@@ -1046,13 +1045,13 @@ An angle is acute if the x- and y-coordinates of the anchor point of an
 equal anchored angle are both greater than the origin.
 
 ```
-   (forall (v)
-      (iff (acuteAngle v)
-           (exists (v0 x f c1 c2 o u)
-              (and (equalAngle v v0) (anchorPoint x v0 f c1 c2 o u)
-                   (xCoordinate x1 x f) (yCoordinate y1 x f)
-                   (xAxis a1 f) (yAxis a2 f)
-                   (gts x1 o a1) (gts y1 o a2)))))
+(forall (v)
+   (iff (acuteAngle v)
+        (exists (v0 x f c1 c2 o u)
+           (and (equalAngle v v0) (anchorPoint x v0 f c1 c2 o u)
+                (xCoordinate x1 x f) (yCoordinate y1 x f)
+                (xAxis a1 f) (yAxis a2 f)
+                (gts x1 o a1) (gts y1 o a2)))))
 ```
 
 An angle is obtuse if the y-coordinate of the anchor point of an equal
@@ -1060,13 +1059,13 @@ anchored angle is greater than the origin and the x-coordinate is less
 than the origin.
 
 ```
-   (forall (v)
-      (iff (obtuseAngle v)
-           (exists (v0 x f c1 c2 o u)
-              (and (equalAngle v v0) (anchorPoint x v0 f c1 c2 o u)
-                   (xCoordinate x1 x f) (yCoordinate y1 x f)
-                   (xAxis a1 f) (yAxis a2 f)
-                   (gts o x1 a1) (gts y1 o a2)))))
+(forall (v)
+   (iff (obtuseAngle v)
+        (exists (v0 x f c1 c2 o u)
+           (and (equalAngle v v0) (anchorPoint x v0 f c1 c2 o u)
+                (xCoordinate x1 x f) (yCoordinate y1 x f)
+                (xAxis a1 f) (yAxis a2 f)
+                (gts o x1 a1) (gts y1 o a2)))))
 ```
 
 In daily life and absent precise measuring instruments, we don't judge
@@ -1079,12 +1078,12 @@ on angles of 45 degrees. A 45-degree angle is one whose anchor point's
 x- and y-coordinates are equal.
 
 ```
-   (forall (v)
-      (iff (45Degrees v)
-           (exists (v0 x f c1 c2 o u d)
-              (and (equalAngle v v0) (anchorPoint x v f c1 c2 o u)
-                   (xCoordinate x1 x f) (yCoordinate y1 x f)
-                   (distance d o x1 u) (distance d o y1 u)))))
+(forall (v)
+   (iff (45Degrees v)
+        (exists (v0 x f c1 c2 o u d)
+           (and (equalAngle v v0) (anchorPoint x v f c1 c2 o u)
+                (xCoordinate x1 x f) (yCoordinate y1 x f)
+                (distance d o x1 u) (distance d o y1 u)))))
 ```
 
 The second fine-grained system is based on angles of 30 degrees and is
@@ -1093,13 +1092,13 @@ circle at 11 o'clock." A 30-degree angle is one in which the distance
 from the origin to the anchor point is twice the y-coordinate.
 
 ```
-   (forall (v)
-      (iff (30Degrees v)
-           (exists (v0 x f c1 c2 o u d1 d2)
-              (and (equalAngle v v0) (anchorPoint x v f c1 c2 o u)
-                   (xCoordinate x1 x f) (yCoordinate y1 x f)
-                   (distance d1 o y1 u) (distance d2 o x u)
-                   (product d2 d1 2)))))
+(forall (v)
+   (iff (30Degrees v)
+        (exists (v0 x f c1 c2 o u d1 d2)
+           (and (equalAngle v v0) (anchorPoint x v f c1 c2 o u)
+                (xCoordinate x1 x f) (yCoordinate y1 x f)
+                (distance d1 o y1 u) (distance d2 o x u)
+                (product d2 d1 2)))))
 ```
 
 From here we could back into measurements of angles in terms of
@@ -1129,42 +1128,42 @@ The diagonal of a square is a line segment from one vertex to an opposite
 vertex.
 
 ```
-   (forall (p d)
-      (if (square p)
-          (iff (diagonal d p)
-               (exists (v1 v2 x1 x2 c1 c2 c3 c4)
-                  (and (vertex v1 c1 c2 x1) (vertexOf v1 p)
-                       (vertex v2 c3 c4 x2) (vertexOf v2 p)
-                       (nequal c1 c3) (nequal c1 c4)
-                       (lineSegmentFromTo d x1 x2))))))
+(forall (p d)
+   (if (square p)
+       (iff (diagonal d p)
+            (exists (v1 v2 x1 x2 c1 c2 c3 c4)
+               (and (vertex v1 c1 c2 x1) (vertexOf v1 p)
+                    (vertex v2 c3 c4 x2) (vertexOf v2 p)
+                    (nequal c1 c3) (nequal c1 c4)
+                    (lineSegmentFromTo d x1 x2))))))
 ```
 
 It can be shown that a diagonal of a square makes a 45-degree angle
 with any side of the square.
 
 ```
-   (forall (p d c v x)
-      (if (and (square p) (sideOf c p) (diagonal d p) (vertex v c d x))
-          (45Degrees v)))
+(forall (p d c v x)
+   (if (and (square p) (sideOf c p) (diagonal d p) (vertex v c d x))
+       (45Degrees v)))
 ```
 
 A direction with respect to a framework is a ray whose endpoint is the
 origin of the framework.
 
 ```
-   (forall (d f)
-      (iff (direction d f)
-           (exists (o)
-              (and (ray d) (endpoint o d) (origin o f)))))
+(forall (d f)
+   (iff (direction d f)
+        (exists (o)
+           (and (ray d) (endpoint o d) (origin o f)))))
 ```
 
 The direction of a linear object with respect to a framework is a ray that
 is parallel to the object.
 
 ```
-   (forall (d c f)
-      (iff (directionOf d c f)
-           (and (direction d f) (parallel c f))))
+(forall (d c f)
+   (iff (directionOf d c f)
+        (and (direction d f) (parallel c f))))
 ```
 
 Note that a line segment will have two directions, 180 degrees apart.
@@ -1176,20 +1175,20 @@ A polyhedron is a volume whose surface consists of polygons, which are
 called faces.
 
 ```
-   (forall (p s)
-      (iff (polyhedron p s)
-           (exists ( r)
-              (and (surface r p) (closed r)
-                   (forall (f)
-                      (if (member f s) (and (polygon2 f) (inside f r))))
-                   (forall (x)
-                      (if (and (point x) (inside x r))
-                          (exists (f)
-                             (and (member f s) (subfigure x f)))))
-                   (forall (x)
-                      (if (and (point x) (member f1 s) (member f2 s)
-                               (inside x f1) (inside x f2))
-                          (equal f1 f2)))))))
+(forall (p s)
+   (iff (polyhedron p s)
+        (exists (r)
+           (and (surface r p) (closed r)
+                (forall (f)
+                   (if (member f s) (and (polygon2 f) (inside f r))))
+                (forall (x)
+                   (if (and (point x) (inside x r))
+                       (exists (f)
+                          (and (member f s) (subfigure x f)))))
+                (forall (x)
+                   (if (and (point x) (member f1 s) (member f2 s)
+                            (inside x f1) (inside x f2))
+                       (equal f1 f2)))))))
 ```
 
 The expression `(polyhedron p s)` says that p is a polyhedron with
@@ -1201,18 +1200,18 @@ polygons overlap only at their boundaries.
 A face of a polyhedron is one of the faces.
 
 ```
-   (forall (p s f)
-      (if (polyhedron p s)
-          (iff (face f p) (member f s))))
+(forall (p s f)
+   (if (polyhedron p s)
+       (iff (face f p) (member f s))))
 ```
 
 An edge of a polyhedron is a side of one of the faces.
 
 ```
-   (forall (c p s)
-      (if (polyhedron p s)
-          (iff (edge c p)
-               (exists (f) (and (face f p) (sideOf c f))))))
+(forall (c p s)
+   (if (polyhedron p s)
+       (iff (edge c p)
+            (exists (f) (and (face f p) (sideOf c f))))))
 ```
 
 A vertex of a polyhedron is an endpoint of one of the edges. We
@@ -1220,10 +1219,10 @@ will call this relation `vertex3` (vertex of a 3-dimensional entity)
 since we already have a predicate `vertex`.
 
 ```
-   (forall (x p s)
-      (if (polyhedron p s)
-          (iff (vertex3 x p)
-               (exists (c) (and (edge c p) (endpoint x c)))))
+(forall (x p s)
+   (if (polyhedron p s)
+       (iff (vertex3 x p)
+            (exists (c) (and (edge c p) (endpoint x c)))))
 ```
 
 We have taken a polyhedron to be a 3-dimensional volume. We can
@@ -1231,61 +1230,62 @@ also refer to its 2-dimensional surface as a polyhedron; we will
 call this predicate `polyhedron2`.
 
 ```
-   (forall (p2 s)
-      (iff (polyhedron2 p2 s)
-           (exists (p) (and (polyhedron p s) (surface p2 p)))))
+(forall (p2 s)
+   (iff (polyhedron2 p2 s)
+        (exists (p) (and (polyhedron p s) (surface p2 p)))))
 ```
 
-A rectangular parallelepiped is a polyhedron all of whose faces are rectangles.
+A rectangular parallelepiped is a polyhedron all of whose faces are
+rectangles.
 
 ```
-   (forall (p s)
-      (iff (rectangularParallelepiped p s)
-           (and (polyhedron p s)
-                (forall (f)
-                   (if (member f s) (rectangle f))))))
+(forall (p s)
+   (iff (rectangularParallelepiped p s)
+        (and (polyhedron p s)
+             (forall (f)
+                (if (member f s) (rectangle f))))))
 ```
 
 A cube is a polyhedron all of whose faces are squares.
 
 ```
-   (forall (p s)
-      (iff (cube p s)
-           (and (polyhedron p s)
-                (forall (f)
-                   (if (member f s) (square f))))))
+(forall (p s)
+   (iff (cube p s)
+        (and (polyhedron p s)
+             (forall (f)
+                (if (member f s) (square f))))))
 ```
 
 A sphere p around a center x is a volume in which every line segment
 from the center to a point inside the surface is constant.
 
 ```
-   (forall (c r x u)
-      (iff (sphere p x)
-           (exists (r d)
-              (and (boundary r p) (inside x p)
-                   (forall (c1 x1)
-                      (if (and (inside x1 r) (lineSegmentFromTo c1 x x1))
-                          (length d c1 u)))))))
+(forall (c r x u)
+   (iff (sphere p x)
+        (exists (r d)
+           (and (boundary r p) (inside x p)
+                (forall (c1 x1)
+                   (if (and (inside x1 r) (lineSegmentFromTo c1 x x1))
+                       (length d c1 u)))))))
 ```
 
 A volume is convex if every point on a line segment between any
 two points on its surface is inside the volume.
 
 ```
-   (forall (p)
-      (if (volume p)
-          (iff (convex p)
-               (forall (c x x1 x2)
-                  (if (and (onBorder x1 p) (onBorder x2 p)
-                           (lineSegmentFromTo c x1 x2) (inside x c)
-                      (subfigure x p))))))
+(forall (p)
+   (if (volume p)
+       (iff (convex p)
+            (forall (c x x1 x2)
+               (if (and (onBorder x1 p) (onBorder x2 p)
+                        (lineSegmentFromTo c x1 x2) (inside x c)
+                   (subfigure x p))))))
 ```
 
 A volume is concave if it is not convex.
 
 ```
-   (forall (p)
-      (if (volume p)
-          (iff (concave p) (not (convex p)))))
+(forall (p)
+   (if (volume p)
+       (iff (concave p) (not (convex p)))))
 ```

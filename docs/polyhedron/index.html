@@ -23,71 +23,111 @@
 <h1>Predicate: <code>polyhedron</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (p s)
+   (iff (<a href="../polyhedron">polyhedron</a> p s)
+        (exists (r)
+           (and (<a href="../surface">surface</a> r p) (<a href="../closed">closed</a> r)
+                (forall (f)
+                   (if (<a href="../member">member</a> f s) (and (<a href="../polygon2">polygon2</a> f) (<a href="../inside">inside</a> f r))))
+                (forall (x)
+                   (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x r))
+                       (exists (f)
+                          (and (<a href="../member">member</a> f s) (<a href="../subfigure">subfigure</a> x f)))))
+                (forall (x)
+                   (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
+                            (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
+                       (equal f1 f2)))))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (p s f)
+   (if (<a href="../polyhedron">polyhedron</a> p s)
+       (iff (<a href="../face">face</a> f p) (<a href="../member">member</a> f s))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (c p s)
+   (if (<a href="../polyhedron">polyhedron</a> p s)
+       (iff (<a href="../edge">edge</a> c p)
+            (exists (f) (and (<a href="../face">face</a> f p) (<a href="../sideOf">sideOf</a> c f))))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x p s)
+   (if (<a href="../polyhedron">polyhedron</a> p s)
+       (iff (<a href="../vertex3">vertex3</a> x p)
+            (exists (c) (and (<a href="../edge">edge</a> c p) (<a href="../endpoint">endpoint</a> x c)))))
+</pre>
+</div></section>
+<section>
 <h2>All Axioms</h2>
 <div class="axiom">
 <pre>
-   (forall (p s)
-      (iff (<a href="../polyhedron">polyhedron</a> p s)
-           (exists ( r)
-              (and (<a href="../surface">surface</a> r p) (<a href="../closed">closed</a> r)
-                   (forall (f)
-                      (if (<a href="../member">member</a> f s) (and (<a href="../polygon2">polygon2</a> f) (<a href="../inside">inside</a> f r))))
-                   (forall (x)
-                      (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x r))
-                          (exists (f)
-                             (and (<a href="../member">member</a> f s) (<a href="../subfigure">subfigure</a> x f)))))
-                   (forall (x)
-                      (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
-                               (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
-                          (equal f1 f2)))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-   (forall (p s f)
-      (if (<a href="../polyhedron">polyhedron</a> p s)
-          (iff (<a href="../face">face</a> f p) (<a href="../member">member</a> f s))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-   (forall (c p s)
-      (if (<a href="../polyhedron">polyhedron</a> p s)
-          (iff (<a href="../edge">edge</a> c p)
-               (exists (f) (and (<a href="../face">face</a> f p) (<a href="../sideOf">sideOf</a> c f))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-   (forall (x p s)
-      (if (<a href="../polyhedron">polyhedron</a> p s)
-          (iff (<a href="../vertex3">vertex3</a> x p)
-               (exists (c) (and (<a href="../edge">edge</a> c p) (<a href="../endpoint">endpoint</a> x c)))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-   (forall (p2 s)
-      (iff (<a href="../polyhedron2">polyhedron2</a> p2 s)
-           (exists (p) (and (<a href="../polyhedron">polyhedron</a> p s) (<a href="../surface">surface</a> p2 p)))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-   (forall (p s)
-      (iff (<a href="../rectangularParallelepiped">rectangularParallelepiped</a> p s)
-           (and (<a href="../polyhedron">polyhedron</a> p s)
+(forall (p s)
+   (iff (<a href="../polyhedron">polyhedron</a> p s)
+        (exists (r)
+           (and (<a href="../surface">surface</a> r p) (<a href="../closed">closed</a> r)
                 (forall (f)
-                   (if (<a href="../member">member</a> f s) (<a href="../rectangle">rectangle</a> f))))))
+                   (if (<a href="../member">member</a> f s) (and (<a href="../polygon2">polygon2</a> f) (<a href="../inside">inside</a> f r))))
+                (forall (x)
+                   (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x r))
+                       (exists (f)
+                          (and (<a href="../member">member</a> f s) (<a href="../subfigure">subfigure</a> x f)))))
+                (forall (x)
+                   (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
+                            (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
+                       (equal f1 f2)))))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (p s)
-      (iff (<a href="../cube">cube</a> p s)
-           (and (<a href="../polyhedron">polyhedron</a> p s)
-                (forall (f)
-                   (if (<a href="../member">member</a> f s) (<a href="../square">square</a> f))))))
+(forall (p s f)
+   (if (<a href="../polyhedron">polyhedron</a> p s)
+       (iff (<a href="../face">face</a> f p) (<a href="../member">member</a> f s))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (c p s)
+   (if (<a href="../polyhedron">polyhedron</a> p s)
+       (iff (<a href="../edge">edge</a> c p)
+            (exists (f) (and (<a href="../face">face</a> f p) (<a href="../sideOf">sideOf</a> c f))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x p s)
+   (if (<a href="../polyhedron">polyhedron</a> p s)
+       (iff (<a href="../vertex3">vertex3</a> x p)
+            (exists (c) (and (<a href="../edge">edge</a> c p) (<a href="../endpoint">endpoint</a> x c)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (p2 s)
+   (iff (<a href="../polyhedron2">polyhedron2</a> p2 s)
+        (exists (p) (and (<a href="../polyhedron">polyhedron</a> p s) (<a href="../surface">surface</a> p2 p)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (p s)
+   (iff (<a href="../rectangularParallelepiped">rectangularParallelepiped</a> p s)
+        (and (<a href="../polyhedron">polyhedron</a> p s)
+             (forall (f)
+                (if (<a href="../member">member</a> f s) (<a href="../rectangle">rectangle</a> f))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (p s)
+   (iff (<a href="../cube">cube</a> p s)
+        (and (<a href="../polyhedron">polyhedron</a> p s)
+             (forall (f)
+                (if (<a href="../member">member</a> f s) (<a href="../square">square</a> f))))))
 </pre>
 </div>
 </section>

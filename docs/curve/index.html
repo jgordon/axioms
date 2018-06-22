@@ -27,6 +27,19 @@
 <pre>(curve c)</pre><p>c is a curve, a 1-dimensional entity.</p>
 </section>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (c)
+   (if (<a href="../curve">curve</a> c)
+       (iff (<a href="../closed">closed</a> c)
+            (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
+                 (exists (r c1 x1)
+                    (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
+                         (<a href="../inside">inside</a> c r)))))))
+</pre>
+</div></section>
+<section>
 <h2>All Axioms</h2>
 <div class="axiom">
 <pre>
@@ -99,13 +112,13 @@
 </div>
 <div class="axiom">
 <pre>
-   (forall (c)
-      (if (<a href="../curve">curve</a> c)
-          (iff (<a href="../closed">closed</a> c)
-               (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
-                    (exists (r c1 x1)
-                       (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
-                            (<a href="../inside">inside</a> c r)))))))
+(forall (c)
+   (if (<a href="../curve">curve</a> c)
+       (iff (<a href="../closed">closed</a> c)
+            (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
+                 (exists (r c1 x1)
+                    (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
+                         (<a href="../inside">inside</a> c r)))))))
 </pre>
 </div>
 </section>

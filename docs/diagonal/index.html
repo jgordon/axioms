@@ -26,21 +26,21 @@
 <h2>All Axioms</h2>
 <div class="axiom">
 <pre>
-   (forall (p d)
-      (if (<a href="../square">square</a> p)
-          (iff (<a href="../diagonal">diagonal</a> d p)
-               (exists (v1 v2 x1 x2 c1 c2 c3 c4)
-                  (and (<a href="../vertex">vertex</a> v1 c1 c2 x1) (<a href="../vertexOf">vertexOf</a> v1 p)
-                       (<a href="../vertex">vertex</a> v2 c3 c4 x2) (<a href="../vertexOf">vertexOf</a> v2 p)
-                       (<a href="../nequal">nequal</a> c1 c3) (<a href="../nequal">nequal</a> c1 c4)
-                       (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
+(forall (p d)
+   (if (<a href="../square">square</a> p)
+       (iff (<a href="../diagonal">diagonal</a> d p)
+            (exists (v1 v2 x1 x2 c1 c2 c3 c4)
+               (and (<a href="../vertex">vertex</a> v1 c1 c2 x1) (<a href="../vertexOf">vertexOf</a> v1 p)
+                    (<a href="../vertex">vertex</a> v2 c3 c4 x2) (<a href="../vertexOf">vertexOf</a> v2 p)
+                    (<a href="../nequal">nequal</a> c1 c3) (<a href="../nequal">nequal</a> c1 c4)
+                    (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (p d c v x)
-      (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
-          (<a href="../45Degrees">45Degrees</a> v)))
+(forall (p d c v x)
+   (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
+       (<a href="../45Degrees">45Degrees</a> v)))
 </pre>
 </div>
 </section>

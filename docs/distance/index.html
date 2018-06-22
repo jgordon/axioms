@@ -87,22 +87,22 @@
 </div>
 <div class="axiom">
 <pre>
-   (forall (x y z)
-      (iff (<a href="../nearer">nearer</a> x y z)
-           (exists (d1 d2)
-              (and (<a href="../distance">distance</a> d1 x z u) (<a href="../distance">distance</a> d2 y z u)
-                   (<a href="../lt">lt</a> d1 d2)))))
+(forall (x y z)
+   (iff (<a href="../nearer">nearer</a> x y z)
+        (exists (d1 d2)
+           (and (<a href="../distance">distance</a> d1 x z u) (<a href="../distance">distance</a> d2 y z u)
+                (<a href="../lt">lt</a> d1 d2)))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (c v u)
-      (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
-           (exists (c1 c2 x0 x1 x2)
-              (and (<a href="../vertex">vertex</a> v c1 c2 x0) (<a href="../nequal">nequal</a> x1 x2)
-                   (<a href="../endpoint">endpoint</a> x1 c1) (<a href="../distance">distance</a> 1 x0 x1 u)
-                   (<a href="../endpoint">endpoint</a> x2 c2) (<a href="../distance">distance</a> 1 x0 x2 u)
-                   (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)))))
+(forall (c v u)
+   (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
+        (exists (c1 c2 x0 x1 x2)
+           (and (<a href="../vertex">vertex</a> v c1 c2 x0) (<a href="../nequal">nequal</a> x1 x2)
+                (<a href="../endpoint">endpoint</a> x1 c1) (<a href="../distance">distance</a> 1 x0 x1 u)
+                (<a href="../endpoint">endpoint</a> x2 c2) (<a href="../distance">distance</a> 1 x0 x2 u)
+                (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)))))
 </pre>
 </div>
 <div class="axiom">
@@ -115,23 +115,23 @@
 </div>
 <div class="axiom">
 <pre>
-   (forall (v)
-      (iff (<a href="../45Degrees">45Degrees</a> v)
-           (exists (v0 x f c1 c2 o u d)
-              (and (<a href="../equalAngle">equalAngle</a> v v0) (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
-                   (<a href="../xCoordinate">xCoordinate</a> x1 x f) (<a href="../yCoordinate">yCoordinate</a> y1 x f)
-                   (<a href="../distance">distance</a> d o x1 u) (<a href="../distance">distance</a> d o y1 u)))))
+(forall (v)
+   (iff (<a href="../45Degrees">45Degrees</a> v)
+        (exists (v0 x f c1 c2 o u d)
+           (and (<a href="../equalAngle">equalAngle</a> v v0) (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
+                (<a href="../xCoordinate">xCoordinate</a> x1 x f) (<a href="../yCoordinate">yCoordinate</a> y1 x f)
+                (<a href="../distance">distance</a> d o x1 u) (<a href="../distance">distance</a> d o y1 u)))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (v)
-      (iff (<a href="../30Degrees">30Degrees</a> v)
-           (exists (v0 x f c1 c2 o u d1 d2)
-              (and (<a href="../equalAngle">equalAngle</a> v v0) (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
-                   (<a href="../xCoordinate">xCoordinate</a> x1 x f) (<a href="../yCoordinate">yCoordinate</a> y1 x f)
-                   (<a href="../distance">distance</a> d1 o y1 u) (<a href="../distance">distance</a> d2 o x u)
-                   (<a href="../product">product</a> d2 d1 2)))))
+(forall (v)
+   (iff (<a href="../30Degrees">30Degrees</a> v)
+        (exists (v0 x f c1 c2 o u d1 d2)
+           (and (<a href="../equalAngle">equalAngle</a> v v0) (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
+                (<a href="../xCoordinate">xCoordinate</a> x1 x f) (<a href="../yCoordinate">yCoordinate</a> y1 x f)
+                (<a href="../distance">distance</a> d1 o y1 u) (<a href="../distance">distance</a> d2 o x u)
+                (<a href="../product">product</a> d2 d1 2)))))
 </pre>
 </div>
 </section>

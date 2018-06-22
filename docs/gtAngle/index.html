@@ -23,32 +23,48 @@
 <h1>Predicate: <code>gtAngle</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (v1 v2)
+   (iff (<a href="../gtAngle">gtAngle</a> v1 v2)
+        (exists (c1 c2 d1 d2 u)
+           (and (<a href="../baseOfAngle">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle">baseOfAngle</a> c2 v2 u)
+                (<a href="../length">length</a> d1 c1 u) (<a href="../length">length</a> d2 c2 u) (<a href="../gt">gt</a> d1 d2)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (v1 v2)
+   (iff (<a href="../gtAngle">gtAngle</a> v1 v2) (not (<a href="../gtAngle">gtAngle</a> v2 v1))))
+</pre>
+</div></section>
+<section>
 <h2>All Axioms</h2>
 <div class="axiom">
 <pre>
-   (forall (v1 v2)
-      (iff (<a href="../gtAngle">gtAngle</a> v1 v2)
-           (exists (c1 c2 d1 d2 u)
-              (and (<a href="../baseOfAngle">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle">baseOfAngle</a> c2 v2 u)
-                   (<a href="../length">length</a> d1 c1 u) (<a href="../length">length</a> d2 c2 u) (<a href="../gt">gt</a> d1 d2)))))
+(forall (v1 v2)
+   (iff (<a href="../gtAngle">gtAngle</a> v1 v2)
+        (exists (c1 c2 d1 d2 u)
+           (and (<a href="../baseOfAngle">baseOfAngle</a> c1 v1 u) (<a href="../baseOfAngle">baseOfAngle</a> c2 v2 u)
+                (<a href="../length">length</a> d1 c1 u) (<a href="../length">length</a> d2 c2 u) (<a href="../gt">gt</a> d1 d2)))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (v) (not (<a href="../gtAngle">gtAngle</a> v v)))
+(forall (v) (not (<a href="../gtAngle">gtAngle</a> v v)))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (v1 v2)
-      (iff (<a href="../gtAngle">gtAngle</a> v1 v2) (not (<a href="../gtAngle">gtAngle</a> v2 v1))))
+(forall (v1 v2)
+   (iff (<a href="../gtAngle">gtAngle</a> v1 v2) (not (<a href="../gtAngle">gtAngle</a> v2 v1))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (v1 v2 v3)
-      (if (and (<a href="../gtAngle">gtAngle</a> v1 v2) (<a href="../gtAngle">gtAngle</a> v2 v3))
-          (<a href="../gtAngle">gtAngle</a> v1 v3)))
+(forall (v1 v2 v3)
+   (if (and (<a href="../gtAngle">gtAngle</a> v1 v2) (<a href="../gtAngle">gtAngle</a> v2 v3))
+       (<a href="../gtAngle">gtAngle</a> v1 v3)))
 </pre>
 </div>
 </section>

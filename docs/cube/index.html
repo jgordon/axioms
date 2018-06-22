@@ -23,14 +23,25 @@
 <h1>Predicate: <code>cube</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (p s)
+   (iff (<a href="../cube">cube</a> p s)
+        (and (<a href="../polyhedron">polyhedron</a> p s)
+             (forall (f)
+                (if (<a href="../member">member</a> f s) (<a href="../square">square</a> f))))))
+</pre>
+</div></section>
+<section>
 <h2>All Axioms</h2>
 <div class="axiom">
 <pre>
-   (forall (p s)
-      (iff (<a href="../cube">cube</a> p s)
-           (and (<a href="../polyhedron">polyhedron</a> p s)
-                (forall (f)
-                   (if (<a href="../member">member</a> f s) (<a href="../square">square</a> f))))))
+(forall (p s)
+   (iff (<a href="../cube">cube</a> p s)
+        (and (<a href="../polyhedron">polyhedron</a> p s)
+             (forall (f)
+                (if (<a href="../member">member</a> f s) (<a href="../square">square</a> f))))))
 </pre>
 </div>
 </section>

@@ -23,12 +23,21 @@
 <h1>Predicate: <code>directionOf</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (d c f)
+   (iff (<a href="../directionOf">directionOf</a> d c f)
+        (and (<a href="../direction">direction</a> d f) (<a href="../parallel">parallel</a> c f))))
+</pre>
+</div></section>
+<section>
 <h2>All Axioms</h2>
 <div class="axiom">
 <pre>
-   (forall (d c f)
-      (iff (<a href="../directionOf">directionOf</a> d c f)
-           (and (<a href="../direction">direction</a> d f) (<a href="../parallel">parallel</a> c f))))
+(forall (d c f)
+   (iff (<a href="../directionOf">directionOf</a> d c f)
+        (and (<a href="../direction">direction</a> d f) (<a href="../parallel">parallel</a> c f))))
 </pre>
 </div>
 </section>

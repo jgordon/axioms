@@ -23,14 +23,25 @@
 <h1>Predicate: <code>rectangularParallelepiped</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (p s)
+   (iff (<a href="../rectangularParallelepiped">rectangularParallelepiped</a> p s)
+        (and (<a href="../polyhedron">polyhedron</a> p s)
+             (forall (f)
+                (if (<a href="../member">member</a> f s) (<a href="../rectangle">rectangle</a> f))))))
+</pre>
+</div></section>
+<section>
 <h2>All Axioms</h2>
 <div class="axiom">
 <pre>
-   (forall (p s)
-      (iff (<a href="../rectangularParallelepiped">rectangularParallelepiped</a> p s)
-           (and (<a href="../polyhedron">polyhedron</a> p s)
-                (forall (f)
-                   (if (<a href="../member">member</a> f s) (<a href="../rectangle">rectangle</a> f))))))
+(forall (p s)
+   (iff (<a href="../rectangularParallelepiped">rectangularParallelepiped</a> p s)
+        (and (<a href="../polyhedron">polyhedron</a> p s)
+             (forall (f)
+                (if (<a href="../member">member</a> f s) (<a href="../rectangle">rectangle</a> f))))))
 </pre>
 </div>
 </section>

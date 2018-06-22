@@ -74,17 +74,17 @@
 </div>
 <div class="axiom">
 <pre>
-   (forall (p d c v x)
-      (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
-          (<a href="../45Degrees">45Degrees</a> v)))
+(forall (p d c v x)
+   (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
+       (<a href="../45Degrees">45Degrees</a> v)))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (c p s)
-      (if (<a href="../polyhedron">polyhedron</a> p s)
-          (iff (<a href="../edge">edge</a> c p)
-               (exists (f) (and (<a href="../face">face</a> f p) (<a href="../sideOf">sideOf</a> c f))))))
+(forall (c p s)
+   (if (<a href="../polyhedron">polyhedron</a> p s)
+       (iff (<a href="../edge">edge</a> c p)
+            (exists (f) (and (<a href="../face">face</a> f p) (<a href="../sideOf">sideOf</a> c f))))))
 </pre>
 </div>
 </section>

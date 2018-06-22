@@ -23,29 +23,39 @@
 <h1>Predicate: <code>nearnessScale</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (s z)
+   (iff (<a href="../nearnessScale">nearnessScale</a> s z)
+        (exists (s0 e x y u)
+           (and (<a href="../nearer">nearer</a>' e x y z u) (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e)))))
+</pre>
+</div></section>
+<section>
 <h2>All Axioms</h2>
 <div class="axiom">
 <pre>
-   (forall (s z)
-      (iff (<a href="../nearnessScale">nearnessScale</a> s z)
-           (exists (s0 e x y u)
-              (and (<a href="../nearer">nearer</a>' e x y z u) (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e)))))
+(forall (s z)
+   (iff (<a href="../nearnessScale">nearnessScale</a> s z)
+        (exists (s0 e x y u)
+           (and (<a href="../nearer">nearer</a>' e x y z u) (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e)))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (x z)
-      (iff (<a href="../near">near</a> x z)
-           (exists (s s1)
-              (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Lo">Lo</a> s1 s) (<a href="../onScale">onScale</a> x s1)))))
+(forall (x z)
+   (iff (<a href="../near">near</a> x z)
+        (exists (s s1)
+           (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Lo">Lo</a> s1 s) (<a href="../onScale">onScale</a> x s1)))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (x z)
-      (iff (<a href="../far">far</a> x z)
-           (exists (s s2)
-              (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Hi">Hi</a> s2 s) (<a href="../onScale">onScale</a> x s2)))))
+(forall (x z)
+   (iff (<a href="../far">far</a> x z)
+        (exists (s s2)
+           (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Hi">Hi</a> s2 s) (<a href="../onScale">onScale</a> x s2)))))
 </pre>
 </div>
 </section>

@@ -76,58 +76,58 @@
 </div>
 <div class="axiom">
 <pre>
-   (forall (c r x u)
-      (iff (<a href="../circle">circle</a> c x)
-           (exists (r d)
-              (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
-                   (forall (c1 x1)
-                      (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
-                          (<a href="../length">length</a> d c1 u)))))))
+(forall (c r x u)
+   (iff (<a href="../circle">circle</a> c x)
+        (exists (r d)
+           (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
+                (forall (c1 x1)
+                   (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                       (<a href="../length">length</a> d c1 u)))))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (c v u)
-      (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
-           (exists (c1 c2 x0 x1 x2)
-              (and (<a href="../vertex">vertex</a> v c1 c2 x0) (<a href="../nequal">nequal</a> x1 x2)
-                   (<a href="../endpoint">endpoint</a> x1 c1) (<a href="../distance">distance</a> 1 x0 x1 u)
-                   (<a href="../endpoint">endpoint</a> x2 c2) (<a href="../distance">distance</a> 1 x0 x2 u)
-                   (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)))))
+(forall (c v u)
+   (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
+        (exists (c1 c2 x0 x1 x2)
+           (and (<a href="../vertex">vertex</a> v c1 c2 x0) (<a href="../nequal">nequal</a> x1 x2)
+                (<a href="../endpoint">endpoint</a> x1 c1) (<a href="../distance">distance</a> 1 x0 x1 u)
+                (<a href="../endpoint">endpoint</a> x2 c2) (<a href="../distance">distance</a> 1 x0 x2 u)
+                (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (p d)
-      (if (<a href="../square">square</a> p)
-          (iff (<a href="../diagonal">diagonal</a> d p)
-               (exists (v1 v2 x1 x2 c1 c2 c3 c4)
-                  (and (<a href="../vertex">vertex</a> v1 c1 c2 x1) (<a href="../vertexOf">vertexOf</a> v1 p)
-                       (<a href="../vertex">vertex</a> v2 c3 c4 x2) (<a href="../vertexOf">vertexOf</a> v2 p)
-                       (<a href="../nequal">nequal</a> c1 c3) (<a href="../nequal">nequal</a> c1 c4)
-                       (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
+(forall (p d)
+   (if (<a href="../square">square</a> p)
+       (iff (<a href="../diagonal">diagonal</a> d p)
+            (exists (v1 v2 x1 x2 c1 c2 c3 c4)
+               (and (<a href="../vertex">vertex</a> v1 c1 c2 x1) (<a href="../vertexOf">vertexOf</a> v1 p)
+                    (<a href="../vertex">vertex</a> v2 c3 c4 x2) (<a href="../vertexOf">vertexOf</a> v2 p)
+                    (<a href="../nequal">nequal</a> c1 c3) (<a href="../nequal">nequal</a> c1 c4)
+                    (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (c r x u)
-      (iff (<a href="../sphere">sphere</a> p x)
-           (exists (r d)
-              (and (<a href="../boundary">boundary</a> r p) (<a href="../inside">inside</a> x p)
-                   (forall (c1 x1)
-                      (if (and (<a href="../inside">inside</a> x1 r) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
-                          (<a href="../length">length</a> d c1 u)))))))
+(forall (c r x u)
+   (iff (<a href="../sphere">sphere</a> p x)
+        (exists (r d)
+           (and (<a href="../boundary">boundary</a> r p) (<a href="../inside">inside</a> x p)
+                (forall (c1 x1)
+                   (if (and (<a href="../inside">inside</a> x1 r) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                       (<a href="../length">length</a> d c1 u)))))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (p)
-      (if (<a href="../volume">volume</a> p)
-          (iff (<a href="../convex">convex</a> p)
-               (forall (c x x1 x2)
-                  (if (and (<a href="../onBorder">onBorder</a> x1 p) (<a href="../onBorder">onBorder</a> x2 p)
-                           (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c)
-                      (<a href="../subfigure">subfigure</a> x p))))))
+(forall (p)
+   (if (<a href="../volume">volume</a> p)
+       (iff (<a href="../convex">convex</a> p)
+            (forall (c x x1 x2)
+               (if (and (<a href="../onBorder">onBorder</a> x1 p) (<a href="../onBorder">onBorder</a> x2 p)
+                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c)
+                   (<a href="../subfigure">subfigure</a> x p))))))
 </pre>
 </div>
 </section>

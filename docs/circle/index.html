@@ -23,27 +23,40 @@
 <h1>Predicate: <code>circle</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (c r x u)
+   (iff (<a href="../circle">circle</a> c x)
+        (exists (r d)
+           (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
+                (forall (c1 x1)
+                   (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                       (<a href="../length">length</a> d c1 u)))))))
+</pre>
+</div></section>
+<section>
 <h2>All Axioms</h2>
 <div class="axiom">
 <pre>
-   (forall (c r x u)
-      (iff (<a href="../circle">circle</a> c x)
-           (exists (r d)
-              (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
-                   (forall (c1 x1)
-                      (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
-                          (<a href="../length">length</a> d c1 u)))))))
+(forall (c r x u)
+   (iff (<a href="../circle">circle</a> c x)
+        (exists (r d)
+           (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
+                (forall (c1 x1)
+                   (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                       (<a href="../length">length</a> d c1 u)))))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (c)
-      (if (<a href="../curve">curve</a> c)
-          (iff (<a href="../closed">closed</a> c)
-               (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
-                    (exists (r c1 x1)
-                       (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
-                            (<a href="../inside">inside</a> c r)))))))
+(forall (c)
+   (if (<a href="../curve">curve</a> c)
+       (iff (<a href="../closed">closed</a> c)
+            (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
+                 (exists (r c1 x1)
+                    (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
+                         (<a href="../inside">inside</a> c r)))))))
 </pre>
 </div>
 </section>

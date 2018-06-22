@@ -23,14 +23,25 @@
 <h1>Predicate: <code>anchorFramework</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (f v c1 c2 o)
+   (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
+        (and (<a href="../framework">framework</a> f) (<a href="../vertex">vertex</a> v c1 c2 o)
+             (forall (a1) (if (<a href="../xAxis">xAxis</a> a1 f) (<a href="../subfigure">subfigure</a> c1 a1)))
+             (<a href="../origin">origin</a> o f))))
+</pre>
+</div></section>
+<section>
 <h2>All Axioms</h2>
 <div class="axiom">
 <pre>
-   (forall (f v c1 c2 o)
-      (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
-           (and (<a href="../framework">framework</a> f) (<a href="../vertex">vertex</a> v c1 c2 o)
-                (forall (a1) (if (<a href="../xAxis">xAxis</a> a1 f) (<a href="../subfigure">subfigure</a> c1 a1)))
-                (<a href="../origin">origin</a> o f))))
+(forall (f v c1 c2 o)
+   (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
+        (and (<a href="../framework">framework</a> f) (<a href="../vertex">vertex</a> v c1 c2 o)
+             (forall (a1) (if (<a href="../xAxis">xAxis</a> a1 f) (<a href="../subfigure">subfigure</a> c1 a1)))
+             (<a href="../origin">origin</a> o f))))
 </pre>
 </div>
 <div class="axiom">

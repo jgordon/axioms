@@ -23,40 +23,54 @@
 <h1>Predicate: <code>vertical3</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (s1 f)
+   (iff (<a href="../vertical3">vertical3</a> s1 f)
+        (exists (s)
+           (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+                (not (exists (x1 x2)
+                        (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                             (or (<a href="../rightOf">rightOf</a> x1 x2 f)
+                                 (<a href="../above2">above2</a> x1 x2 f)))))))))
+</pre>
+</div></section>
+<section>
 <h2>All Axioms</h2>
 <div class="axiom">
 <pre>
-   (forall (s1 f)
-      (iff (<a href="../vertical3">vertical3</a> s1 f)
-           (exists (s)
-              (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
-                   (not (exists (x1 x2)
-                           (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
-                                (or (<a href="../rightOf">rightOf</a> x1 x2 f)
-                                    (<a href="../above2">above2</a> x1 x2 f)))))))))
+(forall (s1 f)
+   (iff (<a href="../vertical3">vertical3</a> s1 f)
+        (exists (s)
+           (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+                (not (exists (x1 x2)
+                        (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                             (or (<a href="../rightOf">rightOf</a> x1 x2 f)
+                                 (<a href="../above2">above2</a> x1 x2 f)))))))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (s1 s2 f)
-      (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal3">horizontal3</a> s1 f) (<a href="../vertical3">vertical3</a> s2 f))
-          (<a href="../independentScales">independentScales</a> s1 s2)))
+(forall (s1 s2 f)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal3">horizontal3</a> s1 f) (<a href="../vertical3">vertical3</a> s2 f))
+       (<a href="../independentScales">independentScales</a> s1 s2)))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-    (forall (a3 f)
-      (if (<a href="../zAxis">zAxis</a> a3 f)
-          (and (<a href="../framework">framework</a> f) (<a href="../vertical3">vertical3</a> a3 f))))
+(forall (a3 f)
+   (if (<a href="../zAxis">zAxis</a> a3 f)
+       (and (<a href="../framework">framework</a> f) (<a href="../vertical3">vertical3</a> a3 f))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (z1 x f)
-      (iff (<a href="../zCoordinate">zCoordinate</a> z1 x f)
-           (exists (v a1)
-              (and (<a href="../vertical3">vertical3</a> v f) (<a href="../member">member</a> x v) (<a href="../zAxis">zAxis</a> a3 f)
-                   (<a href="../member">member</a> z1 v) (<a href="../member">member</a> z1 a3)))))
+(forall (z1 x f)
+   (iff (<a href="../zCoordinate">zCoordinate</a> z1 x f)
+        (exists (v a1)
+           (and (<a href="../vertical3">vertical3</a> v f) (<a href="../member">member</a> x v) (<a href="../zAxis">zAxis</a> a3 f)
+                (<a href="../member">member</a> z1 v) (<a href="../member">member</a> z1 a3)))))
 </pre>
 </div>
 </section>

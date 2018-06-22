@@ -56,27 +56,27 @@
 </div>
 <div class="axiom">
 <pre>
-   (forall (p s)
-      (iff (<a href="../polyhedron">polyhedron</a> p s)
-           (exists ( r)
-              (and (<a href="../surface">surface</a> r p) (<a href="../closed">closed</a> r)
-                   (forall (f)
-                      (if (<a href="../member">member</a> f s) (and (<a href="../polygon2">polygon2</a> f) (<a href="../inside">inside</a> f r))))
-                   (forall (x)
-                      (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x r))
-                          (exists (f)
-                             (and (<a href="../member">member</a> f s) (<a href="../subfigure">subfigure</a> x f)))))
-                   (forall (x)
-                      (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
-                               (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
-                          (equal f1 f2)))))))
+(forall (p s)
+   (iff (<a href="../polyhedron">polyhedron</a> p s)
+        (exists (r)
+           (and (<a href="../surface">surface</a> r p) (<a href="../closed">closed</a> r)
+                (forall (f)
+                   (if (<a href="../member">member</a> f s) (and (<a href="../polygon2">polygon2</a> f) (<a href="../inside">inside</a> f r))))
+                (forall (x)
+                   (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x r))
+                       (exists (f)
+                          (and (<a href="../member">member</a> f s) (<a href="../subfigure">subfigure</a> x f)))))
+                (forall (x)
+                   (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
+                            (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
+                       (equal f1 f2)))))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (p2 s)
-      (iff (<a href="../polyhedron2">polyhedron2</a> p2 s)
-           (exists (p) (and (<a href="../polyhedron">polyhedron</a> p s) (<a href="../surface">surface</a> p2 p)))))
+(forall (p2 s)
+   (iff (<a href="../polyhedron2">polyhedron2</a> p2 s)
+        (exists (p) (and (<a href="../polyhedron">polyhedron</a> p s) (<a href="../surface">surface</a> p2 p)))))
 </pre>
 </div>
 </section>

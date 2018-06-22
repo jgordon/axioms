@@ -74,40 +74,40 @@
 </div>
 <div class="axiom">
 <pre>
-   (forall (f v c1 c2 o)
-      (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
-           (and (<a href="../framework">framework</a> f) (<a href="../vertex">vertex</a> v c1 c2 o)
-                (forall (a1) (if (<a href="../xAxis">xAxis</a> a1 f) (<a href="../subfigure">subfigure</a> c1 a1)))
-                (<a href="../origin">origin</a> o f))))
+(forall (f v c1 c2 o)
+   (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
+        (and (<a href="../framework">framework</a> f) (<a href="../vertex">vertex</a> v c1 c2 o)
+             (forall (a1) (if (<a href="../xAxis">xAxis</a> a1 f) (<a href="../subfigure">subfigure</a> c1 a1)))
+             (<a href="../origin">origin</a> o f))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (p s)
-      (iff (<a href="../polyhedron">polyhedron</a> p s)
-           (exists ( r)
-              (and (<a href="../surface">surface</a> r p) (<a href="../closed">closed</a> r)
-                   (forall (f)
-                      (if (<a href="../member">member</a> f s) (and (<a href="../polygon2">polygon2</a> f) (<a href="../inside">inside</a> f r))))
-                   (forall (x)
-                      (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x r))
-                          (exists (f)
-                             (and (<a href="../member">member</a> f s) (<a href="../subfigure">subfigure</a> x f)))))
-                   (forall (x)
-                      (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
-                               (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
-                          (equal f1 f2)))))))
+(forall (p s)
+   (iff (<a href="../polyhedron">polyhedron</a> p s)
+        (exists (r)
+           (and (<a href="../surface">surface</a> r p) (<a href="../closed">closed</a> r)
+                (forall (f)
+                   (if (<a href="../member">member</a> f s) (and (<a href="../polygon2">polygon2</a> f) (<a href="../inside">inside</a> f r))))
+                (forall (x)
+                   (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x r))
+                       (exists (f)
+                          (and (<a href="../member">member</a> f s) (<a href="../subfigure">subfigure</a> x f)))))
+                (forall (x)
+                   (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
+                            (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
+                       (equal f1 f2)))))))
 </pre>
 </div>
 <div class="axiom">
 <pre>
-   (forall (p)
-      (if (<a href="../volume">volume</a> p)
-          (iff (<a href="../convex">convex</a> p)
-               (forall (c x x1 x2)
-                  (if (and (<a href="../onBorder">onBorder</a> x1 p) (<a href="../onBorder">onBorder</a> x2 p)
-                           (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c)
-                      (<a href="../subfigure">subfigure</a> x p))))))
+(forall (p)
+   (if (<a href="../volume">volume</a> p)
+       (iff (<a href="../convex">convex</a> p)
+            (forall (c x x1 x2)
+               (if (and (<a href="../onBorder">onBorder</a> x1 p) (<a href="../onBorder">onBorder</a> x2 p)
+                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c)
+                   (<a href="../subfigure">subfigure</a> x p))))))
 </pre>
 </div>
 </section>
