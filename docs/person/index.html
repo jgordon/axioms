@@ -61,32 +61,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A person is a kind of agent.</p>
-<pre>
-(forall (p)
-  (if (<a href="../person">person</a> p)
-      (<a href="../agent">agent</a> p)))
-</pre>
-</div>
-<div class="axiom">
-<p>A person is also a kind of physical object.</p>
-<pre>
-(forall (p)
-  (if (<a href="../person">person</a> p)
-      (<a href="../physobj">physobj</a> p)))
-</pre>
-</div>
-<div class="axiom">
-<p>A person has a body and a mind.</p>
-<pre>
-(forall (p)
-  (if (<a href="../person">person</a> p)
-      (exists (b m)
-        (and (<a href="../body">body</a> b p) (<a href="../mind">mind</a> m p)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A person <code>p</code> has a set of body parts, namely, the components of the body.</p>
 <pre>
@@ -128,16 +103,6 @@
                    (exists (e1 e2 y z)
                      (and (<a href="../move">move</a>' e2 x y z) (<a href="../will">will</a>' e1 p e2)
                           (<a href="../dcause">dcause</a> e1 e2)))))))))
-</pre>
-</div>
-<div class="axiom">
-<p>Example of an axiom for a more detailed account of human physical control: A person can voluntarily lift his or her arm.</p>
-<pre>
-(forall (p)
-  (if (<a href="../person">person</a> p)
-      (exists (e1 e2 x)
-        (and (<a href="../lift">lift</a>' e2 p x) (<a href="../arm">arm</a> x p) (<a href="../will">will</a>' e1 p e2)
-             (<a href="../dcause">dcause</a> e1 e2)))))
 </pre>
 </div>
 </section>

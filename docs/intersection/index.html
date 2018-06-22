@@ -36,18 +36,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The intersection of two sets is defined in the standard way.</p>
-<pre>
-(forall (s s1 s2)
-  (iff (<a href="../intersection">intersection</a> s s1 s2)
-       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1) (<a href="../set">set</a> s2)
-            (forall (x)
-              (iff (<a href="../member">member</a> x s)
-                   (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (f a1 a2 s)

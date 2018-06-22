@@ -42,20 +42,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The <code>rest</code> of a sequence is what remains after the first element is removed. The expression <code>(rest s1 s)</code> says that <code>s1</code> is the rest of <code>s</code> after the first is removed.</p>
-<pre>
-(forall (s1 s)
-  (iff (<a href="../rest">rest</a> s1 s)
-       (and (<a href="../sequence">sequence</a> s) (<a href="../sequence">sequence</a> s1)
-            (forall (i x)
-              (iff (<a href="../map">map</a> s1 i x)
-                   (exists (j)
-                     (and (<a href="../posInteger">posInteger</a> i) (<a href="../successor">successor</a> j i)
-                          (<a href="../map">map</a> s j x))))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The same event type happening to all the elements of a sequence in turn.</p>
 <pre>

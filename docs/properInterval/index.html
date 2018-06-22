@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>When the beginning and end of an interval are distinct, we will call it a proper interval. Positive infinite intervals are regarded as proper intervals.</p>
-<pre>
-(forall (t)
-  (iff (<a href="../properInterval">properInterval</a> t)
-       (or (exists (t1 t2)
-             (and (<a href="../begins">begins</a> t1 t) (<a href="../ends">ends</a> t2 t) (<a href="../nequal">nequal</a> t1 t2)))
-           (<a href="../posInfInterval">posInfInterval</a> t))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The predicate <code>during</code> says that the eventuality really exists or obtains throughout an interval.</p>
 <pre>

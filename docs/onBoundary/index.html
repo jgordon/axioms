@@ -35,17 +35,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<pre>
-(forall (f1 f2)
-  (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
-       (or (and (<a href="../point">point</a> f1) (<a href="../curve">curve</a> f2) (<a href="../endpoint">endpoint</a> f1 f2))
-           (exists (b) (and (<a href="../region">region</a> f2) (<a href="../border">border</a> b f2) (<a href="../inside">inside</a> f1 b)))
-           (exists (b)
-             (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (f1 f2)

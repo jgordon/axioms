@@ -45,17 +45,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The null set is the set with no members.</p>
-<pre>
-(forall (s)
-  (iff (<a href="../null">null</a> s)
-       (and (<a href="../set">set</a> s)
-            (forall (x)
-              (not (<a href="../member">member</a> x s))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A singleton set consists of one entity.</p>
 <pre>
@@ -135,13 +125,6 @@
            (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
            (<a href="../card">card</a>' m n u))
       (<a href="../measure">measure</a> m s)))
-</pre>
-</div>
-<div class="axiom">
-<p>The duration of an interval is determined by concatenation.</p>
-<pre>
-(forall (s u)
-  (if (<a href="../null">null</a> s) (<a href="../durationOf">durationOf</a> 0 s u)))
 </pre>
 </div>
 <div class="axiom">

@@ -42,20 +42,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A subscale of a scale has as its components a subset of the components of the scale and its partial ordering relation is the partial ordering of the scale restricted to that subset.</p>
-<pre>
-(forall (s1 s)
-   (iff (<a href="../subscale">subscale</a> s1 s)
-        (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s)
-             (forall (x) (if (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> x s)))
-             (forall (x y)
-                (iff (<a href="../lts">lts</a> x y s1)
-                     (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1)
-                          (<a href="../lts">lts</a> x y s)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A function f is "into" a set or scale s3 if there is a subset or subscale s2 for which fi is a function "onto".</p>
 <pre>

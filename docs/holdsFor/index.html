@@ -38,19 +38,6 @@
               (<a href="../Rexist">Rexist</a> e2)))))
 </pre>
 </div></section>
-<section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>An eventuality type e1 holds for an entity y as its x parameter if, when the entity is substituted for x in the eventuality type, the resulting instantiation really exists.</p>
-<pre>
-(forall (e1 y x)
-  (iff (<a href="../holdsFor">holdsFor</a> e1 y x)
-       (exists (s e2)
-         (and (<a href="../subst">subst</a> y e2 x e1) (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> y s)
-              (<a href="../Rexist">Rexist</a> e2)))))
-</pre>
-</div>
-</section>
 
 </body>
 

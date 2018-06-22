@@ -40,18 +40,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>Sets can be constructed recursively by adding one element at a time.</p>
-<pre>
-(forall (s s1 x)
-  (iff (<a href="../addElt">addElt</a> s s1 x)
-       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1)
-            (forall (y)
-              (iff (<a href="../member">member</a> y s)
-                   (or (equal y x) (<a href="../member">member</a> y s1)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A singleton set consists of one entity.</p>
 <pre>

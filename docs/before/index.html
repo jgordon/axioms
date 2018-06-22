@@ -58,7 +58,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A temporal sequence is a set of non-overlapping temporal entities. Between any two distinct members of a temporal sequence, there is another interval or instant that is not in the set.</p>
 <pre>
@@ -128,15 +128,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Instants are at least partially ordered by a <code>before</code> relation, which will also be extended to intervals, temporal sequences, and eventualities.</p>
-<pre>
-(forall (t1 t2)
-  (if (<a href="../before">before</a> t1 t2)
-      (and (or (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../tseq">tseq</a> t1) (<a href="../eventuality">eventuality</a> t1))
-           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
-</pre>
-</div>
-<div class="axiom">
 <p>The beginning of a proper interval is before the instants inside, which are before the end.</p>
 <pre>
 (forall (t1 t2 t3 t)
@@ -161,14 +152,6 @@
 <p>The <code>before</code> relation is antireflexive.</p>
 <pre>
 (forall (t) (not (<a href="../before">before</a> t t)))
-</pre>
-</div>
-<div class="axiom">
-<p>The <code>before</code> relation is antisymmetric.</p>
-<pre>
-(forall (t1 t2)
-  (if (<a href="../before">before</a> t1 t2)
-      (not (<a href="../before">before</a> t2 t1))))
 </pre>
 </div>
 <div class="axiom">
@@ -205,15 +188,6 @@
               (and (<a href="../ends">ends</a> t5 t1)
                    (forall (t6)
                      (if (<a href="../ends">ends</a> t6 t2) (<a href="../before">before</a> t5 t6))))))))
-</pre>
-</div>
-<div class="axiom">
-<p>We can also extend the <code>before</code> relation from instants to intervals, temporal sequences, and eventualities; one of them is before another if the first's end is before the second's beginning.</p>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../before">before</a> t1 t2)
-       (exists (t3 t4)
-         (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2) (<a href="../before">before</a> t3 t4)))))
 </pre>
 </div>
 <div class="axiom">
@@ -277,12 +251,6 @@
   (if (and (<a href="../cause">cause</a> e1 e2) (<a href="../atTime">atTime</a> e1 t1) (etc))
       (exists (t2)
         (and (not (<a href="../before">before</a> t2 t1)) (<a href="../atTime">atTime</a> e2 t2)))))
-</pre>
-</div>
-<div class="axiom">
-<p>The relation <code>before</code> is temporal.</p>
-<pre>
-(forall (e t1 t2) (if (<a href="../before">before</a>' e t1 t2) (<a href="../temporal">temporal</a> e)))
 </pre>
 </div>
 </section>

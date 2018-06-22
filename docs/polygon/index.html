@@ -41,23 +41,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<pre>
-(forall (p n)
-  (iff (<a href="../polygon">polygon</a> p n)
-       (exists (s)
-         (and (forall (c)
-                (iff (<a href="../member">member</a> c s) (<a href="../sideOf">sideOf</a> c p)))
-              (forall (x)
-                (if (<a href="../inside">inside</a> x p)
-                    (exists (c)
-                      (and (<a href="../member">member</a> c s)
-                        (or (<a href="../inside">inside</a> x c) (<a href="../endpoint">endpoint</a> x l))))))
-              (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
-              (<a href="../card">card</a> n s)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (r)

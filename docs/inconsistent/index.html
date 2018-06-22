@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>Two sets of eventualities are inconsistent if one implies an eventuality and the other implies its negation.</p>
-<pre>
-(forall (s1 s2)
-  (iff (<a href="../inconsistent">inconsistent</a> s1 s2)
-       (and (<a href="../eventualities">eventualities</a> s1) (<a href="../eventualities">eventualities</a> s2)
-            (exists (e1 e2)
-              (and (<a href="../imply">imply</a> s1 e1) (<a href="../imply">imply</a> s2 e2) (<a href="../not'">not'</a> e2 e1))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>If two states are not inconsistent, then the change must be a composite of two changes, one to and the other from an inconsistent state.</p>
 <pre>

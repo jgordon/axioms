@@ -42,20 +42,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>For a scale to be the domain or range of a function is for its set of components to be the domain or range.</p>
-<pre>
-(forall (f s1 s2)
-   (iff (<a href="../function">function</a> f s1 s2)
-        (exists (s3 s4)
-           (and (if (<a href="../set">set</a> s1) (equal s3 s1))
-                (if (<a href="../scale">scale</a> s1) (<a href="../componentsOf">componentsOf</a> s3 s1))
-                (if (<a href="../set">set</a> s2) (equal s4 s2))
-                (if (<a href="../scale">scale</a> s2) (<a href="../componentsOf">componentsOf</a> s4 s2))
-                (<a href="../function0">function0</a> f s3 s4)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A scale-to-scale function is monotone-increasing if the mapping preserves the domain scale's less-than ordering.</p>
 <pre>

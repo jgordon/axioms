@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The negation of an eventuality really exists if and only if the eventuality doesn't.</p>
-<pre>
-(forall (e1 e2)
-  (if (<a href="../not'">not'</a> e1 e2)
-      (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2)
-           (iff (<a href="../Rexist">Rexist</a> e1)
-                (not (<a href="../Rexist">Rexist</a> e2))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p><code>nott</code> is stronger than <code>not</code>. It says there is an eventuality type of which e2 is an instance and the negation is the negation of that type.</p>
 <pre>

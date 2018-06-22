@@ -52,31 +52,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The predicate <code>properIntervalEv</code> says that its argument is either a proper interval or an eventuality whose time span is a proper interval.</p>
-<pre>
-(forall (e)
-  (iff (<a href="../properIntervalEv">properIntervalEv</a> e)
-       (or (<a href="../properInterval">properInterval</a> e)
-           (exists (t)
-             (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../properInterval">properInterval</a> t)))
-           (<a href="../posInfIntervalEv">posInfIntervalEv</a> e))))
-</pre>
-</div>
-<div class="axiom">
-<p>The beginning of a proper interval is before the instants inside, which are before the end.</p>
-<pre>
-(forall (t1 t2 t3 t)
-  (if (<a href="../properIntervalEv">properIntervalEv</a> t)
-      (and (if (and (<a href="../begins">begins</a> t1 t) (<a href="../ends">ends</a> t3 t))
-               (<a href="../before">before</a> t1 t3))
-           (if (and (<a href="../begins">begins</a> t1 t) (<a href="../insideTime">insideTime</a> t2 t))
-               (<a href="../before">before</a> t1 t2))
-           (if (and (<a href="../insideTime">insideTime</a> t2 t) (<a href="../ends">ends</a> t3 t))
-               (<a href="../before">before</a> t2 t3)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The predicate <code>intMeets</code> means that the end of one interval is the beginning of the other.</p>
 <pre>

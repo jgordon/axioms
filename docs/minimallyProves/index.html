@@ -41,19 +41,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>We can say that some set <code>s1</code> of eventualties minimally proves an eventuality <code>e2</code> if <code>s1</code> implies <code>e2</code> but no proper subset of <code>s1</code> proves <code>e2</code>, and furthermore <code>e2</code> is not itself a member of <code>s1</code>.</p>
-<pre>
-(forall (s1 e2)
-  (iff (<a href="../minimallyProves">minimallyProves</a> s1 e2)
-       (and (not (<a href="../member">member</a> e2 s1))
-            (<a href="../imply">imply</a> s1 e2)
-            (not (exists (s2)
-                   (and (<a href="../properSubset">properSubset</a> s2 s1)
-                        (<a href="../imply">imply</a> s2 e2)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>Given an eventuality <code>e</code> and a set of constraints <code>c</code>, we can ask what other set <code>s</code> of eventualities would have to obtain in order to entail that <code>e</code> also obtains. The expression <code>(alsoRequired s e c)</code> says that <code>s</code> is a set of eventualities that will entail the real existence of <code>e</code>, over and above <code>c</code>.</p>
 <pre>

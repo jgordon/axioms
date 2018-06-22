@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>An interval t between two instants t1 and t2 is an interval that begins at t1 and ends at t2. It will be useful to extend this to intervals and define it as the interval from the end of t1 to the beginning of t2.</p>
-<pre>
-(forall (t t1 t2)
-  (iff (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
-       (exists (t3 t4)
-         (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2)
-              (<a href="../begins">begins</a> t3 t) (<a href="../ends">ends</a> t4 t)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
 <pre>

@@ -36,7 +36,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The product of a number n and 0 is 0.</p>
 <pre>
@@ -74,13 +74,6 @@
 (forall (n n1 n2 n3 n4 n5)
    (if (and (<a href="../product">product</a> n4 n2 n3) (<a href="../product">product</a> n5 n1 n2))
        (iff (<a href="../product">product</a> n n1 n4) (<a href="../product">product</a> n n5 n3))))
-</pre>
-</div>
-<div class="axiom">
-<p>Multiplication is commutative: n1 * n2 = n2 * n1</p>
-<pre>
-(forall (n n1 n2)
-   (iff (<a href="../product">product</a> n n1 n2) (<a href="../product">product</a> n n2 n1)))
 </pre>
 </div>
 <div class="axiom">

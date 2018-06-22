@@ -74,30 +74,12 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>We define a less-than relation relative to a particular scale:</p>
-<pre>
-(forall (e x1 y1 s)
-   (iff (<a href="../lts">lts</a>' e1 x1 y1 s)
-        (exists (e x y e1)
-           (and (<a href="../partialOrdering">partialOrdering</a> e x y s)
-                (<a href="../subst2">subst2</a> x y e x1 y1 e1)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The partial ordering is antireflexive.</p>
 <pre>
 (forall (x s)
   (not (<a href="../lts">lts</a> x x s)))
-</pre>
-</div>
-<div class="axiom">
-<p>It is antisymmetric.</p>
-<pre>
-(forall (x y s)
-  (if (<a href="../lts">lts</a> x y s)
-      (not (<a href="../lts">lts</a> y x s))))
 </pre>
 </div>
 <div class="axiom">
@@ -114,25 +96,6 @@
 (forall (x y s)
   (iff (<a href="../gts">gts</a> y x s)
        (<a href="../lts">lts</a> x y s)))
-</pre>
-</div>
-<div class="axiom">
-<p>Original:</p>
-<pre>
-(forall (x y s)
-   (if (<a href="../lts">lts</a> x y s)
-       (and (or (<a href="../inScale">inScale</a> x s)
-                (exists (x1) (and (<a href="../at">at</a> x x1 s) (<a href="../inScale">inScale</a> x1 s))))
-            (or (<a href="../inScale">inScale</a> y s)
-                (exists (y1) (and (<a href="../at">at</a> y y1 s) (<a href="../inScale">inScale</a> y1 s)))))))
-</pre>
-</div>
-<div class="axiom">
-<p>Original:</p>
-<pre>
-(forall (x y s)
-   (if (<a href="../lts">lts</a> x y s)
-       (and (<a href="../onScale">onScale</a> x s) (<a href="../onScale">onScale</a> y s))))
 </pre>
 </div>
 <div class="axiom">
@@ -178,18 +141,6 @@
              (forall (x y)
                 (and (iff (<a href="../inScale">inScale</a> x s) (<a href="../inScale">inScale</a> x s1))
                      (iff (<a href="../lts">lts</a> x y s) (<a href="../lts">lts</a> y x s1)))))))
-</pre>
-</div>
-<div class="axiom">
-<p>A total ordering is a partial ordering in which of any two elements, one is either less than, equal to, or greater than the other.</p>
-<pre>
-(forall (e x y s)
-   (if (<a href="../lts">lts</a>' e x y s)
-       (iff (<a href="../totalOrdering">totalOrdering</a> e x y s)
-            (forall (x1 y1)
-               (if (and (<a href="../inScale">inScale</a> x1 s) (<a href="../inScale">inScale</a> y1 s))
-                   (or (<a href="../lts">lts</a> x1 y1 s) (equal x1 y1)
-                       (<a href="../lts">lts</a> y1 x1 s)))))))
 </pre>
 </div>
 <div class="axiom">

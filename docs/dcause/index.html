@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>We can posit a notion of directly causes (<code>dcause</code>) as a relation between an agent or event and an event, that is true when there are no intermediate, mediating events.</p>
-<pre>
-(forall (e1 e2)
-  (iff (<a href="../dcause">dcause</a> e1 e2)
-       (and (<a href="../cause">cause</a> e1 e2)
-            (not (exists (e3)
-                   (and (<a href="../cause">cause</a> e1 e3) (<a href="../cause">cause</a> e3 e2)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>If an agent can will an event to happen, then this willing is a direct cause of the event.</p>
 <pre>

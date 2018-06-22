@@ -43,15 +43,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The relation <code>before</code> is temporal.</p>
-<pre>
-(forall (t1 t2)
-  (if (<a href="../sameDuration">sameDuration</a> t1 t2)
-      (and (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../temporalEntity">temporalEntity</a> t2))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The relation <code>before</code> is temporal.</p>
 <pre>
@@ -65,13 +57,6 @@
 <pre>
 (forall (t)
   (if (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../sameDuration">sameDuration</a> t t)))
-</pre>
-</div>
-<div class="axiom">
-<p>The relation <code>before</code> is temporal.</p>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../sameDuration">sameDuration</a> t1 t2) (<a href="../sameDuration">sameDuration</a> t2 t1)))
 </pre>
 </div>
 <div class="axiom">

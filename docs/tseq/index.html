@@ -94,7 +94,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (t1 t2)
@@ -117,47 +117,6 @@
   (if (<a href="../insideTime">insideTime</a> t1 t2)
       (and (<a href="../instant">instant</a> t1)
            (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
-</pre>
-</div>
-<div class="axiom">
-<p>A temporal sequence is a set of non-overlapping temporal entities. Between any two distinct members of a temporal sequence, there is another interval or instant that is not in the set.</p>
-<pre>
-(forall (s)
-  (iff (<a href="../tseq">tseq</a> s)
-       (and (forall (t) (if (<a href="../member">member</a> t s) (<a href="../temporalEntity">temporalEntity</a> t)))
-            (forall (t1 t2)
-              (if (and (<a href="../member">member</a> t1 s) (<a href="../member">member</a> t2 s))
-                  (and (or (equal t1 t2) (<a href="../before">before</a> t1 t2)
-                           (<a href="../before">before</a> t2 t1))
-                       (if (<a href="../before">before</a> t1 t2)
-                           (exists (t3)
-                             (and (not (<a href="../member">member</a> t3 s))
-                                  (<a href="../before">before</a> t1 t3)
-                                  (<a href="../before">before</a> t3 t2))))))))))
-</pre>
-</div>
-<div class="axiom">
-<p>If there is an element of the temporal sequence before all its other elements, this is called the first element.</p>
-<pre>
-(forall (s t)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../first">first</a> t s)
-           (and (<a href="../member">member</a> t s)
-                (forall (t1)
-                  (if (<a href="../member">member</a> t1 s)
-                      (or (equal t1 t) (<a href="../before">before</a> t t1))))))))
-</pre>
-</div>
-<div class="axiom">
-<p>If there is an element of the temporal sequence after all its other elements, this is called the last element.</p>
-<pre>
-(forall (s t)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../last">last</a> t s)
-           (and (<a href="../member">member</a> t s)
-                (forall (t1)
-                  (if (<a href="../member">member</a> t1 s)
-                      (or (equal t1 t) (<a href="../before">before</a> t1 t))))))))
 </pre>
 </div>
 <div class="axiom">
@@ -191,41 +150,12 @@
 <p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
 <pre>
 (forall (t s)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../begins">begins</a> t s)
-           (exists (t1) (and (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t t1))))))
-</pre>
-</div>
-<div class="axiom">
-<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
-<pre>
-(forall (t s)
-  (if (<a href="../tseq">tseq</a> s)
-      (iff (<a href="../ends">ends</a> t s)
-           (exists (t1) (and (<a href="../last">last</a> t1 s) (<a href="../ends">ends</a> t t1))))))
-</pre>
-</div>
-<div class="axiom">
-<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
-<pre>
-(forall (t s)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../insideTime">insideTime</a> t s))
       (and (not (<a href="../begins">begins</a> t s)) (not (<a href="../ends">ends</a> t s))
            (exists (t1)
              (and (<a href="../member">member</a> t1 s)
                   (or (equal t1 t) (<a href="../insideTime">insideTime</a> t t1)
                       (<a href="../begins">begins</a> t t1) (<a href="../ends">ends</a> t t1)))))))
-</pre>
-</div>
-<div class="axiom">
-<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
-<pre>
-(forall (t s)
-  (if (<a href="../tseq">tseq</a> s)
-      (if (exists (t1)
-            (and (<a href="../member">member</a> t1 s)
-                 (or (equal t1 t) (<a href="../insideTime">insideTime</a> t t1))))
-          (<a href="../insideTime">insideTime</a> t s))))
 </pre>
 </div>
 <div class="axiom">

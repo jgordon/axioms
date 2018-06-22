@@ -36,18 +36,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<pre>
-(forall (c r x u)
-   (iff (<a href="../circle">circle</a> c x)
-        (exists (r d)
-           (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
-                (forall (c1 x1)
-                   (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
-                       (<a href="../length">length</a> d c1 u)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (c)

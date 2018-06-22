@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The predicate <code>componentOf</code> gives us a quick way to say a single entity is a component.</p>
-<pre>
-(forall (y x)
-  (iff (<a href="../componentOf">componentOf</a> y x)
-       (and (<a href="../compositeEntity">compositeEntity</a> x)
-            (exists (s)
-              (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../member">member</a> y s))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>We define a predicate <code>componentOrWhole</code> as the disjunction of <code>componentOf</code> and being equal to the whole.</p>
 <pre>

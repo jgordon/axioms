@@ -64,37 +64,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The "time span of" an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
-<pre>
-(forall (t e)
-  (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
-       (or (and (<a href="../instant">instant</a> t) (<a href="../atTime">atTime</a> e t)
-                (forall (t1)
-                  (if (<a href="../nequal">nequal</a> t1 t) (not (<a href="../atTime">atTime</a> e t1)))))
-           (and (<a href="../interval">interval</a> t) (<a href="../during">during</a> e t)
-                (forall (t1)
-                  (if (<a href="../atTime">atTime</a> e t1)
-                      (or (<a href="../insideTime">insideTime</a> t1 t) (<a href="../begins">begins</a> t1 t)
-                          (<a href="../ends">ends</a> t1 t)))))
-           (and (<a href="../tseq">tseq</a> t)
-                (forall (t1)
-                  (if (and (<a href="../member">member</a> t1 t) (<a href="../instant">instant</a> t1))
-                      (<a href="../atTime">atTime</a> e t1)))
-                (forall (t1)
-                  (if (and (<a href="../member">member</a> t1 t) (<a href="../interval">interval</a> t1))
-                      (<a href="../during">during</a> e t1)))
-                (forall (t1)
-                  (if (and (<a href="../instant">instant</a> t1) (<a href="../atTime">atTime</a> e t1))
-                      (or (<a href="../member">member</a> t1 t)
-                          (exists (t2)
-                            (and (<a href="../interval">interval</a> t2) (<a href="../member">member</a> t2 t)
-                                 (or (<a href="../begins">begins</a> t1 t2)
-                                     (<a href="../insideTime">insideTime</a> t1 t2)
-                                     (<a href="../ends">ends</a> t1 t2)))))))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>We will say that an eventuality happens in a temporal entity or sequence if its time span is entirely included in the temporal entity or sequence.</p>
 <pre>
@@ -156,12 +126,6 @@
            (exists (t)
              (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../properInterval">properInterval</a> t)))
            (<a href="../posInfIntervalEv">posInfIntervalEv</a> e))))
-</pre>
-</div>
-<div class="axiom">
-<p>The predicate <code>properIntervalEv</code> says that its argument is either a proper interval or an eventuality whose time span is a proper interval.</p>
-<pre>
-(forall (e0 e t) (if (<a href="../timeSpanOf">timeSpanOf</a>' e0 t e) (<a href="../temporal">temporal</a> e0)))
 </pre>
 </div>
 <div class="axiom">

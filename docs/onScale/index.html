@@ -39,23 +39,13 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>Original:</p>
 <pre>
 (forall (x y s)
    (if (<a href="../lts">lts</a> x y s)
        (and (<a href="../onScale">onScale</a> x s) (<a href="../onScale">onScale</a> y s))))
-</pre>
-</div>
-<div class="axiom">
-<p>It is convenient to have a predicate <code>onScale</code> for both points on a scale and for entities at points in a scale.</p>
-<pre>
-(forall (x s)
-   (iff (<a href="../onScale">onScale</a> x s)
-        (or (<a href="../inScale">inScale</a> x s)
-            (exists (y)
-               (and (<a href="../inScale">inScale</a> y s) (<a href="../at">at</a> x y s))))))
 </pre>
 </div>
 <div class="axiom">

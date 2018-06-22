@@ -38,16 +38,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The identity function is the function that maps every entity into itself.</p>
-<pre>
-(forall (f s)
-  (iff (<a href="../identityFunction">identityFunction</a> f s)
-       (and (<a href="../function">function</a> f s s)
-            (forall (x) (if (<a href="../member">member</a> x s) (<a href="../map">map</a> f x x))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The identity function on a non-negative numeric scale is a measure.</p>
 <pre>

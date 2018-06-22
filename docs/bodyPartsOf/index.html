@@ -38,16 +38,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A person <code>p</code> has a set of body parts, namely, the components of the body.</p>
-<pre>
-(forall (p s)
-  (iff (<a href="../bodyPartsOf">bodyPartsOf</a> s p)
-       (exists (b)
-         (and (<a href="../person">person</a> p) (<a href="../body">body</a> b p) (<a href="../componentsOf">componentsOf</a> s b)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The sense organs are a subset of the body parts.</p>
 <pre>

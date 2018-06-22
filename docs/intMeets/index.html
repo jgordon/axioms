@@ -37,18 +37,6 @@
             (exists (t) (and (<a href="../ends">ends</a> t t1) (<a href="../begins">begins</a> t t2))))))
 </pre>
 </div></section>
-<section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The predicate <code>intMeets</code> means that the end of one interval is the beginning of the other.</p>
-<pre>
-(forall (t1 t2)
-  (iff (<a href="../intMeets">intMeets</a> t1 t2)
-       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
-            (exists (t) (and (<a href="../ends">ends</a> t t1) (<a href="../begins">begins</a> t t2))))))
-</pre>
-</div>
-</section>
 
 </body>
 

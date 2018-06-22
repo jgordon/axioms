@@ -53,15 +53,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The <code>gen</code> relation is between two eventualities, which are almost identical but not quite, e.g., the same event under different descriptions.</p>
-<pre>
-(forall (e1 e2)
-  (if (<a href="../gen">gen</a> e1 e2)
-      (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The <code>gen</code> relation is anti-reflexive.</p>
 <pre>
@@ -81,24 +73,6 @@
 <pre>
 (exists (e1 e2)
   (and (<a href="../imply">imply</a> e1 e2) (not (<a href="../gen">gen</a> e1 e2))))
-</pre>
-</div>
-<div class="axiom">
-<p><code>gen</code> is stronger than implication.</p>
-<pre>
-(forall (e1 e2 t)
-  (if (<a href="../gen">gen</a> e1 e2)
-      (iff (<a href="../atTime">atTime</a> e1 t)
-           (<a href="../atTime">atTime</a> e2 t))))
-</pre>
-</div>
-<div class="axiom">
-<p><code>gen</code> is stronger than implication.</p>
-<pre>
-(forall (e1 e2 x s)
-  (if (<a href="../gen">gen</a> e1 e2)
-      (iff (<a href="../atLoc">atLoc</a> e1 x s)
-           (<a href="../atLoc">atLoc</a> e2 x s))))
 </pre>
 </div>
 <div class="axiom">

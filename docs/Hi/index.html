@@ -43,22 +43,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>We can construct composite scales out of existing scales.</p>
-<pre>
-(forall (s1 s) (if (<a href="../Hi">Hi</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
-</pre>
-</div>
-<div class="axiom">
-<p>The top of the scale is in the <code>Hi</code> region of the scale and is the top of the <code>Hi</code> region.</p>
-<pre>
-(forall (s1 s)
-   (if (<a href="../Hi">Hi</a> s1 s)
-       (forall (x)
-         (iff (<a href="../top">top</a> x s) (<a href="../top">top</a> x s1)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>If a point is in the <code>Lo</code> region, then it is less than all the points in the <code>Hi</code> region.</p>
 <pre>

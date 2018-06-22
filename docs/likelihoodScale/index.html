@@ -51,19 +51,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The <code>likelihoodScale</code> has likelihoods as its elements and the <code>lowerLikelihood</code> relation as its partial ordering.</p>
-<pre>
-(forall (s)
-  (iff (<a href="../likelihoodScale">likelihoodScale</a> s)
-       (exists (s1 e r d1 d2)
-         (and (forall (d)
-                (iff (<a href="../member">member</a> d s1) (exists (e c) (<a href="../likelihood">likelihood</a> d e c))))
-              (<a href="../lowerLikelihood">lowerLikelihood</a>' r d1 d2)
-              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 r)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The more we have to assume will happen, the less likely it is.</p>
 <pre>
@@ -117,23 +105,11 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A likelihood scale consists of elements that are all likelihoods and hence have a common property; the scale can then be a potential ground.</p>
-<pre>
-(forall (s) (if (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../ground">ground</a> s)))
-</pre>
-</div>
-<div class="axiom">
 <p>If the likelihood of an eventuality <code>e</code> is <code>d</code>, we can say that <code>e</code> is at <code>d</code> on the likelihood scale, if <code>c</code> holds.</p>
 <pre>
 (forall (d e c s e1)
   (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../at">at</a>' e1 e d s))
       (<a href="../imply">imply</a> c e1)))
-</pre>
-</div>
-<div class="axiom">
-<p>The likelihood scale is conceptually vertical. We talk about likelihoods being higher or lower.</p>
-<pre>
-(forall (s) (if (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../vertical">vertical</a> s)))
 </pre>
 </div>
 <div class="axiom">

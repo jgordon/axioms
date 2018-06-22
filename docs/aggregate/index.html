@@ -38,19 +38,6 @@
               (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../doubleton">doubleton</a> s y z))))))
 </pre>
 </div></section>
-<section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>An aggregate of two entities is a composite entity with those two entities as its components.</p>
-<pre>
-(forall (x y z)
-  (iff (<a href="../aggregate">aggregate</a> x y z)
-       (and (<a href="../compositeEntity">compositeEntity</a> x)
-            (exists (s)
-              (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../doubleton">doubleton</a> s y z))))))
-</pre>
-</div>
-</section>
 
 </body>
 

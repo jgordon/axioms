@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>An entity that is a typical element of a set or functionally dependent on a typical element of a set is nonspecific.</p>
-<pre>
-(forall (x)
-  (iff (<a href="../nonspecific">nonspecific</a> x)
-       (or (exists (s) (<a href="../typelt">typelt</a> x s))
-           (exists (y s e)
-             (and (<a href="../typelt">typelt</a> y s) (<a href="../fd">fd</a> x y e))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>An entity is specific iff it is not nonspecific:</p>
 <pre>

@@ -40,18 +40,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The predication <code>(deleteElt s s1 x)</code> says that the set s is obtained from set s1 by deleting an element x.</p>
-<pre>
-(forall (s s1 x)
-  (iff (<a href="../deleteElt">deleteElt</a> s s1 x)
-       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1)
-            (forall (y)
-              (iff (<a href="../member">member</a> y s)
-                   (and (<a href="../member">member</a> y s1) (<a href="../nequal">nequal</a> y x)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The predication <code>(replaceElt s s1 x y)</code> says that set s is obtained from set s1 by replacing element x with element y.</p>
 <pre>

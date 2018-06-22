@@ -40,18 +40,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A <code>doubleton</code> set has exactly two members.</p>
-<pre>
-(forall (s x y)
-  (iff (<a href="../doubleton">doubleton</a> s x y)
-       (exists (s1)
-         (and (<a href="../nequal">nequal</a> x y)
-              (<a href="../addElt">addElt</a> s s1 x)
-              (<a href="../singleton">singleton</a> s1 y)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>An aggregate of two entities is a composite entity with those two entities as its components.</p>
 <pre>

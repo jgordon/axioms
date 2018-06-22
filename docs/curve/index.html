@@ -40,7 +40,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (x) (if (<a href="../point">point</a> x) (<a href="../figure">figure</a> x)))
@@ -108,17 +108,6 @@
 (forall (c c1 c2 x)
    (if (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
        (<a href="../curve">curve</a> c)))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (c)
-   (if (<a href="../curve">curve</a> c)
-       (iff (<a href="../closed">closed</a> c)
-            (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
-                 (exists (r c1 x1)
-                    (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
-                         (<a href="../inside">inside</a> c r)))))))
 </pre>
 </div>
 </section>

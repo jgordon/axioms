@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>If one element's <code>n</code> is less than another's, it is before the other in the sequence.</p>
-<pre>
-(forall (x y s)
-  (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
-       (exists (n1 n2)
-         (and (<a href="../sequence">sequence</a> s) (<a href="../nth">nth</a> x n1 s) (<a href="../nth">nth</a> y n2 s)
-              (<a href="../lt">lt</a> n1 n2)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A sequence can be viewed as a composite entity whose components are the elements of the sequence and whose relations are the ordering relations in the sequence.</p>
 <pre>

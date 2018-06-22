@@ -40,18 +40,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A complete instantiation is a partial instantiation with no remaining parameters:</p>
-<pre>
-(forall (e1 e)
-  (iff (<a href="../instance">instance</a> e1 e)
-       (and (<a href="../partialInstance">partialInstance</a> e1 e)
-            (forall (s1)
-              (if (<a href="../parameters">parameters</a> s1 e1)
-                  (<a href="../null">null</a> s1))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p><code>nott</code> is stronger than <code>not</code>. It says there is an eventuality type of which e2 is an instance and the negation is the negation of that type.</p>
 <pre>

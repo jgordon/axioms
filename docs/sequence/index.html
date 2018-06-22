@@ -61,42 +61,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A sequence of length <code>n</code> is a function whose domain is the first <code>n</code> positive integers. There are no constraints on <code>s2</code>.</p>
-<pre>
-(forall (s)
-  (iff (<a href="../sequence">sequence</a> s)
-       (exists (s1 s2 n)
-         (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n)))))
-</pre>
-</div>
-<div class="axiom">
-<p>The length of a sequence is the number that defines its domain of consecutive integers.</p>
-<pre>
-(forall (n s)
-  (if (<a href="../sequence">sequence</a> s)
-      (iff (<a href="../length">length</a> n s)
-           (exists (s1 s2)
-             (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n))))))
-</pre>
-</div>
-<div class="axiom">
-<p>The <code>nth</code> element in a sequence is the entity in the range of the function that <code>n</code> is mapped into.</p>
-<pre>
-(forall (s n y)
-  (if (<a href="../sequence">sequence</a> s)
-      (iff (<a href="../nth">nth</a> y n s) (<a href="../map">map</a> s n y))))
-</pre>
-</div>
-<div class="axiom">
-<p>The <code>first</code> element is the <code>nth</code> where <code>n</code> is 1. This is the same predicate used for the first element of a pair, but the axioms are avoid confusion by conditioning on the second element being either a sequence or a pair (which is isomorphic to the set of sequences of length two).</p>
-<pre>
-(forall (s y)
-  (if (<a href="../sequence">sequence</a> s)
-      (iff (<a href="../first">first</a> y s) (<a href="../nth">nth</a> y 1 s))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The <code>rest</code> of a sequence is what remains after the first element is removed. The expression <code>(rest s1 s)</code> says that <code>s1</code> is the rest of <code>s</code> after the first is removed.</p>
 <pre>

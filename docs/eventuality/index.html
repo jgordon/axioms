@@ -95,21 +95,13 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>Restrictions on the arguments to <code>argn</code>.</p>
 <pre>
 (forall (e x n)
   (if (<a href="../argn">argn</a> x n e)
       (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../eventuality">eventuality</a> e))))
-</pre>
-</div>
-<div class="axiom">
-<p>Every eventuality is its own 0th argument.</p>
-<pre>
-(forall (e)
-  (iff (<a href="../eventuality">eventuality</a> e)
-       (<a href="../argn">argn</a> e 0 e)))
 </pre>
 </div>
 <div class="axiom">
@@ -126,20 +118,6 @@
 (forall (n e)
   (if (<a href="../arity">arity</a> n e)
       (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../eventuality">eventuality</a> e))))
-</pre>
-</div>
-<div class="axiom">
-<p>Eventualities all have a predicate p, an arity n, and arguments 1...n.</p>
-<pre>
-(forall (e)
-  (iff (<a href="../eventuality">eventuality</a> e)
-       (exists (p n)
-         (and (<a href="../pred">pred</a> p e) (<a href="../arity">arity</a> n e)
-              (forall (i)
-                (if (and (<a href="../posInteger">posInteger</a> i)
-                         (<a href="../leq">leq</a> i n))
-                    (exists (x)
-                      (<a href="../argn">argn</a> x i e))))))))
 </pre>
 </div>
 <div class="axiom">
@@ -344,34 +322,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We will say that an eventuality happens in a temporal entity or sequence if its time span is entirely included in the temporal entity or sequence.</p>
-<pre>
-(forall (t e)
-  (if (<a href="../eventuality">eventuality</a> e)
-      (iff (<a href="../begins">begins</a> t e)
-           (exists (t1) (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../begins">begins</a> t t1))))))
-</pre>
-</div>
-<div class="axiom">
-<p>We will say that an eventuality happens in a temporal entity or sequence if its time span is entirely included in the temporal entity or sequence.</p>
-<pre>
-(forall (t e)
-  (if (<a href="../eventuality">eventuality</a> e)
-      (iff (<a href="../insideTime">insideTime</a> t e)
-           (exists (t1)
-             (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../insideTime">insideTime</a> t t1))))))
-</pre>
-</div>
-<div class="axiom">
-<p>We will say that an eventuality happens in a temporal entity or sequence if its time span is entirely included in the temporal entity or sequence.</p>
-<pre>
-(forall (t e)
-  (if (<a href="../eventuality">eventuality</a> e)
-      (iff (<a href="../ends">ends</a> t e)
-           (exists (t1) (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../ends">ends</a> t t1))))))
-</pre>
-</div>
-<div class="axiom">
 <p>Instants are at least partially ordered by a <code>before</code> relation, which will also be extended to intervals, temporal sequences, and eventualities.</p>
 <pre>
 (forall (t1 t2)
@@ -387,16 +337,6 @@
   (if (<a href="../durationOf">durationOf</a> d t u)
       (and (<a href="../nonNegInteger">nonNegInteger</a> d) (<a href="../temporalUnit">temporalUnit</a> u)
            (or (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../tseq">tseq</a> t) (<a href="../eventuality">eventuality</a> t)))))
-</pre>
-</div>
-<div class="axiom">
-<p>The duration of an eventuality is the duration of its time span.</p>
-<pre>
-(forall (d e u)
-  (if (<a href="../eventuality">eventuality</a> e)
-      (iff (<a href="../durationOf">durationOf</a> d e u)
-           (exists (t)
-             (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../durationOf">durationOf</a> d t u))))))
 </pre>
 </div>
 <div class="axiom">
@@ -435,18 +375,6 @@
 (forall (d e c)
   (if (<a href="../likelihood">likelihood</a> d e c)
       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
-</pre>
-</div>
-<div class="axiom">
-<p>Given an eventuality <code>e</code> and a set of constraints <code>c</code>, we can ask what other set <code>s</code> of eventualities would have to obtain in order to entail that <code>e</code> also obtains. The expression <code>(alsoRequired s e c)</code> says that <code>s</code> is a set of eventualities that will entail the real existence of <code>e</code>, over and above <code>c</code>.</p>
-<pre>
-(forall (s e c)
-  (if (<a href="../eventuality">eventuality</a> e)
-      (iff (<a href="../alsoRequired">alsoRequired</a> s e c)
-           (and (<a href="../eventualities">eventualities</a> s) (<a href="../eventualities">eventualities</a> c)
-                (exists (s1 c1)
-                  (and (<a href="../union">union</a> s1 c1 s) (<a href="../subset">subset</a> c1 c)
-                       (<a href="../minimallyProves">minimallyProves</a> s1 e)))))))
 </pre>
 </div>
 </section>

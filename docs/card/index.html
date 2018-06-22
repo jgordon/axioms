@@ -43,21 +43,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>We recursively define the cardinality of sets using addElt.</p>
-<pre>
-(forall (n s)
-  (iff (<a href="../card">card</a> n s)
-       (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../set">set</a> s)
-            (or (and (<a href="../null">null</a> s) (equal n 0))
-                (exists (s1 x m)
-                  (and (<a href="../addElt">addElt</a> s s1 x)
-                       (not (<a href="../member">member</a> x s1))
-                       (<a href="../card">card</a> m s1)
-                       (<a href="../sum">sum</a> n m 1)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>If s1 is the scale whose set is a set of sets including the null set and whose partial ordering is <code>subset</code>, then cardinality is a measure.</p>
 <pre>

@@ -37,7 +37,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>e1 tends to cause e2 with likelihood q if e1 is in a causal complex for e2, if the likelihood of the rest of s is q, and if e1 would be singled out as a cause of e2 provided the rest of s actually obtains.</p>
 <pre>
@@ -47,14 +47,6 @@
          (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
               (<a href="../deleteElt">deleteElt</a> s1 s e1) (<a href="../likelihood">likelihood</a> q s1 c)
               (if (<a href="../Rexist">Rexist</a> s1) (<a href="../cause">cause</a> e1 e2))))))
-</pre>
-</div>
-<div class="axiom">
-<p>The predicate <code>likelihood</code> will express a relation between likelihoods and eventualities. Likelihood is with respect to an implicit set of constraints that in a sense defines the sample space. Making the constraints an argument allows us to relate likelihood to possibility and to entailment.</p>
-<pre>
-(forall (d e c)
-  (if (<a href="../likelihood">likelihood</a> d e c)
-      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
 </pre>
 </div>
 <div class="axiom">

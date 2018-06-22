@@ -89,8 +89,6 @@ for fname in axiom_files:
                             pred = pred.replace("'", "")
                         if pred in bad_preds:
                             continue
-                        if 'all axioms' not in preds[pred]:
-                            preds[pred]['all axioms'] = []
                         to_index.add(pred)
                         formatted_axiom = formatted_axiom.replace(
                             '(' + pred + ' ',
@@ -105,9 +103,6 @@ for fname in axiom_files:
                         formatted_axiom = '<p>' + gloss + '</p>\n' + \
                                           formatted_axiom
 
-                    for pred in to_index:
-                        preds[pred]['all axioms'].append(formatted_axiom)
-
                     # If it's a characterizing axiom for a predicate,
                     # add it to the predicate's entry.
                     m = re.match(r'\(forall \([^)]+\)[^(]+\(iff? \(([^ ]+)',
@@ -121,6 +116,12 @@ for fname in axiom_files:
                                 preds[pred]['characterizing'] = []
                             preds[pred]['characterizing'].append(
                                 formatted_axiom)
+
+                    for pred in to_index:
+                        if formatted_axiom not in preds[pred].get('characterizing', []):
+                            if 'all axioms' not in preds[pred]:
+                                preds[pred]['all axioms'] = []
+                            preds[pred]['all axioms'].append(formatted_axiom)
                 else:
                     in_axiom = True
                     axiom = ''
@@ -221,7 +222,7 @@ for pred in preds:
             fout.write('</section>\n')
         if 'all axioms' in preds[pred]:
             fout.write('<section>\n')
-            fout.write('<h2>All Axioms</h2>\n')
+            fout.write('<h2>Additional Axioms</h2>\n')
             for axiom in preds[pred]['all axioms']:
                 fout.write('<div class="axiom">\n')
                 fout.write(axiom)

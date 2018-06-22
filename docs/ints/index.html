@@ -40,18 +40,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The expression <code>(ints s n1 n2)</code> says that <code>s</code> is the set of all positive integers from <code>n1</code> to <code>n2</code>, including <code>n1</code> and <code>n2</code>.</p>
-<pre>
-(forall (s n1 n2)
-  (iff (<a href="../ints">ints</a> s n1 n2)
-       (and (<a href="../posInteger">posInteger</a> n1) (<a href="../posInteger">posInteger</a> n2) (<a href="../set">set</a> s)
-            (forall (n)
-              (iff (<a href="../member">member</a> n s)
-                   (and (<a href="../posInteger">posInteger</a> n) (<a href="../leq">leq</a> n1 n) (<a href="../leq">leq</a> n n2)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A sequence of length <code>n</code> is a function whose domain is the first <code>n</code> positive integers. There are no constraints on <code>s2</code>.</p>
 <pre>

@@ -50,15 +50,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<pre>
-(forall (f)
-  (if (<a href="../framework">framework</a> f)
-      (exists (s)
-        (and (<a href="../set">set</a> s) (<a href="../domain">domain</a> s f)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (s1 s2 f)
@@ -78,17 +70,6 @@
 (forall (a2 f)
   (if (<a href="../yAxis">yAxis</a> a2 f)
       (and (<a href="../framework">framework</a> f) (<a href="../vertical2">vertical2</a> a2 f))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (f)
-  (if (<a href="../framework">framework</a> f)
-      (exists (a1 a2)
-        (and (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
-             (forall (a)
-               (and (if (<a href="../nequal">nequal</a> a a1) (not (<a href="../xAxis">xAxis</a> a f)))
-                    (if (<a href="../nequal">nequal</a> a a2) (not (<a href="../yAxis">yAxis</a> a f)))))))))
 </pre>
 </div>
 <div class="axiom">
@@ -127,14 +108,6 @@
 (forall (f a1 a2 s)
    (if (and (<a href="../framework">framework</a> f) (<a href="../zAxis">zAxis</a> a3 f) (<a href="../origin">origin</a> o f))
        (<a href="../member">member</a> o a3)))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (f)
-  (if (<a href="../framework">framework</a> f)
-      (iff (<a href="../2D">2D</a> f)
-           (not (exists (a3) (<a href="../zAxis">zAxis</a> a3 f))))))
 </pre>
 </div>
 <div class="axiom">

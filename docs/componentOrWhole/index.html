@@ -37,15 +37,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>We define a predicate <code>componentOrWhole</code> as the disjunction of <code>componentOf</code> and being equal to the whole.</p>
-<pre>
-(forall (x1 x)
-  (iff (<a href="../componentOrWhole">componentOrWhole</a> x1 x)
-       (or (equal x1 x) (<a href="../componentOf">componentOf</a> x1 x))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>An entity <code>y</code> is external to a composite entity <code>x</code> if neither it nor any of its components is equal to <code>x</code> or one of <code>x</code>'s components.</p>
 <pre>

@@ -47,16 +47,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<pre>
-(forall (c)
-  (if (<a href="../lineSegment">lineSegment</a> c)
-      (exists (x1 x2)
-        (and (<a href="../endpoint">endpoint</a> x1 lc (<a href="../endpoint">endpoint</a> x2 c)
-             (<a href="../nequal">nequal</a> x1 x2)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (c)
@@ -71,16 +62,6 @@
        (and (<a href="../lineSegment">lineSegment</a> c)
             (<a href="../endpoint">endpoint</a> x1 c) (<a href="../endpoint">endpoint</a> x2 c)
             (<a href="../nequal">nequal</a> x1 x2))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (d c u)
-  (iff (<a href="../lineSegment">lineSegment</a> c)
-       (iff (<a href="../length">length</a> d c u)
-            (exists (x1 x2)
-              (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
-                   (<a href="../distance">distance</a> d x1 x2 u))))))
 </pre>
 </div>
 </section>

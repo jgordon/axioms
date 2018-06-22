@@ -37,7 +37,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A set is completely defined by its members.</p>
 <pre>
@@ -48,14 +48,6 @@
                 (forall (x)
                   (iff (<a href="../member">member</a> x s1)
                        (<a href="../member">member</a> x s2)))))))
-</pre>
-</div>
-<div class="axiom">
-<p>A member is a member of a set.</p>
-<pre>
-(forall (x s)
-  (if (<a href="../member">member</a> x s)
-      (<a href="../set">set</a> s)))
 </pre>
 </div>
 <div class="axiom">

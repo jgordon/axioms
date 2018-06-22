@@ -44,23 +44,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>If <code>x</code> is at <code>y</code> in <code>s</code>, then <code>y</code> must be a component of <code>s</code> and <code>x</code> must be external to <code>s</code>.</p>
-<pre>
-(forall (x y s)
-  (if (<a href="../at">at</a> x y s)
-      (and (<a href="../componentOf">componentOf</a> y s) (<a href="../externalTo">externalTo</a> x s))))
-</pre>
-</div>
-<div class="axiom">
-<p>The third argument of an <code>at</code> relation must be a potential ground.</p>
-<pre>
-(forall (x y s)
-  (if (<a href="../at">at</a> x y s)
-      (<a href="../ground">ground</a> s)))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>Original:</p>
 <pre>

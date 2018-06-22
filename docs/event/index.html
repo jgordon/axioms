@@ -47,26 +47,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>An <code>event</code> can (1) directly be a change of state, (2) generate a change of state, or (3) have a subevent, which contains the change.</p>
-<pre>
-(forall (e)
-   (iff (<a href="../event">event</a> e)
-        (or (exists (e1 e2)
-               (and (<a href="../nequal">nequal</a> e1 e2) (<a href="../change">change</a>' e e1 e2)))
-            (exists (e0 e1 e2)
-               (and (<a href="../nequal">nequal</a> e1 e2) (<a href="../change">change</a>' e0 e1 e2) (<a href="../gen">gen</a> e e0)))
-            (exists (e1)
-              (<a href="../subevent">subevent</a> e1 e)))))
-</pre>
-</div>
-<div class="axiom">
-<p>Where an event <code>e</code> generates a change of state, <code>e</code> is an eventuality because that's what the arguments of <code>gen</code> are.</p>
-<pre>
-(forall (e) (if (<a href="../event">event</a> e) (<a href="../eventuality">eventuality</a> e)))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The arguments of <code>subevent</code> are events.</p>
 <pre>

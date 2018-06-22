@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>Functional dependencies:</p>
-<pre>
-(forall (x y e)
-  (if (<a href="../fd">fd</a> y x e)
-      (and (<a href="../arg*">arg*</a> x e) (<a href="../arg*">arg*</a> y e)
-           (exists (s)
-             (<a href="../typelt">typelt</a> x s)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The principal property of <code>fd</code> is that when e holds and a real entity instantiates x, then there is a real entity that instantiates y and the corresponding eventuality holds.</p>
 <pre>

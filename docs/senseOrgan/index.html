@@ -37,7 +37,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The sense organs are a subset of the body parts.</p>
 <pre>
@@ -47,14 +47,6 @@
         (and (<a href="../subset">subset</a> s2 s1)
              (forall (o)
                (iff (<a href="../member">member</a> o s2) (<a href="../senseOrgan">senseOrgan</a> o p)))))))
-</pre>
-</div>
-<div class="axiom">
-<p>Sense organs are body parts.</p>
-<pre>
-(forall (o p)
-  (if (<a href="../senseOrgan">senseOrgan</a> o p)
-      (<a href="../bodyPart">bodyPart</a> o p)))
 </pre>
 </div>
 <div class="axiom">

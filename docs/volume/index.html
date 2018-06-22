@@ -46,7 +46,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (x) (if (<a href="../point">point</a> x) (<a href="../figure">figure</a> x)))
@@ -77,24 +77,6 @@
            (exists (b) (and (<a href="../region">region</a> f2) (<a href="../border">border</a> b f2) (<a href="../inside">inside</a> f1 b)))
            (exists (b)
              (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (p)
-   (if (<a href="../volume">volume</a> p)
-       (iff (<a href="../convex">convex</a> p)
-            (forall (c x x1 x2)
-               (if (and (<a href="../onBorder">onBorder</a> x1 p) (<a href="../onBorder">onBorder</a> x2 p)
-                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c)
-                   (<a href="../subfigure">subfigure</a> x p))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (p)
-   (if (<a href="../volume">volume</a> p)
-       (iff (<a href="../concave">concave</a> p) (not (<a href="../convex">convex</a> p)))))
 </pre>
 </div>
 </section>

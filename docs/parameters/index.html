@@ -40,18 +40,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>Define the set of parameters in an abstract eventuality:</p>
-<pre>
-(forall (s e)
-  (iff (<a href="../parameters">parameters</a> s e)
-       (forall (x)
-         (iff (<a href="../member">member</a> x s)
-              (exists (s1)
-                (and (<a href="../arg*">arg*</a> x e) (<a href="../typelt">typelt</a> x s1)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A partial instantiation of an abstract eventuality:</p>
 <pre>

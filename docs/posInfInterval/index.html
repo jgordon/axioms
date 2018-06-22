@@ -38,16 +38,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A positive infinite interval is one that has no end. It may or may not have a beginning.</p>
-<pre>
-(forall (t)
-  (iff (<a href="../posInfInterval">posInfInterval</a> t)
-       (and (<a href="../interval">interval</a> t)
-            (not (exists (t2) (<a href="../ends">ends</a> t2 t))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>When the beginning and end of an interval are distinct, we will call it a proper interval. Positive infinite intervals are regarded as proper intervals.</p>
 <pre>

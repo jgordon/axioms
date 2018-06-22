@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The predicate <code>posInfIntervalEv</code> says that its argument is either a positive infinite interval or an eventuality whose time span is a positive infinite interval.</p>
-<pre>
-(forall (e)
-  (iff (<a href="../posInfIntervalEv">posInfIntervalEv</a> e)
-       (or (<a href="../posInfInterval">posInfInterval</a> e)
-           (exists (t)
-             (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../posInfInterval">posInfInterval</a> t))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The predicate <code>properIntervalEv</code> says that its argument is either a proper interval or an eventuality whose time span is a proper interval.</p>
 <pre>

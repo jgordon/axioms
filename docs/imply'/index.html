@@ -46,25 +46,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>Implication is defined similarly to <code>or'</code>, except that in addition to a single eventuality as the antecedent, we will alow a set of eventualities as well, which is interpreted as the conjunction.</p>
-<pre>
-(forall (e e1 e2)
-  (if (<a href="../imply'">imply'</a> e e1 e2)
-      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventuality">eventuality</a> e2)
-           (or (<a href="../eventuality">eventuality</a> e1) (<a href="../eventualities">eventualities</a> e1)))))
-</pre>
-</div>
-<div class="axiom">
-<p>The implication really exists provided the consequent really exists whenever the antecedent really exists.</p>
-<pre>
-(forall (e e1 e2)
-  (if (<a href="../imply'">imply'</a> e e1 e2)
-      (iff (<a href="../Rexist">Rexist</a> e)
-           (if (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>Modus ponens:</p>
 <pre>

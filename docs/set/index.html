@@ -56,19 +56,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A set is completely defined by its members.</p>
-<pre>
-(forall (s1 s2)
-  (if (<a href="../set">set</a> s1)
-      (iff (equal s1 s2)
-           (and (<a href="../set">set</a> s2)
-                (forall (x)
-                  (iff (<a href="../member">member</a> x s1)
-                       (<a href="../member">member</a> x s2)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A member is a member of a set.</p>
 <pre>
@@ -190,28 +178,11 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Every set has a typical element.</p>
-<pre>
-(forall (s) (iff (<a href="../set">set</a> s)
-                 (exists (x) (<a href="../typelt">typelt</a> x s))))
-</pre>
-</div>
-<div class="axiom">
 <p>Real members of a set inherit all the properties of the typical element.</p>
 <pre>
 (forall (s x e)
   (if (<a href="../dset">dset</a> s x e)
       (and (<a href="../set">set</a> s) (<a href="../typelt">typelt</a> x s) (<a href="../arg*">arg*</a> x e))))
-</pre>
-</div>
-<div class="axiom">
-<p>Existence of a set in the real world is always true whenever all its members exist in the real world.</p>
-<pre>
-(forall (s)
-  (if (<a href="../set">set</a> s)
-      (iff (<a href="../Rexist">Rexist</a> s)
-           (forall (e)
-             (if (<a href="../member">member</a> e s) (<a href="../Rexist">Rexist</a> e))))))
 </pre>
 </div>
 <div class="axiom">

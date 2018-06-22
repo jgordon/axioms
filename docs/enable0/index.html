@@ -38,16 +38,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The expression (enable0 e1 e2 s) says that e1 is an enabling condition for e2 provided it is in the causal complex s that will be used to bring about e2, but is not the cause of e2.</p>
-<pre>
-(forall (e1 e2 s)
-  (iff (<a href="../enable0">enable0</a> e1 e2 s)
-       (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
-            (not (<a href="../cause">cause</a> e1 e2)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>If an eventuality e1 is required for any way of bringing about e2, then we can use the two-argument predicate <code>enable</code>.</p>
 <pre>

@@ -71,51 +71,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A function <code>f</code> from a set <code>s1</code> onto a set <code>s2</code> is a set of pairs where each element of <code>s1</code> occurs exactly once as the first element in a pair, and every element of <code>s2</code> occurs as a second element of at least one pair. (This is <code>function0</code> since it is later extended to functions from scales to scales.)</p>
-<pre>
-(forall (f s1 s2)
-  (iff (<a href="../function0">function0</a> f s1 s2)
-       (and (<a href="../set">set</a> s1) (<a href="../set">set</a> s2) (<a href="../set">set</a> f)
-            ;; A function is a set of pairs where the first elements
-            ;; come from s1 and the second elements come from s2.
-            (forall (p)
-              (if (<a href="../member">member</a> p f)
-                  (exists (x y)
-                    (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> y s2)
-                         (<a href="../pair">pair</a> p x y)))))
-            ;; There is a value of the function for every element of
-            ;; s1.
-            (forall (x)
-              (if (<a href="../member">member</a> x s1)
-                  (exists (p)
-                    (and (<a href="../member">member</a> p f) (<a href="../first">first</a> x p)))))
-            ;; The value is unique.
-            (forall (p1 p2 x)
-              (if (and (<a href="../first">first</a> x p1) (<a href="../first">first</a> x p2)
-                       (<a href="../member">member</a> p1 f) (<a href="../member">member</a> p2 f))
-                  (equal p1 p2)))
-            ;; Every element of s2 is the value of a member of s1 under
-            ;; the function f.
-            (forall (y)
-              (if (<a href="../member">member</a> y s2)
-                  (exists (p)
-                    (and (<a href="../member">member</a> p f) (<a href="../second">second</a> y p))))))))
-</pre>
-</div>
-<div class="axiom">
-<p>A function <code>f</code> from a set <code>s1</code> onto a set <code>s2</code> is a set of pairs where each element of <code>s1</code> occurs exactly once as the first element in a pair, and every element of <code>s2</code> occurs as a second element of at least one pair. (This is <code>function0</code> since it is later extended to functions from scales to scales.)</p>
-<pre>
-(forall (f s1 s2) (if (<a href="../function0">function0</a> f s1 s2) (<a href="../domain">domain</a> s1 f)))
-</pre>
-</div>
-<div class="axiom">
-<p>A function <code>f</code> from a set <code>s1</code> onto a set <code>s2</code> is a set of pairs where each element of <code>s1</code> occurs exactly once as the first element in a pair, and every element of <code>s2</code> occurs as a second element of at least one pair. (This is <code>function0</code> since it is later extended to functions from scales to scales.)</p>
-<pre>
-(forall (f s1 s2) (if (<a href="../function0">function0</a> f s1 s2) (<a href="../range">range</a> s2 f)))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>If <code>f</code> is a function from <code>s1</code> to <code>s2</code>, we say it maps an element <code>x</code> of <code>s1</code> to an element <code>y</code> of <code>s2</code> when the pair <code><x, y></code> is a member of <code>f</code>.</p>
 <pre>

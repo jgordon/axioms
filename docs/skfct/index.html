@@ -40,18 +40,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>Corresponding to the functional dependency, there is a skolem function that maps any element x1 of the set s into the corresponding y1, and that function has a range.</p>
-<pre>
-(forall (x x1 y y1 e)
-  (iff (<a href="../skfct">skfct</a> y1 y x1 x e)
-       (and (<a href="../fd">fd</a> y x e)
-            (exists (e1)
-              (and (<a href="../subst2">subst2</a> x y e x1 y1 e1)
-                   (if (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The range of the functional dependency is then the set of all values of the skolem function.</p>
 <pre>

@@ -44,22 +44,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A partial instantiation of an abstract eventuality:</p>
-<pre>
-(forall (e1 e)
-  (iff (<a href="../partialInstance">partialInstance</a> e1 e)
-       (forall (s x)
-         (if (and (<a href="../member">member</a> x s) (<a href="../parameters">parameters</a> s e))
-             (exists (x1 s1)
-               (and (<a href="../subst">subst</a> x e x1 e1) (<a href="../typelt">typelt</a> x s1)
-                    (or (<a href="../member">member</a> x1 s1)
-                        (exists (s2)
-                          (and (<a href="../typelt">typelt</a> x1 s2)
-                               (<a href="../subset">subset</a> s2 s1))))))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A complete instantiation is a partial instantiation with no remaining parameters:</p>
 <pre>

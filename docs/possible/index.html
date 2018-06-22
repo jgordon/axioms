@@ -53,7 +53,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>We can say that an agent a is able to do e, given a set of constraints c, if the agent's causing e is possible with respect to c whenever the set s1 of all the events in a causal complex s for e that are beyond a's control really exists independently.</p>
 <pre>
@@ -77,32 +77,6 @@
                   (exists (e2)
                     (and (<a href="../cause">cause</a> e2 e)
                          (<a href="../executable">executable</a> e2 a c t))))))))
-</pre>
-</div>
-<div class="axiom">
-<p>The predicate <code>possible</code> has two arguments, an eventuality and a set of constraints.</p>
-<pre>
-(forall (e c)
-  (if (<a href="../possible">possible</a> e c)
-      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
-</pre>
-</div>
-<div class="axiom">
-<p>An eventuality is possible iff the constraints do not imply a negation of the eventuality.</p>
-<pre>
-(forall (e c)
-  (iff (<a href="../possible">possible</a> e c)
-       (forall (e1)
-         (if (<a href="../not'">not'</a> e1 e)
-             (not (<a href="../imply">imply</a> c e1))))))
-</pre>
-</div>
-<div class="axiom">
-<p>Possibility is a positive modality.</p>
-<pre>
-(forall (e c)
-  (if (<a href="../possible">possible</a> e c)
-      (<a href="../PosMod">PosMod</a> e possible)))
 </pre>
 </div>
 <div class="axiom">

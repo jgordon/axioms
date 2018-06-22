@@ -40,12 +40,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<pre>
-(forall (t) (if (<a href="../instant">instant</a> t) (<a href="../temporalEntity">temporalEntity</a> t)))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (t)
@@ -147,13 +142,6 @@
 (forall (t1 t2)
   (if (and (<a href="../instant">instant</a> t1) (<a href="../instant">instant</a> t2))
       (<a href="../sameDuration">sameDuration</a> t1 t2)))
-</pre>
-</div>
-<div class="axiom">
-<p>The duration of an instant is zero.</p>
-<pre>
-(forall (d t u)
-  (if (<a href="../instant">instant</a> t) (<a href="../durationOf">durationOf</a> 0 t u)))
 </pre>
 </div>
 </section>

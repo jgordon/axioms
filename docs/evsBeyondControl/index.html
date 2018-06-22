@@ -43,21 +43,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>We define the eventualities beyond an agent a's control as the subset s1 of eventualities in a set s that a cannot bring about by a's efforts alone. That is, a is not the agent of actions in s1 nor the agent of an action that causes events in s1.</p>
-<pre>
-(forall (s1 s a)
-  (iff (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
-       (and (<a href="../eventualities">eventualities</a> s) (<a href="../subset">subset</a> s1 s) (<a href="../agent">agent</a> a)
-            (forall (e)
-              (iff (<a href="../member">member</a> e s1)
-                   (and (not (<a href="../agentOf">agentOf</a> a e))
-                        (not (exists (e1)
-                               (and (<a href="../agentOf">agentOf</a> a e1)
-                                    (<a href="../cause">cause</a> e1 e))))))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>We can say that an agent a is able to do e, given a set of constraints c, if the agent's causing e is possible with respect to c whenever the set s1 of all the events in a causal complex s for e that are beyond a's control really exists independently.</p>
 <pre>

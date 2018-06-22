@@ -51,29 +51,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A proper interval is a concatenation of a set of proper intervals if every instant inside the interval is inside, the beginning, or the end of some interval in the set, and the intervals in the set are non-overlapping.</p>
-<pre>
-(forall (t s)
-  (iff (<a href="../concatenation">concatenation</a> t s)
-       (and (<a href="../properInterval">properInterval</a> t)
-            (forall (t1) (if (<a href="../member">member</a> t1 s) (<a href="../properInterval">properInterval</a> t1)))
-            (exists (t1 t2)
-              (and (<a href="../begins">begins</a> t1 t) (<a href="../member">member</a> t2 s) (<a href="../begins">begins</a> t1 t2)))
-            (exists (t1 t2)
-              (and (<a href="../ends">ends</a> t1 t) (<a href="../member">member</a> t2 s) (<a href="../ends">ends</a> t1 t2)))
-            (forall (t1)
-              (if (<a href="../insideTime">insideTime</a> t1 t)
-                  (exists (t2)
-                    (and (<a href="../member">member</a> t2 s)
-                         (or (<a href="../insideTime">insideTime</a> t1 t2) (<a href="../begins">begins</a> t1 t2)
-                             (<a href="../ends">ends</a> t1 t2))))))
-            (forall (t1 t2)
-              (if (and (<a href="../member">member</a> t1 s) (<a href="../member">member</a> t2 s))
-                  (or (equal t1 t2) (not (<a href="../intOverlap">intOverlap</a> t1 t2))))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The duration of an interval is determined by concatenation.</p>
 <pre>

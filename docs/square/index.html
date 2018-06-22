@@ -43,26 +43,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<pre>
-(forall (p)
-  (iff (<a href="../square">square</a> p)
-       (and (<a href="../rhombus">rhombus</a> p) (<a href="../rectangle">rectangle</a> p))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (p d)
-   (if (<a href="../square">square</a> p)
-       (iff (<a href="../diagonal">diagonal</a> d p)
-            (exists (v1 v2 x1 x2 c1 c2 c3 c4)
-               (and (<a href="../vertex">vertex</a> v1 c1 c2 x1) (<a href="../vertexOf">vertexOf</a> v1 p)
-                    (<a href="../vertex">vertex</a> v2 c3 c4 x2) (<a href="../vertexOf">vertexOf</a> v2 p)
-                    (<a href="../nequal">nequal</a> c1 c3) (<a href="../nequal">nequal</a> c1 c4)
-                    (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (p d c v x)

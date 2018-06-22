@@ -38,19 +38,6 @@
               (<a href="../vertical">vertical</a> s) (<a href="../change">change</a> e1 e2)))))
 </pre>
 </div></section>
-<section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>Similarly, if an entity moves from a point on a vertical scale to a lower point, there has been a decrease.</p>
-<pre>
-(forall (e x y z s)
-  (iff (<a href="../decrease">decrease</a> x s)
-       (exists (y z e1 e2)
-         (and (<a href="../at">at</a>' e1 x y s) (<a href="../at">at</a>' e2 x z s) (<a href="../lts">lts</a> z y s)
-              (<a href="../vertical">vertical</a> s) (<a href="../change">change</a> e1 e2)))))
-</pre>
-</div>
-</section>
 
 </body>
 

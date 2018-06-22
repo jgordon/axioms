@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>Two substitutions can be done by doing one at a time.</p>
-<pre>
-(forall (x1 x2 e1 y1 y2 e2)
-  (iff (<a href="../subst2">subst2</a> x1 x2 e1 y1 y2 e2)
-       (exists (e3)
-         (and (<a href="../subst">subst</a> x1 e1 y1 e3)
-              (<a href="../subst">subst</a> x2 e3 y2 e2)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The principal property of <code>fd</code> is that when e holds and a real entity instantiates x, then there is a real entity that instantiates y and the corresponding eventuality holds.</p>
 <pre>

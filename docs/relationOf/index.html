@@ -37,18 +37,6 @@
          (and (<a href="../relationsOf">relationsOf</a> s x) (<a href="../member">member</a> e s)))))
 </pre>
 </div></section>
-<section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A relation is a relation of a composite entity if it is in the <code>relationsOf</code> set.</p>
-<pre>
-(forall (e x)
-  (iff (<a href="../relationOf">relationOf</a> e x)
-       (exists (s)
-         (and (<a href="../relationsOf">relationsOf</a> s x) (<a href="../member">member</a> e s)))))
-</pre>
-</div>
-</section>
 
 </body>
 

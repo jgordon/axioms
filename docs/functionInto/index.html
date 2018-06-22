@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A function f is "into" a set or scale s3 if there is a subset or subscale s2 for which fi is a function "onto".</p>
-<pre>
-(forall (f s1 s3)
-   (iff (<a href="../functionInto">functionInto</a> f s1 s3)
-        (exists (s2)
-          (and (or (<a href="../subset">subset</a> s2 s3) (<a href="../subscale">subscale</a> s2 s3))
-               (<a href="../function">function</a> f s1 s2)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A measure is a monotone increasing function from a scale into a non-negative numeric scale in which the bottom of the domain scale, if there is one, maps into 0.</p>
 <pre>

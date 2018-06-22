@@ -47,30 +47,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<pre>
-(forall (c c1 c2 x)
-  (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
-       (and (<a href="../curve">curve</a> c1) (<a href="../curve">curve</a> c2) (<a href="../nequal">nequal</a> c1 c2)
-            (<a href="../endpoint">endpoint</a> x c1) (<a href="../endpoint">endpoint</a> x c2)
-            (forall (y)
-              (iff (<a href="../inside">inside</a> y c)
-                   (or (<a href="../inside">inside</a> y c1) (<a href="../inside">inside</a> y c2)
-                       (equal y x))))
-            (forall (z)
-              (iff (<a href="../endpoint">endpoint</a> z c)
-                   (and (<a href="../nequal">nequal</a> z x)
-                        (or (<a href="../endpoint">endpoint</a> z c1) (<a href="../endpoint">endpoint</a> z c2))))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (c c1 c2 x)
-   (if (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
-       (<a href="../curve">curve</a> c)))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (v c1 c2 x)

@@ -43,21 +43,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A temporal sequence is periodic if there is a constant duration between any two successive temporal entities in the temporal sequence.</p>
-<pre>
-(forall (s)
-  (iff (<a href="../periodicTseq">periodicTseq</a> s)
-       (and (<a href="../tseq">tseq</a> s)
-            (exists (d u)
-              (forall (t1 t2)
-                (if (<a href="../successiveElts">successiveElts</a> t1 t2 s)
-                    (exists (t)
-                      (and (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
-                           (<a href="../durationOf">durationOf</a> d t u)))))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The constant duration in a periodic temporal sequence can be called the gap duration.</p>
 <pre>

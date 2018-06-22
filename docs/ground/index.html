@@ -55,34 +55,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>A ground in a figure-ground relation is a composite entity whose parts are all uniform in that they all share some property.</p>
-<pre>
-(forall (s)
-  (iff (<a href="../ground">ground</a> s)
-       (and (<a href="../compositeEntity">compositeEntity</a> s)
-            (exists (e y)
-              (and (<a href="../arg*">arg*</a> y e)
-                   (forall (y1)
-                     (if (<a href="../componentOf">componentOf</a> y1 s)
-                         (exists (e1)
-                           (and (<a href="../subst">subst</a> y e y1 e1)
-                                (if (<a href="../Rexist">Rexist</a> s)
-                                    (<a href="../Rexist">Rexist</a> e1)))))))))))
-</pre>
-</div>
-<div class="axiom">
-<p>This can also be written as:</p>
-<pre>
-(forall (s)
-  (iff (<a href="../ground">ground</a> s)
-       (and (<a href="../compositeEntity">compositeEntity</a> s)
-            (exists (e y s1)
-              (and (<a href="../componentsOf">componentsOf</a> s1 s) (<a href="../typelt">typelt</a> y s1) (<a href="../arg*">arg*</a> y e)
-                   (if (<a href="../Rexist">Rexist</a> s) (<a href="../Rexist">Rexist</a> e)))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The third argument of an <code>at</code> relation must be a potential ground.</p>
 <pre>

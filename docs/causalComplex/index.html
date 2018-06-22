@@ -39,7 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>If something is in the <code>Hi</code> region of a scale, then that property plays a causal or enabling role in some agent's goal being achieved or not achieved.</p>
 <pre>
@@ -49,16 +49,6 @@
           (and (<a href="../member">member</a> e c) (<a href="../goal">goal</a> g a)
                (or (<a href="../causalComplex">causalComplex</a> c g)
                    (and (<a href="../not'">not'</a> g1 g) (<a href="../causalComplex">causalComplex</a> c g1)))))))
-</pre>
-</div>
-<div class="axiom">
-<p>An eventuality or set of eventualities, s, can be a causal complex for an effect e.</p>
-<pre>
-(forall (s e)
-  (if (<a href="../causalComplex">causalComplex</a> s e)
-      (and (<a href="../eventuality">eventuality</a> e)
-           (or (<a href="../eventualities">eventualities</a> s)
-               (<a href="../eventuality">eventuality</a> s)))))
 </pre>
 </div>
 <div class="axiom">

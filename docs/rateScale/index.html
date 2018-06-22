@@ -45,23 +45,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>Rate defines a scale whose elements are the set of events whose rate is being measured and whose ordering is the less-than relation between rates.</p>
-<pre>
-(forall (s s0)
-  (iff (<a href="../rateScale">rateScale</a> s s0)
-       (and (forall (s1) (if (<a href="../member">member</a> s1 s0) (<a href="../eventualities">eventualities</a> s1)))
-            (exists (u e s1 s2)
-              (and (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../lts">lts</a>' e s1 s2 s0)
-                   (forall (s3 s4)
-                     (iff (and (<a href="../lts">lts</a>' e s3 s4 s0) (<a href="../Rexist">Rexist</a> e))
-                          (exists (r1 r2)
-                            (and (<a href="../rate">rate</a> r1 s3 u) (<a href="../rate">rate</a> r2 s4 u)
-                                 (<a href="../lt">lt</a> r1 r2)))))
-                   (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A set of events is frequent if it is in the <code>Hi</code> region of a rate scale.</p>
 <pre>

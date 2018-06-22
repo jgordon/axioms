@@ -42,7 +42,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A composite entity is characterized by a set of components, a set of properties, and a set of relations.</p>
 <pre>
@@ -51,19 +51,6 @@
        (exists (s1 s2 s3)
          (and (<a href="../componentsOf">componentsOf</a> s1 x) (<a href="../propertiesOf">propertiesOf</a> s2 x)
               (<a href="../relationsOf">relationsOf</a> s3 x)))))
-</pre>
-</div>
-<div class="axiom">
-<p>The set of relations of a composite entity are relations between a component or the whole, and something else.</p>
-<pre>
-(forall (s3 x)
-  (if (<a href="../relationsOf">relationsOf</a> s3 x)
-      (and (<a href="../set">set</a> s3) (<a href="../compositeEntity">compositeEntity</a> x)
-           (forall (e)
-             (if (<a href="../member">member</a> e s3)
-                 (exists (y z)
-                   (and (<a href="../componentOrWhole">componentOrWhole</a> y x) (<a href="../arg*">arg*</a> y e)
-                        (<a href="../nequal">nequal</a> z y) (<a href="../arg*">arg*</a> z e))))))))
 </pre>
 </div>
 <div class="axiom">

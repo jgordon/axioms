@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>The top of a scale is the highest point in the scale.</p>
-<pre>
-(forall (x s)
-   (iff (<a href="../top">top</a> x s)
-        (and (<a href="../inScale">inScale</a> x s)
-             (forall (y)
-               (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> y x s))))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The top of the scale is in the <code>Hi</code> region of the scale and is the top of the <code>Hi</code> region.</p>
 <pre>

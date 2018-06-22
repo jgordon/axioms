@@ -37,7 +37,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
 <pre>
@@ -55,14 +55,6 @@
 (forall (x y s1 m)
   (if (and (<a href="../gts">gts</a> x y s1) (<a href="../measure">measure</a> m s1))
       (iff (<a href="../sameHOM">sameHOM</a> x y s1 m) (<a href="../sameHOM">sameHOM</a> y x s1 m))))
-</pre>
-</div>
-<div class="axiom">
-<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
-<pre>
-(forall (x y s1 m)
-  (if (<a href="../sameHOM">sameHOM</a> x y s1 m)
-      (and (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1) (<a href="../measure">measure</a> m s1))))
 </pre>
 </div>
 <div class="axiom">

@@ -39,17 +39,7 @@
 </pre>
 </div></section>
 <section>
-<h2>All Axioms</h2>
-<div class="axiom">
-<p>If <code>f</code> is a function from <code>s1</code> to <code>s2</code>, we say it maps an element <code>x</code> of <code>s1</code> to an element <code>y</code> of <code>s2</code> when the pair <code><x, y></code> is a member of <code>f</code>.</p>
-<pre>
-(forall (f x y)
-  (iff (<a href="../map">map</a> f x y)
-       (exists (s1 s2 p)
-         (and (<a href="../function0">function0</a> f s1 s2) (<a href="../member">member</a> p f)
-              (<a href="../first">first</a> x p) (<a href="../second">second</a> y p)))))
-</pre>
-</div>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The <code>nth</code> element in a sequence is the entity in the range of the function that <code>n</code> is mapped into.</p>
 <pre>
