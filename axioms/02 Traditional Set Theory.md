@@ -45,7 +45,7 @@
       (set s)))
 ```
 
-The 'equal' relation includes reflexivity, symmetricity, and transitivity:
+The `equal` relation includes reflexivity, symmetricity, and transitivity:
 
 2.3
 ```
@@ -64,7 +64,7 @@ The 'equal' relation includes reflexivity, symmetricity, and transitivity:
       (equal x z)))
 ```
 
-2.6 The 'nequal' relation holds for pairs of entities that are not equal.
+2.6 The `nequal` relation holds for pairs of entities that are not equal.
 
 ```
 (forall (x y)
@@ -102,7 +102,7 @@ The 'equal' relation includes reflexivity, symmetricity, and transitivity:
          (and (addElt s s1 x) (null s1)))))
 ```
 
-2.10 A 'doubleton' set has exactly two members.
+2.10 A `doubleton` set has exactly two members.
 
 ```
 (forall (s x y)
@@ -125,7 +125,7 @@ from set s1 by deleting an element x.
                    (and (member y s1) (nequal y x)))))))
 ```
 
-2.12 The predication (replaceElt s s1 x y) says that set s is obtained
+2.12 The predication `(replaceElt s s1 x y)` says that set s is obtained
 from set s1 by replacing element x with element y.
 
 ```

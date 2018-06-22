@@ -113,7 +113,7 @@ eventuality really exists.
       (iff (member y s) (Rexist e1))))
 ```
 
-3.8 "Surgery" on the definition of "dset" to rule out problematic cases:
+3.8 "Surgery" on the definition of `dset` to rule out problematic cases:
 
 ```
 (forall (y s)
@@ -132,7 +132,7 @@ eventuality really exists.
              (typelt x s)))))
 ```
 
-3.10 The principal property of 'fd' is that when e holds and a real
+3.10 The principal property of `fd` is that when e holds and a real
 entity instantiates x, then there is a real entity that instantiates y
 and the corresponding eventuality holds.
 

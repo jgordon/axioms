@@ -17,7 +17,7 @@ listed at the end of this section.
 
 ## Axioms
 
-1.7 Restrictions on the arguments to 'argn'.
+1.7 Restrictions on the arguments to `argn`.
 
 ```
 (forall (e x n)
@@ -42,7 +42,7 @@ listed at the end of this section.
          (argn x n e))))
 ```
 
-1.10 An 'arg*' is something that is an argument of the eventuality or the
+1.10 An `arg*` is something that is an argument of the eventuality or the
 argument of an argument of the eventuality or so on recursively.
 
 ```
@@ -53,7 +53,7 @@ argument of an argument of the eventuality or so on recursively.
              (and (arg e2 e1) (arg* x e2))))))
 ```
 
-1.12 The 'pred' of an eventuality is a predicate.
+1.12 The `pred` of an eventuality is a predicate.
 
 ```
 (forall (e p)
@@ -84,7 +84,7 @@ argument of an argument of the eventuality or so on recursively.
                       (argn x i e))))))))
 ```
 
-1.16 The 'gen' relation is between two eventualities, which are almost
+1.16 The `gen` relation is between two eventualities, which are almost
 identical but not quite, e.g., the same event under different
 descriptions.
 
@@ -94,13 +94,13 @@ descriptions.
       (and (eventuality e1) (eventuality e2))))
 ```
 
-1.17 The 'gen' relation is anti-reflexive.
+1.17 The `gen` relation is anti-reflexive.
 
 ```
 (forall (e) (not (gen e e)))
 ```
 
-1.18 'gen' obeys a kind of modus ponens rule with respect to 'Rexist'.
+1.18 `gen` obeys a kind of modus ponens rule with respect to `Rexist`.
 
 ```
 (forall (e1 e2)
@@ -108,14 +108,14 @@ descriptions.
       (Rexist e2)))
 ```
 
-1.19 'gen' is stronger than implication.
+1.19 `gen` is stronger than implication.
 
 ```
 (exists (e1 e2)
   (and (imply e1 e2) (not (gen e1 e2))))
 ```
 
-If (gen e1 e2) holds, then e1 and e2 occupy the same chunk of space-time:
+If `(gen e1 e2)` holds, then e1 and e2 occupy the same chunk of space-time:
 
 1.20
 ```

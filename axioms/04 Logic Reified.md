@@ -14,7 +14,7 @@
 
 ## Axioms
 
-4.1 The 'and' of two eventualities is itself an eventuality, and it exists
+4.1 The `and` of two eventualities is itself an eventuality, and it exists
 when its two constituent eventualities exist.
 
 ```
@@ -47,7 +47,7 @@ eventuality doesn't.
                 (not (Rexist e2))))))
 ```
 
-4.4 'nott' is stronger than 'not'. It says there is an eventuality type of
+4.4 `nott` is stronger than `not`. It says there is an eventuality type of
 which e2 is an instance and the negation is the negation of that type.
 
 ```
@@ -90,7 +90,7 @@ of the set really exists.
                   (and (member e1 s) (Rexist e1)))))))
 ```
 
-4.8 Implication is defined similarly to "or'", except that in addition to
+4.8 Implication is defined similarly to `or'`, except that in addition to
 a single eventuality as the antecedent, we will alow a set of
 eventualities as well, which is interpreted as the conjunction.
 
