@@ -29,14 +29,14 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The 'gen' relation is between two eventualities, which are almost identical but not quite, e.g., the same event under different descriptions.</p>
+<p>The <code>gen</code> relation is between two eventualities, which are almost identical but not quite, e.g., the same event under different descriptions.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../gen">gen</a> e1 e2)
       (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2))))
 </pre>
 </div><div class="axiom">
-<p>'gen' is stronger than implication.</p>
+<p><code>gen</code> is stronger than implication.</p>
 <pre>
 (forall (e1 e2 t)
   (if (<a href="../gen">gen</a> e1 e2)
@@ -44,7 +44,7 @@
            (<a href="../atTime">atTime</a> e2 t))))
 </pre>
 </div><div class="axiom">
-<p>'gen' is stronger than implication.</p>
+<p><code>gen</code> is stronger than implication.</p>
 <pre>
 (forall (e1 e2 x s)
   (if (<a href="../gen">gen</a> e1 e2)
@@ -55,7 +55,7 @@
 <section>
 <h2>All Axioms</h2>
 <div class="axiom">
-<p>The 'gen' relation is between two eventualities, which are almost identical but not quite, e.g., the same event under different descriptions.</p>
+<p>The <code>gen</code> relation is between two eventualities, which are almost identical but not quite, e.g., the same event under different descriptions.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../gen">gen</a> e1 e2)
@@ -63,13 +63,13 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The 'gen' relation is anti-reflexive.</p>
+<p>The <code>gen</code> relation is anti-reflexive.</p>
 <pre>
 (forall (e) (not (<a href="../gen">gen</a> e e)))
 </pre>
 </div>
 <div class="axiom">
-<p>'gen' obeys a kind of modus ponens rule with respect to 'Rexist'.</p>
+<p><code>gen</code> obeys a kind of modus ponens rule with respect to <code>Rexist</code>.</p>
 <pre>
 (forall (e1 e2)
   (if (and (<a href="../gen">gen</a> e1 e2) (<a href="../Rexist">Rexist</a> e1))
@@ -77,14 +77,14 @@
 </pre>
 </div>
 <div class="axiom">
-<p>'gen' is stronger than implication.</p>
+<p><code>gen</code> is stronger than implication.</p>
 <pre>
 (exists (e1 e2)
   (and (<a href="../imply">imply</a> e1 e2) (not (<a href="../gen">gen</a> e1 e2))))
 </pre>
 </div>
 <div class="axiom">
-<p>'gen' is stronger than implication.</p>
+<p><code>gen</code> is stronger than implication.</p>
 <pre>
 (forall (e1 e2 t)
   (if (<a href="../gen">gen</a> e1 e2)
@@ -93,7 +93,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>'gen' is stronger than implication.</p>
+<p><code>gen</code> is stronger than implication.</p>
 <pre>
 (forall (e1 e2 x s)
   (if (<a href="../gen">gen</a> e1 e2)
@@ -102,7 +102,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>'gen' is stronger than implication.</p>
+<p><code>gen</code> is stronger than implication.</p>
 <pre>
 (forall (e1 x)
   (if (<a href="../run">run</a>' e1 x)

@@ -97,7 +97,7 @@
 <section>
 <h2>All Axioms</h2>
 <div class="axiom">
-<p>Restrictions on the arguments to 'argn'.</p>
+<p>Restrictions on the arguments to <code>argn</code>.</p>
 <pre>
 (forall (e x n)
   (if (<a href="../argn">argn</a> x n e)
@@ -113,7 +113,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The 'pred' of an eventuality is a predicate.</p>
+<p>The <code>pred</code> of an eventuality is a predicate.</p>
 <pre>
 (forall (e p)
   (if (<a href="../pred">pred</a> p e)
@@ -143,7 +143,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The 'gen' relation is between two eventualities, which are almost identical but not quite, e.g., the same event under different descriptions.</p>
+<p>The <code>gen</code> relation is between two eventualities, which are almost identical but not quite, e.g., the same event under different descriptions.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../gen">gen</a> e1 e2)
@@ -184,7 +184,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The 'and' of two eventualities is itself an eventuality, and it exists when its two constituent eventualities exist.</p>
+<p>The <code>and</code> of two eventualities is itself an eventuality, and it exists when its two constituent eventualities exist.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../and'">and'</a> e e1 e2)
@@ -234,7 +234,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Implication is defined similarly to "or'", except that in addition to a single eventuality as the antecedent, we will alow a set of eventualities as well, which is interpreted as the conjunction.</p>
+<p>Implication is defined similarly to <code>or'</code>, except that in addition to a single eventuality as the antecedent, we will alow a set of eventualities as well, which is interpreted as the conjunction.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../imply'">imply'</a> e e1 e2)

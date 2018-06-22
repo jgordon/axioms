@@ -37,7 +37,7 @@
 <section>
 <h2>All Axioms</h2>
 <div class="axiom">
-<p>'gen' obeys a kind of modus ponens rule with respect to 'Rexist'.</p>
+<p><code>gen</code> obeys a kind of modus ponens rule with respect to <code>Rexist</code>.</p>
 <pre>
 (forall (e1 e2)
   (if (and (<a href="../gen">gen</a> e1 e2) (<a href="../Rexist">Rexist</a> e1))
@@ -63,7 +63,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The principal property of 'fd' is that when e holds and a real entity instantiates x, then there is a real entity that instantiates y and the corresponding eventuality holds.</p>
+<p>The principal property of <code>fd</code> is that when e holds and a real entity instantiates x, then there is a real entity that instantiates y and the corresponding eventuality holds.</p>
 <pre>
 (forall (x y e s)
   (if (and (<a href="../fd">fd</a> y x e) (<a href="../Rexist">Rexist</a> e) (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> x1 s))
@@ -93,7 +93,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The 'and' of two eventualities is itself an eventuality, and it exists when its two constituent eventualities exist.</p>
+<p>The <code>and</code> of two eventualities is itself an eventuality, and it exists when its two constituent eventualities exist.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../and'">and'</a> e e1 e2)
