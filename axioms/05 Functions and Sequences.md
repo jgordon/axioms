@@ -67,26 +67,26 @@ to scales.)
 (forall (f s1 s2)
   (iff (function0 f s1 s2)
        (and (set s1) (set s2) (set f)
-            A function is a set of pairs where the first elements
-            come from s1 and the second elements come from s2.
+            ;; A function is a set of pairs where the first elements
+            ;; come from s1 and the second elements come from s2.
             (forall (p)
               (if (member p f)
                   (exists (x y)
                     (and (member x s1) (member y s2)
                          (pair p x y)))))
-            There is a value of the function for every element of
-            s1.
+            ;; There is a value of the function for every element of
+            ;; s1.
             (forall (x)
               (if (member x s1)
                   (exists (p)
                     (and (member p f) (first x p)))))
-            The value is unique.
+            ;; The value is unique.
             (forall (p1 p2 x)
               (if (and (first x p1) (first x p2)
                        (member p1 f) (member p2 f))
                   (equal p1 p2)))
-            Every element of s2 is the value of a member of s1 under
-            the function f.
+            ;; Every element of s2 is the value of a member of s1 under
+            ;; the function f.
             (forall (y)
               (if (member y s2)
                   (exists (p)
