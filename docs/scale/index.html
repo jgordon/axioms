@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A scale is a partially ordered set.</p>
 <pre>
 (forall (s)
    (if (<a href="../scale">scale</a> s)
@@ -45,7 +44,6 @@
                                    (<a href="../subst2">subst2</a> x1 y1 e1 x y e))))))))))
 </pre>
 </div><div class="axiom">
-<p>A scale is potentially a ground, and very frequently we speak of entities being located at some point on a scale.</p>
 <pre>
 (forall (s)
   (if (<a href="../scale">scale</a> s) (<a href="../ground">ground</a> s)))
@@ -54,7 +52,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Conditions on the arguments of <code>partialOrdering</code>:</p>
 <pre>
 (forall (e x y s)
    (if (<a href="../partialOrdering">partialOrdering</a> e x y s)
@@ -62,7 +59,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p><code>inScale</code> is an abbreviation for being a component of a scale.</p>
 <pre>
 (forall (y s)
    (iff (<a href="../inScale">inScale</a> y s)
@@ -70,7 +66,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subscale of a scale has as its components a subset of the components of the scale and its partial ordering relation is the partial ordering of the scale restricted to that subset.</p>
 <pre>
 (forall (s1 s)
    (iff (<a href="../subscale">subscale</a> s1 s)
@@ -83,7 +78,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The reverse of a scale is one in which the partial ordering is reversed.</p>
 <pre>
 (forall (s1 s)
    (iff (<a href="../reverse">reverse</a> s1 s)
@@ -94,7 +88,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Two scales are disjoint if their sets of components are disjoint.</p>
 <pre>
 (forall (s1 s2)
    (if (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
@@ -105,7 +98,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>For a scale to be the domain or range of a function is for its set of components to be the domain or range.</p>
 <pre>
 (forall (f s1 s2)
    (iff (<a href="../function">function</a> f s1 s2)
@@ -118,7 +110,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A scale-to-scale function is monotone-increasing if the mapping preserves the domain scale's less-than ordering.</p>
 <pre>
 (forall (f s1 s2)
    (if (and (<a href="../function">function</a> f s1 s2) (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
@@ -129,7 +120,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We define a scale by the set of its components and the relation that is the partial ordering of the scale.</p>
 <pre>
 (forall (s s1 e)
    (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
@@ -139,7 +129,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -156,7 +145,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A measure is a monotone increasing function from a scale into a non-negative numeric scale in which the bottom of the domain scale, if there is one, maps into 0.</p>
 <pre>
 (forall (m s1)
   (iff (<a href="../measure">measure</a> m s1)

@@ -29,14 +29,12 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Every eventuality is its own 0th argument.</p>
 <pre>
 (forall (e)
   (iff (<a href="../eventuality">eventuality</a> e)
        (<a href="../argn">argn</a> e 0 e)))
 </pre>
 </div><div class="axiom">
-<p>Eventualities all have a predicate p, an arity n, and arguments 1...n.</p>
 <pre>
 (forall (e)
   (iff (<a href="../eventuality">eventuality</a> e)
@@ -94,7 +92,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Restrictions on the arguments to <code>argn</code>.</p>
+<p>Formulas 1.1 through 1.6 are either meta-rules, listed above, or examples, listed at the end of this section.</p>
 <pre>
 (forall (e x n)
   (if (<a href="../argn">argn</a> x n e)
@@ -102,7 +100,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The <code>pred</code> of an eventuality is a predicate.</p>
 <pre>
 (forall (e p)
   (if (<a href="../pred">pred</a> p e)
@@ -110,7 +107,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The arity of an eventuality is a non-negative integer.</p>
 <pre>
 (forall (n e)
   (if (<a href="../arity">arity</a> n e)
@@ -118,7 +114,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The <code>gen</code> relation is between two eventualities, which are almost identical but not quite, e.g., the same event under different descriptions.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../gen">gen</a> e1 e2)
@@ -126,7 +121,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can have sets of eventualities.</p>
 <pre>
 (forall (s)
   (iff (<a href="../eventualities">eventualities</a> s)
@@ -137,7 +131,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Two entities are subsitutable in their respective events if they play the same role.</p>
 <pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst">subst</a> x e1 y e2)
@@ -159,7 +152,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The <code>and</code> of two eventualities is itself an eventuality, and it exists when its two constituent eventualities exist.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../and'">and'</a> e e1 e2)
@@ -169,7 +161,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The negation of an eventuality really exists if and only if the eventuality doesn't.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../not'">not'</a> e1 e2)
@@ -179,7 +170,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A weaker version of the existence axiom above.</p>
 <pre>
 (forall (e1 e2)
   (if (and (<a href="../not'">not'</a> e1 e2) (<a href="../Rexist">Rexist</a> e1))
@@ -188,7 +178,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Disjunction is defined analogous to conjunction: If the eventuality e is the disjunction of eventualities e1 and e2, then e really exists exactly when one of e1 and e2 really exists.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../or'">or'</a> e e1 e2)
@@ -198,7 +187,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The disjunction of a set really exists exactly when one of the members of the set really exists.</p>
 <pre>
 (forall (e s)
   (if (<a href="../disjunction">disjunction</a> e s)
@@ -209,7 +197,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Implication is defined similarly to <code>or'</code>, except that in addition to a single eventuality as the antecedent, we will alow a set of eventualities as well, which is interpreted as the conjunction.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../imply'">imply'</a> e e1 e2)
@@ -218,7 +205,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The predicate <code>onlyarg*</code> recurses through eventuality arguments and bottoms out in a single entity y.</p>
 <pre>
 (forall (y e)
   (iff (<a href="../onlyarg*">onlyarg*</a> y e)
@@ -230,7 +216,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)

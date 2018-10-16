@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Less-than or equal:</p>
 <pre>
 (forall (x y s)
    (iff (<a href="../leqs">leqs</a> x y s)
@@ -40,7 +39,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p><code>leqs</code> is antisymmetric:</p>
 <pre>
 (forall (x y s)
    (if (and (<a href="../leqs">leqs</a> x y s) (<a href="../leqs">leqs</a> y x s))
@@ -48,7 +46,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The top of a scale is the highest point in the scale.</p>
 <pre>
 (forall (x s)
    (iff (<a href="../top">top</a> x s)
@@ -58,7 +55,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The bottom of a scale is the lowest point in the scale.</p>
 <pre>
 (forall (x s)
    (iff (<a href="../bottom">bottom</a> x s)
@@ -68,7 +64,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -85,7 +80,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can construct composite scales out of existing scales.</p>
 <pre>
 (forall (s s1 s2)
    (if (<a href="../compositeScale">compositeScale</a> s s1 s2)
@@ -101,6 +95,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Are two entites the same half order of magnitude? (Is the proportion of the smaller to the larger less than the square root of 10?)</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))

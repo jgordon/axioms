@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Restrictions on the arguments to <code>argn</code>.</p>
+<p>Formulas 1.1 through 1.6 are either meta-rules, listed above, or examples, listed at the end of this section.</p>
 <pre>
 (forall (e x n)
   (if (<a href="../argn">argn</a> x n e)
@@ -39,7 +39,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Every eventuality is its own 0th argument.</p>
 <pre>
 (forall (e)
   (iff (<a href="../eventuality">eventuality</a> e)
@@ -47,7 +46,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Every argument is the argument of some eventuality.</p>
 <pre>
 (forall (e x)
   (iff (<a href="../arg">arg</a> x e)
@@ -56,7 +54,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Eventualities all have a predicate p, an arity n, and arguments 1...n.</p>
 <pre>
 (forall (e)
   (iff (<a href="../eventuality">eventuality</a> e)
@@ -70,6 +67,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The axioms that would be systematically generated for 'give':</p>
 <pre>
 (forall (e x y z)
   (if (<a href="../give">give</a>' e x y z)
@@ -98,7 +96,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Two entities are subsitutable in their respective events if they play the same role.</p>
 <pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst">subst</a> x e1 y e2)
@@ -120,7 +117,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -137,7 +133,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The <code>scaleFor</code> predicate relates a scale and the absolute form of its adjective (e.g., 'tall').</p>
 <pre>
 (forall (s e)
    (iff (<a href="../scaleFor">scaleFor</a> s e)

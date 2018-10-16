@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A subscale of a scale has as its components a subset of the components of the scale and its partial ordering relation is the partial ordering of the scale restricted to that subset.</p>
 <pre>
 (forall (s1 s)
    (iff (<a href="../subscale">subscale</a> s1 s)
@@ -44,7 +43,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A function f is &ldquo;into&rdquo; a set or scale s3 if there is a subset or subscale s2 for which fi is a function &ldquo;onto&rdquo;.</p>
 <pre>
 (forall (f s1 s3)
    (iff (<a href="../functionInto">functionInto</a> f s1 s3)
@@ -54,6 +52,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The <code>Hi</code>, <code>Md</code>, and <code>Lo</code> regions of a scale are subscales.</p>
 <pre>
 (forall (s1 s) (if (<a href="../Hi">Hi</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
 </pre>

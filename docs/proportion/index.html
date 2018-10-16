@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Constraints on the arguments of <code>proportion</code>:</p>
 <pre>
 (forall (f x y m)
   (if (<a href="../proportion">proportion</a> f x y m)
@@ -40,7 +39,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Suppose we have two points x and y on a scale s1 which has a measure. Then the proportion of x to y is the fraction whose numerator and denominator are the numbers the measure maps x and y into, respectively.</p>
+<p>Then the proportion of x to y is the fraction whose numerator and denominator are the numbers the measure maps x and y into, respectively.</p>
 <pre>
 (forall (f x y m s1)
   (if (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1))
@@ -51,6 +50,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Are two entites the same half order of magnitude? (Is the proportion of the smaller to the larger less than the square root of 10?)</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))

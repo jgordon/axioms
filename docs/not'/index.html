@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The negation of an eventuality really exists if and only if the eventuality doesn't.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../not'">not'</a> e1 e2)
@@ -41,7 +40,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p><code>nott</code> is stronger than <code>not</code>. It says there is an eventuality type of which e2 is an instance and the negation is the negation of that type.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../nott'">nott'</a> e1 e2)
@@ -50,7 +48,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A weaker version of the existence axiom above.</p>
 <pre>
 (forall (e1 e2)
   (if (and (<a href="../not'">not'</a> e1 e2) (<a href="../Rexist">Rexist</a> e1))
@@ -59,7 +56,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Two sets of eventualities are inconsistent if one implies an eventuality and the other implies its negation.</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../inconsistent">inconsistent</a> s1 s2)
@@ -69,7 +65,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If something is in the <code>Hi</code> region of a scale, then that property plays a causal or enabling role in some agent's goal being achieved or not achieved.</p>
 <pre>
 (forall (e x y s1 s)
    (if (and (<a href="../at">at</a>' e x y s1) (<a href="../Hi">Hi</a> s1 s) (etc))

@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>Subsets and proper subsets:</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../subset">subset</a> s1 s2)
@@ -48,7 +49,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The power set of a set is the set of all its subsets.</p>
 <pre>
 (forall (s0 s)
   (iff (<a href="../powerSet">powerSet</a> s0 s)
@@ -58,7 +58,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>"Surgery&rdquo; on the definition of <code>dset</code> to rule out problematic cases:</p>
 <pre>
 (forall (y s)
   (iff (<a href="../notSubsetTypelt">notSubsetTypelt</a> y s)
@@ -67,7 +66,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A partial instantiation of an abstract eventuality:</p>
 <pre>
 (forall (e1 e)
   (iff (<a href="../partialInstance">partialInstance</a> e1 e)
@@ -82,7 +80,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A scale is a partially ordered set.</p>
 <pre>
 (forall (s)
    (if (<a href="../scale">scale</a> s)
@@ -99,7 +96,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A function f is &ldquo;into&rdquo; a set or scale s3 if there is a subset or subscale s2 for which fi is a function &ldquo;onto&rdquo;.</p>
 <pre>
 (forall (f s1 s3)
    (iff (<a href="../functionInto">functionInto</a> f s1 s3)
@@ -109,7 +105,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A set of sets under the <code>subset</code> relation is a scale.</p>
 <pre>
 (forall (s1 e x y)
   (if (and (forall (s2)
@@ -124,7 +119,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -141,7 +135,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If s1 is the scale whose set is a set of sets including the null set and whose partial ordering is <code>subset</code>, then cardinality is a measure.</p>
 <pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)

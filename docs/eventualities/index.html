@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>We can have sets of eventualities.</p>
 <pre>
 (forall (s)
   (iff (<a href="../eventualities">eventualities</a> s)
@@ -42,7 +41,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The disjunction of a set really exists exactly when one of the members of the set really exists.</p>
 <pre>
 (forall (e s)
   (if (<a href="../disjunction">disjunction</a> e s)
@@ -53,7 +51,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Implication is defined similarly to <code>or'</code>, except that in addition to a single eventuality as the antecedent, we will alow a set of eventualities as well, which is interpreted as the conjunction.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../imply'">imply'</a> e e1 e2)
@@ -62,7 +59,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Two sets of eventualities are inconsistent if one implies an eventuality and the other implies its negation.</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../inconsistent">inconsistent</a> s1 s2)

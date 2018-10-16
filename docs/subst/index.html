@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Two entities are subsitutable in their respective events if they play the same role.</p>
 <pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst">subst</a> x e1 y e2)
@@ -71,7 +70,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Two substitutions can be done by doing one at a time.</p>
 <pre>
 (forall (x1 x2 e1 y1 y2 e2)
   (iff (<a href="../subst2">subst2</a> x1 x2 e1 y1 y2 e2)
@@ -81,7 +79,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Real members of a set inherit all the properties of the typical element.</p>
 <pre>
 (forall (x s y e1 e2)
   (if (and (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> y s) (<a href="../subst">subst</a> x e1 y e2)
@@ -98,7 +95,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A partial instantiation of an abstract eventuality:</p>
 <pre>
 (forall (e1 e)
   (iff (<a href="../partialInstance">partialInstance</a> e1 e)
@@ -113,7 +109,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An eventuality type e1 holds for an entity y as its x parameter if, when the entity is substituted for x in the eventuality type, the resulting instantiation really exists.</p>
 <pre>
 (forall (e1 y x)
   (iff (<a href="../holdsFor">holdsFor</a> e1 y x)
@@ -123,7 +118,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A ground in a figure-ground relation is a composite entity whose parts are all uniform in that they all share some property.</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -139,7 +133,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An instance of a pattern is a composite entity in which all parameters have been replaced by entities that are members of the set the parameter is the type element of.</p>
 <pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
@@ -157,7 +150,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can define an incomplete instance to be a composite entity in which at least one parameter is instantiated and some but not all of the properties and relations are instantiated.</p>
 <pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))

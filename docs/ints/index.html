@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The expression <code>(ints s n1 n2)</code> says that <code>s</code> is the set of all positive integers from <code>n1</code> to <code>n2</code>, including <code>n1</code> and <code>n2</code>.</p>
 <pre>
 (forall (s n1 n2)
   (iff (<a href="../ints">ints</a> s n1 n2)
@@ -42,7 +41,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A sequence of length <code>n</code> is a function whose domain is the first <code>n</code> positive integers. There are no constraints on <code>s2</code>.</p>
+<p><code>n</code> positive integers. There are no constraints on <code>s2</code>.</p>
 <pre>
 (forall (s)
   (iff (<a href="../sequence">sequence</a> s)
@@ -51,7 +50,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The length of a sequence is the number that defines its domain of consecutive integers.</p>
 <pre>
 (forall (n s)
   (if (<a href="../sequence">sequence</a> s)

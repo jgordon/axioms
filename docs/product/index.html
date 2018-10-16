@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Multiplication is commutative: n1 * n2 = n2 * n1</p>
 <pre>
 (forall (n n1 n2)
    (iff (<a href="../product">product</a> n n1 n2) (<a href="../product">product</a> n n2 n1)))
@@ -38,14 +37,12 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The product of a number n and 0 is 0.</p>
 <pre>
 (forall (n)
    (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../product">product</a> 0 n 0)))
 </pre>
 </div>
 <div class="axiom">
-<p>Recursive definition of <code>product</code>: n1 * S(n2) = (n1 * n2) + n1</p>
 <pre>
 (forall (n n1 n2 n3 n4)
    (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../product">product</a> n4 n1 n2))
@@ -53,7 +50,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The non-negative integers are closed under multiplication.</p>
 <pre>
 (forall (n1 n2 n3)
    (if (and (<a href="../nonNegInteger">nonNegInteger</a> n2) (<a href="../nonNegInteger">nonNegInteger</a> n3)
@@ -62,14 +58,12 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The identity under multiplication is 1.</p>
 <pre>
 (forall (n)
    (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../product">product</a> n n 1)))
 </pre>
 </div>
 <div class="axiom">
-<p>Multiplication is associative: n1 * (n2 * n3) = (n1 * n2) * n3</p>
 <pre>
 (forall (n n1 n2 n3 n4 n5)
    (if (and (<a href="../product">product</a> n4 n2 n3) (<a href="../product">product</a> n5 n1 n2))
@@ -77,7 +71,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
 <pre>
 (forall (n n1 n2 n3 n4 n5 n6)
    (if (and (<a href="../sum">sum</a> n4 n2 n3) (<a href="../product">product</a> n5 n1 n2) (<a href="../product">product</a> n6 n1 n3))
@@ -85,7 +78,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Fraction equality: <code>a1/b1 = a2/b2</code> when <code>a1*b2 = a2*b1</code>.</p>
 <pre>
 (forall (f1 f2 a1 a2 b1 b2 c1 c2)
    (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
@@ -94,7 +86,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The <code>lt</code> relation can be extended to rational numbers: <code>a1/b1 < a2/b2</code> when <code>a1*b2 < a2*b1</code>. This also extends the other ordering relations, <code>leq</code>, <code>gt</code>, and <code>geq</code>.</p>
+<p><code>a1/b1 < a2/b2</code> when <code>a1*b2 < a2*b1</code>. This also extends the other ordering relations, <code>leq</code>, <code>gt</code>, and <code>geq</code>.</p>
 <pre>
 (forall (f1 f2 a1 a2 b1 b2 c1 c2)
    (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
@@ -103,7 +95,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The product of two fractions, <code>f1=a1/b1</code> and <code>f2=a2/b2</code> is <code>(a1*a2)/(b1*b2)</code>.</p>
 <pre>
 (forall (f f1 f2 a1 a2 b1 b2 c1 c2)
    (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
@@ -112,6 +103,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Are two entites the same half order of magnitude? (Is the proportion of the smaller to the larger less than the square root of 10?)</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))

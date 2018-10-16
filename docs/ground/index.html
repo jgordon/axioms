@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A ground in a figure-ground relation is a composite entity whose parts are all uniform in that they all share some property.</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -44,7 +43,6 @@
                                     (<a href="../Rexist">Rexist</a> e1)))))))))))
 </pre>
 </div><div class="axiom">
-<p>This can also be written as:</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -57,7 +55,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The third argument of an <code>at</code> relation must be a potential ground.</p>
 <pre>
 (forall (x y s)
   (if (<a href="../at">at</a> x y s)
@@ -65,7 +62,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A scale is potentially a ground, and very frequently we speak of entities being located at some point on a scale.</p>
 <pre>
 (forall (s)
   (if (<a href="../scale">scale</a> s) (<a href="../ground">ground</a> s)))

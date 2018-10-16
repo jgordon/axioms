@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A set is completely defined by its members.</p>
 <pre>
 (forall (s1 s2)
   (if (<a href="../set">set</a> s1)
@@ -40,13 +39,11 @@
                        (<a href="../member">member</a> x s2)))))))
 </pre>
 </div><div class="axiom">
-<p>Every set has a typical element.</p>
 <pre>
 (forall (s) (iff (<a href="../set">set</a> s)
                  (exists (x) (<a href="../typelt">typelt</a> x s))))
 </pre>
 </div><div class="axiom">
-<p>Existence of a set in the real world is always true whenever all its members exist in the real world.</p>
 <pre>
 (forall (s)
   (if (<a href="../set">set</a> s)
@@ -58,7 +55,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A member is a member of a set.</p>
 <pre>
 (forall (x s)
   (if (<a href="../member">member</a> x s)
@@ -66,7 +62,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The null set is the set with no members.</p>
 <pre>
 (forall (s)
   (iff (<a href="../null">null</a> s)
@@ -76,7 +71,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Sets can be constructed recursively by adding one element at a time.</p>
 <pre>
 (forall (s s1 x)
   (iff (<a href="../addElt">addElt</a> s s1 x)
@@ -87,7 +81,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The predication <code>(deleteElt s s1 x)</code> says that the set s is obtained from set s1 by deleting an element x.</p>
 <pre>
 (forall (s s1 x)
   (iff (<a href="../deleteElt">deleteElt</a> s s1 x)
@@ -98,7 +91,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The union of two sets is defined in the standard way.</p>
 <pre>
 (forall (s s1 s2)
   (iff (<a href="../union">union</a> s s1 s2)
@@ -109,7 +101,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Set difference is defined similarly to union.</p>
 <pre>
 (forall (s s1 s2)
   (iff (<a href="../setdiff">setdiff</a> s s1 s2)
@@ -121,7 +112,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The intersection of two sets is defined in the standard way.</p>
 <pre>
 (forall (s s1 s2)
   (iff (<a href="../intersection">intersection</a> s s1 s2)
@@ -132,6 +122,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Subsets and proper subsets:</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../subset">subset</a> s1 s2)
@@ -142,7 +133,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Two sets are disjoint if they have no members in common.</p>
 <pre>
 (forall (s1 s2)
   (if (and (<a href="../set">set</a> s1) (<a href="../set">set</a> s2))
@@ -152,7 +142,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We recursively define the cardinality of sets using addElt.</p>
 <pre>
 (forall (n s)
   (iff (<a href="../card">card</a> n s)
@@ -166,7 +155,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can have sets of eventualities.</p>
 <pre>
 (forall (s)
   (iff (<a href="../eventualities">eventualities</a> s)
@@ -177,6 +165,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
 <pre>
 (forall (s x e)
   (if (<a href="../dset">dset</a> s x e)
@@ -184,7 +173,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A function <code>f</code> from a set <code>s1</code> onto a set <code>s2</code> is a set of pairs where each element of <code>s1</code> occurs exactly once as the first element in a pair, and every element of <code>s2</code> occurs as a second element of at least one pair. (This is <code>function0</code> since it is later extended to functions from scales to scales.)</p>
 <pre>
 (forall (f s1 s2)
   (iff (<a href="../function0">function0</a> f s1 s2)
@@ -216,7 +204,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The expression <code>(ints s n1 n2)</code> says that <code>s</code> is the set of all positive integers from <code>n1</code> to <code>n2</code>, including <code>n1</code> and <code>n2</code>.</p>
 <pre>
 (forall (s n1 n2)
   (iff (<a href="../ints">ints</a> s n1 n2)
@@ -227,7 +214,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The set of components of a composite entity is nonempty.</p>
 <pre>
 (forall (s1 x)
   (if (<a href="../componentsOf">componentsOf</a> s1 x)
@@ -235,7 +221,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>All the elements in the properties of a composite entity have an <code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
+<p><code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
 <pre>
 (forall (s2 x)
   (if (<a href="../propertiesOf">propertiesOf</a> s2 x)
@@ -248,7 +234,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The set of relations of a composite entity are relations between a component or the whole, and something else.</p>
 <pre>
 (forall (s3 x)
   (if (<a href="../relationsOf">relationsOf</a> s3 x)
@@ -261,7 +246,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Sets are composite entities whose components are members and whose only property is being set.</p>
 <pre>
 (forall (e s s1 s2 s3)
   (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
@@ -271,7 +255,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>For a scale to be the domain or range of a function is for its set of components to be the domain or range.</p>
 <pre>
 (forall (f s1 s2)
    (iff (<a href="../function">function</a> f s1 s2)
@@ -284,7 +267,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A set of sets under the <code>subset</code> relation is a scale.</p>
 <pre>
 (forall (s1 e x y)
   (if (and (forall (s2)
@@ -299,7 +281,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -316,7 +297,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If s1 is the scale whose set is a set of sets including the null set and whose partial ordering is <code>subset</code>, then cardinality is a measure.</p>
 <pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)

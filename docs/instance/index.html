@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A complete instantiation is a partial instantiation with no remaining parameters:</p>
 <pre>
 (forall (e1 e)
   (iff (<a href="../instance">instance</a> e1 e)
@@ -42,7 +41,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p><code>nott</code> is stronger than <code>not</code>. It says there is an eventuality type of which e2 is an instance and the negation is the negation of that type.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../nott'">nott'</a> e1 e2)
@@ -51,7 +49,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)

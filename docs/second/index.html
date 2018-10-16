@@ -36,7 +36,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A function <code>f</code> from a set <code>s1</code> onto a set <code>s2</code> is a set of pairs where each element of <code>s1</code> occurs exactly once as the first element in a pair, and every element of <code>s2</code> occurs as a second element of at least one pair. (This is <code>function0</code> since it is later extended to functions from scales to scales.)</p>
 <pre>
 (forall (f s1 s2)
   (iff (<a href="../function0">function0</a> f s1 s2)
@@ -68,7 +67,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If <code>f</code> is a function from <code>s1</code> to <code>s2</code>, we say it maps an element <code>x</code> of <code>s1</code> to an element <code>y</code> of <code>s2</code> when the pair <code><x, y></code> is a member of <code>f</code>.</p>
+<p><code>f</code>.</p>
 <pre>
 (forall (f x y)
   (iff (<a href="../map">map</a> f x y)
@@ -78,7 +77,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Ordered pairs are composite entities where the components are the first and second elements, there are no properties other than the whole being a pair, and the relations are the <code>first</code> and <code>second</code> relations between the components and the whole.</p>
 <pre>
 (forall (p x y e1 e2 e3)
   (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)

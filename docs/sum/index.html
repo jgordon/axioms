@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Addition is commutative: n1 + n2 = n2 + n1</p>
 <pre>
 (forall (n n1 n2)
    (iff (<a href="../sum">sum</a> n n1 n2) (<a href="../sum">sum</a> n n2 n1)))
@@ -38,7 +37,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>We recursively define the cardinality of sets using addElt.</p>
 <pre>
 (forall (n s)
   (iff (<a href="../card">card</a> n s)
@@ -52,14 +50,12 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The sum of an integer n and 0 is n.</p>
 <pre>
 (forall (n)
    (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../sum">sum</a> n n 0)))
 </pre>
 </div>
 <div class="axiom">
-<p>Recursive definition of <code>sum</code>: n1 + S(n2) = S(n1 + n2)</p>
 <pre>
 (forall (n n1 n2 n3 n4)
    (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../sum">sum</a> n4 n1 n2))
@@ -67,7 +63,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Non-negative integers are closed under addition.</p>
 <pre>
 (forall (n1 n2 n3)
    (if (and (<a href="../nonNegInteger">nonNegInteger</a> n2) (<a href="../nonNegInteger">nonNegInteger</a> n3) (<a href="../sum">sum</a> n1 n2 n3))
@@ -75,7 +70,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Addition is associative: n1 + (n2 + n3) = (n1 + n2) + n3</p>
 <pre>
 (forall (n n1 n2 n3 n4 n5)
    (if (and (<a href="../sum">sum</a> n4 n2 n3) (<a href="../sum">sum</a> n5 n1 n2))
@@ -83,7 +77,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Recursive definition of <code>product</code>: n1 * S(n2) = (n1 * n2) + n1</p>
 <pre>
 (forall (n n1 n2 n3 n4)
    (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../product">product</a> n4 n1 n2))
@@ -91,7 +84,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
 <pre>
 (forall (n n1 n2 n3 n4 n5 n6)
    (if (and (<a href="../sum">sum</a> n4 n2 n3) (<a href="../product">product</a> n5 n1 n2) (<a href="../product">product</a> n6 n1 n3))
@@ -99,6 +91,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (n1 n2)
    (if (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n2))

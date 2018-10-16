@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>An entity <code>y</code> is external to a composite entity <code>x</code> if neither it nor any of its components is equal to <code>x</code> or one of <code>x</code>'s components.</p>
 <pre>
 (forall (y x)
   (iff (<a href="../externalTo">externalTo</a> y x)
@@ -42,7 +41,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>If <code>x</code> is at <code>y</code> in <code>s</code>, then <code>y</code> must be a component of <code>s</code> and <code>x</code> must be external to <code>s</code>.</p>
 <pre>
 (forall (x y s)
   (if (<a href="../at">at</a> x y s)

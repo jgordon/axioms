@@ -33,7 +33,6 @@
 (forall (s1 s) (if (<a href="../Lo">Lo</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
 </pre>
 </div><div class="axiom">
-<p>The bottom of a scale is the bottom of its <code>Lo</code> region.</p>
 <pre>
 (forall (s1 s)
    (if (<a href="../Lo">Lo</a> s1 s)
@@ -44,7 +43,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>If a point is in the <code>Lo</code> region, then it is less than all the points in the <code>Hi</code> region.</p>
 <pre>
 (forall (s s1 s2 x y)
    (if (and (<a href="../Hi">Hi</a> s1 s) (<a href="../Lo">Lo</a> s2 s) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s2))

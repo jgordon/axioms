@@ -29,7 +29,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>If one element's <code>n</code> is less than another's, it is before the other in the sequence.</p>
 <pre>
 (forall (x y s)
   (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
@@ -39,6 +38,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (n1 n2)
    (if (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n2))
@@ -60,7 +60,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The <code>lt</code> relation can be extended to rational numbers: <code>a1/b1 < a2/b2</code> when <code>a1*b2 < a2*b1</code>. This also extends the other ordering relations, <code>leq</code>, <code>gt</code>, and <code>geq</code>.</p>
+<p><code>a1/b1 < a2/b2</code> when <code>a1*b2 < a2*b1</code>. This also extends the other ordering relations, <code>leq</code>, <code>gt</code>, and <code>geq</code>.</p>
 <pre>
 (forall (f1 f2 a1 a2 b1 b2 c1 c2)
    (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
@@ -69,7 +69,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If e is the <code>lt</code> relation between x and y and s1 is a set of numbers containing 0 but no smaller number, then there is a non-negative numeric scale s with s1 as its set and e as its partial ordering.</p>
 <pre>
 (forall (s1 e x y)
   (if (and (<a href="../lt">lt</a>' e x y)
@@ -82,7 +81,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Conversely, a non-negative numeric scale has the <code>lt</code> relation for its ordering and a set of numbers, including 0, as its set.</p>
 <pre>
 (forall (s)
   (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)

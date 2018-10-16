@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The bottom of a scale is the lowest point in the scale.</p>
 <pre>
 (forall (x s)
    (iff (<a href="../bottom">bottom</a> x s)
@@ -41,7 +40,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A sequence is a scale whose partial ordering is the <code>beforeInSeq</code> relation.</p>
 <pre>
 (forall (s s1 e x y)
    (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
@@ -53,7 +51,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A set of sets under the <code>subset</code> relation is a scale.</p>
 <pre>
 (forall (s1 e x y)
   (if (and (forall (s2)
@@ -68,7 +65,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The bottom of a scale is the bottom of its <code>Lo</code> region.</p>
 <pre>
 (forall (s1 s)
    (if (<a href="../Lo">Lo</a> s1 s)
@@ -77,7 +73,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A measure is a monotone increasing function from a scale into a non-negative numeric scale in which the bottom of the domain scale, if there is one, maps into 0.</p>
 <pre>
 (forall (m s1)
   (iff (<a href="../measure">measure</a> m s1)

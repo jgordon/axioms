@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A <code>doubleton</code> set has exactly two members.</p>
 <pre>
 (forall (s x y)
   (iff (<a href="../doubleton">doubleton</a> s x y)
@@ -42,7 +41,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>An aggregate of two entities is a composite entity with those two entities as its components.</p>
 <pre>
 (forall (x y z)
   (iff (<a href="../aggregate">aggregate</a> x y z)
@@ -52,7 +50,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Ordered pairs are composite entities where the components are the first and second elements, there are no properties other than the whole being a pair, and the relations are the <code>first</code> and <code>second</code> relations between the components and the whole.</p>
 <pre>
 (forall (p x y e1 e2 e3)
   (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)

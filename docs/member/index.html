@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A member is a member of a set.</p>
 <pre>
 (forall (x s)
   (if (<a href="../member">member</a> x s)
@@ -39,7 +38,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A set is completely defined by its members.</p>
 <pre>
 (forall (s1 s2)
   (if (<a href="../set">set</a> s1)
@@ -51,7 +49,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The null set is the set with no members.</p>
 <pre>
 (forall (s)
   (iff (<a href="../null">null</a> s)
@@ -61,7 +58,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Sets can be constructed recursively by adding one element at a time.</p>
 <pre>
 (forall (s s1 x)
   (iff (<a href="../addElt">addElt</a> s s1 x)
@@ -72,7 +68,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The predication <code>(deleteElt s s1 x)</code> says that the set s is obtained from set s1 by deleting an element x.</p>
 <pre>
 (forall (s s1 x)
   (iff (<a href="../deleteElt">deleteElt</a> s s1 x)
@@ -83,7 +78,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The union of two sets is defined in the standard way.</p>
 <pre>
 (forall (s s1 s2)
   (iff (<a href="../union">union</a> s s1 s2)
@@ -94,7 +88,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Set difference is defined similarly to union.</p>
 <pre>
 (forall (s s1 s2)
   (iff (<a href="../setdiff">setdiff</a> s s1 s2)
@@ -106,7 +99,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The intersection of two sets is defined in the standard way.</p>
 <pre>
 (forall (s s1 s2)
   (iff (<a href="../intersection">intersection</a> s s1 s2)
@@ -117,6 +109,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Subsets and proper subsets:</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../subset">subset</a> s1 s2)
@@ -127,7 +120,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Two sets are disjoint if they have no members in common.</p>
 <pre>
 (forall (s1 s2)
   (if (and (<a href="../set">set</a> s1) (<a href="../set">set</a> s2))
@@ -137,7 +129,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The power set of a set is the set of all its subsets.</p>
 <pre>
 (forall (s0 s)
   (iff (<a href="../powerSet">powerSet</a> s0 s)
@@ -147,7 +138,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We recursively define the cardinality of sets using addElt.</p>
 <pre>
 (forall (n s)
   (iff (<a href="../card">card</a> n s)
@@ -161,7 +151,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can have sets of eventualities.</p>
 <pre>
 (forall (s)
   (iff (<a href="../eventualities">eventualities</a> s)
@@ -172,7 +161,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>"Surgery&rdquo; on the definition of subst for the cases that will cause trouble for typical elements &ndash; when e1 itself is a typical element relation between x and s and y is a member of s.</p>
 <pre>
 (forall (x e1 y e2)
   (iff (<a href="../noSubstTypelt">noSubstTypelt</a> x e1 y e2)
@@ -180,7 +168,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Real members of a set inherit all the properties of the typical element.</p>
 <pre>
 (forall (x s y e1 e2)
   (if (and (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> y s) (<a href="../subst">subst</a> x e1 y e2)
@@ -197,7 +184,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The principal property of <code>fd</code> is that when e holds and a real entity instantiates x, then there is a real entity that instantiates y and the corresponding eventuality holds.</p>
 <pre>
 (forall (x y e s)
   (if (and (<a href="../fd">fd</a> y x e) (<a href="../Rexist">Rexist</a> e) (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> x1 s))
@@ -206,7 +192,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The range of the functional dependency is then the set of all values of the skolem function.</p>
 <pre>
 (forall (s1 x y e)
   (iff (<a href="../rangeFd">rangeFd</a> s1 y x e)
@@ -216,7 +201,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Define the set of parameters in an abstract eventuality:</p>
 <pre>
 (forall (s e)
   (iff (<a href="../parameters">parameters</a> s e)
@@ -227,7 +211,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A partial instantiation of an abstract eventuality:</p>
 <pre>
 (forall (e1 e)
   (iff (<a href="../partialInstance">partialInstance</a> e1 e)
@@ -242,7 +225,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An eventuality type e1 holds for an entity y as its x parameter if, when the entity is substituted for x in the eventuality type, the resulting instantiation really exists.</p>
 <pre>
 (forall (e1 y x)
   (iff (<a href="../holdsFor">holdsFor</a> e1 y x)
@@ -252,7 +234,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Existence of a set in the real world is always true whenever all its members exist in the real world.</p>
 <pre>
 (forall (s)
   (if (<a href="../set">set</a> s)
@@ -262,7 +243,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The disjunction of a set really exists exactly when one of the members of the set really exists.</p>
 <pre>
 (forall (e s)
   (if (<a href="../disjunction">disjunction</a> e s)
@@ -273,7 +253,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can say that some set <code>s1</code> of eventualties minimally proves an eventuality <code>e2</code> if <code>s1</code> implies <code>e2</code> but no proper subset of <code>s1</code> proves <code>e2</code>, and furthermore <code>e2</code> is not itself a member of <code>s1</code>.</p>
 <pre>
 (forall (s1 e2)
   (iff (<a href="../minimallyProves">minimallyProves</a> s1 e2)
@@ -285,7 +264,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A function <code>f</code> from a set <code>s1</code> onto a set <code>s2</code> is a set of pairs where each element of <code>s1</code> occurs exactly once as the first element in a pair, and every element of <code>s2</code> occurs as a second element of at least one pair. (This is <code>function0</code> since it is later extended to functions from scales to scales.)</p>
 <pre>
 (forall (f s1 s2)
   (iff (<a href="../function0">function0</a> f s1 s2)
@@ -317,7 +295,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If <code>f</code> is a function from <code>s1</code> to <code>s2</code>, we say it maps an element <code>x</code> of <code>s1</code> to an element <code>y</code> of <code>s2</code> when the pair <code><x, y></code> is a member of <code>f</code>.</p>
+<p><code>f</code>.</p>
 <pre>
 (forall (f x y)
   (iff (<a href="../map">map</a> f x y)
@@ -327,7 +305,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>When we have a Skolem function or a functional dependency, we have a corresponding function.</p>
 <pre>
 (forall (y1 y x1 x e s1 s2)
   (if (and (<a href="../skfct">skfct</a> y1 y x1 x e) (<a href="../typelt">typelt</a> x s1) (<a href="../rangeFd">rangeFd</a> s2 y x e))
@@ -338,7 +315,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The expression <code>(ints s n1 n2)</code> says that <code>s</code> is the set of all positive integers from <code>n1</code> to <code>n2</code>, including <code>n1</code> and <code>n2</code>.</p>
 <pre>
 (forall (s n1 n2)
   (iff (<a href="../ints">ints</a> s n1 n2)
@@ -349,7 +325,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The predicate <code>componentOf</code> gives us a quick way to say a single entity is a component.</p>
 <pre>
 (forall (y x)
   (iff (<a href="../componentOf">componentOf</a> y x)
@@ -359,7 +334,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>All the elements in the properties of a composite entity have an <code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
+<p><code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
 <pre>
 (forall (s2 x)
   (if (<a href="../propertiesOf">propertiesOf</a> s2 x)
@@ -372,7 +347,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The set of relations of a composite entity are relations between a component or the whole, and something else.</p>
 <pre>
 (forall (s3 x)
   (if (<a href="../relationsOf">relationsOf</a> s3 x)
@@ -385,7 +359,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A relation is a relation of a composite entity if it is in the <code>relationsOf</code> set.</p>
+<p><code>relationsOf</code> set.</p>
 <pre>
 (forall (e x)
   (iff (<a href="../relationOf">relationOf</a> e x)
@@ -394,7 +368,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>It will be useful to be able to say something is a property or a relation of a composite entity.</p>
 <pre>
 (forall (e x)
   (iff (<a href="../propOrRelOf">propOrRelOf</a> e x)
@@ -404,7 +377,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A sequence can be viewed as a composite entity whose components are the elements of the sequence and whose relations are the ordering relations in the sequence.</p>
 <pre>
 (forall (e s)
   (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
@@ -423,7 +395,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The parameters of a pattern are the components that are type elements.</p>
 <pre>
 (forall (x)
   (if (<a href="../pattern">pattern</a> x)
@@ -436,7 +407,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An instance of a pattern is a composite entity in which all parameters have been replaced by entities that are members of the set the parameter is the type element of.</p>
 <pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
@@ -454,7 +424,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can define an incomplete instance to be a composite entity in which at least one parameter is instantiated and some but not all of the properties and relations are instantiated.</p>
 <pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
@@ -472,7 +441,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A scale is a partially ordered set.</p>
 <pre>
 (forall (s)
    (if (<a href="../scale">scale</a> s)
@@ -489,7 +457,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A set of sets under the <code>subset</code> relation is a scale.</p>
 <pre>
 (forall (s1 e x y)
   (if (and (forall (s2)
@@ -504,7 +471,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If something is in the <code>Hi</code> region of a scale, then that property plays a causal or enabling role in some agent's goal being achieved or not achieved.</p>
 <pre>
 (forall (e x y s1 s)
    (if (and (<a href="../at">at</a>' e x y s1) (<a href="../Hi">Hi</a> s1 s) (etc))
@@ -515,7 +481,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If e is the <code>lt</code> relation between x and y and s1 is a set of numbers containing 0 but no smaller number, then there is a non-negative numeric scale s with s1 as its set and e as its partial ordering.</p>
 <pre>
 (forall (s1 e x y)
   (if (and (<a href="../lt">lt</a>' e x y)
@@ -528,7 +493,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Conversely, a non-negative numeric scale has the <code>lt</code> relation for its ordering and a set of numbers, including 0, as its set.</p>
 <pre>
 (forall (s)
   (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
@@ -542,7 +506,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If s1 is the scale whose set is a set of sets including the null set and whose partial ordering is <code>subset</code>, then cardinality is a measure.</p>
 <pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)
@@ -556,7 +519,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The identity function is the function that maps every entity into itself.</p>
 <pre>
 (forall (f s)
   (iff (<a href="../identityFunction">identityFunction</a> f s)

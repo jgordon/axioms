@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>If <code>f</code> is a function from <code>s1</code> to <code>s2</code>, we say it maps an element <code>x</code> of <code>s1</code> to an element <code>y</code> of <code>s2</code> when the pair <code><x, y></code> is a member of <code>f</code>.</p>
+<p><code>f</code>.</p>
 <pre>
 (forall (f x y)
   (iff (<a href="../map">map</a> f x y)
@@ -41,7 +41,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The <code>nth</code> element in a sequence is the entity in the range of the function that <code>n</code> is mapped into.</p>
 <pre>
 (forall (s n y)
   (if (<a href="../sequence">sequence</a> s)
@@ -49,7 +48,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The <code>rest</code> of a sequence is what remains after the first element is removed. The expression <code>(rest s1 s)</code> says that <code>s1</code> is the rest of <code>s</code> after the first is removed.</p>
+<p><code>s</code> after the first is removed.</p>
 <pre>
 (forall (s1 s)
   (iff (<a href="../rest">rest</a> s1 s)
@@ -62,7 +61,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A scale-to-scale function is monotone-increasing if the mapping preserves the domain scale's less-than ordering.</p>
 <pre>
 (forall (f s1 s2)
    (if (and (<a href="../function">function</a> f s1 s2) (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
@@ -73,7 +71,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A measure is a monotone increasing function from a scale into a non-negative numeric scale in which the bottom of the domain scale, if there is one, maps into 0.</p>
 <pre>
 (forall (m s1)
   (iff (<a href="../measure">measure</a> m s1)
@@ -85,7 +82,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Suppose we have two points x and y on a scale s1 which has a measure. Then the proportion of x to y is the fraction whose numerator and denominator are the numbers the measure maps x and y into, respectively.</p>
+<p>Then the proportion of x to y is the fraction whose numerator and denominator are the numbers the measure maps x and y into, respectively.</p>
 <pre>
 (forall (f x y m s1)
   (if (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1))
@@ -96,7 +93,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The identity function is the function that maps every entity into itself.</p>
 <pre>
 (forall (f s)
   (iff (<a href="../identityFunction">identityFunction</a> f s)
@@ -105,7 +101,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
 <pre>
 (forall (m s1 s2 x y)
   (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)

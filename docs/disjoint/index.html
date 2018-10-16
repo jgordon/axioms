@@ -29,7 +29,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Two sets are disjoint if they have no members in common.</p>
 <pre>
 (forall (s1 s2)
   (if (and (<a href="../set">set</a> s1) (<a href="../set">set</a> s2))
@@ -39,7 +38,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Two scales are disjoint if their sets of components are disjoint.</p>
 <pre>
 (forall (s1 s2)
    (if (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
@@ -50,7 +48,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
 <pre>
 (forall (m s1 s2 x y)
   (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)

@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>If <code>pair0</code>, it's an ordered pair, which has two elements.</p>
 <pre>
 (forall (p)
   (iff (<a href="../pair0">pair0</a> p)
@@ -38,7 +39,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Ordered pairs are composite entities where the components are the first and second elements, there are no properties other than the whole being a pair, and the relations are the <code>first</code> and <code>second</code> relations between the components and the whole.</p>
 <pre>
 (forall (p x y e1 e2 e3)
   (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)

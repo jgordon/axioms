@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Conditions on the arguments of <code>partialOrdering</code>:</p>
 <pre>
 (forall (e x y s)
    (if (<a href="../partialOrdering">partialOrdering</a> e x y s)
@@ -39,7 +38,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A scale is a partially ordered set.</p>
 <pre>
 (forall (s)
    (if (<a href="../scale">scale</a> s)
@@ -56,7 +54,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We define a less-than relation relative to a particular scale:</p>
 <pre>
 (forall (e x1 y1 s)
    (iff (<a href="../lts">lts</a>' e1 x1 y1 s)
@@ -66,7 +63,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We define a scale by the set of its components and the relation that is the partial ordering of the scale.</p>
 <pre>
 (forall (s s1 e)
    (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)

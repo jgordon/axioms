@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A function <code>f</code> from a set <code>s1</code> onto a set <code>s2</code> is a set of pairs where each element of <code>s1</code> occurs exactly once as the first element in a pair, and every element of <code>s2</code> occurs as a second element of at least one pair. (This is <code>function0</code> since it is later extended to functions from scales to scales.)</p>
 <pre>
 (forall (f s1 s2)
   (iff (<a href="../function0">function0</a> f s1 s2)
@@ -60,6 +59,7 @@
                     (and (<a href="../member">member</a> p f) (<a href="../second">second</a> y p))))))))
 </pre>
 </div><div class="axiom">
+<p><code>s1</code> is the domain of the function and <code>s2</code> the range.</p>
 <pre>
 (forall (f s1 s2) (if (<a href="../function0">function0</a> f s1 s2) (<a href="../domain">domain</a> s1 f)))
 </pre>
@@ -71,7 +71,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>If <code>f</code> is a function from <code>s1</code> to <code>s2</code>, we say it maps an element <code>x</code> of <code>s1</code> to an element <code>y</code> of <code>s2</code> when the pair <code><x, y></code> is a member of <code>f</code>.</p>
+<p><code>f</code>.</p>
 <pre>
 (forall (f x y)
   (iff (<a href="../map">map</a> f x y)
@@ -81,7 +81,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>When we have a Skolem function or a functional dependency, we have a corresponding function.</p>
 <pre>
 (forall (y1 y x1 x e s1 s2)
   (if (and (<a href="../skfct">skfct</a> y1 y x1 x e) (<a href="../typelt">typelt</a> x s1) (<a href="../rangeFd">rangeFd</a> s2 y x e))
@@ -92,7 +91,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A sequence of length <code>n</code> is a function whose domain is the first <code>n</code> positive integers. There are no constraints on <code>s2</code>.</p>
+<p><code>n</code> positive integers. There are no constraints on <code>s2</code>.</p>
 <pre>
 (forall (s)
   (iff (<a href="../sequence">sequence</a> s)
@@ -101,7 +100,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The length of a sequence is the number that defines its domain of consecutive integers.</p>
 <pre>
 (forall (n s)
   (if (<a href="../sequence">sequence</a> s)
@@ -111,7 +109,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>For a scale to be the domain or range of a function is for its set of components to be the domain or range.</p>
 <pre>
 (forall (f s1 s2)
    (iff (<a href="../function">function</a> f s1 s2)

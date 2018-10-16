@@ -29,7 +29,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The <code>nth</code> element in a sequence is the entity in the range of the function that <code>n</code> is mapped into.</p>
 <pre>
 (forall (s n y)
   (if (<a href="../sequence">sequence</a> s)
@@ -37,7 +36,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The <code>first</code> element is the <code>nth</code> where <code>n</code> is 1. This is the same predicate used for the first element of a pair, but the axioms are avoid confusion by conditioning on the second element being either a sequence or a pair (which is isomorphic to the set of sequences of length two).</p>
 <pre>
 (forall (s y)
   (if (<a href="../sequence">sequence</a> s)
@@ -45,7 +43,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The last element of a sequence is the <code>nth</code> element where <code>n</code> is the length of the sequence.</p>
 <pre>
 (forall (s y n)
   (if (and (<a href="../sequence">sequence</a> s) (<a href="../length">length</a> n s))
@@ -53,7 +50,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An entity is in a sequence if it is the <code>nth</code> element of the sequence for some <code>n</code>.</p>
 <pre>
 (forall (x s)
   (iff (<a href="../inSeq">inSeq</a> x s)
@@ -61,7 +57,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If one element's <code>n</code> is less than another's, it is before the other in the sequence.</p>
 <pre>
 (forall (x y s)
   (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)

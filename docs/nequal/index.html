@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The <code>nequal</code> relation holds for pairs of entities that are not equal.</p>
 <pre>
 (forall (x y)
   (iff (<a href="../nequal">nequal</a> x y)
@@ -39,7 +38,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A <code>doubleton</code> set has exactly two members.</p>
 <pre>
 (forall (s x y)
   (iff (<a href="../doubleton">doubleton</a> s x y)
@@ -50,7 +48,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The predication <code>(deleteElt s s1 x)</code> says that the set s is obtained from set s1 by deleting an element x.</p>
 <pre>
 (forall (s s1 x)
   (iff (<a href="../deleteElt">deleteElt</a> s s1 x)
@@ -68,7 +65,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Two entities are subsitutable in their respective events if they play the same role.</p>
 <pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst">subst</a> x e1 y e2)
@@ -90,7 +86,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Pass functional dependence relations down to partial instantiations.</p>
 <pre>
 (forall (c1 c x1 x y e e1)
   (if (and (<a href="../skfct">skfct</a> c1 c x1 x e) (<a href="../fd">fd</a> c y e) (<a href="../nequal">nequal</a> x y)
@@ -99,7 +94,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The predicate <code>onlyarg*</code> recurses through eventuality arguments and bottoms out in a single entity y.</p>
 <pre>
 (forall (y e)
   (iff (<a href="../onlyarg*">onlyarg*</a> y e)
@@ -111,7 +105,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The set of relations of a composite entity are relations between a component or the whole, and something else.</p>
 <pre>
 (forall (s3 x)
   (if (<a href="../relationsOf">relationsOf</a> s3 x)
@@ -124,7 +117,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A positive integer is any non-negative integer except 0.</p>
 <pre>
 (forall (n)
    (iff (<a href="../posInteger">posInteger</a> n)
@@ -132,7 +124,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The arguments of <code>fraction</code> are a number and a non-zero number.</p>
 <pre>
 (forall (f a b)
   (if (<a href="../fraction">fraction</a> f a b)
