@@ -122,18 +122,6 @@
                 (<a href="../length">length</a> d1 c1 u) (<a href="../length">length</a> d2 c2 u) (<a href="../gt">gt</a> d1 d2)))))
 </pre>
 </div>
-<div class="axiom">
-<p>A sphere p around a center x is a volume in which every line segment from the center to a point inside the surface is constant.</p>
-<pre>
-(forall (c r x u)
-   (iff (<a href="../sphere">sphere</a> p x)
-        (exists (r d)
-           (and (<a href="../boundary">boundary</a> r p) (<a href="../inside">inside</a> x p)
-                (forall (c1 x1)
-                   (if (and (<a href="../inside">inside</a> x1 r) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
-                       (<a href="../length">length</a> d c1 u)))))))
-</pre>
-</div>
 </section>
 
 </body>

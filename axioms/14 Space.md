@@ -1394,19 +1394,6 @@ A cube is a polyhedron all of whose faces are squares.
                 (if (member f s) (square f))))))
 ```
 
-A sphere p around a center x is a volume in which every line segment
-from the center to a point inside the surface is constant.
-
-```
-(forall (c r x u)
-   (iff (sphere p x)
-        (exists (r d)
-           (and (boundary r p) (inside x p)
-                (forall (c1 x1)
-                   (if (and (inside x1 r) (lineSegmentFromTo c1 x x1))
-                       (length d c1 u)))))))
-```
-
 A volume is convex if every point on a line segment between any
 two points on its surface is inside the volume.
 
