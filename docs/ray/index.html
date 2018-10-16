@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A ray has exactly one endpoint.</p>
 <pre>
 (forall (c)
   (if (<a href="../ray">ray</a> c)
@@ -41,6 +42,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A line segment has two distinct endpoints.</p>
 <pre>
 (forall (c)
   (iff (<a href="../linear">linear</a> c)
@@ -48,6 +50,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A direction with respect to a framework is a ray whose endpoint is the origin of the framework.</p>
 <pre>
 (forall (d f)
    (iff (<a href="../direction">direction</a> d f)

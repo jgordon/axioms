@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>For a scale to be the domain or range of a function is for its set of components to be the domain or range.</p>
 <pre>
 (forall (f s1 s2)
    (iff (<a href="../function">function</a> f s1 s2)
@@ -44,7 +43,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A scale-to-scale function is monotone-increasing if the mapping preserves the domain scale's less-than ordering.</p>
 <pre>
 (forall (f s1 s2)
    (if (and (<a href="../function">function</a> f s1 s2) (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
@@ -55,7 +53,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A function f is "into" a set or scale s3 if there is a subset or subscale s2 for which fi is a function "onto".</p>
 <pre>
 (forall (f s1 s3)
    (iff (<a href="../functionInto">functionInto</a> f s1 s3)
@@ -65,7 +62,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The identity function is the function that maps every entity into itself.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (f s)
   (iff (<a href="../identityFunction">identityFunction</a> f s)
@@ -74,7 +71,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (m s1 s2 x y)
   (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)
@@ -83,7 +80,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The primitive case of a rate is when there is a set S of events, a set T of time intervals, and a function mapping the intervals into a subset of S, namely those events that occur during that interval. When the concept of rate truly applies, the cardinalities of all these subsets are the same.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)

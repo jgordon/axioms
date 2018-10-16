@@ -29,13 +29,14 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t)
   (if (<a href="../temporalEntity">temporalEntity</a> t)
       (or (<a href="../interval">interval</a> t) (<a href="../instant">instant</a> t))))
 </pre>
 </div><div class="axiom">
-<p>The relation <code>before</code> is temporal.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t)
   (if (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../sameDuration">sameDuration</a> t t)))
@@ -44,16 +45,19 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t) (if (<a href="../instant">instant</a> t) (<a href="../temporalEntity">temporalEntity</a> t)))
 </pre>
 </div>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t) (if (<a href="../interval">interval</a> t) (<a href="../temporalEntity">temporalEntity</a> t)))
 </pre>
 </div>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../begins">begins</a> t1 t2)
@@ -62,6 +66,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../ends">ends</a> t1 t2)
@@ -70,6 +75,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../insideTime">insideTime</a> t1 t2)
@@ -78,6 +84,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t t1 t2)
   (if (and (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../begins">begins</a> t1 t) (<a href="../begins">begins</a> t2 t))
@@ -85,6 +92,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t t1 t2)
   (if (and (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../ends">ends</a> t1 t) (<a href="../ends">ends</a> t2 t))
@@ -92,7 +100,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal sequence is a set of non-overlapping temporal entities. Between any two distinct members of a temporal sequence, there is another interval or instant that is not in the set.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s)
   (iff (<a href="../tseq">tseq</a> s)
@@ -109,7 +117,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Instants are at least partially ordered by a <code>before</code> relation, which will also be extended to intervals, temporal sequences, and eventualities.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../before">before</a> t1 t2)
@@ -118,7 +126,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The relation <code>before</code> is temporal.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../sameDuration">sameDuration</a> t1 t2)
@@ -126,7 +134,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The predication <code>(durationOf d t u)</code> says that t is made up of d intervals having the same duration as u. We will allow the second argument to be an instant, an interval, a temporal sequence, or an eventuality.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (d t u)
   (if (<a href="../durationOf">durationOf</a> d t u)

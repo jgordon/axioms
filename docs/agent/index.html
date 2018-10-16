@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>An agent directly causes an event iff the agent's willing it to happen directly causes it.</p>
 <pre>
 (forall (a e)
   (if (<a href="../agent">agent</a> a)
@@ -41,7 +40,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p><code>cause</code> is like <code>cause0</code>, but it allows an agent as its first argument. When the first argument of <code>cause</code> is an eventuality, it reduces to <code>cause0</code>. When it's an agent, the agent's willing is the <code>cause0</code> of the second argument.</p>
 <pre>
 (forall (a e2)
   (and (if (<a href="../eventuality">eventuality</a> a)
@@ -55,7 +53,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The chief property of agents is that they, defeasibly, are capable of causing some events.</p>
 <pre>
 (forall (a)
   (if (and (<a href="../agent">agent</a> a) (etc))
@@ -63,7 +60,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Case roles common in linguistics can be defined in terms of core theories. In particular, the agent of an event is an agent that causes it.</p>
 <pre>
 (forall (a e)
   (iff (<a href="../agentOf">agentOf</a> a e)
@@ -71,7 +67,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Collectives are sets of agents working together.</p>
 <pre>
 (forall (s)
   (if (<a href="../collective">collective</a> s)
@@ -79,7 +74,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We define the eventualities beyond an agent a's control as the subset s1 of eventualities in a set s that a cannot bring about by a's efforts alone. That is, a is not the agent of actions in s1 nor the agent of an action that causes events in s1.</p>
 <pre>
 (forall (s1 s a)
   (iff (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
@@ -93,7 +87,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an action is difficult for an agent, it is because there are states and events, i.e., eventualities, that tend to cause the action not to happen. The expression (difficult e a) says action e is difficult for agent a.</p>
 <pre>
 (forall (a e)
   (if (<a href="../difficult">difficult</a> e a)
@@ -101,7 +94,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Something is difficult if it is in the <code>Hi</code> region of a difficulty scale.</p>
 <pre>
 (forall (e1 e a)
   (iff (<a href="../difficult">difficult</a>' e1 e a)
@@ -111,7 +103,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A person is a kind of agent.</p>
 <pre>
 (forall (p)
   (if (<a href="../person">person</a> p)
@@ -119,7 +110,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The predicate <code>perceive</code> is a relation between an agent and an entity or eventuality external to the mind.</p>
 <pre>
 (forall (a x m)
   (if (and (<a href="../perceive">perceive</a> a x) (<a href="../mind">mind</a> m a))

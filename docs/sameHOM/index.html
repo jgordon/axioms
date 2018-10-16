@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (x y s1 m)
   (if (<a href="../sameHOM">sameHOM</a> x y s1 m)
@@ -39,7 +39,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
@@ -50,7 +50,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../gts">gts</a> x y s1) (<a href="../measure">measure</a> m s1))
@@ -58,7 +58,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the gap between two elements is roughly equal, the temporal sequence is roughly periodic.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s)
   (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)

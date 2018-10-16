@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The opposite of being less-than on a scale is being greater-than:</p>
 <pre>
 (forall (x y s)
   (iff (<a href="../gts">gts</a> y x s)
@@ -39,7 +38,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Greater-than or equal:</p>
 <pre>
 (forall (x y s)
    (iff (<a href="../geqs">geqs</a> x y s)
@@ -48,7 +46,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../gts">gts</a> x y s1) (<a href="../measure">measure</a> m s1))
@@ -56,6 +54,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A "greater than" relation can be defined in a similar manner.</p>
 <pre>
 (forall (v)
    (iff (<a href="../acuteAngle">acuteAngle</a> v)
@@ -67,6 +66,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A "greater than" relation can be defined in a similar manner.</p>
 <pre>
 (forall (v)
    (iff (<a href="../obtuseAngle">obtuseAngle</a> v)

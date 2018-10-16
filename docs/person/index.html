@@ -29,21 +29,18 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A person is a kind of agent.</p>
 <pre>
 (forall (p)
   (if (<a href="../person">person</a> p)
       (<a href="../agent">agent</a> p)))
 </pre>
 </div><div class="axiom">
-<p>A person is also a kind of physical object.</p>
 <pre>
 (forall (p)
   (if (<a href="../person">person</a> p)
       (<a href="../physobj">physobj</a> p)))
 </pre>
 </div><div class="axiom">
-<p>A person has a body and a mind.</p>
 <pre>
 (forall (p)
   (if (<a href="../person">person</a> p)
@@ -51,7 +48,6 @@
         (and (<a href="../body">body</a> b p) (<a href="../mind">mind</a> m p)))))
 </pre>
 </div><div class="axiom">
-<p>Example of an axiom for a more detailed account of human physical control: A person can voluntarily lift his or her arm.</p>
 <pre>
 (forall (p)
   (if (<a href="../person">person</a> p)
@@ -63,7 +59,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A person <code>p</code> has a set of body parts, namely, the components of the body.</p>
 <pre>
 (forall (p s)
   (iff (<a href="../bodyPartsOf">bodyPartsOf</a> s p)
@@ -72,7 +67,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The sense organs are a subset of the body parts.</p>
 <pre>
 (forall (p x)
   (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
@@ -83,7 +77,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>When something is perceived, there is a sense organ whose intact-ness enables the perception.</p>
 <pre>
 (forall (p x e2)
   (if (and (<a href="../person">person</a> p) (<a href="../perceive">perceive</a>' e2 p x))
@@ -92,7 +85,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Another subset of body parts can be directly controlled by a person's will. That is, the person's willing an event is the direct cause of the motion of the body part.</p>
 <pre>
 (forall (p s1)
   (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))

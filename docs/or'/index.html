@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Disjunction is defined analogous to conjunction: If the eventuality e is the disjunction of eventualities e1 and e2, then e really exists exactly when one of e1 and e2 really exists.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../or'">or'</a> e e1 e2)
@@ -41,7 +40,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The likelihood of the disjunction <code>e</code> of two eventualities <code>e1</code> and <code>e2</code> is greater than or equal to the likelihood of either of them.</p>
 <pre>
 (forall (s e e1 e2 d d1 d2 c)
   (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)

@@ -29,11 +29,12 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t) (if (<a href="../interval">interval</a> t) (<a href="../temporalEntity">temporalEntity</a> t)))
 </pre>
 </div><div class="axiom">
-<p>The duration of an interval is determined by concatenation.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (d t u)
   (if (<a href="../interval">interval</a> t)
@@ -48,6 +49,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t)
   (if (<a href="../temporalEntity">temporalEntity</a> t)
@@ -55,7 +57,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A positive infinite interval is one that has no end. It may or may not have a beginning.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t)
   (iff (<a href="../posInfInterval">posInfInterval</a> t)
@@ -64,7 +66,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The "time span of" an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
@@ -94,7 +96,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Time is a scale whose ordering relation is <code>before</code> and whose components are instants and intervals.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t)
   (iff (<a href="../timeScale">timeScale</a> t)
@@ -107,14 +109,14 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A <code>temporalUnit</code> is an interval.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (u)
   (if (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../interval">interval</a> u)))
 </pre>
 </div>
 <div class="axiom">
-<p>In terms of <code>durationOf</code>, we can define a <code>shorterDuration</code> partial ordering.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../shorterDuration">shorterDuration</a> t1 t2)
@@ -125,7 +127,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Then we can define a <code>scaleOrderedByDuration</code>.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s)
   (iff (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s)
@@ -136,7 +138,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The primitive case of a rate is when there is a set S of events, a set T of time intervals, and a function mapping the intervals into a subset of S, namely those events that occur during that interval. When the concept of rate truly applies, the cardinalities of all these subsets are the same.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)

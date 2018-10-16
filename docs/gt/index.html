@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (n1 n2)
   (iff (<a href="../gt">gt</a> n1 n2) (<a href="../lt">lt</a> n2 n1)))
@@ -38,7 +38,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (n1 n2)
   (iff (<a href="../geq">geq</a> n1 n2)
@@ -46,7 +46,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The same event type happening to all the elements of a sequence in turn.</p>
 <pre>
 (forall (e s e1)
   (iff (<a href="../forAllOfSeq">forAllOfSeq</a> e s x e1)
@@ -58,6 +57,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (f)
   (iff (<a href="../coordinateSystem">coordinateSystem</a> f)
@@ -72,6 +72,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A "greater than" relation can be defined in a similar manner.</p>
 <pre>
 (forall (v1 v2)
    (iff (<a href="../gtAngle">gtAngle</a> v1 v2)

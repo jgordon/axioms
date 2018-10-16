@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The intersection of two sets is defined in the standard way.</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../subset">subset</a> s1 s2)
@@ -42,7 +41,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The intersection of two sets is defined in the standard way.</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../properSubset">properSubset</a> s1 s2)
@@ -50,7 +48,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The power set of a set is the set of all its subsets.</p>
 <pre>
 (forall (s0 s)
   (iff (<a href="../powerSet">powerSet</a> s0 s)
@@ -60,7 +57,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>"Surgery" on the definition of <code>dset</code> to rule out problematic cases:</p>
+<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
 <pre>
 (forall (y s)
   (iff (<a href="../notSubsetTypelt">notSubsetTypelt</a> y s)
@@ -69,7 +66,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A partial instantiation of an abstract eventuality:</p>
+<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
 <pre>
 (forall (e1 e)
   (iff (<a href="../partialInstance">partialInstance</a> e1 e)
@@ -84,7 +81,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A scale is a partially ordered set.</p>
 <pre>
 (forall (s)
    (if (<a href="../scale">scale</a> s)
@@ -101,7 +97,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A function f is "into" a set or scale s3 if there is a subset or subscale s2 for which fi is a function "onto".</p>
 <pre>
 (forall (f s1 s3)
    (iff (<a href="../functionInto">functionInto</a> f s1 s3)
@@ -111,7 +106,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A set of sets under the <code>subset</code> relation is a scale.</p>
 <pre>
 (forall (s1 e x y)
   (if (and (forall (s2)
@@ -126,7 +120,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -143,7 +136,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If s1 is the scale whose set is a set of sets including the null set and whose partial ordering is <code>subset</code>, then cardinality is a measure.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)
@@ -157,7 +150,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We define the eventualities beyond an agent a's control as the subset s1 of eventualities in a set s that a cannot bring about by a's efforts alone. That is, a is not the agent of actions in s1 nor the agent of an action that causes events in s1.</p>
 <pre>
 (forall (s1 s a)
   (iff (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
@@ -171,6 +163,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A non-null subset of the domain is horizontal if no element is <code>above2</code> any other element. We use the predicate <code>horizontal2</code> because as stated above, the two- and three-dimensional cases differ. The next two axioms refer to the <code>above3</code> relation. In the two-dimensional case, this is vacuous since nothing is <code>above3</code> anything else. But it will greatly simplify our treatment of three-dimensional frameworks to include it here.</p>
 <pre>
 (forall (s1 f)
   (iff (<a href="../horizontal2">horizontal2</a> s1 f)
@@ -183,6 +176,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (s1 f)
   (iff (<a href="../vertical2">vertical2</a> s1 f)
@@ -195,6 +189,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A y-coordinate can be defined similarly.</p>
 <pre>
 (forall (s1 f)
    (iff (<a href="../vertical3">vertical3</a> s1 f)
@@ -207,7 +202,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The sense organs are a subset of the body parts.</p>
 <pre>
 (forall (p x)
   (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
@@ -218,7 +212,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Another subset of body parts can be directly controlled by a person's will. That is, the person's willing an event is the direct cause of the motion of the body part.</p>
 <pre>
 (forall (p s1)
   (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
@@ -232,7 +225,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Given an eventuality <code>e</code> and a set of constraints <code>c</code>, we can ask what other set <code>s</code> of eventualities would have to obtain in order to entail that <code>e</code> also obtains. The expression <code>(alsoRequired s e c)</code> says that <code>s</code> is a set of eventualities that will entail the real existence of <code>e</code>, over and above <code>c</code>.</p>
 <pre>
 (forall (s e c)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -244,7 +236,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The more we have to assume will happen, the less likely it is.</p>
 <pre>
 (forall (s1 e1 d1 s2 e2 d2 c s)
   (if (and (<a href="../alsoRequired">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired">alsoRequired</a> s2 e2 c) (<a href="../subset">subset</a> s2 s1)

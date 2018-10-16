@@ -29,10 +29,12 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A curve is a figure.</p>
 <pre>
 (forall (c) (if (<a href="../curve">curve</a> c) (<a href="../figure">figure</a> c)))
 </pre>
 </div><div class="axiom">
+<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
 <pre>
 (forall (c)
    (if (<a href="../curve">curve</a> c)
@@ -46,6 +48,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A (2-dimensional) curve can have (0-dimensional) endpoints.</p>
 <pre>
 (forall (x c)
   (if (<a href="../endpoint">endpoint</a> x c)
@@ -53,6 +56,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A (2-dimensional) region can have a border, which is a (1-dimensional) curve.</p>
 <pre>
 (forall (c r)
   (if (<a href="../border">border</a> c r)
@@ -60,6 +64,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A figure can be inside a figure of the same or higher dimension. We will assume we know what it means for a point to be inside another figure, and define "inside" for higher dimensions in terms of this.</p>
 <pre>
 (forall (f1 f2)
   (if (and (<a href="../point">point</a> f1) (<a href="../inside">inside</a> f1 f2))
@@ -67,6 +72,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A figure can be on the boundary (endpoint/border/surface) of a figure of higher dimension.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
@@ -77,6 +83,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A line segment has two distinct endpoints.</p>
 <pre>
 (forall (c)
   (if (<a href="../linear">linear</a> c)
@@ -84,6 +91,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar region is concave if it is not convex.</p>
 <pre>
 (forall (c c1 c2 x)
   (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
@@ -100,6 +108,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar region is concave if it is not convex.</p>
 <pre>
 (forall (c c1 c2 x)
    (if (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)

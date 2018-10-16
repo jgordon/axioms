@@ -29,6 +29,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A figure can be inside a figure of the same or higher dimension. We will assume we know what it means for a point to be inside another figure, and define "inside" for higher dimensions in terms of this.</p>
 <pre>
 (forall (f1 f2)
   (if (and (<a href="../point">point</a> f1) (<a href="../inside">inside</a> f1 f2))
@@ -36,6 +37,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A figure can be inside a figure of the same or higher dimension. We will assume we know what it means for a point to be inside another figure, and define "inside" for higher dimensions in terms of this.</p>
 <pre>
 (forall (f1 f2)
   (if (not (<a href="../point">point</a> f1))
@@ -47,6 +49,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A figure can be on the boundary (endpoint/border/surface) of a figure of higher dimension.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
@@ -57,6 +60,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A figure can be on the boundary (endpoint/border/surface) of a figure of higher dimension.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../subfigure">subfigure</a> f1 f2)
@@ -64,6 +68,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>RCC8 "tangential proper part", for 2- and 3-dimensional figures:</p>
 <pre>
 (forall (r1 r2)
   (iff (<a href="../tpp">tpp</a> r1 r2)
@@ -77,6 +82,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A plane is a region such that if a line passes through any two points in the region, it is inside the region.</p>
 <pre>
 (forall (r)
   (iff (<a href="../plane">plane</a> r)
@@ -87,6 +93,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A figure is planar if it is inside a plane.</p>
 <pre>
 (forall (r)
   (iff (<a href="../planar">planar</a> r)
@@ -94,6 +101,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar figure is convex if every point on a line segment between any two points on the boundary is inside the region.</p>
 <pre>
 (forall (r)
   (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
@@ -105,6 +113,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar region is concave if it is not convex.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../coplanar">coplanar</a> f1 f2)
@@ -113,6 +122,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar region is concave if it is not convex.</p>
 <pre>
 (forall (c1 c2)
   (if (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2))
@@ -123,6 +133,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar region is concave if it is not convex.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../parallel">parallel</a> f1 f2)
@@ -131,6 +142,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar region is concave if it is not convex.</p>
 <pre>
 (forall (c c1 c2 x)
   (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
@@ -147,6 +159,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A polygon is then a closed curve that is made up of n sides.</p>
 <pre>
 (forall (p n)
   (iff (<a href="../polygon">polygon</a> p n)
@@ -163,6 +176,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A straight line is the shortest distance between two points. We state this in terms of the endpoints and an inside point of a line segment.</p>
 <pre>
 (forall (c x1 x2 x3 d1 d2 d3 u)
   (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x3)
@@ -172,6 +186,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
 <pre>
 (forall (c r x u)
    (iff (<a href="../circle">circle</a> c x)
@@ -183,6 +198,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
 <pre>
 (forall (c)
    (if (<a href="../curve">curve</a> c)
@@ -194,6 +210,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A "greater than" relation can be defined in a similar manner.</p>
 <pre>
 (forall (x v f c1 c2 o u)
   (iff (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
@@ -202,6 +219,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A polyhedron is a volume whose surface consists of polygons, which are called faces.</p>
 <pre>
 (forall (p s)
    (iff (<a href="../polyhedron">polyhedron</a> p s)
@@ -220,6 +238,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A sphere p around a center x is a volume in which every line segment from the center to a point inside the surface is constant.</p>
 <pre>
 (forall (c r x u)
    (iff (<a href="../sphere">sphere</a> p x)
@@ -231,6 +250,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A volume is convex if every point on a line segment between any two points on its surface is inside the volume.</p>
 <pre>
 (forall (p)
    (if (<a href="../volume">volume</a> p)

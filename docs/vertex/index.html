@@ -25,6 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A planar region is concave if it is not convex.</p>
 <pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex">vertex</a> v c1 c2 x)
@@ -32,6 +33,7 @@
             (<a href="../joinedCurves">joinedCurves</a> v c1 c2 x))))
 </pre>
 </div><div class="axiom">
+<p>A vertex thus consists of the angle and two sides, which are line segments or rays.</p>
 <pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex">vertex</a> v c1 c2 x)
@@ -41,6 +43,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A vertex thus consists of the angle and two sides, which are line segments or rays.</p>
 <pre>
 (forall (c p)
   (iff (<a href="../sideOf">sideOf</a> c p)
@@ -51,6 +54,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
 <pre>
 (forall (c v u)
    (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
@@ -62,6 +66,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A "greater than" relation can be defined in a similar manner.</p>
 <pre>
 (forall (f v c1 c2 o)
    (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
@@ -71,6 +76,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A square is a rhombus that is a rectangle.</p>
 <pre>
 (forall (p d)
    (if (<a href="../square">square</a> p)
@@ -83,6 +89,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A square is a rhombus that is a rectangle.</p>
 <pre>
 (forall (p d c v x)
    (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))

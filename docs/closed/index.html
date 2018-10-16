@@ -25,6 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A line segment has two distinct endpoints.</p>
 <pre>
 (forall (c)
   (if (<a href="../closed">closed</a> c)
@@ -35,6 +36,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A polygon is then a closed curve that is made up of n sides.</p>
 <pre>
 (forall (p n)
   (iff (<a href="../polygon">polygon</a> p n)
@@ -51,6 +53,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
 <pre>
 (forall (c)
    (if (<a href="../curve">curve</a> c)
@@ -62,6 +65,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A polyhedron is a volume whose surface consists of polygons, which are called faces.</p>
 <pre>
 (forall (p s)
    (iff (<a href="../polyhedron">polyhedron</a> p s)

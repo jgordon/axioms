@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Two intervals overlap if the beginning of one is inside the other.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intOverlap">intOverlap</a> t1 t2)
@@ -38,7 +38,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A proper interval is a concatenation of a set of proper intervals if every instant inside the interval is inside, the beginning, or the end of some interval in the set, and the intervals in the set are non-overlapping.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t s)
   (iff (<a href="../concatenation">concatenation</a> t s)

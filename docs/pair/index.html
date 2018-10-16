@@ -45,7 +45,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Pairs are equal when their first elements are equal and their second elements are equal.</p>
 <pre>
 (forall (p1 x1 y1 p2 x2 y2)
   (if (or (<a href="../pair">pair</a> p1 x1 y1) (<a href="../pair">pair</a> p2 x2 y2))
@@ -55,7 +54,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The first and second elements of a pair are unique.</p>
 <pre>
 (forall (p x1 x2 y1 y2)
   (if (and (<a href="../pair">pair</a> p x1 y1) (<a href="../pair">pair</a> p x2 y2))
@@ -63,7 +61,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A function <code>f</code> from a set <code>s1</code> onto a set <code>s2</code> is a set of pairs where each element of <code>s1</code> occurs exactly once as the first element in a pair, and every element of <code>s2</code> occurs as a second element of at least one pair. (This is <code>function0</code> since it is later extended to functions from scales to scales.)</p>
 <pre>
 (forall (f s1 s2)
   (iff (<a href="../function0">function0</a> f s1 s2)
@@ -95,7 +92,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>When we have a Skolem function or a functional dependency, we have a corresponding function.</p>
 <pre>
 (forall (y1 y x1 x e s1 s2)
   (if (and (<a href="../skfct">skfct</a> y1 y x1 x e) (<a href="../typelt">typelt</a> x s1) (<a href="../rangeFd">rangeFd</a> s2 y x e))

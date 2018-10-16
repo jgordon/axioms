@@ -25,7 +25,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The intersection of two sets is defined in the standard way.</p>
 <pre>
 (forall (s s1 s2)
   (iff (<a href="../intersection">intersection</a> s s1 s2)
@@ -38,6 +37,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (f a1 a2 s)
   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))

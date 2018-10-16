@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Two substitutions can be done by doing one at a time.</p>
 <pre>
 (forall (x1 x2 e1 y1 y2 e2)
   (iff (<a href="../subst2">subst2</a> x1 x2 e1 y1 y2 e2)
@@ -41,7 +40,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The principal property of <code>fd</code> is that when e holds and a real entity instantiates x, then there is a real entity that instantiates y and the corresponding eventuality holds.</p>
+<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
 <pre>
 (forall (x y e s)
   (if (and (<a href="../fd">fd</a> y x e) (<a href="../Rexist">Rexist</a> e) (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> x1 s))
@@ -50,7 +49,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Corresponding to the functional dependency, there is a skolem function that maps any element x1 of the set s into the corresponding y1, and that function has a range.</p>
+<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
 <pre>
 (forall (x x1 y y1 e)
   (iff (<a href="../skfct">skfct</a> y1 y x1 x e)
@@ -61,7 +60,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Pass functional dependence relations down to partial instantiations.</p>
+<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
 <pre>
 (forall (c1 c x1 x y e e1)
   (if (and (<a href="../skfct">skfct</a> c1 c x1 x e) (<a href="../fd">fd</a> c y e) (<a href="../nequal">nequal</a> x y)
@@ -70,7 +69,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A scale is a partially ordered set.</p>
 <pre>
 (forall (s)
    (if (<a href="../scale">scale</a> s)
@@ -87,7 +85,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We define a less-than relation relative to a particular scale:</p>
 <pre>
 (forall (e x1 y1 s)
    (iff (<a href="../lts">lts</a>' e1 x1 y1 s)

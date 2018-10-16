@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Multiplication and addition are related by the distributive law: n1 * (n2 + n3) = n1 * n2 + n1 * n3</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (n1 n2)
   (iff (<a href="../geq">geq</a> n1 n2)
@@ -39,7 +39,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>If e is the <code>lt</code> relation between x and y and s1 is a set of numbers containing 0 but no smaller number, then there is a non-negative numeric scale s with s1 as its set and e as its partial ordering.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (s1 e x y)
   (if (and (<a href="../lt">lt</a>' e x y)
@@ -52,7 +52,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Conversely, a non-negative numeric scale has the <code>lt</code> relation for its ordering and a set of numbers, including 0, as its set.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (s)
   (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)

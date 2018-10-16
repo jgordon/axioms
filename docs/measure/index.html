@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A measure is a monotone increasing function from a scale into a non-negative numeric scale in which the bottom of the domain scale, if there is one, maps into 0.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (m s1)
   (iff (<a href="../measure">measure</a> m s1)
@@ -43,7 +43,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>If s1 is the scale whose set is a set of sets including the null set and whose partial ordering is <code>subset</code>, then cardinality is a measure.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)
@@ -57,7 +57,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Suppose we have two points x and y on a scale s1 which has a measure. Then the proportion of x to y is the fraction whose numerator and denominator are the numbers the measure maps x and y into, respectively.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (f x y m s1)
   (if (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1))
@@ -68,7 +68,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Constraints on the arguments of <code>proportion</code>:</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (f x y m)
   (if (<a href="../proportion">proportion</a> f x y m)
@@ -77,7 +77,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The identity function on a non-negative numeric scale is a measure.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (f s)
   (if (and (<a href="../nonNegNumericScale">nonNegNumericScale</a> s) (<a href="../identityFunction">identityFunction</a> f s))
@@ -85,7 +85,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (m s1 s2 x y)
   (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)
@@ -94,7 +94,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
@@ -105,7 +105,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../gts">gts</a> x y s1) (<a href="../measure">measure</a> m s1))
@@ -113,7 +113,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (x y s1 m)
   (if (<a href="../sameHOM">sameHOM</a> x y s1 m)

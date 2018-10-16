@@ -29,14 +29,12 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A body is a physical object.</p>
 <pre>
 (forall (b p)
   (if (<a href="../body">body</a> b p)
       (<a href="../physobj">physobj</a> b)))
 </pre>
 </div><div class="axiom">
-<p>A body is a composite entity whose components are body parts. In fact, it's a spatial system, since all the body parts are physical objects.</p>
 <pre>
 (forall (b p)
   (if (<a href="../body">body</a> b p)
@@ -50,7 +48,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A person has a body and a mind.</p>
 <pre>
 (forall (p)
   (if (<a href="../person">person</a> p)
@@ -59,7 +56,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A person <code>p</code> has a set of body parts, namely, the components of the body.</p>
 <pre>
 (forall (p s)
   (iff (<a href="../bodyPartsOf">bodyPartsOf</a> s p)

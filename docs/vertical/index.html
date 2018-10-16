@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The argument of <code>vertical</code> has to be a scale.</p>
 <pre>
 (forall (s) (if (<a href="../vertical">vertical</a> s) (<a href="../scale">scale</a> s)))
 </pre>
@@ -37,13 +36,11 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A non-negative numeric scale is vertical.</p>
 <pre>
 (forall (s) (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s) (<a href="../vertical">vertical</a> s)))
 </pre>
 </div>
 <div class="axiom">
-<p>If an entity moves from a point on vertical scale to a higher point, we say that there as been an increase.</p>
 <pre>
 (forall (e x y z s)
   (iff (<a href="../increase">increase</a> x s)
@@ -53,7 +50,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Similarly, if an entity moves from a point on a vertical scale to a lower point, there has been a decrease.</p>
 <pre>
 (forall (e x y z s)
   (iff (<a href="../decrease">decrease</a> x s)
@@ -63,7 +59,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The likelihood scale is conceptually vertical. We talk about likelihoods being higher or lower.</p>
 <pre>
 (forall (s) (if (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../vertical">vertical</a> s)))
 </pre>

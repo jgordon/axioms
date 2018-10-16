@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A region is a figure.</p>
 <pre>
 (forall (r) (if (<a href="../region">region</a> r) (<a href="../figure">figure</a> r)))
 </pre>
@@ -36,6 +37,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A (2-dimensional) region can have a border, which is a (1-dimensional) curve.</p>
 <pre>
 (forall (c r)
   (if (<a href="../border">border</a> c r)
@@ -43,6 +45,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A (3-dimensional) volume can have a surface, which is a (2-dimensional) region.</p>
 <pre>
 (forall (r v)
   (if (<a href="../surface">surface</a> r v)
@@ -50,6 +53,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A figure can be inside a figure of the same or higher dimension. We will assume we know what it means for a point to be inside another figure, and define "inside" for higher dimensions in terms of this.</p>
 <pre>
 (forall (f1 f2)
   (if (and (<a href="../point">point</a> f1) (<a href="../inside">inside</a> f1 f2))
@@ -57,6 +61,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A figure can be on the boundary (endpoint/border/surface) of a figure of higher dimension.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
@@ -67,6 +72,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar figure is convex if every point on a line segment between any two points on the boundary is inside the region.</p>
 <pre>
 (forall (r)
   (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
@@ -78,6 +84,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar region is concave if it is not convex.</p>
 <pre>
 (forall (r)
   (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))

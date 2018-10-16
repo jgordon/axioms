@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A (3-dimensional) volume can have a surface, which is a (2-dimensional) region.</p>
 <pre>
 (forall (r v)
   (if (<a href="../surface">surface</a> r v)
@@ -38,6 +39,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A figure can be on the boundary (endpoint/border/surface) of a figure of higher dimension.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
@@ -48,6 +50,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A polyhedron is a volume whose surface consists of polygons, which are called faces.</p>
 <pre>
 (forall (p s)
    (iff (<a href="../polyhedron">polyhedron</a> p s)
@@ -66,6 +69,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A vertex of a polyhedron is an endpoint of one of the edges. We will call this relation <code>vertex3</code> (vertex of a 3-dimensional entity) since we already have a predicate <code>vertex</code>.</p>
 <pre>
 (forall (p2 s)
    (iff (<a href="../polyhedron2">polyhedron2</a> p2 s)

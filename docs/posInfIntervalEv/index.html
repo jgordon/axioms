@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The predicate <code>posInfIntervalEv</code> says that its argument is either a positive infinite interval or an eventuality whose time span is a positive infinite interval.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e)
   (iff (<a href="../posInfIntervalEv">posInfIntervalEv</a> e)
@@ -41,7 +41,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The predicate <code>properIntervalEv</code> says that its argument is either a proper interval or an eventuality whose time span is a proper interval.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e)
   (iff (<a href="../properIntervalEv">properIntervalEv</a> e)
@@ -52,7 +52,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>One interval finishes the other if it begins inside and ends the same place. We have to complicate this relation a bit to accommodate positive infinite intervals.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intFinishes">intFinishes</a> t1 t2)

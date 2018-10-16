@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A (2-dimensional) region can have a border, which is a (1-dimensional) curve.</p>
 <pre>
 (forall (c r)
   (if (<a href="../border">border</a> c r)
@@ -38,6 +39,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A figure can be on the boundary (endpoint/border/surface) of a figure of higher dimension.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
@@ -48,6 +50,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A polygon is then a closed curve that is made up of n sides.</p>
 <pre>
 (forall (r)
   (iff (<a href="../polygon2">polygon2</a> r)
@@ -55,6 +58,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
 <pre>
 (forall (c r x u)
    (iff (<a href="../circle">circle</a> c x)

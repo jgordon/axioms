@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Instants are at least partially ordered by a <code>before</code> relation, which will also be extended to intervals, temporal sequences, and eventualities.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../before">before</a> t1 t2)
@@ -37,14 +37,14 @@
            (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
 </pre>
 </div><div class="axiom">
-<p>The <code>before</code> relation is antisymmetric.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../before">before</a> t1 t2)
       (not (<a href="../before">before</a> t2 t1))))
 </pre>
 </div><div class="axiom">
-<p>We can also extend the <code>before</code> relation from instants to intervals, temporal sequences, and eventualities; one of them is before another if the first's end is before the second's beginning.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../before">before</a> t1 t2)
@@ -52,7 +52,7 @@
          (and (<a href="../ends">ends</a> t3 t1) (<a href="../begins">begins</a> t4 t2) (<a href="../before">before</a> t3 t4)))))
 </pre>
 </div><div class="axiom">
-<p>The relation <code>before</code> is temporal.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e t1 t2) (if (<a href="../before">before</a>' e t1 t2) (<a href="../temporal">temporal</a> e)))
 </pre>
@@ -60,7 +60,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A temporal sequence is a set of non-overlapping temporal entities. Between any two distinct members of a temporal sequence, there is another interval or instant that is not in the set.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s)
   (iff (<a href="../tseq">tseq</a> s)
@@ -77,7 +77,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If there is an element of the temporal sequence before all its other elements, this is called the first element.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s t)
   (if (<a href="../tseq">tseq</a> s)
@@ -89,7 +89,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If there is an element of the temporal sequence after all its other elements, this is called the last element.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s t)
   (if (<a href="../tseq">tseq</a> s)
@@ -101,7 +101,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Two elements of a temporal sequence are successive elements if there is no element between them.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s t1 t2)
   (iff (<a href="../successiveElts">successiveElts</a> t1 t2 s)
@@ -112,7 +112,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The predicate <code>before</code> is a partial ordering on the elements of a temporal sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e t1 t2 s)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../before">before</a>' e t1 t2))
@@ -120,7 +120,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal sequence is a scale whose ordering relation is <code>before</code>.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s e t1 t1)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../before">before</a>' e t1 t2))
@@ -128,7 +128,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The beginning of a proper interval is before the instants inside, which are before the end.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2 t3 t)
   (if (<a href="../properIntervalEv">properIntervalEv</a> t)
@@ -141,7 +141,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The beginning of a positive infinite interval, if there is one, is before all the instants inside it.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2 t)
   (if (and (<a href="../posInfInterval">posInfInterval</a> t) (<a href="../begins">begins</a> t1 t) (<a href="../insideTime">insideTime</a> t2 t))
@@ -149,13 +149,13 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The <code>before</code> relation is antireflexive.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t) (not (<a href="../before">before</a> t t)))
 </pre>
 </div>
 <div class="axiom">
-<p>The <code>before</code> relation is transitive.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2 t3)
   (if (and (<a href="../before">before</a> t1 t2) (<a href="../before">before</a> t2 t3))
@@ -163,7 +163,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>One interval finishes the other if it begins inside and ends the same place. We have to complicate this relation a bit to accommodate positive infinite intervals.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intFinishes">intFinishes</a> t1 t2)
@@ -177,7 +177,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>One interval <code>t1</code> is during another <code>t2</code> if <code>t1</code> begins after <code>t2</code> and ends before <code>t2</code>. The conditional in the last line of the definition is to accommodate positive infinite intervals.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intDuring">intDuring</a> t1 t2)
@@ -191,7 +191,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We will sometimes have occasion to talk about one temporal entity being before or meeting another.  We will define the predicate <code>beforeOrMeets</code> as follows:</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../beforeOrMeets">beforeOrMeets</a> t1 t2)
@@ -201,7 +201,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Time is a scale whose ordering relation is <code>before</code> and whose components are instants and intervals.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t)
   (iff (<a href="../timeScale">timeScale</a> t)
@@ -214,28 +214,28 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The constraint for change is that final states can't happen before initial states.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../change">change</a> e1 e2) (not (<a href="../before">before</a> e2 e1))))
 </pre>
 </div>
 <div class="axiom">
-<p>An effect cannot happen before its cause.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../cause">cause</a> e1 e2) (not (<a href="../before">before</a> e2 e1))))
 </pre>
 </div>
 <div class="axiom">
-<p>An eventuality cannot happen before an eventuality it enables.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../enable">enable</a> e1 e2) (not (<a href="../before">before</a> e2 e1))))
 </pre>
 </div>
 <div class="axiom">
-<p>If all the eventualities in a causal complex happen or hold, then the effect will happen or hold. Moreover, the effect is not before the elements of the causal complex.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s e t1)
   (if (and (<a href="../causalComplex">causalComplex</a> s e)
@@ -245,7 +245,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If e1 happens and e1 causes e2, then e2 (defeasibly) happens.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e1 e2 t1)
   (if (and (<a href="../cause">cause</a> e1 e2) (<a href="../atTime">atTime</a> e1 t1) (etc))

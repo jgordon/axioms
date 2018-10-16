@@ -25,6 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A vertex thus consists of the angle and two sides, which are line segments or rays.</p>
 <pre>
 (forall (c p)
   (iff (<a href="../sideOf">sideOf</a> c p)
@@ -37,6 +38,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A polygon is then a closed curve that is made up of n sides.</p>
 <pre>
 (forall (p n)
   (iff (<a href="../polygon">polygon</a> p n)
@@ -53,6 +55,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A rhombus is a quadrilateral whose sides are all equal.</p>
 <pre>
 (forall (p)
   (iff (<a href="../rhombus">rhombus</a> p)
@@ -63,6 +66,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A square is a rhombus that is a rectangle.</p>
 <pre>
 (forall (p d c v x)
    (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
@@ -70,6 +74,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A face of a polyhedron is one of the faces.</p>
 <pre>
 (forall (c p s)
    (if (<a href="../polyhedron">polyhedron</a> p s)

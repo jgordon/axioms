@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A point is a figure.</p>
 <pre>
 (forall (x) (if (<a href="../point">point</a> x) (<a href="../figure">figure</a> x)))
 </pre>
@@ -36,6 +37,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A (2-dimensional) curve can have (0-dimensional) endpoints.</p>
 <pre>
 (forall (x c)
   (if (<a href="../endpoint">endpoint</a> x c)
@@ -43,6 +45,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A figure can be inside a figure of the same or higher dimension. We will assume we know what it means for a point to be inside another figure, and define "inside" for higher dimensions in terms of this.</p>
 <pre>
 (forall (f1 f2)
   (if (and (<a href="../point">point</a> f1) (<a href="../inside">inside</a> f1 f2))
@@ -50,6 +53,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A figure can be inside a figure of the same or higher dimension. We will assume we know what it means for a point to be inside another figure, and define "inside" for higher dimensions in terms of this.</p>
 <pre>
 (forall (f1 f2)
   (if (not (<a href="../point">point</a> f1))
@@ -61,6 +65,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A figure can be on the boundary (endpoint/border/surface) of a figure of higher dimension.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
@@ -71,6 +76,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (d x1 x2 u)
   (if (<a href="../distance">distance</a> d x1 x2 u)
@@ -79,6 +85,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A polyhedron is a volume whose surface consists of polygons, which are called faces.</p>
 <pre>
 (forall (p s)
    (iff (<a href="../polyhedron">polyhedron</a> p s)

@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The arguments of <code>successor</code> are non-negative integers.</p>
 <pre>
 (forall (n1 n)
    (if (<a href="../successor">successor</a> n1 n)
@@ -39,7 +38,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The <code>rest</code> of a sequence is what remains after the first element is removed. The expression <code>(rest s1 s)</code> says that <code>s1</code> is the rest of <code>s</code> after the first is removed.</p>
 <pre>
 (forall (s1 s)
   (iff (<a href="../rest">rest</a> s1 s)
@@ -52,7 +50,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If one element's <code>n</code> is less than another's, it is before the other in the sequence.</p>
 <pre>
 (forall (x1 x2 s)
   (iff (<a href="../successiveElts">successiveElts</a> x1 x2 s)
@@ -61,7 +58,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Every non-negative integer has a non-negative integer as a successor.</p>
 <pre>
 (forall (n)
    (if (<a href="../nonNegInteger">nonNegInteger</a> n)
@@ -70,7 +66,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Define the specific numbers we need (1, 2, 10) in terms of <code>successor</code>. Defining 10 requires 1-9.</p>
 <pre>
 (and (<a href="../successor">successor</a> 1 0) (<a href="../successor">successor</a> 2 1) (<a href="../successor">successor</a> 3 2)
      (<a href="../successor">successor</a> 4 3) (<a href="../successor">successor</a> 5 4) (<a href="../successor">successor</a> 6 5)
@@ -79,13 +74,11 @@
 </pre>
 </div>
 <div class="axiom">
-<p>No non-negative integer has 0 as its successor.</p>
 <pre>
 (not (exists (n) (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../successor">successor</a> 0 n))))
 </pre>
 </div>
 <div class="axiom">
-<p>Successors are unique.</p>
 <pre>
 (forall (n n1 n2)
    (if (and (<a href="../successor">successor</a> n1 n) (<a href="../successor">successor</a> n2 n))
@@ -93,7 +86,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Recursive definition of <code>sum</code>: n1 + S(n2) = S(n1 + n2)</p>
 <pre>
 (forall (n n1 n2 n3 n4)
    (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../sum">sum</a> n4 n1 n2))
@@ -101,7 +93,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Recursive definition of <code>product</code>: n1 * S(n2) = (n1 * n2) + n1</p>
 <pre>
 (forall (n n1 n2 n3 n4)
    (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../product">product</a> n4 n1 n2))

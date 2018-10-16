@@ -36,7 +36,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A function <code>f</code> from a set <code>s1</code> onto a set <code>s2</code> is a set of pairs where each element of <code>s1</code> occurs exactly once as the first element in a pair, and every element of <code>s2</code> occurs as a second element of at least one pair. (This is <code>function0</code> since it is later extended to functions from scales to scales.)</p>
 <pre>
 (forall (f s1 s2)
   (iff (<a href="../function0">function0</a> f s1 s2)
@@ -68,7 +67,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If <code>f</code> is a function from <code>s1</code> to <code>s2</code>, we say it maps an element <code>x</code> of <code>s1</code> to an element <code>y</code> of <code>s2</code> when the pair <code><x, y></code> is a member of <code>f</code>.</p>
 <pre>
 (forall (f x y)
   (iff (<a href="../map">map</a> f x y)
@@ -78,7 +76,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The <code>first</code> element is the <code>nth</code> where <code>n</code> is 1. This is the same predicate used for the first element of a pair, but the axioms are avoid confusion by conditioning on the second element being either a sequence or a pair (which is isomorphic to the set of sequences of length two).</p>
 <pre>
 (forall (s y)
   (if (<a href="../sequence">sequence</a> s)
@@ -86,7 +83,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Ordered pairs are composite entities where the components are the first and second elements, there are no properties other than the whole being a pair, and the relations are the <code>first</code> and <code>second</code> relations between the components and the whole.</p>
 <pre>
 (forall (p x y e1 e2 e3)
   (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
@@ -99,7 +95,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A sequence is a scale whose partial ordering is the <code>beforeInSeq</code> relation.</p>
 <pre>
 (forall (s s1 e x y)
    (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
@@ -111,7 +106,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If there is an element of the temporal sequence before all its other elements, this is called the first element.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s t)
   (if (<a href="../tseq">tseq</a> s)
@@ -123,7 +118,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s t1 t2 t3 t4)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t3 t1)
@@ -134,7 +129,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t s)
   (if (<a href="../tseq">tseq</a> s)
@@ -143,7 +138,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The same event type happening to all the elements of a sequence in turn.</p>
 <pre>
 (forall (e s e1)
   (iff (<a href="../forAllOfSeq">forAllOfSeq</a> e s x e1)

@@ -25,6 +25,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A non-null subset of the domain is horizontal if no element is <code>above2</code> any other element. We use the predicate <code>horizontal2</code> because as stated above, the two- and three-dimensional cases differ. The next two axioms refer to the <code>above3</code> relation. In the two-dimensional case, this is vacuous since nothing is <code>above3</code> anything else. But it will greatly simplify our treatment of three-dimensional frameworks to include it here.</p>
 <pre>
 (forall (s1 f)
   (iff (<a href="../horizontal2">horizontal2</a> s1 f)
@@ -37,6 +38,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (s1 f)
   (iff (<a href="../vertical2">vertical2</a> s1 f)
@@ -49,6 +51,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (f)
   (iff (<a href="../coordinateSystem">coordinateSystem</a> f)

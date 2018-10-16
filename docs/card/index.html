@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>We recursively define the cardinality of sets using addElt.</p>
 <pre>
 (forall (n s)
   (iff (<a href="../card">card</a> n s)
@@ -45,7 +44,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>If s1 is the scale whose set is a set of sets including the null set and whose partial ordering is <code>subset</code>, then cardinality is a measure.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)
@@ -59,7 +58,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The duration of an interval is determined by concatenation.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (d t u)
   (if (<a href="../interval">interval</a> t)
@@ -72,7 +71,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The primitive case of a rate is when there is a set S of events, a set T of time intervals, and a function mapping the intervals into a subset of S, namely those events that occur during that interval. When the concept of rate truly applies, the cardinalities of all these subsets are the same.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)
@@ -88,6 +87,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A polygon is then a closed curve that is made up of n sides.</p>
 <pre>
 (forall (p n)
   (iff (<a href="../polygon">polygon</a> p n)
@@ -104,6 +104,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
 <pre>
 (forall (x s0 s1)
    (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))

@@ -25,6 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A figure can be on the boundary (endpoint/border/surface) of a figure of higher dimension.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../subfigure">subfigure</a> f1 f2)
@@ -34,6 +35,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A line segment has two distinct endpoints.</p>
 <pre>
 (forall (c)
   (if (<a href="../linear">linear</a> c)
@@ -45,6 +47,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar figure is convex if every point on a line segment between any two points on the boundary is inside the region.</p>
 <pre>
 (forall (r)
   (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
@@ -56,6 +59,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A vertex thus consists of the angle and two sides, which are line segments or rays.</p>
 <pre>
 (forall (c p)
   (iff (<a href="../sideOf">sideOf</a> c p)
@@ -66,6 +70,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A "greater than" relation can be defined in a similar manner.</p>
 <pre>
 (forall (f v c1 c2 o)
    (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
@@ -75,6 +80,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A polyhedron is a volume whose surface consists of polygons, which are called faces.</p>
 <pre>
 (forall (p s)
    (iff (<a href="../polyhedron">polyhedron</a> p s)
@@ -93,6 +99,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A volume is convex if every point on a line segment between any two points on its surface is inside the volume.</p>
 <pre>
 (forall (p)
    (if (<a href="../volume">volume</a> p)

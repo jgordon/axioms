@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../ends">ends</a> t1 t2)
@@ -39,6 +40,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (and (<a href="../instant">instant</a> t2) (<a href="../ends">ends</a> t1 t2))
@@ -46,6 +48,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t t1 t2)
   (if (and (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../ends">ends</a> t1 t) (<a href="../ends">ends</a> t2 t))
@@ -53,7 +56,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An interval t between two instants t1 and t2 is an interval that begins at t1 and ends at t2. It will be useful to extend this to intervals and define it as the interval from the end of t1 to the beginning of t2.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t t1 t2)
   (iff (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
@@ -63,7 +66,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A positive infinite interval is one that has no end. It may or may not have a beginning.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t)
   (iff (<a href="../posInfInterval">posInfInterval</a> t)
@@ -72,7 +75,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>When the beginning and end of an interval are distinct, we will call it a proper interval. Positive infinite intervals are regarded as proper intervals.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t)
   (iff (<a href="../properInterval">properInterval</a> t)
@@ -82,7 +85,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s t1 t2 t3 t4)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t3 t1)
@@ -93,7 +96,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t s)
   (if (<a href="../tseq">tseq</a> s)
@@ -102,7 +105,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t s)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../insideTime">insideTime</a> t s))
@@ -114,7 +117,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The "time span of" an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
@@ -144,7 +147,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We will say that an eventuality happens in a temporal entity or sequence if its time span is entirely included in the temporal entity or sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e t)
   (iff (<a href="../happensIn">happensIn</a> e t)
@@ -158,7 +161,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We will say that an eventuality happens in a temporal entity or sequence if its time span is entirely included in the temporal entity or sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t e)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -167,7 +170,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The beginning of a proper interval is before the instants inside, which are before the end.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2 t3 t)
   (if (<a href="../properIntervalEv">properIntervalEv</a> t)
@@ -180,7 +183,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The predicate <code>intMeets</code> means that the end of one interval is the beginning of the other.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intMeets">intMeets</a> t1 t2)
@@ -189,7 +192,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>One interval finishes the other if it begins inside and ends the same place. We have to complicate this relation a bit to accommodate positive infinite intervals.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intFinishes">intFinishes</a> t1 t2)
@@ -203,7 +206,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>One interval <code>t1</code> is during another <code>t2</code> if <code>t1</code> begins after <code>t2</code> and ends before <code>t2</code>. The conditional in the last line of the definition is to accommodate positive infinite intervals.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intDuring">intDuring</a> t1 t2)
@@ -217,7 +220,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can also extend the <code>before</code> relation from instants to intervals, temporal sequences, and eventualities; one of them is before another if the first's end is before the second's beginning.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../before">before</a> t1 t2)
@@ -226,7 +229,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We will sometimes have occasion to talk about one temporal entity being before or meeting another.  We will define the predicate <code>beforeOrMeets</code> as follows:</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../beforeOrMeets">beforeOrMeets</a> t1 t2)
@@ -236,7 +239,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A proper interval is a concatenation of a set of proper intervals if every instant inside the interval is inside, the beginning, or the end of some interval in the set, and the intervals in the set are non-overlapping.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t s)
   (iff (<a href="../concatenation">concatenation</a> t s)

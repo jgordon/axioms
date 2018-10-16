@@ -29,11 +29,12 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t) (if (<a href="../instant">instant</a> t) (<a href="../temporalEntity">temporalEntity</a> t)))
 </pre>
 </div><div class="axiom">
-<p>The duration of an instant is zero.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (d t u)
   (if (<a href="../instant">instant</a> t) (<a href="../durationOf">durationOf</a> 0 t u)))
@@ -42,6 +43,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t)
   (if (<a href="../temporalEntity">temporalEntity</a> t)
@@ -49,6 +51,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../begins">begins</a> t1 t2)
@@ -57,6 +60,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../ends">ends</a> t1 t2)
@@ -65,6 +69,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../insideTime">insideTime</a> t1 t2)
@@ -73,6 +78,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (and (<a href="../instant">instant</a> t2) (<a href="../begins">begins</a> t1 t2))
@@ -80,6 +86,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (and (<a href="../instant">instant</a> t2) (<a href="../ends">ends</a> t1 t2))
@@ -87,14 +94,14 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The predicate <code>atTime</code> relates an eventuality to an instant, saying that the eventuality really exists or obtains at that instant. We constrain its arguments but do not attempt to define it.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e t)
   (if (<a href="../atTime">atTime</a> e t) (and (<a href="../eventuality">eventuality</a> e) (<a href="../instant">instant</a> t))))
 </pre>
 </div>
 <div class="axiom">
-<p>The "time span of" an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
@@ -124,7 +131,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Time is a scale whose ordering relation is <code>before</code> and whose components are instants and intervals.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t)
   (iff (<a href="../timeScale">timeScale</a> t)
@@ -137,7 +144,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The relation <code>before</code> is temporal.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t1 t2)
   (if (and (<a href="../instant">instant</a> t1) (<a href="../instant">instant</a> t2))

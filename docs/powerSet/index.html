@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The power set of a set is the set of all its subsets.</p>
 <pre>
 (forall (s0 s)
   (iff (<a href="../powerSet">powerSet</a> s0 s)
@@ -41,7 +40,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The primitive case of a rate is when there is a set S of events, a set T of time intervals, and a function mapping the intervals into a subset of S, namely those events that occur during that interval. When the concept of rate truly applies, the cardinalities of all these subsets are the same.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)

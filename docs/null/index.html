@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The null set is the set with no members.</p>
 <pre>
 (forall (s)
   (iff (<a href="../null">null</a> s)
@@ -38,7 +37,7 @@
               (not (<a href="../member">member</a> x s))))))
 </pre>
 </div><div class="axiom">
-<p>The duration of an interval is determined by concatenation.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s u)
   (if (<a href="../null">null</a> s) (<a href="../durationOf">durationOf</a> 0 s u)))
@@ -47,7 +46,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A singleton set consists of one entity.</p>
 <pre>
 (forall (s x)
   (iff (<a href="../singleton">singleton</a> s x)
@@ -56,7 +54,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We recursively define the cardinality of sets using addElt.</p>
 <pre>
 (forall (n s)
   (iff (<a href="../card">card</a> n s)
@@ -70,7 +67,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A complete instantiation is a partial instantiation with no remaining parameters:</p>
+<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
 <pre>
 (forall (e1 e)
   (iff (<a href="../instance">instance</a> e1 e)
@@ -81,7 +78,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The set of components of a composite entity is nonempty.</p>
 <pre>
 (forall (s1 x)
   (if (<a href="../componentsOf">componentsOf</a> s1 x)
@@ -89,7 +85,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Sets are composite entities whose components are members and whose only property is being set.</p>
 <pre>
 (forall (e s s1 s2 s3)
   (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
@@ -99,7 +94,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A set of sets under the <code>subset</code> relation is a scale.</p>
 <pre>
 (forall (s1 e x y)
   (if (and (forall (s2)
@@ -114,7 +108,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If s1 is the scale whose set is a set of sets including the null set and whose partial ordering is <code>subset</code>, then cardinality is a measure.</p>
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
 <pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)
@@ -128,6 +122,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A non-null subset of the domain is horizontal if no element is <code>above2</code> any other element. We use the predicate <code>horizontal2</code> because as stated above, the two- and three-dimensional cases differ. The next two axioms refer to the <code>above3</code> relation. In the two-dimensional case, this is vacuous since nothing is <code>above3</code> anything else. But it will greatly simplify our treatment of three-dimensional frameworks to include it here.</p>
 <pre>
 (forall (s1 f)
   (iff (<a href="../horizontal2">horizontal2</a> s1 f)
@@ -140,6 +135,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (s1 f)
   (iff (<a href="../vertical2">vertical2</a> s1 f)
@@ -152,6 +148,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A y-coordinate can be defined similarly.</p>
 <pre>
 (forall (s1 f)
    (iff (<a href="../vertical3">vertical3</a> s1 f)

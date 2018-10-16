@@ -25,6 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A plane is a region such that if a line passes through any two points in the region, it is inside the region.</p>
 <pre>
 (forall (r)
   (iff (<a href="../plane">plane</a> r)
@@ -37,6 +38,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A figure is planar if it is inside a plane.</p>
 <pre>
 (forall (r)
   (iff (<a href="../planar">planar</a> r)
@@ -44,6 +46,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar region is concave if it is not convex.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../coplanar">coplanar</a> f1 f2)

@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A (2-dimensional) curve can have (0-dimensional) endpoints.</p>
 <pre>
 (forall (x c)
   (if (<a href="../endpoint">endpoint</a> x c)
@@ -38,6 +39,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A figure can be on the boundary (endpoint/border/surface) of a figure of higher dimension.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
@@ -48,6 +50,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A line does not have endpoints.</p>
 <pre>
 (forall (c)
   (if (<a href="../line">line</a> c)
@@ -56,6 +59,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A ray has exactly one endpoint.</p>
 <pre>
 (forall (c)
   (if (<a href="../ray">ray</a> c)
@@ -66,6 +70,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A line segment has two distinct endpoints.</p>
 <pre>
 (forall (c)
   (if (<a href="../lineSegment">lineSegment</a> c)
@@ -75,6 +80,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A line segment has two distinct endpoints.</p>
 <pre>
 (forall (c)
   (if (<a href="../closed">closed</a> c)
@@ -83,6 +89,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A line segment has two distinct endpoints.</p>
 <pre>
 (forall (c)
   (iff (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
@@ -92,6 +99,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar region is concave if it is not convex.</p>
 <pre>
 (forall (c c1 c2 x)
   (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
@@ -108,6 +116,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A polygon is then a closed curve that is made up of n sides.</p>
 <pre>
 (forall (p n)
   (iff (<a href="../polygon">polygon</a> p n)
@@ -124,6 +133,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
 <pre>
 (forall (c)
    (if (<a href="../curve">curve</a> c)
@@ -135,6 +145,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
 <pre>
 (forall (c v u)
    (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
@@ -146,6 +157,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A direction with respect to a framework is a ray whose endpoint is the origin of the framework.</p>
 <pre>
 (forall (d f)
    (iff (<a href="../direction">direction</a> d f)
@@ -154,6 +166,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A vertex of a polyhedron is an endpoint of one of the edges. We will call this relation <code>vertex3</code> (vertex of a 3-dimensional entity) since we already have a predicate <code>vertex</code>.</p>
 <pre>
 (forall (x p s)
    (if (<a href="../polyhedron">polyhedron</a> p s)

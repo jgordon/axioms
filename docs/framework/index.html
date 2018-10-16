@@ -25,6 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A framework has a set of entities we will call its domain. The entities can participate in the <code>above2</code> and <code>rightOf</code> relations, but we postpone axiomatizing that til the end of this section.</p>
 <pre>
 (forall (f)
   (if (<a href="../framework">framework</a> f)
@@ -32,6 +33,7 @@
         (and (<a href="../set">set</a> s) (<a href="../domain">domain</a> s f)))))
 </pre>
 </div><div class="axiom">
+<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (f)
   (if (<a href="../framework">framework</a> f)
@@ -42,6 +44,7 @@
                     (if (<a href="../nequal">nequal</a> a a2) (not (<a href="../yAxis">yAxis</a> a f)))))))))
 </pre>
 </div><div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (f)
   (if (<a href="../framework">framework</a> f)
@@ -52,6 +55,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (s1 s2 f)
   (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> s1 f) (<a href="../vertical2">vertical2</a> s2 f))
@@ -59,6 +63,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (a1 f)
   (if (<a href="../xAxis">xAxis</a> a1 f)
@@ -66,6 +71,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (a2 f)
   (if (<a href="../yAxis">yAxis</a> a2 f)
@@ -73,6 +79,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (f a1 a2 s)
   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
@@ -82,6 +89,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (s1 s2 f)
    (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal3">horizontal3</a> s1 f) (<a href="../vertical3">vertical3</a> s2 f))
@@ -89,6 +97,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (a3 f)
    (if (<a href="../zAxis">zAxis</a> a3 f)
@@ -96,6 +105,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (f a3)
    (if (and (<a href="../framework">framework</a> f) (<a href="../zAxis">zAxis</a> a3 f))
@@ -104,6 +114,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (f a1 a2 s)
    (if (and (<a href="../framework">framework</a> f) (<a href="../zAxis">zAxis</a> a3 f) (<a href="../origin">origin</a> o f))
@@ -111,6 +122,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (f)
   (if (and (<a href="../framework">framework</a> f) (<a href="../3D">3D</a> f))
@@ -118,6 +130,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (f)
   (iff (<a href="../coordinateSystem">coordinateSystem</a> f)
@@ -132,6 +145,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A "greater than" relation can be defined in a similar manner.</p>
 <pre>
 (forall (f v c1 c2 o)
    (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)

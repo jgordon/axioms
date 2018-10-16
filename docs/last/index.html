@@ -29,7 +29,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The last element of a sequence is the <code>nth</code> element where <code>n</code> is the length of the sequence.</p>
 <pre>
 (forall (s y n)
   (if (and (<a href="../sequence">sequence</a> s) (<a href="../length">length</a> n s))
@@ -37,7 +36,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If there is an element of the temporal sequence after all its other elements, this is called the last element.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s t)
   (if (<a href="../tseq">tseq</a> s)
@@ -49,7 +48,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s t1 t2 t3 t4)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t3 t1)
@@ -60,7 +59,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (t s)
   (if (<a href="../tseq">tseq</a> s)

@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Two sets of eventualities are inconsistent if one implies an eventuality and the other implies its negation.</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../inconsistent">inconsistent</a> s1 s2)
@@ -41,7 +40,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>If two states are not inconsistent, then the change must be a composite of two changes, one to and the other from an inconsistent state.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../change">change</a>' e e1 e2)
@@ -52,7 +50,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Since change is not normally cyclic, we can make it a defeasible inference that the start and end states are inconsistent.</p>
 <pre>
 (forall (e e1 e2)
   (if (and (<a href="../change">change</a> e1 e2) (etc))
@@ -60,7 +57,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>When there has been a <code>changeFrom</code> some eventuality e1 where p'(e1,x) holds, then after the change p(x) is not true. (I.e., no eventuality corresponding to p(x) really exists.) The <code>subst</code> expression means that e1 and e3 have the same predicate and same arguments, other than the self argument.</p>
 <pre>
 (forall (e e1 e3)
   (if (<a href="../subst">subst</a> e3 e3 e1 e1)
@@ -70,7 +66,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>For <code>changeTo</code>, the start state of the change must exclude any other instance of the type e2 instantiates.</p>
 <pre>
 (forall (e e2 e4)
   (if (<a href="../subst">subst</a> e4 e4 e2 e2)

@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>We define a predicate <code>componentOrWhole</code> as the disjunction of <code>componentOf</code> and being equal to the whole.</p>
 <pre>
 (forall (x1 x)
   (iff (<a href="../componentOrWhole">componentOrWhole</a> x1 x)
@@ -39,7 +38,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>An entity <code>y</code> is external to a composite entity <code>x</code> if neither it nor any of its components is equal to <code>x</code> or one of <code>x</code>'s components.</p>
 <pre>
 (forall (y x)
   (iff (<a href="../externalTo">externalTo</a> y x)
@@ -50,7 +48,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>All the elements in the properties of a composite entity have an <code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
 <pre>
 (forall (s2 x)
   (if (<a href="../propertiesOf">propertiesOf</a> s2 x)
@@ -63,7 +60,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The set of relations of a composite entity are relations between a component or the whole, and something else.</p>
 <pre>
 (forall (s3 x)
   (if (<a href="../relationsOf">relationsOf</a> s3 x)

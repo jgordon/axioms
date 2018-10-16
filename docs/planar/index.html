@@ -25,6 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A figure is planar if it is inside a plane.</p>
 <pre>
 (forall (r)
   (iff (<a href="../planar">planar</a> r)
@@ -34,6 +35,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A planar figure is convex if every point on a line segment between any two points on the boundary is inside the region.</p>
 <pre>
 (forall (r)
   (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
@@ -45,6 +47,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A planar region is concave if it is not convex.</p>
 <pre>
 (forall (r)
   (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
@@ -52,6 +55,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A polygon is then a closed curve that is made up of n sides.</p>
 <pre>
 (forall (p n)
   (iff (<a href="../polygon">polygon</a> p n)
@@ -68,6 +72,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
 <pre>
 (forall (c r x u)
    (iff (<a href="../circle">circle</a> c x)

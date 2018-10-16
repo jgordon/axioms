@@ -25,6 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (d x1 x2 u)
   (if (<a href="../distance">distance</a> d x1 x2 u)
@@ -32,6 +33,7 @@
            (<a href="../spatialUnit">spatialUnit</a> u))))
 </pre>
 </div><div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (d x1 x2 u)
   (iff (<a href="../distance">distance</a> d x1 x2 u) (<a href="../distance">distance</a> d x2 x1 u)))
@@ -40,11 +42,13 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (x u) (<a href="../distance">distance</a> 0 x x u))
 </pre>
 </div>
 <div class="axiom">
+<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (d1 d2 d3 d4 x1 x2 x3 u)
   (if (and (<a href="../distance">distance</a> d1 x1 x2 u) (<a href="../distance">distance</a> d2 x2 x3 u)
@@ -53,6 +57,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A straight line is the shortest distance between two points. We state this in terms of the endpoints and an inside point of a line segment.</p>
 <pre>
 (forall (c x1 x2 x3 d1 d2 d3 u)
   (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x3)
@@ -62,6 +67,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A straight line is the shortest distance between two points. We state this in terms of the endpoints and an inside point of a line segment.</p>
 <pre>
 (forall (d c u)
   (iff (<a href="../lineSegment">lineSegment</a> c)
@@ -72,6 +78,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
 <pre>
 (forall (x y z)
    (iff (<a href="../nearer">nearer</a> x y z)
@@ -81,6 +88,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
 <pre>
 (forall (c v u)
    (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
@@ -92,6 +100,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A "greater than" relation can be defined in a similar manner.</p>
 <pre>
 (forall (x v f c1 c2 o u)
   (iff (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
@@ -100,6 +109,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A "greater than" relation can be defined in a similar manner.</p>
 <pre>
 (forall (v)
    (iff (<a href="../45Degrees">45Degrees</a> v)
@@ -110,6 +120,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A "greater than" relation can be defined in a similar manner.</p>
 <pre>
 (forall (v)
    (iff (<a href="../30Degrees">30Degrees</a> v)

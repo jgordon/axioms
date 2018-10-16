@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Case roles common in linguistics can be defined in terms of core theories. In particular, the agent of an event is an agent that causes it.</p>
 <pre>
 (forall (a e)
   (iff (<a href="../agentOf">agentOf</a> a e)
@@ -39,7 +38,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>An agent a has done an action e iff a is the agent of the action and the action really takes place.</p>
 <pre>
 (forall (a e)
   (iff (<a href="../do">do</a> a e)
@@ -47,7 +45,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An instrument is an entity that the agent causes to go through a change of state, where this change plays an intermediate role in the causal chain.</p>
 <pre>
 (forall (y e)
   (iff (<a href="../instrumentOf">instrumentOf</a> y e)
@@ -59,7 +56,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We define the eventualities beyond an agent a's control as the subset s1 of eventualities in a set s that a cannot bring about by a's efforts alone. That is, a is not the agent of actions in s1 nor the agent of an action that causes events in s1.</p>
 <pre>
 (forall (s1 s a)
   (iff (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
@@ -73,7 +69,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an action is difficult for an agent, it is because there are states and events, i.e., eventualities, that tend to cause the action not to happen. The expression (difficult e a) says action e is difficult for agent a.</p>
 <pre>
 (forall (a e)
   (if (<a href="../difficult">difficult</a> e a)
@@ -81,7 +76,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Something is difficult if it is in the <code>Hi</code> region of a difficulty scale.</p>
 <pre>
 (forall (e1 e a)
   (iff (<a href="../difficult">difficult</a>' e1 e a)

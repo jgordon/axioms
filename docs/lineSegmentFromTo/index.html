@@ -25,6 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A line segment has two distinct endpoints.</p>
 <pre>
 (forall (c)
   (iff (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
@@ -36,6 +37,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A planar figure is convex if every point on a line segment between any two points on the boundary is inside the region.</p>
 <pre>
 (forall (r)
   (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
@@ -47,6 +49,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A straight line is the shortest distance between two points. We state this in terms of the endpoints and an inside point of a line segment.</p>
 <pre>
 (forall (c x1 x2 x3 d1 d2 d3 u)
   (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x3)
@@ -56,6 +59,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A straight line is the shortest distance between two points. We state this in terms of the endpoints and an inside point of a line segment.</p>
 <pre>
 (forall (d c u)
   (iff (<a href="../lineSegment">lineSegment</a> c)
@@ -66,6 +70,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
 <pre>
 (forall (c r x u)
    (iff (<a href="../circle">circle</a> c x)
@@ -77,6 +82,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
 <pre>
 (forall (c v u)
    (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
@@ -88,6 +94,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A square is a rhombus that is a rectangle.</p>
 <pre>
 (forall (p d)
    (if (<a href="../square">square</a> p)
@@ -100,6 +107,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A sphere p around a center x is a volume in which every line segment from the center to a point inside the surface is constant.</p>
 <pre>
 (forall (c r x u)
    (iff (<a href="../sphere">sphere</a> p x)
@@ -111,6 +119,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A volume is convex if every point on a line segment between any two points on its surface is inside the volume.</p>
 <pre>
 (forall (p)
    (if (<a href="../volume">volume</a> p)

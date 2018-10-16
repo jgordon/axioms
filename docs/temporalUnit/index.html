@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A <code>temporalUnit</code> is an interval.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (u)
   (if (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../interval">interval</a> u)))
@@ -38,7 +38,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The predication <code>(durationOf d t u)</code> says that t is made up of d intervals having the same duration as u. We will allow the second argument to be an instant, an interval, a temporal sequence, or an eventuality.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (d t u)
   (if (<a href="../durationOf">durationOf</a> d t u)
@@ -47,7 +47,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The constant duration in a periodic temporal sequence can be called the gap duration.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s d t1 t2 t n1 n2 u)
   (if (and (<a href="../periodicTseq">periodicTseq</a> s) (<a href="../successiveElts">successiveElts</a> t1 t2 s)
@@ -56,7 +56,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the gap between two elements is roughly equal, the temporal sequence is roughly periodic.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s)
   (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)
@@ -74,7 +74,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>When the third argument of <code>rate</code> is a temporal unit, we assume that the members of the set of time intervals all have a duration of one in that unit.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (n s t u)
   (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
@@ -84,7 +84,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Rate defines a scale whose elements are the set of events whose rate is being measured and whose ordering is the less-than relation between rates.</p>
+<p>minutes.</p>
 <pre>
 (forall (s s0)
   (iff (<a href="../rateScale">rateScale</a> s s0)

@@ -28,7 +28,7 @@ axiom_files = [
 
 bad_preds = ['forall', 'exists', 'iff', 'if', 'and', 'equal', 'not', 'or']
 
-# Read all glosses first.
+# Read all definitions first.
 for fname in axiom_files:
     in_gloss = False
     predname = ''
@@ -67,7 +67,7 @@ for fname in axiom_files:
                 in_gloss = False
                 continue
 
-            if re.match('^[0-9]+\.[0-9]+ ', line):
+            if not in_gloss and re.match('^[0-9A-Z]+ ', line):
                 in_gloss = True
                 gloss = re.sub('^[0-9.]+ ', '', line)
             elif line == '```':

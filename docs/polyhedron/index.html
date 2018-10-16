@@ -25,6 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A polyhedron is a volume whose surface consists of polygons, which are called faces.</p>
 <pre>
 (forall (p s)
    (iff (<a href="../polyhedron">polyhedron</a> p s)
@@ -42,12 +43,14 @@
                        (equal f1 f2)))))))
 </pre>
 </div><div class="axiom">
+<p>A face of a polyhedron is one of the faces.</p>
 <pre>
 (forall (p s f)
    (if (<a href="../polyhedron">polyhedron</a> p s)
        (iff (<a href="../face">face</a> f p) (<a href="../member">member</a> f s))))
 </pre>
 </div><div class="axiom">
+<p>A face of a polyhedron is one of the faces.</p>
 <pre>
 (forall (c p s)
    (if (<a href="../polyhedron">polyhedron</a> p s)
@@ -55,6 +58,7 @@
             (exists (f) (and (<a href="../face">face</a> f p) (<a href="../sideOf">sideOf</a> c f))))))
 </pre>
 </div><div class="axiom">
+<p>A vertex of a polyhedron is an endpoint of one of the edges. We will call this relation <code>vertex3</code> (vertex of a 3-dimensional entity) since we already have a predicate <code>vertex</code>.</p>
 <pre>
 (forall (x p s)
    (if (<a href="../polyhedron">polyhedron</a> p s)
@@ -65,6 +69,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A vertex of a polyhedron is an endpoint of one of the edges. We will call this relation <code>vertex3</code> (vertex of a 3-dimensional entity) since we already have a predicate <code>vertex</code>.</p>
 <pre>
 (forall (p2 s)
    (iff (<a href="../polyhedron2">polyhedron2</a> p2 s)
@@ -72,6 +77,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A rectangular parallelepiped is a polyhedron all of whose faces are rectangles.</p>
 <pre>
 (forall (p s)
    (iff (<a href="../rectangularParallelepiped">rectangularParallelepiped</a> p s)
@@ -81,6 +87,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A cube is a polyhedron all of whose faces are squares.</p>
 <pre>
 (forall (p s)
    (iff (<a href="../cube">cube</a> p s)

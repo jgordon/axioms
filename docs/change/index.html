@@ -29,14 +29,12 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The arguments of <code>change</code> are eventualities.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../change">change</a> e1 e2)
       (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2))))
 </pre>
 </div><div class="axiom">
-<p>The eventualities involved in a change must involve some common entity.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../change">change</a> e1 e2)
@@ -44,7 +42,6 @@
         (and (<a href="../arg*">arg*</a> x e1) (<a href="../arg*">arg*</a> x e2)))))
 </pre>
 </div><div class="axiom">
-<p>If two states are not inconsistent, then the change must be a composite of two changes, one to and the other from an inconsistent state.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../change">change</a>' e e1 e2)
@@ -54,7 +51,7 @@
                  (<a href="../gen">gen</a> e6 e))))))
 </pre>
 </div><div class="axiom">
-<p>The constraint for change is that final states can't happen before initial states.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../change">change</a> e1 e2) (not (<a href="../before">before</a> e2 e1))))
@@ -63,7 +60,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Change is defeasibly transitive.</p>
 <pre>
 (forall (e1 e2 e3)
   (if (and (<a href="../change">change</a> e1 e2) (<a href="../change">change</a> e2 e3) (etc))
@@ -71,7 +67,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Since change is not normally cyclic, we can make it a defeasible inference that the start and end states are inconsistent.</p>
 <pre>
 (forall (e e1 e2)
   (if (and (<a href="../change">change</a> e1 e2) (etc))
@@ -79,7 +74,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>There is a <code>changeIn</code> something when there is a change in its properties.</p>
 <pre>
 (forall (e x)
   (iff (<a href="../changeIn">changeIn</a>' e x)
@@ -88,7 +82,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>When there has been a <code>changeFrom</code> some eventuality e1 where p'(e1,x) holds, then after the change p(x) is not true. (I.e., no eventuality corresponding to p(x) really exists.) The <code>subst</code> expression means that e1 and e3 have the same predicate and same arguments, other than the self argument.</p>
 <pre>
 (forall (e e1 e3)
   (if (<a href="../subst">subst</a> e3 e3 e1 e1)
@@ -98,7 +91,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>For <code>changeTo</code>, the start state of the change must exclude any other instance of the type e2 instantiates.</p>
 <pre>
 (forall (e e2 e4)
   (if (<a href="../subst">subst</a> e4 e4 e2 e2)
@@ -108,7 +100,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An entity x moves from y to z exactly when there is a change from x's being at y to its being at z.</p>
 <pre>
 (forall (e x y z)
   (iff (<a href="../move">move</a>' e x y z)
@@ -117,7 +108,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an entity moves from a point on vertical scale to a higher point, we say that there as been an increase.</p>
 <pre>
 (forall (e x y z s)
   (iff (<a href="../increase">increase</a> x s)
@@ -127,7 +117,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Similarly, if an entity moves from a point on a vertical scale to a lower point, there has been a decrease.</p>
 <pre>
 (forall (e x y z s)
   (iff (<a href="../decrease">decrease</a> x s)
@@ -137,7 +126,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An instrument is an entity that the agent causes to go through a change of state, where this change plays an intermediate role in the causal chain.</p>
 <pre>
 (forall (z e)
   (iff (<a href="../sourceOf">sourceOf</a> z e)
@@ -146,7 +134,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An instrument is an entity that the agent causes to go through a change of state, where this change plays an intermediate role in the causal chain.</p>
 <pre>
 (forall (w e)
   (iff (<a href="../terminusOf">terminusOf</a> w e)
@@ -155,7 +142,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An <code>event</code> can (1) directly be a change of state, (2) generate a change of state, or (3) have a subevent, which contains the change.</p>
 <pre>
 (forall (e)
    (iff (<a href="../event">event</a> e)

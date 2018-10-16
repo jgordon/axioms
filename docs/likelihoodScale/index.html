@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The <code>likelihoodScale</code> has likelihoods as its elements and the <code>lowerLikelihood</code> relation as its partial ordering.</p>
 <pre>
 (forall (s)
   (iff (<a href="../likelihoodScale">likelihoodScale</a> s)
@@ -40,12 +39,10 @@
               (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 r)))))
 </pre>
 </div><div class="axiom">
-<p>A likelihood scale consists of elements that are all likelihoods and hence have a common property; the scale can then be a potential ground.</p>
 <pre>
 (forall (s) (if (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../ground">ground</a> s)))
 </pre>
 </div><div class="axiom">
-<p>The likelihood scale is conceptually vertical. We talk about likelihoods being higher or lower.</p>
 <pre>
 (forall (s) (if (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../vertical">vertical</a> s)))
 </pre>
@@ -53,7 +50,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The more we have to assume will happen, the less likely it is.</p>
 <pre>
 (forall (s1 e1 d1 s2 e2 d2 c s)
   (if (and (<a href="../alsoRequired">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired">alsoRequired</a> s2 e2 c) (<a href="../subset">subset</a> s2 s1)
@@ -62,7 +58,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The likelihood of the conjunction <code>e</code> of two eventualities <code>e1</code> and <code>e2</code> is less than or equal to the likelihood of each of them.</p>
 <pre>
 (forall (s e e1 e2 d d1 d2 c)
   (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
@@ -71,7 +66,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The likelihood of the disjunction <code>e</code> of two eventualities <code>e1</code> and <code>e2</code> is greater than or equal to the likelihood of either of them.</p>
 <pre>
 (forall (s e e1 e2 d d1 d2 c)
   (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
@@ -80,7 +74,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the likelihood of an eventuality is the top of the likelihood scale given constraints <code>c</code>, then it is entailed by <code>c</code>.</p>
 <pre>
 (forall (d e c s)
   (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s))
@@ -88,7 +81,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the likelihood of an eventuality is the bottom of the likelihood scale, then it is impossible given the constraints.</p>
 <pre>
 (forall (d e c s)
   (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s))
@@ -97,7 +89,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If something has a likelihood above the bottom of the likelihood scale with respect to a set of constraints, it is possible with respect to those constraints.</p>
 <pre>
 (forall (d e c s)
   (if (and (<a href="../likelihood">likelihood</a> d1 e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../bottom">bottom</a> d s))
@@ -105,7 +96,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the likelihood of an eventuality <code>e</code> is <code>d</code>, we can say that <code>e</code> is at <code>d</code> on the likelihood scale, if <code>c</code> holds.</p>
 <pre>
 (forall (d e c s e1)
   (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../at">at</a>' e1 e d s))
@@ -113,7 +103,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>One eventuality is more likely than another with respect to a set of constraints if its likelihood is higher.</p>
 <pre>
 (forall (e1 e2 c)
   (iff (<a href="../moreLikely">moreLikely</a> e1 e2 c)
@@ -124,7 +113,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An eventuality is <code>likely</code> with respect to constraints <code>c</code> if its likelihood <code>d</code> is on the high end of the scale of likelihoods.</p>
 <pre>
 (forall (e c)
   (iff (<a href="../likely">likely</a> e c)

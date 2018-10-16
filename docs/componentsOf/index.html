@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The set of components of a composite entity is nonempty.</p>
 <pre>
 (forall (s1 x)
   (if (<a href="../componentsOf">componentsOf</a> s1 x)
@@ -39,7 +38,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A composite entity is characterized by a set of components, a set of properties, and a set of relations.</p>
 <pre>
 (forall (x)
   (iff (<a href="../compositeEntity">compositeEntity</a> x)
@@ -49,7 +47,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The predicate <code>componentOf</code> gives us a quick way to say a single entity is a component.</p>
 <pre>
 (forall (y x)
   (iff (<a href="../componentOf">componentOf</a> y x)
@@ -59,7 +56,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An aggregate of two entities is a composite entity with those two entities as its components.</p>
 <pre>
 (forall (x y z)
   (iff (<a href="../aggregate">aggregate</a> x y z)
@@ -69,7 +65,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Sets are composite entities whose components are members and whose only property is being set.</p>
 <pre>
 (forall (e s s1 s2 s3)
   (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
@@ -79,7 +74,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Ordered pairs are composite entities where the components are the first and second elements, there are no properties other than the whole being a pair, and the relations are the <code>first</code> and <code>second</code> relations between the components and the whole.</p>
 <pre>
 (forall (p x y e1 e2 e3)
   (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
@@ -92,7 +86,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A sequence can be viewed as a composite entity whose components are the elements of the sequence and whose relations are the ordering relations in the sequence.</p>
 <pre>
 (forall (e s)
   (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
@@ -111,7 +104,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>This can also be written as:</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -122,7 +114,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A scale is a partially ordered set.</p>
 <pre>
 (forall (s)
    (if (<a href="../scale">scale</a> s)
@@ -139,7 +130,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Two scales are disjoint if their sets of components are disjoint.</p>
 <pre>
 (forall (s1 s2)
    (if (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
@@ -150,7 +140,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>For a scale to be the domain or range of a function is for its set of components to be the domain or range.</p>
 <pre>
 (forall (f s1 s2)
    (iff (<a href="../function">function</a> f s1 s2)
@@ -163,7 +152,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We define a scale by the set of its components and the relation that is the partial ordering of the scale.</p>
 <pre>
 (forall (s s1 e)
    (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
@@ -173,7 +161,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A sequence is a scale whose partial ordering is the <code>beforeInSeq</code> relation.</p>
 <pre>
 (forall (s s1 e x y)
    (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
@@ -185,7 +172,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can construct composite scales out of existing scales.</p>
 <pre>
 (forall (s s1 s2)
    (if (<a href="../compositeScale">compositeScale</a> s s1 s2)
@@ -201,7 +187,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A complex event is a composite entity whose components are its subevents, among whose properties are the <code>event</code> properties, and among whose relations are the <code>subevent</code> relations.</p>
 <pre>
 (forall (e1 e)
    (if (<a href="../subevent">subevent</a> e1 e)
@@ -223,6 +208,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
 <pre>
 (forall (x s0 s1)
    (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
@@ -234,7 +220,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A body is a composite entity whose components are body parts. In fact, it's a spatial system, since all the body parts are physical objects.</p>
 <pre>
 (forall (b p)
   (if (<a href="../body">body</a> b p)
@@ -246,7 +231,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A person <code>p</code> has a set of body parts, namely, the components of the body.</p>
 <pre>
 (forall (p s)
   (iff (<a href="../bodyPartsOf">bodyPartsOf</a> s p)

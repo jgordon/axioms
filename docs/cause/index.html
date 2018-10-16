@@ -29,14 +29,13 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>The notion <code>cause</code> is stronger than the notion <code>tcause</code> in the sense that if e1 causes e2 then it tends to cause e2.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../cause">cause</a> e1 e2)
       (<a href="../tcause">tcause</a> e1 e2)))
 </pre>
 </div><div class="axiom">
-<p>An effect cannot happen before its cause.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../cause">cause</a> e1 e2) (not (<a href="../before">before</a> e2 e1))))
@@ -45,7 +44,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p><code>cause</code> is like <code>cause0</code>, but it allows an agent as its first argument. When the first argument of <code>cause</code> is an eventuality, it reduces to <code>cause0</code>. When it's an agent, the agent's willing is the <code>cause0</code> of the second argument.</p>
 <pre>
 (forall (a e2)
   (and (if (<a href="../eventuality">eventuality</a> a)
@@ -59,7 +57,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The chief property of agents is that they, defeasibly, are capable of causing some events.</p>
 <pre>
 (forall (a)
   (if (and (<a href="../agent">agent</a> a) (etc))
@@ -67,7 +64,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Case roles common in linguistics can be defined in terms of core theories. In particular, the agent of an event is an agent that causes it.</p>
 <pre>
 (forall (a e)
   (iff (<a href="../agentOf">agentOf</a> a e)
@@ -75,7 +71,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The object of an action is the entity that goes through a change in the final stage of the causal chain.</p>
 <pre>
 (forall (x e)
   (iff (<a href="../objectOf">objectOf</a> x e)
@@ -85,7 +80,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An instrument is an entity that the agent causes to go through a change of state, where this change plays an intermediate role in the causal chain.</p>
 <pre>
 (forall (y e)
   (iff (<a href="../instrumentOf">instrumentOf</a> y e)
@@ -97,7 +91,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The expression (enable0 e1 e2 s) says that e1 is an enabling condition for e2 provided it is in the causal complex s that will be used to bring about e2, but is not the cause of e2.</p>
 <pre>
 (forall (e1 e2 s)
   (iff (<a href="../enable0">enable0</a> e1 e2 s)
@@ -106,7 +99,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If e1 enables e2, then (not e1) causes (not e2).</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../enable">enable</a> e1 e2)
@@ -117,7 +109,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An eventuality e1 allows an eventuality e2 if e1 does not cause (not e2).</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../allow">allow</a> e1 e2)
@@ -126,7 +117,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An eventuality e1 allows an eventuality e2 if e1 does not cause (not e2).</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../prevent">prevent</a> e1 e2)
@@ -135,7 +125,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>An eventuality e1 partially causes another eventuality e2 if e1's conjunction with another eventuality e3 causes e2.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../partiallyCause">partiallyCause</a> e1 e2)
@@ -145,7 +134,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The expression (tcause e1 e2) means that e1 tends to cause e2. If (tcause e1 e2) holds, the other eventualities in the causal complex for e2 are likely but not guaranteed to hold. Both <code>cause</code> and <code>tcause</code> are defeasible, but <code>tcause</code> is more likely to be defeated.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../tcause">tcause</a> e1 e2)
@@ -157,7 +145,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>e1 tends to cause e2 with likelihood q if e1 is in a causal complex for e2, if the likelihood of the rest of s is q, and if e1 would be singled out as a cause of e2 provided the rest of s actually obtains.</p>
 <pre>
 (forall (e1 e2 q c)
   (iff (<a href="../tcauseq">tcauseq</a> e1 e2 q c)
@@ -168,7 +155,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We define the eventualities beyond an agent a's control as the subset s1 of eventualities in a set s that a cannot bring about by a's efforts alone. That is, a is not the agent of actions in s1 nor the agent of an action that causes events in s1.</p>
 <pre>
 (forall (s1 s a)
   (iff (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
@@ -182,7 +168,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can say that an agent a is able to do e, given a set of constraints c, if the agent's causing e is possible with respect to c whenever the set s1 of all the events in a causal complex s for e that are beyond a's control really exists independently.</p>
 <pre>
 (forall (a e c)
   (iff (<a href="../able">able</a> a e c)
@@ -193,7 +178,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can posit a notion of directly causes (<code>dcause</code>) as a relation between an agent or event and an event, that is true when there are no intermediate, mediating events.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../dcause">dcause</a> e1 e2)
@@ -203,7 +187,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an agent can will an event to happen, then this willing is a direct cause of the event.</p>
 <pre>
 (forall (e1 a e)
   (if (and (<a href="../will">will</a>' e1 a e) (<a href="../cause">cause</a> e1 e))
@@ -211,7 +194,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If an agent can directly cause an action that is enabled, then it is executable. Moreover, if the action can be caused by another executable action, then it is executable.</p>
 <pre>
 (forall (e a c t)
   (iff (<a href="../executable">executable</a> e a c t)
@@ -225,7 +207,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If e1 happens and e1 causes e2, then e2 (defeasibly) happens.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (e1 e2 t1)
   (if (and (<a href="../cause">cause</a> e1 e2) (<a href="../atTime">atTime</a> e1 t1) (etc))

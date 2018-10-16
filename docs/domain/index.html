@@ -29,12 +29,12 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A function <code>f</code> from a set <code>s1</code> onto a set <code>s2</code> is a set of pairs where each element of <code>s1</code> occurs exactly once as the first element in a pair, and every element of <code>s2</code> occurs as a second element of at least one pair. (This is <code>function0</code> since it is later extended to functions from scales to scales.)</p>
 <pre>
 (forall (f s1 s2) (if (<a href="../function0">function0</a> f s1 s2) (<a href="../domain">domain</a> s1 f)))
 </pre>
 </div>
 <div class="axiom">
+<p>A framework has a set of entities we will call its domain. The entities can participate in the <code>above2</code> and <code>rightOf</code> relations, but we postpone axiomatizing that til the end of this section.</p>
 <pre>
 (forall (f)
   (if (<a href="../framework">framework</a> f)
@@ -43,6 +43,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A non-null subset of the domain is horizontal if no element is <code>above2</code> any other element. We use the predicate <code>horizontal2</code> because as stated above, the two- and three-dimensional cases differ. The next two axioms refer to the <code>above3</code> relation. In the two-dimensional case, this is vacuous since nothing is <code>above3</code> anything else. But it will greatly simplify our treatment of three-dimensional frameworks to include it here.</p>
 <pre>
 (forall (s1 f)
   (iff (<a href="../horizontal2">horizontal2</a> s1 f)
@@ -55,6 +56,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (s1 f)
   (iff (<a href="../vertical2">vertical2</a> s1 f)
@@ -67,6 +69,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A y-coordinate can be defined similarly.</p>
 <pre>
 (forall (s1 f)
    (iff (<a href="../vertical3">vertical3</a> s1 f)

@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>If one element's <code>n</code> is less than another's, it is before the other in the sequence.</p>
 <pre>
 (forall (x1 x2 s)
   (iff (<a href="../successiveElts">successiveElts</a> x1 x2 s)
@@ -37,7 +36,7 @@
          (and (<a href="../successor">successor</a> n2 n1) (<a href="../nth">nth</a> x1 n1 s) (<a href="../nth">nth</a> x2 n2 s)))))
 </pre>
 </div><div class="axiom">
-<p>Two elements of a temporal sequence are successive elements if there is no element between them.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s t1 t2)
   (iff (<a href="../successiveElts">successiveElts</a> t1 t2 s)
@@ -50,7 +49,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A temporal sequence is periodic if there is a constant duration between any two successive temporal entities in the temporal sequence.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s)
   (iff (<a href="../periodicTseq">periodicTseq</a> s)
@@ -64,7 +63,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The constant duration in a periodic temporal sequence can be called the gap duration.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s d t1 t2 t n1 n2 u)
   (if (and (<a href="../periodicTseq">periodicTseq</a> s) (<a href="../successiveElts">successiveElts</a> t1 t2 s)
@@ -73,7 +72,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If the gap between two elements is roughly equal, the temporal sequence is roughly periodic.</p>
+<p>A temporal entity may be an instant or an interval.</p>
 <pre>
 (forall (s)
   (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)

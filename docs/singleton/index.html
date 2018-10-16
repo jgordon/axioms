@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A singleton set consists of one entity.</p>
 <pre>
 (forall (s x)
   (iff (<a href="../singleton">singleton</a> s x)
@@ -40,7 +39,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A <code>doubleton</code> set has exactly two members.</p>
 <pre>
 (forall (s x y)
   (iff (<a href="../doubleton">doubleton</a> s x y)
@@ -51,7 +49,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Sets are composite entities whose components are members and whose only property is being set.</p>
 <pre>
 (forall (e s s1 s2 s3)
   (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
@@ -61,7 +58,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Ordered pairs are composite entities where the components are the first and second elements, there are no properties other than the whole being a pair, and the relations are the <code>first</code> and <code>second</code> relations between the components and the whole.</p>
 <pre>
 (forall (p x y e1 e2 e3)
   (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
@@ -74,7 +70,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A sequence can be viewed as a composite entity whose components are the elements of the sequence and whose relations are the ordering relations in the sequence.</p>
 <pre>
 (forall (e s)
   (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
@@ -93,6 +88,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (f a1 a2 s)
   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))

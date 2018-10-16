@@ -29,7 +29,6 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A person <code>p</code> has a set of body parts, namely, the components of the body.</p>
 <pre>
 (forall (p s)
   (iff (<a href="../bodyPartsOf">bodyPartsOf</a> s p)
@@ -40,7 +39,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The sense organs are a subset of the body parts.</p>
 <pre>
 (forall (p x)
   (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
@@ -51,7 +49,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Another subset of body parts can be directly controlled by a person's will. That is, the person's willing an event is the direct cause of the motion of the body part.</p>
 <pre>
 (forall (p s1)
   (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
