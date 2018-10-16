@@ -29,14 +29,12 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>12.57</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../sameDuration">sameDuration</a> t1 t2)
       (and (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../temporalEntity">temporalEntity</a> t2))))
 </pre>
 </div><div class="axiom">
-<p>12.60</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../sameDuration">sameDuration</a> t1 t2) (<a href="../sameDuration">sameDuration</a> t2 t1)))
@@ -45,7 +43,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>12.58</p>
 <pre>
 (forall (t1 t2)
   (if (and (<a href="../instant">instant</a> t1) (<a href="../instant">instant</a> t2))
@@ -53,14 +50,12 @@
 </pre>
 </div>
 <div class="axiom">
-<p>12.59</p>
 <pre>
 (forall (t)
   (if (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../sameDuration">sameDuration</a> t t)))
 </pre>
 </div>
 <div class="axiom">
-<p>12.61</p>
 <pre>
 (forall (t1 t2 t3)
   (if (and (<a href="../sameDuration">sameDuration</a> t1 t2) (<a href="../sameDuration">sameDuration</a> t2 t3))

@@ -36,7 +36,6 @@
       (or (<a href="../interval">interval</a> t) (<a href="../instant">instant</a> t))))
 </pre>
 </div><div class="axiom">
-<p>12.59</p>
 <pre>
 (forall (t)
   (if (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../sameDuration">sameDuration</a> t t)))
@@ -45,19 +44,16 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>12.1</p>
 <pre>
 (forall (t) (if (<a href="../instant">instant</a> t) (<a href="../temporalEntity">temporalEntity</a> t)))
 </pre>
 </div>
 <div class="axiom">
-<p>12.2</p>
 <pre>
 (forall (t) (if (<a href="../interval">interval</a> t) (<a href="../temporalEntity">temporalEntity</a> t)))
 </pre>
 </div>
 <div class="axiom">
-<p>12.3</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../begins">begins</a> t1 t2)
@@ -66,7 +62,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>12.4</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../ends">ends</a> t1 t2)
@@ -75,7 +70,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>12.5</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../insideTime">insideTime</a> t1 t2)
@@ -125,7 +119,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>12.57</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../sameDuration">sameDuration</a> t1 t2)

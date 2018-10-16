@@ -67,7 +67,6 @@
                       (or (equal t1 t) (<a href="../before">before</a> t1 t))))))))
 </pre>
 </div><div class="axiom">
-<p>12.18</p>
 <pre>
 (forall (t s)
   (if (<a href="../tseq">tseq</a> s)
@@ -75,7 +74,6 @@
            (exists (t1) (and (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t t1))))))
 </pre>
 </div><div class="axiom">
-<p>12.19</p>
 <pre>
 (forall (t s)
   (if (<a href="../tseq">tseq</a> s)
@@ -83,7 +81,6 @@
            (exists (t1) (and (<a href="../last">last</a> t1 s) (<a href="../ends">ends</a> t t1))))))
 </pre>
 </div><div class="axiom">
-<p>12.21</p>
 <pre>
 (forall (t s)
   (if (<a href="../tseq">tseq</a> s)
@@ -96,7 +93,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>12.3</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../begins">begins</a> t1 t2)
@@ -105,7 +101,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>12.4</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../ends">ends</a> t1 t2)
@@ -114,7 +109,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>12.5</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../insideTime">insideTime</a> t1 t2)
@@ -150,7 +144,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>12.20</p>
 <pre>
 (forall (t s)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../insideTime">insideTime</a> t s))
@@ -210,7 +203,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>12.68</p>
 <pre>
 (forall (s s1 t u d d1 d2)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../tseq">tseq</a> s1) (not (<a href="../member">member</a> t s1)) (<a href="../addElt">addElt</a> s s1 t)

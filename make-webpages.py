@@ -70,6 +70,8 @@ for fname in axiom_files:
             if not in_gloss and re.match('^[0-9A-Z]', line):
                 in_gloss = True
                 gloss = re.sub('^[0-9.]+ ', '', line)
+                if re.match(r'^[0-9]+.[0-9]+$', gloss):
+                    gloss = ''
             elif line == '```':
                 in_gloss = False
                 if in_axiom:
