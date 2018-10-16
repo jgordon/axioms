@@ -38,12 +38,17 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>The intersection of the x-, y-, and z-axes is a unique element we call the <code>origin</code>.</p>
 <pre>
-(forall (f a1 a2 s)
-  (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
-      (exists (s o)
-        (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
-             (<a href="../origin">origin</a> o f)))))
+(forall (f a1 a2)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
+       (and (exists (s o)
+               (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
+                    (<a href="../origin">origin</a> o f))
+                    (forall (a3)
+                       (if (<a href="../zAxis">zAxis</a> a3 f)
+                           (and (<a href="../intersection">intersection</a> s a1 a3)
+                                (<a href="../intersection">intersection</a> s a2 a3)
 </pre>
 </div>
 </section>

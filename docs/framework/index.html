@@ -35,12 +35,15 @@
 </div><div class="axiom">
 <pre>
 (forall (f)
-  (if (<a href="../framework">framework</a> f)
-      (exists (a1 a2)
-        (and (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
-             (forall (a)
-               (and (if (<a href="../nequal">nequal</a> a a1) (not (<a href="../xAxis">xAxis</a> a f)))
-                    (if (<a href="../nequal">nequal</a> a a2) (not (<a href="../yAxis">yAxis</a> a f)))))))))
+   (if (<a href="../framework">framework</a> f)
+       (exists (a1 a2)
+          (and (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
+               (forall (a)
+                  (and (if (<a href="../xAxis">xAxis</a> a f) (equal a a1))
+                       (if (<a href="../yAxis">yAxis</a> a f) (equal a a2))))
+               (forall (a3 a)
+                  (if (and (<a href="../zAxis">zAxis</a> a3 f) (<a href="../zAxis">zAxis</a> a f))
+                      (equal a a3)))))))
 </pre>
 </div><div class="axiom">
 <p>Every framework has an x-axis and a y-axis. It is two-dimensional if and only if it lacks a z-axis. We condition this on f being a framework to preserve the predicate 2D for other uses as well.</p>
@@ -54,15 +57,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Horizontal and vertical sets are independent scales.</p>
-<pre>
-(forall (s1 s2 f)
-  (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> s1 f) (<a href="../vertical2">vertical2</a> s2 f))
-      (<a href="../independentScales">independentScales</a> s1 s2)))
-</pre>
-</div>
-<div class="axiom">
-<p>Now we can pick a unique horizontal subset of the domain to be the x-axis and a unique vertical subset to be the y-axis, where their intersection is a unique element we can call the origin.</p>
+<p>We can pick a unique horizontal subset of the domain to be the x-axis.</p>
 <pre>
 (forall (a1 f)
   (if (<a href="../xAxis">xAxis</a> a1 f)
@@ -70,6 +65,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>We can pick a unique vertical subset of the domain to be the y-axis.</p>
 <pre>
 (forall (a2 f)
   (if (<a href="../yAxis">yAxis</a> a2 f)
@@ -77,23 +73,7 @@
 </pre>
 </div>
 <div class="axiom">
-<pre>
-(forall (f a1 a2 s)
-  (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
-      (exists (s o)
-        (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
-             (<a href="../origin">origin</a> o f)))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (s1 s2 f)
-   (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal3">horizontal3</a> s1 f) (<a href="../vertical3">vertical3</a> s2 f))
-       (<a href="../independentScales">independentScales</a> s1 s2)))
-</pre>
-</div>
-<div class="axiom">
-<p>We can stipulate a <code>vertical3</code> set to be the z-axis of a framework.</p>
+<p>There may be a unique <code>vertical3</code> set which is the z-axis, intersecting the x-axis and the y-axis at the origin.</p>
 <pre>
 (forall (a3 f)
    (if (<a href="../zAxis">zAxis</a> a3 f)
@@ -101,20 +81,36 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The z-axis, if it exists, is unique.</p>
+<p>The intersection of the x-, y-, and z-axes is a unique element we call the <code>origin</code>.</p>
 <pre>
-(forall (f a3)
-   (if (and (<a href="../framework">framework</a> f) (<a href="../zAxis">zAxis</a> a3 f))
-       (forall (a)
-          (if (<a href="../nequal">nequal</a> a a3) (not (<a href="../zAxis">zAxis</a> a f))))))
+(forall (f a1 a2)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
+       (and (exists (s o)
+               (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
+                    (<a href="../origin">origin</a> o f))
+                    (forall (a3)
+                       (if (<a href="../zAxis">zAxis</a> a3 f)
+                           (and (<a href="../intersection">intersection</a> s a1 a3)
+                                (<a href="../intersection">intersection</a> s a2 a3)
 </pre>
 </div>
 <div class="axiom">
-<p>The z-axis contains the origin.</p>
+<p>The x-, y-, and z-axes are independent scales.</p>
 <pre>
-(forall (f a1 a2 s)
-   (if (and (<a href="../framework">framework</a> f) (<a href="../zAxis">zAxis</a> a3 f) (<a href="../origin">origin</a> o f))
-       (<a href="../member">member</a> o a3)))
+(forall (f a1 a2)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
+       (and (<a href="../independentScales">independentScales</a> a1 a2)
+            (forall (a3)
+               (if (<a href="../zAxis">zAxis</a> a3 f)
+                   (and (<a href="../independentScales">independentScales</a> a1 a3)
+                        (<a href="../independentScales">independentScales</a> a2 a3))))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s1 s2 f)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal3">horizontal3</a> s1 f) (<a href="../vertical3">vertical3</a> s2 f))
+       (<a href="../independentScales">independentScales</a> s1 s2)))
 </pre>
 </div>
 <div class="axiom">

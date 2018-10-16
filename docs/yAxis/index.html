@@ -25,6 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>We can pick a unique vertical subset of the domain to be the y-axis.</p>
 <pre>
 (forall (a2 f)
   (if (<a href="../yAxis">yAxis</a> a2 f)
@@ -36,25 +37,45 @@
 <div class="axiom">
 <pre>
 (forall (f)
-  (if (<a href="../framework">framework</a> f)
-      (exists (a1 a2)
-        (and (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
-             (forall (a)
-               (and (if (<a href="../nequal">nequal</a> a a1) (not (<a href="../xAxis">xAxis</a> a f)))
-                    (if (<a href="../nequal">nequal</a> a a2) (not (<a href="../yAxis">yAxis</a> a f)))))))))
+   (if (<a href="../framework">framework</a> f)
+       (exists (a1 a2)
+          (and (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
+               (forall (a)
+                  (and (if (<a href="../xAxis">xAxis</a> a f) (equal a a1))
+                       (if (<a href="../yAxis">yAxis</a> a f) (equal a a2))))
+               (forall (a3 a)
+                  (if (and (<a href="../zAxis">zAxis</a> a3 f) (<a href="../zAxis">zAxis</a> a f))
+                      (equal a a3)))))))
 </pre>
 </div>
 <div class="axiom">
+<p>The intersection of the x-, y-, and z-axes is a unique element we call the <code>origin</code>.</p>
 <pre>
-(forall (f a1 a2 s)
-  (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
-      (exists (s o)
-        (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
-             (<a href="../origin">origin</a> o f)))))
+(forall (f a1 a2)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
+       (and (exists (s o)
+               (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
+                    (<a href="../origin">origin</a> o f))
+                    (forall (a3)
+                       (if (<a href="../zAxis">zAxis</a> a3 f)
+                           (and (<a href="../intersection">intersection</a> s a1 a3)
+                                (<a href="../intersection">intersection</a> s a2 a3)
 </pre>
 </div>
 <div class="axiom">
-<p>A y-coordinate can be defined similarly.</p>
+<p>The x-, y-, and z-axes are independent scales.</p>
+<pre>
+(forall (f a1 a2)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
+       (and (<a href="../independentScales">independentScales</a> a1 a2)
+            (forall (a3)
+               (if (<a href="../zAxis">zAxis</a> a3 f)
+                   (and (<a href="../independentScales">independentScales</a> a1 a3)
+                        (<a href="../independentScales">independentScales</a> a2 a3))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>An element of the domain has a y-coordinate if there is a horizontal subset that contains both the element and an element of the y-axis.</p>
 <pre>
 (forall (y1 x f)
   (iff (<a href="../yCoordinate">yCoordinate</a> y1 x f)

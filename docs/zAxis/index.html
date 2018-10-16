@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>We can stipulate a <code>vertical3</code> set to be the z-axis of a framework.</p>
+<p>There may be a unique <code>vertical3</code> set which is the z-axis, intersecting the x-axis and the y-axis at the origin.</p>
 <pre>
 (forall (a3 f)
    (if (<a href="../zAxis">zAxis</a> a3 f)
@@ -35,30 +35,53 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The z-axis, if it exists, is unique.</p>
 <pre>
-(forall (f a3)
-   (if (and (<a href="../framework">framework</a> f) (<a href="../zAxis">zAxis</a> a3 f))
-       (forall (a)
-          (if (<a href="../nequal">nequal</a> a a3) (not (<a href="../zAxis">zAxis</a> a f))))))
+(forall (f)
+   (if (<a href="../framework">framework</a> f)
+       (exists (a1 a2)
+          (and (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
+               (forall (a)
+                  (and (if (<a href="../xAxis">xAxis</a> a f) (equal a a1))
+                       (if (<a href="../yAxis">yAxis</a> a f) (equal a a2))))
+               (forall (a3 a)
+                  (if (and (<a href="../zAxis">zAxis</a> a3 f) (<a href="../zAxis">zAxis</a> a f))
+                      (equal a a3)))))))
 </pre>
 </div>
 <div class="axiom">
-<p>The z-axis contains the origin.</p>
+<p>The intersection of the x-, y-, and z-axes is a unique element we call the <code>origin</code>.</p>
 <pre>
-(forall (f a1 a2 s)
-   (if (and (<a href="../framework">framework</a> f) (<a href="../zAxis">zAxis</a> a3 f) (<a href="../origin">origin</a> o f))
-       (<a href="../member">member</a> o a3)))
+(forall (f a1 a2)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
+       (and (exists (s o)
+               (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
+                    (<a href="../origin">origin</a> o f))
+                    (forall (a3)
+                       (if (<a href="../zAxis">zAxis</a> a3 f)
+                           (and (<a href="../intersection">intersection</a> s a1 a3)
+                                (<a href="../intersection">intersection</a> s a2 a3)
 </pre>
 </div>
 <div class="axiom">
-<p>We can define the z-coordinate of an element in a framework just as we defined x- and y-coordinates.</p>
+<p>The x-, y-, and z-axes are independent scales.</p>
+<pre>
+(forall (f a1 a2)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
+       (and (<a href="../independentScales">independentScales</a> a1 a2)
+            (forall (a3)
+               (if (<a href="../zAxis">zAxis</a> a3 f)
+                   (and (<a href="../independentScales">independentScales</a> a1 a3)
+                        (<a href="../independentScales">independentScales</a> a2 a3))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>When there is a z-axis, an element of the domain has a z-coordinate if there is a horizontal plane that contains both the element and element of the z-axis.</p>
 <pre>
 (forall (z1 x f)
    (iff (<a href="../zCoordinate">zCoordinate</a> z1 x f)
-        (exists (v a1)
-           (and (<a href="../vertical3">vertical3</a> v f) (<a href="../member">member</a> x v) (<a href="../zAxis">zAxis</a> a3 f)
-                (<a href="../member">member</a> z1 v) (<a href="../member">member</a> z1 a3)))))
+        (exists (h a3)
+           (and (<a href="../horizontalPlane">horizontalPlane</a> h f) (<a href="../member">member</a> x h) (<a href="../zAxis">zAxis</a> a3 f)
+                (<a href="../member">member</a> z1 h) (<a href="../member">member</a> z1 a3)))))
 </pre>
 </div>
 <div class="axiom">

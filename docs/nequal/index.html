@@ -243,26 +243,6 @@
 </pre>
 </div>
 <div class="axiom">
-<pre>
-(forall (f)
-  (if (<a href="../framework">framework</a> f)
-      (exists (a1 a2)
-        (and (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f)
-             (forall (a)
-               (and (if (<a href="../nequal">nequal</a> a a1) (not (<a href="../xAxis">xAxis</a> a f)))
-                    (if (<a href="../nequal">nequal</a> a a2) (not (<a href="../yAxis">yAxis</a> a f)))))))))
-</pre>
-</div>
-<div class="axiom">
-<p>The z-axis, if it exists, is unique.</p>
-<pre>
-(forall (f a3)
-   (if (and (<a href="../framework">framework</a> f) (<a href="../zAxis">zAxis</a> a3 f))
-       (forall (a)
-          (if (<a href="../nequal">nequal</a> a a3) (not (<a href="../zAxis">zAxis</a> a f))))))
-</pre>
-</div>
-<div class="axiom">
 <p>We construct an isosceles triangle whose apex is a given vertex, by identifying a point a unit distance out on each leg from the vertex.</p>
 <pre>
 (forall (c v u)

@@ -513,12 +513,13 @@ A framework has a set of entities we will call its domain.
         (and (set s) (domain s f)))))
 ```
 
+Next we define the analogs of horizontal and vertical lines and planes
+in frameworks.
+
 A non-null subset of the domain is horizontal if no element is `above2`
-any other element. We use the predicate `horizontal2` because as stated
-above, the two- and three-dimensional cases differ. The next two axioms
-refer to the `above3` relation. In the two-dimensional case, this is
-vacuous since nothing is `above3` anything else. But it will greatly
-simplify our treatment of three-dimensional frameworks to include it here.
+any other element. If there is no `above3` relation, then
+`(above3 x1 x2 f)` will always be false, so the definition covers the
+two-dimensional case as well.
 
 ```
 (forall (s1 f)
@@ -531,7 +532,8 @@ simplify our treatment of three-dimensional frameworks to include it here.
                               (above3 x1 x2 f)))))))))
 ```
 
-A similar axiom defines `vertical2` in terms of `rightOf`.
+A non-null subset of the domain is `vertical2` if no element is `rightOf`
+or `above3` any other element.
 
 ```
 (forall (s1 f)
@@ -544,83 +546,8 @@ A similar axiom defines `vertical2` in terms of `rightOf`.
                               (above3 x1 x2 f)))))))))
 ```
 
-Horizontal and vertical sets are independent scales.
-
-```
-(forall (s1 s2 f)
-  (if (and (framework f) (horizontal2 s1 f) (vertical2 s2 f))
-      (independentScales s1 s2)))
-```
-
-Now we can pick a unique horizontal subset of the domain to be the
-x-axis and a unique vertical subset to be the y-axis, where their
-intersection is a unique element we can call the origin.
-
-```
-(forall (a1 f)
-  (if (xAxis a1 f)
-      (and (framework f) (horizontal2 a1 f))))
-```
-
-```
-(forall (a2 f)
-  (if (yAxis a2 f)
-      (and (framework f) (vertical2 a2 f))))
-```
-
-```
-(forall (f)
-  (if (framework f)
-      (exists (a1 a2)
-        (and (xAxis a1 f) (yAxis a2 f)
-             (forall (a)
-               (and (if (nequal a a1) (not (xAxis a f)))
-                    (if (nequal a a2) (not (yAxis a f)))))))))
-```
-
-```
-(forall (f a1 a2 s)
-  (if (and (framework f) (xAxis a1 f) (yAxis a2 f))
-      (exists (s o)
-        (and (intersection s a1 a2) (singleton s o)
-             (origin o f)))))
-```
-
-A two-dimensional framework thus consists of a domain, two independent
-relations and two unique corresponding axes that intersect in a single
-element called the origin.
-
-Any element in the domain can have an x-coordinate and a y-coordinate. An
-element of the domain has an x-coordinate if there is a vertical subset
-that contains both the element and an element of the x-axis.
-
-```
-(forall (x1 x f)
-  (iff (xCoordinate x1 x f)
-       (exists (v a1)
-         (and (vertical2 v f) (member x v) (xAxis a1 f)
-              (member x1 v) (member x1 a1)))))
-```
-
-A y-coordinate can be defined similarly.
-
-```
-(forall (y1 x f)
-  (iff (yCoordinate y1 x f)
-       (exists (h a2)
-         (and (horizontal2 h f) (member x h) (yAxis a2 f)
-              (member y1 h) (member y1 a2)))))
-```
-
-We should point out that frameworks are often observer-based and
-hence volatile. Moving around a table changes what counts as
-`above` and `rightOf`.
-
-To construct a three-dimensional framework, we introduce another
-relation `above3`, which is independent from `above2` and `rightOf`.
-
-We define a subset of the domain to be `vertical3` if no element of it
-is above2 or rightOf any other.
+A non-null subset of the domain is `vertical3` if no element is `rightOf`
+or `above2` any other element.
 
 ```
 (forall (s1 f)
@@ -633,13 +560,178 @@ is above2 or rightOf any other.
                                  (above2 x1 x2 f)))))))))
 ```
 
-A subset of the domain is horizontal3 if it is either `horizontal2`
+In the two-dimensional case a `vertical3` set has no ordering relations
+among its elements.
+
+A horizontal plane is a set in which no element is `above3` any other.
+
+```
+(forall (s1 f)
+   (iff (horizontalPlane s1 f)
+        (exists (s)
+           (and (domain s f) (subset s1 s) (not (null s1))
+                (not (exists (x1 x2)
+                        (and (member x1 s1) (member x2 s1)
+                             (above3 x1 x2 f))))))))
+```
+
+In the two-dimensional case any subset of the domain is a horizontal
+plane.
+
+A `vertical2` plane is a set in which no element is `rightOf` any other.
+
+```
+(forall (s1 f)
+   (iff (vertical2Plane s1 f)
+        (exists (s)
+           (and (domain s f) (subset s1 s) (not (null s1))
+                (not (exists (x1 x2)
+                        (and (member x1 s1) (member x2 s1)
+                             (rightOf x1 x2 f))))))))
+```
+
+In the two-dimensional case, a `vertical2` plane is a `vertical2` set.
+
+A `vertical3` plane is a set in which no element is `above2` any other.
+
+```
+(forall (s1 f)
+   (iff (vertical3Plane s1 f)
+        (exists (s)
+           (and (domain s f) (subset s1 s) (not (null s1))
+                (not (exists (x1 x2)
+                        (and (member x1 s1) (member x2 s1)
+                             (above2 x1 x2 f))))))))
+```
+
+In the two-dimensional case, a `vertical3` plane is a horizontal set.
+
+We can pick a unique horizontal subset of the domain to be the
+x-axis.
+
+```
+(forall (a1 f)
+  (if (xAxis a1 f)
+      (and (framework f) (horizontal2 a1 f))))
+```
+
+We can pick a unique vertical subset of the domain to be the y-axis.
+
+```
+(forall (a2 f)
+  (if (yAxis a2 f)
+      (and (framework f) (vertical2 a2 f))))
+```
+
+There may be a unique `vertical3` set which is the z-axis, intersecting
+the x-axis and the y-axis at the origin.
+
+```
+(forall (a3 f)
+   (if (zAxis a3 f)
+       (and (framework f) (vertical3 a3 f))))
+```
+
+```
+(forall (f)
+   (if (framework f)
+       (exists (a1 a2)
+          (and (xAxis a1 f) (yAxis a2 f)
+               (forall (a)
+                  (and (if (xAxis a f) (equal a a1))
+                       (if (yAxis a f) (equal a a2))))
+               (forall (a3 a)
+                  (if (and (zAxis a3 f) (zAxis a f))
+                      (equal a a3)))))))
+```
+
+Lines 5-7 stipulate the uniqueness of the x- and y-axes. Lines 8-10
+stipulate the uniqueness of the z-axis, if there is one.
+
+
+The intersection of the x-, y-, and z-axes is a unique element we call
+the `origin`.
+
+```
+(forall (f a1 a2)
+   (if (and (framework f) (xAxis a1 f) (yAxis a2 f))
+       (and (exists (s o)
+               (and (intersection s a1 a2) (singleton s o)
+                    (origin o f))
+                    (forall (a3)
+                       (if (zAxis a3 f)
+                           (and (intersection s a1 a3)
+                                (intersection s a2 a3)
+```
+
+The x-, y-, and z-axes are independent scales.
+
+```
+(forall (f a1 a2)
+   (if (and (framework f) (xAxis a1 f) (yAxis a2 f))
+       (and (independentScales a1 a2)
+            (forall (a3)
+               (if (zAxis a3 f)
+                   (and (independentScales a1 a3)
+                        (independentScales a2 a3))))))))
+```
+
+Lines 2-3 take care of the two-dimensional case; lines 4-7 the
+three-dimensional case.
+
+
+A framework thus consists of a domain, two or three independent
+relations and two or three unique corresponding axes that intersect
+in a single element called the origin.
+
+
+Any element in the domain can have an x-coordinate and a y-coordinate.
+
+An element of the domain has an x-coordinate if there is a vertical subset
+that contains both the element and an element of the x-axis.
+
+```
+(forall (x1 x f)
+  (iff (xCoordinate x1 x f)
+       (exists (v a1)
+         (and (vertical2 v f) (member x v) (xAxis a1 f)
+              (member x1 v) (member x1 a1)))))
+```
+
+An element of the domain has a y-coordinate if there is a horizontal subset
+that contains both the element and an element of the y-axis.
+
+```
+(forall (y1 x f)
+  (iff (yCoordinate y1 x f)
+       (exists (h a2)
+         (and (horizontal2 h f) (member x h) (yAxis a2 f)
+              (member y1 h) (member y1 a2)))))
+```
+
+When there is a z-axis, an element of the domain has a z-coordinate if there
+is a horizontal plane that contains both the element and element of the
+z-axis.
+
+```
+(forall (z1 x f)
+   (iff (zCoordinate z1 x f)
+        (exists (h a3)
+           (and (horizontalPlane h f) (member x h) (zAxis a3 f)
+                (member z1 h) (member z1 a3)))))
+```
+
+We should point out that frameworks are often observer-based and
+hence volatile. Moving around a table changes what counts as
+`above` and `rightOf`.
+
+A subset of the domain is `horizontal3` if it is either horizontal
 or `vertical2`.
 
 ```
 (forall (s f)
    (iff (horizontal3 s f)
-        (or (horizontal2 s f) (vertical2 s f))))
+        (or (horizontal s f) (vertical2 s f))))
 ```
 
 `horizontal3` and `vertical3` sets are independent scales.
@@ -650,41 +742,6 @@ or `vertical2`.
        (independentScales s1 s2)))
 ```
 
-We can stipulate a `vertical3` set to be the z-axis of a framework.
-
-```
-(forall (a3 f)
-   (if (zAxis a3 f)
-       (and (framework f) (vertical3 a3 f))))
-```
-
-The z-axis, if it exists, is unique.
-
-```
-(forall (f a3)
-   (if (and (framework f) (zAxis a3 f))
-       (forall (a)
-          (if (nequal a a3) (not (zAxis a f))))))
-```
-
-The z-axis contains the origin.
-
-```
-(forall (f a1 a2 s)
-   (if (and (framework f) (zAxis a3 f) (origin o f))
-       (member o a3)))
-```
-
-We can define the z-coordinate of an element in a framework just
-as we defined x- and y-coordinates.
-
-```
-(forall (z1 x f)
-   (iff (zCoordinate z1 x f)
-        (exists (v a1)
-           (and (vertical3 v f) (member x v) (zAxis a3 f)
-                (member z1 v) (member z1 a3)))))
-```
 
 Every framework has an x-axis and a y-axis. It is two-dimensional
 if and only if it lacks a z-axis. We condition this on f being a
