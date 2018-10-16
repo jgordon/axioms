@@ -434,7 +434,7 @@ are sufficiently similar as to admit of a single interpretation for the
 figure-ground, or "at" relation, the composite entity can serve as a
 ground in the figure-ground relation.
 
-At https://www.isi.edu/~hobbs/bgt-scales.text
+At https://www.isi.edu/~hobbs/bgt-scales.text,
 we define a scale as a composite entity among whose relations are a partial
 ordering among components. A complex or composite scale can be constructed
 out of two or more other scales, where its partial ordering is consistent
@@ -453,13 +453,16 @@ that x and y are components of s.
 By defining frameworks only in terms of scales, or partial orderings, rather
 than assuming numeric scales, we characterize the concepts in a more general
 way. We can, for example, talk about one person being "above" another in
-an org chart.
+an org chart. Standard coordinate systems are then specializations of
+frameworks thus characterized.
 
-We first need the notion of "independent" scales. Two scales are
-independent if their components overlap and if you can't predict the
-relation between two elements on one scale from their relation on the
-other. That is, for some pairs of elements the order is preserved when we
-go from one scale to the other, and for other pairs the order is reversed.
+We first need the notion of "independent" scales.
+
+Two scales are independent if their components overlap and if you can't
+predict the relation between two elements on one scale from their relation
+on the other. That is, for some pairs of elements the order is preserved
+when we go from one scale to the other, and for other pairs the order is
+reversed.
 
 ```
 (forall (s1 s2)
@@ -489,7 +492,10 @@ ambiguity in the terms "horizontal" and "vertical". In the
 two-dimensional case, the y-axis is vertical. In the three-dimensional
 case, it is horizontal.
 
-We define two- and three-dimensional frameworks, but not more.
+It is most convenient to define frameworks for the three-dimensional case,
+but we will do it in a way that allows the z-axis to be optional, so that
+the the definitions cover the two-dimensional case as well.  We define
+two- and three-dimensional frameworks, but not more.
 
 We assume we have two relations, `above2` and `rightOf`. They are
 relative to a framework f. `(above2 y2 y1 f)` says that y2 is above y1
@@ -498,9 +504,7 @@ our two axes are orthogonal, because we have not yet dealt with
 angles. But we can say they are independent in the sense that we
 cannot predict one relation from the other.
 
-A framework has a set of entities we will call its domain. The
-entities can participate in the `above2` and `rightOf` relations, but
-we postpone axiomatizing that til the end of this section.
+A framework has a set of entities we will call its domain.
 
 ```
 (forall (f)
