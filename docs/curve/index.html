@@ -33,17 +33,6 @@
 <pre>
 (forall (c) (if (<a href="../curve">curve</a> c) (<a href="../figure">figure</a> c)))
 </pre>
-</div><div class="axiom">
-<p>We are now in a position to give one characterization of a closed curve. It has no endpoints and can be covered by a large enough circle.</p>
-<pre>
-(forall (c)
-   (if (<a href="../curve">curve</a> c)
-       (iff (<a href="../closed">closed</a> c)
-            (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
-                 (exists (r c1 x1)
-                    (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
-                         (<a href="../inside">inside</a> c r)))))))
-</pre>
 </div></section>
 <section>
 <h2>Additional Axioms</h2>
@@ -113,6 +102,28 @@
 (forall (c c1 c2 x)
    (if (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
        (<a href="../curve">curve</a> c)))
+</pre>
+</div>
+<div class="axiom">
+<p>A closed planar curve has no endpoints and can be covered by a large enough circle.</p>
+<pre>
+(forall (c)
+   (if (and (<a href="../curve">curve</a> c)(<a href="../planar">planar</a> c))
+       (iff (<a href="../closed">closed</a> c)
+            (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
+                 (exists (r x1)
+                    (and (<a href="../circle2">circle2</a> r x1) (<a href="../subfigure">subfigure</a> c r)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A closed curve in general can be surrounded by a sufficiently large sphere, as can a closed region.</p>
+<pre>
+(forall (c)
+   (if (or (<a href="../curve">curve</a> c)(<a href="../region">region</a> c))
+       (iff (<a href="../closed">closed</a> c)
+            (and (not (exists (x) (or (<a href="../endpoint">endpoint</a> x c) (<a href="../border">border</a> x c))))
+                 (exists (v x1)
+                    (and (<a href="../sphere3">sphere3</a> v x1) (<a href="../subfigure">subfigure</a> c v)))))))
 </pre>
 </div>
 </section>

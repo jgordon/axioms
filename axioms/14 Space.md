@@ -865,17 +865,62 @@ from the center to a point inside the circle is constant.
                        (length d c1 u)))))))
 ```
 
-We are now in a position to give one characterization of a closed curve.
-It has no endpoints and can be covered by a large enough circle.
+A circle is a curve. We use the predicate `circle2` to describe the
+two-dimensional region whose border is a circle.
+
+```
+(forall (r x)
+   (iff (circle2 r x)
+        (exists (c)
+           (and (circle c x) (border c r)))))
+```
+
+A closed planar curve has no endpoints and can be covered by a large
+enough circle.
 
 ```
 (forall (c)
-   (if (curve c)
+   (if (and (curve c)(planar c))
        (iff (closed c)
             (and (not (exists (x) (endpoint x c)))
-                 (exists (r c1 x1)
-                    (and (circle c1 x1) (boundary c r)
-                         (inside c r)))))))
+                 (exists (r x1)
+                    (and (circle2 r x1) (subfigure c r)))))))
+```
+
+A spherical surface r around a center x is a region in which
+every line segment from the center to a point inside the region is
+constant.
+
+```
+(forall (r x)
+   (iff (sphere r x)
+        (exists (v d u)
+           (and (boundary r v) (inside x v)
+                (forall (c1 x1)
+                   (if (and (inside x1 r) (lineSegmentFromTo c1 x x1))
+                       (length d c1 u)))))))
+```
+
+We use the predicate `sphere3` for the three-dimensional volume whose
+surface is a sphere.
+
+```
+(forall (v x)
+   (iff (sphere3 v x)
+        (exists (r)
+           (and (boundary r v) (sphere r x)))))
+```
+
+A closed curve in general can be surrounded by a sufficiently large sphere,
+as can a closed region.
+
+```
+(forall (c)
+   (if (or (curve c)(region c))
+       (iff (closed c)
+            (and (not (exists (x) (or (endpoint x c) (border x c))))
+                 (exists (v x1)
+                    (and (sphere3 v x1) (subfigure c v)))))))
 ```
 
 We can define qualitative terms like "near" and "far" as outlined in
@@ -905,8 +950,7 @@ The expression `(nearnessScale s z)` says that s is the scale for
 nearness to z. In Line 4, e is the partial ordering, and s0 is an
 arbitrary set, the domain of the scale.
 
-Then `near` and `far` are defined as the Lo and Hi regions of the
-nearness scale, respectively.
+`near` is defined as the `Lo` region of the nearness scale.
 
 ```
 (forall (x z)
@@ -914,6 +958,8 @@ nearness scale, respectively.
         (exists (s s1)
            (and (nearnessScale s z) (Lo s1 s) (onScale x s1)))))
 ```
+
+`far` is defined as the `Hi` region of the nearness scale.
 
 ```
 (forall (x z)
@@ -940,8 +986,8 @@ of a comparison set. That is, there are more things smaller than larger.
                (card n3 s3) (card n4 s4) (lt n4 n3)))))
 ```
 
-In this axiom x is the entity in the Hi region, s0 is the scale,
-s1 is its Hi region, s2 is the domain of scale s0, s3 is the set of
+In this axiom x is the entity in the `Hi` region, s0 is the scale,
+s1 is its `Hi` region, s2 is the domain of scale s0, s3 is the set of
 elements of s2 lower on the scale than x, s4 is the set of elements
 of s2 higher on the scale than x, and the cardinality n3 of s3 is
 larger than the cardinality n4 of s4. The conjunct `(etc)` in line 2

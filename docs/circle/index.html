@@ -39,15 +39,12 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>We are now in a position to give one characterization of a closed curve. It has no endpoints and can be covered by a large enough circle.</p>
+<p>A circle is a curve. We use the predicate <code>circle2</code> to describe the two-dimensional region whose border is a circle.</p>
 <pre>
-(forall (c)
-   (if (<a href="../curve">curve</a> c)
-       (iff (<a href="../closed">closed</a> c)
-            (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
-                 (exists (r c1 x1)
-                    (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
-                         (<a href="../inside">inside</a> c r)))))))
+(forall (r x)
+   (iff (<a href="../circle2">circle2</a> r x)
+        (exists (c)
+           (and (<a href="../circle">circle</a> c x) (<a href="../border">border</a> c r)))))
 </pre>
 </div>
 </section>

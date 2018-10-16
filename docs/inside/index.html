@@ -199,15 +199,15 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We are now in a position to give one characterization of a closed curve. It has no endpoints and can be covered by a large enough circle.</p>
+<p>A spherical surface r around a center x is a region in which every line segment from the center to a point inside the region is constant.</p>
 <pre>
-(forall (c)
-   (if (<a href="../curve">curve</a> c)
-       (iff (<a href="../closed">closed</a> c)
-            (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
-                 (exists (r c1 x1)
-                    (and (<a href="../circle">circle</a> c1 x1) (<a href="../boundary">boundary</a> c r)
-                         (<a href="../inside">inside</a> c r)))))))
+(forall (r x)
+   (iff (<a href="../sphere">sphere</a> r x)
+        (exists (v d u)
+           (and (<a href="../boundary">boundary</a> r v) (<a href="../inside">inside</a> x v)
+                (forall (c1 x1)
+                   (if (and (<a href="../inside">inside</a> x1 r) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                       (<a href="../length">length</a> d c1 u)))))))
 </pre>
 </div>
 <div class="axiom">
