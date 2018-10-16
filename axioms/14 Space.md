@@ -169,17 +169,19 @@ A ray has exactly one endpoint.
                (if (endpoint x1 c) (equal x1 x)))))))
 ```
 
-A line segment has two distinct endpoints.
+A line segment has exactly two distinct endpoints.
 
 ```
 (forall (c)
-  (if (lineSegment c)
-      (exists (x1 x2)
-        (and (endpoint x1 lc (endpoint x2 c)
-             (nequal x1 x2)))))
+   (if (lineSegment c)
+       (exists (x1 x2)
+          (and (endpoint x1 c) (endpoint x2 c) (nequal x1 x2)
+               (forall (x)
+                  (if (endpoint x c)
+                      (or (equal x x1) (equal x x2))))))))
 ```
 
-All three are linear.
+Lines, rays, and line segments are linear.
 
 ```
 (forall (c)
@@ -187,7 +189,7 @@ All three are linear.
        (or (line c) (ray c) (lineSegment c))))
 ```
 
-All three are curves.
+Lines, rays, and line segments are curves.
 
 ```
 (forall (c)
@@ -256,7 +258,7 @@ two points on the boundary is inside the region.
            (forall (c x x1 x2)
              (if (and (onBoundary x1 r) (onBoundary x2 r)
                       (lineSegmentFromTo c x1 x2) (inside x c))
-                 (subfigure x r))))))`
+                 (subfigure x r))))))
 ```
 
 A planar region is concave if it is not convex.
@@ -264,10 +266,9 @@ A planar region is concave if it is not convex.
 ```
 (forall (r)
   (if (and (region r) (planar r))
-      (iff (concave r) (not (convex r)))))
+      (iff (concave r)
+           (not (convex r)))))
 ```
-
-Thus something that is convex and planar is a plane.
 
 Two figures are coplanar if there is a plane that they are both
 inside.
@@ -297,7 +298,8 @@ Two figures are parallel if they are inside two parallel lines.
 (forall (f1 f2)
   (iff (parallel f1 f2)
        (exists (c1 c2)
-         (and (line c1) (line c2) (inside f1 c1) (inside f2 c2)))))
+         (and (line c1) (line c2) (parallel c1 c2)
+              (inside f1 c1) (inside f2 c2)))))
 ```
 
 
@@ -347,7 +349,9 @@ Note that we can join two rays, but we cannot join two lines since
 lines, being infinite, have no endpoints.
 
 When the joined constituent curves are linear and do not constitute a
-straight line, the point at which they meet is called a `vertex`.
+straight line, the point at which they meet is called a "vertex". We
+use the predicate `vertex` to refer to the figure consisting of
+the two line segments and the point where they meet.
 
 ```
 (forall (v c1 c2 x)
@@ -359,8 +363,7 @@ straight line, the point at which they meet is called a `vertex`.
 A vertex thus consists of the angle and two sides, which are line
 segments or rays.
 
-Note that with this definition vertices are symmetric with respect to
-their sides c1 and c2.
+Vertices are symmetric with respect to their sides c1 and c2.
 
 ```
 (forall (v c1 c2 x)
@@ -368,7 +371,7 @@ their sides c1 and c2.
        (vertex v c2 c1 x)))
 ```
 
-As an intermediate step toward defining polygons, we will say a line
+As an intermediate step toward defining polygons, we say a line
 segment is a side of a figure if there are vertices at its two
 endpoints that lie inside the figure.
 
@@ -404,7 +407,7 @@ is a vertex. Line 11 says the polygon is a closed planar curve, and
 line 12 says n is the cardinality of the set of sides.
 
 We have defined polygons as one-dimensional curves. The term is also
-used to describe the two-dimensional region they enclose. We will use
+used to describe the two-dimensional region they enclose. We use
 the predicate `polygon2` for this concept.
 
 ```
@@ -413,7 +416,7 @@ the predicate `polygon2` for this concept.
        (exists (c) (and (border c r) (polygon c)))))
 ```
 
-If n is 4, we have a quadrilateral.
+A polygon with n = 4 is a quadrilateral.
 
 ```
 (forall (p)

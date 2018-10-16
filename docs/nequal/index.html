@@ -194,13 +194,15 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>A line segment has exactly two distinct endpoints.</p>
 <pre>
 (forall (c)
-  (if (<a href="../lineSegment">lineSegment</a> c)
-      (exists (x1 x2)
-        (and (<a href="../endpoint">endpoint</a> x1 lc (<a href="../endpoint">endpoint</a> x2 c)
-             (<a href="../nequal">nequal</a> x1 x2)))))
+   (if (<a href="../lineSegment">lineSegment</a> c)
+       (exists (x1 x2)
+          (and (<a href="../endpoint">endpoint</a> x1 c) (<a href="../endpoint">endpoint</a> x2 c) (<a href="../nequal">nequal</a> x1 x2)
+               (forall (x)
+                  (if (<a href="../endpoint">endpoint</a> x c)
+                      (or (equal x x1) (equal x x2))))))))
 </pre>
 </div>
 <div class="axiom">
@@ -231,7 +233,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>As an intermediate step toward defining polygons, we will say a line segment is a side of a figure if there are vertices at its two endpoints that lie inside the figure.</p>
+<p>As an intermediate step toward defining polygons, we say a line segment is a side of a figure if there are vertices at its two endpoints that lie inside the figure.</p>
 <pre>
 (forall (c p)
   (iff (<a href="../sideOf">sideOf</a> c p)

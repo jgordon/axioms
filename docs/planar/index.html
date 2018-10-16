@@ -43,7 +43,7 @@
            (forall (c x x1 x2)
              (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
                       (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
-                 (<a href="../subfigure">subfigure</a> x r))))))`
+                 (<a href="../subfigure">subfigure</a> x r))))))
 </pre>
 </div>
 <div class="axiom">
@@ -51,7 +51,8 @@
 <pre>
 (forall (r)
   (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
-      (iff (<a href="../concave">concave</a> r) (not (<a href="../convex">convex</a> r)))))
+      (iff (<a href="../concave">concave</a> r)
+           (not (<a href="../convex">convex</a> r)))))
 </pre>
 </div>
 <div class="axiom">

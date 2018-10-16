@@ -29,13 +29,15 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>A line segment has exactly two distinct endpoints.</p>
 <pre>
 (forall (c)
-  (if (<a href="../lineSegment">lineSegment</a> c)
-      (exists (x1 x2)
-        (and (<a href="../endpoint">endpoint</a> x1 lc (<a href="../endpoint">endpoint</a> x2 c)
-             (<a href="../nequal">nequal</a> x1 x2)))))
+   (if (<a href="../lineSegment">lineSegment</a> c)
+       (exists (x1 x2)
+          (and (<a href="../endpoint">endpoint</a> x1 c) (<a href="../endpoint">endpoint</a> x2 c) (<a href="../nequal">nequal</a> x1 x2)
+               (forall (x)
+                  (if (<a href="../endpoint">endpoint</a> x c)
+                      (or (equal x x1) (equal x x2))))))))
 </pre>
 </div><div class="axiom">
 <p>The length of a line segment is the distance between its endpoints.</p>
@@ -51,7 +53,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>All three are linear.</p>
+<p>Lines, rays, and line segments are linear.</p>
 <pre>
 (forall (c)
   (iff (<a href="../linear">linear</a> c)

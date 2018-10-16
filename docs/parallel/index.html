@@ -30,7 +30,8 @@
 (forall (f1 f2)
   (iff (<a href="../parallel">parallel</a> f1 f2)
        (exists (c1 c2)
-         (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2) (<a href="../inside">inside</a> f1 c1) (<a href="../inside">inside</a> f2 c2)))))
+         (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2) (<a href="../parallel">parallel</a> c1 c2)
+              (<a href="../inside">inside</a> f1 c1) (<a href="../inside">inside</a> f2 c2)))))
 </pre>
 </div></section>
 <section>

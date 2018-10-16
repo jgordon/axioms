@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>When the joined constituent curves are linear and do not constitute a straight line, the point at which they meet is called a <code>vertex</code>.</p>
+<p>When the joined constituent curves are linear and do not constitute a straight line, the point at which they meet is called a &ldquo;vertex&rdquo;. We use the predicate <code>vertex</code> to refer to the figure consisting of the two line segments and the point where they meet.</p>
 <pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex">vertex</a> v c1 c2 x)
@@ -33,7 +33,7 @@
             (<a href="../joinedCurves">joinedCurves</a> v c1 c2 x))))
 </pre>
 </div><div class="axiom">
-<p>Note that with this definition vertices are symmetric with respect to their sides c1 and c2.</p>
+<p>Vertices are symmetric with respect to their sides c1 and c2.</p>
 <pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex">vertex</a> v c1 c2 x)
@@ -43,7 +43,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>As an intermediate step toward defining polygons, we will say a line segment is a side of a figure if there are vertices at its two endpoints that lie inside the figure.</p>
+<p>As an intermediate step toward defining polygons, we say a line segment is a side of a figure if there are vertices at its two endpoints that lie inside the figure.</p>
 <pre>
 (forall (c p)
   (iff (<a href="../sideOf">sideOf</a> c p)

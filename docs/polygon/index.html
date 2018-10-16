@@ -44,7 +44,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>We have defined polygons as one-dimensional curves. The term is also used to describe the two-dimensional region they enclose. We will use the predicate <code>polygon2</code> for this concept.</p>
+<p>We have defined polygons as one-dimensional curves. The term is also used to describe the two-dimensional region they enclose. We use the predicate <code>polygon2</code> for this concept.</p>
 <pre>
 (forall (r)
   (iff (<a href="../polygon2">polygon2</a> r)
@@ -52,7 +52,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>If n is 4, we have a quadrilateral.</p>
+<p>A polygon with n = 4 is a quadrilateral.</p>
 <pre>
 (forall (p)
   (iff (<a href="../quadrilateral">quadrilateral</a> p) (<a href="../polygon">polygon</a> p 4)))

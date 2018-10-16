@@ -109,7 +109,7 @@
            (forall (c x x1 x2)
              (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
                       (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
-                 (<a href="../subfigure">subfigure</a> x r))))))`
+                 (<a href="../subfigure">subfigure</a> x r))))))
 </pre>
 </div>
 <div class="axiom">
@@ -138,7 +138,8 @@
 (forall (f1 f2)
   (iff (<a href="../parallel">parallel</a> f1 f2)
        (exists (c1 c2)
-         (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2) (<a href="../inside">inside</a> f1 c1) (<a href="../inside">inside</a> f2 c2)))))
+         (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2) (<a href="../parallel">parallel</a> c1 c2)
+              (<a href="../inside">inside</a> f1 c1) (<a href="../inside">inside</a> f2 c2)))))
 </pre>
 </div>
 <div class="axiom">

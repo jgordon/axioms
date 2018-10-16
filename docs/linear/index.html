@@ -25,14 +25,14 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>All three are linear.</p>
+<p>Lines, rays, and line segments are linear.</p>
 <pre>
 (forall (c)
   (iff (<a href="../linear">linear</a> c)
        (or (<a href="../line">line</a> c) (<a href="../ray">ray</a> c) (<a href="../lineSegment">lineSegment</a> c))))
 </pre>
 </div><div class="axiom">
-<p>All three are curves.</p>
+<p>Lines, rays, and line segments are curves.</p>
 <pre>
 (forall (c)
   (if (<a href="../linear">linear</a> c)
@@ -53,7 +53,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>When the joined constituent curves are linear and do not constitute a straight line, the point at which they meet is called a <code>vertex</code>.</p>
+<p>When the joined constituent curves are linear and do not constitute a straight line, the point at which they meet is called a &ldquo;vertex&rdquo;. We use the predicate <code>vertex</code> to refer to the figure consisting of the two line segments and the point where they meet.</p>
 <pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex">vertex</a> v c1 c2 x)

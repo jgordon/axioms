@@ -55,11 +55,11 @@
            (forall (c x x1 x2)
              (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
                       (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
-                 (<a href="../subfigure">subfigure</a> x r))))))`
+                 (<a href="../subfigure">subfigure</a> x r))))))
 </pre>
 </div>
 <div class="axiom">
-<p>As an intermediate step toward defining polygons, we will say a line segment is a side of a figure if there are vertices at its two endpoints that lie inside the figure.</p>
+<p>As an intermediate step toward defining polygons, we say a line segment is a side of a figure if there are vertices at its two endpoints that lie inside the figure.</p>
 <pre>
 (forall (c p)
   (iff (<a href="../sideOf">sideOf</a> c p)
