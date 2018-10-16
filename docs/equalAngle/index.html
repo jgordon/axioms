@@ -34,6 +34,7 @@
               (<a href="../length">length</a> d c1 u) (<a href="../length">length</a> d c2 u)))))
 </pre>
 </div><div class="axiom">
+<p>The equality of angles is symmetric.</p>
 <pre>
 (forall (v1 v2)
   (iff (<a href="../equalAngle">equalAngle</a> v1 v2) (<a href="../equalAngle">equalAngle</a> v2 v1)))
@@ -42,12 +43,13 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>This is an equivalence relation. It is easy to show that it is reflexive, symmetric, and transitive.</p>
+<p>The equality of angles is reflexive.</p>
 <pre>
 (forall (v) (<a href="../equalAngle">equalAngle</a> v v))
 </pre>
 </div>
 <div class="axiom">
+<p>The equality of angles is reflexive.</p>
 <pre>
 (forall (v1 v2 v3)
   (if (and (<a href="../equalAngle">equalAngle</a> v1 v2) (<a href="../equalAngle">equalAngle</a> v2 v3))
@@ -89,7 +91,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>In daily life and absent precise measuring instruments, we don't judge the size of angles down to the degree. But we do make rough judgments in two ways that are more fine-grained than the four cardinal directions, and these can be characterized here. The first augments the north-east-south-west system with the four intermediate directions northeast, southeast, southwest and northwest. This system is based on angles of 45 degrees. A 45-degree angle is one whose anchor point's x- and y-coordinates are equal.</p>
+<p>An everyday way of describing angles is to augment the north-east-south-west system with the four intermediate directions northeast, southeast, southwest and northwest. This system is based on angles of 45 degrees. A 45-degree angle is one whose anchor point's x- and y-coordinates are equal.</p>
 <pre>
 (forall (v)
    (iff (<a href="../45Degrees">45Degrees</a> v)
@@ -100,7 +102,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The second fine-grained system is based on angles of 30 degrees and is visualized as a clock &ndash; &ldquo;incoming at 2 o'clock,&rdquo; &ldquo;exit the traffic circle at 11 o'clock.&rdquo; A 30-degree angle is one in which the distance from the origin to the anchor point is twice the y-coordinate.</p>
+<p>An everyday fine-grained system of describing angles is based on angles of 30 degrees and is visualized as a clock &ndash; &ldquo;incoming at 2 o'clock,&rdquo; &ldquo;exit the traffic circle at 11 o'clock.&rdquo; A 30-degree angle is one in which the distance from the origin to the anchor point is twice the y-coordinate.</p>
 <pre>
 (forall (v)
    (iff (<a href="../30Degrees">30Degrees</a> v)

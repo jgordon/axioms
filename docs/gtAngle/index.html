@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A &ldquo;greater than&rdquo; relation can be defined in a similar manner.</p>
+<p>We say the angle of vertex v1 is greater than the angle of vertex v2 whenever the base of the angle of v1 is greater than the base of the angle of v2.</p>
 <pre>
 (forall (v1 v2)
    (iff (<a href="../gtAngle">gtAngle</a> v1 v2)
@@ -34,6 +34,7 @@
                 (<a href="../length">length</a> d1 c1 u) (<a href="../length">length</a> d2 c2 u) (<a href="../gt">gt</a> d1 d2)))))
 </pre>
 </div><div class="axiom">
+<p>An angle being greater is anti-symmetric.</p>
 <pre>
 (forall (v1 v2)
    (iff (<a href="../gtAngle">gtAngle</a> v1 v2) (not (<a href="../gtAngle">gtAngle</a> v2 v1))))
@@ -42,12 +43,13 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>It is easy to show this relation is anti-reflexive, anti-symmetric, and transitive.</p>
+<p>An angle being greater is anti-reflexive.</p>
 <pre>
 (forall (v) (not (<a href="../gtAngle">gtAngle</a> v v)))
 </pre>
 </div>
 <div class="axiom">
+<p>An angle being greater is transitive.</p>
 <pre>
 (forall (v1 v2 v3)
    (if (and (<a href="../gtAngle">gtAngle</a> v1 v2) (<a href="../gtAngle">gtAngle</a> v2 v3))

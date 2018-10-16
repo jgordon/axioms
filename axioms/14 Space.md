@@ -1069,14 +1069,20 @@ exception.)
 This is an equivalence relation. It is easy to show that it is
 reflexive, symmetric, and transitive.
 
+The equality of angles is reflexive.
+
 ```
 (forall (v) (equalAngle v v))
 ```
+
+The equality of angles is symmetric.
 
 ```
 (forall (v1 v2)
   (iff (equalAngle v1 v2) (equalAngle v2 v1)))
 ```
+
+The equality of angles is reflexive.
 
 ```
 (forall (v1 v2 v3)
@@ -1084,7 +1090,9 @@ reflexive, symmetric, and transitive.
       (equalAngle v1 v3)))
 ```
 
-A "greater than" relation can be defined in a similar manner.
+We say the angle of vertex v1 is greater than the angle of vertex v2
+whenever the base of the angle of v1 is greater than the base of the angle
+of v2.
 
 ```
 (forall (v1 v2)
@@ -1097,14 +1105,20 @@ A "greater than" relation can be defined in a similar manner.
 It is easy to show this relation is anti-reflexive, anti-symmetric,
 and transitive.
 
+An angle being greater is anti-reflexive.
+
 ```
 (forall (v) (not (gtAngle v v)))
 ```
+
+An angle being greater is anti-symmetric.
 
 ```
 (forall (v1 v2)
    (iff (gtAngle v1 v2) (not (gtAngle v2 v1))))
 ```
+
+An angle being greater is transitive.
 
 ```
 (forall (v1 v2 v3)
@@ -1194,11 +1208,12 @@ than the origin.
 In daily life and absent precise measuring instruments, we don't judge
 the size of angles down to the degree. But we do make rough judgments
 in two ways that are more fine-grained than the four cardinal
-directions, and these can be characterized here. The first augments
-the north-east-south-west system with the four intermediate directions
-northeast, southeast, southwest and northwest. This system is based
-on angles of 45 degrees. A 45-degree angle is one whose anchor point's
-x- and y-coordinates are equal.
+directions, and these can be characterized here.
+
+An everyday way of describing angles is to augment the north-east-south-west
+system with the four intermediate directions northeast, southeast, southwest
+and northwest. This system is based on angles of 45 degrees. A 45-degree
+angle is one whose anchor point's x- and y-coordinates are equal.
 
 ```
 (forall (v)
@@ -1209,10 +1224,10 @@ x- and y-coordinates are equal.
                 (distance d o x1 u) (distance d o y1 u)))))
 ```
 
-The second fine-grained system is based on angles of 30 degrees and is
-visualized as a clock -- "incoming at 2 o'clock," "exit the traffic
-circle at 11 o'clock." A 30-degree angle is one in which the distance
-from the origin to the anchor point is twice the y-coordinate.
+An everyday fine-grained system of describing angles is based on angles of
+30 degrees and is visualized as a clock -- "incoming at 2 o'clock,"
+"exit the traffic circle at 11 o'clock." A 30-degree angle is one in which
+the distance from the origin to the anchor point is twice the y-coordinate.
 
 ```
 (forall (v)
@@ -1229,8 +1244,8 @@ degrees via sine and cosine, but we won't, because we are trying to
 capture an ontology of space that underlies how we talk about it in
 everyday life, not how it is formalized in science.
 
-Now we can define a rectangle as a quadrilateral whose vertices are
-all right angles.
+We define a rectangle as a quadrilateral whose vertices are all right
+angles.
 
 ```
 (forall (p)
