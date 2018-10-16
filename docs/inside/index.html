@@ -29,7 +29,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A figure can be inside a figure of the same or higher dimension. We will assume we know what it means for a point to be inside another figure, and define "inside" for higher dimensions in terms of this.</p>
+<p>A figure can be inside a figure of the same or higher dimension. We will assume we know what it means for a point to be inside another figure, and define &ldquo;inside&rdquo; for higher dimensions in terms of this.</p>
 <pre>
 (forall (f1 f2)
   (if (and (<a href="../point">point</a> f1) (<a href="../inside">inside</a> f1 f2))
@@ -68,7 +68,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>RCC8 "tangential proper part", for 2- and 3-dimensional figures:</p>
+<p>RCC8 &ldquo;tangential proper part&rdquo;, for 2- and 3-dimensional figures:</p>
 <pre>
 (forall (r1 r2)
   (iff (<a href="../tpp">tpp</a> r1 r2)
@@ -142,7 +142,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The first step toward defining polygons is to define the figure formed by joining two curves at an endpoint of each. We can call these figures "joined curves". We join two curves with endpoints by stipulating that one endpoint of one coincides with one endpoint of the other. This only covers the case where the two curves are joined at a single point; more complicated combinations would require further definitions.</p>
+<p>The first step toward defining polygons is to define the figure formed by joining two curves at an endpoint of each. We can call these figures &ldquo;joined curves&rdquo;. We join two curves with endpoints by stipulating that one endpoint of one coincides with one endpoint of the other. This only covers the case where the two curves are joined at a single point; more complicated combinations would require further definitions.</p>
 <pre>
 (forall (c c1 c2 x)
   (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
@@ -210,7 +210,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We pick an arbitrary point on the side c2 of the vertex -- let's again pick a point that is one distance unit out from the origin. This will be our "anchor point".</p>
+<p>We pick an arbitrary point on the side c2 of the vertex &ndash; let's again pick a point that is one distance unit out from the origin. This will be our &ldquo;anchor point&rdquo;.</p>
 <pre>
 (forall (x v f c1 c2 o u)
   (iff (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)

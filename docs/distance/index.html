@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>We take distance to be a predicate with four arguments -- a nonnegative number, two points, and a unit.</p>
+<p>We take distance to be a predicate with four arguments &ndash; a nonnegative number, two points, and a unit.</p>
 <pre>
 (forall (d x1 x2 u)
   (if (<a href="../distance">distance</a> d x1 x2 u)
@@ -78,7 +78,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can define qualitative terms like "near" and "far" as outlined in Gordon and Hobbs, Chapter 12, and exemplified numerous times in the rest of the book. We first define the partial ordering "nearer".</p>
+<p>We can define qualitative terms like &ldquo;near&rdquo; and &ldquo;far&rdquo; as outlined in Gordon and Hobbs, Chapter 12, and exemplified numerous times in the rest of the book. We first define the partial ordering &ldquo;nearer&rdquo;.</p>
 <pre>
 (forall (x y z)
    (iff (<a href="../nearer">nearer</a> x y z)
@@ -100,7 +100,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We pick an arbitrary point on the side c2 of the vertex -- let's again pick a point that is one distance unit out from the origin. This will be our "anchor point".</p>
+<p>We pick an arbitrary point on the side c2 of the vertex &ndash; let's again pick a point that is one distance unit out from the origin. This will be our &ldquo;anchor point&rdquo;.</p>
 <pre>
 (forall (x v f c1 c2 o u)
   (iff (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
@@ -120,7 +120,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The second fine-grained system is based on angles of 30 degrees and is visualized as a clock -- "incoming at 2 o'clock," "exit the traffic circle at 11 o'clock." A 30-degree angle is one in which the distance from the origin to the anchor point is twice the y-coordinate.</p>
+<p>The second fine-grained system is based on angles of 30 degrees and is visualized as a clock &ndash; &ldquo;incoming at 2 o'clock,&rdquo; &ldquo;exit the traffic circle at 11 o'clock.&rdquo; A 30-degree angle is one in which the distance from the origin to the anchor point is twice the y-coordinate.</p>
 <pre>
 (forall (v)
    (iff (<a href="../30Degrees">30Degrees</a> v)

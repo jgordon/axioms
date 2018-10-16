@@ -67,7 +67,7 @@ for fname in axiom_files:
                 in_gloss = False
                 continue
 
-            if not in_gloss and re.match('^[0-9A-Z]+ ', line):
+            if not in_gloss and re.match('^[0-9A-Z]', line):
                 in_gloss = True
                 gloss = re.sub('^[0-9.]+ ', '', line)
             elif line == '```':
@@ -100,8 +100,12 @@ for fname in axiom_files:
                     if gloss:
                         gloss = re.sub(r'`([^`]+)`', r'<code>\1</code>',
                                        gloss)
+                        gloss = re.sub(r' -- ', ' &ndash; ', gloss)
+                        gloss = re.sub(r' "', ' &ldquo;', gloss)
+                        gloss = re.sub(r'"([ .,])', r'&rdquo;\1', gloss)
                         formatted_axiom = '<p>' + gloss + '</p>\n' + \
                                           formatted_axiom
+                        gloss = ''
 
                     # If it's a characterizing axiom for a predicate,
                     # add it to the predicate's entry.
