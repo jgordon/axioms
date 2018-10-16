@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A vertex thus consists of the angle and two sides, which are line segments or rays.</p>
+<p>As an intermediate step toward defining polygons, we will say a line segment is a side of a figure if there are vertices at its two endpoints that lie inside the figure.</p>
 <pre>
 (forall (c p)
   (iff (<a href="../sideOf">sideOf</a> c p)
@@ -66,7 +66,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A square is a rhombus that is a rectangle.</p>
+<p>It can be shown that a diagonal of a square makes a 45-degree angle with any side of the square.</p>
 <pre>
 (forall (p d c v x)
    (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
@@ -74,7 +74,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A face of a polyhedron is one of the faces.</p>
+<p>An edge of a polyhedron is a side of one of the faces.</p>
 <pre>
 (forall (c p s)
    (if (<a href="../polyhedron">polyhedron</a> p s)

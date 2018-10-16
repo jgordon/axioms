@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -47,6 +48,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>If the set of difficulties associated with achieving e1 contains the set of difficulties associated with achieving e2, then e1 is more difficult than e2.</p>
 <pre>
 (forall (s s1 e)
   (if (and (<a href="../difficultyScale">difficultyScale</a> s e) (<a href="../difficultiesWith">difficultiesWith</a>' e1 s e))

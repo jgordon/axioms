@@ -40,7 +40,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>All three are linear.</p>
 <pre>
 (forall (c)
   (iff (<a href="../linear">linear</a> c)
@@ -48,7 +48,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>Any linear entity has a line it is a subfigure of.</p>
 <pre>
 (forall (c)
   (if (<a href="../linear">linear</a> c)
@@ -71,7 +71,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>Two lines are parallel if they are coplanar and they have no points in common.</p>
 <pre>
 (forall (c1 c2)
   (if (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2))
@@ -82,7 +82,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>Two figures are parallel if they are inside two parallel lines.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../parallel">parallel</a> f1 f2)

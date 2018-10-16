@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>It is often convenient to characterize a line segment by its endpoints.</p>
 <pre>
 (forall (c)
   (iff (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
@@ -59,7 +59,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A straight line is the shortest distance between two points. We state this in terms of the endpoints and an inside point of a line segment.</p>
+<p>The length of a line segment is the distance between its endpoints.</p>
 <pre>
 (forall (d c u)
   (iff (<a href="../lineSegment">lineSegment</a> c)
@@ -82,7 +82,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
+<p>We construct an isosceles triangle whose apex is a given vertex, by identifying a point a unit distance out on each leg from the vertex.</p>
 <pre>
 (forall (c v u)
    (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
@@ -94,7 +94,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A square is a rhombus that is a rectangle.</p>
+<p>The diagonal of a square is a line segment from one vertex to an opposite vertex.</p>
 <pre>
 (forall (p d)
    (if (<a href="../square">square</a> p)

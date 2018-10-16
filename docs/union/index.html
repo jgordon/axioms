@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>The union of two sets is defined in the standard way.</p>
 <pre>
 (forall (s s1 s2)
   (iff (<a href="../union">union</a> s s1 s2)
@@ -41,6 +42,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>The union of three sets.</p>
 <pre>
 (forall (s s1 s2 s3)
   (iff (<a href="../union3">union3</a> s s1 s2 s3)
@@ -61,6 +63,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Given an eventuality <code>e</code> and a set of constraints <code>c</code>, we can ask what other set <code>s</code> of eventualities would have to obtain in order to entail that <code>e</code> also obtains. The expression <code>(alsoRequired s e c)</code> says that <code>s</code> is a set of eventualities that will entail the real existence of <code>e</code>, over and above <code>c</code>.</p>
 <pre>
 (forall (s e c)
   (if (<a href="../eventuality">eventuality</a> e)

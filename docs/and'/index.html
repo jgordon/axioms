@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>The <code>and</code> of two eventualities is itself an eventuality, and it exists when its two constituent eventualities exist.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../and'">and'</a> e e1 e2)
@@ -40,6 +41,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>If two states are not inconsistent, then the change must be a composite of two changes, one to and the other from an inconsistent state.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../change">change</a>' e e1 e2)
@@ -50,6 +52,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The object of an action is the entity that goes through a change in the final stage of the causal chain.</p>
 <pre>
 (forall (x e)
   (iff (<a href="../objectOf">objectOf</a> x e)
@@ -59,6 +62,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An instrument is an entity that the agent causes to go through a change of state, where this change plays an intermediate role in the causal chain.</p>
 <pre>
 (forall (y e)
   (iff (<a href="../instrumentOf">instrumentOf</a> y e)
@@ -70,6 +74,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An eventuality e1 partially causes another eventuality e2 if e1's conjunction with another eventuality e3 causes e2.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../partiallyCause">partiallyCause</a> e1 e2)
@@ -79,6 +84,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An aggregate, or conjunction, that has an event as a conjunct is itself an event.</p>
 <pre>
 (forall (e e1 e2)
    (if (and (<a href="../and'">and'</a> e e1 e2) (<a href="../event">event</a> e1))
@@ -86,6 +92,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p><code>and'</code> is essentially commutative.</p>
 <pre>
 (forall (e e1 e2)
   (if (and (<a href="../and'">and'</a> e e1 e2) (<a href="../event">event</a> e2))
@@ -93,6 +100,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Two events are in sequence if one is before the other, and the aggregate of the two events is just their reified conjunction.</p>
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../eventSequence">eventSequence</a> e e1 e2)
@@ -100,6 +108,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The likelihood of the conjunction <code>e</code> of two eventualities <code>e1</code> and <code>e2</code> is less than or equal to the likelihood of each of them.</p>
 <pre>
 (forall (s e e1 e2 d d1 d2 c)
   (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)

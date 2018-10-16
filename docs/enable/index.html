@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>If an eventuality e1 is required for any way of bringing about e2, then we can use the two-argument predicate <code>enable</code>.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../enable">enable</a> e1 e2)
@@ -36,6 +37,7 @@
          (if (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../enable0">enable0</a> e1 e2 s)))))
 </pre>
 </div><div class="axiom">
+<p>If e1 enables e2, then (not e1) causes (not e2).</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../enable">enable</a> e1 e2)
@@ -45,7 +47,7 @@
                (and (<a href="../not'">not'</a> e4 e2) (<a href="../cause">cause</a> e3 e4)))))))
 </pre>
 </div><div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>An eventuality cannot happen before an eventuality it enables.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../enable">enable</a> e1 e2) (not (<a href="../before">before</a> e2 e1))))
@@ -54,6 +56,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>Something being near a person is an enabling condition for perceiving it.</p>
 <pre>
 (forall (p x e2)
   (if (<a href="../perceive">perceive</a>' e2 p x)
@@ -62,6 +65,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>When something is perceived, there is a sense organ whose intact-ness enables the perception.</p>
 <pre>
 (forall (p x e2)
   (if (and (<a href="../person">person</a> p) (<a href="../perceive">perceive</a>' e2 p x))

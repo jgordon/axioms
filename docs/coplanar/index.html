@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>Two figures are coplanar if there is a plane that they are both inside.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../coplanar">coplanar</a> f1 f2)
@@ -36,7 +36,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>Two lines are parallel if they are coplanar and they have no points in common.</p>
 <pre>
 (forall (c1 c2)
   (if (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2))

@@ -29,7 +29,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The primitive case of a rate is when there is a set S of events, a set T of time intervals, and a function mapping the intervals into a subset of S, namely those events that occur during that interval. When the concept of rate truly applies, the cardinalities of all these subsets are the same.</p>
 <pre>
 (forall (s s0 t f n)
   (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)
@@ -45,7 +45,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>When the third argument of <code>rate</code> is a temporal unit, we assume that the members of the set of time intervals all have a duration of one in that unit.</p>
 <pre>
 (forall (n s t u)
   (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
@@ -55,7 +55,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>minutes.</p>
+<p>We extend <code>rate</code> to units which are not the duration of the temporal intervals in which the events were measured, e.g., going 60 mph for 5 minutes.</p>
 <pre>
 (forall (r1 r2 s u1 u2 j)
   (if (and (<a href="../rate">rate</a> r1 s u1) (<a href="../product">product</a> r2 j r1)
@@ -66,7 +66,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>minutes.</p>
+<p>Rate defines a scale whose elements are the set of events whose rate is being measured and whose ordering is the less-than relation between rates.</p>
 <pre>
 (forall (s s0)
   (iff (<a href="../rateScale">rateScale</a> s s0)

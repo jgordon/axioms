@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>2.18</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../properSubset">properSubset</a> s1 s2)
@@ -38,6 +39,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>We can say that some set <code>s1</code> of eventualties minimally proves an eventuality <code>e2</code> if <code>s1</code> implies <code>e2</code> but no proper subset of <code>s1</code> proves <code>e2</code>, and furthermore <code>e2</code> is not itself a member of <code>s1</code>.</p>
 <pre>
 (forall (s1 e2)
   (iff (<a href="../minimallyProves">minimallyProves</a> s1 e2)

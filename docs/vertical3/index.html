@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A y-coordinate can be defined similarly.</p>
+<p>We define a subset of the domain to be <code>vertical3</code> if no element of it is above2 or rightOf any other.</p>
 <pre>
 (forall (s1 f)
    (iff (<a href="../vertical3">vertical3</a> s1 f)
@@ -40,7 +40,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (s1 s2 f)
    (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal3">horizontal3</a> s1 f) (<a href="../vertical3">vertical3</a> s2 f))
@@ -48,7 +47,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>We can stipulate a <code>vertical3</code> set to be the z-axis of a framework.</p>
 <pre>
 (forall (a3 f)
    (if (<a href="../zAxis">zAxis</a> a3 f)
@@ -56,7 +55,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>We can define the z-coordinate of an element in a framework just as we defined x- and y-coordinates.</p>
 <pre>
 (forall (z1 x f)
    (iff (<a href="../zCoordinate">zCoordinate</a> z1 x f)

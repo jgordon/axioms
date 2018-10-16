@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>The <code>nequal</code> relation holds for pairs of entities that are not equal.</p>
 <pre>
 (forall (x y)
   (iff (<a href="../nequal">nequal</a> x y)
@@ -38,6 +39,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A <code>doubleton</code> set has exactly two members.</p>
 <pre>
 (forall (s x y)
   (iff (<a href="../doubleton">doubleton</a> s x y)
@@ -48,6 +50,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The predication <code>(deleteElt s s1 x)</code> says that the set s is obtained from set s1 by deleting an element x.</p>
 <pre>
 (forall (s s1 x)
   (iff (<a href="../deleteElt">deleteElt</a> s s1 x)
@@ -58,6 +61,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>2.18</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../properSubset">properSubset</a> s1 s2)
@@ -65,6 +69,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Two entities are subsitutable in their respective events if they play the same role.</p>
 <pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst">subst</a> x e1 y e2)
@@ -86,7 +91,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
+<p>Pass functional dependence relations down to partial instantiations.</p>
 <pre>
 (forall (c1 c x1 x y e e1)
   (if (and (<a href="../skfct">skfct</a> c1 c x1 x e) (<a href="../fd">fd</a> c y e) (<a href="../nequal">nequal</a> x y)
@@ -95,6 +100,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The predicate <code>onlyarg*</code> recurses through eventuality arguments and bottoms out in a single entity y.</p>
 <pre>
 (forall (y e)
   (iff (<a href="../onlyarg*">onlyarg*</a> y e)
@@ -106,6 +112,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The set of relations of a composite entity are relations between a component or the whole, and something else.</p>
 <pre>
 (forall (s3 x)
   (if (<a href="../relationsOf">relationsOf</a> s3 x)
@@ -118,6 +125,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A positive integer is any non-negative integer except 0.</p>
 <pre>
 (forall (n)
    (iff (<a href="../posInteger">posInteger</a> n)
@@ -125,7 +133,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
+<p>The arguments of <code>fraction</code> are a number and a non-zero number.</p>
 <pre>
 (forall (f a b)
   (if (<a href="../fraction">fraction</a> f a b)
@@ -133,7 +141,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>When the beginning and end of an interval are distinct, we will call it a proper interval. Positive infinite intervals are regarded as proper intervals.</p>
 <pre>
 (forall (t)
   (iff (<a href="../properInterval">properInterval</a> t)
@@ -143,7 +151,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The "time span of" an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
 <pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
@@ -173,6 +181,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An <code>event</code> can (1) directly be a change of state, (2) generate a change of state, or (3) have a subevent, which contains the change.</p>
 <pre>
 (forall (e)
    (iff (<a href="../event">event</a> e)
@@ -195,7 +204,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>It is often convenient to characterize a line segment by its endpoints.</p>
 <pre>
 (forall (c)
   (iff (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
@@ -205,7 +214,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>The first step toward defining polygons is to define the figure formed by joining two curves at an endpoint of each. We can call these figures "joined curves". We join two curves with endpoints by stipulating that one endpoint of one coincides with one endpoint of the other. This only covers the case where the two curves are joined at a single point; more complicated combinations would require further definitions.</p>
 <pre>
 (forall (c c1 c2 x)
   (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
@@ -222,7 +231,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A vertex thus consists of the angle and two sides, which are line segments or rays.</p>
+<p>As an intermediate step toward defining polygons, we will say a line segment is a side of a figure if there are vertices at its two endpoints that lie inside the figure.</p>
 <pre>
 (forall (c p)
   (iff (<a href="../sideOf">sideOf</a> c p)
@@ -233,7 +242,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (f)
   (if (<a href="../framework">framework</a> f)
@@ -245,7 +253,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>The z-axis, if it exists, is unique.</p>
 <pre>
 (forall (f a3)
    (if (and (<a href="../framework">framework</a> f) (<a href="../zAxis">zAxis</a> a3 f))
@@ -254,7 +262,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
+<p>We construct an isosceles triangle whose apex is a given vertex, by identifying a point a unit distance out on each leg from the vertex.</p>
 <pre>
 (forall (c v u)
    (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
@@ -266,7 +274,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A square is a rhombus that is a rectangle.</p>
+<p>The diagonal of a square is a line segment from one vertex to an opposite vertex.</p>
 <pre>
 (forall (p d)
    (if (<a href="../square">square</a> p)

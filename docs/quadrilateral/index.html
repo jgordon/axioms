@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A polygon is then a closed curve that is made up of n sides.</p>
+<p>If n is 4, we have a quadrilateral.</p>
 <pre>
 (forall (p)
   (iff (<a href="../quadrilateral">quadrilateral</a> p) (<a href="../polygon">polygon</a> p 4)))
@@ -45,7 +45,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A "greater than" relation can be defined in a similar manner.</p>
+<p>Now we can define a rectangle as a quadrilateral whose vertices are all right angles.</p>
 <pre>
 (forall (p)
   (iff (<a href="../rectangle">rectangle</a> p)

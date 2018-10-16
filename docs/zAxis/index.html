@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>We can stipulate a <code>vertical3</code> set to be the z-axis of a framework.</p>
 <pre>
 (forall (a3 f)
    (if (<a href="../zAxis">zAxis</a> a3 f)
@@ -35,7 +35,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>The z-axis, if it exists, is unique.</p>
 <pre>
 (forall (f a3)
    (if (and (<a href="../framework">framework</a> f) (<a href="../zAxis">zAxis</a> a3 f))
@@ -44,7 +44,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>The z-axis contains the origin.</p>
 <pre>
 (forall (f a1 a2 s)
    (if (and (<a href="../framework">framework</a> f) (<a href="../zAxis">zAxis</a> a3 f) (<a href="../origin">origin</a> o f))
@@ -52,7 +52,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>We can define the z-coordinate of an element in a framework just as we defined x- and y-coordinates.</p>
 <pre>
 (forall (z1 x f)
    (iff (<a href="../zCoordinate">zCoordinate</a> z1 x f)
@@ -62,7 +62,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>Every framework has an x-axis and a y-axis. It is two-dimensional if and only if it lacks a z-axis. We condition this on f being a framework to preserve the predicate 2D for other uses as well.</p>
 <pre>
 (forall (f)
   (if (<a href="../framework">framework</a> f)
@@ -71,7 +71,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>If a framework is three-dimensional, it has a z-axis.</p>
 <pre>
 (forall (f)
   (if (and (<a href="../framework">framework</a> f) (<a href="../3D">3D</a> f))
@@ -79,7 +79,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>Finally, we can define a coordinate system as a framework in which all the axes are numeric and the partial ordering is "greater than".</p>
 <pre>
 (forall (f)
   (iff (<a href="../coordinateSystem">coordinateSystem</a> f)

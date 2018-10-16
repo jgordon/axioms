@@ -32,7 +32,7 @@
        (and (<a href="../rhombus">rhombus</a> p) (<a href="../rectangle">rectangle</a> p))))
 </pre>
 </div><div class="axiom">
-<p>A square is a rhombus that is a rectangle.</p>
+<p>The diagonal of a square is a line segment from one vertex to an opposite vertex.</p>
 <pre>
 (forall (p d)
    (if (<a href="../square">square</a> p)
@@ -47,7 +47,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A square is a rhombus that is a rectangle.</p>
+<p>It can be shown that a diagonal of a square makes a 45-degree angle with any side of the square.</p>
 <pre>
 (forall (p d c v x)
    (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))

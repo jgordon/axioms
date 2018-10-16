@@ -29,10 +29,12 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>8.31</p>
 <pre>
 (forall (s1 s) (if (<a href="../Hi">Hi</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
 </pre>
 </div><div class="axiom">
+<p>The top of the scale is in the <code>Hi</code> region of the scale and is the top of the <code>Hi</code> region.</p>
 <pre>
 (forall (s1 s)
    (if (<a href="../Hi">Hi</a> s1 s)
@@ -43,6 +45,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>If a point is in the <code>Lo</code> region, then it is less than all the points in the <code>Hi</code> region.</p>
 <pre>
 (forall (s s1 s2 x y)
    (if (and (<a href="../Hi">Hi</a> s1 s) (<a href="../Lo">Lo</a> s2 s) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s2))
@@ -50,6 +53,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The <code>scaleFor</code> predicate relates a scale and the absolute form of its adjective (e.g., 'tall').</p>
 <pre>
 (forall (s e)
    (iff (<a href="../scaleFor">scaleFor</a> s e)
@@ -61,6 +65,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If something is in the <code>Hi</code> region of a scale, then that property plays a causal or enabling role in some agent's goal being achieved or not achieved.</p>
 <pre>
 (forall (e x y s1 s)
    (if (and (<a href="../at">at</a>' e x y s1) (<a href="../Hi">Hi</a> s1 s) (etc))
@@ -71,7 +76,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>minutes.</p>
+<p>A set of events is frequent if it is in the <code>Hi</code> region of a rate scale.</p>
 <pre>
 (forall (s1)
   (iff (<a href="../frequent">frequent</a> s1)
@@ -81,7 +86,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
 <pre>
 (forall (x z)
    (iff (<a href="../far">far</a> x z)
@@ -102,6 +106,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An eventuality is <code>likely</code> with respect to constraints <code>c</code> if its likelihood <code>d</code> is on the high end of the scale of likelihoods.</p>
 <pre>
 (forall (e c)
   (iff (<a href="../likely">likely</a> e c)

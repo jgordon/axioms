@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>Less-than or equal:</p>
 <pre>
 (forall (x y s)
    (iff (<a href="../leqs">leqs</a> x y s)
@@ -39,6 +40,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p><code>leqs</code> is antisymmetric:</p>
 <pre>
 (forall (x y s)
    (if (and (<a href="../leqs">leqs</a> x y s) (<a href="../leqs">leqs</a> y x s))
@@ -46,6 +48,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The top of a scale is the highest point in the scale.</p>
 <pre>
 (forall (x s)
    (iff (<a href="../top">top</a> x s)
@@ -55,6 +58,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The bottom of a scale is the lowest point in the scale.</p>
 <pre>
 (forall (x s)
    (iff (<a href="../bottom">bottom</a> x s)
@@ -64,6 +68,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -80,6 +85,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>We can construct composite scales out of existing scales.</p>
 <pre>
 (forall (s s1 s2)
    (if (<a href="../compositeScale">compositeScale</a> s s1 s2)
@@ -95,7 +101,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
+<p>9.41</p>
 <pre>
 (forall (x y s1 m)
   (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
@@ -106,6 +112,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The more we have to assume will happen, the less likely it is.</p>
 <pre>
 (forall (s1 e1 d1 s2 e2 d2 c s)
   (if (and (<a href="../alsoRequired">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired">alsoRequired</a> s2 e2 c) (<a href="../subset">subset</a> s2 s1)
@@ -114,6 +121,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The likelihood of the conjunction <code>e</code> of two eventualities <code>e1</code> and <code>e2</code> is less than or equal to the likelihood of each of them.</p>
 <pre>
 (forall (s e e1 e2 d d1 d2 c)
   (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
@@ -122,6 +130,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The likelihood of the disjunction <code>e</code> of two eventualities <code>e1</code> and <code>e2</code> is greater than or equal to the likelihood of either of them.</p>
 <pre>
 (forall (s e e1 e2 d d1 d2 c)
   (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)

@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>The first step toward defining polygons is to define the figure formed by joining two curves at an endpoint of each. We can call these figures "joined curves". We join two curves with endpoints by stipulating that one endpoint of one coincides with one endpoint of the other. This only covers the case where the two curves are joined at a single point; more complicated combinations would require further definitions.</p>
 <pre>
 (forall (c c1 c2 x)
   (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
@@ -41,7 +41,7 @@
                         (or (<a href="../endpoint">endpoint</a> z c1) (<a href="../endpoint">endpoint</a> z c2))))))))
 </pre>
 </div><div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>The figure formed by joining curves is a curve.</p>
 <pre>
 (forall (c c1 c2 x)
    (if (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
@@ -51,7 +51,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>When the joined constituent curves are linear and do not constitute a straight line, the point at which they meet is called a <code>vertex</code>.</p>
 <pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex">vertex</a> v c1 c2 x)

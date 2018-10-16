@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p><code>Rexist</code> is a positive modality.</p>
 <pre>
 (forall (e) (if (<a href="../Rexist">Rexist</a> e) (<a href="../PosMod">PosMod</a> e Rexist)))
 </pre>
@@ -36,6 +37,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p><code>gen</code> obeys a kind of modus ponens rule with respect to <code>Rexist</code>.</p>
 <pre>
 (forall (e1 e2)
   (if (and (<a href="../gen">gen</a> e1 e2) (<a href="../Rexist">Rexist</a> e1))
@@ -43,6 +45,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Real members of a set inherit all the properties of the typical element.</p>
 <pre>
 (forall (x s y e1 e2)
   (if (and (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> y s) (<a href="../subst">subst</a> x e1 y e2)
@@ -51,7 +54,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
+<p>3.6</p>
 <pre>
 (forall (s x e y e1)
   (if (and (<a href="../dset">dset</a> s x e) (<a href="../subst">subst</a> x e y e1) (<a href="../Rexist">Rexist</a> e)
@@ -60,7 +63,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
+<p>The principal property of <code>fd</code> is that when e holds and a real entity instantiates x, then there is a real entity that instantiates y and the corresponding eventuality holds.</p>
 <pre>
 (forall (x y e s)
   (if (and (<a href="../fd">fd</a> y x e) (<a href="../Rexist">Rexist</a> e) (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> x1 s))
@@ -69,7 +72,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
+<p>Corresponding to the functional dependency, there is a skolem function that maps any element x1 of the set s into the corresponding y1, and that function has a range.</p>
 <pre>
 (forall (x x1 y y1 e)
   (iff (<a href="../skfct">skfct</a> y1 y x1 x e)
@@ -80,7 +83,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
+<p>An eventuality type e1 holds for an entity y as its x parameter if, when the entity is substituted for x in the eventuality type, the resulting instantiation really exists.</p>
 <pre>
 (forall (e1 y x)
   (iff (<a href="../holdsFor">holdsFor</a> e1 y x)
@@ -90,6 +93,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The <code>and</code> of two eventualities is itself an eventuality, and it exists when its two constituent eventualities exist.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../and'">and'</a> e e1 e2)
@@ -99,6 +103,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Existence of a set in the real world is always true whenever all its members exist in the real world.</p>
 <pre>
 (forall (s)
   (if (<a href="../set">set</a> s)
@@ -108,6 +113,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The negation of an eventuality really exists if and only if the eventuality doesn't.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../not'">not'</a> e1 e2)
@@ -117,6 +123,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A weaker version of the existence axiom above.</p>
 <pre>
 (forall (e1 e2)
   (if (and (<a href="../not'">not'</a> e1 e2) (<a href="../Rexist">Rexist</a> e1))
@@ -125,6 +132,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Disjunction is defined analogous to conjunction: If the eventuality e is the disjunction of eventualities e1 and e2, then e really exists exactly when one of e1 and e2 really exists.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../or'">or'</a> e e1 e2)
@@ -134,6 +142,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The disjunction of a set really exists exactly when one of the members of the set really exists.</p>
 <pre>
 (forall (e s)
   (if (<a href="../disjunction">disjunction</a> e s)
@@ -144,6 +153,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The implication really exists provided the consequent really exists whenever the antecedent really exists.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../imply'">imply'</a> e e1 e2)
@@ -152,6 +162,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Modus ponens:</p>
 <pre>
 (forall (e e1 e2)
   (if (and (<a href="../imply'">imply'</a> e e1 e2) (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1))
@@ -159,6 +170,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Implication is transitive.</p>
 <pre>
 (forall (e1 e2 e3 i1 i2 i3)
   (if (and (<a href="../imply'">imply'</a> i1 e1 e2) (<a href="../imply'">imply'</a> i2 e2 e3) (<a href="../imply'">imply'</a> i3 e1 e3)
@@ -167,6 +179,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Sets are composite entities whose components are members and whose only property is being set.</p>
 <pre>
 (forall (e s s1 s2 s3)
   (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
@@ -176,6 +189,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Ordered pairs are composite entities where the components are the first and second elements, there are no properties other than the whole being a pair, and the relations are the <code>first</code> and <code>second</code> relations between the components and the whole.</p>
 <pre>
 (forall (p x y e1 e2 e3)
   (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
@@ -188,6 +202,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A sequence can be viewed as a composite entity whose components are the elements of the sequence and whose relations are the ordering relations in the sequence.</p>
 <pre>
 (forall (e s)
   (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
@@ -206,6 +221,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A ground in a figure-ground relation is a composite entity whose parts are all uniform in that they all share some property.</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -221,6 +237,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>This can also be written as:</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -231,6 +248,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The <code>scaleFor</code> predicate relates a scale and the absolute form of its adjective (e.g., 'tall').</p>
 <pre>
 (forall (s e)
    (iff (<a href="../scaleFor">scaleFor</a> s e)
@@ -242,6 +260,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An agent a has done an action e iff a is the agent of the action and the action really takes place.</p>
 <pre>
 (forall (a e)
   (iff (<a href="../do">do</a> a e)
@@ -249,6 +268,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The expression (tcause e1 e2) means that e1 tends to cause e2. If (tcause e1 e2) holds, the other eventualities in the causal complex for e2 are likely but not guaranteed to hold. Both <code>cause</code> and <code>tcause</code> are defeasible, but <code>tcause</code> is more likely to be defeated.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../tcause">tcause</a> e1 e2)
@@ -260,6 +280,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>e1 tends to cause e2 with likelihood q if e1 is in a causal complex for e2, if the likelihood of the rest of s is q, and if e1 would be singled out as a cause of e2 provided the rest of s actually obtains.</p>
 <pre>
 (forall (e1 e2 q c)
   (iff (<a href="../tcauseq">tcauseq</a> e1 e2 q c)
@@ -270,6 +291,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>We can say that an agent a is able to do e, given a set of constraints c, if the agent's causing e is possible with respect to c whenever the set s1 of all the events in a causal complex s for e that are beyond a's control really exists independently.</p>
 <pre>
 (forall (a e c)
   (iff (<a href="../able">able</a> a e c)
@@ -280,7 +302,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>minutes.</p>
+<p>Rate defines a scale whose elements are the set of events whose rate is being measured and whose ordering is the less-than relation between rates.</p>
 <pre>
 (forall (s s0)
   (iff (<a href="../rateScale">rateScale</a> s s0)
@@ -296,6 +318,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>For something to really exist is for it to happen or hold Now.</p>
 <pre>
 (forall (e t)
   (if (<a href="../Now">Now</a> t)

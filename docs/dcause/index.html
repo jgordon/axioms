@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>We can posit a notion of directly causes (<code>dcause</code>) as a relation between an agent or event and an event, that is true when there are no intermediate, mediating events.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../dcause">dcause</a> e1 e2)
@@ -40,6 +41,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>If an agent can will an event to happen, then this willing is a direct cause of the event.</p>
 <pre>
 (forall (e1 a e)
   (if (and (<a href="../will">will</a>' e1 a e) (<a href="../cause">cause</a> e1 e))
@@ -47,6 +49,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An agent directly causes an event iff the agent's willing it to happen directly causes it.</p>
 <pre>
 (forall (a e)
   (if (<a href="../agent">agent</a> a)
@@ -56,6 +59,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If an agent can directly cause an action that is enabled, then it is executable. Moreover, if the action can be caused by another executable action, then it is executable.</p>
 <pre>
 (forall (e a c t)
   (iff (<a href="../executable">executable</a> e a c t)
@@ -69,6 +73,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Another subset of body parts can be directly controlled by a person's will. That is, the person's willing an event is the direct cause of the motion of the body part.</p>
 <pre>
 (forall (p s1)
   (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
@@ -82,6 +87,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Example of an axiom for a more detailed account of human physical control: A person can voluntarily lift his or her arm.</p>
 <pre>
 (forall (p)
   (if (<a href="../person">person</a> p)

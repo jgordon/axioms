@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The predication <code>(durationOf d t u)</code> says that t is made up of d intervals having the same duration as u. We will allow the second argument to be an instant, an interval, a temporal sequence, or an eventuality.</p>
 <pre>
 (forall (d t u)
   (if (<a href="../durationOf">durationOf</a> d t u)
@@ -37,7 +37,7 @@
            (or (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../tseq">tseq</a> t) (<a href="../eventuality">eventuality</a> t)))))
 </pre>
 </div><div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The predicate <code>durationOf</code> is temporal.</p>
 <pre>
 (forall (e d t u)
   (if (<a href="../durationOf">durationOf</a>' e d t u) (<a href="../temporal">temporal</a> e)))
@@ -46,14 +46,14 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The duration of an instant is zero.</p>
 <pre>
 (forall (d t u)
   (if (<a href="../instant">instant</a> t) (<a href="../durationOf">durationOf</a> 0 t u)))
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The duration of an interval is determined by concatenation.</p>
 <pre>
 (forall (d t u)
   (if (<a href="../interval">interval</a> t)
@@ -66,14 +66,14 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.67</p>
 <pre>
 (forall (s u)
   (if (<a href="../null">null</a> s) (<a href="../durationOf">durationOf</a> 0 s u)))
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.68</p>
 <pre>
 (forall (s s1 t u d d1 d2)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../tseq">tseq</a> s1) (not (<a href="../member">member</a> t s1)) (<a href="../addElt">addElt</a> s s1 t)
@@ -82,7 +82,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The duration of an eventuality is the duration of its time span.</p>
 <pre>
 (forall (d e u)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -92,7 +92,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>In terms of <code>durationOf</code>, we can define a <code>shorterDuration</code> partial ordering.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../shorterDuration">shorterDuration</a> t1 t2)
@@ -103,7 +103,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>A temporal sequence is periodic if there is a constant duration between any two successive temporal entities in the temporal sequence.</p>
 <pre>
 (forall (s)
   (iff (<a href="../periodicTseq">periodicTseq</a> s)
@@ -117,7 +117,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The constant duration in a periodic temporal sequence can be called the gap duration.</p>
 <pre>
 (forall (s d t1 t2 t n1 n2 u)
   (if (and (<a href="../periodicTseq">periodicTseq</a> s) (<a href="../successiveElts">successiveElts</a> t1 t2 s)
@@ -126,7 +126,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>If the gap between two elements is roughly equal, the temporal sequence is roughly periodic.</p>
 <pre>
 (forall (s)
   (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)
@@ -144,7 +144,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>When the third argument of <code>rate</code> is a temporal unit, we assume that the members of the set of time intervals all have a duration of one in that unit.</p>
 <pre>
 (forall (n s t u)
   (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
@@ -154,7 +154,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>minutes.</p>
+<p>We extend <code>rate</code> to units which are not the duration of the temporal intervals in which the events were measured, e.g., going 60 mph for 5 minutes.</p>
 <pre>
 (forall (r1 r2 s u1 u2 j)
   (if (and (<a href="../rate">rate</a> r1 s u1) (<a href="../product">product</a> r2 j r1)

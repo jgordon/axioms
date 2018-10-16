@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>The predicate <code>componentOf</code> gives us a quick way to say a single entity is a component.</p>
 <pre>
 (forall (y x)
   (iff (<a href="../componentOf">componentOf</a> y x)
@@ -40,6 +41,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>We define a predicate <code>componentOrWhole</code> as the disjunction of <code>componentOf</code> and being equal to the whole.</p>
 <pre>
 (forall (x1 x)
   (iff (<a href="../componentOrWhole">componentOrWhole</a> x1 x)
@@ -47,6 +49,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If <code>x</code> is at <code>y</code> in <code>s</code>, then <code>y</code> must be a component of <code>s</code> and <code>x</code> must be external to <code>s</code>.</p>
 <pre>
 (forall (x y s)
   (if (<a href="../at">at</a> x y s)
@@ -54,6 +57,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A ground in a figure-ground relation is a composite entity whose parts are all uniform in that they all share some property.</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -69,6 +73,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A pattern is a composite entity which contains type elements among its components.</p>
 <pre>
 (forall (x)
   (iff (<a href="../pattern">pattern</a> x)
@@ -77,6 +82,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The parameters of a pattern are the components that are type elements.</p>
 <pre>
 (forall (x)
   (if (<a href="../pattern">pattern</a> x)
@@ -89,6 +95,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An instance of a pattern is a composite entity in which all parameters have been replaced by entities that are members of the set the parameter is the type element of.</p>
 <pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
@@ -106,6 +113,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>We can define an incomplete instance to be a composite entity in which at least one parameter is instantiated and some but not all of the properties and relations are instantiated.</p>
 <pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
@@ -123,6 +131,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p><code>inScale</code> is an abbreviation for being a component of a scale.</p>
 <pre>
 (forall (y s)
    (iff (<a href="../inScale">inScale</a> y s)

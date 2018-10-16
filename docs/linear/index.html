@@ -25,21 +25,21 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>All three are linear.</p>
 <pre>
 (forall (c)
   (iff (<a href="../linear">linear</a> c)
        (or (<a href="../line">line</a> c) (<a href="../ray">ray</a> c) (<a href="../lineSegment">lineSegment</a> c))))
 </pre>
 </div><div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>All three are curves.</p>
 <pre>
 (forall (c)
   (if (<a href="../linear">linear</a> c)
       (<a href="../curve">curve</a> c)))
 </pre>
 </div><div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>Any linear entity has a line it is a subfigure of.</p>
 <pre>
 (forall (c)
   (if (<a href="../linear">linear</a> c)
@@ -53,7 +53,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>When the joined constituent curves are linear and do not constitute a straight line, the point at which they meet is called a <code>vertex</code>.</p>
 <pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex">vertex</a> v c1 c2 x)

@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The "time span of" an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
 <pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
@@ -58,7 +58,7 @@
                                      (<a href="../ends">ends</a> t1 t2)))))))))))
 </pre>
 </div><div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.33</p>
 <pre>
 (forall (e0 e t) (if (<a href="../timeSpanOf">timeSpanOf</a>' e0 t e) (<a href="../temporal">temporal</a> e0)))
 </pre>
@@ -66,7 +66,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>We will say that an eventuality happens in a temporal entity or sequence if its time span is entirely included in the temporal entity or sequence.</p>
 <pre>
 (forall (e t)
   (iff (<a href="../happensIn">happensIn</a> e t)
@@ -80,7 +80,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.26</p>
 <pre>
 (forall (t e)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -89,7 +89,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.27</p>
 <pre>
 (forall (t e)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -99,7 +99,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.28</p>
 <pre>
 (forall (t e)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -108,7 +108,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The predicate <code>posInfIntervalEv</code> says that its argument is either a positive infinite interval or an eventuality whose time span is a positive infinite interval.</p>
 <pre>
 (forall (e)
   (iff (<a href="../posInfIntervalEv">posInfIntervalEv</a> e)
@@ -118,7 +118,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The predicate <code>properIntervalEv</code> says that its argument is either a proper interval or an eventuality whose time span is a proper interval.</p>
 <pre>
 (forall (e)
   (iff (<a href="../properIntervalEv">properIntervalEv</a> e)
@@ -129,7 +129,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The duration of an eventuality is the duration of its time span.</p>
 <pre>
 (forall (d e u)
   (if (<a href="../eventuality">eventuality</a> e)

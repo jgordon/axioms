@@ -29,12 +29,14 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>If <code>x</code> is at <code>y</code> in <code>s</code>, then <code>y</code> must be a component of <code>s</code> and <code>x</code> must be external to <code>s</code>.</p>
 <pre>
 (forall (x y s)
   (if (<a href="../at">at</a> x y s)
       (and (<a href="../componentOf">componentOf</a> y s) (<a href="../externalTo">externalTo</a> x s))))
 </pre>
 </div><div class="axiom">
+<p>The third argument of an <code>at</code> relation must be a potential ground.</p>
 <pre>
 (forall (x y s)
   (if (<a href="../at">at</a> x y s)
@@ -44,6 +46,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>Original:</p>
 <pre>
 (forall (x y s)
    (if (<a href="../lts">lts</a> x y s)
@@ -54,6 +57,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The <code>at</code> relation preserves the partial ordering.</p>
 <pre>
 (forall (x1 x2 y1 y2 s)
    (and (if (<a href="../at">at</a> x1 y1 s)
@@ -65,6 +69,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>It is convenient to have a predicate <code>onScale</code> for both points on a scale and for entities at points in a scale.</p>
 <pre>
 (forall (x s)
    (iff (<a href="../onScale">onScale</a> x s)
@@ -74,6 +79,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -90,6 +96,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The <code>scaleFor</code> predicate relates a scale and the absolute form of its adjective (e.g., 'tall').</p>
 <pre>
 (forall (s e)
    (iff (<a href="../scaleFor">scaleFor</a> s e)
@@ -101,6 +108,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If something is in the <code>Hi</code> region of a scale, then that property plays a causal or enabling role in some agent's goal being achieved or not achieved.</p>
 <pre>
 (forall (e x y s1 s)
    (if (and (<a href="../at">at</a>' e x y s1) (<a href="../Hi">Hi</a> s1 s) (etc))
@@ -111,7 +119,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
+<p>If an entity is mapped into a point by a measure, it is <code>at</code> that point.</p>
 <pre>
 (forall (m s1 s2 x y)
   (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)
@@ -120,6 +128,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An entity x moves from y to z exactly when there is a change from x's being at y to its being at z.</p>
 <pre>
 (forall (e x y z)
   (iff (<a href="../move">move</a>' e x y z)
@@ -128,6 +137,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If an entity moves from a point on vertical scale to a higher point, we say that there as been an increase.</p>
 <pre>
 (forall (e x y z s)
   (iff (<a href="../increase">increase</a> x s)
@@ -137,6 +147,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Similarly, if an entity moves from a point on a vertical scale to a lower point, there has been a decrease.</p>
 <pre>
 (forall (e x y z s)
   (iff (<a href="../decrease">decrease</a> x s)
@@ -146,6 +157,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>11.11</p>
 <pre>
 (forall (z e)
   (iff (<a href="../sourceOf">sourceOf</a> z e)
@@ -154,6 +166,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>11.12</p>
 <pre>
 (forall (w e)
   (iff (<a href="../terminusOf">terminusOf</a> w e)
@@ -162,7 +175,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>And <code>atTime</code> can be viewed as an <code>at</code> relation.</p>
 <pre>
 (forall (s e t)
   (if (and (<a href="../timeScale">timeScale</a> s) (<a href="../atTime">atTime</a> e t))
@@ -170,6 +183,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If the likelihood of an eventuality <code>e</code> is <code>d</code>, we can say that <code>e</code> is at <code>d</code> on the likelihood scale, if <code>c</code> holds.</p>
 <pre>
 (forall (d e c s e1)
   (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../at">at</a>' e1 e d s))

@@ -80,7 +80,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>If a curve is closed, it has no endpoints.</p>
 <pre>
 (forall (c)
   (if (<a href="../closed">closed</a> c)
@@ -89,7 +89,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>It is often convenient to characterize a line segment by its endpoints.</p>
 <pre>
 (forall (c)
   (iff (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
@@ -99,7 +99,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>The first step toward defining polygons is to define the figure formed by joining two curves at an endpoint of each. We can call these figures "joined curves". We join two curves with endpoints by stipulating that one endpoint of one coincides with one endpoint of the other. This only covers the case where the two curves are joined at a single point; more complicated combinations would require further definitions.</p>
 <pre>
 (forall (c c1 c2 x)
   (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
@@ -133,7 +133,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
+<p>We are now in a position to give one characterization of a closed curve. It has no endpoints and can be covered by a large enough circle.</p>
 <pre>
 (forall (c)
    (if (<a href="../curve">curve</a> c)
@@ -145,7 +145,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
+<p>We construct an isosceles triangle whose apex is a given vertex, by identifying a point a unit distance out on each leg from the vertex.</p>
 <pre>
 (forall (c v u)
    (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)

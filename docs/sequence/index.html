@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A sequence of length <code>n</code> is a function whose domain is the first <code>n</code> positive integers. There are no constraints on <code>s2</code>.</p>
 <pre>
 (forall (s)
   (iff (<a href="../sequence">sequence</a> s)
@@ -36,6 +37,7 @@
          (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n)))))
 </pre>
 </div><div class="axiom">
+<p>The length of a sequence is the number that defines its domain of consecutive integers.</p>
 <pre>
 (forall (n s)
   (if (<a href="../sequence">sequence</a> s)
@@ -44,12 +46,14 @@
              (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n))))))
 </pre>
 </div><div class="axiom">
+<p>The <code>nth</code> element in a sequence is the entity in the range of the function that <code>n</code> is mapped into.</p>
 <pre>
 (forall (s n y)
   (if (<a href="../sequence">sequence</a> s)
       (iff (<a href="../nth">nth</a> y n s) (<a href="../map">map</a> s n y))))
 </pre>
 </div><div class="axiom">
+<p>The <code>first</code> element is the <code>nth</code> where <code>n</code> is 1. This is the same predicate used for the first element of a pair, but the axioms are avoid confusion by conditioning on the second element being either a sequence or a pair (which is isomorphic to the set of sequences of length two).</p>
 <pre>
 (forall (s y)
   (if (<a href="../sequence">sequence</a> s)
@@ -59,6 +63,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>The <code>rest</code> of a sequence is what remains after the first element is removed. The expression <code>(rest s1 s)</code> says that <code>s1</code> is the rest of <code>s</code> after the first is removed.</p>
 <pre>
 (forall (s1 s)
   (iff (<a href="../rest">rest</a> s1 s)
@@ -71,6 +76,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The last element of a sequence is the <code>nth</code> element where <code>n</code> is the length of the sequence.</p>
 <pre>
 (forall (s y n)
   (if (and (<a href="../sequence">sequence</a> s) (<a href="../length">length</a> n s))
@@ -78,6 +84,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If one element's <code>n</code> is less than another's, it is before the other in the sequence.</p>
 <pre>
 (forall (x y s)
   (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
@@ -87,6 +94,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A sequence can be viewed as a composite entity whose components are the elements of the sequence and whose relations are the ordering relations in the sequence.</p>
 <pre>
 (forall (e s)
   (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
@@ -105,6 +113,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A sequence is a scale whose partial ordering is the <code>beforeInSeq</code> relation.</p>
 <pre>
 (forall (s s1 e x y)
    (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)

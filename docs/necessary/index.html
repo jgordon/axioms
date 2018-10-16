@@ -29,18 +29,21 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>An eventuality is necessary if the set of constraints implies it. The predicate <code>necessary</code> has two arguments, an eventuality and a set of constraints.</p>
 <pre>
 (forall (e c)
   (if (<a href="../necessary">necessary</a> e c)
       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
 </pre>
 </div><div class="axiom">
+<p>An eventuality <code>e</code> is necessary with respect to a set of constraints <code>c</code> iff <code>c</code> implies <code>e</code>.</p>
 <pre>
 (forall (e c)
   (iff (<a href="../necessary">necessary</a> e c)
        (<a href="../imply">imply</a> c e)))
 </pre>
 </div><div class="axiom">
+<p>Necessity is a positive modality because of the transitivity of <code>imply</code>.</p>
 <pre>
 (forall (e c)
   (if (<a href="../necessary">necessary</a> e c)
@@ -50,6 +53,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>It is a theorem that if an eventuality is possible, its negation is not necessary.</p>
 <pre>
 (forall (e c e1)
   (if (and (<a href="../possible">possible</a> e c) (<a href="../not'">not'</a> e1 e))
@@ -57,6 +61,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If the likelihood of an eventuality is the top of the likelihood scale given constraints <code>c</code>, then it is entailed by <code>c</code>.</p>
 <pre>
 (forall (d e c s)
   (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s))

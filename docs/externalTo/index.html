@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>An entity <code>y</code> is external to a composite entity <code>x</code> if neither it nor any of its components is equal to <code>x</code> or one of <code>x</code>'s components.</p>
 <pre>
 (forall (y x)
   (iff (<a href="../externalTo">externalTo</a> y x)
@@ -41,6 +42,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>If <code>x</code> is at <code>y</code> in <code>s</code>, then <code>y</code> must be a component of <code>s</code> and <code>x</code> must be external to <code>s</code>.</p>
 <pre>
 (forall (x y s)
   (if (<a href="../at">at</a> x y s)
@@ -48,6 +50,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The predicate <code>perceive</code> is a relation between an agent and an entity or eventuality external to the mind.</p>
 <pre>
 (forall (a x m)
   (if (and (<a href="../perceive">perceive</a> a x) (<a href="../mind">mind</a> m a))

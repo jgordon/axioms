@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>Two entities are subsitutable in their respective events if they play the same role.</p>
 <pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst">subst</a> x e1 y e2)
@@ -49,6 +50,7 @@
                              (<a href="../subst">subst</a> x z1 y z2)))))))))
 </pre>
 </div><div class="axiom">
+<p>When there has been a <code>changeFrom</code> some eventuality e1 where p'(e1,x) holds, then after the change p(x) is not true. (I.e., no eventuality corresponding to p(x) really exists.) The <code>subst</code> expression means that e1 and e3 have the same predicate and same arguments, other than the self argument.</p>
 <pre>
 (forall (e e1 e3)
   (if (<a href="../subst">subst</a> e3 e3 e1 e1)
@@ -57,6 +59,7 @@
              (and (<a href="../change">change</a>' e5 e1 e2) (<a href="../gen">gen</a> e5 e) (<a href="../inconsistent">inconsistent</a> e3 e2))))))
 </pre>
 </div><div class="axiom">
+<p>For <code>changeTo</code>, the start state of the change must exclude any other instance of the type e2 instantiates.</p>
 <pre>
 (forall (e e2 e4)
   (if (<a href="../subst">subst</a> e4 e4 e2 e2)
@@ -68,6 +71,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>Two substitutions can be done by doing one at a time.</p>
 <pre>
 (forall (x1 x2 e1 y1 y2 e2)
   (iff (<a href="../subst2">subst2</a> x1 x2 e1 y1 y2 e2)
@@ -77,6 +81,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Real members of a set inherit all the properties of the typical element.</p>
 <pre>
 (forall (x s y e1 e2)
   (if (and (<a href="../typelt">typelt</a> x s) (<a href="../member">member</a> y s) (<a href="../subst">subst</a> x e1 y e2)
@@ -85,7 +90,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
+<p>3.6</p>
 <pre>
 (forall (s x e y e1)
   (if (and (<a href="../dset">dset</a> s x e) (<a href="../subst">subst</a> x e y e1) (<a href="../Rexist">Rexist</a> e)
@@ -94,7 +99,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
+<p>A partial instantiation of an abstract eventuality:</p>
 <pre>
 (forall (e1 e)
   (iff (<a href="../partialInstance">partialInstance</a> e1 e)
@@ -109,7 +114,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
+<p>An eventuality type e1 holds for an entity y as its x parameter if, when the entity is substituted for x in the eventuality type, the resulting instantiation really exists.</p>
 <pre>
 (forall (e1 y x)
   (iff (<a href="../holdsFor">holdsFor</a> e1 y x)
@@ -119,6 +124,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A ground in a figure-ground relation is a composite entity whose parts are all uniform in that they all share some property.</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -134,6 +140,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An instance of a pattern is a composite entity in which all parameters have been replaced by entities that are members of the set the parameter is the type element of.</p>
 <pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
@@ -151,6 +158,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>We can define an incomplete instance to be a composite entity in which at least one parameter is instantiated and some but not all of the properties and relations are instantiated.</p>
 <pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
@@ -168,6 +176,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The same event type happening to all the elements of a sequence in turn.</p>
 <pre>
 (forall (e s e1)
   (iff (<a href="../forAllOfSeq">forAllOfSeq</a> e s x e1)

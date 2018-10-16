@@ -29,12 +29,14 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>Every eventuality is its own 0th argument.</p>
 <pre>
 (forall (e)
   (iff (<a href="../eventuality">eventuality</a> e)
        (<a href="../argn">argn</a> e 0 e)))
 </pre>
 </div><div class="axiom">
+<p>Eventualities all have a predicate p, an arity n, and arguments 1...n.</p>
 <pre>
 (forall (e)
   (iff (<a href="../eventuality">eventuality</a> e)
@@ -47,7 +49,7 @@
                       (<a href="../argn">argn</a> x i e))))))))
 </pre>
 </div><div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.26</p>
 <pre>
 (forall (t e)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -55,7 +57,7 @@
            (exists (t1) (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../begins">begins</a> t t1))))))
 </pre>
 </div><div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.27</p>
 <pre>
 (forall (t e)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -64,7 +66,7 @@
              (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../insideTime">insideTime</a> t t1))))))
 </pre>
 </div><div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.28</p>
 <pre>
 (forall (t e)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -72,7 +74,7 @@
            (exists (t1) (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../ends">ends</a> t t1))))))
 </pre>
 </div><div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The duration of an eventuality is the duration of its time span.</p>
 <pre>
 (forall (d e u)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -81,6 +83,7 @@
              (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../durationOf">durationOf</a> d t u))))))
 </pre>
 </div><div class="axiom">
+<p>Given an eventuality <code>e</code> and a set of constraints <code>c</code>, we can ask what other set <code>s</code> of eventualities would have to obtain in order to entail that <code>e</code> also obtains. The expression <code>(alsoRequired s e c)</code> says that <code>s</code> is a set of eventualities that will entail the real existence of <code>e</code>, over and above <code>c</code>.</p>
 <pre>
 (forall (s e c)
   (if (<a href="../eventuality">eventuality</a> e)
@@ -94,6 +97,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>Restrictions on the arguments to <code>argn</code>.</p>
 <pre>
 (forall (e x n)
   (if (<a href="../argn">argn</a> x n e)
@@ -101,6 +105,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The <code>pred</code> of an eventuality is a predicate.</p>
 <pre>
 (forall (e p)
   (if (<a href="../pred">pred</a> p e)
@@ -108,6 +113,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The arity of an eventuality is a non-negative integer.</p>
 <pre>
 (forall (n e)
   (if (<a href="../arity">arity</a> n e)
@@ -115,6 +121,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The <code>gen</code> relation is between two eventualities, which are almost identical but not quite, e.g., the same event under different descriptions.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../gen">gen</a> e1 e2)
@@ -122,6 +129,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>We can have sets of eventualities.</p>
 <pre>
 (forall (s)
   (iff (<a href="../eventualities">eventualities</a> s)
@@ -132,6 +140,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Two entities are subsitutable in their respective events if they play the same role.</p>
 <pre>
 (forall (x e1 y e2)
   (iff (<a href="../subst">subst</a> x e1 y e2)
@@ -153,6 +162,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The <code>and</code> of two eventualities is itself an eventuality, and it exists when its two constituent eventualities exist.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../and'">and'</a> e e1 e2)
@@ -162,6 +172,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The negation of an eventuality really exists if and only if the eventuality doesn't.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../not'">not'</a> e1 e2)
@@ -171,6 +182,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A weaker version of the existence axiom above.</p>
 <pre>
 (forall (e1 e2)
   (if (and (<a href="../not'">not'</a> e1 e2) (<a href="../Rexist">Rexist</a> e1))
@@ -179,6 +191,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Disjunction is defined analogous to conjunction: If the eventuality e is the disjunction of eventualities e1 and e2, then e really exists exactly when one of e1 and e2 really exists.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../or'">or'</a> e e1 e2)
@@ -188,6 +201,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The disjunction of a set really exists exactly when one of the members of the set really exists.</p>
 <pre>
 (forall (e s)
   (if (<a href="../disjunction">disjunction</a> e s)
@@ -198,6 +212,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Implication is defined similarly to <code>or'</code>, except that in addition to a single eventuality as the antecedent, we will alow a set of eventualities as well, which is interpreted as the conjunction.</p>
 <pre>
 (forall (e e1 e2)
   (if (<a href="../imply'">imply'</a> e e1 e2)
@@ -206,6 +221,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The predicate <code>onlyarg*</code> recurses through eventuality arguments and bottoms out in a single entity y.</p>
 <pre>
 (forall (y e)
   (iff (<a href="../onlyarg*">onlyarg*</a> y e)
@@ -217,6 +233,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -233,6 +250,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The arguments of <code>change</code> are eventualities.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../change">change</a> e1 e2)
@@ -240,6 +258,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An eventuality or set of eventualities, s, can be a causal complex for an effect e.</p>
 <pre>
 (forall (s e)
   (if (<a href="../causalComplex">causalComplex</a> s e)
@@ -249,6 +268,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p><code>cause</code> is like <code>cause0</code>, but it allows an agent as its first argument. When the first argument of <code>cause</code> is an eventuality, it reduces to <code>cause0</code>. When it's an agent, the agent's willing is the <code>cause0</code> of the second argument.</p>
 <pre>
 (forall (a e2)
   (and (if (<a href="../eventuality">eventuality</a> a)
@@ -262,7 +282,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.3</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../begins">begins</a> t1 t2)
@@ -271,7 +291,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.4</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../ends">ends</a> t1 t2)
@@ -280,7 +300,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.5</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../insideTime">insideTime</a> t1 t2)
@@ -289,14 +309,14 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The predicate <code>atTime</code> relates an eventuality to an instant, saying that the eventuality really exists or obtains at that instant. We constrain its arguments but do not attempt to define it.</p>
 <pre>
 (forall (e t)
   (if (<a href="../atTime">atTime</a> e t) (and (<a href="../eventuality">eventuality</a> e) (<a href="../instant">instant</a> t))))
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The predicate <code>during</code> says that the eventuality really exists or obtains throughout an interval.</p>
 <pre>
 (forall (e t)
   (iff (<a href="../during">during</a> e t)
@@ -305,7 +325,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>Instants are at least partially ordered by a <code>before</code> relation, which will also be extended to intervals, temporal sequences, and eventualities.</p>
 <pre>
 (forall (t1 t2)
   (if (<a href="../before">before</a> t1 t2)
@@ -314,7 +334,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The predication <code>(durationOf d t u)</code> says that t is made up of d intervals having the same duration as u. We will allow the second argument to be an instant, an interval, a temporal sequence, or an eventuality.</p>
 <pre>
 (forall (d t u)
   (if (<a href="../durationOf">durationOf</a> d t u)
@@ -323,11 +343,13 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Where an event <code>e</code> generates a change of state, <code>e</code> is an eventuality because that's what the arguments of <code>gen</code> are.</p>
 <pre>
 (forall (e) (if (<a href="../event">event</a> e) (<a href="../eventuality">eventuality</a> e)))
 </pre>
 </div>
 <div class="axiom">
+<p>The predicate <code>possible</code> has two arguments, an eventuality and a set of constraints.</p>
 <pre>
 (forall (e c)
   (if (<a href="../possible">possible</a> e c)
@@ -335,6 +357,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An eventuality is necessary if the set of constraints implies it. The predicate <code>necessary</code> has two arguments, an eventuality and a set of constraints.</p>
 <pre>
 (forall (e c)
   (if (<a href="../necessary">necessary</a> e c)
@@ -342,6 +365,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Impossibility is the negation of possibility.</p>
 <pre>
 (forall (e c)
   (iff (<a href="../impossible">impossible</a> e c)
@@ -349,6 +373,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The predicate <code>likelihood</code> will express a relation between likelihoods and eventualities. Likelihood is with respect to an implicit set of constraints that in a sense defines the sample space. Making the constraints an argument allows us to relate likelihood to possibility and to entailment.</p>
 <pre>
 (forall (d e c)
   (if (<a href="../likelihood">likelihood</a> d e c)

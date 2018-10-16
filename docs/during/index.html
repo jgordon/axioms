@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The predicate <code>during</code> says that the eventuality really exists or obtains throughout an interval.</p>
 <pre>
 (forall (e t)
   (iff (<a href="../during">during</a> e t)
@@ -37,7 +37,7 @@
             (forall (t1) (if (<a href="../insideTime">insideTime</a> t1 t) (<a href="../atTime">atTime</a> e t1))))))
 </pre>
 </div><div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.32</p>
 <pre>
 (forall (e0 e t) (if (<a href="../during">during</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
 </pre>
@@ -45,7 +45,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The "time span of" an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
 <pre>
 (forall (t e)
   (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)

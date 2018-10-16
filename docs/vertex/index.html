@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>When the joined constituent curves are linear and do not constitute a straight line, the point at which they meet is called a <code>vertex</code>.</p>
 <pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex">vertex</a> v c1 c2 x)
@@ -33,7 +33,7 @@
             (<a href="../joinedCurves">joinedCurves</a> v c1 c2 x))))
 </pre>
 </div><div class="axiom">
-<p>A vertex thus consists of the angle and two sides, which are line segments or rays.</p>
+<p>Note that with this definition vertices are symmetric with respect to their sides c1 and c2.</p>
 <pre>
 (forall (v c1 c2 x)
   (iff (<a href="../vertex">vertex</a> v c1 c2 x)
@@ -43,7 +43,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A vertex thus consists of the angle and two sides, which are line segments or rays.</p>
+<p>As an intermediate step toward defining polygons, we will say a line segment is a side of a figure if there are vertices at its two endpoints that lie inside the figure.</p>
 <pre>
 (forall (c p)
   (iff (<a href="../sideOf">sideOf</a> c p)
@@ -54,7 +54,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
+<p>We construct an isosceles triangle whose apex is a given vertex, by identifying a point a unit distance out on each leg from the vertex.</p>
 <pre>
 (forall (c v u)
    (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
@@ -66,7 +66,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A "greater than" relation can be defined in a similar manner.</p>
+<p>To be able to talk about the size of an angle in more detail, we posit a framework (not necessarily a coordinate system) whose x-axis contains one of the sides of the angle and whose origin coincides with the vertex. Then the size of the angle can be correlated with the y-coordinate. We call this framework an "anchor framework" for the vertex.</p>
 <pre>
 (forall (f v c1 c2 o)
    (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
@@ -76,7 +76,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A square is a rhombus that is a rectangle.</p>
+<p>The diagonal of a square is a line segment from one vertex to an opposite vertex.</p>
 <pre>
 (forall (p d)
    (if (<a href="../square">square</a> p)
@@ -89,7 +89,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A square is a rhombus that is a rectangle.</p>
+<p>It can be shown that a diagonal of a square makes a 45-degree angle with any side of the square.</p>
 <pre>
 (forall (p d c v x)
    (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))

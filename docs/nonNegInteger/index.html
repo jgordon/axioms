@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>Every non-negative integer has a non-negative integer as a successor.</p>
 <pre>
 (forall (n)
    (if (<a href="../nonNegInteger">nonNegInteger</a> n)
@@ -36,27 +37,30 @@
           (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../successor">successor</a> n1 n)))))
 </pre>
 </div><div class="axiom">
+<p>The sum of an integer n and 0 is n.</p>
 <pre>
 (forall (n)
    (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../sum">sum</a> n n 0)))
 </pre>
 </div><div class="axiom">
+<p>The product of a number n and 0 is 0.</p>
 <pre>
 (forall (n)
    (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../product">product</a> 0 n 0)))
 </pre>
 </div><div class="axiom">
+<p>The identity under multiplication is 1.</p>
 <pre>
 (forall (n)
    (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../product">product</a> n n 1)))
 </pre>
 </div><div class="axiom">
-<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
+<p>A non-negative integer is a number.</p>
 <pre>
 (forall (n) (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../number">number</a> n)))
 </pre>
 </div><div class="axiom">
-<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
+<p>The non-negative integers are embedded in the set of rational numbers: <code>n = n/1</code></p>
 <pre>
 (forall (n) (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../fraction">fraction</a> n n 1)))
 </pre>
@@ -64,6 +68,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>Restrictions on the arguments to <code>argn</code>.</p>
 <pre>
 (forall (e x n)
   (if (<a href="../argn">argn</a> x n e)
@@ -71,6 +76,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The arity of an eventuality is a non-negative integer.</p>
 <pre>
 (forall (n e)
   (if (<a href="../arity">arity</a> n e)
@@ -78,6 +84,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>We recursively define the cardinality of sets using addElt.</p>
 <pre>
 (forall (n s)
   (iff (<a href="../card">card</a> n s)
@@ -91,11 +98,13 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Zero (a constant) is a non-negative integer.</p>
 <pre>
 (<a href="../nonNegInteger">nonNegInteger</a> 0)
 </pre>
 </div>
 <div class="axiom">
+<p>The arguments of <code>successor</code> are non-negative integers.</p>
 <pre>
 (forall (n1 n)
    (if (<a href="../successor">successor</a> n1 n)
@@ -103,6 +112,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A positive integer is any non-negative integer except 0.</p>
 <pre>
 (forall (n)
    (iff (<a href="../posInteger">posInteger</a> n)
@@ -110,11 +120,13 @@
 </pre>
 </div>
 <div class="axiom">
+<p>No non-negative integer has 0 as its successor.</p>
 <pre>
 (not (exists (n) (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../successor">successor</a> 0 n))))
 </pre>
 </div>
 <div class="axiom">
+<p>Non-negative integers are closed under addition.</p>
 <pre>
 (forall (n1 n2 n3)
    (if (and (<a href="../nonNegInteger">nonNegInteger</a> n2) (<a href="../nonNegInteger">nonNegInteger</a> n3) (<a href="../sum">sum</a> n1 n2 n3))
@@ -122,6 +134,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The non-negative integers are closed under multiplication.</p>
 <pre>
 (forall (n1 n2 n3)
    (if (and (<a href="../nonNegInteger">nonNegInteger</a> n2) (<a href="../nonNegInteger">nonNegInteger</a> n3)
@@ -130,7 +143,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
+<p>9.20</p>
 <pre>
 (forall (n1 n2)
    (if (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n2))
@@ -139,7 +152,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
+<p>Fractions will be characterized by a non-negative integer (the numerator) and a positive integer (the denominator). The prediction (fraction f a) says that f is the fraction a/b.</p>
 <pre>
 (forall (a b)
    (if (and (<a href="../nonNegInteger">nonNegInteger</a> a) (<a href="../posInteger">posInteger</a> b))
@@ -147,7 +160,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The predication <code>(durationOf d t u)</code> says that t is made up of d intervals having the same duration as u. We will allow the second argument to be an instant, an interval, a temporal sequence, or an eventuality.</p>
 <pre>
 (forall (d t u)
   (if (<a href="../durationOf">durationOf</a> d t u)

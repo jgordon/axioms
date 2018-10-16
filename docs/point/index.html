@@ -53,7 +53,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A figure can be inside a figure of the same or higher dimension. We will assume we know what it means for a point to be inside another figure, and define "inside" for higher dimensions in terms of this.</p>
+<p>If f1 is inside f2 and f1 is not a point, then there is at least one point the figures share, and figure f1's points are inside f2.</p>
 <pre>
 (forall (f1 f2)
   (if (not (<a href="../point">point</a> f1))
@@ -76,7 +76,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>We take distance to be a predicate with four arguments -- a nonnegative number, two points, and a unit.</p>
 <pre>
 (forall (d x1 x2 u)
   (if (<a href="../distance">distance</a> d x1 x2 u)

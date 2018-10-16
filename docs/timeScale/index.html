@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>Time is a scale whose ordering relation is <code>before</code> and whose components are instants and intervals.</p>
 <pre>
 (forall (t)
   (iff (<a href="../timeScale">timeScale</a> t)
@@ -41,7 +41,7 @@
               (<a href="../scaleDefinedBy">scaleDefinedBy</a> t s e)))))
 </pre>
 </div><div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>Since all the elements in a time scale are temporal entities, a time scale can be viewed as a possible ground.</p>
 <pre>
 (forall (t) (if (<a href="../timeScale">timeScale</a> t) (<a href="../ground">ground</a> t)))
 </pre>
@@ -49,7 +49,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>And <code>atTime</code> can be viewed as an <code>at</code> relation.</p>
 <pre>
 (forall (s e t)
   (if (and (<a href="../timeScale">timeScale</a> s) (<a href="../atTime">atTime</a> e t))

@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A pattern is a composite entity which contains type elements among its components.</p>
 <pre>
 (forall (x)
   (iff (<a href="../pattern">pattern</a> x)
@@ -36,6 +37,7 @@
               (and (<a href="../componentOf">componentOf</a> y x) (<a href="../typelt">typelt</a> y s1)))))
 </pre>
 </div><div class="axiom">
+<p>The parameters of a pattern are the components that are type elements.</p>
 <pre>
 (forall (x)
   (if (<a href="../pattern">pattern</a> x)
@@ -50,6 +52,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>An instance of a pattern is a composite entity in which all parameters have been replaced by entities that are members of the set the parameter is the type element of.</p>
 <pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))
@@ -67,6 +70,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>We can define an incomplete instance to be a composite entity in which at least one parameter is instantiated and some but not all of the properties and relations are instantiated.</p>
 <pre>
 (forall (x x1 s)
   (if (and (<a href="../pattern">pattern</a> x) (<a href="../patternParameters">patternParameters</a> s x))

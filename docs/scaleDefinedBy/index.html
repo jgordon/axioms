@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>We define a scale by the set of its components and the relation that is the partial ordering of the scale.</p>
 <pre>
 (forall (s s1 e)
    (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
@@ -40,6 +41,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A sequence is a scale whose partial ordering is the <code>beforeInSeq</code> relation.</p>
 <pre>
 (forall (s s1 e x y)
    (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
@@ -51,6 +53,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A set of sets under the <code>subset</code> relation is a scale.</p>
 <pre>
 (forall (s1 e x y)
   (if (and (forall (s2)
@@ -65,7 +68,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
+<p>If e is the <code>lt</code> relation between x and y and s1 is a set of numbers containing 0 but no smaller number, then there is a non-negative numeric scale s with s1 as its set and e as its partial ordering.</p>
 <pre>
 (forall (s1 e x y)
   (if (and (<a href="../lt">lt</a>' e x y)
@@ -78,7 +81,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
+<p>Conversely, a non-negative numeric scale has the <code>lt</code> relation for its ordering and a set of numbers, including 0, as its set.</p>
 <pre>
 (forall (s)
   (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
@@ -92,7 +95,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
+<p>If s1 is the scale whose set is a set of sets including the null set and whose partial ordering is <code>subset</code>, then cardinality is a measure.</p>
 <pre>
 (forall (e x y s1 s m n u)
   (if (and (forall (z)
@@ -106,7 +109,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>A temporal sequence is a scale whose ordering relation is <code>before</code>.</p>
 <pre>
 (forall (s e t1 t1)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../before">before</a>' e t1 t2))
@@ -114,7 +117,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>Time is a scale whose ordering relation is <code>before</code> and whose components are instants and intervals.</p>
 <pre>
 (forall (t)
   (iff (<a href="../timeScale">timeScale</a> t)
@@ -127,7 +130,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>Then we can define a <code>scaleOrderedByDuration</code>.</p>
 <pre>
 (forall (s)
   (iff (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s)
@@ -138,7 +141,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>minutes.</p>
+<p>Rate defines a scale whose elements are the set of events whose rate is being measured and whose ordering is the less-than relation between rates.</p>
 <pre>
 (forall (s s0)
   (iff (<a href="../rateScale">rateScale</a> s s0)
@@ -154,7 +157,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
+<p>Then "nearness" scale is a scale whose partial ordering is <code>nearer</code>.</p>
 <pre>
 (forall (s z)
    (iff (<a href="../nearnessScale">nearnessScale</a> s z)
@@ -163,6 +166,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The <code>likelihoodScale</code> has likelihoods as its elements and the <code>lowerLikelihood</code> relation as its partial ordering.</p>
 <pre>
 (forall (s)
   (iff (<a href="../likelihoodScale">likelihoodScale</a> s)

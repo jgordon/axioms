@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The predicate <code>properIntervalEv</code> says that its argument is either a proper interval or an eventuality whose time span is a proper interval.</p>
 <pre>
 (forall (e)
   (iff (<a href="../properIntervalEv">properIntervalEv</a> e)
@@ -39,7 +39,7 @@
            (<a href="../posInfIntervalEv">posInfIntervalEv</a> e))))
 </pre>
 </div><div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The beginning of a proper interval is before the instants inside, which are before the end.</p>
 <pre>
 (forall (t1 t2 t3 t)
   (if (<a href="../properIntervalEv">properIntervalEv</a> t)
@@ -54,7 +54,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>The predicate <code>intMeets</code> means that the end of one interval is the beginning of the other.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intMeets">intMeets</a> t1 t2)
@@ -63,7 +63,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>Two intervals overlap if the beginning of one is inside the other.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intOverlap">intOverlap</a> t1 t2)
@@ -74,7 +74,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>One interval finishes the other if it begins inside and ends the same place. We have to complicate this relation a bit to accommodate positive infinite intervals.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intFinishes">intFinishes</a> t1 t2)
@@ -88,7 +88,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>One interval <code>t1</code> is during another <code>t2</code> if <code>t1</code> begins after <code>t2</code> and ends before <code>t2</code>. The conditional in the last line of the definition is to accommodate positive infinite intervals.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intDuring">intDuring</a> t1 t2)

@@ -37,7 +37,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A figure can be inside a figure of the same or higher dimension. We will assume we know what it means for a point to be inside another figure, and define "inside" for higher dimensions in terms of this.</p>
+<p>If f1 is inside f2 and f1 is not a point, then there is at least one point the figures share, and figure f1's points are inside f2.</p>
 <pre>
 (forall (f1 f2)
   (if (not (<a href="../point">point</a> f1))
@@ -60,7 +60,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A figure can be on the boundary (endpoint/border/surface) of a figure of higher dimension.</p>
+<p>If one figure is inside or on the boundary of another, we will call it a <code>subfigure</code>.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../subfigure">subfigure</a> f1 f2)
@@ -113,7 +113,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>Two figures are coplanar if there is a plane that they are both inside.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../coplanar">coplanar</a> f1 f2)
@@ -122,7 +122,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>Two lines are parallel if they are coplanar and they have no points in common.</p>
 <pre>
 (forall (c1 c2)
   (if (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2))
@@ -133,7 +133,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>Two figures are parallel if they are inside two parallel lines.</p>
 <pre>
 (forall (f1 f2)
   (iff (<a href="../parallel">parallel</a> f1 f2)
@@ -142,7 +142,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
+<p>The first step toward defining polygons is to define the figure formed by joining two curves at an endpoint of each. We can call these figures "joined curves". We join two curves with endpoints by stipulating that one endpoint of one coincides with one endpoint of the other. This only covers the case where the two curves are joined at a single point; more complicated combinations would require further definitions.</p>
 <pre>
 (forall (c c1 c2 x)
   (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
@@ -198,7 +198,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
+<p>We are now in a position to give one characterization of a closed curve. It has no endpoints and can be covered by a large enough circle.</p>
 <pre>
 (forall (c)
    (if (<a href="../curve">curve</a> c)
@@ -210,7 +210,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A "greater than" relation can be defined in a similar manner.</p>
+<p>We pick an arbitrary point on the side c2 of the vertex -- let's again pick a point that is one distance unit out from the origin. This will be our "anchor point".</p>
 <pre>
 (forall (x v f c1 c2 o u)
   (iff (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)

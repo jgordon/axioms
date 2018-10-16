@@ -38,7 +38,7 @@
              (<a href="../nequal">nequal</a> x1 x2)))))
 </pre>
 </div><div class="axiom">
-<p>A straight line is the shortest distance between two points. We state this in terms of the endpoints and an inside point of a line segment.</p>
+<p>The length of a line segment is the distance between its endpoints.</p>
 <pre>
 (forall (d c u)
   (iff (<a href="../lineSegment">lineSegment</a> c)
@@ -51,7 +51,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>All three are linear.</p>
 <pre>
 (forall (c)
   (iff (<a href="../linear">linear</a> c)
@@ -59,7 +59,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A line segment has two distinct endpoints.</p>
+<p>It is often convenient to characterize a line segment by its endpoints.</p>
 <pre>
 (forall (c)
   (iff (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)

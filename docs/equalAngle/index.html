@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
+<p>Now we can say that two vertices are equal whenever the bases of their angles are of equal length. (Most quantities we measure in everyday life we measure by translating them into distance, and size of angles is no exception.)</p>
 <pre>
 (forall (v1 v2)
   (iff (<a href="../equalAngle">equalAngle</a> v1 v2)
@@ -34,7 +34,6 @@
               (<a href="../length">length</a> d c1 u) (<a href="../length">length</a> d c2 u)))))
 </pre>
 </div><div class="axiom">
-<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
 <pre>
 (forall (v1 v2)
   (iff (<a href="../equalAngle">equalAngle</a> v1 v2) (<a href="../equalAngle">equalAngle</a> v2 v1)))
@@ -43,13 +42,12 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
+<p>This is an equivalence relation. It is easy to show that it is reflexive, symmetric, and transitive.</p>
 <pre>
 (forall (v) (<a href="../equalAngle">equalAngle</a> v v))
 </pre>
 </div>
 <div class="axiom">
-<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
 <pre>
 (forall (v1 v2 v3)
   (if (and (<a href="../equalAngle">equalAngle</a> v1 v2) (<a href="../equalAngle">equalAngle</a> v2 v3))
@@ -57,7 +55,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A "greater than" relation can be defined in a similar manner.</p>
+<p>An angle is a right angle if the anchor point of an equal angle lies on the y-axis.</p>
 <pre>
 (forall (v)
    (iff (<a href="../rightAngle">rightAngle</a> v)
@@ -67,7 +65,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A "greater than" relation can be defined in a similar manner.</p>
+<p>An angle is acute if the x- and y-coordinates of the anchor point of an equal anchored angle are both greater than the origin.</p>
 <pre>
 (forall (v)
    (iff (<a href="../acuteAngle">acuteAngle</a> v)
@@ -79,7 +77,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A "greater than" relation can be defined in a similar manner.</p>
+<p>An angle is obtuse if the y-coordinate of the anchor point of an equal anchored angle is greater than the origin and the x-coordinate is less than the origin.</p>
 <pre>
 (forall (v)
    (iff (<a href="../obtuseAngle">obtuseAngle</a> v)
@@ -91,7 +89,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A "greater than" relation can be defined in a similar manner.</p>
+<p>In daily life and absent precise measuring instruments, we don't judge the size of angles down to the degree. But we do make rough judgments in two ways that are more fine-grained than the four cardinal directions, and these can be characterized here. The first augments the north-east-south-west system with the four intermediate directions northeast, southeast, southwest and northwest. This system is based on angles of 45 degrees. A 45-degree angle is one whose anchor point's x- and y-coordinates are equal.</p>
 <pre>
 (forall (v)
    (iff (<a href="../45Degrees">45Degrees</a> v)
@@ -102,7 +100,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A "greater than" relation can be defined in a similar manner.</p>
+<p>The second fine-grained system is based on angles of 30 degrees and is visualized as a clock -- "incoming at 2 o'clock," "exit the traffic circle at 11 o'clock." A 30-degree angle is one in which the distance from the origin to the anchor point is twice the y-coordinate.</p>
 <pre>
 (forall (v)
    (iff (<a href="../30Degrees">30Degrees</a> v)

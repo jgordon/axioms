@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>Sense organs are body parts.</p>
 <pre>
 (forall (o p)
   (if (<a href="../senseOrgan">senseOrgan</a> o p)
@@ -38,6 +39,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>The sense organs are a subset of the body parts.</p>
 <pre>
 (forall (p x)
   (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
@@ -48,6 +50,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>When something is perceived, there is a sense organ whose intact-ness enables the perception.</p>
 <pre>
 (forall (p x e2)
   (if (and (<a href="../person">person</a> p) (<a href="../perceive">perceive</a>' e2 p x))

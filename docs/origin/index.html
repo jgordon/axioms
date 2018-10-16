@@ -25,7 +25,6 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (f a1 a2 s)
   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
@@ -35,7 +34,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>The z-axis contains the origin.</p>
 <pre>
 (forall (f a1 a2 s)
    (if (and (<a href="../framework">framework</a> f) (<a href="../zAxis">zAxis</a> a3 f) (<a href="../origin">origin</a> o f))
@@ -43,7 +42,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
+<p>Finally, we can define a coordinate system as a framework in which all the axes are numeric and the partial ordering is "greater than".</p>
 <pre>
 (forall (f)
   (iff (<a href="../coordinateSystem">coordinateSystem</a> f)
@@ -58,7 +57,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A "greater than" relation can be defined in a similar manner.</p>
+<p>To be able to talk about the size of an angle in more detail, we posit a framework (not necessarily a coordinate system) whose x-axis contains one of the sides of the angle and whose origin coincides with the vertex. Then the size of the angle can be correlated with the y-coordinate. We call this framework an "anchor framework" for the vertex.</p>
 <pre>
 (forall (f v c1 c2 o)
    (iff (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)

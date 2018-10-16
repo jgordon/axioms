@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>A composite entity is characterized by a set of components, a set of properties, and a set of relations.</p>
 <pre>
 (forall (x)
   (iff (<a href="../compositeEntity">compositeEntity</a> x)
@@ -37,6 +38,7 @@
               (<a href="../relationsOf">relationsOf</a> s3 x)))))
 </pre>
 </div><div class="axiom">
+<p>Make <code>compEnt</code> a synonym for compositeEntity since it is used in the previous treatment of composite entities for use in Henry.</p>
 <pre>
 (forall (x) (iff (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../compEnt">compEnt</a> x)))
 </pre>
@@ -44,6 +46,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>The set of components of a composite entity is nonempty.</p>
 <pre>
 (forall (s1 x)
   (if (<a href="../componentsOf">componentsOf</a> s1 x)
@@ -51,6 +54,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The predicate <code>componentOf</code> gives us a quick way to say a single entity is a component.</p>
 <pre>
 (forall (y x)
   (iff (<a href="../componentOf">componentOf</a> y x)
@@ -60,6 +64,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>An aggregate of two entities is a composite entity with those two entities as its components.</p>
 <pre>
 (forall (x y z)
   (iff (<a href="../aggregate">aggregate</a> x y z)
@@ -69,6 +74,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>All the elements in the properties of a composite entity have an <code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
 <pre>
 (forall (s2 x)
   (if (<a href="../propertiesOf">propertiesOf</a> s2 x)
@@ -81,6 +87,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The set of relations of a composite entity are relations between a component or the whole, and something else.</p>
 <pre>
 (forall (s3 x)
   (if (<a href="../relationsOf">relationsOf</a> s3 x)
@@ -93,6 +100,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Sets are composite entities whose components are members and whose only property is being set.</p>
 <pre>
 (forall (e s s1 s2 s3)
   (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
@@ -102,6 +110,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Ordered pairs are composite entities where the components are the first and second elements, there are no properties other than the whole being a pair, and the relations are the <code>first</code> and <code>second</code> relations between the components and the whole.</p>
 <pre>
 (forall (p x y e1 e2 e3)
   (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
@@ -114,6 +123,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A sequence can be viewed as a composite entity whose components are the elements of the sequence and whose relations are the ordering relations in the sequence.</p>
 <pre>
 (forall (e s)
   (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
@@ -132,6 +142,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A ground in a figure-ground relation is a composite entity whose parts are all uniform in that they all share some property.</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -147,6 +158,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>This can also be written as:</p>
 <pre>
 (forall (s)
   (iff (<a href="../ground">ground</a> s)
@@ -157,6 +169,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A scale is a partially ordered set.</p>
 <pre>
 (forall (s)
    (if (<a href="../scale">scale</a> s)
@@ -173,6 +186,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A complex event is a composite entity whose components are its subevents, among whose properties are the <code>event</code> properties, and among whose relations are the <code>subevent</code> relations.</p>
 <pre>
 (forall (e1 e)
    (if (<a href="../subevent">subevent</a> e1 e)
@@ -194,6 +208,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The mind is a composite entity.</p>
 <pre>
 (forall (m p)
   (if (<a href="../mind">mind</a> m p)

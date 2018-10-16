@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>The predicate <code>onlyarg*</code> recurses through eventuality arguments and bottoms out in a single entity y.</p>
 <pre>
 (forall (y e)
   (iff (<a href="../onlyarg*">onlyarg*</a> y e)
@@ -42,6 +43,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>All the elements in the properties of a composite entity have an <code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
 <pre>
 (forall (s2 x)
   (if (<a href="../propertiesOf">propertiesOf</a> s2 x)

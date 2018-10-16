@@ -40,7 +40,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
+<p>Horizontal and vertical sets are independent scales.</p>
 <pre>
 (forall (s1 s2 f)
   (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> s1 f) (<a href="../vertical2">vertical2</a> s2 f))
@@ -48,7 +48,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
+<p>Now we can pick a unique horizontal subset of the domain to be the x-axis and a unique vertical subset to be the y-axis, where their intersection is a unique element we can call the origin.</p>
 <pre>
 (forall (a1 f)
   (if (<a href="../xAxis">xAxis</a> a1 f)

@@ -40,7 +40,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
+<p>Horizontal and vertical sets are independent scales.</p>
 <pre>
 (forall (s1 s2 f)
   (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> s1 f) (<a href="../vertical2">vertical2</a> s2 f))
@@ -48,7 +48,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
 <pre>
 (forall (a2 f)
   (if (<a href="../yAxis">yAxis</a> a2 f)
@@ -56,7 +55,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A two-dimensional framework thus consists of a domain, two independent relations and two unique corresponding axes that intersect in a single element called the origin.</p>
+<p>Any element in the domain can have an x-coordinate and a y-coordinate. An element of the domain has an x-coordinate if there is a vertical subset that contains both the element and an element of the x-axis.</p>
 <pre>
 (forall (x1 x f)
   (iff (<a href="../xCoordinate">xCoordinate</a> x1 x f)

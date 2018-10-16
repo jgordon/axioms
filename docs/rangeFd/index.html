@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
+<p>The range of the functional dependency is then the set of all values of the skolem function.</p>
 <pre>
 (forall (s1 x y e)
   (iff (<a href="../rangeFd">rangeFd</a> s1 y x e)
@@ -41,6 +41,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>When we have a Skolem function or a functional dependency, we have a corresponding function.</p>
 <pre>
 (forall (y1 y x1 x e s1 s2)
   (if (and (<a href="../skfct">skfct</a> y1 y x1 x e) (<a href="../typelt">typelt</a> x s1) (<a href="../rangeFd">rangeFd</a> s2 y x e))

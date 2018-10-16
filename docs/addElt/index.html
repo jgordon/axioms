@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>Sets can be constructed recursively by adding one element at a time.</p>
 <pre>
 (forall (s s1 x)
   (iff (<a href="../addElt">addElt</a> s s1 x)
@@ -41,6 +42,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A singleton set consists of one entity.</p>
 <pre>
 (forall (s x)
   (iff (<a href="../singleton">singleton</a> s x)
@@ -49,6 +51,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A <code>doubleton</code> set has exactly two members.</p>
 <pre>
 (forall (s x y)
   (iff (<a href="../doubleton">doubleton</a> s x y)
@@ -59,6 +62,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The predication <code>(replaceElt s s1 x y)</code> says that set s is obtained from set s1 by replacing element x with element y.</p>
 <pre>
 (forall (s s1 x y)
   (iff (<a href="../replaceElt">replaceElt</a> s s1 x y)
@@ -68,6 +72,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>We recursively define the cardinality of sets using addElt.</p>
 <pre>
 (forall (n s)
   (iff (<a href="../card">card</a> n s)
@@ -81,7 +86,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>12.68</p>
 <pre>
 (forall (s s1 t u d d1 d2)
   (if (and (<a href="../tseq">tseq</a> s) (<a href="../tseq">tseq</a> s1) (not (<a href="../member">member</a> t s1)) (<a href="../addElt">addElt</a> s s1 t)

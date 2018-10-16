@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>We define a less-than relation relative to a particular scale:</p>
 <pre>
 (forall (e x1 y1 s)
    (iff (<a href="../lts">lts</a>' e1 x1 y1 s)
@@ -37,12 +38,14 @@
                 (<a href="../subst2">subst2</a> x y e x1 y1 e1)))))
 </pre>
 </div><div class="axiom">
+<p>It is antisymmetric.</p>
 <pre>
 (forall (x y s)
   (if (<a href="../lts">lts</a> x y s)
       (not (<a href="../lts">lts</a> y x s))))
 </pre>
 </div><div class="axiom">
+<p>Original:</p>
 <pre>
 (forall (x y s)
    (if (<a href="../lts">lts</a> x y s)
@@ -52,12 +55,14 @@
                 (exists (y1) (and (<a href="../at">at</a> y y1 s) (<a href="../inScale">inScale</a> y1 s)))))))
 </pre>
 </div><div class="axiom">
+<p>Rewritten to use <code>onScale</code>:</p>
 <pre>
 (forall (x y s)
    (if (<a href="../lts">lts</a> x y s)
        (and (<a href="../onScale">onScale</a> x s) (<a href="../onScale">onScale</a> y s))))
 </pre>
 </div><div class="axiom">
+<p>A total ordering is a partial ordering in which of any two elements, one is either less than, equal to, or greater than the other.</p>
 <pre>
 (forall (e x y s)
    (if (<a href="../lts">lts</a>' e x y s)
@@ -71,12 +76,14 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>The partial ordering is antireflexive.</p>
 <pre>
 (forall (x s)
   (not (<a href="../lts">lts</a> x x s)))
 </pre>
 </div>
 <div class="axiom">
+<p>It is transitive.</p>
 <pre>
 (forall (x y z s)
    (if (and (<a href="../lts">lts</a> x y s) (<a href="../lts">lts</a> y z s))
@@ -84,6 +91,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The opposite of being less-than on a scale is being greater-than:</p>
 <pre>
 (forall (x y s)
   (iff (<a href="../gts">gts</a> y x s)
@@ -91,6 +99,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The <code>at</code> relation preserves the partial ordering.</p>
 <pre>
 (forall (x1 x2 y1 y2 s)
    (and (if (<a href="../at">at</a> x1 y1 s)
@@ -102,6 +111,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Less-than or equal:</p>
 <pre>
 (forall (x y s)
    (iff (<a href="../leqs">leqs</a> x y s)
@@ -110,6 +120,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A subscale of a scale has as its components a subset of the components of the scale and its partial ordering relation is the partial ordering of the scale restricted to that subset.</p>
 <pre>
 (forall (s1 s)
    (iff (<a href="../subscale">subscale</a> s1 s)
@@ -122,6 +133,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The reverse of a scale is one in which the partial ordering is reversed.</p>
 <pre>
 (forall (s1 s)
    (iff (<a href="../reverse">reverse</a> s1 s)
@@ -132,6 +144,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A scale-to-scale function is monotone-increasing if the mapping preserves the domain scale's less-than ordering.</p>
 <pre>
 (forall (f s1 s2)
    (if (and (<a href="../function">function</a> f s1 s2) (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
@@ -142,6 +155,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>We can construct composite scales out of existing scales.</p>
 <pre>
 (forall (s s1 s2)
    (if (<a href="../compositeScale">compositeScale</a> s s1 s2)
@@ -157,6 +171,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If a point is in the <code>Lo</code> region, then it is less than all the points in the <code>Hi</code> region.</p>
 <pre>
 (forall (s s1 s2 x y)
    (if (and (<a href="../Hi">Hi</a> s1 s) (<a href="../Lo">Lo</a> s2 s) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s2))
@@ -164,6 +179,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If an entity moves from a point on vertical scale to a higher point, we say that there as been an increase.</p>
 <pre>
 (forall (e x y z s)
   (iff (<a href="../increase">increase</a> x s)
@@ -173,6 +189,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Similarly, if an entity moves from a point on a vertical scale to a lower point, there has been a decrease.</p>
 <pre>
 (forall (e x y z s)
   (iff (<a href="../decrease">decrease</a> x s)
@@ -182,7 +199,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>minutes.</p>
+<p>Rate defines a scale whose elements are the set of events whose rate is being measured and whose ordering is the less-than relation between rates.</p>
 <pre>
 (forall (s s0)
   (iff (<a href="../rateScale">rateScale</a> s s0)
@@ -198,7 +215,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A polygon is then a closed curve that is made up of n sides.</p>
+<p>We first need the notion of "independent" scales. Two scales are independent if their components overlap and if you can't predict the relation between two elements on one scale from their relation on the other. That is, for some pairs of elements the order is preserved when we go from one scale to the other, and for other pairs the order is reversed.</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../independentScales">independentScales</a> s1 s2)
@@ -220,6 +237,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If something has a likelihood above the bottom of the likelihood scale with respect to a set of constraints, it is possible with respect to those constraints.</p>
 <pre>
 (forall (d e c s)
   (if (and (<a href="../likelihood">likelihood</a> d1 e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../bottom">bottom</a> d s))
@@ -227,6 +245,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>One eventuality is more likely than another with respect to a set of constraints if its likelihood is higher.</p>
 <pre>
 (forall (e1 e2 c)
   (iff (<a href="../moreLikely">moreLikely</a> e1 e2 c)

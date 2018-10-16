@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>The predicate <code>PosMod</code> is a cover term for all positive modalities. Its second argument will be a predicate that labels the modality.</p>
 <pre>
 (forall (e p) (if (<a href="../PosMod">PosMod</a> e p) (<a href="../predicate">predicate</a> p)))
 </pre>
@@ -36,11 +37,13 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p><code>Rexist</code> is a positive modality.</p>
 <pre>
 (forall (e) (if (<a href="../Rexist">Rexist</a> e) (<a href="../PosMod">PosMod</a> e Rexist)))
 </pre>
 </div>
 <div class="axiom">
+<p>The principal property of positive modalities is that Modus Ponens can be applied within the modality.</p>
 <pre>
 (forall (e1 e2 m)
   (if (and (<a href="../PosMod">PosMod</a> e1 m) (<a href="../imply">imply</a> e1 e2))
@@ -48,6 +51,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Possibility is a positive modality.</p>
 <pre>
 (forall (e c)
   (if (<a href="../possible">possible</a> e c)
@@ -55,6 +59,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Necessity is a positive modality because of the transitivity of <code>imply</code>.</p>
 <pre>
 (forall (e c)
   (if (<a href="../necessary">necessary</a> e c)

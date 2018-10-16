@@ -29,6 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>The predication <code>(deleteElt s s1 x)</code> says that the set s is obtained from set s1 by deleting an element x.</p>
 <pre>
 (forall (s s1 x)
   (iff (<a href="../deleteElt">deleteElt</a> s s1 x)
@@ -41,6 +42,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>The predication <code>(replaceElt s s1 x y)</code> says that set s is obtained from set s1 by replacing element x with element y.</p>
 <pre>
 (forall (s s1 x y)
   (iff (<a href="../replaceElt">replaceElt</a> s s1 x y)
@@ -50,6 +52,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Each member of a causal complex is relevant: If it is removed from the set, the remainder is not a causal complex for the effect.</p>
 <pre>
 (forall (s s1 e1 e)
   (if (and (<a href="../causalComplex">causalComplex</a> s e) (<a href="../member">member</a> e1 s) (<a href="../deleteElt">deleteElt</a> s1 s e1))
@@ -57,6 +60,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The expression (tcause e1 e2) means that e1 tends to cause e2. If (tcause e1 e2) holds, the other eventualities in the causal complex for e2 are likely but not guaranteed to hold. Both <code>cause</code> and <code>tcause</code> are defeasible, but <code>tcause</code> is more likely to be defeated.</p>
 <pre>
 (forall (e1 e2)
   (iff (<a href="../tcause">tcause</a> e1 e2)
@@ -68,6 +72,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>e1 tends to cause e2 with likelihood q if e1 is in a causal complex for e2, if the likelihood of the rest of s is q, and if e1 would be singled out as a cause of e2 provided the rest of s actually obtains.</p>
 <pre>
 (forall (e1 e2 q c)
   (iff (<a href="../tcauseq">tcauseq</a> e1 e2 q c)

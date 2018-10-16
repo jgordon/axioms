@@ -9,15 +9,28 @@
 
 Each of these can be embedded in a space of the same or higher dimension.
 
-They are all figures:
+
+A point is a figure.
 
 ```
 (forall (x) (if (point x) (figure x)))
+```
 
+A curve is a figure.
+
+```
 (forall (c) (if (curve c) (figure c)))
+```
 
+A region is a figure.
+
+```
 (forall (r) (if (region r) (figure r)))
+```
 
+A volume is a figure.
+
+```
 (forall (v) (if (volume v) (figure v)))
 ```
 

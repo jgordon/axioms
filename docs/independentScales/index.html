@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A polygon is then a closed curve that is made up of n sides.</p>
+<p>We first need the notion of "independent" scales. Two scales are independent if their components overlap and if you can't predict the relation between two elements on one scale from their relation on the other. That is, for some pairs of elements the order is preserved when we go from one scale to the other, and for other pairs the order is reversed.</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../independentScales">independentScales</a> s1 s2)
@@ -37,7 +37,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A similar axiom defines <code>vertical2</code> in terms of <code>rightOf</code>.</p>
+<p>Horizontal and vertical sets are independent scales.</p>
 <pre>
 (forall (s1 s2 f)
   (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> s1 f) (<a href="../vertical2">vertical2</a> s2 f))
@@ -45,7 +45,6 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A subset of the domain is horizontal3 if it is either <code>horizontal2</code> or <code>vertical2</code>.</p>
 <pre>
 (forall (s1 s2 f)
    (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal3">horizontal3</a> s1 f) (<a href="../vertical3">vertical3</a> s2 f))

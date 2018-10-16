@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A temporal entity may be an instant or an interval.</p>
+<p>One interval <code>t1</code> is during another <code>t2</code> if <code>t1</code> begins after <code>t2</code> and ends before <code>t2</code>. The conditional in the last line of the definition is to accommodate positive infinite intervals.</p>
 <pre>
 (forall (t1 t2)
   (iff (<a href="../intDuring">intDuring</a> t1 t2)

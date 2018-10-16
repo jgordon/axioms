@@ -29,7 +29,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
+<p>A complete instantiation is a partial instantiation with no remaining parameters:</p>
 <pre>
 (forall (e1 e)
   (iff (<a href="../instance">instance</a> e1 e)
@@ -42,6 +42,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p><code>nott</code> is stronger than <code>not</code>. It says there is an eventuality type of which e2 is an instance and the negation is the negation of that type.</p>
 <pre>
 (forall (e1 e2)
   (if (<a href="../nott'">nott'</a> e1 e2)
@@ -50,6 +51,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If the entities on a scale are associated with sets, then we'd like the ordering on the scale to be consistent with the subset relation on those associated sets. (E.g., if two tasks both have obstructions A and B, but one of the tasks also has obstruction C, that's the harder task.)</p>
 <pre>
 (forall (s e)
    (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
@@ -66,6 +68,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A pure <code>iteration</code> is defined recursively for when there is no termination condition and no set of entities the iteration is over.</p>
 <pre>
 (forall (e e1)
   (iff (<a href="../iteration">iteration</a> e e1)
@@ -75,6 +78,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Some iterative processes have a termination condition, for which we define a predicate <code>whileDo</code> that says one event type <code>e2</code> is instantiated by successive instances as long as eventuality <code>e1</code> happens or holds.</p>
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../whileDo">whileDo</a> e e1 e2)
@@ -84,6 +88,7 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A <code>repeatUntil</code> can be defined similarly, but an instance <code>e3</code> of the body <code>e1</code> occurs before the condition <code>e2</code> is checked.</p>
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../repeatUntil">repeatUntil</a> e e1 e2)
