@@ -117,7 +117,8 @@ higher dimension.
 ```
 
 If one figure is inside or on the boundary of another, we will call it a
-`subfigure`.
+`subfigure`. The `subfigure` relation is reflexive, antisymmetric, and
+transitive.
 
 ```
 (forall (f1 f2)
@@ -206,6 +207,9 @@ If a curve is closed, it has no endpoints.
              (endpoint x c)))))
 ```
 
+We postpone giving a definition of "closed" as a finite curve with no
+endpoints until we introduce the notion of "distance".
+
 Any linear entity has a line it is a subfigure of.
 
 ```
@@ -270,8 +274,7 @@ A planar region is concave if it is not convex.
            (not (convex r)))))
 ```
 
-Two figures are coplanar if there is a plane that they are both
-inside.
+Two figures are coplanar if there is a plane that they are both inside.
 
 ```
 (forall (f1 f2)
@@ -384,7 +387,12 @@ endpoints that lie inside the figure.
               (subfigure v1 p) (subfigure v2 p)))))
 ```
 
-A polygon is then a closed curve that is made up of n sides.
+
+A polygon is a closed curve that is made up of n sides. Lines 4-5 say that
+the set s is the set of sides of the polygon. Lines 6-10 say that every
+point in the polygon is either in a side or is a vertex. Line 11 says the
+polygon is a closed planar curve, and line 12 says n is the cardinality of
+the set of sides.
 
 ```
 (forall (p n)
@@ -401,14 +409,10 @@ A polygon is then a closed curve that is made up of n sides.
               (card n s)))))
 ```
 
-Lines 4-5 say that the set s is the set of sides of the polygon.
-Lines 6-10 say that every point in the polygon is either in a side or
-is a vertex. Line 11 says the polygon is a closed planar curve, and
-line 12 says n is the cardinality of the set of sides.
 
-We have defined polygons as one-dimensional curves. The term is also
-used to describe the two-dimensional region they enclose. We use
-the predicate `polygon2` for this concept.
+We have defined polygons as one-dimensional curves. The term is also used
+to describe the two-dimensional region they enclose. We use the predicate
+`polygon2` for this concept.
 
 ```
 (forall (r)
@@ -425,7 +429,6 @@ A polygon with n = 4 is a quadrilateral.
 
 
 ## Frameworks and Coordinate Systems
-
 
 At https://www.isi.edu/~hobbs/bgt-composite-entities.text, we define a
 composite entity as a collection of entities called components and a
@@ -462,7 +465,8 @@ Two scales are independent if their components overlap and if you can't
 predict the relation between two elements on one scale from their relation
 on the other. That is, for some pairs of elements the order is preserved
 when we go from one scale to the other, and for other pairs the order is
-reversed.
+reversed. In line 4, x1 and x2 are a pair where the order is preserved,
+and in line 5 y1 and y2 constitute a pair where it isn't.
 
 ```
 (forall (s1 s2)
@@ -471,9 +475,6 @@ reversed.
          (and (lts x1 x2 s1) (lts x1 x2 s2)
               (lts y1 y2 s1) (lts y2 y1 s2)))))
 ```
-
-In line 4 x1 and x2 are a pair where the order is preserved, and in line 5
-y1 and y2 constitute a pair where it isn't.
 
 In the interests of remaining maximally abstract or noncommital for as
 long as possible, so that our definitions apply as broadly as possible,
@@ -513,11 +514,13 @@ A framework has a set of entities we will call its domain.
         (and (set s) (domain s f)))))
 ```
 
+
 Next we define the analogs of horizontal and vertical lines and planes
 in frameworks.
 
-A non-null subset of the domain is horizontal if no element is `above2`
-any other element. If there is no `above3` relation, then
+
+A non-null subset of the domain is "horizontal" if no element is `above2`
+or `above3` any other element. If there is no `above3` relation, then
 `(above3 x1 x2 f)` will always be false, so the definition covers the
 two-dimensional case as well.
 
@@ -531,6 +534,7 @@ two-dimensional case as well.
                           (or (above2 x1 x2 f)
                               (above3 x1 x2 f)))))))))
 ```
+
 
 A non-null subset of the domain is `vertical2` if no element is `rightOf`
 or `above3` any other element.
@@ -546,8 +550,10 @@ or `above3` any other element.
                               (above3 x1 x2 f)))))))))
 ```
 
+
 A non-null subset of the domain is `vertical3` if no element is `rightOf`
-or `above2` any other element.
+or `above2` any other element. In the two-dimensional case, a `vertical3`
+set has no ordering relations among its elements.
 
 ```
 (forall (s1 f)
@@ -560,10 +566,10 @@ or `above2` any other element.
                                  (above2 x1 x2 f)))))))))
 ```
 
-In the two-dimensional case a `vertical3` set has no ordering relations
-among its elements.
 
-A horizontal plane is a set in which no element is `above3` any other.
+
+A horizontal plane is a set in which no element is `above3` any other. In
+the two-dimensional case any subset of the domain is a horizontal plane.
 
 ```
 (forall (s1 f)
@@ -575,10 +581,10 @@ A horizontal plane is a set in which no element is `above3` any other.
                              (above3 x1 x2 f))))))))
 ```
 
-In the two-dimensional case any subset of the domain is a horizontal
-plane.
+
 
 A `vertical2` plane is a set in which no element is `rightOf` any other.
+In the two-dimensional case, a `vertical2` plane is a `vertical2` set.
 
 ```
 (forall (s1 f)
@@ -590,9 +596,9 @@ A `vertical2` plane is a set in which no element is `rightOf` any other.
                              (rightOf x1 x2 f))))))))
 ```
 
-In the two-dimensional case, a `vertical2` plane is a `vertical2` set.
 
-A `vertical3` plane is a set in which no element is `above2` any other.
+A `vertical3` plane is a set in which no element is `above2` any other. In
+the two-dimensional case, a `vertical3` plane is a horizontal set.
 
 ```
 (forall (s1 f)
@@ -604,7 +610,6 @@ A `vertical3` plane is a set in which no element is `above2` any other.
                              (above2 x1 x2 f))))))))
 ```
 
-In the two-dimensional case, a `vertical3` plane is a horizontal set.
 
 We can pick a unique horizontal subset of the domain to be the
 x-axis.
@@ -615,6 +620,7 @@ x-axis.
       (and (framework f) (horizontal2 a1 f))))
 ```
 
+
 We can pick a unique vertical subset of the domain to be the y-axis.
 
 ```
@@ -622,6 +628,7 @@ We can pick a unique vertical subset of the domain to be the y-axis.
   (if (yAxis a2 f)
       (and (framework f) (vertical2 a2 f))))
 ```
+
 
 There may be a unique `vertical3` set which is the z-axis, intersecting
 the x-axis and the y-axis at the origin.
@@ -631,6 +638,11 @@ the x-axis and the y-axis at the origin.
    (if (zAxis a3 f)
        (and (framework f) (vertical3 a3 f))))
 ```
+
+
+The x-, y-, and z-axes of a framework are unique. Lines 5-7 stipulate the
+uniqueness of the x- and y-axes. Lines 8-10 stipulate the uniqueness of
+the z-axis, if there is one.
 
 ```
 (forall (f)
@@ -644,9 +656,6 @@ the x-axis and the y-axis at the origin.
                   (if (and (zAxis a3 f) (zAxis a f))
                       (equal a a3)))))))
 ```
-
-Lines 5-7 stipulate the uniqueness of the x- and y-axes. Lines 8-10
-stipulate the uniqueness of the z-axis, if there is one.
 
 
 The intersection of the x-, y-, and z-axes is a unique element we call
@@ -664,7 +673,9 @@ the `origin`.
                                 (intersection s a2 a3)
 ```
 
-The x-, y-, and z-axes are independent scales.
+
+The x-, y-, and z-axes are independent scales. Lines 2-3 take care of the
+two-dimensional case; lines 4-7 the three-dimensional case.
 
 ```
 (forall (f a1 a2)
@@ -676,14 +687,10 @@ The x-, y-, and z-axes are independent scales.
                         (independentScales a2 a3))))))))
 ```
 
-Lines 2-3 take care of the two-dimensional case; lines 4-7 the
-three-dimensional case.
-
 
 A framework thus consists of a domain, two or three independent
 relations and two or three unique corresponding axes that intersect
 in a single element called the origin.
-
 
 Any element in the domain can have an x-coordinate and a y-coordinate.
 
@@ -725,7 +732,8 @@ We should point out that frameworks are often observer-based and
 hence volatile. Moving around a table changes what counts as
 `above` and `rightOf`.
 
-A subset of the domain is `horizontal3` if it is either horizontal
+
+A subset of the domain is `horizontal3` if it is either `horizontal`
 or `vertical2`.
 
 ```
@@ -733,6 +741,7 @@ or `vertical2`.
    (iff (horizontal3 s f)
         (or (horizontal s f) (vertical2 s f))))
 ```
+
 
 `horizontal3` and `vertical3` sets are independent scales.
 
@@ -754,6 +763,7 @@ framework to preserve the predicate 2D for other uses as well.
            (not (exists (a3) (zAxis a3 f))))))
 ```
 
+
 If a framework is three-dimensional, it has a z-axis.
 
 ```
@@ -762,10 +772,11 @@ If a framework is three-dimensional, it has a z-axis.
       (exists (a3) (zAxis a3 f))))
 ```
 
+
 We steer clear of dealing with higher dimensions.
 
-Finally, we can define a coordinate system as a framework in which all
-the axes are numeric and the partial ordering is "greater than".
+We can define a coordinate system as a framework in which all the axes are
+numeric and the partial ordering is "greater than".
 
 ```
 (forall (f)

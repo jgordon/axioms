@@ -33,6 +33,7 @@
         (and (<a href="../set">set</a> s) (<a href="../domain">domain</a> s f)))))
 </pre>
 </div><div class="axiom">
+<p>The x-, y-, and z-axes of a framework are unique. Lines 5-7 stipulate the uniqueness of the x- and y-axes. Lines 8-10 stipulate the uniqueness of the z-axis, if there is one.</p>
 <pre>
 (forall (f)
    (if (<a href="../framework">framework</a> f)
@@ -95,7 +96,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The x-, y-, and z-axes are independent scales.</p>
+<p>The x-, y-, and z-axes are independent scales. Lines 2-3 take care of the two-dimensional case; lines 4-7 the three-dimensional case.</p>
 <pre>
 (forall (f a1 a2)
    (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
@@ -123,7 +124,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Finally, we can define a coordinate system as a framework in which all the axes are numeric and the partial ordering is &ldquo;greater than&rdquo;.</p>
+<p>We can define a coordinate system as a framework in which all the axes are numeric and the partial ordering is &ldquo;greater than&rdquo;.</p>
 <pre>
 (forall (f)
   (iff (<a href="../coordinateSystem">coordinateSystem</a> f)

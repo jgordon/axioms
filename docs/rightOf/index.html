@@ -38,7 +38,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A non-null subset of the domain is <code>vertical3</code> if no element is <code>rightOf</code> or <code>above2</code> any other element.</p>
+<p>A non-null subset of the domain is <code>vertical3</code> if no element is <code>rightOf</code> or <code>above2</code> any other element. In the two-dimensional case, a <code>vertical3</code> set has no ordering relations among its elements.</p>
 <pre>
 (forall (s1 f)
    (iff (<a href="../vertical3">vertical3</a> s1 f)
@@ -51,7 +51,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A <code>vertical2</code> plane is a set in which no element is <code>rightOf</code> any other.</p>
+<p>A <code>vertical2</code> plane is a set in which no element is <code>rightOf</code> any other. In the two-dimensional case, a <code>vertical2</code> plane is a <code>vertical2</code> set.</p>
 <pre>
 (forall (s1 f)
    (iff (<a href="../vertical2Plane">vertical2Plane</a> s1 f)
@@ -63,7 +63,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Finally, we can define a coordinate system as a framework in which all the axes are numeric and the partial ordering is &ldquo;greater than&rdquo;.</p>
+<p>We can define a coordinate system as a framework in which all the axes are numeric and the partial ordering is &ldquo;greater than&rdquo;.</p>
 <pre>
 (forall (f)
   (iff (<a href="../coordinateSystem">coordinateSystem</a> f)

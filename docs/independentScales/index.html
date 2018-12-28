@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Two scales are independent if their components overlap and if you can't predict the relation between two elements on one scale from their relation on the other. That is, for some pairs of elements the order is preserved when we go from one scale to the other, and for other pairs the order is reversed.</p>
+<p>Two scales are independent if their components overlap and if you can't predict the relation between two elements on one scale from their relation on the other. That is, for some pairs of elements the order is preserved when we go from one scale to the other, and for other pairs the order is reversed. In line 4, x1 and x2 are a pair where the order is preserved, and in line 5 y1 and y2 constitute a pair where it isn't.</p>
 <pre>
 (forall (s1 s2)
   (iff (<a href="../independentScales">independentScales</a> s1 s2)
@@ -37,7 +37,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>The x-, y-, and z-axes are independent scales.</p>
+<p>The x-, y-, and z-axes are independent scales. Lines 2-3 take care of the two-dimensional case; lines 4-7 the three-dimensional case.</p>
 <pre>
 (forall (f a1 a2)
    (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))

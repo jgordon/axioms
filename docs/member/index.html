@@ -882,7 +882,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A polygon is then a closed curve that is made up of n sides.</p>
+<p>A polygon is a closed curve that is made up of n sides. Lines 4-5 say that the set s is the set of sides of the polygon. Lines 6-10 say that every point in the polygon is either in a side or is a vertex. Line 11 says the polygon is a closed planar curve, and line 12 says n is the cardinality of the set of sides.</p>
 <pre>
 (forall (p n)
   (iff (<a href="../polygon">polygon</a> p n)
@@ -899,7 +899,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A non-null subset of the domain is horizontal if no element is <code>above2</code> any other element. If there is no <code>above3</code> relation, then <code>(above3 x1 x2 f)</code> will always be false, so the definition covers the two-dimensional case as well.</p>
+<p>A non-null subset of the domain is &ldquo;horizontal&rdquo; if no element is <code>above2</code> or <code>above3</code> any other element. If there is no <code>above3</code> relation, then <code>(above3 x1 x2 f)</code> will always be false, so the definition covers the two-dimensional case as well.</p>
 <pre>
 (forall (s1 f)
   (iff (<a href="../horizontal2">horizontal2</a> s1 f)
@@ -925,7 +925,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A non-null subset of the domain is <code>vertical3</code> if no element is <code>rightOf</code> or <code>above2</code> any other element.</p>
+<p>A non-null subset of the domain is <code>vertical3</code> if no element is <code>rightOf</code> or <code>above2</code> any other element. In the two-dimensional case, a <code>vertical3</code> set has no ordering relations among its elements.</p>
 <pre>
 (forall (s1 f)
    (iff (<a href="../vertical3">vertical3</a> s1 f)
@@ -938,7 +938,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A horizontal plane is a set in which no element is <code>above3</code> any other.</p>
+<p>A horizontal plane is a set in which no element is <code>above3</code> any other. In the two-dimensional case any subset of the domain is a horizontal plane.</p>
 <pre>
 (forall (s1 f)
    (iff (<a href="../horizontalPlane">horizontalPlane</a> s1 f)
@@ -950,7 +950,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A <code>vertical2</code> plane is a set in which no element is <code>rightOf</code> any other.</p>
+<p>A <code>vertical2</code> plane is a set in which no element is <code>rightOf</code> any other. In the two-dimensional case, a <code>vertical2</code> plane is a <code>vertical2</code> set.</p>
 <pre>
 (forall (s1 f)
    (iff (<a href="../vertical2Plane">vertical2Plane</a> s1 f)
@@ -962,7 +962,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A <code>vertical3</code> plane is a set in which no element is <code>above2</code> any other.</p>
+<p>A <code>vertical3</code> plane is a set in which no element is <code>above2</code> any other. In the two-dimensional case, a <code>vertical3</code> plane is a horizontal set.</p>
 <pre>
 (forall (s1 f)
    (iff (<a href="../vertical3Plane">vertical3Plane</a> s1 f)

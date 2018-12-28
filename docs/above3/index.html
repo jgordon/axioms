@@ -25,7 +25,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A non-null subset of the domain is horizontal if no element is <code>above2</code> any other element. If there is no <code>above3</code> relation, then <code>(above3 x1 x2 f)</code> will always be false, so the definition covers the two-dimensional case as well.</p>
+<p>A non-null subset of the domain is &ldquo;horizontal&rdquo; if no element is <code>above2</code> or <code>above3</code> any other element. If there is no <code>above3</code> relation, then <code>(above3 x1 x2 f)</code> will always be false, so the definition covers the two-dimensional case as well.</p>
 <pre>
 (forall (s1 f)
   (iff (<a href="../horizontal2">horizontal2</a> s1 f)
@@ -51,7 +51,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A horizontal plane is a set in which no element is <code>above3</code> any other.</p>
+<p>A horizontal plane is a set in which no element is <code>above3</code> any other. In the two-dimensional case any subset of the domain is a horizontal plane.</p>
 <pre>
 (forall (s1 f)
    (iff (<a href="../horizontalPlane">horizontalPlane</a> s1 f)
@@ -63,7 +63,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Finally, we can define a coordinate system as a framework in which all the axes are numeric and the partial ordering is &ldquo;greater than&rdquo;.</p>
+<p>We can define a coordinate system as a framework in which all the axes are numeric and the partial ordering is &ldquo;greater than&rdquo;.</p>
 <pre>
 (forall (f)
   (iff (<a href="../coordinateSystem">coordinateSystem</a> f)
