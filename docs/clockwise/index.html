@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: clockwise</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>clockwise</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The general definition of <code>clockwise</code>: If it is a turn through an acute angle only, it reduces to <code>clockwise0</code>. Otherwise we decompose the large turning event into two smaller clockwise turns, one of which is an acute angle turn.</p>
+<pre>
+(forall (e)
+   (iff (<a href="../clockwise">clockwise</a> e)
+        (exists (v)
+           (and (<a href="../turnThru">turnThru</a>' e v)
+                (or (and (<a href="../acuteAngle">acuteAngle</a> v) (<a href="../clockwise0">clockwise0</a> e))
+                    (exists (e1 e2 v1 v2)
+                       (and (<a href="../turnThru">turnThru</a>' e1 v1) (<a href="../turnThru">turnThru</a>' e2 v2)
+                            (<a href="../eventSequence">eventSequence</a> e e1 e2) (<a href="../addVertex">addVertex</a> v v1 v2)
+                            (<a href="../acuteAngle">acuteAngle</a> v1) (<a href="../clockwise">clockwise</a> v1)
+                            (<a href="../clockwise">clockwise</a> v2))))
+                 (not (exists (e0 v0)
+                         (and (<a href="../turnThru">turnThru</a>' e0 v0) (<a href="../subevent">subevent</a> e0 e)
+                              (<a href="../counterclockwise">counterclockwise</a> e0))))))))
+</pre>
+</div></section>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>The definition of <code>counterclockwise</code> is almost identical to <code>clockwise</code>.</p>
+<pre>
+(forall (e)
+   (iff (<a href="../counterclockwise">counterclockwise</a> e)
+        (exists (v)
+           (and (<a href="../turnThru">turnThru</a>' e v)
+                (or (and (<a href="../acuteAngle">acuteAngle</a> v) (<a href="../counterclockwise0">counterclockwise0</a> e))
+                    (exists (e1 e2 v1 v2)
+                       (and (<a href="../turnThru">turnThru</a>' e1 v1) (<a href="../turnThru">turnThru</a>' e2 v2)
+                            (<a href="../eventSequence">eventSequence</a> e e1 e2) (<a href="../addVertex">addVertex</a> v v1 v2)
+                            (<a href="../acuteAngle">acuteAngle</a> v1) (<a href="../counterclockwise">counterclockwise</a> e1)
+                            (<a href="../counterclockwise">counterclockwise</a> e2))))
+                 (not (exists (e0 v0)
+                         (and (<a href="../turnThru">turnThru</a>' e0 v0) (<a href="../subevent">subevent</a> e0 e)
+                              (<a href="../clockwise">clockwise</a> e0))))))))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

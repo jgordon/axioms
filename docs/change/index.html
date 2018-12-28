@@ -165,6 +165,28 @@
               (<a href="../subevent">subevent</a> e1 e)))))
 </pre>
 </div>
+<div class="axiom">
+<p>Physical objects have a front have an intrinsic orientation, and that orientation can change. This is called turning.</p>
+<pre>
+(forall (r x)
+   (if (<a href="../front">front</a> r x)
+       (iff (<a href="../turn">turn</a> x d1 d2)
+            (exists (e1 e2 f)
+               (and (<a href="../change">change</a> e1 e2) (<a href="../orientation">orientation</a>' e1 d1 x f)
+                    (<a href="../orientation">orientation</a>' e2 d2 x f))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Any physical object can turn, and we know it has if we can find an external point p, a face r of the object facing p, and a framework f, such that the <code>orientation0</code> of the object with respect to that face and framework changes.</p>
+<pre>
+(forall (x d1 d2)
+   (iff (<a href="../turn">turn</a> x d1 d2)
+        (exists (r p e1 e2 f)
+           (and (<a href="../face">face</a> r x p)
+                (<a href="../change">change</a> e1 e2) (<a href="../orientation0">orientation0</a>' e1 d1 x r f)
+                (<a href="../orientation0">orientation0</a>' e2 d2 x r f)))))
+</pre>
+</div>
 </section>
 
 </body>

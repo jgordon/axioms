@@ -1414,3 +1414,215 @@ A volume is concave if it is not convex.
    (if (volume p)
        (iff (concave p) (not (convex p)))))
 ```
+
+
+## Orientation and Rotation
+
+Physical objects have a front have an intrinsic orientation, and that
+orientation can change. This is called turning.
+
+```
+(forall (r x)
+   (if (front r x)
+       (iff (turn x d1 d2)
+            (exists (e1 e2 f)
+               (and (change e1 e2) (orientation' e1 d1 x f)
+                    (orientation' e2 d2 x f))))))
+```
+
+
+Any physical object can turn, and we know it has if we can find an
+external point p, a face r of the object facing p, and a framework f, such
+that the `orientation0` of the object with respect to that face and
+framework changes.
+
+```
+(forall (x d1 d2)
+   (iff (turn x d1 d2)
+        (exists (r p e1 e2 f)
+           (and (face r x p)
+                (change e1 e2) (orientation0' e1 d1 x r f)
+                (orientation0' e2 d2 x r f)))))
+```
+
+
+For a predicate corresponding to the transitive verb "turn", we define
+`turn2` that augments `turn` with the causality of an agent
+
+```
+(forall (a x d1 d2)
+   (iff (turn2 a x d1 d2)
+        (exists (e)
+           (and (cause a e) (turn' e x d1 d2)))))
+```
+
+
+We won’t go very wrong if we take "turn" and "rotate" to mean the same thing.
+
+```
+(forall (x d1 d2)
+   (iff (rotate x d1 d2)
+        (turn x d1 d2)))
+```
+
+
+If the orientation of something changes from d1 to d2 and then changes
+from d2 to d3, a composite change from d1 to d3 has occurred.
+
+```
+(forall (x d1 d2 d3)
+   (if (and (turn x d1 d2)
+            (turn x d2 d3))
+       (turn x d1 d3)))
+```
+
+
+It will be useful to have a predicate for turning through an angle. Here v
+is the angle formed by x's from- and to-orientations.
+
+```
+(forall (e x v)
+   (iff (turnThru' e x v)
+        (exists (d1 d2 o)
+           (and (turn' e x d1 d2) (atLoc x o) (vertex v d1 d2 o)))))
+```
+
+
+We define a very restricted version of the composition of two angles.
+
+```
+(forall (v v1 v2 dk1 d2 d3 o)
+   (if (vertex v1 d1 d2 o) (vertex v2 d2 d3 o)
+       (iff (addVertex v v1 v2 o)
+            (vertex v d1 d3 o))))
+```
+
+
+Two `turnThru` actions compose into a single `turnThru`.
+
+```
+(forall (e1 e2 x v1 v2)
+   (if (and (turnThru' e1 x v1) (turnThru' e2 x v2))
+       (exists (v e)
+          (and (addVertex v v1 v2) (turnThru' e x v)))))
+```
+
+
+In a two-dimensional world you can turn in one of two ways -- clockwise
+or counterclockwise. But it's not easy to define these concepts. You
+can change from one orientation to another by turning either way. You
+can do a right turn or three lefts. To get around this problem, we
+define "clockwise" for acute angles in terms of `anchorPoint`s and then
+define the general concept recursively by decomposing a large turn into an
+acute angle turn plus a smaller clockwise turn. That is, e is `clockwise0`
+exactly when e is a turn by x from direction d1 to direction d2 with
+respect to framework f, object x is located at the origin of f, direction
+d1 lies along the x-axis of f, directions d1 and d2 are the sides of a
+vertex v, which is an acute angle, y is a point one unit u out from the
+origin o on ray d2, and y1 is its y-coordinate -- so far we're just
+drawing the picture; here comes the essential condition -- y1 is less than
+the origin on the y-axis. Since angle v is acute, y is in the first or
+fourth quadrant, so if y’s y-coordinate is lower than the origin on the
+y-axis, y must be in the fourth quadrant, and so is the target direction
+d2 of the turn.
+
+```
+(forall (e)
+   (iff (clockwise0 e)
+        (exists (x d1 d2 y f v o u y y1 a)
+           (and (turn' e x d1 d2) (anchorPoint y f v d1 d2 o u)
+                (atLoc x o) (acuteAngle v)
+                (yCoordinate y1 y) (yAxis a f) (lts y1 o a)))))
+```
+
+
+The definition of `counterclockwise0` differs from `clockwise0` only in
+the reversal of the arguments in the `lts` condition.
+
+```
+(forall (e)
+   (iff (counterclockwise0 e)
+        (exists (x d1 d2 y f v o u y y1 a)
+           (and (turn' e x d1 d2) (anchorPoint y f v d1 d2 o u)
+                (atLoc x o) (acuteAngle v)
+                (yCoordinate y1 y) (yAxis a f) (lts o y1 a)))))
+```
+
+
+The general definition of `clockwise`: If it is a turn through an acute
+angle only, it reduces to `clockwise0`. Otherwise we decompose the large
+turning event into two smaller clockwise turns, one of which is an acute
+angle turn.
+
+```
+(forall (e)
+   (iff (clockwise e)
+        (exists (v)
+           (and (turnThru' e v)
+                (or (and (acuteAngle v) (clockwise0 e))
+                    (exists (e1 e2 v1 v2)
+                       (and (turnThru' e1 v1) (turnThru' e2 v2)
+                            (eventSequence e e1 e2) (addVertex v v1 v2)
+                            (acuteAngle v1) (clockwise v1)
+                            (clockwise v2))))
+                 (not (exists (e0 v0)
+                         (and (turnThru' e0 v0) (subevent e0 e)
+                              (counterclockwise e0))))))))
+```
+
+
+The definition of `counterclockwise` is almost identical to `clockwise`.
+
+```
+(forall (e)
+   (iff (counterclockwise e)
+        (exists (v)
+           (and (turnThru' e v)
+                (or (and (acuteAngle v) (counterclockwise0 e))
+                    (exists (e1 e2 v1 v2)
+                       (and (turnThru' e1 v1) (turnThru' e2 v2)
+                            (eventSequence e e1 e2) (addVertex v v1 v2)
+                            (acuteAngle v1) (counterclockwise e1)
+                            (counterclockwise e2))))
+                 (not (exists (e0 v0)
+                         (and (turnThru' e0 v0) (subevent e0 e)
+                              (clockwise e0))))))))
+```
+
+## Composite Entities in Space
+
+A composite entity is along a curve if its components are at points on
+the curve.
+
+```
+(forall (z c s)
+   (iff (along z c s)
+        (and (compositeEntity z) (curve c) (subset c s)
+             (forall (x)
+                (if (componentOf x z)
+                    (exists (y)
+                       (and (inside y c) (at x y s))))))))
+```
+
+
+A composite entity can be over a region.
+
+```
+(forall (z  s)
+   (iff (over z r s)
+        (and (compositeEntity z) (region r) (subset r s)
+             (forall (x)
+                (if (componentOf x z)
+                    (exists (y)
+                       (and (inside y r) (at x y s))))))))
+```
+
+
+A line is a concrete entity that lies along a line.
+
+```
+(forall (x)
+   (if (lineObj x)
+       (exists (c)
+          (and (lineSegment c) (along x c)))))
+```

@@ -232,6 +232,15 @@
         (and (not (<a href="../before">before</a> t2 t1)) (<a href="../atTime">atTime</a> e2 t2)))))
 </pre>
 </div>
+<div class="axiom">
+<p>For a predicate corresponding to the transitive verb &ldquo;turn&rdquo;, we define <code>turn2</code> that augments <code>turn</code> with the causality of an agent</p>
+<pre>
+(forall (a x d1 d2)
+   (iff (<a href="../turn2">turn2</a> a x d1 d2)
+        (exists (e)
+           (and (<a href="../cause">cause</a> a e) (<a href="../turn">turn</a>' e x d1 d2)))))
+</pre>
+</div>
 </section>
 
 </body>

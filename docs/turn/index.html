@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: atLoc</title>
+<title>Predicate: turn</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,16 +20,58 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>atLoc</code></h1>
+<h1>Predicate: <code>turn</code></h1>
 </header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Any physical object can turn, and we know it has if we can find an external point p, a face r of the object facing p, and a framework f, such that the <code>orientation0</code> of the object with respect to that face and framework changes.</p>
+<pre>
+(forall (x d1 d2)
+   (iff (<a href="../turn">turn</a> x d1 d2)
+        (exists (r p e1 e2 f)
+           (and (<a href="../face">face</a> r x p)
+                (<a href="../change">change</a> e1 e2) (<a href="../orientation0">orientation0</a>' e1 d1 x r f)
+                (<a href="../orientation0">orientation0</a>' e2 d2 x r f)))))
+</pre>
+</div></section>
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>Physical objects have a front have an intrinsic orientation, and that orientation can change. This is called turning.</p>
 <pre>
-(forall (e1 e2 x s)
-  (if (<a href="../gen">gen</a> e1 e2)
-      (iff (<a href="../atLoc">atLoc</a> e1 x s)
-           (<a href="../atLoc">atLoc</a> e2 x s))))
+(forall (r x)
+   (if (<a href="../front">front</a> r x)
+       (iff (<a href="../turn">turn</a> x d1 d2)
+            (exists (e1 e2 f)
+               (and (<a href="../change">change</a> e1 e2) (<a href="../orientation">orientation</a>' e1 d1 x f)
+                    (<a href="../orientation">orientation</a>' e2 d2 x f))))))
+</pre>
+</div>
+<div class="axiom">
+<p>For a predicate corresponding to the transitive verb &ldquo;turn&rdquo;, we define <code>turn2</code> that augments <code>turn</code> with the causality of an agent</p>
+<pre>
+(forall (a x d1 d2)
+   (iff (<a href="../turn2">turn2</a> a x d1 d2)
+        (exists (e)
+           (and (<a href="../cause">cause</a> a e) (<a href="../turn">turn</a>' e x d1 d2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>We won’t go very wrong if we take &ldquo;turn&rdquo; and &ldquo;rotate&rdquo; to mean the same thing.</p>
+<pre>
+(forall (x d1 d2)
+   (iff (<a href="../rotate">rotate</a> x d1 d2)
+        (<a href="../turn">turn</a> x d1 d2)))
+</pre>
+</div>
+<div class="axiom">
+<p>If the orientation of something changes from d1 to d2 and then changes from d2 to d3, a composite change from d1 to d3 has occurred.</p>
+<pre>
+(forall (x d1 d2 d3)
+   (if (and (<a href="../turn">turn</a> x d1 d2)
+            (<a href="../turn">turn</a> x d2 d3))
+       (<a href="../turn">turn</a> x d1 d3)))
 </pre>
 </div>
 <div class="axiom">

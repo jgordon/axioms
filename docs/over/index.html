@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: over</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>over</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A composite entity can be over a region.</p>
+<pre>
+(forall (z  s)
+   (iff (<a href="../over">over</a> z r s)
+        (and (<a href="../compositeEntity">compositeEntity</a> z) (<a href="../region">region</a> r) (<a href="../subset">subset</a> r s)
+             (forall (x)
+                (if (<a href="../componentOf">componentOf</a> x z)
+                    (exists (y)
+                       (and (<a href="../inside">inside</a> y r) (<a href="../at">at</a> x y s))))))))
+</pre>
+</div></section>
+
+</body>
+
+</html>

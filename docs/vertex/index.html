@@ -39,6 +39,14 @@
   (iff (<a href="../vertex">vertex</a> v c1 c2 x)
        (<a href="../vertex">vertex</a> v c2 c1 x)))
 </pre>
+</div><div class="axiom">
+<p>We define a very restricted version of the composition of two angles.</p>
+<pre>
+(forall (v v1 v2 dk1 d2 d3 o)
+   (if (<a href="../vertex">vertex</a> v1 d1 d2 o) (<a href="../vertex">vertex</a> v2 d2 d3 o)
+       (iff (<a href="../addVertex">addVertex</a> v v1 v2 o)
+            (<a href="../vertex">vertex</a> v d1 d3 o))))
+</pre>
 </div></section>
 <section>
 <h2>Additional Axioms</h2>
@@ -94,6 +102,15 @@
 (forall (p d c v x)
    (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
        (<a href="../45Degrees">45Degrees</a> v)))
+</pre>
+</div>
+<div class="axiom">
+<p>It will be useful to have a predicate for turning through an angle. Here v is the angle formed by x's from- and to-orientations.</p>
+<pre>
+(forall (e x v)
+   (iff (<a href="../turnThru">turnThru</a>' e x v)
+        (exists (d1 d2 o)
+           (and (<a href="../turn">turn</a>' e x d1 d2) (<a href="../atLoc">atLoc</a> x o) (<a href="../vertex">vertex</a> v d1 d2 o)))))
 </pre>
 </div>
 </section>

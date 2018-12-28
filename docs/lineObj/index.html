@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: lineObj</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>lineObj</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A line is a concrete entity that lies along a line.</p>
+<pre>
+(forall (x)
+   (if (<a href="../lineObj">lineObj</a> x)
+       (exists (c)
+          (and (<a href="../lineSegment">lineSegment</a> c) (<a href="../along">along</a> x c)))))
+</pre>
+</div></section>
+
+</body>
+
+</html>

@@ -197,6 +197,30 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A composite entity is along a curve if its components are at points on the curve.</p>
+<pre>
+(forall (z c s)
+   (iff (<a href="../along">along</a> z c s)
+        (and (<a href="../compositeEntity">compositeEntity</a> z) (<a href="../curve">curve</a> c) (<a href="../subset">subset</a> c s)
+             (forall (x)
+                (if (<a href="../componentOf">componentOf</a> x z)
+                    (exists (y)
+                       (and (<a href="../inside">inside</a> y c) (<a href="../at">at</a> x y s))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A composite entity can be over a region.</p>
+<pre>
+(forall (z  s)
+   (iff (<a href="../over">over</a> z r s)
+        (and (<a href="../compositeEntity">compositeEntity</a> z) (<a href="../region">region</a> r) (<a href="../subset">subset</a> r s)
+             (forall (x)
+                (if (<a href="../componentOf">componentOf</a> x z)
+                    (exists (y)
+                       (and (<a href="../inside">inside</a> y r) (<a href="../at">at</a> x y s))))))))
+</pre>
+</div>
+<div class="axiom">
 <p>The mind is a composite entity.</p>
 <pre>
 (forall (m p)

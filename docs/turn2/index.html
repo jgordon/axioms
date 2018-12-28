@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: turn2</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>turn2</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>For a predicate corresponding to the transitive verb &ldquo;turn&rdquo;, we define <code>turn2</code> that augments <code>turn</code> with the causality of an agent</p>
+<pre>
+(forall (a x d1 d2)
+   (iff (<a href="../turn2">turn2</a> a x d1 d2)
+        (exists (e)
+           (and (<a href="../cause">cause</a> a e) (<a href="../turn">turn</a>' e x d1 d2)))))
+</pre>
+</div></section>
+
+</body>
+
+</html>
