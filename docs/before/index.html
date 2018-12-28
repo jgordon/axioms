@@ -253,6 +253,19 @@
         (and (not (<a href="../before">before</a> t2 t1)) (<a href="../atTime">atTime</a> e2 t2)))))
 </pre>
 </div>
+<div class="axiom">
+<p>If the volume is mobile, the leading face is often considered the front. That is, defeasibly, if the volume moves from one point to another, the front reaches the destination before any other face. In lines 2-3 p1 is a point in the face r, and p2 is another point in v not in the face. Lines 5-7 say that if there is moving from b to c, then defeasibly p1 will get there before p2. Line 8 says under these conditions, the face is a front.</p>
+<pre>
+(forall (r v p p1 p2)
+   (if (and (<a href="../face">face</a> r v p) (<a href="../subfigure">subfigure</a> p1 r) (<a href="../subfigure">subfigure</a> p2 v)
+            (not (<a href="../subfigure">subfigure</a> p2 r))
+            (forall (b c e1 e2)
+               (if (and (<a href="../move">move</a> v b c) (<a href="../at">at</a>' e1 p1 c) (<a href="../at">at</a>' e2 p2 c)
+                        (etc))
+                   (<a href="../before">before</a> e1 e2))))
+       (<a href="../front">front</a> r v)))
+</pre>
+</div>
 </section>
 
 </body>

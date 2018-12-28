@@ -33,6 +33,18 @@
 <pre>
 (forall (x) (if (<a href="../point">point</a> x) (<a href="../figure">figure</a> x)))
 </pre>
+</div><div class="axiom">
+<p>We introduce a loose notion of &ldquo;central&rdquo; based on half orders of magnitude. We will say that a point in a region or volume is central if whenever a straight line is drawn through the point and intersects the boundary in two points, the distances from the central point to the two boundary points are of the same half order of magnitude. In this axiom, c is any line segment from p1 to p2, points on the boundary of f, passing through p. Line 7 says that p divides the line segment into roughly equal parts.  We use &ldquo;if&rdquo; rather than &ldquo;iff&rdquo; because this is a strong sufficient condition, not a necessary condition for centrality. There will surely be odd-shaped figures where this condition won't hold and yet we'll want to call the point central.</p>
+<pre>
+(forall (p f)
+   (if (<a href="../point">point</a> p)
+       (if (forall (c p1 p2 b d1 d2)
+              (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p1 p2) (<a href="../inside">inside</a> p c)
+                       (<a href="../boundary">boundary</a> b f) (<a href="../inside">inside</a> p1 b) (<a href="../inside">inside</a> p2 b)
+                       (<a href="../distance">distance</a> d1 p1 p) (<a href="../distance">distance</a> d2 p2 p))
+                  (<a href="../sameHOM">sameHOM</a> d1 d2)))
+           (<a href="../centralIn0">centralIn0</a> p f))
+</pre>
 </div></section>
 <section>
 <h2>Additional Axioms</h2>
@@ -85,7 +97,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A polyhedron is a volume whose surface consists of polygons, which are called faces.</p>
+<p>A polyhedron is a volume whose surface consists of polygons, which are called faces. The expression <code>(polyhedron p s)</code> says that p is a polyhedron with set s of faces. Lines 5-6 says that the members of s are polygons contained within the surface of the polyhedron. Lines 7-10 say that the faces account for the entire surface. Lines 11-14 say that the polygons overlap only at their boundaries.</p>
 <pre>
 (forall (p s)
    (iff (<a href="../polyhedron">polyhedron</a> p s)
@@ -101,6 +113,47 @@
                    (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
                             (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
                        (equal f1 f2)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A face is defined in terms of a reference point. It is a subregion of the surface of a volume that faces the reference point. The expression <code>(face0 r v p)</code> says that subregion r of volume v faces external point p. Recall that a point is a subfigure of a region or volume if it is inside it or in its boundary. Lines 3-4 say that p is external to v and r is a subfigure of v. Lines 5-8 say that any line segment from p to a point in r will not cross v before arriving at r. In other words, no part of the volume v blocks a straight path between the point p and the face r.</p>
+<pre>
+(forall (r v p)
+   (if (<a href="../face0">face0</a> r v p)
+       (and (<a href="../volume">volume</a> v) (<a href="../point">point</a> p) (not (<a href="../subfigure">subfigure</a> p v))
+            (<a href="../region">region</a> r) (<a href="../subfigure">subfigure</a> r v)
+            (forall (p0 c)
+               (if (and (<a href="../subfigure">subfigure</a> p0 r)
+                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p p0))
+                   (not (exists (p1)
+                           (and (<a href="../inside">inside</a> p1 c)
+                                (<a href="../subfigure">subfigure</a> p1 v)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p><code>centralIn</code> extends the concept of <code>centralIn0</code> to higher-dimensional figures.</p>
+<pre>
+(forall (f1 f2)
+   (iff (<a href="../centralIn">centralIn</a> f1 f2)
+        (or (and (<a href="../point">point</a> f1) (<a href="../centralIn0">centralIn0</a> f1 f2))
+            (and (<a href="../figure">figure</a> f1) (<a href="../figure">figure</a> f2)
+                 (forall (p) (if (<a href="../inside">inside</a> p f1)
+                                 (<a href="../centralIn0">centralIn0</a> p f2)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We can stipulate that region r is a face of volume v with respect to exterior point p if a line segment from a central point in v through a central point in r ending at p does not pass through any point in v between r and p. Lines 2-3 constrain the arguments of “face”.  In lines 5-7 c is a line segment from a central point in volume v to the exterior point p, passing through a central point p1 in region r. Lines 8-10 say that there is no point p2 between p1 and p that is also in v.</p>
+<pre>
+(forall (v r p)
+   (if (and (<a href="../volume">volume</a> v) (<a href="../region">region</a> r) (<a href="../subfigure">subfigure</a> r v)
+            (<a href="../point">point</a> p) (not (<a href="../subfigure">subfigure</a> p v)))
+       (iff (<a href="../face">face</a> r v p)
+            (forall (c p0 p1)
+               (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p0 p) (<a href="../centralIn">centralIn</a> p0 v)
+                        (<a href="../centralIn">centralIn</a> p1 r) (<a href="../subfigure">subfigure</a> p1 c))
+                   (not (exists (p2 c1)
+                           (and (<a href="../subfigure">subfigure</a> p2 v) (<a href="../inside">inside</a> p2 c1)
+                                (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 p1 p)))))))))
 </pre>
 </div>
 </section>

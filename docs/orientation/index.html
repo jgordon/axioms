@@ -23,6 +23,17 @@
 <h1>Predicate: <code>orientation</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>We can now define &ldquo;orientation&rdquo;.</p>
+<pre>
+(forall (d v f)
+   (iff (<a href="../orientation">orientation</a> d v f)
+        (exists (r)
+           (and (<a href="../front">front</a> r v) (<a href="../orientation0">orientation0</a> d v r f)))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <p>Physical objects have a front have an intrinsic orientation, and that orientation can change. This is called turning.</p>

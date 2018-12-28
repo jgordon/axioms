@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: back</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>back</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The expression <code>(back r v f)</code> says that region r is the back of volume v in framework f. In lines 4-7 the orientation of v is anchored to the positive y-axis, and the back is a face the direction of whose quill is the negative y-axis.</p>
+<pre>
+(forall (r v f)
+   (iff (<a href="../back">back</a> r v f)
+        (exists (r1 c c1 a a1)
+           (and (<a href="../front">front</a> r1 v f) (<a href="../face">face</a> r v p)
+                (<a href="../quill">quill</a> c1 r1 v) (<a href="../quill">quill</a> c r v)
+                (<a href="../directionOf">directionOf</a> a1 c1 f) (<a href="../directionOf">directionOf</a> a c f)
+                (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../negYAxis">negYAxis</a> a f)))))
+</pre>
+</div></section>
+
+</body>
+
+</html>

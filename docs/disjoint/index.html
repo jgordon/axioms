@@ -55,6 +55,14 @@
       (<a href="../at">at</a> x y s2)))
 </pre>
 </div>
+<div class="axiom">
+<p>Fronts are defeasibly unique.</p>
+<pre>
+(forall (r1 r2 v)
+   (if (and (<a href="../front">front</a> r1 v) (<a href="../disjoint">disjoint</a> r1 r2) (etc))
+       (not (<a href="../front">front</a> r2 v))))
+</pre>
+</div>
 </section>
 
 </body>

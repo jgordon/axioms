@@ -36,6 +36,17 @@
              (forall (y)
                (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> x y s))))))
 </pre>
+</div><div class="axiom">
+<p>The expression <code>(bottom r v f)</code> says that region r is the bottom of volume v in framework f.</p>
+<pre>
+(forall (r v f)
+   (iff (<a href="../bottom">bottom</a> r v f)
+        (exists (r1 c c1 a a1)
+           (and (<a href="../front">front</a> r1 v f) (<a href="../face">face</a> r v p)
+                (<a href="../quill">quill</a> c1 r1 v) (<a href="../quill">quill</a> c r v f)
+                (<a href="../directionOf">directionOf</a> a1 c1 f) (<a href="../directionOf">directionOf</a> a c f)
+                (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../negZAxis">negZAxis</a> a f)))))
+</pre>
 </div></section>
 <section>
 <h2>Additional Axioms</h2>
@@ -84,7 +95,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>Depth may seem also to specify a vertical dimension, as in &ldquo;the depth of the lake&rdquo;. But one can also talk about &ldquo;the depth of the safe&rdquo; referring to how far back one can reach into it. On the other hand, one wouldn't talk about the depth of a floor, referring to the distance from the carpet to the ceiling of the room below. The condition for &ldquo;depth&rdquo; probably involves a real or imagined movement into the object. Moreover, the entry into the object can be through the top, as in the lake example, or through the front or one of the sides, as in the safe example. But apparently the movement can’t be through the bottom of the object. Here r is the face of physical object x through which entry is effected in real or imagined motion e of something y from z1 to z2. Ray c is a &ldquo;quill&rdquo; from a central point in x through a central point in r, and it is parallel to an edge c1 of a bounding box b of x. The length of that edge is the depth of the object.</p>
+<p>Depth may seem also to specify a vertical dimension, as in &ldquo;the depth of the lake&rdquo;. But one can also talk about &ldquo;the depth of the safe&rdquo; referring to how far back one can reach into it. On the other hand, one wouldn't talk about the depth of a floor, referring to the distance from the carpet to the ceiling of the room below. The condition for &ldquo;depth&rdquo; probably involves a real or imagined movement into the object. Moreover, the entry into the object can be through the top, as in the lake example, or through the front or one of the sides, as in the safe example. But apparently the movement can't be through the bottom of the object. Here r is the face of physical object x through which entry is effected in real or imagined motion e of something y from z1 to z2. Ray c is a &ldquo;quill&rdquo; from a central point in x through a central point in r, and it is parallel to an edge c1 of a bounding box b of x. The length of that edge is the depth of the object.</p>
 <pre>
 (forall (n x u)
    (iff (<a href="../depth">depth</a> n x u)

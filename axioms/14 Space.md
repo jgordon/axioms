@@ -1345,10 +1345,87 @@ is parallel to the object.
 Note that a line segment will have two directions, 180 degrees apart.
 
 
+The positive half of the x-axis of a framework is a direction.
+
+```
+(forall (d f)
+   (iff (posXAxis d f)
+        (exists (a o)
+           (and (xAxis a f) (origin o f)
+                (forall (x)
+                   (iff (member x d)
+                        (and (member x a) (leqs o x a))))))))
+```
+
+The negative half of the x-axis of a framework is a direction.
+
+```
+(forall (d f)
+   (iff (negXAxis d f)
+        (exists (a o)
+           (and (xAxis a f) (origin o f)
+                (forall (x)
+                   (iff (member x d)
+                        (and (member x a) (leqs x o a))))))))
+```
+
+The positive half of the y-axis of a framework is a direction.
+
+```
+(forall (d f)
+   (iff (posYAxis d f)
+        (exists (a o)
+           (and (yAxis a f) (origin o f)
+                (forall (x)
+                   (iff (member x d)
+                        (and (member x a) (leqs o x a))))))))
+```
+
+The negative half of the y-axis of a framework is a direction.
+
+```
+(forall (d f)
+   (iff (negYAxis d f)
+        (exists (a o)
+           (and (yAxis a f) (origin o f)
+                (forall (x)
+                   (iff (member x d)
+                        (and (member x a) (leqs x o a))))))))
+```
+
+The positive half of the z-axis of a framework is a direction.
+
+```
+(forall (d f)
+   (iff (posZAxis d f)
+        (exists (a o)
+           (and (zAxis a f) (origin o f)
+                (forall (x)
+                   (iff (member x d)
+                        (and (member x a) (leqs o x a))))))))
+```
+
+The negative half of the z-axis of a framework is a direction.
+
+```
+(forall (d f)
+   (iff (negZAxis d f)
+        (exists (a o)
+           (and (zAxis a f) (origin o f)
+                (forall (x)
+                   (iff (member x d)
+                        (and (member x a) (leqs x o a))))))))
+```
+
+
 ## Polyhedrons
 
 A polyhedron is a volume whose surface consists of polygons, which are
-called faces.
+called faces. The expression `(polyhedron p s)` says that p is a
+polyhedron with set s of faces. Lines 5-6 says that the members of s are
+polygons contained within the surface of the polyhedron. Lines 7-10 say
+that the faces account for the entire surface. Lines 11-14 say that the
+polygons overlap only at their boundaries.
 
 ```
 (forall (p s)
@@ -1367,11 +1444,7 @@ called faces.
                        (equal f1 f2)))))))
 ```
 
-The expression `(polyhedron p s)` says that p is a polyhedron with
-set s of faces. Lines 5-6 says that the members of s are polygons
-contained within the surface of the polyhedron. Lines 7-10 say that
-the faces account for the entire surface. Lines 11-14 say that the
-polygons overlap only at their boundaries.
+
 
 A face of a polyhedron is one of the faces.
 
@@ -1381,6 +1454,7 @@ A face of a polyhedron is one of the faces.
        (iff (face f p) (member f s))))
 ```
 
+
 An edge of a polyhedron is a side of one of the faces.
 
 ```
@@ -1389,6 +1463,7 @@ An edge of a polyhedron is a side of one of the faces.
        (iff (edge c p)
             (exists (f) (and (face f p) (sideOf c f))))))
 ```
+
 
 A vertex of a polyhedron is an endpoint of one of the edges. We
 will call this relation `vertex3` (vertex of a 3-dimensional entity)
@@ -1401,6 +1476,7 @@ since we already have a predicate `vertex`.
             (exists (c) (and (edge c p) (endpoint x c)))))
 ```
 
+
 We have taken a polyhedron to be a 3-dimensional volume. We can
 also refer to its 2-dimensional surface as a polyhedron; we will
 call this predicate `polyhedron2`.
@@ -1410,6 +1486,7 @@ call this predicate `polyhedron2`.
    (iff (polyhedron2 p2 s)
         (exists (p) (and (polyhedron p s) (surface p2 p)))))
 ```
+
 
 A rectangular parallelepiped is a polyhedron all of whose faces are
 rectangles.
@@ -1422,6 +1499,7 @@ rectangles.
                 (if (member f s) (rectangle f))))))
 ```
 
+
 A cube is a polyhedron all of whose faces are squares.
 
 ```
@@ -1431,6 +1509,7 @@ A cube is a polyhedron all of whose faces are squares.
              (forall (f)
                 (if (member f s) (square f))))))
 ```
+
 
 A volume is convex if every point on a line segment between any
 two points on its surface is inside the volume.
@@ -1445,12 +1524,321 @@ two points on its surface is inside the volume.
                    (subfigure x p))))))
 ```
 
+
 A volume is concave if it is not convex.
 
 ```
 (forall (p)
    (if (volume p)
        (iff (concave p) (not (convex p)))))
+```
+
+
+## Qualitative Faces
+
+It is easy to say what a face is in the case of a polyhedron, and when
+combined with orientation, what fronts, backs and sides are. It is much
+more difficult in the case of amorphous physical objects like human
+beings, animals, cars, odd-shaped buildings, and so on. We will begin by
+taking seriously the relational nature of "face" -- x faces y. Then we
+define a loose notion of a point being central in a region or volume.
+This will allow us to tighten the characterization of “face” somewhat. We
+then characterize in terms of these concepts the orientation of an object
+and its faces designated the front, back, sides, top and bottom.
+
+A face is defined in terms of a reference point. It is a subregion
+of the surface of a volume that faces the reference point.
+The expression `(face0 r v p)` says that subregion r of volume v
+faces external point p. Recall that a point is a subfigure of a
+region or volume if it is inside it or in its boundary. Lines 3-4
+say that p is external to v and r is a subfigure of v. Lines 5-8
+say that any line segment from p to a point in r will not cross v
+before arriving at r. In other words, no part of the volume v
+blocks a straight path between the point p and the face r.
+
+```
+(forall (r v p)
+   (if (face0 r v p)
+       (and (volume v) (point p) (not (subfigure p v))
+            (region r) (subfigure r v)
+            (forall (p0 c)
+               (if (and (subfigure p0 r)
+                        (lineSegmentFromTo c p p0))
+                   (not (exists (p1)
+                           (and (inside p1 c)
+                                (subfigure p1 v)))))))))
+```
+
+It is easy to see that the face of a convex polyhedron, e.g., a
+cube, is a face with respect to any point beyond the plane of the
+face.
+
+This concept leaves something to be desired, however, which is
+why we called it `face0`. This axiom will allow v to be
+a square building, r to be its front as normally understood, and
+p to be a point miles away to the side but one inch in front of
+the building. To get a tighter notion of "face". we can introduce
+the idea of a point being "central in" a figure.
+
+It is straightforward to define the center of a regular figure,
+such as a sphere or a cube.  It is not so easy for an irregular
+region or volume, like a person, a country, or a random artifact,
+where we lack a precise specification of shape.  But we know, for
+example, that Kansas City is in the central part of the United
+States, and that the stomach is more centrally located in the body
+than the throat is.
+
+We introduce a loose notion of "central" based on half orders of
+magnitude. We will say that a point in a region or volume is central if
+whenever a straight line is drawn through the point and intersects the
+boundary in two points, the distances from the central point to the two
+boundary points are of the same half order of magnitude.
+In this axiom, c is any line segment from p1 to p2, points on the
+boundary of f, passing through p. Line 7 says that p divides the
+line segment into roughly equal parts.  We use "if" rather than
+"iff" because this is a strong sufficient condition, not a necessary
+condition for centrality. There will surely be odd-shaped figures where
+this condition won't hold and yet we'll want to call the point central.
+
+```
+(forall (p f)
+   (if (point p)
+       (if (forall (c p1 p2 b d1 d2)
+              (if (and (lineSegmentFromTo c p1 p2) (inside p c)
+                       (boundary b f) (inside p1 b) (inside p2 b)
+                       (distance d1 p1 p) (distance d2 p2 p))
+                  (sameHOM d1 d2)))
+           (centralIn0 p f))
+```
+
+
+`centralIn` extends the concept of `centralIn0` to higher-dimensional figures.
+
+```
+(forall (f1 f2)
+   (iff (centralIn f1 f2)
+        (or (and (point f1) (centralIn0 f1 f2))
+            (and (figure f1) (figure f2)
+                 (forall (p) (if (inside p f1)
+                                 (centralIn0 p f2)))))))
+```
+
+
+We can stipulate that region r is a face of volume v with respect to
+exterior point p if a line segment from a central point in v through a
+central point in r ending at p does not pass through any point in v
+between r and p. Lines 2-3 constrain the arguments of “face”.  In lines
+5-7 c is a line segment from a central point in volume v to the exterior
+point p, passing through a central point p1 in region r. Lines 8-10 say
+that there is no point p2 between p1 and p that is also in v.
+
+```
+(forall (v r p)
+   (if (and (volume v) (region r) (subfigure r v)
+            (point p) (not (subfigure p v)))
+       (iff (face r v p)
+            (forall (c p0 p1)
+               (if (and (lineSegmentFromTo c p0 p) (centralIn p0 v)
+                        (centralIn p1 r) (subfigure p1 c))
+                   (not (exists (p2 c1)
+                           (and (subfigure p2 v) (inside p2 c1)
+                                (lineSegmentFromTo c1 p1 p)))))))))
+```
+
+
+It will be useful to have a name for a ray going from p0 through p1 and p.
+We will call this a "quill", after the quills of porcupines.
+
+```
+(forall (c v r)
+   (iff (quill c v r)
+        (exists (p0 p1 p)
+           (and (volume v) (face r v p) (ray c) (inside p c)
+                (endpoint p0 c) (centralIn p0 v)
+                (centralIn p1 r) (inside p1 c))))))
+```
+
+
+The orientation of a volume v with a designated face r in a framework f is
+the direction of a ray c from a central point in v passing through a central
+point in r, i.e., the direction of a quill.
+
+```
+(forall (d v r f)
+   (iff (orientation0 d v r f)
+        (exists (c)
+           (and (quill c v r) (directionOf d c f)))))
+```
+
+
+We named this `orientation0` to save `orientation` for volumes (or physical
+objects) with fronts.
+
+The term "front" is an imprecise term. We cannot define it precisely with
+necessary and sufficient conditions. But we can constrain its possible
+meanings with two necessary conditions and several defeasible sufficient
+conditions.
+
+The front of a volume is a face with respect to some external point. 
+
+```
+(forall (r v)
+   (if (front r v)
+       (exists (p) (face r v p))))
+```
+
+Fronts are defeasibly unique.
+
+```
+(forall (r1 r2 v)
+   (if (and (front r1 v) (disjoint r1 r2) (etc))
+       (not (front r2 v))))
+```
+
+If a face of an entity has a part whose function is to enable
+motion into and/or out of the entity, then defeasibly the face is a
+front of the entity.
+Lines 3-4 says that part x of face r has the function of enabling
+motion e2 of something a. Eventuality e1 is the property of x that
+enables e2. Lines 5-6 say the motion is either into or out of v.
+Line 7 indicates defeasibility. Thus, a door x in the face r of a
+building v has the function of its being open (e1) enabling people
+(a) to move into or out of the building. Of course, many times
+there will be more than one such face, but the defeasible
+uniqueness of fronts in the previous rule will usually force us to
+choose the primary one.
+
+```
+(forall (r v)
+   (if (exists (p x e e1 e2 a b c)
+          (and (face r v p) (part x r) (function e x) (arg* x e1)
+               (enable' e e1 e2) (move' e2 a b c)
+               (or (and (inside c v) (externalTo b v))
+                   (and (inside b v) (externalTo c v)))
+               (etc))
+       (front r v))
+```
+
+
+We didn't specify what a is -- what is being moved in or out. It could
+be information. Thus a block with writing on one side could be said
+to have that side as its front.
+
+
+If the volume is mobile, the leading face is often considered the
+front. That is, defeasibly, if the volume moves from one point to
+another, the front reaches the destination before any other face.
+In lines 2-3 p1 is a point in the face r, and p2 is another point in v
+not in the face. Lines 5-7 say that if there is moving from b to c,
+then defeasibly p1 will get there before p2. Line 8 says under these
+conditions, the face is a front.
+
+```
+(forall (r v p p1 p2)
+   (if (and (face r v p) (subfigure p1 r) (subfigure p2 v)
+            (not (subfigure p2 r))
+            (forall (b c e1 e2)
+               (if (and (move v b c) (at' e1 p1 c) (at' e2 p2 c)
+                        (etc))
+                   (before e1 e2))))
+       (front r v)))
+```
+
+
+We can now define "orientation".
+
+```
+(forall (d v f)
+   (iff (orientation d v f)
+        (exists (r)
+           (and (front r v) (orientation0 d v r f)))))
+```
+
+
+Once we identify the direction of the quill through the front of the
+volume with the positive y-axis, we can define the back, sides, top
+and bottom of the volume.
+
+
+The expression `(back r v f)` says that region r is the back of volume v
+in framework f. In lines 4-7 the orientation of v is anchored to the
+positive y-axis, and the back is a face the direction of whose quill
+is the negative y-axis.
+
+```
+(forall (r v f)
+   (iff (back r v f)
+        (exists (r1 c c1 a a1)
+           (and (front r1 v f) (face r v p)
+                (quill c1 r1 v) (quill c r v)
+                (directionOf a1 c1 f) (directionOf a c f)
+                (posYAxis a1 f) (negYAxis a f)))))
+```
+
+
+The sides, top and bottom can be defined similarly.
+
+
+The expression `(rightSide r v f)` says that region r is the right side of
+volume v in framework f.
+
+```
+(forall (r v f)
+   (iff (rightSide r v f)
+        (exists (r1 c c1 a a1)
+           (and (front r1 v f) (face r v p)
+                (quill c1 r1 v) (quill c r v f)
+                (directionOf a1 c1 f) (directionOf a c f)
+                (posYAxis a1 f) (posXAxis a f)))))
+```
+
+
+The expression `(leftSide r v f)` says that region r is the left side of
+volume v in framework f.
+
+```
+(forall (r v f)
+   (iff (leftSide r v f)
+        (exists (r1 c c1 a a1)
+           (and (front r1 v f) (face r v p)
+                (quill c1 r1 v) (quill c r v f)
+                (directionOf a1 c1 f) (directionOf a c f)
+                (posYAxis a1 f) (negXAxis a f)))))
+```
+
+
+```
+(forall (r v f)
+   (iff (side r v f)
+        (or (rightSide r v f) (leftSide r v f))))
+```
+
+
+The expression `(top r v f)` says that region r is the top of volume v in
+framework f.
+
+```
+(forall (r v f)
+   (iff (top r v f)
+        (exists (r1 c c1 a a1)
+           (and (front r1 v f) (face r v p)
+                (quill c1 r1 v) (quill c r v f)
+                (directionOf a1 c1 f) (directionOf a c f)
+                (posYAxis a1 f) (posZAxis a f)))))
+```
+
+
+The expression `(bottom r v f)` says that region r is the bottom of volume
+v in framework f.
+
+```
+(forall (r v f)
+   (iff (bottom r v f)
+        (exists (r1 c c1 a a1)
+           (and (front r1 v f) (face r v p)
+                (quill c1 r1 v) (quill c r v f)
+                (directionOf a1 c1 f) (directionOf a c f)
+                (posYAxis a1 f) (negZAxis a f)))))
 ```
 
 
@@ -1552,7 +1940,7 @@ to the ceiling of the room below. The condition for "depth" probably
 involves a real or imagined movement into the object. Moreover, the entry
 into the object can be through the top, as in the lake example, or through
 the front or one of the sides, as in the safe example. But apparently the
-movement can’t be through the bottom of the object. Here r is the face of
+movement can't be through the bottom of the object. Here r is the face of
 physical object x through which entry is effected in real or imagined
 motion e of something y from z1 to z2. Ray c is a "quill" from a central
 point in x through a central point in r, and it is parallel to an edge c1

@@ -73,6 +73,19 @@
                                 (<a href="../sameHOM">sameHOM</a> t12 t34 s0 e))))))))))
 </pre>
 </div>
+<div class="axiom">
+<p>We introduce a loose notion of &ldquo;central&rdquo; based on half orders of magnitude. We will say that a point in a region or volume is central if whenever a straight line is drawn through the point and intersects the boundary in two points, the distances from the central point to the two boundary points are of the same half order of magnitude. In this axiom, c is any line segment from p1 to p2, points on the boundary of f, passing through p. Line 7 says that p divides the line segment into roughly equal parts.  We use &ldquo;if&rdquo; rather than &ldquo;iff&rdquo; because this is a strong sufficient condition, not a necessary condition for centrality. There will surely be odd-shaped figures where this condition won't hold and yet we'll want to call the point central.</p>
+<pre>
+(forall (p f)
+   (if (<a href="../point">point</a> p)
+       (if (forall (c p1 p2 b d1 d2)
+              (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p1 p2) (<a href="../inside">inside</a> p c)
+                       (<a href="../boundary">boundary</a> b f) (<a href="../inside">inside</a> p1 b) (<a href="../inside">inside</a> p2 b)
+                       (<a href="../distance">distance</a> d1 p1 p) (<a href="../distance">distance</a> d2 p2 p))
+                  (<a href="../sameHOM">sameHOM</a> d1 d2)))
+           (<a href="../centralIn0">centralIn0</a> p f))
+</pre>
+</div>
 </section>
 
 </body>

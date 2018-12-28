@@ -117,6 +117,30 @@
             (forall (z1 z2) (iff (<a href="../above3">above3</a> z1 z2 f) (<a href="../gt">gt</a> z1 z2))))))
 </pre>
 </div>
+<div class="axiom">
+<p>The positive half of the z-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../posZAxis">posZAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../zAxis">zAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> o x a))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The negative half of the z-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../negZAxis">negZAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../zAxis">zAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> x o a))))))))
+</pre>
+</div>
 </section>
 
 </body>

@@ -23,7 +23,27 @@
 <h1>Predicate: <code>orientation0</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The orientation of a volume v with a designated face r in a framework f is the direction of a ray c from a central point in v passing through a central point in r, i.e., the direction of a quill.</p>
+<pre>
+(forall (d v r f)
+   (iff (<a href="../orientation0">orientation0</a> d v r f)
+        (exists (c)
+           (and (<a href="../quill">quill</a> c v r) (<a href="../directionOf">directionOf</a> d c f)))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
+<div class="axiom">
+<p>We can now define &ldquo;orientation&rdquo;.</p>
+<pre>
+(forall (d v f)
+   (iff (<a href="../orientation">orientation</a> d v f)
+        (exists (r)
+           (and (<a href="../front">front</a> r v) (<a href="../orientation0">orientation0</a> d v r f)))))
+</pre>
+</div>
 <div class="axiom">
 <p>Any physical object can turn, and we know it has if we can find an external point p, a face r of the object facing p, and a framework f, such that the <code>orientation0</code> of the object with respect to that face and framework changes.</p>
 <pre>

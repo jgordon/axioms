@@ -48,6 +48,19 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If a face of an entity has a part whose function is to enable motion into and/or out of the entity, then defeasibly the face is a front of the entity. Lines 3-4 says that part x of face r has the function of enabling motion e2 of something a. Eventuality e1 is the property of x that enables e2. Lines 5-6 say the motion is either into or out of v. Line 7 indicates defeasibility. Thus, a door x in the face r of a building v has the function of its being open (e1) enabling people (a) to move into or out of the building. Of course, many times there will be more than one such face, but the defeasible uniqueness of fronts in the previous rule will usually force us to choose the primary one.</p>
+<pre>
+(forall (r v)
+   (if (exists (p x e e1 e2 a b c)
+          (and (<a href="../face">face</a> r v p) (<a href="../part">part</a> x r) (<a href="../function">function</a> e x) (<a href="../arg*">arg*</a> x e1)
+               (<a href="../enable">enable</a>' e e1 e2) (<a href="../move">move</a>' e2 a b c)
+               (or (and (<a href="../inside">inside</a> c v) (<a href="../externalTo">externalTo</a> b v))
+                   (and (<a href="../inside">inside</a> b v) (<a href="../externalTo">externalTo</a> c v)))
+               (etc))
+       (<a href="../front">front</a> r v))
+</pre>
+</div>
+<div class="axiom">
 <p>The predicate <code>perceive</code> is a relation between an agent and an entity or eventuality external to the mind.</p>
 <pre>
 (forall (a x m)

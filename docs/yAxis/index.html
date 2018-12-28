@@ -125,6 +125,30 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The positive half of the y-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../posYAxis">posYAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../yAxis">yAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> o x a))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The negative half of the y-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../negYAxis">negYAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../yAxis">yAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> x o a))))))))
+</pre>
+</div>
+<div class="axiom">
 <p>In a two-dimensional world you can turn in one of two ways &ndash; clockwise or counterclockwise. But it's not easy to define these concepts. You can change from one orientation to another by turning either way. You can do a right turn or three lefts. To get around this problem, we define &ldquo;clockwise&rdquo; for acute angles in terms of <code>anchorPoint</code>s and then define the general concept recursively by decomposing a large turn into an acute angle turn plus a smaller clockwise turn. That is, e is <code>clockwise0</code> exactly when e is a turn by x from direction d1 to direction d2 with respect to framework f, object x is located at the origin of f, direction d1 lies along the x-axis of f, directions d1 and d2 are the sides of a vertex v, which is an acute angle, y is a point one unit u out from the origin o on ray d2, and y1 is its y-coordinate &ndash; so far we're just drawing the picture; here comes the essential condition &ndash; y1 is less than the origin on the y-axis. Since angle v is acute, y is in the first or fourth quadrant, so if y’s y-coordinate is lower than the origin on the y-axis, y must be in the fourth quadrant, and so is the target direction d2 of the turn.</p>
 <pre>
 (forall (e)

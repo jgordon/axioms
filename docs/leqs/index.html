@@ -106,6 +106,78 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The positive half of the x-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../posXAxis">posXAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../xAxis">xAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> o x a))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The negative half of the x-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../negXAxis">negXAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../xAxis">xAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> x o a))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The positive half of the y-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../posYAxis">posYAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../yAxis">yAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> o x a))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The negative half of the y-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../negYAxis">negYAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../yAxis">yAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> x o a))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The positive half of the z-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../posZAxis">posZAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../zAxis">zAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> o x a))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The negative half of the z-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../negZAxis">negZAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../zAxis">zAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> x o a))))))))
+</pre>
+</div>
+<div class="axiom">
 <p>The more we have to assume will happen, the less likely it is.</p>
 <pre>
 (forall (s1 e1 d1 s2 e2 d2 c s)

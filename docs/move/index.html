@@ -40,7 +40,33 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Depth may seem also to specify a vertical dimension, as in &ldquo;the depth of the lake&rdquo;. But one can also talk about &ldquo;the depth of the safe&rdquo; referring to how far back one can reach into it. On the other hand, one wouldn't talk about the depth of a floor, referring to the distance from the carpet to the ceiling of the room below. The condition for &ldquo;depth&rdquo; probably involves a real or imagined movement into the object. Moreover, the entry into the object can be through the top, as in the lake example, or through the front or one of the sides, as in the safe example. But apparently the movement can’t be through the bottom of the object. Here r is the face of physical object x through which entry is effected in real or imagined motion e of something y from z1 to z2. Ray c is a &ldquo;quill&rdquo; from a central point in x through a central point in r, and it is parallel to an edge c1 of a bounding box b of x. The length of that edge is the depth of the object.</p>
+<p>If a face of an entity has a part whose function is to enable motion into and/or out of the entity, then defeasibly the face is a front of the entity. Lines 3-4 says that part x of face r has the function of enabling motion e2 of something a. Eventuality e1 is the property of x that enables e2. Lines 5-6 say the motion is either into or out of v. Line 7 indicates defeasibility. Thus, a door x in the face r of a building v has the function of its being open (e1) enabling people (a) to move into or out of the building. Of course, many times there will be more than one such face, but the defeasible uniqueness of fronts in the previous rule will usually force us to choose the primary one.</p>
+<pre>
+(forall (r v)
+   (if (exists (p x e e1 e2 a b c)
+          (and (<a href="../face">face</a> r v p) (<a href="../part">part</a> x r) (<a href="../function">function</a> e x) (<a href="../arg*">arg*</a> x e1)
+               (<a href="../enable">enable</a>' e e1 e2) (<a href="../move">move</a>' e2 a b c)
+               (or (and (<a href="../inside">inside</a> c v) (<a href="../externalTo">externalTo</a> b v))
+                   (and (<a href="../inside">inside</a> b v) (<a href="../externalTo">externalTo</a> c v)))
+               (etc))
+       (<a href="../front">front</a> r v))
+</pre>
+</div>
+<div class="axiom">
+<p>If the volume is mobile, the leading face is often considered the front. That is, defeasibly, if the volume moves from one point to another, the front reaches the destination before any other face. In lines 2-3 p1 is a point in the face r, and p2 is another point in v not in the face. Lines 5-7 say that if there is moving from b to c, then defeasibly p1 will get there before p2. Line 8 says under these conditions, the face is a front.</p>
+<pre>
+(forall (r v p p1 p2)
+   (if (and (<a href="../face">face</a> r v p) (<a href="../subfigure">subfigure</a> p1 r) (<a href="../subfigure">subfigure</a> p2 v)
+            (not (<a href="../subfigure">subfigure</a> p2 r))
+            (forall (b c e1 e2)
+               (if (and (<a href="../move">move</a> v b c) (<a href="../at">at</a>' e1 p1 c) (<a href="../at">at</a>' e2 p2 c)
+                        (etc))
+                   (<a href="../before">before</a> e1 e2))))
+       (<a href="../front">front</a> r v)))
+</pre>
+</div>
+<div class="axiom">
+<p>Depth may seem also to specify a vertical dimension, as in &ldquo;the depth of the lake&rdquo;. But one can also talk about &ldquo;the depth of the safe&rdquo; referring to how far back one can reach into it. On the other hand, one wouldn't talk about the depth of a floor, referring to the distance from the carpet to the ceiling of the room below. The condition for &ldquo;depth&rdquo; probably involves a real or imagined movement into the object. Moreover, the entry into the object can be through the top, as in the lake example, or through the front or one of the sides, as in the safe example. But apparently the movement can't be through the bottom of the object. Here r is the face of physical object x through which entry is effected in real or imagined motion e of something y from z1 to z2. Ray c is a &ldquo;quill&rdquo; from a central point in x through a central point in r, and it is parallel to an edge c1 of a bounding box b of x. The length of that edge is the depth of the object.</p>
 <pre>
 (forall (n x u)
    (iff (<a href="../depth">depth</a> n x u)

@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: face0</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>face0</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A face is defined in terms of a reference point. It is a subregion of the surface of a volume that faces the reference point. The expression <code>(face0 r v p)</code> says that subregion r of volume v faces external point p. Recall that a point is a subfigure of a region or volume if it is inside it or in its boundary. Lines 3-4 say that p is external to v and r is a subfigure of v. Lines 5-8 say that any line segment from p to a point in r will not cross v before arriving at r. In other words, no part of the volume v blocks a straight path between the point p and the face r.</p>
+<pre>
+(forall (r v p)
+   (if (<a href="../face0">face0</a> r v p)
+       (and (<a href="../volume">volume</a> v) (<a href="../point">point</a> p) (not (<a href="../subfigure">subfigure</a> p v))
+            (<a href="../region">region</a> r) (<a href="../subfigure">subfigure</a> r v)
+            (forall (p0 c)
+               (if (and (<a href="../subfigure">subfigure</a> p0 r)
+                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p p0))
+                   (not (exists (p1)
+                           (and (<a href="../inside">inside</a> p1 c)
+                                (<a href="../subfigure">subfigure</a> p1 v)))))))))
+</pre>
+</div></section>
+
+</body>
+
+</html>

@@ -36,6 +36,17 @@
              (forall (y)
                (if (<a href="../inScale">inScale</a> y s) (<a href="../leqs">leqs</a> y x s))))))
 </pre>
+</div><div class="axiom">
+<p>The expression <code>(top r v f)</code> says that region r is the top of volume v in framework f.</p>
+<pre>
+(forall (r v f)
+   (iff (<a href="../top">top</a> r v f)
+        (exists (r1 c c1 a a1)
+           (and (<a href="../front">front</a> r1 v f) (<a href="../face">face</a> r v p)
+                (<a href="../quill">quill</a> c1 r1 v) (<a href="../quill">quill</a> c r v f)
+                (<a href="../directionOf">directionOf</a> a1 c1 f) (<a href="../directionOf">directionOf</a> a c f)
+                (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../posZAxis">posZAxis</a> a f)))))
+</pre>
 </div></section>
 <section>
 <h2>Additional Axioms</h2>

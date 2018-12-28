@@ -102,7 +102,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A polyhedron is a volume whose surface consists of polygons, which are called faces.</p>
+<p>A polyhedron is a volume whose surface consists of polygons, which are called faces. The expression <code>(polyhedron p s)</code> says that p is a polyhedron with set s of faces. Lines 5-6 says that the members of s are polygons contained within the surface of the polyhedron. Lines 7-10 say that the faces account for the entire surface. Lines 11-14 say that the polygons overlap only at their boundaries.</p>
 <pre>
 (forall (p s)
    (iff (<a href="../polyhedron">polyhedron</a> p s)
@@ -130,6 +130,49 @@
                (if (and (<a href="../onBorder">onBorder</a> x1 p) (<a href="../onBorder">onBorder</a> x2 p)
                         (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c)
                    (<a href="../subfigure">subfigure</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A face is defined in terms of a reference point. It is a subregion of the surface of a volume that faces the reference point. The expression <code>(face0 r v p)</code> says that subregion r of volume v faces external point p. Recall that a point is a subfigure of a region or volume if it is inside it or in its boundary. Lines 3-4 say that p is external to v and r is a subfigure of v. Lines 5-8 say that any line segment from p to a point in r will not cross v before arriving at r. In other words, no part of the volume v blocks a straight path between the point p and the face r.</p>
+<pre>
+(forall (r v p)
+   (if (<a href="../face0">face0</a> r v p)
+       (and (<a href="../volume">volume</a> v) (<a href="../point">point</a> p) (not (<a href="../subfigure">subfigure</a> p v))
+            (<a href="../region">region</a> r) (<a href="../subfigure">subfigure</a> r v)
+            (forall (p0 c)
+               (if (and (<a href="../subfigure">subfigure</a> p0 r)
+                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p p0))
+                   (not (exists (p1)
+                           (and (<a href="../inside">inside</a> p1 c)
+                                (<a href="../subfigure">subfigure</a> p1 v)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We can stipulate that region r is a face of volume v with respect to exterior point p if a line segment from a central point in v through a central point in r ending at p does not pass through any point in v between r and p. Lines 2-3 constrain the arguments of “face”.  In lines 5-7 c is a line segment from a central point in volume v to the exterior point p, passing through a central point p1 in region r. Lines 8-10 say that there is no point p2 between p1 and p that is also in v.</p>
+<pre>
+(forall (v r p)
+   (if (and (<a href="../volume">volume</a> v) (<a href="../region">region</a> r) (<a href="../subfigure">subfigure</a> r v)
+            (<a href="../point">point</a> p) (not (<a href="../subfigure">subfigure</a> p v)))
+       (iff (<a href="../face">face</a> r v p)
+            (forall (c p0 p1)
+               (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p0 p) (<a href="../centralIn">centralIn</a> p0 v)
+                        (<a href="../centralIn">centralIn</a> p1 r) (<a href="../subfigure">subfigure</a> p1 c))
+                   (not (exists (p2 c1)
+                           (and (<a href="../subfigure">subfigure</a> p2 v) (<a href="../inside">inside</a> p2 c1)
+                                (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 p1 p)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the volume is mobile, the leading face is often considered the front. That is, defeasibly, if the volume moves from one point to another, the front reaches the destination before any other face. In lines 2-3 p1 is a point in the face r, and p2 is another point in v not in the face. Lines 5-7 say that if there is moving from b to c, then defeasibly p1 will get there before p2. Line 8 says under these conditions, the face is a front.</p>
+<pre>
+(forall (r v p p1 p2)
+   (if (and (<a href="../face">face</a> r v p) (<a href="../subfigure">subfigure</a> p1 r) (<a href="../subfigure">subfigure</a> p2 v)
+            (not (<a href="../subfigure">subfigure</a> p2 r))
+            (forall (b c e1 e2)
+               (if (and (<a href="../move">move</a> v b c) (<a href="../at">at</a>' e1 p1 c) (<a href="../at">at</a>' e2 p2 c)
+                        (etc))
+                   (<a href="../before">before</a> e1 e2))))
+       (<a href="../front">front</a> r v)))
 </pre>
 </div>
 <div class="axiom">

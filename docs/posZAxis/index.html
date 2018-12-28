@@ -23,7 +23,33 @@
 <h1>Predicate: <code>posZAxis</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The positive half of the z-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../posZAxis">posZAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../zAxis">zAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> o x a))))))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
+<div class="axiom">
+<p>The expression <code>(top r v f)</code> says that region r is the top of volume v in framework f.</p>
+<pre>
+(forall (r v f)
+   (iff (<a href="../top">top</a> r v f)
+        (exists (r1 c c1 a a1)
+           (and (<a href="../front">front</a> r1 v f) (<a href="../face">face</a> r v p)
+                (<a href="../quill">quill</a> c1 r1 v) (<a href="../quill">quill</a> c r v f)
+                (<a href="../directionOf">directionOf</a> a1 c1 f) (<a href="../directionOf">directionOf</a> a c f)
+                (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../posZAxis">posZAxis</a> a f)))))
+</pre>
+</div>
 <div class="axiom">
 <p>Length, width and thickness depend only on the relative dimensions of the object. Height depends also on a framework that fixes a particular direction as up. That vertical dimension is the height.</p>
 <pre>

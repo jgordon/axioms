@@ -35,7 +35,7 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A polyhedron is a volume whose surface consists of polygons, which are called faces.</p>
+<p>A polyhedron is a volume whose surface consists of polygons, which are called faces. The expression <code>(polyhedron p s)</code> says that p is a polyhedron with set s of faces. Lines 5-6 says that the members of s are polygons contained within the surface of the polyhedron. Lines 7-10 say that the faces account for the entire surface. Lines 11-14 say that the polygons overlap only at their boundaries.</p>
 <pre>
 (forall (p s)
    (iff (<a href="../polyhedron">polyhedron</a> p s)
