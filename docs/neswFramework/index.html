@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: neswFramework</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>neswFramework</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>We can now define the standard north-east-south-west framework as one whose origin is on the surface of the Earth and whose positive y-axis is a tangent pointing toward the North Pole.</p>
+<pre>
+(forall (f)
+  (iff (<a href="../neswFramework">neswFramework</a> f)
+    (exists (d p e x o)
+       (and (<a href="../framework">framework</a> f) (<a href="../posYAxis">posYAxis</a> d f) (<a href="../origin">origin</a> o f)
+            (<a href="../vertical2Plane">vertical2Plane</a> p f) (<a href="../subfigure">subfigure</a> d p)
+            (<a href="../NorthPole">NorthPole</a> x e) (<a href="../subfigure">subfigure</a> x p)
+            (<a href="../Earth">Earth</a> e) (<a href="../circumference">circumference</a> c s) (<a href="../tangent">tangent</a> d c o)))))
+</pre>
+</div></section>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>North is the positive half of the y-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../north">north</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../posYAxis">posYAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>South is the negative half of the y-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../south">south</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../negYAxis">negYAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>East is the positive half of the x-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../east">east</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../posXAxis">posXAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>West is the negative half of the x-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../west">west</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../negXAxis">negXAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Up is the positive half of the z-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../up">up</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../posZAxis">posZAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Down is the negative half of the z-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../down">down</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../negZAxis">negZAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Directions like &ldquo;northeast&rdquo; are a little more complicated to define.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../northeast">northeast</a> d)
+        (exists (f o d1 d2 v1 v2)
+           (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../origin">origin</a> o f)
+                (<a href="../posYAxis">posYAxis</a> d1 f) (<a href="../posXAxis">posXAxis</a> d2 f)
+                (<a href="../vertex">vertex</a> v1 d1 d o) (<a href="../vertex">vertex</a> v2 d d2 o)
+                (<a href="../45Degrees">45Degrees</a> v1) (<a href="../45Degrees">45Degrees</a> v2)))))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

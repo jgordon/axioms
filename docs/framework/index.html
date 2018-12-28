@@ -148,6 +148,27 @@
              (<a href="../origin">origin</a> o f))))
 </pre>
 </div>
+<div class="axiom">
+<p>We can now define the standard north-east-south-west framework as one whose origin is on the surface of the Earth and whose positive y-axis is a tangent pointing toward the North Pole.</p>
+<pre>
+(forall (f)
+  (iff (<a href="../neswFramework">neswFramework</a> f)
+    (exists (d p e x o)
+       (and (<a href="../framework">framework</a> f) (<a href="../posYAxis">posYAxis</a> d f) (<a href="../origin">origin</a> o f)
+            (<a href="../vertical2Plane">vertical2Plane</a> p f) (<a href="../subfigure">subfigure</a> d p)
+            (<a href="../NorthPole">NorthPole</a> x e) (<a href="../subfigure">subfigure</a> x p)
+            (<a href="../Earth">Earth</a> e) (<a href="../circumference">circumference</a> c s) (<a href="../tangent">tangent</a> d c o)))))
+</pre>
+</div>
+<div class="axiom">
+<p>In a self-anchored framework the anchor in the external world is the entity’s orientation.</p>
+<pre>
+(forall (f v)
+  (iff (<a href="../selfAnchoredFramework">selfAnchoredFramework</a> f v)
+    (exists (d)
+       (and (<a href="../framework">framework</a> f) (<a href="../posYAxis">posYAxis</a> d f) (<a href="../orientation">orientation</a> d v)))))
+</pre>
+</div>
 </section>
 
 </body>

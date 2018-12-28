@@ -98,6 +98,55 @@
                 (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../negZAxis">negZAxis</a> a f)))))
 </pre>
 </div>
+<div class="axiom">
+<p>We can now define the standard north-east-south-west framework as one whose origin is on the surface of the Earth and whose positive y-axis is a tangent pointing toward the North Pole.</p>
+<pre>
+(forall (f)
+  (iff (<a href="../neswFramework">neswFramework</a> f)
+    (exists (d p e x o)
+       (and (<a href="../framework">framework</a> f) (<a href="../posYAxis">posYAxis</a> d f) (<a href="../origin">origin</a> o f)
+            (<a href="../vertical2Plane">vertical2Plane</a> p f) (<a href="../subfigure">subfigure</a> d p)
+            (<a href="../NorthPole">NorthPole</a> x e) (<a href="../subfigure">subfigure</a> x p)
+            (<a href="../Earth">Earth</a> e) (<a href="../circumference">circumference</a> c s) (<a href="../tangent">tangent</a> d c o)))))
+</pre>
+</div>
+<div class="axiom">
+<p>North is the positive half of the y-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../north">north</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../posYAxis">posYAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Directions like &ldquo;northeast&rdquo; are a little more complicated to define.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../northeast">northeast</a> d)
+        (exists (f o d1 d2 v1 v2)
+           (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../origin">origin</a> o f)
+                (<a href="../posYAxis">posYAxis</a> d1 f) (<a href="../posXAxis">posXAxis</a> d2 f)
+                (<a href="../vertex">vertex</a> v1 d1 d o) (<a href="../vertex">vertex</a> v2 d d2 o)
+                (<a href="../45Degrees">45Degrees</a> v1) (<a href="../45Degrees">45Degrees</a> v2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>In a self-anchored framework the anchor in the external world is the entity’s orientation.</p>
+<pre>
+(forall (f v)
+  (iff (<a href="../selfAnchoredFramework">selfAnchoredFramework</a> f v)
+    (exists (d)
+       (and (<a href="../framework">framework</a> f) (<a href="../posYAxis">posYAxis</a> d f) (<a href="../orientation">orientation</a> d v)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Forward is the positive half of the y-axis in a self-anchored framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../forward">forward</a> d)
+        (exists (f) (and (<a href="../selfAnchoredFramework">selfAnchoredFramework</a> f) (<a href="../posYAxis">posYAxis</a> d f)))))
+</pre>
+</div>
 </section>
 
 </body>

@@ -36,6 +36,15 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>In a self-anchored framework the anchor in the external world is the entity’s orientation.</p>
+<pre>
+(forall (f v)
+  (iff (<a href="../selfAnchoredFramework">selfAnchoredFramework</a> f v)
+    (exists (d)
+       (and (<a href="../framework">framework</a> f) (<a href="../posYAxis">posYAxis</a> d f) (<a href="../orientation">orientation</a> d v)))))
+</pre>
+</div>
+<div class="axiom">
 <p>Physical objects have a front have an intrinsic orientation, and that orientation can change. This is called turning.</p>
 <pre>
 (forall (r x)

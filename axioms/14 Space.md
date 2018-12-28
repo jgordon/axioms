@@ -1842,6 +1842,203 @@ v in framework f.
 ```
 
 
+## Standard Frameworks
+
+Standard frameworks are characterized by two classes of facts, first,
+the relations of the various directions to each other or, equivalently,
+to the framework, and second, the relation of the framework to something
+in the external world. The latter axioms anchor the framework, generally
+by reaching out of the spatial ontology to other commonsense theories.
+For the cardinal directions, we need to know from a theory of geography
+that there is an Earth and it has a North Pole.
+
+- `(Earth e)`: e is the Earth.
+- `(NorthPole x e)`: x is the Earth's North Pole.
+
+The Earth is a sphere.
+
+```
+(forall (e) (if (Earth e) (sphere e)))
+```
+
+
+The expression `(tangent t c x)` says that linear entity t is
+tangent to circle c at point x.
+
+```
+(forall (t c x)
+   (iff (tangent t c x)
+        (and (point x) (circle c) (linear t) (coplanar c t)
+             (exists (s)
+                (and (singleton s x) (intersection s c t))))))
+```
+
+
+We can now define the standard north-east-south-west framework
+as one whose origin is on the surface of the Earth and whose
+positive y-axis is a tangent pointing toward the North Pole.
+
+```
+(forall (f)
+  (iff (neswFramework f)
+    (exists (d p e x o)
+       (and (framework f) (posYAxis d f) (origin o f)
+            (vertical2Plane p f) (subfigure d p)
+            (NorthPole x e) (subfigure x p)
+            (Earth e) (circumference c s) (tangent d c o)))))
+```
+
+
+We can now define the cardinal directions.
+
+
+North is the positive half of the y-axis in the N-E-S-W framework.
+
+```
+(forall (d)
+   (iff (north d)
+        (exists (f) (and (neswFramework f) (posYAxis d f)))))
+```
+
+
+South is the negative half of the y-axis in the N-E-S-W framework.
+
+```
+(forall (d)
+   (iff (south d)
+        (exists (f) (and (neswFramework f) (negYAxis d f)))))
+```
+
+
+East is the positive half of the x-axis in the N-E-S-W framework.
+
+```
+(forall (d)
+   (iff (east d)
+        (exists (f) (and (neswFramework f) (posXAxis d f)))))
+```
+
+
+West is the negative half of the x-axis in the N-E-S-W framework.
+
+```
+(forall (d)
+   (iff (west d)
+        (exists (f) (and (neswFramework f) (negXAxis d f)))))
+```
+
+
+Up is the positive half of the z-axis in the N-E-S-W framework.
+
+```
+(forall (d)
+   (iff (up d)
+        (exists (f) (and (neswFramework f) (posZAxis d f)))))
+```
+
+
+Down is the negative half of the z-axis in the N-E-S-W framework.
+
+```
+(forall (d)
+   (iff (down d)
+        (exists (f) (and (neswFramework f) (negZAxis d f)))))
+```
+
+
+Directions like "northeast" are a little more complicated to define.
+
+```
+(forall (d)
+   (iff (northeast d)
+        (exists (f o d1 d2 v1 v2)
+           (and (neswFramework f) (origin o f)
+                (posYAxis d1 f) (posXAxis d2 f)
+                (vertex v1 d1 d o) (vertex v2 d d2 o)
+                (45Degrees v1) (45Degrees v2)))))
+```
+
+There would be similar axioms for "southeast", "southwest", and "northwest".
+
+
+In a self-anchored framework the anchor in the external world is the entity’s
+orientation.
+
+```
+(forall (f v)
+  (iff (selfAnchoredFramework f v)
+    (exists (d)
+       (and (framework f) (posYAxis d f) (orientation d v)))))
+```
+
+
+The four horizontal directions "forward", "backward", "rightward",
+and "leftward" can be defined.
+
+
+Forward is the positive half of the y-axis in a self-anchored framework.
+
+```
+(forall (d)
+   (iff (forward d)
+        (exists (f) (and (selfAnchoredFramework f) (posYAxis d f)))))
+```
+
+
+Backward is the negative half of the y-axis in a self-anchored framework.
+
+```
+(forall (d)
+   (iff (backward d)
+        (exists (f) (and (selfAnchoredFramework f) (negYAxis d f)))))
+```
+
+
+Rightward is the positive half of the x-axis in a self-anchored framework.
+
+```
+(forall (d)
+   (iff (rightward d)
+        (exists (f) (and (selfAnchoredFramework f) (posXAxis d f)))))
+```
+
+
+Leftward is the negative half of the x-axis in a self-anchored framework.
+
+```
+(forall (d)
+   (iff (leftward d)
+        (exists (f) (and (selfAnchoredFramework f) (negXAxis d f)))))
+```
+
+
+Generally up and down will be the same direction as in the cardinal
+directions framework. However it is possible to be lying on the
+ground and have something be on the ground "above" your head.
+
+From these rules one can conclude that if you are facing north, east is
+to your right.
+
+
+A vehicle-anchored framework is a self-anchored framework where the
+self is a boat or airplane.
+
+```
+(forall (f v)
+   (iff (vehicleAnchoredFramework f v)
+        (and (selfAnchoredFramework f v)
+             (or (boat v) (airplane v)))))
+```
+
+Then terms like "port" and "starboard" can be defined in a similar
+manner to the cardinal directions above.
+
+The fourth kind of framework in common use is the force-anchored
+framework. A theory of force would associate a direction with a
+force, and that would be aligned with the axes of a framework.
+We could then define terms like "windward", "upwind", and "upriver".
+
+
 ## Shape and Size
 
 Physical objects have shapes and sizes. The shape of a physical object can

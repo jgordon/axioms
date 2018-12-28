@@ -51,6 +51,14 @@
 </pre>
 </div>
 <div class="axiom">
+<p>Up is the positive half of the z-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../up">up</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../posZAxis">posZAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
 <p>Length, width and thickness depend only on the relative dimensions of the object. Height depends also on a framework that fixes a particular direction as up. That vertical dimension is the height.</p>
 <pre>
 (forall (n x u f)
