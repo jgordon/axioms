@@ -199,11 +199,11 @@ html_footer = """
 ensure_dir('docs/index.html')
 with open('docs/index.html', 'w') as fout:
     fout.write(html_header_index)
-    fout.write('<ul>')
+    fout.write('<ul>\n')
     for pred in sorted(preds):
         fout.write('<li><a href="' + pred + '"><code>' + pred +
-                   '</code></a></li>')
-    fout.write('</ul>')
+                   '</code></a></li>\n')
+    fout.write('</ul>\n')
     fout.write(html_footer)
 
 for pred in preds:
