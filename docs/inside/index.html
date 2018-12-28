@@ -329,6 +329,71 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A physical object lies along a curve if it is at every point in the curve.</p>
+<pre>
+(forall (x c)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../curve">curve</a> c))
+       (iff (<a href="../along">along</a> x c)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p c))
+                   (<a href="../atLoc">atLoc</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A physical objects lies over a region if it is at every point in the region.</p>
+<pre>
+(forall (x r)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../region">region</a> r))
+       (iff (<a href="../over">over</a> x c)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p r))
+                   (<a href="../atLoc">atLoc</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>In physical space when we move a physical object from one point to another, there is a curve &ndash; its path &ndash; such that the object is at every point in the path along the way. First we define &ldquo;path&rdquo;.</p>
+<pre>
+(forall (c e x a b)
+   (if (<a href="../move">move</a>' e x a b)
+       (iff (<a href="../path">path</a> c e)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p c))
+                   (exists (e1 e2)
+                      (and (<a href="../move">move</a>' e1 x a p) (<a href="../move">move</a>' e2 x p b)
+                           (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A point x is &ldquo;between&rdquo; two points y1 and y2 on a curve c if x is inside a subcurve c1 whose endpoints are y1 and y2.</p>
+<pre>
+(forall (x y1 y2 c)
+   (iff (<a href="../between">between</a> x y1 y2 c)
+        (exists (c1)
+           (and (<a href="../curve">curve</a> c1) (<a href="../subfigure">subfigure</a> c1 c) (<a href="../endpoint">endpoint</a> y1 c1)
+                (<a href="../endpoint">endpoint</a> y2 c1) (<a href="../inside">inside</a> x c1)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the path of a moving event is a closed curve, the event is &ldquo;around&rdquo; the points (and other figures) enclosed by the path.</p>
+<pre>
+(forall (e x y1 y2 c)
+   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
+       (iff (<a href="../around">around</a> c z)
+            (exists (r)
+               (and (<a href="../region">region</a> r) (<a href="../boundary">boundary</a> c r)
+                    (<a href="../inside">inside</a> z r))))))
+</pre>
+</div>
+<div class="axiom">
+<p>To move into a region or volume is to move to a point inside it.</p>
+<pre>
+(forall (e x y1 y2)
+   (if (<a href="../move">move</a>' e x y1 y2)
+       (iff (<a href="../into">into</a> e v)
+            (<a href="../inside">inside</a> y2 v))))
+</pre>
+</div>
+<div class="axiom">
 <p>A composite entity is along a curve if its components are at points on the curve.</p>
 <pre>
 (forall (z c s)

@@ -36,6 +36,53 @@
        (exists (e1 e2 e3 s)
          (and (<a href="../at">at</a>' e1 x y s) (<a href="../at">at</a>' e2 x z s) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
 </pre>
+</div><div class="axiom">
+<p>For a physical object to move (or be moved) is for it to change from being at one point to being at another point.</p>
+<pre>
+(forall (x a b)
+   (iff (<a href="../move">move</a> x a b)
+        (exists (e1 e2) (and (<a href="../change">change</a> e1 e2) (<a href="../at">at</a>' e1 x a) (<a href="../at">at</a>' e2 x b)))))
+</pre>
+</div><div class="axiom">
+<p>In physical space when we move a physical object from one point to another, there is a curve &ndash; its path &ndash; such that the object is at every point in the path along the way. First we define &ldquo;path&rdquo;.</p>
+<pre>
+(forall (c e x a b)
+   (if (<a href="../move">move</a>' e x a b)
+       (iff (<a href="../path">path</a> c e)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p c))
+                   (exists (e1 e2)
+                      (and (<a href="../move">move</a>' e1 x a p) (<a href="../move">move</a>' e2 x p b)
+                           (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))))))
+</pre>
+</div><div class="axiom">
+<p>If e is a moving event of x from y1 to y2, then y1 is the source of the move.</p>
+<pre>
+(forall (e x y1 y2) (if (<a href="../move">move</a>' e x y1 y2) (<a href="../sourceOf">sourceOf</a> y1 e)))
+</pre>
+</div><div class="axiom">
+<p>If e is a moving event of x from y1 to y2, then y2 is the destination of the move.</p>
+<pre>
+(forall (e x y1 y2) (if (<a href="../move">move</a>' e x y1 y2) (<a href="../destinationOf">destinationOf</a> y2 e)))
+</pre>
+</div><div class="axiom">
+<p>To move into a region or volume is to move to a point inside it.</p>
+<pre>
+(forall (e x y1 y2)
+   (if (<a href="../move">move</a>' e x y1 y2)
+       (iff (<a href="../into">into</a> e v)
+            (<a href="../inside">inside</a> y2 v))))
+</pre>
+</div><div class="axiom">
+<p>To move toward something is to become closer to it.</p>
+<pre>
+(forall (e x a b b1)
+   (if (<a href="../move">move</a>' e x a b)
+       (iff (<a href="../toward">toward</a> e b1)
+            (exists (d1 d2 u)
+               (and (<a href="../distance">distance</a> d1 a b1 u) (<a href="../distance">distance</a> d2 b b1 u)
+                    (<a href="../lt">lt</a> d1 d2))))))
+</pre>
 </div></section>
 <section>
 <h2>Additional Axioms</h2>
@@ -63,6 +110,69 @@
                         (etc))
                    (<a href="../before">before</a> e1 e2))))
        (<a href="../front">front</a> r v)))
+</pre>
+</div>
+<div class="axiom">
+<p>This defines a predicate &ldquo;move&rdquo; corresponding to the intransitive verb. For a predicate corresponding to the transitive verb, we need to augment it with the causality of an agent.</p>
+<pre>
+(forall (a x d1 d2)
+   (iff (<a href="../move2">move2</a> a x d1 d2)
+        (exists (e) (and (<a href="../cause">cause</a> a e) (<a href="../move">move</a>' e x d1 d2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>To place something at a location is to cause it to move there.</p>
+<pre>
+(forall (z x b)
+   (iff (<a href="../placeAt">placeAt</a> z x b)
+        (exists (e1) (and (<a href="../cause">cause</a> z e1) (<a href="../move">move</a>' e1 x a b)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Every moving of a physical object has a path.</p>
+<pre>
+(forall (e x a b)
+   (if (and (<a href="../move">move</a>' e x a b) (<a href="../physobj">physobj</a> x))
+       (exists (c) (<a href="../path">path</a> c e))))
+</pre>
+</div>
+<div class="axiom">
+<p>If c is the path of a moving event e, then e is &ldquo;along&rdquo; c.</p>
+<pre>
+(forall (e x y1 y2 c)
+   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
+       (<a href="../along">along</a> e c)))
+</pre>
+</div>
+<div class="axiom">
+<p>If the path of a moving event is a closed curve, the event is &ldquo;around&rdquo; the points (and other figures) enclosed by the path.</p>
+<pre>
+(forall (e x y1 y2 c)
+   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
+       (iff (<a href="../around">around</a> c z)
+            (exists (r)
+               (and (<a href="../region">region</a> r) (<a href="../boundary">boundary</a> c r)
+                    (<a href="../inside">inside</a> z r))))))
+</pre>
+</div>
+<div class="axiom">
+<p>To move through a figure is for point in the figure to be between the source and destination on the path of the motion.</p>
+<pre>
+(forall (e x y1 y2 c z)
+   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
+       (iff (<a href="../through">through</a> e z)
+            (exists (p)
+               (and (<a href="../subfigure">subfigure</a> p z) (<a href="../between">between</a> p y1 y2 c))))))
+</pre>
+</div>
+<div class="axiom">
+<p>For a curve to go toward something is for it to be the path of a motion toward it.</p>
+<pre>
+(forall (c z)
+   (if (<a href="../curve">curve</a> c)
+       (iff (<a href="../toward">toward</a> c z)
+            (exists (e x y1 y2)
+               (and (<a href="../move">move</a>' e x y1 y2) (<a href="../toward">toward</a> e z)))))))
 </pre>
 </div>
 <div class="axiom">

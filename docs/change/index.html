@@ -166,6 +166,14 @@
 </pre>
 </div>
 <div class="axiom">
+<p>For a physical object to move (or be moved) is for it to change from being at one point to being at another point.</p>
+<pre>
+(forall (x a b)
+   (iff (<a href="../move">move</a> x a b)
+        (exists (e1 e2) (and (<a href="../change">change</a> e1 e2) (<a href="../at">at</a>' e1 x a) (<a href="../at">at</a>' e2 x b)))))
+</pre>
+</div>
+<div class="axiom">
 <p>Physical objects have a front have an intrinsic orientation, and that orientation can change. This is called turning.</p>
 <pre>
 (forall (r x)

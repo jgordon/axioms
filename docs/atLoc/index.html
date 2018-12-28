@@ -23,6 +23,18 @@
 <h1>Predicate: <code>atLoc</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The relation &ldquo;atLoc&rdquo; is a specialization of the figure-ground relation, relating a physical object to a component in a spatial system.</p>
+<pre>
+(forall (x y)
+   (if (<a href="../atLoc">atLoc</a> x y)
+       (exists (s)
+          (and (<a href="../physobj">physobj</a> x) (<a href="../componentOf">componentOf</a> y s) (<a href="../spatialSystem">spatialSystem</a> s)
+               (<a href="../at">at</a> x y s)))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
@@ -30,6 +42,57 @@
   (if (<a href="../gen">gen</a> e1 e2)
       (iff (<a href="../atLoc">atLoc</a> e1 x s)
            (<a href="../atLoc">atLoc</a> e2 x s))))
+</pre>
+</div>
+<div class="axiom">
+<p>If a physical object occupies a volume, then it is at all the points that are subfigures of the volume.</p>
+<pre>
+(forall (x v p)
+   (if (and (<a href="../occupy">occupy</a> x v) (<a href="../point">point</a> p) (<a href="../subfigure">subfigure</a> p v))
+       (<a href="../atLoc">atLoc</a> x p)))
+</pre>
+</div>
+<div class="axiom">
+<p>A physical object lies along a curve if it is at every point in the curve.</p>
+<pre>
+(forall (x c)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../curve">curve</a> c))
+       (iff (<a href="../along">along</a> x c)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p c))
+                   (<a href="../atLoc">atLoc</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A physical objects lies over a region if it is at every point in the region.</p>
+<pre>
+(forall (x r)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../region">region</a> r))
+       (iff (<a href="../over">over</a> x c)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p r))
+                   (<a href="../atLoc">atLoc</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Body position verbs are often used simply to indicate location.</p>
+<pre>
+(forall (x p) (if (<a href="../rest">rest</a> x p) (<a href="../atLoc">atLoc</a> x p)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x p) (if (<a href="../lie">lie</a> x p) (<a href="../atLoc">atLoc</a> x p)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x p) (if (<a href="../sit">sit</a> x p) (<a href="../atLoc">atLoc</a> x p)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x p) (if (<a href="../stand">stand</a> x p) (<a href="../atLoc">atLoc</a> x p)))
 </pre>
 </div>
 <div class="axiom">

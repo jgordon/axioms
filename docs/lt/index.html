@@ -143,6 +143,17 @@
 </pre>
 </div>
 <div class="axiom">
+<p>To move toward something is to become closer to it.</p>
+<pre>
+(forall (e x a b b1)
+   (if (<a href="../move">move</a>' e x a b)
+       (iff (<a href="../toward">toward</a> e b1)
+            (exists (d1 d2 u)
+               (and (<a href="../distance">distance</a> d1 a b1 u) (<a href="../distance">distance</a> d2 b b1 u)
+                    (<a href="../lt">lt</a> d1 d2))))))
+</pre>
+</div>
+<div class="axiom">
 <p>For a given bounding box we can define the primary, secondary, and tertiary dimensions of the physical object. In this axiom c1, c2, and c3 are three non-parallel sides in decreasing order of length, and d1, d2 and d3 are their respective lengths, measured in units u. The predicate &ldquo;dimi&rdquo; picks out the ith longest side.</p>
 <pre>
 (forall (c1 c2 c3 d1 d2 d3 u b x)

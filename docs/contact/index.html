@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: lie</title>
+<title>Predicate: contact</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,22 +20,21 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>lie</code></h1>
+<h1>Predicate: <code>contact</code></h1>
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>If two physical objects are in contact, there is a point they are both at.</p>
 <pre>
-(forall (x p) (if (<a href="../lie">lie</a> x p) (<a href="../atLoc">atLoc</a> x p)))
+(forall (x y)
+   (if (<a href="../contact">contact</a> x y)
+       (exists (p) (and (<a href="../at">at</a> x p) (<a href="../at">at</a> y p)))))
 </pre>
 </div><div class="axiom">
-<p>If a book is lying or resting on a table, its greatest dimension is not vertical.</p>
+<p>Contact is symmetric.</p>
 <pre>
-(forall (x p)
-   (if (<a href="../lie">lie</a> x p)
-       (exists (c b x d f)
-          (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim1">dim1</a> c b x)
-               (<a href="../posZAxis">posZAxis</a> d f) (not (<a href="../directionOf">directionOf</a> d c))))))
+(forall (x y) (iff (<a href="../contact">contact</a> x y) (<a href="../contact">contact</a> y x)))
 </pre>
 </div></section>
 

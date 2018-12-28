@@ -122,6 +122,27 @@
                 (<a href="../centralIn">centralIn</a> p1 r) (<a href="../inside">inside</a> p1 c))))))
 </pre>
 </div>
+<div class="axiom">
+<p>A physical object at any given time occupies a volume in space.</p>
+<pre>
+(forall (x)
+   (if (<a href="../physobj">physobj</a> x)
+       (exists (v) (and (<a href="../volume">volume</a> v) (<a href="../occupy">occupy</a> x v)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate &ldquo;occupy&rdquo; is a relation between physical objects and volumes.</p>
+<pre>
+(forall (x v)
+   (if (<a href="../occupy">occupy</a> x v) (and (<a href="../physobj">physobj</a> x) (<a href="../volume">volume</a> v))))
+</pre>
+</div>
+<div class="axiom">
+<p>It will be convenient to say that physical objects not only occupy volumes; they also are volumes. This will allow us to apply to physical objects all the predicates we have introduced for abstract volumes, without having to coerce the physical object into the volume it occupies.</p>
+<pre>
+(forall (x) (if (<a href="../physobj">physobj</a> x) (<a href="../volume">volume</a> x)))
+</pre>
+</div>
 </section>
 
 </body>

@@ -36,6 +36,20 @@
                        (and (<a href="../inside">inside</a> y r) (<a href="../at">at</a> x y s))))))))
 </pre>
 </div></section>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>A physical objects lies over a region if it is at every point in the region.</p>
+<pre>
+(forall (x r)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../region">region</a> r))
+       (iff (<a href="../over">over</a> x c)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p r))
+                   (<a href="../atLoc">atLoc</a> x p))))))
+</pre>
+</div>
+</section>
 
 </body>
 

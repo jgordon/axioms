@@ -186,6 +186,32 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The relation &ldquo;atLoc&rdquo; is a specialization of the figure-ground relation, relating a physical object to a component in a spatial system.</p>
+<pre>
+(forall (x y)
+   (if (<a href="../atLoc">atLoc</a> x y)
+       (exists (s)
+          (and (<a href="../physobj">physobj</a> x) (<a href="../componentOf">componentOf</a> y s) (<a href="../spatialSystem">spatialSystem</a> s)
+               (<a href="../at">at</a> x y s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If two physical objects are in contact, there is a point they are both at.</p>
+<pre>
+(forall (x y)
+   (if (<a href="../contact">contact</a> x y)
+       (exists (p) (and (<a href="../at">at</a> x p) (<a href="../at">at</a> y p)))))
+</pre>
+</div>
+<div class="axiom">
+<p>For a physical object to move (or be moved) is for it to change from being at one point to being at another point.</p>
+<pre>
+(forall (x a b)
+   (iff (<a href="../move">move</a> x a b)
+        (exists (e1 e2) (and (<a href="../change">change</a> e1 e2) (<a href="../at">at</a>' e1 x a) (<a href="../at">at</a>' e2 x b)))))
+</pre>
+</div>
+<div class="axiom">
 <p>A composite entity is along a curve if its components are at points on the curve.</p>
 <pre>
 (forall (z c s)

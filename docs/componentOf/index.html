@@ -131,6 +131,24 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If the components of s are all figures (possibly physical objects, since volumes are figures), then s is called a <code>spatialSystem</code>.</p>
+<pre>
+(forall (x)
+   (iff (<a href="../spatialSystem">spatialSystem</a> s)
+        (forall (x) (if (<a href="../componentOf">componentOf</a> x s) (<a href="../figure">figure</a> x)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The relation &ldquo;atLoc&rdquo; is a specialization of the figure-ground relation, relating a physical object to a component in a spatial system.</p>
+<pre>
+(forall (x y)
+   (if (<a href="../atLoc">atLoc</a> x y)
+       (exists (s)
+          (and (<a href="../physobj">physobj</a> x) (<a href="../componentOf">componentOf</a> y s) (<a href="../spatialSystem">spatialSystem</a> s)
+               (<a href="../at">at</a> x y s)))))
+</pre>
+</div>
+<div class="axiom">
 <p>A composite entity is along a curve if its components are at points on the curve.</p>
 <pre>
 (forall (z c s)

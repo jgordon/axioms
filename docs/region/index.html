@@ -134,6 +134,28 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A physical objects lies over a region if it is at every point in the region.</p>
+<pre>
+(forall (x r)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../region">region</a> r))
+       (iff (<a href="../over">over</a> x c)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p r))
+                   (<a href="../atLoc">atLoc</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the path of a moving event is a closed curve, the event is &ldquo;around&rdquo; the points (and other figures) enclosed by the path.</p>
+<pre>
+(forall (e x y1 y2 c)
+   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
+       (iff (<a href="../around">around</a> c z)
+            (exists (r)
+               (and (<a href="../region">region</a> r) (<a href="../boundary">boundary</a> c r)
+                    (<a href="../inside">inside</a> z r))))))
+</pre>
+</div>
+<div class="axiom">
 <p>A composite entity can be over a region.</p>
 <pre>
 (forall (z  s)

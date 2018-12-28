@@ -144,6 +144,17 @@
            (<a href="../centralIn0">centralIn0</a> p f))
 </pre>
 </div>
+<div class="axiom">
+<p>To move toward something is to become closer to it.</p>
+<pre>
+(forall (e x a b b1)
+   (if (<a href="../move">move</a>' e x a b)
+       (iff (<a href="../toward">toward</a> e b1)
+            (exists (d1 d2 u)
+               (and (<a href="../distance">distance</a> d1 a b1 u) (<a href="../distance">distance</a> d2 b b1 u)
+                    (<a href="../lt">lt</a> d1 d2))))))
+</pre>
+</div>
 </section>
 
 </body>

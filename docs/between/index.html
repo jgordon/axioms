@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: between</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>between</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A point x is &ldquo;between&rdquo; two points y1 and y2 on a curve c if x is inside a subcurve c1 whose endpoints are y1 and y2.</p>
+<pre>
+(forall (x y1 y2 c)
+   (iff (<a href="../between">between</a> x y1 y2 c)
+        (exists (c1)
+           (and (<a href="../curve">curve</a> c1) (<a href="../subfigure">subfigure</a> c1 c) (<a href="../endpoint">endpoint</a> y1 c1)
+                (<a href="../endpoint">endpoint</a> y2 c1) (<a href="../inside">inside</a> x c1)))))
+</pre>
+</div></section>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>To move through a figure is for point in the figure to be between the source and destination on the path of the motion.</p>
+<pre>
+(forall (e x y1 y2 c z)
+   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
+       (iff (<a href="../through">through</a> e z)
+            (exists (p)
+               (and (<a href="../subfigure">subfigure</a> p z) (<a href="../between">between</a> p y1 y2 c))))))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

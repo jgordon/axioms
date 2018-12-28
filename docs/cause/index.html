@@ -233,6 +233,22 @@
 </pre>
 </div>
 <div class="axiom">
+<p>This defines a predicate &ldquo;move&rdquo; corresponding to the intransitive verb. For a predicate corresponding to the transitive verb, we need to augment it with the causality of an agent.</p>
+<pre>
+(forall (a x d1 d2)
+   (iff (<a href="../move2">move2</a> a x d1 d2)
+        (exists (e) (and (<a href="../cause">cause</a> a e) (<a href="../move">move</a>' e x d1 d2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>To place something at a location is to cause it to move there.</p>
+<pre>
+(forall (z x b)
+   (iff (<a href="../placeAt">placeAt</a> z x b)
+        (exists (e1) (and (<a href="../cause">cause</a> z e1) (<a href="../move">move</a>' e1 x a b)))))
+</pre>
+</div>
+<div class="axiom">
 <p>For a predicate corresponding to the transitive verb &ldquo;turn&rdquo;, we define <code>turn2</code> that augments <code>turn</code> with the causality of an agent</p>
 <pre>
 (forall (a x d1 d2)

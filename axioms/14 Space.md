@@ -2039,6 +2039,343 @@ force, and that would be aligned with the axes of a framework.
 We could then define terms like "windward", "upwind", and "upriver".
 
 
+## Physical Objects in Space: Location and Motion
+
+So far, we have constructed our spatial ontology in terms of disembodied
+portions of space, whether or not something occupies that space. Now
+we introduce physical objects in space. We do not attempt to define
+what it is to be a physical object, but we do constrain the concept
+with properties from two theories. The first is a theory of space, and
+that we explicate here.  The second is a commonsense theory of material,
+or matter, and that will have to await future development.
+
+
+A physical object at any given time occupies a volume in space.
+
+```
+(forall (x)
+   (if (physobj x)
+       (exists (v) (and (volume v) (occupy x v)))))
+```
+
+
+The predicate "occupy" is a relation between physical objects and
+volumes.
+
+```
+(forall (x v)
+   (if (occupy x v) (and (physobj x) (volume v))))
+```
+
+
+The parts of the physical object occupy volumes that are subfigures
+of the volume occupied by the whole.
+
+```
+(forall (x y v1)
+   (if (and (physobj x) (occupy x v1) (part y x))
+       (exists (v2) (and (occupy y v2) (subfigure v2 v1)))))
+```
+
+Physical objects can move, but we don't need to specify the time with
+the predicate "occupy" because the use of unprimed predicates ensures
+that the predications are all anchored to the same time (cf. Gordon
+and Hobbs, 2017, ch. 20).
+
+
+We could extend the concept of "occupy" from physical objects in
+3-dimensional space to events in space x time (or 4-dimensional
+space-time), by defining a mapping from times in the interval during
+which the event occurs, to the aggregate of the volumes the arguments
+of the event occupy at that time, and introduce a predicate "occupy4D"
+that takes such a mapping as its argument. A weaker but simpler
+approach is to say that at any given (implicit) time, an event occupies
+the volume its arguments occupy.
+
+```
+(forall (x e v)
+   (if (and (arg x e) (occupy x v))
+       (exists (v1) (and (subfigure v v1) (occupy e v1)))))
+```
+
+
+It will be convenient to say that physical objects not only occupy
+volumes; they also are volumes. This will allow us to apply to
+physical objects all the predicates we have introduced for abstract
+volumes, without having to coerce the physical object into the volume
+it occupies.
+
+```
+(forall (x) (if (physobj x) (volume x)))
+```
+
+
+Thus, for a physical object x, if x occupies volume v1, there is the
+volume it is — x — and there is the volume it occupies — v1. When
+the object moves, the volume it occupies changes — v1 to v2 — but
+the volume it is stays the same — x. Thus, we can talk about a
+physical object being a cube or a polyhedron, and we can talk about
+its surface, its faces, and its vertices. Every property of v carries
+over to x.
+
+
+The figure-ground relation "at" places an external entity at an
+element in a ground. A ground is a composite entity whose
+components are similar enough that the "at" relation can be given a
+uniform interpretation.
+
+If the components of s are all figures (possibly physical objects,
+since volumes are figures), then s is called a `spatialSystem`.
+
+```
+(forall (x)
+   (iff (spatialSystem s)
+        (forall (x) (if (componentOf x s) (figure x)))))
+```
+
+
+The relation "atLoc" is a specialization of the figure-ground
+relation, relating a physical object to a component in a spatial
+system.
+
+```
+(forall (x y)
+   (if (atLoc x y)
+       (exists (s)
+          (and (physobj x) (componentOf y s) (spatialSystem s)
+               (at x y s)))))
+```
+
+In axiomatizing location, we use the predicate `at` where the
+property holds for metaphorical interpretations and the predicate
+`atLoc` where the property is peculiar to physical space.
+
+If a physical object occupies a volume, then it is at all the points that
+are subfigures of the volume.
+
+```
+(forall (x v p)
+   (if (and (occupy x v) (point p) (subfigure p v))
+       (atLoc x p)))
+```
+
+Thus the structure of space constitutes a ground against which
+physical objects can be placed as figures.
+
+A physical object lies along a curve if it is at every point in the curve.
+
+```
+(forall (x c)
+   (if (and (physobj x) (curve c))
+       (iff (along x c)
+            (forall (p)
+               (if (and (point p) (inside p c))
+                   (atLoc x p))))))
+```
+
+A physical objects lies over a region if it is at every point in the region.
+
+```
+(forall (x r)
+   (if (and (physobj x) (region r))
+       (iff (over x c)
+            (forall (p)
+               (if (and (point p) (inside p r))
+                   (atLoc x p))))))
+```
+
+If two physical objects are in contact, there is a point they are both at.
+
+```
+(forall (x y)
+   (if (contact x y)
+       (exists (p) (and (at x p) (at y p)))))
+```
+
+Contact is symmetric.
+
+```
+(forall (x y) (iff (contact x y) (contact y x)))
+```
+
+Body position verbs are often used simply to indicate location.
+
+```
+(forall (x p) (if (rest x p) (atLoc x p)))
+```
+
+```
+(forall (x p) (if (lie x p) (atLoc x p)))
+```
+
+```
+(forall (x p) (if (sit x p) (atLoc x p)))
+```
+
+```
+(forall (x p) (if (stand x p) (atLoc x p)))
+```
+
+For a physical object to move (or be moved) is for it to change
+from being at one point to being at another point.
+
+```
+(forall (x a b)
+   (iff (move x a b)
+        (exists (e1 e2) (and (change e1 e2) (at' e1 x a) (at' e2 x b)))))
+```
+
+
+This defines a predicate "move" corresponding to the intransitive verb.
+For a predicate corresponding to the transitive verb, we need to augment
+it with the causality of an agent.
+
+```
+(forall (a x d1 d2)
+   (iff (move2 a x d1 d2)
+        (exists (e) (and (cause a e) (move' e x d1 d2)))))
+```
+
+
+To place something at a location is to cause it to move there.
+
+```
+(forall (z x b)
+   (iff (placeAt z x b)
+        (exists (e1) (and (cause z e1) (move' e1 x a b)))))
+```
+
+
+In physical space when we move a physical object from one point to
+another, there is a curve -- its path -- such that the object is at
+every point in the path along the way. First we define "path".
+
+```
+(forall (c e x a b)
+   (if (move' e x a b)
+       (iff (path c e)
+            (forall (p)
+               (if (and (point p) (inside p c))
+                   (exists (e1 e2)
+                      (and (move' e1 x a p) (move' e2 x p b)
+                           (subevent e1 e) (subevent e2 e))))))))
+```
+
+
+Every moving of a physical object has a path.
+
+```
+(forall (e x a b)
+   (if (and (move' e x a b) (physobj x))
+       (exists (c) (path c e))))
+```
+
+
+If e is a moving event of x from y1 to y2, then y1 is the source
+of the move.
+
+```
+(forall (e x y1 y2) (if (move' e x y1 y2) (sourceOf y1 e)))
+```
+
+
+If e is a moving event of x from y1 to y2, then y2 is the destination of
+the move.
+
+```
+(forall (e x y1 y2) (if (move' e x y1 y2) (destinationOf y2 e)))
+```
+
+
+A point x is "between" two points y1 and y2 on a curve c if x is
+inside a subcurve c1 whose endpoints are y1 and y2.
+
+```
+(forall (x y1 y2 c)
+   (iff (between x y1 y2 c)
+        (exists (c1)
+           (and (curve c1) (subfigure c1 c) (endpoint y1 c1)
+                (endpoint y2 c1) (inside x c1)))))
+```
+
+
+If c is the path of a moving event e, then e is "along" c.
+
+```
+(forall (e x y1 y2 c)
+   (if (and (move' e x y1 y2) (path c e))
+       (along e c)))
+```
+
+
+If the path of a moving event is a closed curve, the event is "around" the
+points (and other figures) enclosed by the path.
+
+```
+(forall (e x y1 y2 c)
+   (if (and (move' e x y1 y2) (path c e))
+       (iff (around c z)
+            (exists (r)
+               (and (region r) (boundary c r)
+                    (inside z r))))))
+```
+
+
+To move into a region or volume is to move to a point inside it.
+
+```
+(forall (e x y1 y2)
+   (if (move' e x y1 y2)
+       (iff (into e v)
+            (inside y2 v))))
+```
+
+
+The definitions of "on" and "onto" will have to wait till we
+deal with force and support.
+
+
+To move through a figure is for point in the figure to be between
+the source and destination on the path of the motion.
+
+```
+(forall (e x y1 y2 c z)
+   (if (and (move' e x y1 y2) (path c e))
+       (iff (through e z)
+            (exists (p)
+               (and (subfigure p z) (between p y1 y2 c))))))
+```
+
+
+To move toward something is to become closer to it.
+
+```
+(forall (e x a b b1)
+   (if (move' e x a b)
+       (iff (toward e b1)
+            (exists (d1 d2 u)
+               (and (distance d1 a b1 u) (distance d2 b b1 u)
+                    (lt d1 d2))))))
+```
+
+
+For a curve to go toward something is for it to be the path of
+a motion toward it.
+
+```
+(forall (c z)
+   (if (curve c)
+       (iff (toward c z)
+            (exists (e x y1 y2)
+               (and (move' e x y1 y2) (toward e z)))))))
+```
+
+The words "inbound" and "incoming" mean that the motion is toward
+a point of reference but not yet at the destination. The words
+"outbound" and "outgoing" are defined similarly.
+
+
+
 ## Shape and Size
 
 Physical objects have shapes and sizes. The shape of a physical object can

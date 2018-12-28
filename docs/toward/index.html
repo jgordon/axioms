@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: toward</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>toward</code></h1>
+</header>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>To move toward something is to become closer to it.</p>
+<pre>
+(forall (e x a b b1)
+   (if (<a href="../move">move</a>' e x a b)
+       (iff (<a href="../toward">toward</a> e b1)
+            (exists (d1 d2 u)
+               (and (<a href="../distance">distance</a> d1 a b1 u) (<a href="../distance">distance</a> d2 b b1 u)
+                    (<a href="../lt">lt</a> d1 d2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>For a curve to go toward something is for it to be the path of a motion toward it.</p>
+<pre>
+(forall (c z)
+   (if (<a href="../curve">curve</a> c)
+       (iff (<a href="../toward">toward</a> c z)
+            (exists (e x y1 y2)
+               (and (<a href="../move">move</a>' e x y1 y2) (<a href="../toward">toward</a> e z)))))))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

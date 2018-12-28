@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: arg</title>
+<title>Predicate: occupy</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,42 +20,33 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>arg</code></h1>
+<h1>Predicate: <code>occupy</code></h1>
 </header>
-<section>
-<h2>Summary</h2>
-<pre>(arg x e)</pre><p>x is an argument of e.</p>
-</section>
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>The predicate &ldquo;occupy&rdquo; is a relation between physical objects and volumes.</p>
 <pre>
-(forall (e x)
-  (iff (<a href="../arg">arg</a> x e)
-       (exists (n)
-         (<a href="../argn">argn</a> x n e))))
+(forall (x v)
+   (if (<a href="../occupy">occupy</a> x v) (and (<a href="../physobj">physobj</a> x) (<a href="../volume">volume</a> v))))
 </pre>
 </div></section>
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A physical object at any given time occupies a volume in space.</p>
 <pre>
-(forall (x e1)
-  (iff (<a href="../arg*">arg*</a> x e1)
-       (or (<a href="../arg">arg</a> x e1)
-           (exists (e2)
-             (and (<a href="../arg">arg</a> e2 e1) (<a href="../arg*">arg*</a> x e2))))))
+(forall (x)
+   (if (<a href="../physobj">physobj</a> x)
+       (exists (v) (and (<a href="../volume">volume</a> v) (<a href="../occupy">occupy</a> x v)))))
 </pre>
 </div>
 <div class="axiom">
+<p>The parts of the physical object occupy volumes that are subfigures of the volume occupied by the whole.</p>
 <pre>
-(forall (y e)
-  (iff (<a href="../onlyarg*">onlyarg*</a> y e)
-       (and (<a href="../eventuality">eventuality</a> e) (<a href="../nequal">nequal</a> y e)
-            (forall (y1)
-              (if (<a href="../arg">arg</a> y1 e)
-                  (or (equal y1 y)
-                      (<a href="../onlyarg*">onlyarg*</a> y y1)))))))
+(forall (x y v1)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../occupy">occupy</a> x v1) (<a href="../part">part</a> y x))
+       (exists (v2) (and (<a href="../occupy">occupy</a> y v2) (<a href="../subfigure">subfigure</a> v2 v1)))))
 </pre>
 </div>
 <div class="axiom">
@@ -64,6 +55,14 @@
 (forall (x e v)
    (if (and (<a href="../arg">arg</a> x e) (<a href="../occupy">occupy</a> x v))
        (exists (v1) (and (<a href="../subfigure">subfigure</a> v v1) (<a href="../occupy">occupy</a> e v1)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If a physical object occupies a volume, then it is at all the points that are subfigures of the volume.</p>
+<pre>
+(forall (x v p)
+   (if (and (<a href="../occupy">occupy</a> x v) (<a href="../point">point</a> p) (<a href="../subfigure">subfigure</a> p v))
+       (<a href="../atLoc">atLoc</a> x p)))
 </pre>
 </div>
 </section>

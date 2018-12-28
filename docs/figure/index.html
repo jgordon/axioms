@@ -59,6 +59,14 @@
                                  (<a href="../centralIn0">centralIn0</a> p f2)))))))
 </pre>
 </div>
+<div class="axiom">
+<p>If the components of s are all figures (possibly physical objects, since volumes are figures), then s is called a <code>spatialSystem</code>.</p>
+<pre>
+(forall (x)
+   (iff (<a href="../spatialSystem">spatialSystem</a> s)
+        (forall (x) (if (<a href="../componentOf">componentOf</a> x s) (<a href="../figure">figure</a> x)))))
+</pre>
+</div>
 </section>
 
 </body>

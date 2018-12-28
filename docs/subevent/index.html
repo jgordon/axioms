@@ -120,6 +120,19 @@
 </pre>
 </div>
 <div class="axiom">
+<p>In physical space when we move a physical object from one point to another, there is a curve &ndash; its path &ndash; such that the object is at every point in the path along the way. First we define &ldquo;path&rdquo;.</p>
+<pre>
+(forall (c e x a b)
+   (if (<a href="../move">move</a>' e x a b)
+       (iff (<a href="../path">path</a> c e)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p c))
+                   (exists (e1 e2)
+                      (and (<a href="../move">move</a>' e1 x a p) (<a href="../move">move</a>' e2 x p b)
+                           (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))))))
+</pre>
+</div>
+<div class="axiom">
 <p>The general definition of <code>clockwise</code>: If it is a turn through an acute angle only, it reduces to <code>clockwise0</code>. Otherwise we decompose the large turning event into two smaller clockwise turns, one of which is an acute angle turn.</p>
 <pre>
 (forall (e)

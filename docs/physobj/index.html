@@ -23,7 +23,77 @@
 <h1>Predicate: <code>physobj</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A physical object at any given time occupies a volume in space.</p>
+<pre>
+(forall (x)
+   (if (<a href="../physobj">physobj</a> x)
+       (exists (v) (and (<a href="../volume">volume</a> v) (<a href="../occupy">occupy</a> x v)))))
+</pre>
+</div><div class="axiom">
+<p>It will be convenient to say that physical objects not only occupy volumes; they also are volumes. This will allow us to apply to physical objects all the predicates we have introduced for abstract volumes, without having to coerce the physical object into the volume it occupies.</p>
+<pre>
+(forall (x) (if (<a href="../physobj">physobj</a> x) (<a href="../volume">volume</a> x)))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
+<div class="axiom">
+<p>The predicate &ldquo;occupy&rdquo; is a relation between physical objects and volumes.</p>
+<pre>
+(forall (x v)
+   (if (<a href="../occupy">occupy</a> x v) (and (<a href="../physobj">physobj</a> x) (<a href="../volume">volume</a> v))))
+</pre>
+</div>
+<div class="axiom">
+<p>The parts of the physical object occupy volumes that are subfigures of the volume occupied by the whole.</p>
+<pre>
+(forall (x y v1)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../occupy">occupy</a> x v1) (<a href="../part">part</a> y x))
+       (exists (v2) (and (<a href="../occupy">occupy</a> y v2) (<a href="../subfigure">subfigure</a> v2 v1)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The relation &ldquo;atLoc&rdquo; is a specialization of the figure-ground relation, relating a physical object to a component in a spatial system.</p>
+<pre>
+(forall (x y)
+   (if (<a href="../atLoc">atLoc</a> x y)
+       (exists (s)
+          (and (<a href="../physobj">physobj</a> x) (<a href="../componentOf">componentOf</a> y s) (<a href="../spatialSystem">spatialSystem</a> s)
+               (<a href="../at">at</a> x y s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A physical object lies along a curve if it is at every point in the curve.</p>
+<pre>
+(forall (x c)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../curve">curve</a> c))
+       (iff (<a href="../along">along</a> x c)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p c))
+                   (<a href="../atLoc">atLoc</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A physical objects lies over a region if it is at every point in the region.</p>
+<pre>
+(forall (x r)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../region">region</a> r))
+       (iff (<a href="../over">over</a> x c)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p r))
+                   (<a href="../atLoc">atLoc</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Every moving of a physical object has a path.</p>
+<pre>
+(forall (e x a b)
+   (if (and (<a href="../move">move</a>' e x a b) (<a href="../physobj">physobj</a> x))
+       (exists (c) (<a href="../path">path</a> c e))))
+</pre>
+</div>
 <div class="axiom">
 <p>Physical objects have shapes and sizes. The shape of a physical object can be extremely complicated. But we commonly approximate complex shapes with simpler shapes for which we can define various aspects of size that are relatively easy to characterize and measure. One such approximation is a rectangular parallelepiped enclosing the physical object, which we can call a &ldquo;bounding box&rdquo;. Line 3 says that the box encloses the physical object. Lines 4-6 say that no smaller box also encloses it. As defined, bounding boxes are not unique.</p>
 <pre>

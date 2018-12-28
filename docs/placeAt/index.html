@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: placeAt</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>placeAt</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>To place something at a location is to cause it to move there.</p>
+<pre>
+(forall (z x b)
+   (iff (<a href="../placeAt">placeAt</a> z x b)
+        (exists (e1) (and (<a href="../cause">cause</a> z e1) (<a href="../move">move</a>' e1 x a b)))))
+</pre>
+</div></section>
+
+</body>
+
+</html>

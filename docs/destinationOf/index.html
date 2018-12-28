@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: destinationOf</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>destinationOf</code></h1>
+</header>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>If e is a moving event of x from y1 to y2, then y2 is the destination of the move.</p>
+<pre>
+(forall (e x y1 y2) (if (<a href="../move">move</a>' e x y1 y2) (<a href="../destinationOf">destinationOf</a> y2 e)))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

@@ -39,6 +39,25 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A physical object lies along a curve if it is at every point in the curve.</p>
+<pre>
+(forall (x c)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../curve">curve</a> c))
+       (iff (<a href="../along">along</a> x c)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p c))
+                   (<a href="../atLoc">atLoc</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If c is the path of a moving event e, then e is &ldquo;along&rdquo; c.</p>
+<pre>
+(forall (e x y1 y2 c)
+   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
+       (<a href="../along">along</a> e c)))
+</pre>
+</div>
+<div class="axiom">
 <p>A line is a concrete entity that lies along a line.</p>
 <pre>
 (forall (x)
