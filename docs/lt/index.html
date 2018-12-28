@@ -121,7 +121,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We can define qualitative terms like &ldquo;near&rdquo; and &ldquo;far&rdquo; as outlined in Gordon and Hobbs, Chapter 12, and exemplified numerous times in the rest of the book. We first define the partial ordering &ldquo;nearer&rdquo;.</p>
+<p>We can define qualitative terms like &ldquo;near&rdquo; and &ldquo;far&rdquo; as outlined in Gordon and Hobbs, Chapter 12, and exemplified numerous times in the rest of the book.</p>
 <pre>
 (forall (x y z)
    (iff (<a href="../nearer">nearer</a> x y z)
@@ -131,7 +131,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger.</p>
+<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger. In this axiom x is the entity in the <code>Hi</code> region, s0 is the scale, s1 is its <code>Hi</code> region, s2 is the domain of scale s0, s3 is the set of elements of s2 lower on the scale than x, s4 is the set of elements of s2 higher on the scale than x, and the cardinality n3 of s3 is larger than the cardinality n4 of s4. The conjunct <code>(etc)</code> in line 2 is an indication of defeasibility.</p>
 <pre>
 (forall (x s0 s1)
    (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))

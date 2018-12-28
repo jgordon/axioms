@@ -795,7 +795,8 @@ numeric and the partial ordering is "greater than".
 ## Distance
 
 We take distance to be a predicate with four arguments -- a nonnegative
-number, two points, and a unit.
+number, two points, and a unit. The expression `(distance d x1 x2 u)` says
+that the distance between points x1 and x2 is d units u.
 
 ```
 (forall (d x1 x2 u)
@@ -804,15 +805,16 @@ number, two points, and a unit.
            (spatialUnit u))))
 ```
 
-The expression `(distance d x1 x2 u)` says that the distance between
-points x1 and x2 is d units u.
 
-The predicate `distance` has the usual mathematical properties. The
-distance between an entity and itself is zero.
+The predicate `distance` has the usual mathematical properties.
+
+
+The distance between an entity and itself is zero.
 
 ```
 (forall (x u) (distance 0 x x u))
 ```
+
 
 The distance between two entities is symmetric.
 
@@ -821,7 +823,8 @@ The distance between two entities is symmetric.
   (iff (distance d x1 x2 u) (distance d x2 x1 u)))
 ```
 
-The triangle inequality holds.
+
+The triangle inequality holds for distance.
 
 ```
 (forall (d1 d2 d3 d4 x1 x2 x3 u)
@@ -829,6 +832,7 @@ The triangle inequality holds.
            (distance d3 x1 x3 u) (sum d4 d1 d2))
       (leq d3 d4)))
 ```
+
 
 A straight line is the shortest distance between two points. We state
 this in terms of the endpoints and an inside point of a line segment.
@@ -841,6 +845,7 @@ this in terms of the endpoints and an inside point of a line segment.
        (sum d3 d1 d2)))
 ```
 
+
 The length of a line segment is the distance between its endpoints.
 
 ```
@@ -852,6 +857,7 @@ The length of a line segment is the distance between its endpoints.
                    (distance d x1 x2 u))))))
 ```
 
+
 A rhombus is a quadrilateral whose sides are all equal.
 
 ```
@@ -862,6 +868,7 @@ A rhombus is a quadrilateral whose sides are all equal.
               (forall (c)
                 (if (sideOf c p) (length d c u)))))))
 ```
+
 
 A circle c around a center x is a figure in which every line segment
 from the center to a point inside the circle is constant.
@@ -876,6 +883,7 @@ from the center to a point inside the circle is constant.
                        (length d c1 u)))))))
 ```
 
+
 A circle is a curve. We use the predicate `circle2` to describe the
 two-dimensional region whose border is a circle.
 
@@ -885,6 +893,7 @@ two-dimensional region whose border is a circle.
         (exists (c)
            (and (circle c x) (border c r)))))
 ```
+
 
 A closed planar curve has no endpoints and can be covered by a large
 enough circle.
@@ -897,6 +906,7 @@ enough circle.
                  (exists (r x1)
                     (and (circle2 r x1) (subfigure c r)))))))
 ```
+
 
 A spherical surface r around a center x is a region in which
 every line segment from the center to a point inside the region is
@@ -912,6 +922,7 @@ constant.
                        (length d c1 u)))))))
 ```
 
+
 We use the predicate `sphere3` for the three-dimensional volume whose
 surface is a sphere.
 
@@ -921,6 +932,7 @@ surface is a sphere.
         (exists (r)
            (and (boundary r v) (sphere r x)))))
 ```
+
 
 A closed curve in general can be surrounded by a sufficiently large sphere,
 as can a closed region.
@@ -934,9 +946,14 @@ as can a closed region.
                     (and (sphere3 v x1) (subfigure c v)))))))
 ```
 
+
 We can define qualitative terms like "near" and "far" as outlined in
 Gordon and Hobbs, Chapter 12, and exemplified numerous times in the rest
-of the book. We first define the partial ordering "nearer".
+of the book.
+
+
+"Nearer" is a partial ordering. The expression `(nearer x y z)` says that
+x is nearer than y is to z.
 
 ```
 (forall (x y z)
@@ -946,7 +963,6 @@ of the book. We first define the partial ordering "nearer".
                 (lt d1 d2)))))
 ```
 
-The expression `(nearer x y z)` says that x is nearer than y is to z.
 
 Then "nearness" scale is a scale whose partial ordering is `nearer`.
 
@@ -986,6 +1002,12 @@ in the `Hi` region of a scale -- the distributional and the functional.
 A rather crude example of a distributional inference is that an entity
 in the `Hi` region is defeasibly higher on the scale than the median
 of a comparison set. That is, there are more things smaller than larger.
+In this axiom x is the entity in the `Hi` region, s0 is the scale,
+s1 is its `Hi` region, s2 is the domain of scale s0, s3 is the set of
+elements of s2 lower on the scale than x, s4 is the set of elements
+of s2 higher on the scale than x, and the cardinality n3 of s3 is
+larger than the cardinality n4 of s4. The conjunct `(etc)` in line 2
+is an indication of defeasibility.
 
 ```
 (forall (x s0 s1)
@@ -996,13 +1018,6 @@ of a comparison set. That is, there are more things smaller than larger.
                (forall (z) (iff (member z s4) (lts x z s0)))
                (card n3 s3) (card n4 s4) (lt n4 n3)))))
 ```
-
-In this axiom x is the entity in the `Hi` region, s0 is the scale,
-s1 is its `Hi` region, s2 is the domain of scale s0, s3 is the set of
-elements of s2 lower on the scale than x, s4 is the set of elements
-of s2 higher on the scale than x, and the cardinality n3 of s3 is
-larger than the cardinality n4 of s4. The conjunct `(etc)` in line 2
-is an indication of defeasibility.
 
 There would be a similar axiom for `Lo`.
 
@@ -1064,9 +1079,9 @@ We have constructed an isosceles triangle whose apex at x0 is the vertex
 of interest, whose two equal sides are c1 and c2, whose base is c, and
 whose base angles are at x1 and x2.
 
-Now we can say that two vertices are equal whenever the bases of their
-angles are of equal length. (Most quantities we measure in everyday life
-we measure by translating them into distance, and size of angles is no
+We can say that two vertices are equal whenever the bases of their angles
+are of equal length. (Most quantities we measure in everyday life we
+measure by translating them into distance, and size of angles is no
 exception.)
 
 ```
@@ -1093,13 +1108,15 @@ The equality of angles is symmetric.
   (iff (equalAngle v1 v2) (equalAngle v2 v1)))
 ```
 
-The equality of angles is reflexive.
+The equality of angles is transitive.
 
 ```
 (forall (v1 v2 v3)
   (if (and (equalAngle v1 v2) (equalAngle v2 v3))
       (equalAngle v1 v3)))
 ```
+
+A "greater than" relation can be defined in a similar manner.
 
 We say the angle of vertex v1 is greater than the angle of vertex v2
 whenever the base of the angle of v1 is greater than the base of the angle
@@ -1155,17 +1172,17 @@ We pick an arbitrary point on the side c2 of the vertex -- let's again
 pick a point that is one distance unit out from the origin. This will be
 our "anchor point".
 
+The expression `(anchorPoint x f v c1 c2 o u)` says that x is an anchor
+point in framework f whose origin is o, v is a vertex at o whose side c1
+lies along f's x-axis, and x is a point in v's other side c2 one
+distance unit u from the origin.
+
 ```
 (forall (x v f c1 c2 o u)
   (iff (anchorPoint x v f c1 c2 o u)
        (and (anchorFramework f v c1 c2 o)
             (inside x c2) (distance 1 o x u))))
 ```
-
-The expression `(anchorPoint x f v c1 c2 o u)` says that x is an anchor
-point in framework f whose origin is o, v is a vertex at o whose side c1
-lies along f's x-axis, and x is a point in v's other side c2 one
-distance unit u from the origin.
 
 It's possible that c2 is a line segment shorter than one unit, implying
 there is no anchor point. In that case pick a longer c2 or a smaller u.
@@ -1262,7 +1279,9 @@ angles.
 (forall (p)
   (iff (rectangle p)
        (and (quadrilateral p)
-            (forall (v) (iff (vertexOf v p) (rightAngle v))))))
+            (forall (v)
+              (iff (vertexOf v p)
+                   (rightAngle v))))))
 ```
 
 A square is a rhombus that is a rectangle.
@@ -1287,6 +1306,7 @@ vertex.
                     (lineSegmentFromTo d x1 x2))))))
 ```
 
+
 It can be shown that a diagonal of a square makes a 45-degree angle
 with any side of the square.
 
@@ -1295,6 +1315,13 @@ with any side of the square.
    (if (and (square p) (sideOf c p) (diagonal d p) (vertex v c d x))
        (45Degrees v)))
 ```
+
+
+A diagonal of a polygon in general is a line segment from a vertex
+to a nonadjacent vertex.
+
+
+## Directions
 
 A direction with respect to a framework is a ray whose endpoint is the
 origin of the framework.
@@ -1579,12 +1606,11 @@ functional -- wide enough or too wide for some purpose.
 (forall (x)
    (iff (wide x)
         (exists (s s0 s1)
-           (and (widthScale s s1 e)(Hi s0 s)(inScale x s0)))))
+           (and (widthScale s s1 e) (Hi s0 s) (inScale x s0)))))
 ```
 
 
-The comparative relation "narrower" is just the inverse of 
-"wider".
+The comparative relation "narrower" is just the inverse of "wider".
 
 ```
 (forall (x1 x2)

@@ -50,7 +50,9 @@
 (forall (p)
   (iff (<a href="../rectangle">rectangle</a> p)
        (and (<a href="../quadrilateral">quadrilateral</a> p)
-            (forall (v) (iff (<a href="../vertexOf">vertexOf</a> v p) (<a href="../rightAngle">rightAngle</a> v))))))
+            (forall (v)
+              (iff (<a href="../vertexOf">vertexOf</a> v p)
+                   (<a href="../rightAngle">rightAngle</a> v))))))
 </pre>
 </div>
 </section>

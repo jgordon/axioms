@@ -25,7 +25,7 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
-<p>Now we can say that two vertices are equal whenever the bases of their angles are of equal length. (Most quantities we measure in everyday life we measure by translating them into distance, and size of angles is no exception.)</p>
+<p>We can say that two vertices are equal whenever the bases of their angles are of equal length. (Most quantities we measure in everyday life we measure by translating them into distance, and size of angles is no exception.)</p>
 <pre>
 (forall (v1 v2)
   (iff (<a href="../equalAngle">equalAngle</a> v1 v2)
@@ -49,7 +49,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>The equality of angles is reflexive.</p>
+<p>The equality of angles is transitive.</p>
 <pre>
 (forall (v1 v2 v3)
   (if (and (<a href="../equalAngle">equalAngle</a> v1 v2) (<a href="../equalAngle">equalAngle</a> v2 v3))

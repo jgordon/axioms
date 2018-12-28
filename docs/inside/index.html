@@ -211,7 +211,7 @@
 </pre>
 </div>
 <div class="axiom">
-<p>We pick an arbitrary point on the side c2 of the vertex &ndash; let's again pick a point that is one distance unit out from the origin. This will be our &ldquo;anchor point&rdquo;.</p>
+<p>The expression <code>(anchorPoint x f v c1 c2 o u)</code> says that x is an anchor point in framework f whose origin is o, v is a vertex at o whose side c1 lies along f's x-axis, and x is a point in v's other side c2 one distance unit u from the origin.</p>
 <pre>
 (forall (x v f c1 c2 o u)
   (iff (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
