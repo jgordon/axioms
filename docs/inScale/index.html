@@ -152,6 +152,24 @@
 </pre>
 </div>
 <div class="axiom">
+<p>To be wide is to be in the <code>Hi</code> region of a width scale. The chief inferences one can defeasibly draw from something being in the <code>Hi</code> region of a scale are distributional &ndash; e.g., wider than average &ndash; and functional &ndash; wide enough or too wide for some purpose.</p>
+<pre>
+(forall (x)
+   (iff (<a href="../wide">wide</a> x)
+        (exists (s s0 s1)
+           (and (<a href="../widthScale">widthScale</a> s s1 e)(<a href="../Hi">Hi</a> s0 s)(<a href="../inScale">inScale</a> x s0)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The adjective &ldquo;narrow&rdquo; picks out the <code>Lo</code> region of a width scale, just as &ldquo;wide&rdquo; picks out the <code>Hi</code> region.</p>
+<pre>
+(forall (x)
+   (iff (<a href="../narrow">narrow</a> x)
+        (exists (s s0 s1)
+           (and (<a href="../widthScale">widthScale</a> s s1 e) (<a href="../Lo">Lo</a> s0 s) (<a href="../inScale">inScale</a> x s0)))))
+</pre>
+</div>
+<div class="axiom">
 <p>An eventuality is <code>likely</code> with respect to constraints <code>c</code> if its likelihood <code>d</code> is on the high end of the scale of likelihoods.</p>
 <pre>
 (forall (e c)

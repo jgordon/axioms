@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: bounding</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>bounding</code></h1>
+</header>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>Length, width and thickness depend only on the relative dimensions of the object. Height depends also on a framework that fixes a particular direction as up. That vertical dimension is the height.</p>
+<pre>
+(forall (n x u f)
+   (iff (<a href="../height">height</a> n x u f)
+        (exists (b c d)
+           (and (<a href="../bounding">bounding</a> box b x) (<a href="../edge">edge</a> c b) (<a href="../directionOf">directionOf</a> d c)
+                (<a href="../posZAxis">posZAxis</a> d f) (<a href="../length">length</a> n c u)))))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

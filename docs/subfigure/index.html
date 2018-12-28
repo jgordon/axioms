@@ -132,6 +132,17 @@
                    (<a href="../subfigure">subfigure</a> x p))))))
 </pre>
 </div>
+<div class="axiom">
+<p>Physical objects have shapes and sizes. The shape of a physical object can be extremely complicated. But we commonly approximate complex shapes with simpler shapes for which we can define various aspects of size that are relatively easy to characterize and measure. One such approximation is a rectangular parallelepiped enclosing the physical object, which we can call a &ldquo;bounding box&rdquo;. Line 3 says that the box encloses the physical object. Lines 4-6 say that no smaller box also encloses it. As defined, bounding boxes are not unique.</p>
+<pre>
+(forall (b x)
+   (iff (<a href="../boundingBox">boundingBox</a> b x)
+        (and (<a href="../rectangularParallelepiped">rectangularParallelepiped</a> b) (<a href="../physobj">physobj</a> x) (<a href="../subfigure">subfigure</a> x b)
+             (not (exists (b1)
+                     (and (<a href="../rectangularParallelepiped">rectangularParallelepiped</a> b1)
+                          (<a href="../subfigure">subfigure</a> x b1) (<a href="../subfigure">subfigure</a> b1 b)))))))
+</pre>
+</div>
 </section>
 
 </body>

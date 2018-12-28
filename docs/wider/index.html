@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: wider</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>wider</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (x1 x2)
+   (iff (<a href="../wider">wider</a> x1 x2)
+        (exists (n1 n2 u)
+           (and (<a href="../width">width</a> n1 x1 u) (<a href="../width">width</a> n1 x2 u) (<a href="../lt">lt</a> n2 n1)))))
+</pre>
+</div></section>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>The expression <code>(widthScale s s1 e)</code> says that s is a scale whose elements are a set s1 and whose ordering relation is e. Lines 5-6 say that the elements of s1 are widths of things; just which things must be determined contextually. Line 7 says the relation e is the &ldquo;wider than&rdquo; relation; x1 and x2 are parameters in this relation.</p>
+<pre>
+(forall (s s1 e)
+   (iff (<a href="../widthScale">widthScale</a> s s1 e)
+        (exists (u x1 x2)
+           (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+                (forall (n)
+                   (if (<a href="../member">member</a> n s1) (exists (x) (<a href="../width">width</a> n x u)))
+                       (<a href="../wider">wider</a>' e x1 x2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The comparative relation &ldquo;narrower&rdquo; is just the inverse of &ldquo;wider&rdquo;.</p>
+<pre>
+(forall (x1 x2)
+   (iff (<a href="../narrower">narrower</a> x1 x2)
+        (<a href="../wider">wider</a> x2 x1)))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

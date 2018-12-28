@@ -1063,6 +1063,18 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The expression <code>(widthScale s s1 e)</code> says that s is a scale whose elements are a set s1 and whose ordering relation is e. Lines 5-6 say that the elements of s1 are widths of things; just which things must be determined contextually. Line 7 says the relation e is the &ldquo;wider than&rdquo; relation; x1 and x2 are parameters in this relation.</p>
+<pre>
+(forall (s s1 e)
+   (iff (<a href="../widthScale">widthScale</a> s s1 e)
+        (exists (u x1 x2)
+           (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+                (forall (n)
+                   (if (<a href="../member">member</a> n s1) (exists (x) (<a href="../width">width</a> n x u)))
+                       (<a href="../wider">wider</a>' e x1 x2)))))
+</pre>
+</div>
+<div class="axiom">
 <p>A body is a composite entity whose components are body parts. In fact, it's a spatial system, since all the body parts are physical objects.</p>
 <pre>
 (forall (b p)

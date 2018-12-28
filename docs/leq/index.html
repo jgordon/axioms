@@ -101,6 +101,22 @@
       (<a href="../leq">leq</a> d3 d4)))
 </pre>
 </div>
+<div class="axiom">
+<p>For a given bounding box we can define the primary, secondary, and tertiary dimensions of the physical object. In this axiom c1, c2, and c3 are three non-parallel sides in decreasing order of length, and d1, d2 and d3 are their respective lengths, measured in units u. The predicate &ldquo;dimi&rdquo; picks out the ith longest side.</p>
+<pre>
+(forall (c1 c2 c3 d1 d2 d3 u b x)
+   (if (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../edge">edge</a> c1 b) (<a href="../edge">edge</a> c2 b) (<a href="../edge">edge</a> c3 b)
+            (not (<a href="../parallel">parallel</a> c1 c2)) (not (<a href="../parallel">parallel</a> c2 c3))
+            (not (<a href="../parallel">parallel</a> c1 c3))
+            (<a href="../length">length</a> d1 c1 u) (<a href="../length">length</a> d2 c2 u) (<a href="../length">length</a> d3 c3 u))
+       (and (iff (<a href="../dim1">dim1</a> c1 b x)
+                 (and (<a href="../lt">lt</a> d2 d1) (<a href="../lt">lt</a> d3 d1)))
+            (iff (<a href="../dim2">dim2</a> c2 b x)
+                 (and (<a href="../leq">leq</a> d2 d1) (<a href="../leq">leq</a> d3 d2)))
+            (iff (<a href="../dim3">dim3</a> c3 b x)
+                 (and (<a href="../lt">lt</a> d3 d1) (<a href="../lt">lt</a> d3 d2))))))
+</pre>
+</div>
 </section>
 
 </body>

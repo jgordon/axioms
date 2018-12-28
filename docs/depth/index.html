@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: move</title>
+<title>Predicate: depth</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,25 +20,10 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>move</code></h1>
+<h1>Predicate: <code>depth</code></h1>
 </header>
 <section>
-<h2>Summary</h2>
-<pre>(move x y z)</pre><p>x moves from y to z.</p>
-</section>
-<section>
 <h2>Characterizing Axioms</h2>
-<div class="axiom">
-<p>An entity x moves from y to z exactly when there is a change from x's being at y to its being at z.</p>
-<pre>
-(forall (e x y z)
-  (iff (<a href="../move">move</a>' e x y z)
-       (exists (e1 e2 e3 s)
-         (and (<a href="../at">at</a>' e1 x y s) (<a href="../at">at</a>' e2 x z s) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
-</pre>
-</div></section>
-<section>
-<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>Depth may seem also to specify a vertical dimension, as in &ldquo;the depth of the lake&rdquo;. But one can also talk about &ldquo;the depth of the safe&rdquo; referring to how far back one can reach into it. On the other hand, one wouldn't talk about the depth of a floor, referring to the distance from the carpet to the ceiling of the room below. The condition for &ldquo;depth&rdquo; probably involves a real or imagined movement into the object. Moreover, the entry into the object can be through the top, as in the lake example, or through the front or one of the sides, as in the safe example. But apparently the movement can’t be through the bottom of the object. Here r is the face of physical object x through which entry is effected in real or imagined motion e of something y from z1 to z2. Ray c is a &ldquo;quill&rdquo; from a central point in x through a central point in r, and it is parallel to an edge c1 of a bounding box b of x. The length of that edge is the depth of the object.</p>
 <pre>
@@ -50,22 +35,7 @@
                 (<a href="../boundingBox">boundingBox</a> b x) (<a href="../edge">edge</a> c1 b) (<a href="../parallel">parallel</a> c c1)
                 (<a href="../length">length</a> n c1 u)))))
 </pre>
-</div>
-<div class="axiom">
-<p>Another subset of body parts can be directly controlled by a person's will. That is, the person's willing an event is the direct cause of the motion of the body part.</p>
-<pre>
-(forall (p s1)
-  (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
-      (exists (s2)
-        (and (<a href="../subset">subset</a> s2 s1)
-             (forall (x)
-               (if (<a href="../member">member</a> x s2)
-                   (exists (e1 e2 y z)
-                     (and (<a href="../move">move</a>' e2 x y z) (<a href="../will">will</a>' e1 p e2)
-                          (<a href="../dcause">dcause</a> e1 e2)))))))))
-</pre>
-</div>
-</section>
+</div></section>
 
 </body>
 

@@ -1416,6 +1416,224 @@ A volume is concave if it is not convex.
 ```
 
 
+## Shape and Size
+
+Physical objects have shapes and sizes. The shape of a physical object can
+be extremely complicated. But we commonly approximate complex shapes with
+simpler shapes for which we can define various aspects of size that are
+relatively easy to characterize and measure. One such approximation is a
+rectangular parallelepiped enclosing the physical object, which we can
+call a "bounding box". Line 3 says that the box encloses the physical
+object. Lines 4-6 say that no smaller box also encloses it. As defined,
+bounding boxes are not unique.
+
+```
+(forall (b x)
+   (iff (boundingBox b x)
+        (and (rectangularParallelepiped b) (physobj x) (subfigure x b)
+             (not (exists (b1)
+                     (and (rectangularParallelepiped b1)
+                          (subfigure x b1) (subfigure b1 b)))))))
+```
+
+
+For a given bounding box we can define the primary, secondary, and
+tertiary dimensions of the physical object. In this axiom c1, c2, and c3
+are three non-parallel sides in decreasing order of length, and d1, d2 and
+d3 are their respective lengths, measured in units u. The predicate "dimi"
+picks out the ith longest side.
+
+```
+(forall (c1 c2 c3 d1 d2 d3 u b x)
+   (if (and (boundingBox b x) (edge c1 b) (edge c2 b) (edge c3 b)
+            (not (parallel c1 c2)) (not (parallel c2 c3))
+            (not (parallel c1 c3))
+            (length d1 c1 u) (length d2 c2 u) (length d3 c3 u))
+       (and (iff (dim1 c1 b x)
+                 (and (lt d2 d1) (lt d3 d1)))
+            (iff (dim2 c2 b x)
+                 (and (leq d2 d1) (leq d3 d2)))
+            (iff (dim3 c3 b x)
+                 (and (lt d3 d1) (lt d3 d2))))))
+```
+
+
+We are already using the predicate `length` for the length of a line segment,
+so for the length of a 3-dimensional physical object, we'll use the
+predicate `length3`. The length of a physical object is the length of the
+longest side of its bounding box.
+
+```
+(forall (n x u)
+   (iff (length3 n x u)
+        (exists (b)
+           (and (boundingBox b x) (dim1 c b x) (length n c u)))))
+```
+
+
+The width of a physical object is the length of the second longest side of
+its bounding box.
+
+```
+(forall (n x u)
+   (iff (width n x u)
+        (exists (b)
+           (and (boundingBox b x) (dim2 c b x) (length n c u)))))
+```
+
+
+The thickness of a physical object is the length of the third longest side
+of its bounding box.
+
+```
+(forall (n x u)
+   (iff (thickness n x u)
+        (exists (b)
+           (and (boundingBox b x) (dim3 c b x) (length n c u)))))
+```
+
+
+Length, width and thickness depend only on the relative dimensions of the
+object. Height depends also on a framework that fixes a particular
+direction as up. That vertical dimension is the height.
+
+```
+(forall (n x u f)
+   (iff (height n x u f)
+        (exists (b c d)
+           (and (bounding box b x) (edge c b) (directionOf d c)
+                (posZAxis d f) (length n c u)))))
+```
+
+
+Depth may seem also to specify a vertical dimension, as in "the depth of
+the lake". But one can also talk about "the depth of the safe" referring
+to how far back one can reach into it. On the other hand, one wouldn't
+talk about the depth of a floor, referring to the distance from the carpet
+to the ceiling of the room below. The condition for "depth" probably
+involves a real or imagined movement into the object. Moreover, the entry
+into the object can be through the top, as in the lake example, or through
+the front or one of the sides, as in the safe example. But apparently the
+movement can’t be through the bottom of the object. Here r is the face of
+physical object x through which entry is effected in real or imagined
+motion e of something y from z1 to z2. Ray c is a "quill" from a central
+point in x through a central point in r, and it is parallel to an edge c1
+of a bounding box b of x. The length of that edge is the depth of the object.
+
+```
+(forall (n x u)
+   (iff (depth n x u)
+        (exists (c r e y z1 z2 b c1)
+           (and (quill c x r) (not (bottom r x))
+                (move' e y z1 z2) (into e x) (through e r)
+                (boundingBox b x) (edge c1 b) (parallel c c1)
+                (length n c1 u)))))
+```
+
+
+"Wider" is defined in terms of `width` as follows:
+
+```
+(forall (x1 x2)
+   (iff (wider x1 x2)
+        (exists (n1 n2 u)
+           (and (width n1 x1 u) (width n1 x2 u) (lt n2 n1)))))
+```
+
+
+The expression `(widthScale s s1 e)` says that s is a scale whose
+elements are a set s1 and whose ordering relation is e. Lines
+5-6 say that the elements of s1 are widths of things; just which
+things must be determined contextually. Line 7 says the relation
+e is the "wider than" relation; x1 and x2 are parameters in this
+relation.
+
+```
+(forall (s s1 e)
+   (iff (widthScale s s1 e)
+        (exists (u x1 x2)
+           (and (scaleDefinedBy s s1 e)
+                (forall (n)
+                   (if (member n s1) (exists (x) (width n x u)))
+                       (wider' e x1 x2)))))
+```
+
+
+To be wide is to be in the `Hi` region of a width scale. The chief
+inferences one can defeasibly draw from something being in the `Hi` region
+of a scale are distributional -- e.g., wider than average -- and
+functional -- wide enough or too wide for some purpose.
+
+```
+(forall (x)
+   (iff (wide x)
+        (exists (s s0 s1)
+           (and (widthScale s s1 e)(Hi s0 s)(inScale x s0)))))
+```
+
+
+The comparative relation "narrower" is just the inverse of 
+"wider".
+
+```
+(forall (x1 x2)
+   (iff (narrower x1 x2)
+        (wider x2 x1)))
+```
+
+
+The adjective "narrow" picks out the `Lo` region of a width scale, just as
+"wide" picks out the `Hi` region.
+
+```
+(forall (x)
+   (iff (narrow x)
+        (exists (s s0 s1)
+           (and (widthScale s s1 e) (Lo s0 s) (inScale x s0)))))
+```
+
+
+Secondary shape/size terms, such as "plump", "skinny", "slender", and
+"slim", can often be partially characterized in terms of basic adjectives.
+
+```
+(forall (x)
+   (if (plump x)
+       (and (wide x) (thick x))))
+```
+
+
+"Breadth" is a synonym of "width".
+
+```
+(forall (n x u)
+   (iff (breadth n x u)
+        (width n x u)))
+```
+
+
+If a book is standing on a table, its greatest dimension is vertical.
+
+```
+(forall (x p)
+   (if (stand x p)
+       (exists (c b x d f)
+          (and (boundingBox b x) (dim1 c b x)
+               (posZAxis d f) (directionOf d c)))))
+```
+
+If a book is lying or resting on a table, its greatest dimension is not
+vertical.
+
+```
+(forall (x p)
+   (if (lie x p)
+       (exists (c b x d f)
+          (and (boundingBox b x) (dim1 c b x)
+               (posZAxis d f) (not (directionOf d c))))))
+```
+
+
 ## Orientation and Rotation
 
 Physical objects have a front have an intrinsic orientation, and that
@@ -1588,6 +1806,7 @@ The definition of `counterclockwise` is almost identical to `clockwise`.
                          (and (turnThru' e0 v0) (subevent e0 e)
                               (clockwise e0))))))))
 ```
+
 
 ## Composite Entities in Space
 

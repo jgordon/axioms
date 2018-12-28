@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: move</title>
+<title>Predicate: into</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,23 +20,8 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>move</code></h1>
+<h1>Predicate: <code>into</code></h1>
 </header>
-<section>
-<h2>Summary</h2>
-<pre>(move x y z)</pre><p>x moves from y to z.</p>
-</section>
-<section>
-<h2>Characterizing Axioms</h2>
-<div class="axiom">
-<p>An entity x moves from y to z exactly when there is a change from x's being at y to its being at z.</p>
-<pre>
-(forall (e x y z)
-  (iff (<a href="../move">move</a>' e x y z)
-       (exists (e1 e2 e3 s)
-         (and (<a href="../at">at</a>' e1 x y s) (<a href="../at">at</a>' e2 x z s) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
-</pre>
-</div></section>
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
@@ -49,20 +34,6 @@
                 (<a href="../move">move</a>' e y z1 z2) (<a href="../into">into</a> e x) (<a href="../through">through</a> e r)
                 (<a href="../boundingBox">boundingBox</a> b x) (<a href="../edge">edge</a> c1 b) (<a href="../parallel">parallel</a> c c1)
                 (<a href="../length">length</a> n c1 u)))))
-</pre>
-</div>
-<div class="axiom">
-<p>Another subset of body parts can be directly controlled by a person's will. That is, the person's willing an event is the direct cause of the motion of the body part.</p>
-<pre>
-(forall (p s1)
-  (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
-      (exists (s2)
-        (and (<a href="../subset">subset</a> s2 s1)
-             (forall (x)
-               (if (<a href="../member">member</a> x s2)
-                   (exists (e1 e2 y z)
-                     (and (<a href="../move">move</a>' e2 x y z) (<a href="../will">will</a>' e1 p e2)
-                          (<a href="../dcause">dcause</a> e1 e2)))))))))
 </pre>
 </div>
 </section>

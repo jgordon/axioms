@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: length3</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>length3</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>We are already using the predicate <code>length</code> for the length of a line segment, so for the length of a 3-dimensional physical object, we'll use the predicate <code>length3</code>. The length of a physical object is the length of the longest side of its bounding box.</p>
+<pre>
+(forall (n x u)
+   (iff (<a href="../length3">length3</a> n x u)
+        (exists (b)
+           (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim1">dim1</a> c b x) (<a href="../length">length</a> n c u)))))
+</pre>
+</div></section>
+
+</body>
+
+</html>

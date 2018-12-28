@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: narrow</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>narrow</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The adjective &ldquo;narrow&rdquo; picks out the <code>Lo</code> region of a width scale, just as &ldquo;wide&rdquo; picks out the <code>Hi</code> region.</p>
+<pre>
+(forall (x)
+   (iff (<a href="../narrow">narrow</a> x)
+        (exists (s s0 s1)
+           (and (<a href="../widthScale">widthScale</a> s s1 e) (<a href="../Lo">Lo</a> s0 s) (<a href="../inScale">inScale</a> x s0)))))
+</pre>
+</div></section>
+
+</body>
+
+</html>
