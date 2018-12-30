@@ -34,6 +34,90 @@
 (forall (f s1 s2) (if (<a href="../function0">function0</a> f s1 s2) (<a href="../domain">domain</a> s1 f)))
 </pre>
 </div>
+<div class="axiom">
+<p>A framework has a set of entities we will call its domain.</p>
+<pre>
+(forall (f)
+  (if (<a href="../framework">framework</a> f)
+      (exists (s)
+        (and (<a href="../set">set</a> s) (<a href="../domain">domain</a> s f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A non-null subset of the domain is &ldquo;horizontal&rdquo; if no element is <code>above2</code> or <code>above3</code> any other element. If there is no <code>above3</code> relation, then <code>(above3 x1 x2 f)</code> will always be false, so the definition covers the two-dimensional case as well.</p>
+<pre>
+(forall (s1 f)
+  (iff (<a href="../horizontal2">horizontal2</a> s1 f)
+       (exists (s)
+         (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+              (not (exists (x1 x2)
+                     (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                          (or (<a href="../above2">above2</a> x1 x2 f)
+                              (<a href="../above3">above3</a> x1 x2 f)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A non-null subset of the domain is <code>vertical2</code> if no element is <code>rightOf</code> or <code>above3</code> any other element.</p>
+<pre>
+(forall (s1 f)
+  (iff (<a href="../vertical2">vertical2</a> s1 f)
+       (exists (s)
+         (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+              (not (exists (x1 x2)
+                     (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                          (or (<a href="../rightOf">rightOf</a> x1 x2 f)
+                              (<a href="../above3">above3</a> x1 x2 f)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A non-null subset of the domain is <code>vertical3</code> if no element is <code>rightOf</code> or <code>above2</code> any other element. In the two-dimensional case, a <code>vertical3</code> set has no ordering relations among its elements.</p>
+<pre>
+(forall (s1 f)
+   (iff (<a href="../vertical3">vertical3</a> s1 f)
+        (exists (s)
+           (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+                (not (exists (x1 x2)
+                        (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                             (or (<a href="../rightOf">rightOf</a> x1 x2 f)
+                                 (<a href="../above2">above2</a> x1 x2 f)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A horizontal plane is a set in which no element is <code>above3</code> any other. In the two-dimensional case any subset of the domain is a horizontal plane.</p>
+<pre>
+(forall (s1 f)
+   (iff (<a href="../horizontalPlane">horizontalPlane</a> s1 f)
+        (exists (s)
+           (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+                (not (exists (x1 x2)
+                        (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                             (<a href="../above3">above3</a> x1 x2 f))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A <code>vertical2</code> plane is a set in which no element is <code>rightOf</code> any other. In the two-dimensional case, a <code>vertical2</code> plane is a <code>vertical2</code> set.</p>
+<pre>
+(forall (s1 f)
+   (iff (<a href="../vertical2Plane">vertical2Plane</a> s1 f)
+        (exists (s)
+           (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+                (not (exists (x1 x2)
+                        (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                             (<a href="../rightOf">rightOf</a> x1 x2 f))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A <code>vertical3</code> plane is a set in which no element is <code>above2</code> any other. In the two-dimensional case, a <code>vertical3</code> plane is a horizontal set.</p>
+<pre>
+(forall (s1 f)
+   (iff (<a href="../vertical3Plane">vertical3Plane</a> s1 f)
+        (exists (s)
+           (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+                (not (exists (x1 x2)
+                        (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                             (<a href="../above2">above2</a> x1 x2 f))))))))
+</pre>
+</div>
 </section>
 
 </body>

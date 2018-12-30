@@ -61,6 +61,24 @@
       (<a href="../ground">ground</a> s)))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (s)
+  (if (<a href="../scale">scale</a> s) (<a href="../ground">ground</a> s)))
+</pre>
+</div>
+<div class="axiom">
+<p>Since all the elements in a time scale are temporal entities, a time scale can be viewed as a possible ground.</p>
+<pre>
+(forall (t) (if (<a href="../timeScale">timeScale</a> t) (<a href="../ground">ground</a> t)))
+</pre>
+</div>
+<div class="axiom">
+<p>A likelihood scale consists of elements that are all likelihoods and hence have a common property; the scale can then be a potential ground.</p>
+<pre>
+(forall (s) (if (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../ground">ground</a> s)))
+</pre>
+</div>
 </section>
 
 </body>

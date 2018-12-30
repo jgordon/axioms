@@ -47,6 +47,16 @@
       (and (<a href="../framework">framework</a> f) (<a href="../horizontal2">horizontal2</a> a1 f))))
 </pre>
 </div>
+<div class="axiom">
+<p>An element of the domain has a y-coordinate if there is a horizontal subset that contains both the element and an element of the y-axis.</p>
+<pre>
+(forall (y1 x f)
+  (iff (<a href="../yCoordinate">yCoordinate</a> y1 x f)
+       (exists (h a2)
+         (and (<a href="../horizontal2">horizontal2</a> h f) (<a href="../member">member</a> x h) (<a href="../yAxis">yAxis</a> a2 f)
+              (<a href="../member">member</a> y1 h) (<a href="../member">member</a> y1 a2)))))
+</pre>
+</div>
 </section>
 
 </body>

@@ -37,6 +37,14 @@
                     (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
 </pre>
 </div>
+<div class="axiom">
+<p>It can be shown that a diagonal of a square makes a 45-degree angle with any side of the square.</p>
+<pre>
+(forall (p d c v x)
+   (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
+       (<a href="../45Degrees">45Degrees</a> v)))
+</pre>
+</div>
 </section>
 
 </body>

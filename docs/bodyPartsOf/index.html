@@ -50,6 +50,20 @@
                (iff (<a href="../member">member</a> o s2) (<a href="../senseOrgan">senseOrgan</a> o p)))))))
 </pre>
 </div>
+<div class="axiom">
+<p>Another subset of body parts can be directly controlled by a person's will. That is, the person's willing an event is the direct cause of the motion of the body part.</p>
+<pre>
+(forall (p s1)
+  (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
+      (exists (s2)
+        (and (<a href="../subset">subset</a> s2 s1)
+             (forall (x)
+               (if (<a href="../member">member</a> x s2)
+                   (exists (e1 e2 y z)
+                     (and (<a href="../move">move</a>' e2 x y z) (<a href="../will">will</a>' e1 p e2)
+                          (<a href="../dcause">dcause</a> e1 e2)))))))))
+</pre>
+</div>
 </section>
 
 </body>

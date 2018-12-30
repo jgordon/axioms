@@ -49,6 +49,47 @@
        (exists (f) (<a href="../fraction">fraction</a> f a b))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
+            (<a href="../product">product</a> c1 a1 b2) (<a href="../product">product</a> c2 a2 b1))
+       (iff (equal f1 f2) (equal c1 c2))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n) (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../fraction">fraction</a> n n 1)))
+</pre>
+</div>
+<div class="axiom">
+<p><code>a1/b1 < a2/b2</code> when <code>a1*b2 < a2*b1</code>. This also extends the other ordering relations, <code>leq</code>, <code>gt</code>, and <code>geq</code>.</p>
+<pre>
+(forall (f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
+            (<a href="../product">product</a> c1 a1 b2) (<a href="../product">product</a> c2 a2 b1))
+       (iff (<a href="../lt">lt</a> f1 f2) (<a href="../lt">lt</a> c1 c2))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f f1 f2 a1 a2 b1 b2 c1 c2)
+   (if (and (<a href="../fraction">fraction</a> f1 a1 b1) (<a href="../fraction">fraction</a> f2 a2 b2)
+            (<a href="../product">product</a> c1 a1 a2) (<a href="../product">product</a> c2 b1 b2))
+       (iff (<a href="../product">product</a> f f1 f2) (<a href="../fraction">fraction</a> f c1 c2))))
+</pre>
+</div>
+<div class="axiom">
+<p>Then the proportion of x to y is the fraction whose numerator and denominator are the numbers the measure maps x and y into, respectively.</p>
+<pre>
+(forall (f x y m s1)
+  (if (and (<a href="../measure">measure</a> m s1) (<a href="../inScale">inScale</a> x s1) (<a href="../inScale">inScale</a> y s1))
+      (iff (<a href="../proportion">proportion</a> f x y m)
+           (exists (n1 n2)
+             (and (<a href="../map">map</a> m x n1) (<a href="../map">map</a> m y n2)
+                  (<a href="../fraction">fraction</a> f n1 n2))))))
+</pre>
+</div>
 </section>
 
 </body>

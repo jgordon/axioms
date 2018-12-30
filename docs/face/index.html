@@ -32,6 +32,146 @@
        (iff (<a href="../face">face</a> f p) (<a href="../member">member</a> f s))))
 </pre>
 </div>
+<div class="axiom">
+<p>An edge of a polyhedron is a side of one of the faces.</p>
+<pre>
+(forall (c p s)
+   (if (<a href="../polyhedron">polyhedron</a> p s)
+       (iff (<a href="../edge">edge</a> c p)
+            (exists (f) (and (<a href="../face">face</a> f p) (<a href="../sideOf">sideOf</a> c f))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We can stipulate that region r is a face of volume v with respect to exterior point p if a line segment from a central point in v through a central point in r ending at p does not pass through any point in v between r and p. Lines 2-3 constrain the arguments of “face”.  In lines 5-7 c is a line segment from a central point in volume v to the exterior point p, passing through a central point p1 in region r. Lines 8-10 say that there is no point p2 between p1 and p that is also in v.</p>
+<pre>
+(forall (v r p)
+   (if (and (<a href="../volume">volume</a> v) (<a href="../region">region</a> r) (<a href="../subfigure">subfigure</a> r v)
+            (<a href="../point">point</a> p) (not (<a href="../subfigure">subfigure</a> p v)))
+       (iff (<a href="../face">face</a> r v p)
+            (forall (c p0 p1)
+               (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p0 p) (<a href="../centralIn">centralIn</a> p0 v)
+                        (<a href="../centralIn">centralIn</a> p1 r) (<a href="../subfigure">subfigure</a> p1 c))
+                   (not (exists (p2 c1)
+                           (and (<a href="../subfigure">subfigure</a> p2 v) (<a href="../inside">inside</a> p2 c1)
+                                (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 p1 p)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>It will be useful to have a name for a ray going from p0 through p1 and p. We will call this a &ldquo;quill&rdquo;, after the quills of porcupines.</p>
+<pre>
+(forall (c v r)
+   (iff (<a href="../quill">quill</a> c v r)
+        (exists (p0 p1 p)
+           (and (<a href="../volume">volume</a> v) (<a href="../face">face</a> r v p) (<a href="../ray">ray</a> c) (<a href="../inside">inside</a> p c)
+                (<a href="../endpoint">endpoint</a> p0 c) (<a href="../centralIn">centralIn</a> p0 v)
+                (<a href="../centralIn">centralIn</a> p1 r) (<a href="../inside">inside</a> p1 c))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The front of a volume is a face with respect to some external point.</p>
+<pre>
+(forall (r v)
+   (if (<a href="../front">front</a> r v)
+       (exists (p) (<a href="../face">face</a> r v p))))
+</pre>
+</div>
+<div class="axiom">
+<p>If a face of an entity has a part whose function is to enable motion into and/or out of the entity, then defeasibly the face is a front of the entity. Lines 3-4 says that part x of face r has the function of enabling motion e2 of something a. Eventuality e1 is the property of x that enables e2. Lines 5-6 say the motion is either into or out of v. Line 7 indicates defeasibility. Thus, a door x in the face r of a building v has the function of its being open (e1) enabling people (a) to move into or out of the building. Of course, many times there will be more than one such face, but the defeasible uniqueness of fronts in the previous rule will usually force us to choose the primary one.</p>
+<pre>
+(forall (r v)
+   (if (exists (p x e e1 e2 a b c)
+          (and (<a href="../face">face</a> r v p) (<a href="../part">part</a> x r) (<a href="../function">function</a> e x) (<a href="../arg*">arg*</a> x e1)
+               (<a href="../enable">enable</a>' e e1 e2) (<a href="../move">move</a>' e2 a b c)
+               (or (and (<a href="../inside">inside</a> c v) (<a href="../externalTo">externalTo</a> b v))
+                   (and (<a href="../inside">inside</a> b v) (<a href="../externalTo">externalTo</a> c v)))
+               (etc))
+       (<a href="../front">front</a> r v))
+</pre>
+</div>
+<div class="axiom">
+<p>If the volume is mobile, the leading face is often considered the front. That is, defeasibly, if the volume moves from one point to another, the front reaches the destination before any other face. In lines 2-3 p1 is a point in the face r, and p2 is another point in v not in the face. Lines 5-7 say that if there is moving from b to c, then defeasibly p1 will get there before p2. Line 8 says under these conditions, the face is a front.</p>
+<pre>
+(forall (r v p p1 p2)
+   (if (and (<a href="../face">face</a> r v p) (<a href="../subfigure">subfigure</a> p1 r) (<a href="../subfigure">subfigure</a> p2 v)
+            (not (<a href="../subfigure">subfigure</a> p2 r))
+            (forall (b c e1 e2)
+               (if (and (<a href="../move">move</a> v b c) (<a href="../at">at</a>' e1 p1 c) (<a href="../at">at</a>' e2 p2 c)
+                        (etc))
+                   (<a href="../before">before</a> e1 e2))))
+       (<a href="../front">front</a> r v)))
+</pre>
+</div>
+<div class="axiom">
+<p>The expression <code>(back r v f)</code> says that region r is the back of volume v in framework f. In lines 4-7 the orientation of v is anchored to the positive y-axis, and the back is a face the direction of whose quill is the negative y-axis.</p>
+<pre>
+(forall (r v f)
+   (iff (<a href="../back">back</a> r v f)
+        (exists (r1 c c1 a a1)
+           (and (<a href="../front">front</a> r1 v f) (<a href="../face">face</a> r v p)
+                (<a href="../quill">quill</a> c1 r1 v) (<a href="../quill">quill</a> c r v)
+                (<a href="../directionOf">directionOf</a> a1 c1 f) (<a href="../directionOf">directionOf</a> a c f)
+                (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../negYAxis">negYAxis</a> a f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The expression <code>(rightSide r v f)</code> says that region r is the right side of volume v in framework f.</p>
+<pre>
+(forall (r v f)
+   (iff (<a href="../rightSide">rightSide</a> r v f)
+        (exists (r1 c c1 a a1)
+           (and (<a href="../front">front</a> r1 v f) (<a href="../face">face</a> r v p)
+                (<a href="../quill">quill</a> c1 r1 v) (<a href="../quill">quill</a> c r v f)
+                (<a href="../directionOf">directionOf</a> a1 c1 f) (<a href="../directionOf">directionOf</a> a c f)
+                (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../posXAxis">posXAxis</a> a f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The expression <code>(leftSide r v f)</code> says that region r is the left side of volume v in framework f.</p>
+<pre>
+(forall (r v f)
+   (iff (<a href="../leftSide">leftSide</a> r v f)
+        (exists (r1 c c1 a a1)
+           (and (<a href="../front">front</a> r1 v f) (<a href="../face">face</a> r v p)
+                (<a href="../quill">quill</a> c1 r1 v) (<a href="../quill">quill</a> c r v f)
+                (<a href="../directionOf">directionOf</a> a1 c1 f) (<a href="../directionOf">directionOf</a> a c f)
+                (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../negXAxis">negXAxis</a> a f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The expression <code>(top r v f)</code> says that region r is the top of volume v in framework f.</p>
+<pre>
+(forall (r v f)
+   (iff (<a href="../top">top</a> r v f)
+        (exists (r1 c c1 a a1)
+           (and (<a href="../front">front</a> r1 v f) (<a href="../face">face</a> r v p)
+                (<a href="../quill">quill</a> c1 r1 v) (<a href="../quill">quill</a> c r v f)
+                (<a href="../directionOf">directionOf</a> a1 c1 f) (<a href="../directionOf">directionOf</a> a c f)
+                (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../posZAxis">posZAxis</a> a f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The expression <code>(bottom r v f)</code> says that region r is the bottom of volume v in framework f.</p>
+<pre>
+(forall (r v f)
+   (iff (<a href="../bottom">bottom</a> r v f)
+        (exists (r1 c c1 a a1)
+           (and (<a href="../front">front</a> r1 v f) (<a href="../face">face</a> r v p)
+                (<a href="../quill">quill</a> c1 r1 v) (<a href="../quill">quill</a> c r v f)
+                (<a href="../directionOf">directionOf</a> a1 c1 f) (<a href="../directionOf">directionOf</a> a c f)
+                (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../negZAxis">negZAxis</a> a f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Any physical object can turn, and we know it has if we can find an external point p, a face r of the object facing p, and a framework f, such that the <code>orientation0</code> of the object with respect to that face and framework changes.</p>
+<pre>
+(forall (x d1 d2)
+   (iff (<a href="../turn">turn</a> x d1 d2)
+        (exists (r p e1 e2 f)
+           (and (<a href="../face">face</a> r x p)
+                (<a href="../change">change</a> e1 e2) (<a href="../orientation0">orientation0</a>' e1 d1 x r f)
+                (<a href="../orientation0">orientation0</a>' e2 d2 x r f)))))
+</pre>
+</div>
 </section>
 
 </body>

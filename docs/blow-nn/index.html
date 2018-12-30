@@ -32,6 +32,15 @@
         (<a href="../blow-nn">blow-nn</a> e0 e1))))
 </pre>
 </div>
+<div class="axiom">
+<p>A low blow is an illegal attack.</p>
+<pre>
+(forall (e1 x y)
+  (if (and (<a href="../illegal">illegal</a> e1) (<a href="../attack">attack</a> e1 x y))
+      (exists (e0 e4)
+        (and (<a href="../blow-nn">blow-nn</a> e0 e1) (<a href="../low-adj">low-adj</a> e4 e1)))))
+</pre>
+</div>
 </section>
 
 </body>

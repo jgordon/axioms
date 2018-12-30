@@ -51,6 +51,22 @@
                (<a href="../function">function</a> f s1 s2)))))
 </pre>
 </div>
+<div class="axiom">
+<p>The <code>Hi</code>, <code>Md</code>, and <code>Lo</code> regions of a scale are subscales.</p>
+<pre>
+(forall (s1 s) (if (<a href="../Hi">Hi</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s1 s) (if (<a href="../Md">Md</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s1 s) (if (<a href="../Lo">Lo</a> s1 s) (<a href="../subscale">subscale</a> s1 s)))
+</pre>
+</div>
 </section>
 
 </body>

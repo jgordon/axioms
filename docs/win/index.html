@@ -47,6 +47,14 @@
       (<a href="../win">win</a> e x y c)))
 </pre>
 </div>
+<div class="axiom">
+<p>Victory is winning.</p>
+<pre>
+(forall (c x y g h e)
+  (if (and (<a href="../conflict">conflict</a> c x y g h) (<a href="../adversary">adversary</a> e x y c) (<a href="../win">win</a> e x y c))
+      (<a href="../victory">victory</a> e x y c)))
+</pre>
+</div>
 </section>
 
 </body>

@@ -31,6 +31,13 @@
       (<a href="../goal-nn">goal-nn</a> e1 g)))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e1 e2 g x)
+  (if (<a href="../goal">goal</a> e1 g x)
+      (and (<a href="../goal-nn">goal-nn</a> e1 g) (<a href="../of-in">of-in</a> e2 g x))))
+</pre>
+</div>
 </section>
 
 </body>

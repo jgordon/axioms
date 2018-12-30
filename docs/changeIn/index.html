@@ -49,6 +49,18 @@
              (and (<a href="../and'">and'</a> e e1 e2) (<a href="../cause">cause</a> e1 e2) (<a href="../objectOf">objectOf</a> x e2))))))
 </pre>
 </div>
+<div class="axiom">
+<p>An instrument is an entity that the agent causes to go through a change of state, where this change plays an intermediate role in the causal chain.</p>
+<pre>
+(forall (y e)
+  (iff (<a href="../instrumentOf">instrumentOf</a> y e)
+       (exists (a e1)
+         (and (<a href="../agentOf">agentOf</a> a e1) (<a href="../changeIn">changeIn</a>' e1 y)
+              (or (<a href="../cause">cause</a> e1 e)
+                  (exists (e2)
+                    (and (<a href="../cause">cause</a> e1 e2) (<a href="../and'">and'</a> e e1 e2))))))))
+</pre>
+</div>
 </section>
 
 </body>

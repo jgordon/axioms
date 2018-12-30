@@ -50,6 +50,57 @@
                           (<a href="../map">map</a> s j x))))))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (x1 x2 s)
+  (iff (<a href="../successiveElts">successiveElts</a> x1 x2 s)
+       (exists (n1 n2)
+         (and (<a href="../successor">successor</a> n2 n1) (<a href="../nth">nth</a> x1 n1 s) (<a href="../nth">nth</a> x2 n2 s)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n)
+   (if (<a href="../nonNegInteger">nonNegInteger</a> n)
+       (exists (n1)
+          (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../successor">successor</a> n1 n)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Defining 10 requires 1-9.</p>
+<pre>
+(and (<a href="../successor">successor</a> 1 0) (<a href="../successor">successor</a> 2 1) (<a href="../successor">successor</a> 3 2)
+     (<a href="../successor">successor</a> 4 3) (<a href="../successor">successor</a> 5 4) (<a href="../successor">successor</a> 6 5)
+     (<a href="../successor">successor</a> 7 6) (<a href="../successor">successor</a> 8 7) (<a href="../successor">successor</a> 9 8)
+     (<a href="../successor">successor</a> 10 9))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(not (exists (n) (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../successor">successor</a> 0 n))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n n1 n2)
+   (if (and (<a href="../successor">successor</a> n1 n) (<a href="../successor">successor</a> n2 n))
+       (equal n1 n2)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n n1 n2 n3 n4)
+   (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../sum">sum</a> n4 n1 n2))
+       (iff (<a href="../sum">sum</a> n n1 n3) (<a href="../successor">successor</a> n n4))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n n1 n2 n3 n4)
+   (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../product">product</a> n4 n1 n2))
+       (iff (<a href="../product">product</a> n n1 n3) (<a href="../sum">sum</a> n n4 n1))))
+</pre>
+</div>
 </section>
 
 </body>

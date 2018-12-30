@@ -32,6 +32,14 @@
         (and (<a href="../launch-vb">launch-vb</a> e2 x a u) (<a href="../attack">attack</a> a u1 y)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (a x y)
+  (if (<a href="../attack">attack</a> a x y)
+      (exists (e1 e2 u)
+        (and (<a href="../launch-vb">launch-vb</a> e2 x a u) (<a href="../blitz-nn">blitz-nn</a> e1 a)))))
+</pre>
+</div>
 </section>
 
 </body>

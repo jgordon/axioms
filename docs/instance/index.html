@@ -48,6 +48,52 @@
         (and (<a href="../instance">instance</a> e2 e3) (<a href="../not'">not'</a> e1 e3)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (s e)
+   (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
+        (and (<a href="../scale">scale</a> s) (<a href="../eventuality">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn">argn</a> s0 1 e) (<a href="../set">set</a> s0)))
+             (forall (x) (if (<a href="../argn">argn</a> x 2 e) (exists (y) (<a href="../at">at</a> x y s))))
+             (forall (e1 e2 s1 s2 x1 x2)
+                (if (and (<a href="../instance">instance</a> e1 e) (<a href="../argn">argn</a> s1 1 e1)
+                                         (<a href="../argn">argn</a> x1 2 e1)
+                         (<a href="../instance">instance</a> e2 e) (<a href="../argn">argn</a> s2 1 e2)
+                                         (<a href="../argn">argn</a> x2 2 e2)
+                         (<a href="../subset">subset</a> s1 s2))
+                    (<a href="../leqs">leqs</a> x1 x2 s))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A pure <code>iteration</code> is defined recursively for when there is no termination condition and no set of entities the iteration is over.</p>
+<pre>
+(forall (e e1)
+  (iff (<a href="../iteration">iteration</a> e e1)
+       (exists (e2 e3)
+         (and (<a href="../eventSequence">eventSequence</a>' e e2 e3) (<a href="../instance">instance</a> e2 e1)
+              (or (<a href="../iteration">iteration</a> e3 e1) (<a href="../instance">instance</a> e3 e1))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Some iterative processes have a termination condition, for which we define a predicate <code>whileDo</code> that says one event type <code>e2</code> is instantiated by successive instances as long as eventuality <code>e1</code> happens or holds.</p>
+<pre>
+(forall (e e1 e2)
+  (iff (<a href="../whileDo">whileDo</a> e e1 e2)
+       (exists (e3 e4 e5)
+         (and (<a href="../cond">cond</a> e e1 e3) (<a href="../eventSequence">eventSequence</a>' e3 e4 e5) (<a href="../instance">instance</a> e4 e2)
+              (or (<a href="../whileDo">whileDo</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A <code>repeatUntil</code> can be defined similarly, but an instance <code>e3</code> of the body <code>e1</code> occurs before the condition <code>e2</code> is checked.</p>
+<pre>
+(forall (e e1 e2)
+  (iff (<a href="../repeatUntil">repeatUntil</a> e e1 e2)
+       (exists (e3 e4 e5)
+         (and (<a href="../eventSequence">eventSequence</a>' e e3 e4) (<a href="../instance">instance</a> e3 e1) (<a href="../cond">cond</a> e4 e2 e5)
+              (or (<a href="../repeatUntil">repeatUntil</a> e5 e1 e2) (<a href="../instance">instance</a> e5 e1))))))
+</pre>
+</div>
 </section>
 
 </body>

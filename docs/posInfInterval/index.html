@@ -49,6 +49,24 @@
            (<a href="../posInfInterval">posInfInterval</a> t))))
 </pre>
 </div>
+<div class="axiom">
+<p>The predicate <code>posInfIntervalEv</code> says that its argument is either a positive infinite interval or an eventuality whose time span is a positive infinite interval.</p>
+<pre>
+(forall (e)
+  (iff (<a href="../posInfIntervalEv">posInfIntervalEv</a> e)
+       (or (<a href="../posInfInterval">posInfInterval</a> e)
+           (exists (t)
+             (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../posInfInterval">posInfInterval</a> t))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The beginning of a positive infinite interval, if there is one, is before all the instants inside it.</p>
+<pre>
+(forall (t1 t2 t)
+  (if (and (<a href="../posInfInterval">posInfInterval</a> t) (<a href="../begins">begins</a> t1 t) (<a href="../insideTime">insideTime</a> t2 t))
+      (<a href="../before">before</a> t1 t2)))
+</pre>
+</div>
 </section>
 
 </body>

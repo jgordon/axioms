@@ -38,6 +38,17 @@
                    (<a href="../lts">lts</a> y1 y2 s2))))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (m s1)
+  (iff (<a href="../measure">measure</a> m s1)
+       (exists (s2)
+         (and (<a href="../scale">scale</a> s1) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s2)
+              (<a href="../functionInto">functionInto</a> m s1 s2)
+              (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
+              (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
+</pre>
+</div>
 </section>
 
 </body>

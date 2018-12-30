@@ -68,6 +68,24 @@
        (<a href="../front">front</a> r v))
 </pre>
 </div>
+<div class="axiom">
+<p>Something being near a person is an enabling condition for perceiving it.</p>
+<pre>
+(forall (p x e2)
+  (if (<a href="../perceive">perceive</a>' e2 p x)
+      (exists (e1 s)
+        (and (<a href="../near">near</a>' e1 x p s) (<a href="../enable">enable</a> e1 e2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>When something is perceived, there is a sense organ whose intact-ness enables the perception.</p>
+<pre>
+(forall (p x e2)
+  (if (and (<a href="../person">person</a> p) (<a href="../perceive">perceive</a>' e2 p x))
+      (exists (o e1)
+        (and (<a href="../senseOrgan">senseOrgan</a> o p) (<a href="../intact">intact</a>' e1 o) (<a href="../enable">enable</a> e1 e2)))))
+</pre>
+</div>
 </section>
 
 </body>

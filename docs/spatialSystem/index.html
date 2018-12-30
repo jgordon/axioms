@@ -44,6 +44,18 @@
                (<a href="../at">at</a> x y s)))))
 </pre>
 </div>
+<div class="axiom">
+<p>A body is a composite entity whose components are body parts. In fact, it's a spatial system, since all the body parts are physical objects.</p>
+<pre>
+(forall (b p)
+  (if (<a href="../body">body</a> b p)
+      (and (<a href="../spatialSystem">spatialSystem</a> b)
+           (exists (s)
+             (and (<a href="../componentsOf">componentsOf</a> s b)
+                  (forall (x)
+                    (iff (<a href="../member">member</a> x s) (<a href="../bodyPart">bodyPart</a> x p))))))))
+</pre>
+</div>
 </section>
 
 </body>

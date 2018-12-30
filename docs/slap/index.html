@@ -27,6 +27,23 @@
 <pre>(slap e x y)</pre><p>x slaps y</p>
 </section>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../slap">slap</a> e1 x y)
+      (exists (u)
+        (<a href="../slap-vb">slap-vb</a> e1 x y u))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y)
+  (if (<a href="../slap">slap</a> e x y)
+      (exists (e1)
+        (<a href="../slap-nn">slap-nn</a> e1 e))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A slap is an attack.</p>

@@ -36,6 +36,387 @@
       (or (<a href="../curve">curve</a> f2) (<a href="../region">region</a> f2) (<a href="../volume">volume</a> f2))))
 </pre>
 </div>
+<div class="axiom">
+<p>If f1 is inside f2 and f1 is not a point, then there is at least one point the figures share, and figure f1's points are inside f2.</p>
+<pre>
+(forall (f1 f2)
+  (if (not (<a href="../point">point</a> f1))
+      (iff (<a href="../inside">inside</a> f1 f2)
+           (and (exists (x) (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x f1)))
+                (forall (x)
+                   (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x f1))
+                       (<a href="../inside">inside</a> x f2)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A figure can be on the boundary (endpoint/border/surface) of a figure of higher dimension.</p>
+<pre>
+(forall (f1 f2)
+  (iff (<a href="../onBoundary">onBoundary</a> f1 f2)
+       (or (and (<a href="../point">point</a> f1) (<a href="../curve">curve</a> f2) (<a href="../endpoint">endpoint</a> f1 f2))
+           (exists (b) (and (<a href="../region">region</a> f2) (<a href="../border">border</a> b f2) (<a href="../inside">inside</a> f1 b)))
+           (exists (b)
+             (and (<a href="../volume">volume</a> f2) (<a href="../surface">surface</a> b f2) (<a href="../inside">inside</a> f1 b))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If one figure is inside or on the boundary of another, we will call it a <code>subfigure</code>. The <code>subfigure</code> relation is reflexive, antisymmetric, and transitive.</p>
+<pre>
+(forall (f1 f2)
+  (iff (<a href="../subfigure">subfigure</a> f1 f2)
+       (or (<a href="../inside">inside</a> f1 f2) (<a href="../onBoundary">onBoundary</a> f1 f2))))
+</pre>
+</div>
+<div class="axiom">
+<p>RCC8 &ldquo;tangential proper part&rdquo;, for 2- and 3-dimensional figures:</p>
+<pre>
+(forall (r1 r2)
+  (iff (<a href="../tpp">tpp</a> r1 r2)
+       (and (forall (x)
+              (if (<a href="../inside">inside</a> x r1) (<a href="../inside">inside</a> x r2)))
+            (forall (x)
+              (if (<a href="../onBoundary">onBoundary</a> x r1)
+                  (or (<a href="../inside">inside</a> x r2) (<a href="../onBoundary">onBoundary</a> x r2))))
+            (exists (x)
+              (and (<a href="../onBoundary">onBoundary</a> x r1) (<a href="../onBoundary">onBoundary</a> x r2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A plane is a region such that if a line passes through any two points in the region, it is inside the region.</p>
+<pre>
+(forall (r)
+  (iff (<a href="../plane">plane</a> r)
+       (forall (c x1 x2)
+         (if (and (<a href="../line">line</a> c) (<a href="../inside">inside</a> x1 c) (<a href="../inside">inside</a> x2 c)
+                  (<a href="../inside">inside</a> x1 r) (<a href="../inside">inside</a> x2 r))
+             (<a href="../inside">inside</a> c r)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A figure is planar if it is inside a plane.</p>
+<pre>
+(forall (r)
+  (iff (<a href="../planar">planar</a> r)
+       (exists (r1) (and (<a href="../plane">plane</a> r1) (<a href="../inside">inside</a> r r1)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A planar figure is convex if every point on a line segment between any two points on the boundary is inside the region.</p>
+<pre>
+(forall (r)
+  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
+      (iff (<a href="../convex">convex</a> r)
+           (forall (c x x1 x2)
+             (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
+                      (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
+                 (<a href="../subfigure">subfigure</a> x r))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Two figures are coplanar if there is a plane that they are both inside.</p>
+<pre>
+(forall (f1 f2)
+  (iff (<a href="../coplanar">coplanar</a> f1 f2)
+       (exists (p)
+         (and (<a href="../plane">plane</a> p) (<a href="../inside">inside</a> f1 p) (<a href="../inside">inside</a> f2 p)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Two lines are parallel if they are coplanar and they have no points in common.</p>
+<pre>
+(forall (c1 c2)
+  (if (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2))
+      (iff (<a href="../parallel">parallel</a> c1 c2)
+           (and (<a href="../coplanar">coplanar</a> c1 c2)
+                (not (exists (f)
+                       (and (<a href="../inside">inside</a> f c1) (<a href="../inside">inside</a> f c2))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Two figures are parallel if they are inside two parallel lines.</p>
+<pre>
+(forall (f1 f2)
+  (iff (<a href="../parallel">parallel</a> f1 f2)
+       (exists (c1 c2)
+         (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2) (<a href="../parallel">parallel</a> c1 c2)
+              (<a href="../inside">inside</a> f1 c1) (<a href="../inside">inside</a> f2 c2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The first step toward defining polygons is to define the figure formed by joining two curves at an endpoint of each. We can call these figures &ldquo;joined curves&rdquo;. We join two curves with endpoints by stipulating that one endpoint of one coincides with one endpoint of the other. This only covers the case where the two curves are joined at a single point; more complicated combinations would require further definitions.</p>
+<pre>
+(forall (c c1 c2 x)
+  (iff (<a href="../joinedCurves">joinedCurves</a> c c1 c2 x)
+       (and (<a href="../curve">curve</a> c1) (<a href="../curve">curve</a> c2) (<a href="../nequal">nequal</a> c1 c2)
+            (<a href="../endpoint">endpoint</a> x c1) (<a href="../endpoint">endpoint</a> x c2)
+            (forall (y)
+              (iff (<a href="../inside">inside</a> y c)
+                   (or (<a href="../inside">inside</a> y c1) (<a href="../inside">inside</a> y c2)
+                       (equal y x))))
+            (forall (z)
+              (iff (<a href="../endpoint">endpoint</a> z c)
+                   (and (<a href="../nequal">nequal</a> z x)
+                        (or (<a href="../endpoint">endpoint</a> z c1) (<a href="../endpoint">endpoint</a> z c2))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A polygon is a closed curve that is made up of n sides. Lines 4-5 say that the set s is the set of sides of the polygon. Lines 6-10 say that every point in the polygon is either in a side or is a vertex. Line 11 says the polygon is a closed planar curve, and line 12 says n is the cardinality of the set of sides.</p>
+<pre>
+(forall (p n)
+  (iff (<a href="../polygon">polygon</a> p n)
+       (exists (s)
+         (and (forall (c)
+                (iff (<a href="../member">member</a> c s) (<a href="../sideOf">sideOf</a> c p)))
+              (forall (x)
+                (if (<a href="../inside">inside</a> x p)
+                    (exists (c)
+                      (and (<a href="../member">member</a> c s)
+                        (or (<a href="../inside">inside</a> x c) (<a href="../endpoint">endpoint</a> x l))))))
+              (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
+              (<a href="../card">card</a> n s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A straight line is the shortest distance between two points. We state this in terms of the endpoints and an inside point of a line segment.</p>
+<pre>
+(forall (c x1 x2 x3 d1 d2 d3 u)
+  (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x3)
+           (<a href="../inside">inside</a> x2 c) (<a href="../distance">distance</a> d1 x1 x2 u)
+           (<a href="../distance">distance</a> d2 x2 x3 u) (<a href="../distance">distance</a> d3 x1 x3 u))
+       (<a href="../sum">sum</a> d3 d1 d2)))
+</pre>
+</div>
+<div class="axiom">
+<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
+<pre>
+(forall (c r x u)
+   (iff (<a href="../circle">circle</a> c x)
+        (exists (r d)
+           (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
+                (forall (c1 x1)
+                   (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                       (<a href="../length">length</a> d c1 u)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A spherical surface r around a center x is a region in which every line segment from the center to a point inside the region is constant.</p>
+<pre>
+(forall (r x)
+   (iff (<a href="../sphere">sphere</a> r x)
+        (exists (v d u)
+           (and (<a href="../boundary">boundary</a> r v) (<a href="../inside">inside</a> x v)
+                (forall (c1 x1)
+                   (if (and (<a href="../inside">inside</a> x1 r) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                       (<a href="../length">length</a> d c1 u)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The expression <code>(anchorPoint x f v c1 c2 o u)</code> says that x is an anchor point in framework f whose origin is o, v is a vertex at o whose side c1 lies along f's x-axis, and x is a point in v's other side c2 one distance unit u from the origin.</p>
+<pre>
+(forall (x v f c1 c2 o u)
+  (iff (<a href="../anchorPoint">anchorPoint</a> x v f c1 c2 o u)
+       (and (<a href="../anchorFramework">anchorFramework</a> f v c1 c2 o)
+            (<a href="../inside">inside</a> x c2) (<a href="../distance">distance</a> 1 o x u))))
+</pre>
+</div>
+<div class="axiom">
+<p>A polyhedron is a volume whose surface consists of polygons, which are called faces. The expression <code>(polyhedron p s)</code> says that p is a polyhedron with set s of faces. Lines 5-6 says that the members of s are polygons contained within the surface of the polyhedron. Lines 7-10 say that the faces account for the entire surface. Lines 11-14 say that the polygons overlap only at their boundaries.</p>
+<pre>
+(forall (p s)
+   (iff (<a href="../polyhedron">polyhedron</a> p s)
+        (exists (r)
+           (and (<a href="../surface">surface</a> r p) (<a href="../closed">closed</a> r)
+                (forall (f)
+                   (if (<a href="../member">member</a> f s) (and (<a href="../polygon2">polygon2</a> f) (<a href="../inside">inside</a> f r))))
+                (forall (x)
+                   (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x r))
+                       (exists (f)
+                          (and (<a href="../member">member</a> f s) (<a href="../subfigure">subfigure</a> x f)))))
+                (forall (x)
+                   (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
+                            (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
+                       (equal f1 f2)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A volume is convex if every point on a line segment between any two points on its surface is inside the volume.</p>
+<pre>
+(forall (p)
+   (if (<a href="../volume">volume</a> p)
+       (iff (<a href="../convex">convex</a> p)
+            (forall (c x x1 x2)
+               (if (and (<a href="../onBorder">onBorder</a> x1 p) (<a href="../onBorder">onBorder</a> x2 p)
+                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c)
+                   (<a href="../subfigure">subfigure</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A face is defined in terms of a reference point. It is a subregion of the surface of a volume that faces the reference point. The expression <code>(face0 r v p)</code> says that subregion r of volume v faces external point p. Recall that a point is a subfigure of a region or volume if it is inside it or in its boundary. Lines 3-4 say that p is external to v and r is a subfigure of v. Lines 5-8 say that any line segment from p to a point in r will not cross v before arriving at r. In other words, no part of the volume v blocks a straight path between the point p and the face r.</p>
+<pre>
+(forall (r v p)
+   (if (<a href="../face0">face0</a> r v p)
+       (and (<a href="../volume">volume</a> v) (<a href="../point">point</a> p) (not (<a href="../subfigure">subfigure</a> p v))
+            (<a href="../region">region</a> r) (<a href="../subfigure">subfigure</a> r v)
+            (forall (p0 c)
+               (if (and (<a href="../subfigure">subfigure</a> p0 r)
+                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p p0))
+                   (not (exists (p1)
+                           (and (<a href="../inside">inside</a> p1 c)
+                                (<a href="../subfigure">subfigure</a> p1 v)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We introduce a loose notion of &ldquo;central&rdquo; based on half orders of magnitude. We will say that a point in a region or volume is central if whenever a straight line is drawn through the point and intersects the boundary in two points, the distances from the central point to the two boundary points are of the same half order of magnitude. In this axiom, c is any line segment from p1 to p2, points on the boundary of f, passing through p. Line 7 says that p divides the line segment into roughly equal parts.  We use &ldquo;if&rdquo; rather than &ldquo;iff&rdquo; because this is a strong sufficient condition, not a necessary condition for centrality. There will surely be odd-shaped figures where this condition won't hold and yet we'll want to call the point central.</p>
+<pre>
+(forall (p f)
+   (if (<a href="../point">point</a> p)
+       (if (forall (c p1 p2 b d1 d2)
+              (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p1 p2) (<a href="../inside">inside</a> p c)
+                       (<a href="../boundary">boundary</a> b f) (<a href="../inside">inside</a> p1 b) (<a href="../inside">inside</a> p2 b)
+                       (<a href="../distance">distance</a> d1 p1 p) (<a href="../distance">distance</a> d2 p2 p))
+                  (<a href="../sameHOM">sameHOM</a> d1 d2)))
+           (<a href="../centralIn0">centralIn0</a> p f))
+</pre>
+</div>
+<div class="axiom">
+<p><code>centralIn</code> extends the concept of <code>centralIn0</code> to higher-dimensional figures.</p>
+<pre>
+(forall (f1 f2)
+   (iff (<a href="../centralIn">centralIn</a> f1 f2)
+        (or (and (<a href="../point">point</a> f1) (<a href="../centralIn0">centralIn0</a> f1 f2))
+            (and (<a href="../figure">figure</a> f1) (<a href="../figure">figure</a> f2)
+                 (forall (p) (if (<a href="../inside">inside</a> p f1)
+                                 (<a href="../centralIn0">centralIn0</a> p f2)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We can stipulate that region r is a face of volume v with respect to exterior point p if a line segment from a central point in v through a central point in r ending at p does not pass through any point in v between r and p. Lines 2-3 constrain the arguments of “face”.  In lines 5-7 c is a line segment from a central point in volume v to the exterior point p, passing through a central point p1 in region r. Lines 8-10 say that there is no point p2 between p1 and p that is also in v.</p>
+<pre>
+(forall (v r p)
+   (if (and (<a href="../volume">volume</a> v) (<a href="../region">region</a> r) (<a href="../subfigure">subfigure</a> r v)
+            (<a href="../point">point</a> p) (not (<a href="../subfigure">subfigure</a> p v)))
+       (iff (<a href="../face">face</a> r v p)
+            (forall (c p0 p1)
+               (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p0 p) (<a href="../centralIn">centralIn</a> p0 v)
+                        (<a href="../centralIn">centralIn</a> p1 r) (<a href="../subfigure">subfigure</a> p1 c))
+                   (not (exists (p2 c1)
+                           (and (<a href="../subfigure">subfigure</a> p2 v) (<a href="../inside">inside</a> p2 c1)
+                                (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 p1 p)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>It will be useful to have a name for a ray going from p0 through p1 and p. We will call this a &ldquo;quill&rdquo;, after the quills of porcupines.</p>
+<pre>
+(forall (c v r)
+   (iff (<a href="../quill">quill</a> c v r)
+        (exists (p0 p1 p)
+           (and (<a href="../volume">volume</a> v) (<a href="../face">face</a> r v p) (<a href="../ray">ray</a> c) (<a href="../inside">inside</a> p c)
+                (<a href="../endpoint">endpoint</a> p0 c) (<a href="../centralIn">centralIn</a> p0 v)
+                (<a href="../centralIn">centralIn</a> p1 r) (<a href="../inside">inside</a> p1 c))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If a face of an entity has a part whose function is to enable motion into and/or out of the entity, then defeasibly the face is a front of the entity. Lines 3-4 says that part x of face r has the function of enabling motion e2 of something a. Eventuality e1 is the property of x that enables e2. Lines 5-6 say the motion is either into or out of v. Line 7 indicates defeasibility. Thus, a door x in the face r of a building v has the function of its being open (e1) enabling people (a) to move into or out of the building. Of course, many times there will be more than one such face, but the defeasible uniqueness of fronts in the previous rule will usually force us to choose the primary one.</p>
+<pre>
+(forall (r v)
+   (if (exists (p x e e1 e2 a b c)
+          (and (<a href="../face">face</a> r v p) (<a href="../part">part</a> x r) (<a href="../function">function</a> e x) (<a href="../arg*">arg*</a> x e1)
+               (<a href="../enable">enable</a>' e e1 e2) (<a href="../move">move</a>' e2 a b c)
+               (or (and (<a href="../inside">inside</a> c v) (<a href="../externalTo">externalTo</a> b v))
+                   (and (<a href="../inside">inside</a> b v) (<a href="../externalTo">externalTo</a> c v)))
+               (etc))
+       (<a href="../front">front</a> r v))
+</pre>
+</div>
+<div class="axiom">
+<p>A physical object lies along a curve if it is at every point in the curve.</p>
+<pre>
+(forall (x c)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../curve">curve</a> c))
+       (iff (<a href="../along">along</a> x c)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p c))
+                   (<a href="../atLoc">atLoc</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A physical objects lies over a region if it is at every point in the region.</p>
+<pre>
+(forall (x r)
+   (if (and (<a href="../physobj">physobj</a> x) (<a href="../region">region</a> r))
+       (iff (<a href="../over">over</a> x c)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p r))
+                   (<a href="../atLoc">atLoc</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>In physical space when we move a physical object from one point to another, there is a curve &ndash; its path &ndash; such that the object is at every point in the path along the way. First we define &ldquo;path&rdquo;.</p>
+<pre>
+(forall (c e x a b)
+   (if (<a href="../move">move</a>' e x a b)
+       (iff (<a href="../path">path</a> c e)
+            (forall (p)
+               (if (and (<a href="../point">point</a> p) (<a href="../inside">inside</a> p c))
+                   (exists (e1 e2)
+                      (and (<a href="../move">move</a>' e1 x a p) (<a href="../move">move</a>' e2 x p b)
+                           (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A point x is &ldquo;between&rdquo; two points y1 and y2 on a curve c if x is inside a subcurve c1 whose endpoints are y1 and y2.</p>
+<pre>
+(forall (x y1 y2 c)
+   (iff (<a href="../between">between</a> x y1 y2 c)
+        (exists (c1)
+           (and (<a href="../curve">curve</a> c1) (<a href="../subfigure">subfigure</a> c1 c) (<a href="../endpoint">endpoint</a> y1 c1)
+                (<a href="../endpoint">endpoint</a> y2 c1) (<a href="../inside">inside</a> x c1)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the path of a moving event is a closed curve, the event is &ldquo;around&rdquo; the points (and other figures) enclosed by the path.</p>
+<pre>
+(forall (e x y1 y2 c)
+   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
+       (iff (<a href="../around">around</a> c z)
+            (exists (r)
+               (and (<a href="../region">region</a> r) (<a href="../boundary">boundary</a> c r)
+                    (<a href="../inside">inside</a> z r))))))
+</pre>
+</div>
+<div class="axiom">
+<p>To move into a region or volume is to move to a point inside it.</p>
+<pre>
+(forall (e x y1 y2)
+   (if (<a href="../move">move</a>' e x y1 y2)
+       (iff (<a href="../into">into</a> e v)
+            (<a href="../inside">inside</a> y2 v))))
+</pre>
+</div>
+<div class="axiom">
+<p>A composite entity is along a curve if its components are at points on the curve.</p>
+<pre>
+(forall (z c s)
+   (iff (<a href="../along">along</a> z c s)
+        (and (<a href="../compositeEntity">compositeEntity</a> z) (<a href="../curve">curve</a> c) (<a href="../subset">subset</a> c s)
+             (forall (x)
+                (if (<a href="../componentOf">componentOf</a> x z)
+                    (exists (y)
+                       (and (<a href="../inside">inside</a> y c) (<a href="../at">at</a> x y s))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A composite entity can be over a region.</p>
+<pre>
+(forall (z  s)
+   (iff (<a href="../over">over</a> z r s)
+        (and (<a href="../compositeEntity">compositeEntity</a> z) (<a href="../region">region</a> r) (<a href="../subset">subset</a> r s)
+             (forall (x)
+                (if (<a href="../componentOf">componentOf</a> x z)
+                    (exists (y)
+                       (and (<a href="../inside">inside</a> y r) (<a href="../at">at</a> x y s))))))))
+</pre>
+</div>
 </section>
 
 </body>

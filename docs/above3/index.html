@@ -37,6 +37,46 @@
                               (<a href="../above3">above3</a> x1 x2 f)))))))))
 </pre>
 </div>
+<div class="axiom">
+<p>A non-null subset of the domain is <code>vertical2</code> if no element is <code>rightOf</code> or <code>above3</code> any other element.</p>
+<pre>
+(forall (s1 f)
+  (iff (<a href="../vertical2">vertical2</a> s1 f)
+       (exists (s)
+         (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+              (not (exists (x1 x2)
+                     (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                          (or (<a href="../rightOf">rightOf</a> x1 x2 f)
+                              (<a href="../above3">above3</a> x1 x2 f)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A horizontal plane is a set in which no element is <code>above3</code> any other. In the two-dimensional case any subset of the domain is a horizontal plane.</p>
+<pre>
+(forall (s1 f)
+   (iff (<a href="../horizontalPlane">horizontalPlane</a> s1 f)
+        (exists (s)
+           (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+                (not (exists (x1 x2)
+                        (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                             (<a href="../above3">above3</a> x1 x2 f))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We can define a coordinate system as a framework in which all the axes are numeric and the partial ordering is &ldquo;greater than&rdquo;.</p>
+<pre>
+(forall (f)
+  (iff (<a href="../coordinateSystem">coordinateSystem</a> f)
+       (and (<a href="../framework">framework</a> f)
+            (forall (a1) (if (<a href="../xAxis">xAxis</a> a1 f) (<a href="../numeric">numeric</a> a1)))
+            (forall (a2) (if (<a href="../yAxis">yAxis</a> a2 f) (<a href="../numeric">numeric</a> a2)))
+            (forall (a3) (if (<a href="../zAxis">zAxis</a> a3 f) (<a href="../numeric">numeric</a> a3)))
+            (forall (o) (if (<a href="../origin">origin</a> o f) (equal o 0)))
+            (forall (x1 x2) (iff (<a href="../rightOf">rightOf</a> x1 x2 f) (<a href="../gt">gt</a> x1 x2)))
+            (forall (y1 y2) (iff (<a href="../above2">above2</a> y1 y2 f) (<a href="../gt">gt</a> y1 y2)))
+            (forall (z1 z2) (iff (<a href="../above3">above3</a> z1 z2 f) (<a href="../gt">gt</a> z1 z2))))))
+</pre>
+</div>
 </section>
 
 </body>

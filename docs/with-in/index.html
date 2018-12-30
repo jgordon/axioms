@@ -37,6 +37,14 @@
         (and (<a href="../conflict-vb">conflict-vb</a> e g u1 u2) (<a href="../with-in">with-in</a> e1 e y)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e e1 x y)
+  (if (<a href="../adversary">adversary</a> e1 x y e)
+      (exists (e2 u g h)
+        (and (<a href="../conflict">conflict</a> e x u g h) (<a href="../with-in">with-in</a> e2 e y)))))
+</pre>
+</div>
 </section>
 
 </body>

@@ -47,6 +47,33 @@
         (and (<a href="../subst2">subst2</a> x y e x1 y1 e1) (<a href="../Rexist">Rexist</a> e1)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (x x1 y y1 e)
+  (iff (<a href="../skfct">skfct</a> y1 y x1 x e)
+       (and (<a href="../fd">fd</a> y x e)
+            (exists (e1)
+              (and (<a href="../subst2">subst2</a> x y e x1 y1 e1)
+                   (if (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (c1 c x1 x y e e1)
+  (if (and (<a href="../skfct">skfct</a> c1 c x1 x e) (<a href="../fd">fd</a> c y e) (<a href="../nequal">nequal</a> x y)
+           (<a href="../subst2">subst2</a> c1 x1 e1 c x e))
+      (<a href="../fd">fd</a> c1 y e1)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (iff (<a href="../nonspecific">nonspecific</a> x)
+       (or (exists (s) (<a href="../typelt">typelt</a> x s))
+           (exists (y s e)
+             (and (<a href="../typelt">typelt</a> y s) (<a href="../fd">fd</a> x y e))))))
+</pre>
+</div>
 </section>
 
 </body>

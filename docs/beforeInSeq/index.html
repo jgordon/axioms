@@ -57,6 +57,17 @@
              (<a href="../relationsOf">relationsOf</a> s3 s)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (s s1 e x y)
+   (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
+            (<a href="../beforeInSeq">beforeInSeq</a>' e x y s))
+       (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+            (forall (z)
+              (if (<a href="../first">first</a> z s)
+                  (<a href="../bottom">bottom</a> z s))))))
+</pre>
+</div>
 </section>
 
 </body>

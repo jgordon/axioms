@@ -48,6 +48,69 @@
               (<a href="../singleton">singleton</a> s1 y)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e s s1 s2 s3)
+  (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
+           (<a href="../singleton">singleton</a> s2 e) (<a href="../null">null</a> s3))
+      (and (<a href="../compositeEntity">compositeEntity</a> s) (<a href="../componentsOf">componentsOf</a> s s)
+           (<a href="../propertiesOf">propertiesOf</a> s2 s) (<a href="../relationsOf">relationsOf</a> s3 s))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (p x y e1 e2 e3)
+  (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
+           (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2) (<a href="../Rexist">Rexist</a> e3))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity">compositeEntity</a> p)
+             (<a href="../doubleton">doubleton</a> s1 x y) (<a href="../componentsOf">componentsOf</a> s1 p)
+             (<a href="../singleton">singleton</a> s2 e1) (<a href="../propertiesOf">propertiesOf</a> s2 p)
+             (<a href="../doubleton">doubleton</a> s3 e2 e3) (<a href="../relationsOf">relationsOf</a> s3 p)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e s)
+  (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
+           (exists (x) (<a href="../inSeq">inSeq</a> x s)))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity">compositeEntity</a> s)
+             (forall (x) (iff (<a href="../member">member</a> x s1) (<a href="../inSeq">inSeq</a> x s)))
+             (<a href="../componentsOf">componentsOf</a> s1 s)
+             (<a href="../singleton">singleton</a> s2 e) (<a href="../propertiesOf">propertiesOf</a> s2 s)
+             (forall (e1)
+               (iff (<a href="../member">member</a> e1 s3)
+                    (exists (x y)
+                      (and (<a href="../beforeInSeq">beforeInSeq</a>' e1 x y s)
+                           (<a href="../Rexist">Rexist</a> e1)))))
+             (<a href="../relationsOf">relationsOf</a> s3 s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The intersection of the x-, y-, and z-axes is a unique element we call the <code>origin</code>.</p>
+<pre>
+(forall (f a1 a2)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
+       (and (exists (s o)
+               (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
+                    (<a href="../origin">origin</a> o f))
+                    (forall (a3)
+                       (if (<a href="../zAxis">zAxis</a> a3 f)
+                           (and (<a href="../intersection">intersection</a> s a1 a3)
+                                (<a href="../intersection">intersection</a> s a2 a3)
+</pre>
+</div>
+<div class="axiom">
+<p>The expression <code>(tangent t c x)</code> says that linear entity t is tangent to circle c at point x.</p>
+<pre>
+(forall (t c x)
+   (iff (<a href="../tangent">tangent</a> t c x)
+        (and (<a href="../point">point</a> x) (<a href="../circle">circle</a> c) (<a href="../linear">linear</a> t) (<a href="../coplanar">coplanar</a> c t)
+             (exists (s)
+                (and (<a href="../singleton">singleton</a> s x) (<a href="../intersection">intersection</a> s c t))))))
+</pre>
+</div>
 </section>
 
 </body>

@@ -49,6 +49,98 @@
                       (equal a a3)))))))
 </pre>
 </div>
+<div class="axiom">
+<p>The intersection of the x-, y-, and z-axes is a unique element we call the <code>origin</code>.</p>
+<pre>
+(forall (f a1 a2)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
+       (and (exists (s o)
+               (and (<a href="../intersection">intersection</a> s a1 a2) (<a href="../singleton">singleton</a> s o)
+                    (<a href="../origin">origin</a> o f))
+                    (forall (a3)
+                       (if (<a href="../zAxis">zAxis</a> a3 f)
+                           (and (<a href="../intersection">intersection</a> s a1 a3)
+                                (<a href="../intersection">intersection</a> s a2 a3)
+</pre>
+</div>
+<div class="axiom">
+<p>The x-, y-, and z-axes are independent scales. Lines 2-3 take care of the two-dimensional case; lines 4-7 the three-dimensional case.</p>
+<pre>
+(forall (f a1 a2)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../xAxis">xAxis</a> a1 f) (<a href="../yAxis">yAxis</a> a2 f))
+       (and (<a href="../independentScales">independentScales</a> a1 a2)
+            (forall (a3)
+               (if (<a href="../zAxis">zAxis</a> a3 f)
+                   (and (<a href="../independentScales">independentScales</a> a1 a3)
+                        (<a href="../independentScales">independentScales</a> a2 a3))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>When there is a z-axis, an element of the domain has a z-coordinate if there is a horizontal plane that contains both the element and element of the z-axis.</p>
+<pre>
+(forall (z1 x f)
+   (iff (<a href="../zCoordinate">zCoordinate</a> z1 x f)
+        (exists (h a3)
+           (and (<a href="../horizontalPlane">horizontalPlane</a> h f) (<a href="../member">member</a> x h) (<a href="../zAxis">zAxis</a> a3 f)
+                (<a href="../member">member</a> z1 h) (<a href="../member">member</a> z1 a3)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Every framework has an x-axis and a y-axis. It is two-dimensional if and only if it lacks a z-axis. We condition this on f being a framework to preserve the predicate 2D for other uses as well.</p>
+<pre>
+(forall (f)
+  (if (<a href="../framework">framework</a> f)
+      (iff (<a href="../2D">2D</a> f)
+           (not (exists (a3) (<a href="../zAxis">zAxis</a> a3 f))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If a framework is three-dimensional, it has a z-axis.</p>
+<pre>
+(forall (f)
+  (if (and (<a href="../framework">framework</a> f) (<a href="../3D">3D</a> f))
+      (exists (a3) (<a href="../zAxis">zAxis</a> a3 f))))
+</pre>
+</div>
+<div class="axiom">
+<p>We can define a coordinate system as a framework in which all the axes are numeric and the partial ordering is &ldquo;greater than&rdquo;.</p>
+<pre>
+(forall (f)
+  (iff (<a href="../coordinateSystem">coordinateSystem</a> f)
+       (and (<a href="../framework">framework</a> f)
+            (forall (a1) (if (<a href="../xAxis">xAxis</a> a1 f) (<a href="../numeric">numeric</a> a1)))
+            (forall (a2) (if (<a href="../yAxis">yAxis</a> a2 f) (<a href="../numeric">numeric</a> a2)))
+            (forall (a3) (if (<a href="../zAxis">zAxis</a> a3 f) (<a href="../numeric">numeric</a> a3)))
+            (forall (o) (if (<a href="../origin">origin</a> o f) (equal o 0)))
+            (forall (x1 x2) (iff (<a href="../rightOf">rightOf</a> x1 x2 f) (<a href="../gt">gt</a> x1 x2)))
+            (forall (y1 y2) (iff (<a href="../above2">above2</a> y1 y2 f) (<a href="../gt">gt</a> y1 y2)))
+            (forall (z1 z2) (iff (<a href="../above3">above3</a> z1 z2 f) (<a href="../gt">gt</a> z1 z2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The positive half of the z-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../posZAxis">posZAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../zAxis">zAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> o x a))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The negative half of the z-axis of a framework is a direction.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../negZAxis">negZAxis</a> d f)
+        (exists (a o)
+           (and (<a href="../zAxis">zAxis</a> a f) (<a href="../origin">origin</a> o f)
+                (forall (x)
+                   (iff (<a href="../member">member</a> x d)
+                        (and (<a href="../member">member</a> x a) (<a href="../leqs">leqs</a> x o a))))))))
+</pre>
+</div>
 </section>
 
 </body>

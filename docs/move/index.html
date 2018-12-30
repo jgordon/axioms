@@ -99,6 +99,108 @@
        (<a href="../front">front</a> r v))
 </pre>
 </div>
+<div class="axiom">
+<p>If the volume is mobile, the leading face is often considered the front. That is, defeasibly, if the volume moves from one point to another, the front reaches the destination before any other face. In lines 2-3 p1 is a point in the face r, and p2 is another point in v not in the face. Lines 5-7 say that if there is moving from b to c, then defeasibly p1 will get there before p2. Line 8 says under these conditions, the face is a front.</p>
+<pre>
+(forall (r v p p1 p2)
+   (if (and (<a href="../face">face</a> r v p) (<a href="../subfigure">subfigure</a> p1 r) (<a href="../subfigure">subfigure</a> p2 v)
+            (not (<a href="../subfigure">subfigure</a> p2 r))
+            (forall (b c e1 e2)
+               (if (and (<a href="../move">move</a> v b c) (<a href="../at">at</a>' e1 p1 c) (<a href="../at">at</a>' e2 p2 c)
+                        (etc))
+                   (<a href="../before">before</a> e1 e2))))
+       (<a href="../front">front</a> r v)))
+</pre>
+</div>
+<div class="axiom">
+<p>This defines a predicate &ldquo;move&rdquo; corresponding to the intransitive verb. For a predicate corresponding to the transitive verb, we need to augment it with the causality of an agent.</p>
+<pre>
+(forall (a x d1 d2)
+   (iff (<a href="../move2">move2</a> a x d1 d2)
+        (exists (e) (and (<a href="../cause">cause</a> a e) (<a href="../move">move</a>' e x d1 d2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>To place something at a location is to cause it to move there.</p>
+<pre>
+(forall (z x b)
+   (iff (<a href="../placeAt">placeAt</a> z x b)
+        (exists (e1) (and (<a href="../cause">cause</a> z e1) (<a href="../move">move</a>' e1 x a b)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Every moving of a physical object has a path.</p>
+<pre>
+(forall (e x a b)
+   (if (and (<a href="../move">move</a>' e x a b) (<a href="../physobj">physobj</a> x))
+       (exists (c) (<a href="../path">path</a> c e))))
+</pre>
+</div>
+<div class="axiom">
+<p>If c is the path of a moving event e, then e is &ldquo;along&rdquo; c.</p>
+<pre>
+(forall (e x y1 y2 c)
+   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
+       (<a href="../along">along</a> e c)))
+</pre>
+</div>
+<div class="axiom">
+<p>If the path of a moving event is a closed curve, the event is &ldquo;around&rdquo; the points (and other figures) enclosed by the path.</p>
+<pre>
+(forall (e x y1 y2 c)
+   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
+       (iff (<a href="../around">around</a> c z)
+            (exists (r)
+               (and (<a href="../region">region</a> r) (<a href="../boundary">boundary</a> c r)
+                    (<a href="../inside">inside</a> z r))))))
+</pre>
+</div>
+<div class="axiom">
+<p>To move through a figure is for point in the figure to be between the source and destination on the path of the motion.</p>
+<pre>
+(forall (e x y1 y2 c z)
+   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
+       (iff (<a href="../through">through</a> e z)
+            (exists (p)
+               (and (<a href="../subfigure">subfigure</a> p z) (<a href="../between">between</a> p y1 y2 c))))))
+</pre>
+</div>
+<div class="axiom">
+<p>For a curve to go toward something is for it to be the path of a motion toward it.</p>
+<pre>
+(forall (c z)
+   (if (<a href="../curve">curve</a> c)
+       (iff (<a href="../toward">toward</a> c z)
+            (exists (e x y1 y2)
+               (and (<a href="../move">move</a>' e x y1 y2) (<a href="../toward">toward</a> e z)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Depth may seem also to specify a vertical dimension, as in &ldquo;the depth of the lake&rdquo;. But one can also talk about &ldquo;the depth of the safe&rdquo; referring to how far back one can reach into it. On the other hand, one wouldn't talk about the depth of a floor, referring to the distance from the carpet to the ceiling of the room below. The condition for &ldquo;depth&rdquo; probably involves a real or imagined movement into the object. Moreover, the entry into the object can be through the top, as in the lake example, or through the front or one of the sides, as in the safe example. But apparently the movement can't be through the bottom of the object. Here r is the face of physical object x through which entry is effected in real or imagined motion e of something y from z1 to z2. Ray c is a &ldquo;quill&rdquo; from a central point in x through a central point in r, and it is parallel to an edge c1 of a bounding box b of x. The length of that edge is the depth of the object.</p>
+<pre>
+(forall (n x u)
+   (iff (<a href="../depth">depth</a> n x u)
+        (exists (c r e y z1 z2 b c1)
+           (and (<a href="../quill">quill</a> c x r) (not (<a href="../bottom">bottom</a> r x))
+                (<a href="../move">move</a>' e y z1 z2) (<a href="../into">into</a> e x) (<a href="../through">through</a> e r)
+                (<a href="../boundingBox">boundingBox</a> b x) (<a href="../edge">edge</a> c1 b) (<a href="../parallel">parallel</a> c c1)
+                (<a href="../length">length</a> n c1 u)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Another subset of body parts can be directly controlled by a person's will. That is, the person's willing an event is the direct cause of the motion of the body part.</p>
+<pre>
+(forall (p s1)
+  (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
+      (exists (s2)
+        (and (<a href="../subset">subset</a> s2 s1)
+             (forall (x)
+               (if (<a href="../member">member</a> x s2)
+                   (exists (e1 e2 y z)
+                     (and (<a href="../move">move</a>' e2 x y z) (<a href="../will">will</a>' e1 p e2)
+                          (<a href="../dcause">dcause</a> e1 e2)))))))))
+</pre>
+</div>
 </section>
 
 </body>

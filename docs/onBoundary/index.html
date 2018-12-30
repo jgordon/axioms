@@ -45,6 +45,32 @@
        (or (<a href="../inside">inside</a> f1 f2) (<a href="../onBoundary">onBoundary</a> f1 f2))))
 </pre>
 </div>
+<div class="axiom">
+<p>RCC8 &ldquo;tangential proper part&rdquo;, for 2- and 3-dimensional figures:</p>
+<pre>
+(forall (r1 r2)
+  (iff (<a href="../tpp">tpp</a> r1 r2)
+       (and (forall (x)
+              (if (<a href="../inside">inside</a> x r1) (<a href="../inside">inside</a> x r2)))
+            (forall (x)
+              (if (<a href="../onBoundary">onBoundary</a> x r1)
+                  (or (<a href="../inside">inside</a> x r2) (<a href="../onBoundary">onBoundary</a> x r2))))
+            (exists (x)
+              (and (<a href="../onBoundary">onBoundary</a> x r1) (<a href="../onBoundary">onBoundary</a> x r2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A planar figure is convex if every point on a line segment between any two points on the boundary is inside the region.</p>
+<pre>
+(forall (r)
+  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
+      (iff (<a href="../convex">convex</a> r)
+           (forall (c x x1 x2)
+             (if (and (<a href="../onBoundary">onBoundary</a> x1 r) (<a href="../onBoundary">onBoundary</a> x2 r)
+                      (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c))
+                 (<a href="../subfigure">subfigure</a> x r))))))
+</pre>
+</div>
 </section>
 
 </body>

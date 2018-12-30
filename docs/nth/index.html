@@ -35,6 +35,44 @@
       (iff (<a href="../nth">nth</a> y n s) (<a href="../map">map</a> s n y))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (s y)
+  (if (<a href="../sequence">sequence</a> s)
+      (iff (<a href="../first">first</a> y s) (<a href="../nth">nth</a> y 1 s))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s y n)
+  (if (and (<a href="../sequence">sequence</a> s) (<a href="../length">length</a> n s))
+      (iff (<a href="../last">last</a> y s) (<a href="../nth">nth</a> y n s))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x s)
+  (iff (<a href="../inSeq">inSeq</a> x s)
+       (exists (n) (<a href="../nth">nth</a> x n s))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x y s)
+  (iff (<a href="../beforeInSeq">beforeInSeq</a> x y s)
+       (exists (n1 n2)
+         (and (<a href="../sequence">sequence</a> s) (<a href="../nth">nth</a> x n1 s) (<a href="../nth">nth</a> y n2 s)
+              (<a href="../lt">lt</a> n1 n2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x1 x2 s)
+  (iff (<a href="../successiveElts">successiveElts</a> x1 x2 s)
+       (exists (n1 n2)
+         (and (<a href="../successor">successor</a> n2 n1) (<a href="../nth">nth</a> x1 n1 s) (<a href="../nth">nth</a> x2 n2 s)))))
+</pre>
+</div>
 </section>
 
 </body>

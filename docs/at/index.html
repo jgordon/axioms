@@ -54,6 +54,195 @@
                 (exists (y1) (and (<a href="../at">at</a> y y1 s) (<a href="../inScale">inScale</a> y1 s)))))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (x1 x2 y1 y2 s)
+   (and (if (<a href="../at">at</a> x1 y1 s)
+            (iff (<a href="../lts">lts</a> x1 y2 s) (<a href="../lts">lts</a> y1 y2 s)))
+        (if (<a href="../at">at</a> x2 y2 s)
+            (iff (<a href="../lts">lts</a> y1 x2 s) (<a href="../lts">lts</a> y1 y2 s)))
+        (if (and (<a href="../at">at</a> x1 y1 s) (<a href="../at">at</a> x2 y2 s))
+            (iff (<a href="../lts">lts</a> x1 x2 s) (<a href="../lts">lts</a> y1 y2 s)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x s)
+   (iff (<a href="../onScale">onScale</a> x s)
+        (or (<a href="../inScale">inScale</a> x s)
+            (exists (y)
+               (and (<a href="../inScale">inScale</a> y s) (<a href="../at">at</a> x y s))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s e)
+   (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
+        (and (<a href="../scale">scale</a> s) (<a href="../eventuality">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn">argn</a> s0 1 e) (<a href="../set">set</a> s0)))
+             (forall (x) (if (<a href="../argn">argn</a> x 2 e) (exists (y) (<a href="../at">at</a> x y s))))
+             (forall (e1 e2 s1 s2 x1 x2)
+                (if (and (<a href="../instance">instance</a> e1 e) (<a href="../argn">argn</a> s1 1 e1)
+                                         (<a href="../argn">argn</a> x1 2 e1)
+                         (<a href="../instance">instance</a> e2 e) (<a href="../argn">argn</a> s2 1 e2)
+                                         (<a href="../argn">argn</a> x2 2 e2)
+                         (<a href="../subset">subset</a> s1 s2))
+                    (<a href="../leqs">leqs</a> x1 x2 s))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s e)
+   (iff (<a href="../scaleFor">scaleFor</a> s e)
+        (exists (s1)
+           (and (<a href="../Hi">Hi</a> s1 s)
+                (forall (e1 x y)
+                   (if (and (<a href="../at">at</a>' e1 x y s1) (<a href="../argn">argn</a> x 1 e))
+                       (iff (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1))))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e x y s1 s)
+   (if (and (<a href="../at">at</a>' e x y s1) (<a href="../Hi">Hi</a> s1 s) (etc))
+       (exists (c a g g1)
+          (and (<a href="../member">member</a> e c) (<a href="../goal">goal</a> g a)
+               (or (<a href="../causalComplex">causalComplex</a> c g)
+                   (and (<a href="../not'">not'</a> g1 g) (<a href="../causalComplex">causalComplex</a> c g1)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (m s1 s2 x y)
+  (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)
+           (<a href="../map">map</a> m x y))
+      (<a href="../at">at</a> x y s2)))
+</pre>
+</div>
+<div class="axiom">
+<p>An entity x moves from y to z exactly when there is a change from x's being at y to its being at z.</p>
+<pre>
+(forall (e x y z)
+  (iff (<a href="../move">move</a>' e x y z)
+       (exists (e1 e2 e3 s)
+         (and (<a href="../at">at</a>' e1 x y s) (<a href="../at">at</a>' e2 x z s) (<a href="../change">change</a>' e3 e1 e2) (<a href="../gen">gen</a> e3 e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an entity moves from a point on vertical scale to a higher point, we say that there as been an increase.</p>
+<pre>
+(forall (e x y z s)
+  (iff (<a href="../increase">increase</a> x s)
+       (exists (y z e1 e2)
+         (and (<a href="../at">at</a>' e1 x y s) (<a href="../at">at</a>' e2 x z s) (<a href="../lts">lts</a> y z s)
+              (<a href="../vertical">vertical</a> s) (<a href="../change">change</a> e1 e2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Similarly, if an entity moves from a point on a vertical scale to a lower point, there has been a decrease.</p>
+<pre>
+(forall (e x y z s)
+  (iff (<a href="../decrease">decrease</a> x s)
+       (exists (y z e1 e2)
+         (and (<a href="../at">at</a>' e1 x y s) (<a href="../at">at</a>' e2 x z s) (<a href="../lts">lts</a> z y s)
+              (<a href="../vertical">vertical</a> s) (<a href="../change">change</a> e1 e2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (z e)
+  (iff (<a href="../sourceOf">sourceOf</a> z e)
+       (exists (x w e1 e2 s)
+         (and (<a href="../at">at</a>' e1 x z s) (<a href="../at">at</a>' e2 x w s) (<a href="../change">change</a>' e e1 e2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (w e)
+  (iff (<a href="../terminusOf">terminusOf</a> w e)
+       (exists (x z e1 e2 s)
+         (and (<a href="../at">at</a>' e1 x z s) (<a href="../at">at</a>' e2 x w s) (<a href="../change">change</a>' e e1 e2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>And <code>atTime</code> can be viewed as an <code>at</code> relation.</p>
+<pre>
+(forall (s e t)
+  (if (and (<a href="../timeScale">timeScale</a> s) (<a href="../atTime">atTime</a> e t))
+      (<a href="../at">at</a> e t s)))
+</pre>
+</div>
+<div class="axiom">
+<p>If the volume is mobile, the leading face is often considered the front. That is, defeasibly, if the volume moves from one point to another, the front reaches the destination before any other face. In lines 2-3 p1 is a point in the face r, and p2 is another point in v not in the face. Lines 5-7 say that if there is moving from b to c, then defeasibly p1 will get there before p2. Line 8 says under these conditions, the face is a front.</p>
+<pre>
+(forall (r v p p1 p2)
+   (if (and (<a href="../face">face</a> r v p) (<a href="../subfigure">subfigure</a> p1 r) (<a href="../subfigure">subfigure</a> p2 v)
+            (not (<a href="../subfigure">subfigure</a> p2 r))
+            (forall (b c e1 e2)
+               (if (and (<a href="../move">move</a> v b c) (<a href="../at">at</a>' e1 p1 c) (<a href="../at">at</a>' e2 p2 c)
+                        (etc))
+                   (<a href="../before">before</a> e1 e2))))
+       (<a href="../front">front</a> r v)))
+</pre>
+</div>
+<div class="axiom">
+<p>The relation &ldquo;atLoc&rdquo; is a specialization of the figure-ground relation, relating a physical object to a component in a spatial system.</p>
+<pre>
+(forall (x y)
+   (if (<a href="../atLoc">atLoc</a> x y)
+       (exists (s)
+          (and (<a href="../physobj">physobj</a> x) (<a href="../componentOf">componentOf</a> y s) (<a href="../spatialSystem">spatialSystem</a> s)
+               (<a href="../at">at</a> x y s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If two physical objects are in contact, there is a point they are both at.</p>
+<pre>
+(forall (x y)
+   (if (<a href="../contact">contact</a> x y)
+       (exists (p) (and (<a href="../at">at</a> x p) (<a href="../at">at</a> y p)))))
+</pre>
+</div>
+<div class="axiom">
+<p>For a physical object to move (or be moved) is for it to change from being at one point to being at another point.</p>
+<pre>
+(forall (x a b)
+   (iff (<a href="../move">move</a> x a b)
+        (exists (e1 e2) (and (<a href="../change">change</a> e1 e2) (<a href="../at">at</a>' e1 x a) (<a href="../at">at</a>' e2 x b)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A composite entity is along a curve if its components are at points on the curve.</p>
+<pre>
+(forall (z c s)
+   (iff (<a href="../along">along</a> z c s)
+        (and (<a href="../compositeEntity">compositeEntity</a> z) (<a href="../curve">curve</a> c) (<a href="../subset">subset</a> c s)
+             (forall (x)
+                (if (<a href="../componentOf">componentOf</a> x z)
+                    (exists (y)
+                       (and (<a href="../inside">inside</a> y c) (<a href="../at">at</a> x y s))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A composite entity can be over a region.</p>
+<pre>
+(forall (z  s)
+   (iff (<a href="../over">over</a> z r s)
+        (and (<a href="../compositeEntity">compositeEntity</a> z) (<a href="../region">region</a> r) (<a href="../subset">subset</a> r s)
+             (forall (x)
+                (if (<a href="../componentOf">componentOf</a> x z)
+                    (exists (y)
+                       (and (<a href="../inside">inside</a> y r) (<a href="../at">at</a> x y s))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the likelihood of an eventuality <code>e</code> is <code>d</code>, we can say that <code>e</code> is at <code>d</code> on the likelihood scale, if <code>c</code> holds.</p>
+<pre>
+(forall (d e c s e1)
+  (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../at">at</a>' e1 e d s))
+      (<a href="../imply">imply</a> c e1)))
+</pre>
+</div>
 </section>
 
 </body>

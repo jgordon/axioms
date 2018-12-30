@@ -33,6 +33,14 @@
       (<a href="../nation">nation</a> x)))
 </pre>
 </div>
+<div class="axiom">
+<p>A union is an organization with the goal of having its members thrive.</p>
+<pre>
+(forall (e1 e2 m1 u)
+  (if (and (<a href="../thrive">thrive</a> e1 m1) (<a href="../members">members</a> m1 u) (<a href="../goal">goal</a> e2 e1 u))
+      (<a href="../union">union</a> u)))
+</pre>
+</div>
 </section>
 
 </body>

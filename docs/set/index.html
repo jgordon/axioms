@@ -61,6 +61,279 @@
       (<a href="../set">set</a> s)))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (s)
+  (iff (<a href="../null">null</a> s)
+       (and (<a href="../set">set</a> s)
+            (forall (x)
+              (not (<a href="../member">member</a> x s))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s s1 x)
+  (iff (<a href="../addElt">addElt</a> s s1 x)
+       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1)
+            (forall (y)
+              (iff (<a href="../member">member</a> y s)
+                   (or (equal y x) (<a href="../member">member</a> y s1)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s s1 x)
+  (iff (<a href="../deleteElt">deleteElt</a> s s1 x)
+       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1)
+            (forall (y)
+              (iff (<a href="../member">member</a> y s)
+                   (and (<a href="../member">member</a> y s1) (<a href="../nequal">nequal</a> y x)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s s1 s2)
+  (iff (<a href="../union">union</a> s s1 s2)
+       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1) (<a href="../set">set</a> s2)
+            (forall (x)
+              (iff (<a href="../member">member</a> x s)
+                   (or (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s s1 s2)
+  (iff (<a href="../setdiff">setdiff</a> s s1 s2)
+       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1) (<a href="../set">set</a> s2)
+            (forall (x)
+              (iff (<a href="../member">member</a> x s)
+                   (and (<a href="../member">member</a> x s1)
+                        (not (<a href="../member">member</a> x s2))))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s s1 s2)
+  (iff (<a href="../intersection">intersection</a> s s1 s2)
+       (and (<a href="../set">set</a> s) (<a href="../set">set</a> s1) (<a href="../set">set</a> s2)
+            (forall (x)
+              (iff (<a href="../member">member</a> x s)
+                   (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Subsets and proper subsets:</p>
+<pre>
+(forall (s1 s2)
+  (iff (<a href="../subset">subset</a> s1 s2)
+       (and (<a href="../set">set</a> s1) (<a href="../set">set</a> s2)
+            (forall (x)
+              (if (<a href="../member">member</a> x s1)
+                  (<a href="../member">member</a> x s2))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s1 s2)
+  (if (and (<a href="../set">set</a> s1) (<a href="../set">set</a> s2))
+      (iff (<a href="../disjoint">disjoint</a> s1 s2)
+           (not (exists (x)
+                  (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n s)
+  (iff (<a href="../card">card</a> n s)
+       (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../set">set</a> s)
+            (or (and (<a href="../null">null</a> s) (equal n 0))
+                (exists (s1 x m)
+                  (and (<a href="../addElt">addElt</a> s s1 x)
+                       (not (<a href="../member">member</a> x s1))
+                       (<a href="../card">card</a> m s1)
+                       (<a href="../sum">sum</a> n m 1)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s)
+  (iff (<a href="../eventualities">eventualities</a> s)
+       (and (<a href="../set">set</a> s)
+            (forall (e)
+              (if (<a href="../member">member</a> e s)
+                  (<a href="../eventuality">eventuality</a> e))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A defined set consists only of elements for which a particular eventuality really exists.</p>
+<pre>
+(forall (s x e)
+  (if (<a href="../dset">dset</a> s x e)
+      (and (<a href="../set">set</a> s) (<a href="../typelt">typelt</a> x s) (<a href="../arg*">arg*</a> x e))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s1 s2)
+  (iff (<a href="../function0">function0</a> f s1 s2)
+       (and (<a href="../set">set</a> s1) (<a href="../set">set</a> s2) (<a href="../set">set</a> f)
+            ;; A function is a set of pairs where the first elements
+            ;; come from s1 and the second elements come from s2.
+            (forall (p)
+              (if (<a href="../member">member</a> p f)
+                  (exists (x y)
+                    (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> y s2)
+                         (<a href="../pair">pair</a> p x y)))))
+            ;; There is a value of the function for every element of
+            ;; s1.
+            (forall (x)
+              (if (<a href="../member">member</a> x s1)
+                  (exists (p)
+                    (and (<a href="../member">member</a> p f) (<a href="../first">first</a> x p)))))
+            ;; The value is unique.
+            (forall (p1 p2 x)
+              (if (and (<a href="../first">first</a> x p1) (<a href="../first">first</a> x p2)
+                       (<a href="../member">member</a> p1 f) (<a href="../member">member</a> p2 f))
+                  (equal p1 p2)))
+            ;; Every element of s2 is the value of a member of s1 under
+            ;; the function f.
+            (forall (y)
+              (if (<a href="../member">member</a> y s2)
+                  (exists (p)
+                    (and (<a href="../member">member</a> p f) (<a href="../second">second</a> y p))))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s n1 n2)
+  (iff (<a href="../ints">ints</a> s n1 n2)
+       (and (<a href="../posInteger">posInteger</a> n1) (<a href="../posInteger">posInteger</a> n2) (<a href="../set">set</a> s)
+            (forall (n)
+              (iff (<a href="../member">member</a> n s)
+                   (and (<a href="../posInteger">posInteger</a> n) (<a href="../leq">leq</a> n1 n) (<a href="../leq">leq</a> n n2)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s1 x)
+  (if (<a href="../componentsOf">componentsOf</a> s1 x)
+      (and (<a href="../set">set</a> s1) (<a href="../compositeEntity">compositeEntity</a> x) (not (<a href="../null">null</a> s1)))))
+</pre>
+</div>
+<div class="axiom">
+<p><code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
+<pre>
+(forall (s2 x)
+  (if (<a href="../propertiesOf">propertiesOf</a> s2 x)
+      (and (<a href="../set">set</a> s2) (<a href="../compositeEntity">compositeEntity</a> x)
+           (forall (e)
+             (if (<a href="../member">member</a> e s2)
+                 (exists (y)
+                   (and (<a href="../componentOrWhole">componentOrWhole</a> y x)
+                        (<a href="../onlyarg*">onlyarg*</a> y e))))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s3 x)
+  (if (<a href="../relationsOf">relationsOf</a> s3 x)
+      (and (<a href="../set">set</a> s3) (<a href="../compositeEntity">compositeEntity</a> x)
+           (forall (e)
+             (if (<a href="../member">member</a> e s3)
+                 (exists (y z)
+                   (and (<a href="../componentOrWhole">componentOrWhole</a> y x) (<a href="../arg*">arg*</a> y e)
+                        (<a href="../nequal">nequal</a> z y) (<a href="../arg*">arg*</a> z e))))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e s s1 s2 s3)
+  (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
+           (<a href="../singleton">singleton</a> s2 e) (<a href="../null">null</a> s3))
+      (and (<a href="../compositeEntity">compositeEntity</a> s) (<a href="../componentsOf">componentsOf</a> s s)
+           (<a href="../propertiesOf">propertiesOf</a> s2 s) (<a href="../relationsOf">relationsOf</a> s3 s))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s1 s2)
+   (iff (<a href="../function">function</a> f s1 s2)
+        (exists (s3 s4)
+           (and (if (<a href="../set">set</a> s1) (equal s3 s1))
+                (if (<a href="../scale">scale</a> s1) (<a href="../componentsOf">componentsOf</a> s3 s1))
+                (if (<a href="../set">set</a> s2) (equal s4 s2))
+                (if (<a href="../scale">scale</a> s2) (<a href="../componentsOf">componentsOf</a> s4 s2))
+                (<a href="../function0">function0</a> f s3 s4)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s1 e x y)
+  (if (and (forall (s2)
+             (if (<a href="../member">member</a> s2 s1)
+                 (<a href="../set">set</a> s2)))
+            (<a href="../subset">subset</a>' e x y))
+       (exists (s)
+          (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+               (forall (z)
+                 (if (and (<a href="../member">member</a> z s1) (<a href="../null">null</a> z))
+                     (<a href="../bottom">bottom</a> z s)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s e)
+   (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
+        (and (<a href="../scale">scale</a> s) (<a href="../eventuality">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn">argn</a> s0 1 e) (<a href="../set">set</a> s0)))
+             (forall (x) (if (<a href="../argn">argn</a> x 2 e) (exists (y) (<a href="../at">at</a> x y s))))
+             (forall (e1 e2 s1 s2 x1 x2)
+                (if (and (<a href="../instance">instance</a> e1 e) (<a href="../argn">argn</a> s1 1 e1)
+                                         (<a href="../argn">argn</a> x1 2 e1)
+                         (<a href="../instance">instance</a> e2 e) (<a href="../argn">argn</a> s2 1 e2)
+                                         (<a href="../argn">argn</a> x2 2 e2)
+                         (<a href="../subset">subset</a> s1 s2))
+                    (<a href="../leqs">leqs</a> x1 x2 s))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e x y s1 s m n u)
+  (if (and (forall (z)
+             (if (<a href="../member">member</a> z s1) (<a href="../set">set</a> z)))
+           (exists (w)
+             (and (<a href="../member">member</a> w s1) (<a href="../null">null</a> w)))
+           (<a href="../subset">subset</a>' e x y)
+           (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+           (<a href="../card">card</a>' m n u))
+      (<a href="../measure">measure</a> m s)))
+</pre>
+</div>
+<div class="axiom">
+<p>The primitive case of a rate is when there is a set S of events, a set T of time intervals, and a function mapping the intervals into a subset of S, namely those events that occur during that interval. When the concept of rate truly applies, the cardinalities of all these subsets are the same.</p>
+<pre>
+(forall (s s0 t f n)
+  (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)
+           (forall (t1)
+             (if (<a href="../member">member</a> t1 t) (<a href="../interval">interval</a> t1)))
+           (<a href="../function">function</a> f t s0)
+           (forall (t1 s1)
+             (if (<a href="../map">map</a> f t1 s1)
+                 (and (forall (e)
+                        (if (<a href="../member">member</a> e s1) (<a href="../happensIn">happensIn</a> e t1)))
+                      (<a href="../card">card</a> n s1)))))
+      (<a href="../rate">rate</a> n s t)))
+</pre>
+</div>
+<div class="axiom">
+<p>A framework has a set of entities we will call its domain.</p>
+<pre>
+(forall (f)
+  (if (<a href="../framework">framework</a> f)
+      (exists (s)
+        (and (<a href="../set">set</a> s) (<a href="../domain">domain</a> s f)))))
+</pre>
+</div>
 </section>
 
 </body>

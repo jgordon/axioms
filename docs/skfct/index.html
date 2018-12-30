@@ -49,6 +49,24 @@
               (exists (x1) (<a href="../skfct">skfct</a> y1 y x1 x e))))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (c1 c x1 x y e e1)
+  (if (and (<a href="../skfct">skfct</a> c1 c x1 x e) (<a href="../fd">fd</a> c y e) (<a href="../nequal">nequal</a> x y)
+           (<a href="../subst2">subst2</a> c1 x1 e1 c x e))
+      (<a href="../fd">fd</a> c1 y e1)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (y1 y x1 x e s1 s2)
+  (if (and (<a href="../skfct">skfct</a> y1 y x1 x e) (<a href="../typelt">typelt</a> x s1) (<a href="../rangeFd">rangeFd</a> s2 y x e))
+      (exists (f)
+        (and (<a href="../function0">function0</a> f s1 s2)
+             (forall (p)
+               (iff (<a href="../pair">pair</a> p x1 y1) (<a href="../member">member</a> p f)))))))
+</pre>
+</div>
 </section>
 
 </body>

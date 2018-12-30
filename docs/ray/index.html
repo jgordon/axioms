@@ -49,6 +49,26 @@
        (or (<a href="../line">line</a> c) (<a href="../ray">ray</a> c) (<a href="../lineSegment">lineSegment</a> c))))
 </pre>
 </div>
+<div class="axiom">
+<p>A direction with respect to a framework is a ray whose endpoint is the origin of the framework.</p>
+<pre>
+(forall (d f)
+   (iff (<a href="../direction">direction</a> d f)
+        (exists (o)
+           (and (<a href="../ray">ray</a> d) (<a href="../endpoint">endpoint</a> o d) (<a href="../origin">origin</a> o f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>It will be useful to have a name for a ray going from p0 through p1 and p. We will call this a &ldquo;quill&rdquo;, after the quills of porcupines.</p>
+<pre>
+(forall (c v r)
+   (iff (<a href="../quill">quill</a> c v r)
+        (exists (p0 p1 p)
+           (and (<a href="../volume">volume</a> v) (<a href="../face">face</a> r v p) (<a href="../ray">ray</a> c) (<a href="../inside">inside</a> p c)
+                (<a href="../endpoint">endpoint</a> p0 c) (<a href="../centralIn">centralIn</a> p0 v)
+                (<a href="../centralIn">centralIn</a> p1 r) (<a href="../inside">inside</a> p1 c))))))
+</pre>
+</div>
 </section>
 
 </body>

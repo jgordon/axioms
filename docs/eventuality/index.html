@@ -99,6 +99,266 @@
       (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../eventuality">eventuality</a> e))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e p)
+  (if (<a href="../pred">pred</a> p e)
+      (and (<a href="../predicate">predicate</a> p) (<a href="../eventuality">eventuality</a> e))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n e)
+  (if (<a href="../arity">arity</a> n e)
+      (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../eventuality">eventuality</a> e))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e1 e2)
+  (if (<a href="../gen">gen</a> e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s)
+  (iff (<a href="../eventualities">eventualities</a> s)
+       (and (<a href="../set">set</a> s)
+            (forall (e)
+              (if (<a href="../member">member</a> e s)
+                  (<a href="../eventuality">eventuality</a> e))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x e1 y e2)
+  (iff (<a href="../subst">subst</a> x e1 y e2)
+       (exists (p n)
+         (and (<a href="../pred">pred</a> p e1) (<a href="../pred">pred</a> p e2) (<a href="../arity">arity</a> n e1) (<a href="../arity">arity</a> n e2)
+              (<a href="../noSubstTypelt">noSubstTypelt</a> x e1 y e2)
+              (forall (i z1 z2)
+                (if (and (<a href="../posInteger">posInteger</a> i) (<a href="../leq">leq</a> i n)
+                         (<a href="../argn">argn</a> z1 i e1) (<a href="../argn">argn</a> z2 i e2))
+                    (and (iff (<a href="../eventuality">eventuality</a> z1)
+                              (<a href="../eventuality">eventuality</a> z2))
+                         (if (not (<a href="../eventuality">eventuality</a> z1))
+                             (and (if (<a href="../nequal">nequal</a> z1 x)
+                                      (equal z2 z1))
+                                  (if (equal z1 x)
+                                      (equal z2 y))))
+                         (if (<a href="../eventuality">eventuality</a> z1)
+                             (<a href="../subst">subst</a> x z1 y z2)))))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 e2)
+  (if (<a href="../and'">and'</a> e e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2)
+           (iff (<a href="../Rexist">Rexist</a> e)
+                (and (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e1 e2)
+  (if (<a href="../not'">not'</a> e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2)
+           (iff (<a href="../Rexist">Rexist</a> e1)
+                (not (<a href="../Rexist">Rexist</a> e2))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e1 e2)
+  (if (and (<a href="../not'">not'</a> e1 e2) (<a href="../Rexist">Rexist</a> e1))
+      (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2)
+           (not (<a href="../Rexist">Rexist</a> e2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 e2)
+  (if (<a href="../or'">or'</a> e e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2)
+           (iff (<a href="../Rexist">Rexist</a> e)
+                (or (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e s)
+  (if (<a href="../disjunction">disjunction</a> e s)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> s)
+           (iff (<a href="../Rexist">Rexist</a> e)
+                (exists (e1)
+                  (and (<a href="../member">member</a> e1 s) (<a href="../Rexist">Rexist</a> e1)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 e2)
+  (if (<a href="../imply'">imply'</a> e e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventuality">eventuality</a> e2)
+           (or (<a href="../eventuality">eventuality</a> e1) (<a href="../eventualities">eventualities</a> e1)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (y e)
+  (iff (<a href="../onlyarg*">onlyarg*</a> y e)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../nequal">nequal</a> y e)
+            (forall (y1)
+              (if (<a href="../arg">arg</a> y1 e)
+                  (or (equal y1 y)
+                      (<a href="../onlyarg*">onlyarg*</a> y y1)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s e)
+   (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
+        (and (<a href="../scale">scale</a> s) (<a href="../eventuality">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn">argn</a> s0 1 e) (<a href="../set">set</a> s0)))
+             (forall (x) (if (<a href="../argn">argn</a> x 2 e) (exists (y) (<a href="../at">at</a> x y s))))
+             (forall (e1 e2 s1 s2 x1 x2)
+                (if (and (<a href="../instance">instance</a> e1 e) (<a href="../argn">argn</a> s1 1 e1)
+                                         (<a href="../argn">argn</a> x1 2 e1)
+                         (<a href="../instance">instance</a> e2 e) (<a href="../argn">argn</a> s2 1 e2)
+                                         (<a href="../argn">argn</a> x2 2 e2)
+                         (<a href="../subset">subset</a> s1 s2))
+                    (<a href="../leqs">leqs</a> x1 x2 s))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The arguments of <code>change</code> are eventualities.</p>
+<pre>
+(forall (e1 e2)
+  (if (<a href="../change">change</a> e1 e2)
+      (and (<a href="../eventuality">eventuality</a> e1) (<a href="../eventuality">eventuality</a> e2))))
+</pre>
+</div>
+<div class="axiom">
+<p>An eventuality or set of eventualities, s, can be a causal complex for an effect e.</p>
+<pre>
+(forall (s e)
+  (if (<a href="../causalComplex">causalComplex</a> s e)
+      (and (<a href="../eventuality">eventuality</a> e)
+           (or (<a href="../eventualities">eventualities</a> s)
+               (<a href="../eventuality">eventuality</a> s)))))
+</pre>
+</div>
+<div class="axiom">
+<p><code>cause</code> is like <code>cause0</code>, but it allows an agent as its first argument. When the first argument of <code>cause</code> is an eventuality, it reduces to <code>cause0</code>. When it's an agent, the agent's willing is the <code>cause0</code> of the second argument.</p>
+<pre>
+(forall (a e2)
+  (and (if (<a href="../eventuality">eventuality</a> a)
+           (iff (<a href="../cause">cause</a> a e2) (<a href="../cause0">cause0</a> a e2)))
+       (if (<a href="../agent">agent</a> a)
+           (iff (<a href="../cause">cause</a> a e2)
+                (exists (e1)
+                  (and (<a href="../will">will</a>' e1 a e2) (<a href="../cause0">cause0</a> e1 e2)))))
+       (if (not (or (<a href="../eventuality">eventuality</a> a) (<a href="../agent">agent</a> a)))
+           (not (<a href="../cause">cause</a> a e2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (<a href="../begins">begins</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (<a href="../ends">ends</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (<a href="../insideTime">insideTime</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>atTime</code> relates an eventuality to an instant, saying that the eventuality really exists or obtains at that instant. We constrain its arguments but do not attempt to define it.</p>
+<pre>
+(forall (e t)
+  (if (<a href="../atTime">atTime</a> e t) (and (<a href="../eventuality">eventuality</a> e) (<a href="../instant">instant</a> t))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>during</code> says that the eventuality really exists or obtains throughout an interval.</p>
+<pre>
+(forall (e t)
+  (iff (<a href="../during">during</a> e t)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../properInterval">properInterval</a> t)
+            (forall (t1) (if (<a href="../insideTime">insideTime</a> t1 t) (<a href="../atTime">atTime</a> e t1))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Instants are at least partially ordered by a <code>before</code> relation, which will also be extended to intervals, temporal sequences, and eventualities.</p>
+<pre>
+(forall (t1 t2)
+  (if (<a href="../before">before</a> t1 t2)
+      (and (or (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../tseq">tseq</a> t1) (<a href="../eventuality">eventuality</a> t1))
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predication <code>(durationOf d t u)</code> says that t is made up of d intervals having the same duration as u. We will allow the second argument to be an instant, an interval, a temporal sequence, or an eventuality.</p>
+<pre>
+(forall (d t u)
+  (if (<a href="../durationOf">durationOf</a> d t u)
+      (and (<a href="../nonNegInteger">nonNegInteger</a> d) (<a href="../temporalUnit">temporalUnit</a> u)
+           (or (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../tseq">tseq</a> t) (<a href="../eventuality">eventuality</a> t)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Where an event <code>e</code> generates a change of state, <code>e</code> is an eventuality because that's what the arguments of <code>gen</code> are.</p>
+<pre>
+(forall (e) (if (<a href="../event">event</a> e) (<a href="../eventuality">eventuality</a> e)))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>possible</code> has two arguments, an eventuality and a set of constraints.</p>
+<pre>
+(forall (e c)
+  (if (<a href="../possible">possible</a> e c)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
+</pre>
+</div>
+<div class="axiom">
+<p>An eventuality is necessary if the set of constraints implies it. The predicate <code>necessary</code> has two arguments, an eventuality and a set of constraints.</p>
+<pre>
+(forall (e c)
+  (if (<a href="../necessary">necessary</a> e c)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
+</pre>
+</div>
+<div class="axiom">
+<p>Impossibility is the negation of possibility.</p>
+<pre>
+(forall (e c)
+  (iff (<a href="../impossible">impossible</a> e c)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c) (not (<a href="../possible">possible</a> e c)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>likelihood</code> will express a relation between likelihoods and eventualities. Likelihood is with respect to an implicit set of constraints that in a sense defines the sample space. Making the constraints an argument allows us to relate likelihood to possibility and to entailment.</p>
+<pre>
+(forall (d e c)
+  (if (<a href="../likelihood">likelihood</a> d e c)
+      (and (<a href="../eventuality">eventuality</a> e) (<a href="../eventualities">eventualities</a> c))))
+</pre>
+</div>
 </section>
 
 </body>

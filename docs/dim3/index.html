@@ -40,6 +40,15 @@
                  (and (<a href="../lt">lt</a> d3 d1) (<a href="../lt">lt</a> d3 d2))))))
 </pre>
 </div>
+<div class="axiom">
+<p>The thickness of a physical object is the length of the third longest side of its bounding box.</p>
+<pre>
+(forall (n x u)
+   (iff (<a href="../thickness">thickness</a> n x u)
+        (exists (b)
+           (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim3">dim3</a> c b x) (<a href="../length">length</a> n c u)))))
+</pre>
+</div>
 </section>
 
 </body>

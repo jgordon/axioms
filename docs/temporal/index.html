@@ -33,6 +33,40 @@
 (forall (e0 e t) (if (<a href="../atTime">atTime</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e0 e t) (if (<a href="../during">during</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e0 e t) (if (<a href="../timeSpanOf">timeSpanOf</a>' e0 t e) (<a href="../temporal">temporal</a> e0)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e0 e t) (if (<a href="../happensIn">happensIn</a>' e0 e t) (<a href="../temporal">temporal</a> e0)))
+</pre>
+</div>
+<div class="axiom">
+<p>A nontemporal eventuality is one that isn't temporal.</p>
+<pre>
+(forall (e) (iff (<a href="../nontemporal">nontemporal</a> e) (not (<a href="../temporal">temporal</a> e))))
+</pre>
+</div>
+<div class="axiom">
+<p>The relation <code>before</code> is temporal.</p>
+<pre>
+(forall (e t1 t2) (if (<a href="../before">before</a>' e t1 t2) (<a href="../temporal">temporal</a> e)))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>durationOf</code> is temporal.</p>
+<pre>
+(forall (e d t u)
+  (if (<a href="../durationOf">durationOf</a>' e d t u) (<a href="../temporal">temporal</a> e)))
+</pre>
+</div>
 </section>
 
 </body>

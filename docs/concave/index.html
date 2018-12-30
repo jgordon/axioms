@@ -33,6 +33,14 @@
            (not (<a href="../convex">convex</a> r)))))
 </pre>
 </div>
+<div class="axiom">
+<p>A volume is concave if it is not convex.</p>
+<pre>
+(forall (p)
+   (if (<a href="../volume">volume</a> p)
+       (iff (<a href="../concave">concave</a> p) (not (<a href="../convex">convex</a> p)))))
+</pre>
+</div>
 </section>
 
 </body>

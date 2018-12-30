@@ -49,6 +49,101 @@
       (or (<a href="../interval">interval</a> t) (<a href="../instant">instant</a> t))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (<a href="../begins">begins</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (<a href="../ends">ends</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (<a href="../insideTime">insideTime</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (and (<a href="../instant">instant</a> t2) (<a href="../begins">begins</a> t1 t2))
+      (equal t1 t2)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (and (<a href="../instant">instant</a> t2) (<a href="../ends">ends</a> t1 t2))
+      (equal t1 t2)))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>atTime</code> relates an eventuality to an instant, saying that the eventuality really exists or obtains at that instant. We constrain its arguments but do not attempt to define it.</p>
+<pre>
+(forall (e t)
+  (if (<a href="../atTime">atTime</a> e t) (and (<a href="../eventuality">eventuality</a> e) (<a href="../instant">instant</a> t))))
+</pre>
+</div>
+<div class="axiom">
+<p>The &ldquo;time span of&rdquo; an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
+<pre>
+(forall (t e)
+  (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
+       (or (and (<a href="../instant">instant</a> t) (<a href="../atTime">atTime</a> e t)
+                (forall (t1)
+                  (if (<a href="../nequal">nequal</a> t1 t) (not (<a href="../atTime">atTime</a> e t1)))))
+           (and (<a href="../interval">interval</a> t) (<a href="../during">during</a> e t)
+                (forall (t1)
+                  (if (<a href="../atTime">atTime</a> e t1)
+                      (or (<a href="../insideTime">insideTime</a> t1 t) (<a href="../begins">begins</a> t1 t)
+                          (<a href="../ends">ends</a> t1 t)))))
+           (and (<a href="../tseq">tseq</a> t)
+                (forall (t1)
+                  (if (and (<a href="../member">member</a> t1 t) (<a href="../instant">instant</a> t1))
+                      (<a href="../atTime">atTime</a> e t1)))
+                (forall (t1)
+                  (if (and (<a href="../member">member</a> t1 t) (<a href="../interval">interval</a> t1))
+                      (<a href="../during">during</a> e t1)))
+                (forall (t1)
+                  (if (and (<a href="../instant">instant</a> t1) (<a href="../atTime">atTime</a> e t1))
+                      (or (<a href="../member">member</a> t1 t)
+                          (exists (t2)
+                            (and (<a href="../interval">interval</a> t2) (<a href="../member">member</a> t2 t)
+                                 (or (<a href="../begins">begins</a> t1 t2)
+                                     (<a href="../insideTime">insideTime</a> t1 t2)
+                                     (<a href="../ends">ends</a> t1 t2)))))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Time is a scale whose ordering relation is <code>before</code> and whose components are instants and intervals.</p>
+<pre>
+(forall (t)
+  (iff (<a href="../timeScale">timeScale</a> t)
+       (exists (s e t2 t3)
+         (and (forall (t1)
+                (iff (<a href="../member">member</a> t1 s)
+                     (or (<a href="../instant">instant</a> t1) (<a href="../interval">interval</a> t1))))
+              (<a href="../before">before</a>' e t2 t3)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> t s e)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (and (<a href="../instant">instant</a> t1) (<a href="../instant">instant</a> t2))
+      (<a href="../sameDuration">sameDuration</a> t1 t2)))
+</pre>
+</div>
 </section>
 
 </body>

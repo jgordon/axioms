@@ -46,6 +46,58 @@
         (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../posYAxis">posYAxis</a> d f)))))
 </pre>
 </div>
+<div class="axiom">
+<p>South is the negative half of the y-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../south">south</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../negYAxis">negYAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>East is the positive half of the x-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../east">east</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../posXAxis">posXAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>West is the negative half of the x-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../west">west</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../negXAxis">negXAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Up is the positive half of the z-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../up">up</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../posZAxis">posZAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Down is the negative half of the z-axis in the N-E-S-W framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../down">down</a> d)
+        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../negZAxis">negZAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Directions like &ldquo;northeast&rdquo; are a little more complicated to define.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../northeast">northeast</a> d)
+        (exists (f o d1 d2 v1 v2)
+           (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../origin">origin</a> o f)
+                (<a href="../posYAxis">posYAxis</a> d1 f) (<a href="../posXAxis">posXAxis</a> d2 f)
+                (<a href="../vertex">vertex</a> v1 d1 d o) (<a href="../vertex">vertex</a> v2 d d2 o)
+                (<a href="../45Degrees">45Degrees</a> v1) (<a href="../45Degrees">45Degrees</a> v2)))))
+</pre>
+</div>
 </section>
 
 </body>

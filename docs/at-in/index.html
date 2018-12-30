@@ -32,6 +32,14 @@
         (and (<a href="../charge-vb">charge-vb</a> e1 x w u) (<a href="../at-in">at-in</a> e0 e1 y)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e2 u1)
+        (and (<a href="../attack">attack</a> e1 x u1) (<a href="../at-in">at-in</a> e2 e1 y)))))
+</pre>
+</div>
 </section>
 
 </body>

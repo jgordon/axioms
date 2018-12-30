@@ -40,6 +40,15 @@
                  (and (<a href="../lt">lt</a> d3 d1) (<a href="../lt">lt</a> d3 d2))))))
 </pre>
 </div>
+<div class="axiom">
+<p>The width of a physical object is the length of the second longest side of its bounding box.</p>
+<pre>
+(forall (n x u)
+   (iff (<a href="../width">width</a> n x u)
+        (exists (b)
+           (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim2">dim2</a> c b x) (<a href="../length">length</a> n c u)))))
+</pre>
+</div>
 </section>
 
 </body>

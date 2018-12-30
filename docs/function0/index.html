@@ -80,6 +80,46 @@
               (<a href="../first">first</a> x p) (<a href="../second">second</a> y p)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (y1 y x1 x e s1 s2)
+  (if (and (<a href="../skfct">skfct</a> y1 y x1 x e) (<a href="../typelt">typelt</a> x s1) (<a href="../rangeFd">rangeFd</a> s2 y x e))
+      (exists (f)
+        (and (<a href="../function0">function0</a> f s1 s2)
+             (forall (p)
+               (iff (<a href="../pair">pair</a> p x1 y1) (<a href="../member">member</a> p f)))))))
+</pre>
+</div>
+<div class="axiom">
+<p><code>n</code> positive integers. There are no constraints on <code>s2</code>.</p>
+<pre>
+(forall (s)
+  (iff (<a href="../sequence">sequence</a> s)
+       (exists (s1 s2 n)
+         (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n s)
+  (if (<a href="../sequence">sequence</a> s)
+      (iff (<a href="../length">length</a> n s)
+           (exists (s1 s2)
+             (and (<a href="../function0">function0</a> s s1 s2) (<a href="../ints">ints</a> s1 1 n))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s1 s2)
+   (iff (<a href="../function">function</a> f s1 s2)
+        (exists (s3 s4)
+           (and (if (<a href="../set">set</a> s1) (equal s3 s1))
+                (if (<a href="../scale">scale</a> s1) (<a href="../componentsOf">componentsOf</a> s3 s1))
+                (if (<a href="../set">set</a> s2) (equal s4 s2))
+                (if (<a href="../scale">scale</a> s2) (<a href="../componentsOf">componentsOf</a> s4 s2))
+                (<a href="../function0">function0</a> f s3 s4)))))
+</pre>
+</div>
 </section>
 
 </body>

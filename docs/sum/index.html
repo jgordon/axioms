@@ -49,6 +49,83 @@
                        (<a href="../sum">sum</a> n m 1)))))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (n)
+   (if (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../sum">sum</a> n n 0)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n n1 n2 n3 n4)
+   (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../sum">sum</a> n4 n1 n2))
+       (iff (<a href="../sum">sum</a> n n1 n3) (<a href="../successor">successor</a> n n4))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n1 n2 n3)
+   (if (and (<a href="../nonNegInteger">nonNegInteger</a> n2) (<a href="../nonNegInteger">nonNegInteger</a> n3) (<a href="../sum">sum</a> n1 n2 n3))
+       (<a href="../nonNegInteger">nonNegInteger</a> n1)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n n1 n2 n3 n4 n5)
+   (if (and (<a href="../sum">sum</a> n4 n2 n3) (<a href="../sum">sum</a> n5 n1 n2))
+       (iff (<a href="../sum">sum</a> n n1 n4) (<a href="../sum">sum</a> n n5 n3))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n n1 n2 n3 n4)
+   (if (and (<a href="../successor">successor</a> n3 n2) (<a href="../product">product</a> n4 n1 n2))
+       (iff (<a href="../product">product</a> n n1 n3) (<a href="../sum">sum</a> n n4 n1))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n n1 n2 n3 n4 n5 n6)
+   (if (and (<a href="../sum">sum</a> n4 n2 n3) (<a href="../product">product</a> n5 n1 n2) (<a href="../product">product</a> n6 n1 n3))
+       (iff (<a href="../product">product</a> n n1 n4) (<a href="../sum">sum</a> n n5 n6))))
+</pre>
+</div>
+<div class="axiom">
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
+<pre>
+(forall (n1 n2)
+   (if (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n2))
+       (iff (<a href="../lt">lt</a> n1 n2)
+            (exists (n3) (and (<a href="../posInteger">posInteger</a> n3) (<a href="../sum">sum</a> n2 n1 n3))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s s1 t u d d1 d2)
+  (if (and (<a href="../tseq">tseq</a> s) (<a href="../tseq">tseq</a> s1) (not (<a href="../member">member</a> t s1)) (<a href="../addElt">addElt</a> s s1 t)
+           (<a href="../durationOf">durationOf</a> d1 s1 u) (<a href="../durationOf">durationOf</a> d2 t u) (<a href="../sum">sum</a> d d1 d2))
+      (<a href="../durationOf">durationOf</a> d s u)))
+</pre>
+</div>
+<div class="axiom">
+<p>The triangle inequality holds for distance.</p>
+<pre>
+(forall (d1 d2 d3 d4 x1 x2 x3 u)
+  (if (and (<a href="../distance">distance</a> d1 x1 x2 u) (<a href="../distance">distance</a> d2 x2 x3 u)
+           (<a href="../distance">distance</a> d3 x1 x3 u) (<a href="../sum">sum</a> d4 d1 d2))
+      (<a href="../leq">leq</a> d3 d4)))
+</pre>
+</div>
+<div class="axiom">
+<p>A straight line is the shortest distance between two points. We state this in terms of the endpoints and an inside point of a line segment.</p>
+<pre>
+(forall (c x1 x2 x3 d1 d2 d3 u)
+  (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x3)
+           (<a href="../inside">inside</a> x2 c) (<a href="../distance">distance</a> d1 x1 x2 u)
+           (<a href="../distance">distance</a> d2 x2 x3 u) (<a href="../distance">distance</a> d3 x1 x3 u))
+       (<a href="../sum">sum</a> d3 d1 d2)))
+</pre>
+</div>
 </section>
 
 </body>

@@ -109,6 +109,251 @@
         (<a href="../adversary">adversary</a> e x y c))))
 </pre>
 </div>
+<div class="axiom">
+<p>In conflict, adversaries attack each other.</p>
+<pre>
+(forall (c x y g h e)
+  (if (and (<a href="../conflict">conflict</a> c x y g h) (<a href="../adversary">adversary</a> e x y c))
+      (<a href="../attack">attack</a> e x y)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e1 e2 x y c g)
+  (if (and (<a href="../adversary">adversary</a> e1 x y c) (<a href="../goalNot">goalNot</a> e2 g y))
+      (exists (e3)
+        (<a href="../goal">goal</a> e3 g x))))
+</pre>
+</div>
+<div class="axiom">
+<p>To win is to achieve the goal.</p>
+<pre>
+(forall (e e1 e2 e3 c x y g h)
+  (if (and (<a href="../conflict">conflict</a> c x y g h) (<a href="../adversary">adversary</a> e x y c) (<a href="../goal">goal</a> e1 g x)
+           (<a href="../goal">goal</a> e2 h y) (<a href="../accomplish-goal">accomplish-goal</a> e3 g x))
+      (<a href="../win">win</a> e x y c)))
+</pre>
+</div>
+<div class="axiom">
+<p>Victory is winning.</p>
+<pre>
+(forall (c x y g h e)
+  (if (and (<a href="../conflict">conflict</a> c x y g h) (<a href="../adversary">adversary</a> e x y c) (<a href="../win">win</a> e x y c))
+      (<a href="../victory">victory</a> e x y c)))
+</pre>
+</div>
+<div class="axiom">
+<p>X combats Y.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (u2)
+        (<a href="../combat-vb">combat-vb</a> e x y u2))))
+</pre>
+</div>
+<div class="axiom">
+<p>X struggles..</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (u1 u2)
+        (<a href="../struggle-vb">struggle-vb</a> e x u1 u2))))
+</pre>
+</div>
+<div class="axiom">
+<p>X battles.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (u1 u2)
+        (<a href="../battles-vb">battles-vb</a> e x u1 u2))))
+</pre>
+</div>
+<div class="axiom">
+<p>X fights.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (u1 u2)
+        (<a href="../fight-vb">fight-vb</a> e x u1 u2))))
+</pre>
+</div>
+<div class="axiom">
+<p>X disputes.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (u1 u2)
+        (<a href="../dispute-vb">dispute-vb</a> e x u1 u2))))
+</pre>
+</div>
+<div class="axiom">
+<p>X quarrels.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (u1 u2)
+        (<a href="../quarrel-vb">quarrel-vb</a> e x u1 u2))))
+</pre>
+</div>
+<div class="axiom">
+<p>X opposes Y.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (u2)
+        (<a href="../oppose-vb">oppose-vb</a> e x y u2))))
+</pre>
+</div>
+<div class="axiom">
+<p>X confronts Y.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (u2)
+        (<a href="../confront-vb">confront-vb</a> e x y u2))))
+</pre>
+</div>
+<div class="axiom">
+<p>X resists Y.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (u2)
+        (<a href="../resist-vb">resist-vb</a> e x y u2))))
+</pre>
+</div>
+<div class="axiom">
+<p>X competes.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (u1 u2)
+        (<a href="../compete-vb">compete-vb</a> e x u1 u2))))
+</pre>
+</div>
+<div class="axiom">
+<p>X revolts.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (u1 u2)
+        (<a href="../revolt-vb">revolt-vb</a> e x u1 u2))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (<a href="../adversary-nn">adversary-nn</a> e1 x)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (<a href="../enemy-nn">enemy-nn</a> e1 x)))
+</pre>
+</div>
+<div class="axiom">
+<p>Opponent X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (<a href="../opponent-nn">opponent-nn</a> e1 x)))
+</pre>
+</div>
+<div class="axiom">
+<p>Rival X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (<a href="../rival-nn">rival-nn</a> e1 x)))
+</pre>
+</div>
+<div class="axiom">
+<p>Antagonist X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (<a href="../antagonist-nn">antagonist-nn</a> e1 x)))
+</pre>
+</div>
+<div class="axiom">
+<p>Competitor X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (<a href="../competitor-nn">competitor-nn</a> e1 x)))
+</pre>
+</div>
+<div class="axiom">
+<p>Contestant X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (<a href="../contestant-nn">contestant-nn</a> e1 x)))
+</pre>
+</div>
+<div class="axiom">
+<p>Opposition X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (<a href="../opposition-nn">opposition-nn</a> e1 x)))
+</pre>
+</div>
+<div class="axiom">
+<p>Player X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (<a href="../player-nn">player-nn</a> e1 x)))
+</pre>
+</div>
+<div class="axiom">
+<p>Team X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (e2)
+        (<a href="../team-nn">team-nn</a> e2 x))))
+</pre>
+</div>
+<div class="axiom">
+<p>Band X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (e2)
+        (<a href="../band-nn">band-nn</a> e2 x))))
+</pre>
+</div>
+<div class="axiom">
+<p>Gang X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (e2)
+        (<a href="../gang-nn">gang-nn</a> e2 x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (e2 u)
+        (<a href="../defection-nn">defection-nn</a> e2 u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (e2 u1 u2)
+        (<a href="../defect-vb">defect-vb</a> e2 x u1 u2))))
+</pre>
+</div>
 </section>
 
 </body>

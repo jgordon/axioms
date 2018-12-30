@@ -58,6 +58,14 @@
          (iff (<a href="../top">top</a> x s) (<a href="../top">top</a> x s1)))))
 </pre>
 </div>
+<div class="axiom">
+<p>If the likelihood of an eventuality is the top of the likelihood scale given constraints <code>c</code>, then it is entailed by <code>c</code>.</p>
+<pre>
+(forall (d e c s)
+  (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s))
+      (iff (<a href="../top">top</a> d s) (<a href="../necessary">necessary</a> e c))))
+</pre>
+</div>
 </section>
 
 </body>

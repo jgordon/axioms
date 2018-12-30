@@ -76,6 +76,26 @@
         (exists (p) (and (<a href="../polyhedron">polyhedron</a> p s) (<a href="../surface">surface</a> p2 p)))))
 </pre>
 </div>
+<div class="axiom">
+<p>A rectangular parallelepiped is a polyhedron all of whose faces are rectangles.</p>
+<pre>
+(forall (p s)
+   (iff (<a href="../rectangularParallelepiped">rectangularParallelepiped</a> p s)
+        (and (<a href="../polyhedron">polyhedron</a> p s)
+             (forall (f)
+                (if (<a href="../member">member</a> f s) (<a href="../rectangle">rectangle</a> f))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A cube is a polyhedron all of whose faces are squares.</p>
+<pre>
+(forall (p s)
+   (iff (<a href="../cube">cube</a> p s)
+        (and (<a href="../polyhedron">polyhedron</a> p s)
+             (forall (f)
+                (if (<a href="../member">member</a> f s) (<a href="../square">square</a> f))))))
+</pre>
+</div>
 </section>
 
 </body>

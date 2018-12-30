@@ -48,6 +48,131 @@
                  (<a href="../subfigure">subfigure</a> x r))))))
 </pre>
 </div>
+<div class="axiom">
+<p>A straight line is the shortest distance between two points. We state this in terms of the endpoints and an inside point of a line segment.</p>
+<pre>
+(forall (c x1 x2 x3 d1 d2 d3 u)
+  (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x3)
+           (<a href="../inside">inside</a> x2 c) (<a href="../distance">distance</a> d1 x1 x2 u)
+           (<a href="../distance">distance</a> d2 x2 x3 u) (<a href="../distance">distance</a> d3 x1 x3 u))
+       (<a href="../sum">sum</a> d3 d1 d2)))
+</pre>
+</div>
+<div class="axiom">
+<p>The length of a line segment is the distance between its endpoints.</p>
+<pre>
+(forall (d c u)
+  (iff (<a href="../lineSegment">lineSegment</a> c)
+       (iff (<a href="../length">length</a> d c u)
+            (exists (x1 x2)
+              (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
+                   (<a href="../distance">distance</a> d x1 x2 u))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
+<pre>
+(forall (c r x u)
+   (iff (<a href="../circle">circle</a> c x)
+        (exists (r d)
+           (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
+                (forall (c1 x1)
+                   (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                       (<a href="../length">length</a> d c1 u)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A spherical surface r around a center x is a region in which every line segment from the center to a point inside the region is constant.</p>
+<pre>
+(forall (r x)
+   (iff (<a href="../sphere">sphere</a> r x)
+        (exists (v d u)
+           (and (<a href="../boundary">boundary</a> r v) (<a href="../inside">inside</a> x v)
+                (forall (c1 x1)
+                   (if (and (<a href="../inside">inside</a> x1 r) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
+                       (<a href="../length">length</a> d c1 u)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We construct an isosceles triangle whose apex is a given vertex, by identifying a point a unit distance out on each leg from the vertex.</p>
+<pre>
+(forall (c v u)
+   (iff (<a href="../baseOfAngle">baseOfAngle</a> c v u)
+        (exists (c1 c2 x0 x1 x2)
+           (and (<a href="../vertex">vertex</a> v c1 c2 x0) (<a href="../nequal">nequal</a> x1 x2)
+                (<a href="../endpoint">endpoint</a> x1 c1) (<a href="../distance">distance</a> 1 x0 x1 u)
+                (<a href="../endpoint">endpoint</a> x2 c2) (<a href="../distance">distance</a> 1 x0 x2 u)
+                (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The diagonal of a square is a line segment from one vertex to an opposite vertex.</p>
+<pre>
+(forall (p d)
+   (if (<a href="../square">square</a> p)
+       (iff (<a href="../diagonal">diagonal</a> d p)
+            (exists (v1 v2 x1 x2 c1 c2 c3 c4)
+               (and (<a href="../vertex">vertex</a> v1 c1 c2 x1) (<a href="../vertexOf">vertexOf</a> v1 p)
+                    (<a href="../vertex">vertex</a> v2 c3 c4 x2) (<a href="../vertexOf">vertexOf</a> v2 p)
+                    (<a href="../nequal">nequal</a> c1 c3) (<a href="../nequal">nequal</a> c1 c4)
+                    (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A volume is convex if every point on a line segment between any two points on its surface is inside the volume.</p>
+<pre>
+(forall (p)
+   (if (<a href="../volume">volume</a> p)
+       (iff (<a href="../convex">convex</a> p)
+            (forall (c x x1 x2)
+               (if (and (<a href="../onBorder">onBorder</a> x1 p) (<a href="../onBorder">onBorder</a> x2 p)
+                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2) (<a href="../inside">inside</a> x c)
+                   (<a href="../subfigure">subfigure</a> x p))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A face is defined in terms of a reference point. It is a subregion of the surface of a volume that faces the reference point. The expression <code>(face0 r v p)</code> says that subregion r of volume v faces external point p. Recall that a point is a subfigure of a region or volume if it is inside it or in its boundary. Lines 3-4 say that p is external to v and r is a subfigure of v. Lines 5-8 say that any line segment from p to a point in r will not cross v before arriving at r. In other words, no part of the volume v blocks a straight path between the point p and the face r.</p>
+<pre>
+(forall (r v p)
+   (if (<a href="../face0">face0</a> r v p)
+       (and (<a href="../volume">volume</a> v) (<a href="../point">point</a> p) (not (<a href="../subfigure">subfigure</a> p v))
+            (<a href="../region">region</a> r) (<a href="../subfigure">subfigure</a> r v)
+            (forall (p0 c)
+               (if (and (<a href="../subfigure">subfigure</a> p0 r)
+                        (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p p0))
+                   (not (exists (p1)
+                           (and (<a href="../inside">inside</a> p1 c)
+                                (<a href="../subfigure">subfigure</a> p1 v)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We introduce a loose notion of &ldquo;central&rdquo; based on half orders of magnitude. We will say that a point in a region or volume is central if whenever a straight line is drawn through the point and intersects the boundary in two points, the distances from the central point to the two boundary points are of the same half order of magnitude. In this axiom, c is any line segment from p1 to p2, points on the boundary of f, passing through p. Line 7 says that p divides the line segment into roughly equal parts.  We use &ldquo;if&rdquo; rather than &ldquo;iff&rdquo; because this is a strong sufficient condition, not a necessary condition for centrality. There will surely be odd-shaped figures where this condition won't hold and yet we'll want to call the point central.</p>
+<pre>
+(forall (p f)
+   (if (<a href="../point">point</a> p)
+       (if (forall (c p1 p2 b d1 d2)
+              (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p1 p2) (<a href="../inside">inside</a> p c)
+                       (<a href="../boundary">boundary</a> b f) (<a href="../inside">inside</a> p1 b) (<a href="../inside">inside</a> p2 b)
+                       (<a href="../distance">distance</a> d1 p1 p) (<a href="../distance">distance</a> d2 p2 p))
+                  (<a href="../sameHOM">sameHOM</a> d1 d2)))
+           (<a href="../centralIn0">centralIn0</a> p f))
+</pre>
+</div>
+<div class="axiom">
+<p>We can stipulate that region r is a face of volume v with respect to exterior point p if a line segment from a central point in v through a central point in r ending at p does not pass through any point in v between r and p. Lines 2-3 constrain the arguments of “face”.  In lines 5-7 c is a line segment from a central point in volume v to the exterior point p, passing through a central point p1 in region r. Lines 8-10 say that there is no point p2 between p1 and p that is also in v.</p>
+<pre>
+(forall (v r p)
+   (if (and (<a href="../volume">volume</a> v) (<a href="../region">region</a> r) (<a href="../subfigure">subfigure</a> r v)
+            (<a href="../point">point</a> p) (not (<a href="../subfigure">subfigure</a> p v)))
+       (iff (<a href="../face">face</a> r v p)
+            (forall (c p0 p1)
+               (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p0 p) (<a href="../centralIn">centralIn</a> p0 v)
+                        (<a href="../centralIn">centralIn</a> p1 r) (<a href="../subfigure">subfigure</a> p1 c))
+                   (not (exists (p2 c1)
+                           (and (<a href="../subfigure">subfigure</a> p2 v) (<a href="../inside">inside</a> p2 c1)
+                                (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 p1 p)))))))))
+</pre>
+</div>
 </section>
 
 </body>

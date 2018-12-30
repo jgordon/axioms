@@ -49,6 +49,132 @@
                       (<a href="../begins">begins</a> t t1) (<a href="../ends">ends</a> t t1)))))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (t s)
+  (if (<a href="../tseq">tseq</a> s)
+      (if (exists (t1)
+            (and (<a href="../member">member</a> t1 s)
+                 (or (equal t1 t) (<a href="../insideTime">insideTime</a> t t1))))
+          (<a href="../insideTime">insideTime</a> t s))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>during</code> says that the eventuality really exists or obtains throughout an interval.</p>
+<pre>
+(forall (e t)
+  (iff (<a href="../during">during</a> e t)
+       (and (<a href="../eventuality">eventuality</a> e) (<a href="../properInterval">properInterval</a> t)
+            (forall (t1) (if (<a href="../insideTime">insideTime</a> t1 t) (<a href="../atTime">atTime</a> e t1))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The &ldquo;time span of&rdquo; an eventuality encompasses all the instants and intervals for which it really exists or obtains. The time span may be an instant, an interval, or a temporal sequence.</p>
+<pre>
+(forall (t e)
+  (iff (<a href="../timeSpanOf">timeSpanOf</a> t e)
+       (or (and (<a href="../instant">instant</a> t) (<a href="../atTime">atTime</a> e t)
+                (forall (t1)
+                  (if (<a href="../nequal">nequal</a> t1 t) (not (<a href="../atTime">atTime</a> e t1)))))
+           (and (<a href="../interval">interval</a> t) (<a href="../during">during</a> e t)
+                (forall (t1)
+                  (if (<a href="../atTime">atTime</a> e t1)
+                      (or (<a href="../insideTime">insideTime</a> t1 t) (<a href="../begins">begins</a> t1 t)
+                          (<a href="../ends">ends</a> t1 t)))))
+           (and (<a href="../tseq">tseq</a> t)
+                (forall (t1)
+                  (if (and (<a href="../member">member</a> t1 t) (<a href="../instant">instant</a> t1))
+                      (<a href="../atTime">atTime</a> e t1)))
+                (forall (t1)
+                  (if (and (<a href="../member">member</a> t1 t) (<a href="../interval">interval</a> t1))
+                      (<a href="../during">during</a> e t1)))
+                (forall (t1)
+                  (if (and (<a href="../instant">instant</a> t1) (<a href="../atTime">atTime</a> e t1))
+                      (or (<a href="../member">member</a> t1 t)
+                          (exists (t2)
+                            (and (<a href="../interval">interval</a> t2) (<a href="../member">member</a> t2 t)
+                                 (or (<a href="../begins">begins</a> t1 t2)
+                                     (<a href="../insideTime">insideTime</a> t1 t2)
+                                     (<a href="../ends">ends</a> t1 t2)))))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We will say that an eventuality happens in a temporal entity or sequence if its time span is entirely included in the temporal entity or sequence.</p>
+<pre>
+(forall (e t)
+  (iff (<a href="../happensIn">happensIn</a> e t)
+       (exists (t1)
+         (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e)
+              (forall (t2)
+                (if (or (<a href="../begins">begins</a> t2 t1) (<a href="../insideTime">insideTime</a> t2 t1)
+                        (<a href="../ends">ends</a> t2 t1))
+                    (or (<a href="../begins">begins</a> t2 t) (<a href="../insideTime">insideTime</a> t2 t)
+                        (<a href="../ends">ends</a> t2 t))))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t e)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../insideTime">insideTime</a> t e)
+           (exists (t1)
+             (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../insideTime">insideTime</a> t t1))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The beginning of a proper interval is before the instants inside, which are before the end.</p>
+<pre>
+(forall (t1 t2 t3 t)
+  (if (<a href="../properIntervalEv">properIntervalEv</a> t)
+      (and (if (and (<a href="../begins">begins</a> t1 t) (<a href="../ends">ends</a> t3 t))
+               (<a href="../before">before</a> t1 t3))
+           (if (and (<a href="../begins">begins</a> t1 t) (<a href="../insideTime">insideTime</a> t2 t))
+               (<a href="../before">before</a> t1 t2))
+           (if (and (<a href="../insideTime">insideTime</a> t2 t) (<a href="../ends">ends</a> t3 t))
+               (<a href="../before">before</a> t2 t3)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The beginning of a positive infinite interval, if there is one, is before all the instants inside it.</p>
+<pre>
+(forall (t1 t2 t)
+  (if (and (<a href="../posInfInterval">posInfInterval</a> t) (<a href="../begins">begins</a> t1 t) (<a href="../insideTime">insideTime</a> t2 t))
+      (<a href="../before">before</a> t1 t2)))
+</pre>
+</div>
+<div class="axiom">
+<p>Two intervals overlap if the beginning of one is inside the other.</p>
+<pre>
+(forall (t1 t2)
+  (iff (<a href="../intOverlap">intOverlap</a> t1 t2)
+       (and (<a href="../properIntervalEv">properIntervalEv</a> t1) (<a href="../properIntervalEv">properIntervalEv</a> t2)
+            (exists (t)
+              (or (and (<a href="../begins">begins</a> t t1) (<a href="../insideTime">insideTime</a> t t2))
+                  (and (<a href="../begins">begins</a> t t2) (<a href="../insideTime">insideTime</a> t t1)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A proper interval is a concatenation of a set of proper intervals if every instant inside the interval is inside, the beginning, or the end of some interval in the set, and the intervals in the set are non-overlapping.</p>
+<pre>
+(forall (t s)
+  (iff (<a href="../concatenation">concatenation</a> t s)
+       (and (<a href="../properInterval">properInterval</a> t)
+            (forall (t1) (if (<a href="../member">member</a> t1 s) (<a href="../properInterval">properInterval</a> t1)))
+            (exists (t1 t2)
+              (and (<a href="../begins">begins</a> t1 t) (<a href="../member">member</a> t2 s) (<a href="../begins">begins</a> t1 t2)))
+            (exists (t1 t2)
+              (and (<a href="../ends">ends</a> t1 t) (<a href="../member">member</a> t2 s) (<a href="../ends">ends</a> t1 t2)))
+            (forall (t1)
+              (if (<a href="../insideTime">insideTime</a> t1 t)
+                  (exists (t2)
+                    (and (<a href="../member">member</a> t2 s)
+                         (or (<a href="../insideTime">insideTime</a> t1 t2) (<a href="../begins">begins</a> t1 t2)
+                             (<a href="../ends">ends</a> t1 t2))))))
+            (forall (t1 t2)
+              (if (and (<a href="../member">member</a> t1 s) (<a href="../member">member</a> t2 s))
+                  (or (equal t1 t2) (not (<a href="../intOverlap">intOverlap</a> t1 t2))))))))
+</pre>
+</div>
 </section>
 
 </body>

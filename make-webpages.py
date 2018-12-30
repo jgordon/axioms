@@ -135,7 +135,7 @@ for fname in axiom_files:
                         if formatted_axiom not in preds[pred].get('characterizing', []):
                             if 'all axioms' not in preds[pred]:
                                 preds[pred]['all axioms'] = []
-                                preds[pred]['all axioms'].append(formatted_axiom)
+                            preds[pred]['all axioms'].append(formatted_axiom)
                 else:
                     in_axiom = True
                     axiom = ''

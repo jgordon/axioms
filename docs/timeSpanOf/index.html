@@ -78,6 +78,62 @@
                         (<a href="../ends">ends</a> t2 t))))))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (t e)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../begins">begins</a> t e)
+           (exists (t1) (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../begins">begins</a> t t1))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t e)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../insideTime">insideTime</a> t e)
+           (exists (t1)
+             (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../insideTime">insideTime</a> t t1))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t e)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../ends">ends</a> t e)
+           (exists (t1) (and (<a href="../timeSpanOf">timeSpanOf</a> t1 e) (<a href="../ends">ends</a> t t1))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>posInfIntervalEv</code> says that its argument is either a positive infinite interval or an eventuality whose time span is a positive infinite interval.</p>
+<pre>
+(forall (e)
+  (iff (<a href="../posInfIntervalEv">posInfIntervalEv</a> e)
+       (or (<a href="../posInfInterval">posInfInterval</a> e)
+           (exists (t)
+             (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../posInfInterval">posInfInterval</a> t))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>properIntervalEv</code> says that its argument is either a proper interval or an eventuality whose time span is a proper interval.</p>
+<pre>
+(forall (e)
+  (iff (<a href="../properIntervalEv">properIntervalEv</a> e)
+       (or (<a href="../properInterval">properInterval</a> e)
+           (exists (t)
+             (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../properInterval">properInterval</a> t)))
+           (<a href="../posInfIntervalEv">posInfIntervalEv</a> e))))
+</pre>
+</div>
+<div class="axiom">
+<p>The duration of an eventuality is the duration of its time span.</p>
+<pre>
+(forall (d e u)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../durationOf">durationOf</a> d e u)
+           (exists (t)
+             (and (<a href="../timeSpanOf">timeSpanOf</a> t e) (<a href="../durationOf">durationOf</a> d t u))))))
+</pre>
+</div>
 </section>
 
 </body>

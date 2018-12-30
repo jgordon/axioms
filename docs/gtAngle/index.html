@@ -48,6 +48,14 @@
 (forall (v) (not (<a href="../gtAngle">gtAngle</a> v v)))
 </pre>
 </div>
+<div class="axiom">
+<p>An angle being greater is transitive.</p>
+<pre>
+(forall (v1 v2 v3)
+   (if (and (<a href="../gtAngle">gtAngle</a> v1 v2) (<a href="../gtAngle">gtAngle</a> v2 v3))
+       (<a href="../gtAngle">gtAngle</a> v1 v3)))
+</pre>
+</div>
 </section>
 
 </body>

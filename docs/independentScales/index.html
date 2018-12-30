@@ -48,6 +48,14 @@
                         (<a href="../independentScales">independentScales</a> a2 a3))))))))
 </pre>
 </div>
+<div class="axiom">
+<p><code>horizontal3</code> and <code>vertical3</code> sets are independent scales.</p>
+<pre>
+(forall (s1 s2 f)
+   (if (and (<a href="../framework">framework</a> f) (<a href="../horizontal3">horizontal3</a> s1 f) (<a href="../vertical3">vertical3</a> s2 f))
+       (<a href="../independentScales">independentScales</a> s1 s2)))
+</pre>
+</div>
 </section>
 
 </body>

@@ -80,6 +80,31 @@
                    (and (<a href="../not'">not'</a> g1 g) (<a href="../causalComplex">causalComplex</a> c g1)))))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e1 e2 x y c g)
+  (if (and (<a href="../adversary">adversary</a> e1 x y c) (<a href="../goalNot">goalNot</a> e2 g y))
+      (exists (e3)
+        (<a href="../goal">goal</a> e3 g x))))
+</pre>
+</div>
+<div class="axiom">
+<p>To win is to achieve the goal.</p>
+<pre>
+(forall (e e1 e2 e3 c x y g h)
+  (if (and (<a href="../conflict">conflict</a> c x y g h) (<a href="../adversary">adversary</a> e x y c) (<a href="../goal">goal</a> e1 g x)
+           (<a href="../goal">goal</a> e2 h y) (<a href="../accomplish-goal">accomplish-goal</a> e3 g x))
+      (<a href="../win">win</a> e x y c)))
+</pre>
+</div>
+<div class="axiom">
+<p>A union is an organization with the goal of having its members thrive.</p>
+<pre>
+(forall (e1 e2 m1 u)
+  (if (and (<a href="../thrive">thrive</a> e1 m1) (<a href="../members">members</a> m1 u) (<a href="../goal">goal</a> e2 e1 u))
+      (<a href="../union">union</a> u)))
+</pre>
+</div>
 </section>
 
 </body>

@@ -44,6 +44,17 @@
                 (if (<a href="../sideOf">sideOf</a> c p) (<a href="../length">length</a> d c u)))))))
 </pre>
 </div>
+<div class="axiom">
+<p>We define a rectangle as a quadrilateral whose vertices are all right angles.</p>
+<pre>
+(forall (p)
+  (iff (<a href="../rectangle">rectangle</a> p)
+       (and (<a href="../quadrilateral">quadrilateral</a> p)
+            (forall (v)
+              (iff (<a href="../vertexOf">vertexOf</a> v p)
+                   (<a href="../rightAngle">rightAngle</a> v))))))
+</pre>
+</div>
 </section>
 
 </body>

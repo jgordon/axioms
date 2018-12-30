@@ -37,6 +37,17 @@
            (<a href="../centralIn0">centralIn0</a> p f))
 </pre>
 </div>
+<div class="axiom">
+<p><code>centralIn</code> extends the concept of <code>centralIn0</code> to higher-dimensional figures.</p>
+<pre>
+(forall (f1 f2)
+   (iff (<a href="../centralIn">centralIn</a> f1 f2)
+        (or (and (<a href="../point">point</a> f1) (<a href="../centralIn0">centralIn0</a> f1 f2))
+            (and (<a href="../figure">figure</a> f1) (<a href="../figure">figure</a> f2)
+                 (forall (p) (if (<a href="../inside">inside</a> p f1)
+                                 (<a href="../centralIn0">centralIn0</a> p f2)))))))
+</pre>
+</div>
 </section>
 
 </body>

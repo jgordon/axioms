@@ -32,6 +32,22 @@
         (and (<a href="../descend-vb">descend-vb</a> e1 x w u) (<a href="../on-in">on-in</a> e0 e1 y)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0 u)
+        (and (<a href="../advance-vb">advance-vb</a> e1 x y u) (<a href="../on-in">on-in</a> e0 e1 y)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e2 u1)
+        (and (<a href="../attack">attack</a> e1 x u1) (<a href="../on-in">on-in</a> e2 e1 y)))))
+</pre>
+</div>
 </section>
 
 </body>

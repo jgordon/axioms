@@ -58,6 +58,205 @@
            (not (<a href="../cause">cause</a> a e2)))))
 </pre>
 </div>
+<div class="axiom">
+<p>The chief property of agents is that they, defeasibly, are capable of causing some events.</p>
+<pre>
+(forall (a)
+  (if (and (<a href="../agent">agent</a> a) (etc))
+      (exists (e) (<a href="../cause">cause</a> a e))))
+</pre>
+</div>
+<div class="axiom">
+<p>Case roles common in linguistics can be defined in terms of core theories. In particular, the agent of an event is an agent that causes it.</p>
+<pre>
+(forall (a e)
+  (iff (<a href="../agentOf">agentOf</a> a e)
+       (and (<a href="../agent">agent</a> a) (<a href="../cause">cause</a> a e))))
+</pre>
+</div>
+<div class="axiom">
+<p>The object of an action is the entity that goes through a change in the final stage of the causal chain.</p>
+<pre>
+(forall (x e)
+  (iff (<a href="../objectOf">objectOf</a> x e)
+       (or (<a href="../changeIn">changeIn</a>' e x)
+           (exists (e1 e2)
+             (and (<a href="../and'">and'</a> e e1 e2) (<a href="../cause">cause</a> e1 e2) (<a href="../objectOf">objectOf</a> x e2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>An instrument is an entity that the agent causes to go through a change of state, where this change plays an intermediate role in the causal chain.</p>
+<pre>
+(forall (y e)
+  (iff (<a href="../instrumentOf">instrumentOf</a> y e)
+       (exists (a e1)
+         (and (<a href="../agentOf">agentOf</a> a e1) (<a href="../changeIn">changeIn</a>' e1 y)
+              (or (<a href="../cause">cause</a> e1 e)
+                  (exists (e2)
+                    (and (<a href="../cause">cause</a> e1 e2) (<a href="../and'">and'</a> e e1 e2))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The expression (enable0 e1 e2 s) says that e1 is an enabling condition for e2 provided it is in the causal complex s that will be used to bring about e2, but is not the cause of e2.</p>
+<pre>
+(forall (e1 e2 s)
+  (iff (<a href="../enable0">enable0</a> e1 e2 s)
+       (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+            (not (<a href="../cause">cause</a> e1 e2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If e1 enables e2, then (not e1) causes (not e2).</p>
+<pre>
+(forall (e1 e2)
+  (iff (<a href="../enable">enable</a> e1 e2)
+       (forall (e3)
+         (if (<a href="../not'">not'</a> e3 e1)
+             (exists (e4)
+               (and (<a href="../not'">not'</a> e4 e2) (<a href="../cause">cause</a> e3 e4)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>An eventuality e1 allows an eventuality e2 if e1 does not cause (not e2).</p>
+<pre>
+(forall (e1 e2)
+  (iff (<a href="../allow">allow</a> e1 e2)
+       (forall (e4)
+         (if (<a href="../not'">not'</a> e4 e2) (not (<a href="../cause">cause</a> e1 e4))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e1 e2)
+  (iff (<a href="../prevent">prevent</a> e1 e2)
+       (exists (e4)
+         (and (<a href="../not'">not'</a> e4 e2) (<a href="../cause">cause</a> e1 e4)))))
+</pre>
+</div>
+<div class="axiom">
+<p>An eventuality e1 partially causes another eventuality e2 if e1's conjunction with another eventuality e3 causes e2.</p>
+<pre>
+(forall (e1 e2)
+  (iff (<a href="../partiallyCause">partiallyCause</a> e1 e2)
+       (exists (e3 e4)
+         (and (not (<a href="../cause">cause</a> e1 e2)) (not (<a href="../cause">cause</a> e3 e2))
+              (<a href="../and'">and'</a> e4 e1 e3) (<a href="../cause">cause</a> e4 e2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The expression (tcause e1 e2) means that e1 tends to cause e2. If (tcause e1 e2) holds, the other eventualities in the causal complex for e2 are likely but not guaranteed to hold. Both <code>cause</code> and <code>tcause</code> are defeasible, but <code>tcause</code> is more likely to be defeated.</p>
+<pre>
+(forall (e1 e2)
+  (iff (<a href="../tcause">tcause</a> e1 e2)
+       (exists (s c)
+         (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+              (<a href="../deleteElt">deleteElt</a> s1 s e1) (<a href="../likely">likely</a> s1 c)
+              (if (<a href="../Rexist">Rexist</a> s)
+                  (<a href="../cause">cause</a> e1 e2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>e1 tends to cause e2 with likelihood q if e1 is in a causal complex for e2, if the likelihood of the rest of s is q, and if e1 would be singled out as a cause of e2 provided the rest of s actually obtains.</p>
+<pre>
+(forall (e1 e2 q c)
+  (iff (<a href="../tcauseq">tcauseq</a> e1 e2 q c)
+       (exists (s)
+         (and (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../member">member</a> e1 s)
+              (<a href="../deleteElt">deleteElt</a> s1 s e1) (<a href="../likelihood">likelihood</a> q s1 c)
+              (if (<a href="../Rexist">Rexist</a> s1) (<a href="../cause">cause</a> e1 e2))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We define the eventualities beyond an agent a's control as the subset s1 of eventualities in a set s that a cannot bring about by a's efforts alone. That is, a is not the agent of actions in s1 nor the agent of an action that causes events in s1.</p>
+<pre>
+(forall (s1 s a)
+  (iff (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
+       (and (<a href="../eventualities">eventualities</a> s) (<a href="../subset">subset</a> s1 s) (<a href="../agent">agent</a> a)
+            (forall (e)
+              (iff (<a href="../member">member</a> e s1)
+                   (and (not (<a href="../agentOf">agentOf</a> a e))
+                        (not (exists (e1)
+                               (and (<a href="../agentOf">agentOf</a> a e1)
+                                    (<a href="../cause">cause</a> e1 e))))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We can say that an agent a is able to do e, given a set of constraints c, if the agent's causing e is possible with respect to c whenever the set s1 of all the events in a causal complex s for e that are beyond a's control really exists independently.</p>
+<pre>
+(forall (a e c)
+  (iff (<a href="../able">able</a> a e c)
+       (exists (s s1 e1)
+         (and (<a href="../causalComplex">causalComplex</a> s e) (<a href="../cause">cause</a>' e1 a e) (<a href="../member">member</a> e1 s)
+              (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
+              (if (<a href="../Rexist">Rexist</a> s1) (<a href="../possible">possible</a> e1 c))))))
+</pre>
+</div>
+<div class="axiom">
+<p>We can posit a notion of directly causes (<code>dcause</code>) as a relation between an agent or event and an event, that is true when there are no intermediate, mediating events.</p>
+<pre>
+(forall (e1 e2)
+  (iff (<a href="../dcause">dcause</a> e1 e2)
+       (and (<a href="../cause">cause</a> e1 e2)
+            (not (exists (e3)
+                   (and (<a href="../cause">cause</a> e1 e3) (<a href="../cause">cause</a> e3 e2)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an agent can will an event to happen, then this willing is a direct cause of the event.</p>
+<pre>
+(forall (e1 a e)
+  (if (and (<a href="../will">will</a>' e1 a e) (<a href="../cause">cause</a> e1 e))
+      (<a href="../dcause">dcause</a> e1 e)))
+</pre>
+</div>
+<div class="axiom">
+<p>If an agent can directly cause an action that is enabled, then it is executable. Moreover, if the action can be caused by another executable action, then it is executable.</p>
+<pre>
+(forall (e a c t)
+  (iff (<a href="../executable">executable</a> e a c t)
+       (exists (s)
+         (and (<a href="../enabled">enabled</a> s e t)
+              (or (exists (e1)
+                    (and (<a href="../dcause">dcause</a>' e1 a e) (<a href="../possible">possible</a> e1 c)))
+                  (exists (e2)
+                    (and (<a href="../cause">cause</a> e2 e)
+                         (<a href="../executable">executable</a> e2 a c t))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If e1 happens and e1 causes e2, then e2 (defeasibly) happens.</p>
+<pre>
+(forall (e1 e2 t1)
+  (if (and (<a href="../cause">cause</a> e1 e2) (<a href="../atTime">atTime</a> e1 t1) (etc))
+      (exists (t2)
+        (and (not (<a href="../before">before</a> t2 t1)) (<a href="../atTime">atTime</a> e2 t2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>This defines a predicate &ldquo;move&rdquo; corresponding to the intransitive verb. For a predicate corresponding to the transitive verb, we need to augment it with the causality of an agent.</p>
+<pre>
+(forall (a x d1 d2)
+   (iff (<a href="../move2">move2</a> a x d1 d2)
+        (exists (e) (and (<a href="../cause">cause</a> a e) (<a href="../move">move</a>' e x d1 d2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>To place something at a location is to cause it to move there.</p>
+<pre>
+(forall (z x b)
+   (iff (<a href="../placeAt">placeAt</a> z x b)
+        (exists (e1) (and (<a href="../cause">cause</a> z e1) (<a href="../move">move</a>' e1 x a b)))))
+</pre>
+</div>
+<div class="axiom">
+<p>For a predicate corresponding to the transitive verb &ldquo;turn&rdquo;, we define <code>turn2</code> that augments <code>turn</code> with the causality of an agent</p>
+<pre>
+(forall (a x d1 d2)
+   (iff (<a href="../turn2">turn2</a> a x d1 d2)
+        (exists (e)
+           (and (<a href="../cause">cause</a> a e) (<a href="../turn">turn</a>' e x d1 d2)))))
+</pre>
+</div>
 </section>
 
 </body>

@@ -61,6 +61,78 @@
       (<a href="../leqs">leqs</a> d1 d2 s)))
 </pre>
 </div>
+<div class="axiom">
+<p>The likelihood of the conjunction <code>e</code> of two eventualities <code>e1</code> and <code>e2</code> is less than or equal to the likelihood of each of them.</p>
+<pre>
+(forall (s e e1 e2 d d1 d2 c)
+  (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
+           (<a href="../and'">and'</a> e e1 e2) (<a href="../likelihood">likelihood</a> d e c))
+      (and (<a href="../leqs">leqs</a> d d1 s) (<a href="../leqs">leqs</a> d d2 s))))
+</pre>
+</div>
+<div class="axiom">
+<p>The likelihood of the disjunction <code>e</code> of two eventualities <code>e1</code> and <code>e2</code> is greater than or equal to the likelihood of either of them.</p>
+<pre>
+(forall (s e e1 e2 d d1 d2 c)
+  (if (and (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
+           (<a href="../or'">or'</a> e e1 e2) (<a href="../likelihood">likelihood</a> d e c))
+      (and (<a href="../leqs">leqs</a> d1 d s) (<a href="../leqs">leqs</a> d2 d s))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the likelihood of an eventuality is the top of the likelihood scale given constraints <code>c</code>, then it is entailed by <code>c</code>.</p>
+<pre>
+(forall (d e c s)
+  (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s))
+      (iff (<a href="../top">top</a> d s) (<a href="../necessary">necessary</a> e c))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the likelihood of an eventuality is the bottom of the likelihood scale, then it is impossible given the constraints.</p>
+<pre>
+(forall (d e c s)
+  (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s))
+      (iff (<a href="../bottom">bottom</a> d s)
+           (<a href="../impossible">impossible</a> e c))))
+</pre>
+</div>
+<div class="axiom">
+<p>If something has a likelihood above the bottom of the likelihood scale with respect to a set of constraints, it is possible with respect to those constraints.</p>
+<pre>
+(forall (d e c s)
+  (if (and (<a href="../likelihood">likelihood</a> d1 e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../bottom">bottom</a> d s))
+      (iff (<a href="../lts">lts</a> d d1 s) (<a href="../possible">possible</a> e c))))
+</pre>
+</div>
+<div class="axiom">
+<p>If the likelihood of an eventuality <code>e</code> is <code>d</code>, we can say that <code>e</code> is at <code>d</code> on the likelihood scale, if <code>c</code> holds.</p>
+<pre>
+(forall (d e c s e1)
+  (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../at">at</a>' e1 e d s))
+      (<a href="../imply">imply</a> c e1)))
+</pre>
+</div>
+<div class="axiom">
+<p>One eventuality is more likely than another with respect to a set of constraints if its likelihood is higher.</p>
+<pre>
+(forall (e1 e2 c)
+  (iff (<a href="../moreLikely">moreLikely</a> e1 e2 c)
+       (exists (s d1 d2)
+         (and (<a href="../likelihoodScale">likelihoodScale</a> s)
+              (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c)
+              (<a href="../lts">lts</a> d2 d1 s)))))
+</pre>
+</div>
+<div class="axiom">
+<p>An eventuality is <code>likely</code> with respect to constraints <code>c</code> if its likelihood <code>d</code> is on the high end of the scale of likelihoods.</p>
+<pre>
+(forall (e c)
+  (iff (<a href="../likely">likely</a> e c)
+       (exists (s d s1)
+         (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../Hi">Hi</a> s1 s)
+              (<a href="../inScale">inScale</a> d s1)))))
+</pre>
+</div>
 </section>
 
 </body>

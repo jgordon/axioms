@@ -46,6 +46,201 @@
               (<a href="../relationsOf">relationsOf</a> s3 x)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (y x)
+  (iff (<a href="../componentOf">componentOf</a> y x)
+       (and (<a href="../compositeEntity">compositeEntity</a> x)
+            (exists (s)
+              (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../member">member</a> y s))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x y z)
+  (iff (<a href="../aggregate">aggregate</a> x y z)
+       (and (<a href="../compositeEntity">compositeEntity</a> x)
+            (exists (s)
+              (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../doubleton">doubleton</a> s y z))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e s s1 s2 s3)
+  (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
+           (<a href="../singleton">singleton</a> s2 e) (<a href="../null">null</a> s3))
+      (and (<a href="../compositeEntity">compositeEntity</a> s) (<a href="../componentsOf">componentsOf</a> s s)
+           (<a href="../propertiesOf">propertiesOf</a> s2 s) (<a href="../relationsOf">relationsOf</a> s3 s))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (p x y e1 e2 e3)
+  (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
+           (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2) (<a href="../Rexist">Rexist</a> e3))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity">compositeEntity</a> p)
+             (<a href="../doubleton">doubleton</a> s1 x y) (<a href="../componentsOf">componentsOf</a> s1 p)
+             (<a href="../singleton">singleton</a> s2 e1) (<a href="../propertiesOf">propertiesOf</a> s2 p)
+             (<a href="../doubleton">doubleton</a> s3 e2 e3) (<a href="../relationsOf">relationsOf</a> s3 p)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e s)
+  (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
+           (exists (x) (<a href="../inSeq">inSeq</a> x s)))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity">compositeEntity</a> s)
+             (forall (x) (iff (<a href="../member">member</a> x s1) (<a href="../inSeq">inSeq</a> x s)))
+             (<a href="../componentsOf">componentsOf</a> s1 s)
+             (<a href="../singleton">singleton</a> s2 e) (<a href="../propertiesOf">propertiesOf</a> s2 s)
+             (forall (e1)
+               (iff (<a href="../member">member</a> e1 s3)
+                    (exists (x y)
+                      (and (<a href="../beforeInSeq">beforeInSeq</a>' e1 x y s)
+                           (<a href="../Rexist">Rexist</a> e1)))))
+             (<a href="../relationsOf">relationsOf</a> s3 s)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s)
+  (iff (<a href="../ground">ground</a> s)
+       (and (<a href="../compositeEntity">compositeEntity</a> s)
+            (exists (e y s1)
+              (and (<a href="../componentsOf">componentsOf</a> s1 s) (<a href="../typelt">typelt</a> y s1) (<a href="../arg*">arg*</a> y e)
+                   (if (<a href="../Rexist">Rexist</a> s) (<a href="../Rexist">Rexist</a> e)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s)
+   (if (<a href="../scale">scale</a> s)
+       (and (<a href="../compositeEntity">compositeEntity</a> s)
+            (exists (s1 e x y s2 s3)
+               (and (<a href="../componentsOf">componentsOf</a> s1 s)
+                    (<a href="../partialOrdering">partialOrdering</a> e x y s)
+                    (<a href="../subset">subset</a> s2 s3) (<a href="../relationsOf">relationsOf</a> s3 s)
+                    (forall (e1)
+                       (if (<a href="../member">member</a> e1 s2)
+                           (exists (x1 y1)
+                              (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> y1 s1)
+                                   (<a href="../subst2">subst2</a> x1 y1 e1 x y e))))))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s1 s2)
+   (if (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
+       (iff (<a href="../disjoint">disjoint</a> s1 s2)
+            (exists (s3 s4)
+               (and (<a href="../componentsOf">componentsOf</a> s3 s1) (<a href="../componentsOf">componentsOf</a> s4 s2)
+                    (<a href="../disjoint">disjoint</a> s3 s4))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s1 s2)
+   (iff (<a href="../function">function</a> f s1 s2)
+        (exists (s3 s4)
+           (and (if (<a href="../set">set</a> s1) (equal s3 s1))
+                (if (<a href="../scale">scale</a> s1) (<a href="../componentsOf">componentsOf</a> s3 s1))
+                (if (<a href="../set">set</a> s2) (equal s4 s2))
+                (if (<a href="../scale">scale</a> s2) (<a href="../componentsOf">componentsOf</a> s4 s2))
+                (<a href="../function0">function0</a> f s3 s4)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s s1 e)
+   (iff (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+        (and (<a href="../scale">scale</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
+             (exists (x y)
+               (<a href="../partialOrdering">partialOrdering</a> e x y s)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s s1 e x y)
+   (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
+            (<a href="../beforeInSeq">beforeInSeq</a>' e x y s))
+       (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+            (forall (z)
+              (if (<a href="../first">first</a> z s)
+                  (<a href="../bottom">bottom</a> z s))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s s1 s2)
+   (if (<a href="../compositeScale">compositeScale</a> s s1 s2)
+       (and (exists (s3)
+               (and (<a href="../componentsOf">componentsOf</a> s3 s1) (<a href="../componentsOf">componentsOf</a> s3 s2)
+                    (<a href="../componentsOf">componentsOf</a> s3 s)))
+            (forall (x y)
+               (if (and (<a href="../lts">lts</a> x y s1) (<a href="../leqs">leqs</a> x y s2))
+                   (<a href="../lts">lts</a> x y s)))
+            (forall (x y)
+               (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../lts">lts</a> x y s2))
+                   (<a href="../lts">lts</a> x y s))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A complex event is a composite entity whose components are its subevents, among whose properties are the <code>event</code> properties, and among whose relations are the <code>subevent</code> relations.</p>
+<pre>
+(forall (e1 e)
+   (if (<a href="../subevent">subevent</a> e1 e)
+        (exists (s1 s2 s3)
+          (and (<a href="../compositeEntity">compositeEntity</a> e)
+               (<a href="../componentsOf">componentsOf</a> s1 e) (<a href="../propertiesOf">propertiesOf</a> s2 e)
+               (<a href="../relationsOf">relationsOf</a> s3 e)
+               (forall (e2)
+                 (iff (<a href="../member">member</a> e2 s1) (<a href="../subevent">subevent</a> e2 e)))
+               (forall (e2)
+                 (if (<a href="../member">member</a> e2 s1)
+                     (exists (e3)
+                       (and (<a href="../event">event</a>' e3 e2) (<a href="../member">member</a> e3 s2)))))
+               (forall (e2)
+                 (if (<a href="../member">member</a> e2 s1)
+                     (exists (e3)
+                       (and (<a href="../subevent">subevent</a>' e3 e2 e)
+                            (<a href="../member">member</a> e3 s3)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger. In this axiom x is the entity in the <code>Hi</code> region, s0 is the scale, s1 is its <code>Hi</code> region, s2 is the domain of scale s0, s3 is the set of elements of s2 lower on the scale than x, s4 is the set of elements of s2 higher on the scale than x, and the cardinality n3 of s3 is larger than the cardinality n4 of s4. The conjunct <code>(etc)</code> in line 2 is an indication of defeasibility.</p>
+<pre>
+(forall (x s0 s1)
+   (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
+       (exists (s2 s3 s4 n3 n4)
+          (and (<a href="../componentsOf">componentsOf</a> s2 s0) (<a href="../union">union</a> s2 s3 s4)
+               (forall (y) (iff (<a href="../member">member</a> y s3) (<a href="../lts">lts</a> y x s0)))
+               (forall (z) (iff (<a href="../member">member</a> z s4) (<a href="../lts">lts</a> x z s0)))
+               (<a href="../card">card</a> n3 s3) (<a href="../card">card</a> n4 s4) (<a href="../lt">lt</a> n4 n3)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A body is a composite entity whose components are body parts. In fact, it's a spatial system, since all the body parts are physical objects.</p>
+<pre>
+(forall (b p)
+  (if (<a href="../body">body</a> b p)
+      (and (<a href="../spatialSystem">spatialSystem</a> b)
+           (exists (s)
+             (and (<a href="../componentsOf">componentsOf</a> s b)
+                  (forall (x)
+                    (iff (<a href="../member">member</a> x s) (<a href="../bodyPart">bodyPart</a> x p))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A person <code>p</code> has a set of body parts, namely, the components of the body.</p>
+<pre>
+(forall (p s)
+  (iff (<a href="../bodyPartsOf">bodyPartsOf</a> s p)
+       (exists (b)
+         (and (<a href="../person">person</a> p) (<a href="../body">body</a> b p) (<a href="../componentsOf">componentsOf</a> s b)))))
+</pre>
+</div>
 </section>
 
 </body>

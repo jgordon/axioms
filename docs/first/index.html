@@ -35,6 +35,120 @@
       (and (<a href="../first">first</a> x p) (<a href="../second">second</a> y p))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (f s1 s2)
+  (iff (<a href="../function0">function0</a> f s1 s2)
+       (and (<a href="../set">set</a> s1) (<a href="../set">set</a> s2) (<a href="../set">set</a> f)
+            ;; A function is a set of pairs where the first elements
+            ;; come from s1 and the second elements come from s2.
+            (forall (p)
+              (if (<a href="../member">member</a> p f)
+                  (exists (x y)
+                    (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> y s2)
+                         (<a href="../pair">pair</a> p x y)))))
+            ;; There is a value of the function for every element of
+            ;; s1.
+            (forall (x)
+              (if (<a href="../member">member</a> x s1)
+                  (exists (p)
+                    (and (<a href="../member">member</a> p f) (<a href="../first">first</a> x p)))))
+            ;; The value is unique.
+            (forall (p1 p2 x)
+              (if (and (<a href="../first">first</a> x p1) (<a href="../first">first</a> x p2)
+                       (<a href="../member">member</a> p1 f) (<a href="../member">member</a> p2 f))
+                  (equal p1 p2)))
+            ;; Every element of s2 is the value of a member of s1 under
+            ;; the function f.
+            (forall (y)
+              (if (<a href="../member">member</a> y s2)
+                  (exists (p)
+                    (and (<a href="../member">member</a> p f) (<a href="../second">second</a> y p))))))))
+</pre>
+</div>
+<div class="axiom">
+<p><code>f</code>.</p>
+<pre>
+(forall (f x y)
+  (iff (<a href="../map">map</a> f x y)
+       (exists (s1 s2 p)
+         (and (<a href="../function0">function0</a> f s1 s2) (<a href="../member">member</a> p f)
+              (<a href="../first">first</a> x p) (<a href="../second">second</a> y p)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s y)
+  (if (<a href="../sequence">sequence</a> s)
+      (iff (<a href="../first">first</a> y s) (<a href="../nth">nth</a> y 1 s))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (p x y e1 e2 e3)
+  (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
+           (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2) (<a href="../Rexist">Rexist</a> e3))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity">compositeEntity</a> p)
+             (<a href="../doubleton">doubleton</a> s1 x y) (<a href="../componentsOf">componentsOf</a> s1 p)
+             (<a href="../singleton">singleton</a> s2 e1) (<a href="../propertiesOf">propertiesOf</a> s2 p)
+             (<a href="../doubleton">doubleton</a> s3 e2 e3) (<a href="../relationsOf">relationsOf</a> s3 p)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s s1 e x y)
+   (if (and (<a href="../sequence">sequence</a> s) (<a href="../componentsOf">componentsOf</a> s1 s)
+            (<a href="../beforeInSeq">beforeInSeq</a>' e x y s))
+       (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+            (forall (z)
+              (if (<a href="../first">first</a> z s)
+                  (<a href="../bottom">bottom</a> z s))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If there is an element of the temporal sequence before all its other elements, this is called the first element.</p>
+<pre>
+(forall (s t)
+  (if (<a href="../tseq">tseq</a> s)
+      (iff (<a href="../first">first</a> t s)
+           (and (<a href="../member">member</a> t s)
+                (forall (t1)
+                  (if (<a href="../member">member</a> t1 s)
+                      (or (equal t1 t) (<a href="../before">before</a> t t1))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The convex hull of a temporal sequence is the smallest interval spanning all the members of the temporal sequence.</p>
+<pre>
+(forall (s t1 t2 t3 t4)
+  (if (and (<a href="../tseq">tseq</a> s) (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t3 t1)
+           (<a href="../last">last</a> t2 s) (<a href="../ends">ends</a> t4 t2))
+      (forall (t)
+        (iff (<a href="../convexHull">convexHull</a> t s)
+             (<a href="../intervalBetween">intervalBetween</a> t t3 t4)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t s)
+  (if (<a href="../tseq">tseq</a> s)
+      (iff (<a href="../begins">begins</a> t s)
+           (exists (t1) (and (<a href="../first">first</a> t1 s) (<a href="../begins">begins</a> t t1))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The same event type happening to all the elements of a sequence in turn.</p>
+<pre>
+(forall (e s e1)
+  (iff (<a href="../forAllOfSeq">forAllOfSeq</a> e s x e1)
+       (exists (y e2 l e3 s1)
+         (or (and (<a href="../length">length</a> 1 s) (<a href="../first">first</a> y s) (<a href="../subst">subst</a> y e2 x e1) (equal e e2))
+             (and (<a href="../length">length</a> l s) (<a href="../gt">gt</a> l 1) (<a href="../first">first</a> y s) (<a href="../subst">subst</a> y e2 x e1)
+                  (<a href="../eventSequence">eventSequence</a> e e2 e3) (<a href="../forAllOfSeq">forAllOfSeq</a> e3 s1 x e1)
+                  (<a href="../rest">rest</a> s1 s))))))
+</pre>
+</div>
 </section>
 
 </body>

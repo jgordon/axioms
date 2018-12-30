@@ -48,6 +48,92 @@
 (forall (t) (if (<a href="../instant">instant</a> t) (<a href="../temporalEntity">temporalEntity</a> t)))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (t) (if (<a href="../interval">interval</a> t) (<a href="../temporalEntity">temporalEntity</a> t)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (<a href="../begins">begins</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (<a href="../ends">ends</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (<a href="../insideTime">insideTime</a> t1 t2)
+      (and (<a href="../instant">instant</a> t1)
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>OWL-T: The beginnings and ends of temporal entities, if they exist, are unique.</p>
+<pre>
+(forall (t t1 t2)
+  (if (and (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../begins">begins</a> t1 t) (<a href="../begins">begins</a> t2 t))
+      (equal t1 t2)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t t1 t2)
+  (if (and (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../ends">ends</a> t1 t) (<a href="../ends">ends</a> t2 t))
+      (equal t1 t2)))
+</pre>
+</div>
+<div class="axiom">
+<p>A temporal sequence is a set of non-overlapping temporal entities. Between any two distinct members of a temporal sequence, there is another interval or instant that is not in the set.</p>
+<pre>
+(forall (s)
+  (iff (<a href="../tseq">tseq</a> s)
+       (and (forall (t) (if (<a href="../member">member</a> t s) (<a href="../temporalEntity">temporalEntity</a> t)))
+            (forall (t1 t2)
+              (if (and (<a href="../member">member</a> t1 s) (<a href="../member">member</a> t2 s))
+                  (and (or (equal t1 t2) (<a href="../before">before</a> t1 t2)
+                           (<a href="../before">before</a> t2 t1))
+                       (if (<a href="../before">before</a> t1 t2)
+                           (exists (t3)
+                             (and (not (<a href="../member">member</a> t3 s))
+                                  (<a href="../before">before</a> t1 t3)
+                                  (<a href="../before">before</a> t3 t2))))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Instants are at least partially ordered by a <code>before</code> relation, which will also be extended to intervals, temporal sequences, and eventualities.</p>
+<pre>
+(forall (t1 t2)
+  (if (<a href="../before">before</a> t1 t2)
+      (and (or (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../tseq">tseq</a> t1) (<a href="../eventuality">eventuality</a> t1))
+           (or (<a href="../temporalEntity">temporalEntity</a> t2) (<a href="../tseq">tseq</a> t2) (<a href="../eventuality">eventuality</a> t2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (t1 t2)
+  (if (<a href="../sameDuration">sameDuration</a> t1 t2)
+      (and (<a href="../temporalEntity">temporalEntity</a> t1) (<a href="../temporalEntity">temporalEntity</a> t2))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predication <code>(durationOf d t u)</code> says that t is made up of d intervals having the same duration as u. We will allow the second argument to be an instant, an interval, a temporal sequence, or an eventuality.</p>
+<pre>
+(forall (d t u)
+  (if (<a href="../durationOf">durationOf</a> d t u)
+      (and (<a href="../nonNegInteger">nonNegInteger</a> d) (<a href="../temporalUnit">temporalUnit</a> u)
+           (or (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../tseq">tseq</a> t) (<a href="../eventuality">eventuality</a> t)))))
+</pre>
+</div>
 </section>
 
 </body>

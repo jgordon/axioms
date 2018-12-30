@@ -32,6 +32,28 @@
         (and (<a href="../conflict">conflict</a> e x y u h) (<a href="../of-in">of-in</a> e2 e g)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e e1 e2 x y u)
+  (if (<a href="../adversary">adversary</a> e1 x y e)
+      (and (<a href="../adversary">adversary</a> e1 x u e) (<a href="../of-in">of-in</a> e2 x y))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e1 e2 g x)
+  (if (<a href="../goal">goal</a> e1 g x)
+      (and (<a href="../goal-nn">goal-nn</a> e1 g) (<a href="../of-in">of-in</a> e2 g x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e2 u1)
+        (and (<a href="../attack">attack</a> e1 x u1) (<a href="../of-in">of-in</a> e2 e1 y)))))
+</pre>
+</div>
 </section>
 
 </body>

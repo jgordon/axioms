@@ -50,6 +50,139 @@
                   (<a href="../bottom">bottom</a> z s))))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (s1 e x y)
+  (if (and (forall (s2)
+             (if (<a href="../member">member</a> s2 s1)
+                 (<a href="../set">set</a> s2)))
+            (<a href="../subset">subset</a>' e x y))
+       (exists (s)
+          (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+               (forall (z)
+                 (if (and (<a href="../member">member</a> z s1) (<a href="../null">null</a> z))
+                     (<a href="../bottom">bottom</a> z s)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s1 e x y)
+  (if (and (<a href="../lt">lt</a>' e x y)
+           (forall (n)
+             (if (<a href="../member">member</a> n s1)
+                 (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
+           (<a href="../member">member</a> 0 s1))
+      (exists (s)
+        (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s)
+  (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
+      (exists (s1 e x y)
+        (and (<a href="../lt">lt</a>' e x y)
+             (forall (n)
+               (if (<a href="../member">member</a> n s1)
+                   (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
+             (<a href="../member">member</a> 0 s1)
+             (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e x y s1 s m n u)
+  (if (and (forall (z)
+             (if (<a href="../member">member</a> z s1) (<a href="../set">set</a> z)))
+           (exists (w)
+             (and (<a href="../member">member</a> w s1) (<a href="../null">null</a> w)))
+           (<a href="../subset">subset</a>' e x y)
+           (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+           (<a href="../card">card</a>' m n u))
+      (<a href="../measure">measure</a> m s)))
+</pre>
+</div>
+<div class="axiom">
+<p>A temporal sequence is a scale whose ordering relation is <code>before</code>.</p>
+<pre>
+(forall (s e t1 t1)
+  (if (and (<a href="../tseq">tseq</a> s) (<a href="../before">before</a>' e t1 t2))
+      (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s e)))
+</pre>
+</div>
+<div class="axiom">
+<p>Time is a scale whose ordering relation is <code>before</code> and whose components are instants and intervals.</p>
+<pre>
+(forall (t)
+  (iff (<a href="../timeScale">timeScale</a> t)
+       (exists (s e t2 t3)
+         (and (forall (t1)
+                (iff (<a href="../member">member</a> t1 s)
+                     (or (<a href="../instant">instant</a> t1) (<a href="../interval">interval</a> t1))))
+              (<a href="../before">before</a>' e t2 t3)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> t s e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Then we can define a <code>scaleOrderedByDuration</code>.</p>
+<pre>
+(forall (s)
+  (iff (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s)
+       (exists (s1 e t1 t2)
+         (and (forall (t) (if (<a href="../member">member</a> t s1) (<a href="../interval">interval</a> t)))
+              (<a href="../shorterDuration">shorterDuration</a>' e t1 t2)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Rate defines a scale whose elements are the set of events whose rate is being measured and whose ordering is the less-than relation between rates.</p>
+<pre>
+(forall (s s0)
+  (iff (<a href="../rateScale">rateScale</a> s s0)
+       (and (forall (s1) (if (<a href="../member">member</a> s1 s0) (<a href="../eventualities">eventualities</a> s1)))
+            (exists (u e s1 s2)
+              (and (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../lts">lts</a>' e s1 s2 s0)
+                   (forall (s3 s4)
+                     (iff (and (<a href="../lts">lts</a>' e s3 s4 s0) (<a href="../Rexist">Rexist</a> e))
+                          (exists (r1 r2)
+                            (and (<a href="../rate">rate</a> r1 s3 u) (<a href="../rate">rate</a> r2 s4 u)
+                                 (<a href="../lt">lt</a> r1 r2)))))
+                   (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Then &ldquo;nearness&rdquo; scale is a scale whose partial ordering is <code>nearer</code>.</p>
+<pre>
+(forall (s z)
+   (iff (<a href="../nearnessScale">nearnessScale</a> s z)
+        (exists (s0 e x y u)
+           (and (<a href="../nearer">nearer</a>' e x y z u) (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The expression <code>(widthScale s s1 e)</code> says that s is a scale whose elements are a set s1 and whose ordering relation is e. Lines 5-6 say that the elements of s1 are widths of things; just which things must be determined contextually. Line 7 says the relation e is the &ldquo;wider than&rdquo; relation; x1 and x2 are parameters in this relation.</p>
+<pre>
+(forall (s s1 e)
+   (iff (<a href="../widthScale">widthScale</a> s s1 e)
+        (exists (u x1 x2)
+           (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+                (forall (n)
+                   (if (<a href="../member">member</a> n s1) (exists (x) (<a href="../width">width</a> n x u)))
+                       (<a href="../wider">wider</a>' e x1 x2)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The <code>likelihoodScale</code> has likelihoods as its elements and the <code>lowerLikelihood</code> relation as its partial ordering.</p>
+<pre>
+(forall (s)
+  (iff (<a href="../likelihoodScale">likelihoodScale</a> s)
+       (exists (s1 e r d1 d2)
+         (and (forall (d)
+                (iff (<a href="../member">member</a> d s1) (exists (e c) (<a href="../likelihood">likelihood</a> d e c))))
+              (<a href="../lowerLikelihood">lowerLikelihood</a>' r d1 d2)
+              (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 r)))))
+</pre>
+</div>
 </section>
 
 </body>

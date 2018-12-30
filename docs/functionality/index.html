@@ -31,6 +31,29 @@
       (<a href="../decreaseStruct">decreaseStruct</a> x)))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (x y f)
+  (if (and (<a href="../increaseFct">increaseFct</a> y) (<a href="../functionality">functionality</a> f x))
+      (<a href="../increaseStruct">increaseStruct</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<p>A nation is a dynamic functional composite entity with the goal of having its citizens thrive.</p>
+<pre>
+(forall (x f s)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s)
+           (<a href="../citizens">citizens</a> s x))
+      (<a href="../nation">nation</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x y f)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../leadP">leadP</a> f x y))
+      (<a href="../politicalParty">politicalParty</a> x)))
+</pre>
+</div>
 </section>
 
 </body>

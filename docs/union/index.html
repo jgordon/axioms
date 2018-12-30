@@ -48,6 +48,38 @@
          (and (<a href="../union">union</a> s s1 s4) (<a href="../union">union</a> s4 s2 s3)))))
 </pre>
 </div>
+<div class="axiom">
+<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger. In this axiom x is the entity in the <code>Hi</code> region, s0 is the scale, s1 is its <code>Hi</code> region, s2 is the domain of scale s0, s3 is the set of elements of s2 lower on the scale than x, s4 is the set of elements of s2 higher on the scale than x, and the cardinality n3 of s3 is larger than the cardinality n4 of s4. The conjunct <code>(etc)</code> in line 2 is an indication of defeasibility.</p>
+<pre>
+(forall (x s0 s1)
+   (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
+       (exists (s2 s3 s4 n3 n4)
+          (and (<a href="../componentsOf">componentsOf</a> s2 s0) (<a href="../union">union</a> s2 s3 s4)
+               (forall (y) (iff (<a href="../member">member</a> y s3) (<a href="../lts">lts</a> y x s0)))
+               (forall (z) (iff (<a href="../member">member</a> z s4) (<a href="../lts">lts</a> x z s0)))
+               (<a href="../card">card</a> n3 s3) (<a href="../card">card</a> n4 s4) (<a href="../lt">lt</a> n4 n3)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Given an eventuality <code>e</code> and a set of constraints <code>c</code>, we can ask what other set <code>s</code> of eventualities would have to obtain in order to entail that <code>e</code> also obtains. The expression <code>(alsoRequired s e c)</code> says that <code>s</code> is a set of eventualities that will entail the real existence of <code>e</code>, over and above <code>c</code>.</p>
+<pre>
+(forall (s e c)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../alsoRequired">alsoRequired</a> s e c)
+           (and (<a href="../eventualities">eventualities</a> s) (<a href="../eventualities">eventualities</a> c)
+                (exists (s1 c1)
+                  (and (<a href="../union">union</a> s1 c1 s) (<a href="../subset">subset</a> c1 c)
+                       (<a href="../minimallyProves">minimallyProves</a> s1 e)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A union is an organization with the goal of having its members thrive.</p>
+<pre>
+(forall (e1 e2 m1 u)
+  (if (and (<a href="../thrive">thrive</a> e1 m1) (<a href="../members">members</a> m1 u) (<a href="../goal">goal</a> e2 e1 u))
+      (<a href="../union">union</a> u)))
+</pre>
+</div>
 </section>
 
 </body>

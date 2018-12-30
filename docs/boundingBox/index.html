@@ -53,6 +53,65 @@
                  (and (<a href="../lt">lt</a> d3 d1) (<a href="../lt">lt</a> d3 d2))))))
 </pre>
 </div>
+<div class="axiom">
+<p>We are already using the predicate <code>length</code> for the length of a line segment, so for the length of a 3-dimensional physical object, we'll use the predicate <code>length3</code>. The length of a physical object is the length of the longest side of its bounding box.</p>
+<pre>
+(forall (n x u)
+   (iff (<a href="../length3">length3</a> n x u)
+        (exists (b)
+           (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim1">dim1</a> c b x) (<a href="../length">length</a> n c u)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The width of a physical object is the length of the second longest side of its bounding box.</p>
+<pre>
+(forall (n x u)
+   (iff (<a href="../width">width</a> n x u)
+        (exists (b)
+           (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim2">dim2</a> c b x) (<a href="../length">length</a> n c u)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The thickness of a physical object is the length of the third longest side of its bounding box.</p>
+<pre>
+(forall (n x u)
+   (iff (<a href="../thickness">thickness</a> n x u)
+        (exists (b)
+           (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim3">dim3</a> c b x) (<a href="../length">length</a> n c u)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Depth may seem also to specify a vertical dimension, as in &ldquo;the depth of the lake&rdquo;. But one can also talk about &ldquo;the depth of the safe&rdquo; referring to how far back one can reach into it. On the other hand, one wouldn't talk about the depth of a floor, referring to the distance from the carpet to the ceiling of the room below. The condition for &ldquo;depth&rdquo; probably involves a real or imagined movement into the object. Moreover, the entry into the object can be through the top, as in the lake example, or through the front or one of the sides, as in the safe example. But apparently the movement can't be through the bottom of the object. Here r is the face of physical object x through which entry is effected in real or imagined motion e of something y from z1 to z2. Ray c is a &ldquo;quill&rdquo; from a central point in x through a central point in r, and it is parallel to an edge c1 of a bounding box b of x. The length of that edge is the depth of the object.</p>
+<pre>
+(forall (n x u)
+   (iff (<a href="../depth">depth</a> n x u)
+        (exists (c r e y z1 z2 b c1)
+           (and (<a href="../quill">quill</a> c x r) (not (<a href="../bottom">bottom</a> r x))
+                (<a href="../move">move</a>' e y z1 z2) (<a href="../into">into</a> e x) (<a href="../through">through</a> e r)
+                (<a href="../boundingBox">boundingBox</a> b x) (<a href="../edge">edge</a> c1 b) (<a href="../parallel">parallel</a> c c1)
+                (<a href="../length">length</a> n c1 u)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If a book is standing on a table, its greatest dimension is vertical.</p>
+<pre>
+(forall (x p)
+   (if (<a href="../stand">stand</a> x p)
+       (exists (c b x d f)
+          (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim1">dim1</a> c b x)
+               (<a href="../posZAxis">posZAxis</a> d f) (<a href="../directionOf">directionOf</a> d c)))))
+</pre>
+</div>
+<div class="axiom">
+<p>If a book is lying or resting on a table, its greatest dimension is not vertical.</p>
+<pre>
+(forall (x p)
+   (if (<a href="../lie">lie</a> x p)
+       (exists (c b x d f)
+          (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim1">dim1</a> c b x)
+               (<a href="../posZAxis">posZAxis</a> d f) (not (<a href="../directionOf">directionOf</a> d c))))))
+</pre>
+</div>
 </section>
 
 </body>

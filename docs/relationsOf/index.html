@@ -51,6 +51,101 @@
               (<a href="../relationsOf">relationsOf</a> s3 x)))))
 </pre>
 </div>
+<div class="axiom">
+<p><code>relationsOf</code> set.</p>
+<pre>
+(forall (e x)
+  (iff (<a href="../relationOf">relationOf</a> e x)
+       (exists (s)
+         (and (<a href="../relationsOf">relationsOf</a> s x) (<a href="../member">member</a> e s)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e x)
+  (iff (<a href="../propOrRelOf">propOrRelOf</a> e x)
+       (exists (s)
+         (and (<a href="../member">member</a> e s)
+              (or (<a href="../propertiesOf">propertiesOf</a> s x) (<a href="../relationsOf">relationsOf</a> s x))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e s s1 s2 s3)
+  (if (and (<a href="../set">set</a>' e s) (<a href="../Rexist">Rexist</a> e) (not (<a href="../null">null</a> s))
+           (<a href="../singleton">singleton</a> s2 e) (<a href="../null">null</a> s3))
+      (and (<a href="../compositeEntity">compositeEntity</a> s) (<a href="../componentsOf">componentsOf</a> s s)
+           (<a href="../propertiesOf">propertiesOf</a> s2 s) (<a href="../relationsOf">relationsOf</a> s3 s))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (p x y e1 e2 e3)
+  (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
+           (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2) (<a href="../Rexist">Rexist</a> e3))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity">compositeEntity</a> p)
+             (<a href="../doubleton">doubleton</a> s1 x y) (<a href="../componentsOf">componentsOf</a> s1 p)
+             (<a href="../singleton">singleton</a> s2 e1) (<a href="../propertiesOf">propertiesOf</a> s2 p)
+             (<a href="../doubleton">doubleton</a> s3 e2 e3) (<a href="../relationsOf">relationsOf</a> s3 p)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e s)
+  (if (and (<a href="../sequence">sequence</a>' e s) (<a href="../Rexist">Rexist</a> e)
+           (exists (x) (<a href="../inSeq">inSeq</a> x s)))
+      (exists (s1 s2 s3)
+        (and (<a href="../compositeEntity">compositeEntity</a> s)
+             (forall (x) (iff (<a href="../member">member</a> x s1) (<a href="../inSeq">inSeq</a> x s)))
+             (<a href="../componentsOf">componentsOf</a> s1 s)
+             (<a href="../singleton">singleton</a> s2 e) (<a href="../propertiesOf">propertiesOf</a> s2 s)
+             (forall (e1)
+               (iff (<a href="../member">member</a> e1 s3)
+                    (exists (x y)
+                      (and (<a href="../beforeInSeq">beforeInSeq</a>' e1 x y s)
+                           (<a href="../Rexist">Rexist</a> e1)))))
+             (<a href="../relationsOf">relationsOf</a> s3 s)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s)
+   (if (<a href="../scale">scale</a> s)
+       (and (<a href="../compositeEntity">compositeEntity</a> s)
+            (exists (s1 e x y s2 s3)
+               (and (<a href="../componentsOf">componentsOf</a> s1 s)
+                    (<a href="../partialOrdering">partialOrdering</a> e x y s)
+                    (<a href="../subset">subset</a> s2 s3) (<a href="../relationsOf">relationsOf</a> s3 s)
+                    (forall (e1)
+                       (if (<a href="../member">member</a> e1 s2)
+                           (exists (x1 y1)
+                              (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> y1 s1)
+                                   (<a href="../subst2">subst2</a> x1 y1 e1 x y e))))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A complex event is a composite entity whose components are its subevents, among whose properties are the <code>event</code> properties, and among whose relations are the <code>subevent</code> relations.</p>
+<pre>
+(forall (e1 e)
+   (if (<a href="../subevent">subevent</a> e1 e)
+        (exists (s1 s2 s3)
+          (and (<a href="../compositeEntity">compositeEntity</a> e)
+               (<a href="../componentsOf">componentsOf</a> s1 e) (<a href="../propertiesOf">propertiesOf</a> s2 e)
+               (<a href="../relationsOf">relationsOf</a> s3 e)
+               (forall (e2)
+                 (iff (<a href="../member">member</a> e2 s1) (<a href="../subevent">subevent</a> e2 e)))
+               (forall (e2)
+                 (if (<a href="../member">member</a> e2 s1)
+                     (exists (e3)
+                       (and (<a href="../event">event</a>' e3 e2) (<a href="../member">member</a> e3 s2)))))
+               (forall (e2)
+                 (if (<a href="../member">member</a> e2 s1)
+                     (exists (e3)
+                       (and (<a href="../subevent">subevent</a>' e3 e2 e)
+                            (<a href="../member">member</a> e3 s3)))))))))
+</pre>
+</div>
 </section>
 
 </body>

@@ -56,6 +56,79 @@
       (and (<a href="../event">event</a> e1) (<a href="../event">event</a> e2))))
 </pre>
 </div>
+<div class="axiom">
+<p>An aggregate, or conjunction, that has an event as a conjunct is itself an event.</p>
+<pre>
+(forall (e e1 e2)
+   (if (and (<a href="../and'">and'</a> e e1 e2) (<a href="../event">event</a> e1))
+       (and (<a href="../subevent">subevent</a> e1 e) (<a href="../event">event</a> e))))
+</pre>
+</div>
+<div class="axiom">
+<p><code>and'</code> is essentially commutative.</p>
+<pre>
+(forall (e e1 e2)
+  (if (and (<a href="../and'">and'</a> e e1 e2) (<a href="../event">event</a> e2))
+      (and (<a href="../subevent">subevent</a> e2 e) (<a href="../event">event</a> e))))
+</pre>
+</div>
+<div class="axiom">
+<p>Two events are in sequence if one is before the other, and the aggregate of the two events is just their reified conjunction.</p>
+<pre>
+(forall (e e1 e2)
+  (iff (<a href="../eventSequence">eventSequence</a> e e1 e2)
+       (and (<a href="../event">event</a> e1) (<a href="../event">event</a> e2) (<a href="../and'">and'</a> e e1 e2) (<a href="../beforeOrMeets">beforeOrMeets</a> e1 e2))))
+</pre>
+</div>
+<div class="axiom">
+<p>From 13.6 and 13.7, we see that the components of an event sequence are subevents and that the event sequence is itself an event.</p>
+<pre>
+(forall (e e1 e2)
+  (if (<a href="../eventSequence">eventSequence</a> e e1 e2)
+      (and (<a href="../event">event</a> e) (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))
+</pre>
+</div>
+<div class="axiom">
+<p>We will take a conditional event to be the implicational relation between some eventuality &ndash; a state or an event &ndash; and an event, with a further relation that the first eventuality must obtain at the beginning of the second.</p>
+<pre>
+(forall (e e1 e2)
+  (iff (<a href="../cond">cond</a> e e1 e2)
+       (and (<a href="../imply'">imply'</a> e e1 e2) (<a href="../event">event</a> e2)
+            (forall (t)
+              (if (<a href="../begins">begins</a> t e2)
+                  (<a href="../atTime">atTime</a> e1 t))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The event <code>e2</code> is a subevent of <code>e</code> and hence <code>e</code> is also an event.</p>
+<pre>
+(forall (e e1 e2)
+  (if (<a href="../cond">cond</a> e e1 e2)
+      (and (<a href="../subevent">subevent</a> e2 e) (<a href="../event">event</a> e))))
+</pre>
+</div>
+<div class="axiom">
+<p>A complex event is a composite entity whose components are its subevents, among whose properties are the <code>event</code> properties, and among whose relations are the <code>subevent</code> relations.</p>
+<pre>
+(forall (e1 e)
+   (if (<a href="../subevent">subevent</a> e1 e)
+        (exists (s1 s2 s3)
+          (and (<a href="../compositeEntity">compositeEntity</a> e)
+               (<a href="../componentsOf">componentsOf</a> s1 e) (<a href="../propertiesOf">propertiesOf</a> s2 e)
+               (<a href="../relationsOf">relationsOf</a> s3 e)
+               (forall (e2)
+                 (iff (<a href="../member">member</a> e2 s1) (<a href="../subevent">subevent</a> e2 e)))
+               (forall (e2)
+                 (if (<a href="../member">member</a> e2 s1)
+                     (exists (e3)
+                       (and (<a href="../event">event</a>' e3 e2) (<a href="../member">member</a> e3 s2)))))
+               (forall (e2)
+                 (if (<a href="../member">member</a> e2 s1)
+                     (exists (e3)
+                       (and (<a href="../subevent">subevent</a>' e3 e2 e)
+                            (<a href="../member">member</a> e3 s3)))))))))
+</pre>
+</div>
 </section>
 
 </body>

@@ -47,6 +47,20 @@
       (<a href="../cause0">cause0</a> e1 e3)))
 </pre>
 </div>
+<div class="axiom">
+<p><code>cause</code> is like <code>cause0</code>, but it allows an agent as its first argument. When the first argument of <code>cause</code> is an eventuality, it reduces to <code>cause0</code>. When it's an agent, the agent's willing is the <code>cause0</code> of the second argument.</p>
+<pre>
+(forall (a e2)
+  (and (if (<a href="../eventuality">eventuality</a> a)
+           (iff (<a href="../cause">cause</a> a e2) (<a href="../cause0">cause0</a> a e2)))
+       (if (<a href="../agent">agent</a> a)
+           (iff (<a href="../cause">cause</a> a e2)
+                (exists (e1)
+                  (and (<a href="../will">will</a>' e1 a e2) (<a href="../cause0">cause0</a> e1 e2)))))
+       (if (not (or (<a href="../eventuality">eventuality</a> a) (<a href="../agent">agent</a> a)))
+           (not (<a href="../cause">cause</a> a e2)))))
+</pre>
+</div>
 </section>
 
 </body>

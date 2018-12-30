@@ -44,6 +44,17 @@
        (and (<a href="../framework">framework</a> f) (<a href="../posYAxis">posYAxis</a> d f) (<a href="../orientation">orientation</a> d v)))))
 </pre>
 </div>
+<div class="axiom">
+<p>Physical objects have a front have an intrinsic orientation, and that orientation can change. This is called turning.</p>
+<pre>
+(forall (r x)
+   (if (<a href="../front">front</a> r x)
+       (iff (<a href="../turn">turn</a> x d1 d2)
+            (exists (e1 e2 f)
+               (and (<a href="../change">change</a> e1 e2) (<a href="../orientation">orientation</a>' e1 d1 x f)
+                    (<a href="../orientation">orientation</a>' e2 d2 x f))))))
+</pre>
+</div>
 </section>
 
 </body>

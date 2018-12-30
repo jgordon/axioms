@@ -33,6 +33,48 @@
       (<a href="../nation">nation</a> x)))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (x y f)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../leadP">leadP</a> f x y))
+      (<a href="../politicalParty">politicalParty</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<p>Team X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (e2)
+        (<a href="../team-nn">team-nn</a> e2 x))))
+</pre>
+</div>
+<div class="axiom">
+<p>Band X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (e2)
+        (<a href="../band-nn">band-nn</a> e2 x))))
+</pre>
+</div>
+<div class="axiom">
+<p>Gang X.</p>
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (e2)
+        (<a href="../gang-nn">gang-nn</a> e2 x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 x y g h)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
+      (exists (e2 u)
+        (<a href="../defection-nn">defection-nn</a> e2 u))))
+</pre>
+</div>
 </section>
 
 </body>

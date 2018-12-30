@@ -48,6 +48,264 @@
        (and (<a href="../subset">subset</a> s1 s2) (<a href="../nequal">nequal</a> s1 s2))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (s0 s)
+  (iff (<a href="../powerSet">powerSet</a> s0 s)
+       (forall (s1)
+         (iff (<a href="../member">member</a> s1 s0)
+              (<a href="../subset">subset</a> s1 s)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (y s)
+  (iff (<a href="../notSubsetTypelt">notSubsetTypelt</a> y s)
+       (not (exists (s1)
+              (and (<a href="../typelt">typelt</a> y s1) (<a href="../subset">subset</a> s1 s))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e1 e)
+  (iff (<a href="../partialInstance">partialInstance</a> e1 e)
+       (forall (s x)
+         (if (and (<a href="../member">member</a> x s) (<a href="../parameters">parameters</a> s e))
+             (exists (x1 s1)
+               (and (<a href="../subst">subst</a> x e x1 e1) (<a href="../typelt">typelt</a> x s1)
+                    (or (<a href="../member">member</a> x1 s1)
+                        (exists (s2)
+                          (and (<a href="../typelt">typelt</a> x1 s2)
+                               (<a href="../subset">subset</a> s2 s1))))))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s)
+   (if (<a href="../scale">scale</a> s)
+       (and (<a href="../compositeEntity">compositeEntity</a> s)
+            (exists (s1 e x y s2 s3)
+               (and (<a href="../componentsOf">componentsOf</a> s1 s)
+                    (<a href="../partialOrdering">partialOrdering</a> e x y s)
+                    (<a href="../subset">subset</a> s2 s3) (<a href="../relationsOf">relationsOf</a> s3 s)
+                    (forall (e1)
+                       (if (<a href="../member">member</a> e1 s2)
+                           (exists (x1 y1)
+                              (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> y1 s1)
+                                   (<a href="../subst2">subst2</a> x1 y1 e1 x y e))))))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s1 s3)
+   (iff (<a href="../functionInto">functionInto</a> f s1 s3)
+        (exists (s2)
+          (and (or (<a href="../subset">subset</a> s2 s3) (<a href="../subscale">subscale</a> s2 s3))
+               (<a href="../function">function</a> f s1 s2)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s1 e x y)
+  (if (and (forall (s2)
+             (if (<a href="../member">member</a> s2 s1)
+                 (<a href="../set">set</a> s2)))
+            (<a href="../subset">subset</a>' e x y))
+       (exists (s)
+          (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+               (forall (z)
+                 (if (and (<a href="../member">member</a> z s1) (<a href="../null">null</a> z))
+                     (<a href="../bottom">bottom</a> z s)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (s e)
+   (iff (<a href="../subsetConsistent">subsetConsistent</a> s e)
+        (and (<a href="../scale">scale</a> s) (<a href="../eventuality">eventuality</a> e)
+             (forall (s0) (if (<a href="../argn">argn</a> s0 1 e) (<a href="../set">set</a> s0)))
+             (forall (x) (if (<a href="../argn">argn</a> x 2 e) (exists (y) (<a href="../at">at</a> x y s))))
+             (forall (e1 e2 s1 s2 x1 x2)
+                (if (and (<a href="../instance">instance</a> e1 e) (<a href="../argn">argn</a> s1 1 e1)
+                                         (<a href="../argn">argn</a> x1 2 e1)
+                         (<a href="../instance">instance</a> e2 e) (<a href="../argn">argn</a> s2 1 e2)
+                                         (<a href="../argn">argn</a> x2 2 e2)
+                         (<a href="../subset">subset</a> s1 s2))
+                    (<a href="../leqs">leqs</a> x1 x2 s))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e x y s1 s m n u)
+  (if (and (forall (z)
+             (if (<a href="../member">member</a> z s1) (<a href="../set">set</a> z)))
+           (exists (w)
+             (and (<a href="../member">member</a> w s1) (<a href="../null">null</a> w)))
+           (<a href="../subset">subset</a>' e x y)
+           (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)
+           (<a href="../card">card</a>' m n u))
+      (<a href="../measure">measure</a> m s)))
+</pre>
+</div>
+<div class="axiom">
+<p>We define the eventualities beyond an agent a's control as the subset s1 of eventualities in a set s that a cannot bring about by a's efforts alone. That is, a is not the agent of actions in s1 nor the agent of an action that causes events in s1.</p>
+<pre>
+(forall (s1 s a)
+  (iff (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
+       (and (<a href="../eventualities">eventualities</a> s) (<a href="../subset">subset</a> s1 s) (<a href="../agent">agent</a> a)
+            (forall (e)
+              (iff (<a href="../member">member</a> e s1)
+                   (and (not (<a href="../agentOf">agentOf</a> a e))
+                        (not (exists (e1)
+                               (and (<a href="../agentOf">agentOf</a> a e1)
+                                    (<a href="../cause">cause</a> e1 e))))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A non-null subset of the domain is &ldquo;horizontal&rdquo; if no element is <code>above2</code> or <code>above3</code> any other element. If there is no <code>above3</code> relation, then <code>(above3 x1 x2 f)</code> will always be false, so the definition covers the two-dimensional case as well.</p>
+<pre>
+(forall (s1 f)
+  (iff (<a href="../horizontal2">horizontal2</a> s1 f)
+       (exists (s)
+         (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+              (not (exists (x1 x2)
+                     (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                          (or (<a href="../above2">above2</a> x1 x2 f)
+                              (<a href="../above3">above3</a> x1 x2 f)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A non-null subset of the domain is <code>vertical2</code> if no element is <code>rightOf</code> or <code>above3</code> any other element.</p>
+<pre>
+(forall (s1 f)
+  (iff (<a href="../vertical2">vertical2</a> s1 f)
+       (exists (s)
+         (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+              (not (exists (x1 x2)
+                     (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                          (or (<a href="../rightOf">rightOf</a> x1 x2 f)
+                              (<a href="../above3">above3</a> x1 x2 f)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A non-null subset of the domain is <code>vertical3</code> if no element is <code>rightOf</code> or <code>above2</code> any other element. In the two-dimensional case, a <code>vertical3</code> set has no ordering relations among its elements.</p>
+<pre>
+(forall (s1 f)
+   (iff (<a href="../vertical3">vertical3</a> s1 f)
+        (exists (s)
+           (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+                (not (exists (x1 x2)
+                        (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                             (or (<a href="../rightOf">rightOf</a> x1 x2 f)
+                                 (<a href="../above2">above2</a> x1 x2 f)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A horizontal plane is a set in which no element is <code>above3</code> any other. In the two-dimensional case any subset of the domain is a horizontal plane.</p>
+<pre>
+(forall (s1 f)
+   (iff (<a href="../horizontalPlane">horizontalPlane</a> s1 f)
+        (exists (s)
+           (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+                (not (exists (x1 x2)
+                        (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                             (<a href="../above3">above3</a> x1 x2 f))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A <code>vertical2</code> plane is a set in which no element is <code>rightOf</code> any other. In the two-dimensional case, a <code>vertical2</code> plane is a <code>vertical2</code> set.</p>
+<pre>
+(forall (s1 f)
+   (iff (<a href="../vertical2Plane">vertical2Plane</a> s1 f)
+        (exists (s)
+           (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+                (not (exists (x1 x2)
+                        (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                             (<a href="../rightOf">rightOf</a> x1 x2 f))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A <code>vertical3</code> plane is a set in which no element is <code>above2</code> any other. In the two-dimensional case, a <code>vertical3</code> plane is a horizontal set.</p>
+<pre>
+(forall (s1 f)
+   (iff (<a href="../vertical3Plane">vertical3Plane</a> s1 f)
+        (exists (s)
+           (and (<a href="../domain">domain</a> s f) (<a href="../subset">subset</a> s1 s) (not (<a href="../null">null</a> s1))
+                (not (exists (x1 x2)
+                        (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> x2 s1)
+                             (<a href="../above2">above2</a> x1 x2 f))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A composite entity is along a curve if its components are at points on the curve.</p>
+<pre>
+(forall (z c s)
+   (iff (<a href="../along">along</a> z c s)
+        (and (<a href="../compositeEntity">compositeEntity</a> z) (<a href="../curve">curve</a> c) (<a href="../subset">subset</a> c s)
+             (forall (x)
+                (if (<a href="../componentOf">componentOf</a> x z)
+                    (exists (y)
+                       (and (<a href="../inside">inside</a> y c) (<a href="../at">at</a> x y s))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A composite entity can be over a region.</p>
+<pre>
+(forall (z  s)
+   (iff (<a href="../over">over</a> z r s)
+        (and (<a href="../compositeEntity">compositeEntity</a> z) (<a href="../region">region</a> r) (<a href="../subset">subset</a> r s)
+             (forall (x)
+                (if (<a href="../componentOf">componentOf</a> x z)
+                    (exists (y)
+                       (and (<a href="../inside">inside</a> y r) (<a href="../at">at</a> x y s))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The sense organs are a subset of the body parts.</p>
+<pre>
+(forall (p x)
+  (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
+      (exists (s2)
+        (and (<a href="../subset">subset</a> s2 s1)
+             (forall (o)
+               (iff (<a href="../member">member</a> o s2) (<a href="../senseOrgan">senseOrgan</a> o p)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Another subset of body parts can be directly controlled by a person's will. That is, the person's willing an event is the direct cause of the motion of the body part.</p>
+<pre>
+(forall (p s1)
+  (if (and (<a href="../person">person</a> p) (<a href="../bodyPartsOf">bodyPartsOf</a> s1 p))
+      (exists (s2)
+        (and (<a href="../subset">subset</a> s2 s1)
+             (forall (x)
+               (if (<a href="../member">member</a> x s2)
+                   (exists (e1 e2 y z)
+                     (and (<a href="../move">move</a>' e2 x y z) (<a href="../will">will</a>' e1 p e2)
+                          (<a href="../dcause">dcause</a> e1 e2)))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>Given an eventuality <code>e</code> and a set of constraints <code>c</code>, we can ask what other set <code>s</code> of eventualities would have to obtain in order to entail that <code>e</code> also obtains. The expression <code>(alsoRequired s e c)</code> says that <code>s</code> is a set of eventualities that will entail the real existence of <code>e</code>, over and above <code>c</code>.</p>
+<pre>
+(forall (s e c)
+  (if (<a href="../eventuality">eventuality</a> e)
+      (iff (<a href="../alsoRequired">alsoRequired</a> s e c)
+           (and (<a href="../eventualities">eventualities</a> s) (<a href="../eventualities">eventualities</a> c)
+                (exists (s1 c1)
+                  (and (<a href="../union">union</a> s1 c1 s) (<a href="../subset">subset</a> c1 c)
+                       (<a href="../minimallyProves">minimallyProves</a> s1 e)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>The more we have to assume will happen, the less likely it is.</p>
+<pre>
+(forall (s1 e1 d1 s2 e2 d2 c s)
+  (if (and (<a href="../alsoRequired">alsoRequired</a> s1 e1 c) (<a href="../alsoRequired">alsoRequired</a> s2 e2 c) (<a href="../subset">subset</a> s2 s1)
+           (<a href="../likelihood">likelihood</a> d1 e1 c) (<a href="../likelihood">likelihood</a> d2 e2 c) (<a href="../likelihoodScale">likelihoodScale</a> s))
+      (<a href="../leqs">leqs</a> d1 d2 s)))
+</pre>
+</div>
 </section>
 
 </body>

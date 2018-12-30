@@ -54,6 +54,34 @@
               (<a href="../card">card</a> n s)))))
 </pre>
 </div>
+<div class="axiom">
+<p>A rhombus is a quadrilateral whose sides are all equal.</p>
+<pre>
+(forall (p)
+  (iff (<a href="../rhombus">rhombus</a> p)
+       (and (<a href="../quadrilateral">quadrilateral</a> p)
+            (exists (d u)
+              (forall (c)
+                (if (<a href="../sideOf">sideOf</a> c p) (<a href="../length">length</a> d c u)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>It can be shown that a diagonal of a square makes a 45-degree angle with any side of the square.</p>
+<pre>
+(forall (p d c v x)
+   (if (and (<a href="../square">square</a> p) (<a href="../sideOf">sideOf</a> c p) (<a href="../diagonal">diagonal</a> d p) (<a href="../vertex">vertex</a> v c d x))
+       (<a href="../45Degrees">45Degrees</a> v)))
+</pre>
+</div>
+<div class="axiom">
+<p>An edge of a polyhedron is a side of one of the faces.</p>
+<pre>
+(forall (c p s)
+   (if (<a href="../polyhedron">polyhedron</a> p s)
+       (iff (<a href="../edge">edge</a> c p)
+            (exists (f) (and (<a href="../face">face</a> f p) (<a href="../sideOf">sideOf</a> c f))))))
+</pre>
+</div>
 </section>
 
 </body>

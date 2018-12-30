@@ -43,6 +43,39 @@
         (exists (f) (and (<a href="../selfAnchoredFramework">selfAnchoredFramework</a> f) (<a href="../posYAxis">posYAxis</a> d f)))))
 </pre>
 </div>
+<div class="axiom">
+<p>Backward is the negative half of the y-axis in a self-anchored framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../backward">backward</a> d)
+        (exists (f) (and (<a href="../selfAnchoredFramework">selfAnchoredFramework</a> f) (<a href="../negYAxis">negYAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Rightward is the positive half of the x-axis in a self-anchored framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../rightward">rightward</a> d)
+        (exists (f) (and (<a href="../selfAnchoredFramework">selfAnchoredFramework</a> f) (<a href="../posXAxis">posXAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Leftward is the negative half of the x-axis in a self-anchored framework.</p>
+<pre>
+(forall (d)
+   (iff (<a href="../leftward">leftward</a> d)
+        (exists (f) (and (<a href="../selfAnchoredFramework">selfAnchoredFramework</a> f) (<a href="../negXAxis">negXAxis</a> d f)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A vehicle-anchored framework is a self-anchored framework where the self is a boat or airplane.</p>
+<pre>
+(forall (f v)
+   (iff (<a href="../vehicleAnchoredFramework">vehicleAnchoredFramework</a> f v)
+        (and (<a href="../selfAnchoredFramework">selfAnchoredFramework</a> f v)
+             (or (<a href="../boat">boat</a> v) (<a href="../airplane">airplane</a> v)))))
+</pre>
+</div>
 </section>
 
 </body>

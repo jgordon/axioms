@@ -69,6 +69,90 @@
       (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../eventuality">eventuality</a> e))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (n e)
+  (if (<a href="../arity">arity</a> n e)
+      (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../eventuality">eventuality</a> e))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n s)
+  (iff (<a href="../card">card</a> n s)
+       (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../set">set</a> s)
+            (or (and (<a href="../null">null</a> s) (equal n 0))
+                (exists (s1 x m)
+                  (and (<a href="../addElt">addElt</a> s s1 x)
+                       (not (<a href="../member">member</a> x s1))
+                       (<a href="../card">card</a> m s1)
+                       (<a href="../sum">sum</a> n m 1)))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(<a href="../nonNegInteger">nonNegInteger</a> 0)
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n1 n)
+   (if (<a href="../successor">successor</a> n1 n)
+       (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n)
+   (iff (<a href="../posInteger">posInteger</a> n)
+        (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../nequal">nequal</a> n 0))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(not (exists (n) (and (<a href="../nonNegInteger">nonNegInteger</a> n) (<a href="../successor">successor</a> 0 n))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n1 n2 n3)
+   (if (and (<a href="../nonNegInteger">nonNegInteger</a> n2) (<a href="../nonNegInteger">nonNegInteger</a> n3) (<a href="../sum">sum</a> n1 n2 n3))
+       (<a href="../nonNegInteger">nonNegInteger</a> n1)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (n1 n2 n3)
+   (if (and (<a href="../nonNegInteger">nonNegInteger</a> n2) (<a href="../nonNegInteger">nonNegInteger</a> n3)
+            (<a href="../product">product</a> n1 n2 n3))
+       (<a href="../nonNegInteger">nonNegInteger</a> n1)))
+</pre>
+</div>
+<div class="axiom">
+<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
+<pre>
+(forall (n1 n2)
+   (if (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n2))
+       (iff (<a href="../lt">lt</a> n1 n2)
+            (exists (n3) (and (<a href="../posInteger">posInteger</a> n3) (<a href="../sum">sum</a> n2 n1 n3))))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (a b)
+   (if (and (<a href="../nonNegInteger">nonNegInteger</a> a) (<a href="../posInteger">posInteger</a> b))
+       (exists (f) (<a href="../fraction">fraction</a> f a b))))
+</pre>
+</div>
+<div class="axiom">
+<p>The predication <code>(durationOf d t u)</code> says that t is made up of d intervals having the same duration as u. We will allow the second argument to be an instant, an interval, a temporal sequence, or an eventuality.</p>
+<pre>
+(forall (d t u)
+  (if (<a href="../durationOf">durationOf</a> d t u)
+      (and (<a href="../nonNegInteger">nonNegInteger</a> d) (<a href="../temporalUnit">temporalUnit</a> u)
+           (or (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../tseq">tseq</a> t) (<a href="../eventuality">eventuality</a> t)))))
+</pre>
+</div>
 </section>
 
 </body>

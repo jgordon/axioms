@@ -54,6 +54,78 @@
            (not (<a href="../cause">cause</a> a e2)))))
 </pre>
 </div>
+<div class="axiom">
+<p>The chief property of agents is that they, defeasibly, are capable of causing some events.</p>
+<pre>
+(forall (a)
+  (if (and (<a href="../agent">agent</a> a) (etc))
+      (exists (e) (<a href="../cause">cause</a> a e))))
+</pre>
+</div>
+<div class="axiom">
+<p>Case roles common in linguistics can be defined in terms of core theories. In particular, the agent of an event is an agent that causes it.</p>
+<pre>
+(forall (a e)
+  (iff (<a href="../agentOf">agentOf</a> a e)
+       (and (<a href="../agent">agent</a> a) (<a href="../cause">cause</a> a e))))
+</pre>
+</div>
+<div class="axiom">
+<p>Collectives are sets of agents working together.</p>
+<pre>
+(forall (s)
+  (if (<a href="../collective">collective</a> s)
+      (forall (a) (if (<a href="../member">member</a> a s) (<a href="../agent">agent</a> a)))))
+</pre>
+</div>
+<div class="axiom">
+<p>We define the eventualities beyond an agent a's control as the subset s1 of eventualities in a set s that a cannot bring about by a's efforts alone. That is, a is not the agent of actions in s1 nor the agent of an action that causes events in s1.</p>
+<pre>
+(forall (s1 s a)
+  (iff (<a href="../evsBeyondControl">evsBeyondControl</a> s1 s a)
+       (and (<a href="../eventualities">eventualities</a> s) (<a href="../subset">subset</a> s1 s) (<a href="../agent">agent</a> a)
+            (forall (e)
+              (iff (<a href="../member">member</a> e s1)
+                   (and (not (<a href="../agentOf">agentOf</a> a e))
+                        (not (exists (e1)
+                               (and (<a href="../agentOf">agentOf</a> a e1)
+                                    (<a href="../cause">cause</a> e1 e))))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>If an action is difficult for an agent, it is because there are states and events, i.e., eventualities, that tend to cause the action not to happen. The expression (difficult e a) says action e is difficult for agent a.</p>
+<pre>
+(forall (a e)
+  (if (<a href="../difficult">difficult</a> e a)
+      (and (<a href="../agent">agent</a> a) (<a href="../agentOf">agentOf</a> a e))))
+</pre>
+</div>
+<div class="axiom">
+<p>Something is difficult if it is in the <code>Hi</code> region of a difficulty scale.</p>
+<pre>
+(forall (e1 e a)
+  (iff (<a href="../difficult">difficult</a>' e1 e a)
+       (and (<a href="../agent">agent</a> a) (<a href="../agentOf">agentOf</a> a e)
+            (exists (s)
+              (and (<a href="../difficultyScale">difficultyScale</a> s e) (<a href="../scaleFor">scaleFor</a> s e1))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A person is a kind of agent.</p>
+<pre>
+(forall (p)
+  (if (<a href="../person">person</a> p)
+      (<a href="../agent">agent</a> p)))
+</pre>
+</div>
+<div class="axiom">
+<p>The predicate <code>perceive</code> is a relation between an agent and an entity or eventuality external to the mind.</p>
+<pre>
+(forall (a x m)
+  (if (and (<a href="../perceive">perceive</a> a x) (<a href="../mind">mind</a> m a))
+      (and (<a href="../agent">agent</a> a) (<a href="../externalTo">externalTo</a> x m))))
+</pre>
+</div>
 </section>
 
 </body>
