@@ -60,25 +60,6 @@
        (or (<a href="../line">line</a> c) (<a href="../ray">ray</a> c) (<a href="../lineSegment">lineSegment</a> c))))
 </pre>
 </div>
-<div class="axiom">
-<p>It is often convenient to characterize a line segment by its endpoints.</p>
-<pre>
-(forall (c)
-  (iff (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c x1 x2)
-       (and (<a href="../lineSegment">lineSegment</a> c)
-            (<a href="../endpoint">endpoint</a> x1 c) (<a href="../endpoint">endpoint</a> x2 c)
-            (<a href="../nequal">nequal</a> x1 x2))))
-</pre>
-</div>
-<div class="axiom">
-<p>A line is a concrete entity that lies along a line.</p>
-<pre>
-(forall (x)
-   (if (<a href="../lineObj">lineObj</a> x)
-       (exists (c)
-          (and (<a href="../lineSegment">lineSegment</a> c) (<a href="../along">along</a> x c)))))
-</pre>
-</div>
 </section>
 
 </body>

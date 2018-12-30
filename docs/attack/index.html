@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: attack</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>attack</code></h1>
+</header>
+<section>
+<h2>Summary</h2>
+<pre>(attack e x y)</pre><p>x attacks y</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Adversaries use weapons in attacks.</p>
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (w z)
+        (and (<a href="../use">use</a> e1 x w y z) (<a href="../weapon">weapon</a> w)))))
+</pre>
+</div><div class="axiom">
+<p>A slap is an attack.</p>
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (<a href="../slap">slap</a> e1 x y)))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0)
+        (<a href="../attack-nn">attack-nn</a> e0 e1))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0)
+        (<a href="../assault-nn">assault-nn</a> e0 e1))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0)
+        (<a href="../onrush-nn">onrush-nn</a> e0 e1))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0)
+        (<a href="../onset-nn">onset-nn</a> e0 e1))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 w y)
+  (if (<a href="../attack">attack</a> e1 w y)
+      (exists (e0)
+        (<a href="../barrage-nn">barrage-nn</a> e0 e1))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 w y)
+  (if (<a href="../attack">attack</a> e1 w y)
+      (exists (e0)
+        (<a href="../insult-nn">insult-nn</a> e0 e1))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 w y)
+  (if (<a href="../attack">attack</a> e1 w y)
+      (exists (e0)
+        (<a href="../blitz-nn">blitz-nn</a> e0 e1))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0)
+        (<a href="../blow-nn">blow-nn</a> e0 e1))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0)
+        (<a href="../aggressor-nn">aggressor-nn</a> e0 x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0)
+        (<a href="../sniper-nn">sniper-nn</a> e0 x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (u)
+        (<a href="../attack-vb">attack-vb</a> e1 x y u))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (u)
+        (<a href="../assail-vb">assail-vb</a> e1 x y u))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0 w u)
+        (and (<a href="../charge-vb">charge-vb</a> e1 x w u) (<a href="../at-in">at-in</a> e0 e1 y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0 w u)
+        (and (<a href="../descend-vb">descend-vb</a> e1 x w u) (<a href="../on-in">on-in</a> e0 e1 y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0 u)
+        (and (<a href="../advance-vb">advance-vb</a> e1 x y u) (<a href="../on-in">on-in</a> e0 e1 y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (u)
+        (<a href="../insult-vb">insult-vb</a> e1 x y u))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (a x y)
+  (if (<a href="../attack">attack</a> a x y)
+      (exists (e2 u u1)
+        (and (<a href="../launch-vb">launch-vb</a> e2 x a u) (<a href="../attack">attack</a> a u1 y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (a x y)
+  (if (<a href="../attack">attack</a> a x y)
+      (exists (e1 e2 u)
+        (and (<a href="../launch-vb">launch-vb</a> e2 x a u) (<a href="../blitz-nn">blitz-nn</a> e1 a)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e2 u1 u2)
+        (and (<a href="../blow-vb">blow-vb</a> e1 x y u2) (<a href="../away-in">away-in</a> e2 e1 u1)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e2 u1)
+        (and (<a href="../attack">attack</a> e1 x u1) (<a href="../on-in">on-in</a> e2 e1 y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e2 u1)
+        (and (<a href="../attack">attack</a> e1 x u1) (<a href="../at-in">at-in</a> e2 e1 y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e2 u1)
+        (and (<a href="../attack">attack</a> e1 x u1) (<a href="../of-in">of-in</a> e2 e1 y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y)
+  (if (<a href="../attack">attack</a> e x y)
+      (exists (e2 e1)
+        (<a href="../lethal-adj">lethal-adj</a> e2 e1))))
+</pre>
+</div></section>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>In conflict, adversaries attack each other.</p>
+<pre>
+(forall (c x y g h e)
+  (if (and (<a href="../conflict">conflict</a> c x y g h) (<a href="../adversary">adversary</a> e x y c))
+      (<a href="../attack">attack</a> e x y)))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

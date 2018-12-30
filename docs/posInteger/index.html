@@ -50,66 +50,6 @@
                       (<a href="../argn">argn</a> x i e))))))))
 </pre>
 </div>
-<div class="axiom">
-<pre>
-(forall (x e1 y e2)
-  (iff (<a href="../subst">subst</a> x e1 y e2)
-       (exists (p n)
-         (and (<a href="../pred">pred</a> p e1) (<a href="../pred">pred</a> p e2) (<a href="../arity">arity</a> n e1) (<a href="../arity">arity</a> n e2)
-              (<a href="../noSubstTypelt">noSubstTypelt</a> x e1 y e2)
-              (forall (i z1 z2)
-                (if (and (<a href="../posInteger">posInteger</a> i) (<a href="../leq">leq</a> i n)
-                         (<a href="../argn">argn</a> z1 i e1) (<a href="../argn">argn</a> z2 i e2))
-                    (and (iff (<a href="../eventuality">eventuality</a> z1)
-                              (<a href="../eventuality">eventuality</a> z2))
-                         (if (not (<a href="../eventuality">eventuality</a> z1))
-                             (and (if (<a href="../nequal">nequal</a> z1 x)
-                                      (equal z2 z1))
-                                  (if (equal z1 x)
-                                      (equal z2 y))))
-                         (if (<a href="../eventuality">eventuality</a> z1)
-                             (<a href="../subst">subst</a> x z1 y z2)))))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (s n1 n2)
-  (iff (<a href="../ints">ints</a> s n1 n2)
-       (and (<a href="../posInteger">posInteger</a> n1) (<a href="../posInteger">posInteger</a> n2) (<a href="../set">set</a> s)
-            (forall (n)
-              (iff (<a href="../member">member</a> n s)
-                   (and (<a href="../posInteger">posInteger</a> n) (<a href="../leq">leq</a> n1 n) (<a href="../leq">leq</a> n n2)))))))
-</pre>
-</div>
-<div class="axiom">
-<p><code>s</code> after the first is removed.</p>
-<pre>
-(forall (s1 s)
-  (iff (<a href="../rest">rest</a> s1 s)
-       (and (<a href="../sequence">sequence</a> s) (<a href="../sequence">sequence</a> s1)
-            (forall (i x)
-              (iff (<a href="../map">map</a> s1 i x)
-                   (exists (j)
-                     (and (<a href="../posInteger">posInteger</a> i) (<a href="../successor">successor</a> j i)
-                          (<a href="../map">map</a> s j x))))))))
-</pre>
-</div>
-<div class="axiom">
-<p>A non-negative integer n1 is less than n2 iff there is some positive integer n3 s.t. n2 is the sum of n1 and n3.</p>
-<pre>
-(forall (n1 n2)
-   (if (and (<a href="../nonNegInteger">nonNegInteger</a> n1) (<a href="../nonNegInteger">nonNegInteger</a> n2))
-       (iff (<a href="../lt">lt</a> n1 n2)
-            (exists (n3) (and (<a href="../posInteger">posInteger</a> n3) (<a href="../sum">sum</a> n2 n1 n3))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (a b)
-   (if (and (<a href="../nonNegInteger">nonNegInteger</a> a) (<a href="../posInteger">posInteger</a> b))
-       (exists (f) (<a href="../fraction">fraction</a> f a b))))
-</pre>
-</div>
 </section>
 
 </body>

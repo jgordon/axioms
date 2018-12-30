@@ -56,64 +56,6 @@
       (<a href="../measure">measure</a> m s)))
 </pre>
 </div>
-<div class="axiom">
-<p>The duration of an interval is determined by concatenation.</p>
-<pre>
-(forall (d t u)
-  (if (<a href="../interval">interval</a> t)
-      (iff (<a href="../durationOf">durationOf</a> d t u)
-           (exists (s)
-             (and (<a href="../concatenation">concatenation</a> t s)
-                  (forall (t1)
-                    (if (<a href="../member">member</a> t1 s) (<a href="../sameDuration">sameDuration</a> t1 u)))
-                  (<a href="../card">card</a> d s))))))
-</pre>
-</div>
-<div class="axiom">
-<p>The primitive case of a rate is when there is a set S of events, a set T of time intervals, and a function mapping the intervals into a subset of S, namely those events that occur during that interval. When the concept of rate truly applies, the cardinalities of all these subsets are the same.</p>
-<pre>
-(forall (s s0 t f n)
-  (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../set">set</a> t) (<a href="../powerSet">powerSet</a> s0 s)
-           (forall (t1)
-             (if (<a href="../member">member</a> t1 t) (<a href="../interval">interval</a> t1)))
-           (<a href="../function">function</a> f t s0)
-           (forall (t1 s1)
-             (if (<a href="../map">map</a> f t1 s1)
-                 (and (forall (e)
-                        (if (<a href="../member">member</a> e s1) (<a href="../happensIn">happensIn</a> e t1)))
-                      (<a href="../card">card</a> n s1)))))
-      (<a href="../rate">rate</a> n s t)))
-</pre>
-</div>
-<div class="axiom">
-<p>A polygon is a closed curve that is made up of n sides. Lines 4-5 say that the set s is the set of sides of the polygon. Lines 6-10 say that every point in the polygon is either in a side or is a vertex. Line 11 says the polygon is a closed planar curve, and line 12 says n is the cardinality of the set of sides.</p>
-<pre>
-(forall (p n)
-  (iff (<a href="../polygon">polygon</a> p n)
-       (exists (s)
-         (and (forall (c)
-                (iff (<a href="../member">member</a> c s) (<a href="../sideOf">sideOf</a> c p)))
-              (forall (x)
-                (if (<a href="../inside">inside</a> x p)
-                    (exists (c)
-                      (and (<a href="../member">member</a> c s)
-                        (or (<a href="../inside">inside</a> x c) (<a href="../endpoint">endpoint</a> x l))))))
-              (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
-              (<a href="../card">card</a> n s)))))
-</pre>
-</div>
-<div class="axiom">
-<p>A rather crude example of a distributional inference is that an entity in the <code>Hi</code> region is defeasibly higher on the scale than the median of a comparison set. That is, there are more things smaller than larger. In this axiom x is the entity in the <code>Hi</code> region, s0 is the scale, s1 is its <code>Hi</code> region, s2 is the domain of scale s0, s3 is the set of elements of s2 lower on the scale than x, s4 is the set of elements of s2 higher on the scale than x, and the cardinality n3 of s3 is larger than the cardinality n4 of s4. The conjunct <code>(etc)</code> in line 2 is an indication of defeasibility.</p>
-<pre>
-(forall (x s0 s1)
-   (if (and (<a href="../onScale">onScale</a> x s1) (<a href="../Hi">Hi</a> s1 s0) (etc))
-       (exists (s2 s3 s4 n3 n4)
-          (and (<a href="../componentsOf">componentsOf</a> s2 s0) (<a href="../union">union</a> s2 s3 s4)
-               (forall (y) (iff (<a href="../member">member</a> y s3) (<a href="../lts">lts</a> y x s0)))
-               (forall (z) (iff (<a href="../member">member</a> z s4) (<a href="../lts">lts</a> x z s0)))
-               (<a href="../card">card</a> n3 s3) (<a href="../card">card</a> n4 s4) (<a href="../lt">lt</a> n4 n3)))))
-</pre>
-</div>
 </section>
 
 </body>

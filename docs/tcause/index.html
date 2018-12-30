@@ -50,17 +50,6 @@
       (<a href="../tcause">tcause</a> e1 e2)))
 </pre>
 </div>
-<div class="axiom">
-<p>We define the set of difficulties associated with an action as the set of eventualities that tend to cause the action not to happen. The predicate <code>difficultiesWith</code> is a relation between a set of eventualities and an eventuality.</p>
-<pre>
-(forall (s e)
-  (iff (<a href="../difficultiesWith">difficultiesWith</a> s e)
-       (forall (e1)
-         (iff (<a href="../member">member</a> e1 s)
-              (exists (e2)
-                (and (<a href="../not'">not'</a> e2 e) (<a href="../tcause">tcause</a> e1 e2)))))))
-</pre>
-</div>
 </section>
 
 </body>

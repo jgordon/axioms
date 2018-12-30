@@ -52,47 +52,6 @@
               (<a href="../card">card</a> n s)))))
 </pre>
 </div>
-<div class="axiom">
-<p>A closed planar curve has no endpoints and can be covered by a large enough circle.</p>
-<pre>
-(forall (c)
-   (if (and (<a href="../curve">curve</a> c)(<a href="../planar">planar</a> c))
-       (iff (<a href="../closed">closed</a> c)
-            (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
-                 (exists (r x1)
-                    (and (<a href="../circle2">circle2</a> r x1) (<a href="../subfigure">subfigure</a> c r)))))))
-</pre>
-</div>
-<div class="axiom">
-<p>A closed curve in general can be surrounded by a sufficiently large sphere, as can a closed region.</p>
-<pre>
-(forall (c)
-   (if (or (<a href="../curve">curve</a> c)(<a href="../region">region</a> c))
-       (iff (<a href="../closed">closed</a> c)
-            (and (not (exists (x) (or (<a href="../endpoint">endpoint</a> x c) (<a href="../border">border</a> x c))))
-                 (exists (v x1)
-                    (and (<a href="../sphere3">sphere3</a> v x1) (<a href="../subfigure">subfigure</a> c v)))))))
-</pre>
-</div>
-<div class="axiom">
-<p>A polyhedron is a volume whose surface consists of polygons, which are called faces. The expression <code>(polyhedron p s)</code> says that p is a polyhedron with set s of faces. Lines 5-6 says that the members of s are polygons contained within the surface of the polyhedron. Lines 7-10 say that the faces account for the entire surface. Lines 11-14 say that the polygons overlap only at their boundaries.</p>
-<pre>
-(forall (p s)
-   (iff (<a href="../polyhedron">polyhedron</a> p s)
-        (exists (r)
-           (and (<a href="../surface">surface</a> r p) (<a href="../closed">closed</a> r)
-                (forall (f)
-                   (if (<a href="../member">member</a> f s) (and (<a href="../polygon2">polygon2</a> f) (<a href="../inside">inside</a> f r))))
-                (forall (x)
-                   (if (and (<a href="../point">point</a> x) (<a href="../inside">inside</a> x r))
-                       (exists (f)
-                          (and (<a href="../member">member</a> f s) (<a href="../subfigure">subfigure</a> x f)))))
-                (forall (x)
-                   (if (and (<a href="../point">point</a> x) (<a href="../member">member</a> f1 s) (<a href="../member">member</a> f2 s)
-                            (<a href="../inside">inside</a> x f1) (<a href="../inside">inside</a> x f2))
-                       (equal f1 f2)))))))
-</pre>
-</div>
 </section>
 
 </body>

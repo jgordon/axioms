@@ -46,59 +46,6 @@
            (or (<a href="../temporalEntity">temporalEntity</a> t) (<a href="../tseq">tseq</a> t) (<a href="../eventuality">eventuality</a> t)))))
 </pre>
 </div>
-<div class="axiom">
-<p>The constant duration in a periodic temporal sequence can be called the gap duration.</p>
-<pre>
-(forall (s d t1 t2 t n1 n2 u)
-  (if (and (<a href="../periodicTseq">periodicTseq</a> s) (<a href="../successiveElts">successiveElts</a> t1 t2 s)
-           (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../intervalBetween">intervalBetween</a> t t1 t2))
-      (iff (<a href="../gapDuration">gapDuration</a> d s u) (<a href="../durationOf">durationOf</a> d t u))))
-</pre>
-</div>
-<div class="axiom">
-<p>If the gap between two elements is roughly equal, the temporal sequence is roughly periodic.</p>
-<pre>
-(forall (s)
-  (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)
-       (and (<a href="../tseq">tseq</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
-            (exists (s0 d)
-              (and (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s0)
-                   (forall (t1 t2 t3 t4)
-                     (if (and (<a href="../successiveElts">successiveElts</a> t1 t2 s)
-                              (<a href="../successiveElts">successiveElts</a> t3 t4 s))
-                         (exists (t12 t34 e d)
-                           (and (<a href="../intervalBetween">intervalBetween</a> t12 t1 t2)
-                                (<a href="../intervalBetween">intervalBetween</a> t34 t3 t4)
-                                (<a href="../durationOf">durationOf</a>' e d t12 u)
-                                (<a href="../sameHOM">sameHOM</a> t12 t34 s0 e))))))))))
-</pre>
-</div>
-<div class="axiom">
-<p>When the third argument of <code>rate</code> is a temporal unit, we assume that the members of the set of time intervals all have a duration of one in that unit.</p>
-<pre>
-(forall (n s t u)
-  (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
-           (forall (t1) (if (<a href="../member">member</a> t1 t) (<a href="../durationOf">durationOf</a> 1 t1 u)))
-           (<a href="../rate">rate</a> n s t))
-      (<a href="../rate">rate</a> n s u)))
-</pre>
-</div>
-<div class="axiom">
-<p>Rate defines a scale whose elements are the set of events whose rate is being measured and whose ordering is the less-than relation between rates.</p>
-<pre>
-(forall (s s0)
-  (iff (<a href="../rateScale">rateScale</a> s s0)
-       (and (forall (s1) (if (<a href="../member">member</a> s1 s0) (<a href="../eventualities">eventualities</a> s1)))
-            (exists (u e s1 s2)
-              (and (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../lts">lts</a>' e s1 s2 s0)
-                   (forall (s3 s4)
-                     (iff (and (<a href="../lts">lts</a>' e s3 s4 s0) (<a href="../Rexist">Rexist</a> e))
-                          (exists (r1 r2)
-                            (and (<a href="../rate">rate</a> r1 s3 u) (<a href="../rate">rate</a> r2 s4 u)
-                                 (<a href="../lt">lt</a> r1 r2)))))
-                   (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e))))))
-</pre>
-</div>
 </section>
 
 </body>

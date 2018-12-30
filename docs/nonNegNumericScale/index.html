@@ -60,24 +60,6 @@
         (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)))))
 </pre>
 </div>
-<div class="axiom">
-<pre>
-(forall (m s1)
-  (iff (<a href="../measure">measure</a> m s1)
-       (exists (s2)
-         (and (<a href="../scale">scale</a> s1) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s2)
-              (<a href="../functionInto">functionInto</a> m s1 s2)
-              (<a href="../monotoneIncreasing">monotoneIncreasing</a> m)
-              (forall (x) (if (<a href="../bottom">bottom</a> x s1) (<a href="../map">map</a> m x 0)))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (f s)
-  (if (and (<a href="../nonNegNumericScale">nonNegNumericScale</a> s) (<a href="../identityFunction">identityFunction</a> f s))
-      (<a href="../measure">measure</a> f s)))
-</pre>
-</div>
 </section>
 
 </body>

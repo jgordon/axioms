@@ -44,43 +44,6 @@
       (<a href="../rate">rate</a> n s t)))
 </pre>
 </div>
-<div class="axiom">
-<p>When the third argument of <code>rate</code> is a temporal unit, we assume that the members of the set of time intervals all have a duration of one in that unit.</p>
-<pre>
-(forall (n s t u)
-  (if (and (<a href="../eventualities">eventualities</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
-           (forall (t1) (if (<a href="../member">member</a> t1 t) (<a href="../durationOf">durationOf</a> 1 t1 u)))
-           (<a href="../rate">rate</a> n s t))
-      (<a href="../rate">rate</a> n s u)))
-</pre>
-</div>
-<div class="axiom">
-<p>We extend <code>rate</code> to units which are not the duration of the temporal intervals in which the events were measured, e.g., going 60 mph for 5 minutes.</p>
-<pre>
-(forall (r1 r2 s u1 u2 j)
-  (if (and (<a href="../rate">rate</a> r1 s u1) (<a href="../product">product</a> r2 j r1)
-           (forall (t n1 n2)
-             (iff (and (<a href="../durationOf">durationOf</a> n1 t u1) (<a href="../durationOf">durationOf</a> n2 t u2))
-                  (<a href="../product">product</a> n1 j n2))))
-      (<a href="../rate">rate</a> r2 s u2)))
-</pre>
-</div>
-<div class="axiom">
-<p>Rate defines a scale whose elements are the set of events whose rate is being measured and whose ordering is the less-than relation between rates.</p>
-<pre>
-(forall (s s0)
-  (iff (<a href="../rateScale">rateScale</a> s s0)
-       (and (forall (s1) (if (<a href="../member">member</a> s1 s0) (<a href="../eventualities">eventualities</a> s1)))
-            (exists (u e s1 s2)
-              (and (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../lts">lts</a>' e s1 s2 s0)
-                   (forall (s3 s4)
-                     (iff (and (<a href="../lts">lts</a>' e s3 s4 s0) (<a href="../Rexist">Rexist</a> e))
-                          (exists (r1 r2)
-                            (and (<a href="../rate">rate</a> r1 s3 u) (<a href="../rate">rate</a> r2 s4 u)
-                                 (<a href="../lt">lt</a> r1 r2)))))
-                   (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s0 e))))))
-</pre>
-</div>
 </section>
 
 </body>

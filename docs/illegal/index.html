@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: illegal</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>illegal</code></h1>
+</header>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>A low blow is an illegal attack.</p>
+<pre>
+(forall (e1 x y)
+  (if (and (<a href="../illegal">illegal</a> e1) (<a href="../attack">attack</a> e1 x y))
+      (exists (e0 e4)
+        (and (<a href="../blow-nn">blow-nn</a> e0 e1) (<a href="../low-adj">low-adj</a> e4 e1)))))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

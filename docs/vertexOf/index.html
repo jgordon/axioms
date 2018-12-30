@@ -35,19 +35,6 @@
                    (<a href="../rightAngle">rightAngle</a> v))))))
 </pre>
 </div>
-<div class="axiom">
-<p>The diagonal of a square is a line segment from one vertex to an opposite vertex.</p>
-<pre>
-(forall (p d)
-   (if (<a href="../square">square</a> p)
-       (iff (<a href="../diagonal">diagonal</a> d p)
-            (exists (v1 v2 x1 x2 c1 c2 c3 c4)
-               (and (<a href="../vertex">vertex</a> v1 c1 c2 x1) (<a href="../vertexOf">vertexOf</a> v1 p)
-                    (<a href="../vertex">vertex</a> v2 c3 c4 x2) (<a href="../vertexOf">vertexOf</a> v2 p)
-                    (<a href="../nequal">nequal</a> c1 c3) (<a href="../nequal">nequal</a> c1 c4)
-                    (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> d x1 x2))))))
-</pre>
-</div>
 </section>
 
 </body>

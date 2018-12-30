@@ -30,60 +30,6 @@
   (and (<a href="../imply">imply</a> e1 e2) (not (<a href="../gen">gen</a> e1 e2))))
 </pre>
 </div>
-<div class="axiom">
-<pre>
-(forall (s1 s2)
-  (iff (<a href="../inconsistent">inconsistent</a> s1 s2)
-       (and (<a href="../eventualities">eventualities</a> s1) (<a href="../eventualities">eventualities</a> s2)
-            (exists (e1 e2)
-              (and (<a href="../imply">imply</a> s1 e1) (<a href="../imply">imply</a> s2 e2) (<a href="../not'">not'</a> e2 e1))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (s1 e2)
-  (iff (<a href="../minimallyProves">minimallyProves</a> s1 e2)
-       (and (not (<a href="../member">member</a> e2 s1))
-            (<a href="../imply">imply</a> s1 e2)
-            (not (exists (s2)
-                   (and (<a href="../properSubset">properSubset</a> s2 s1)
-                        (<a href="../imply">imply</a> s2 e2)))))))
-</pre>
-</div>
-<div class="axiom">
-<p>The principal property of positive modalities is that Modus Ponens can be applied within the modality.</p>
-<pre>
-(forall (e1 e2 m)
-  (if (and (<a href="../PosMod">PosMod</a> e1 m) (<a href="../imply">imply</a> e1 e2))
-      (<a href="../PosMod">PosMod</a> e2 m)))
-</pre>
-</div>
-<div class="axiom">
-<p>An eventuality is possible iff the constraints do not imply a negation of the eventuality.</p>
-<pre>
-(forall (e c)
-  (iff (<a href="../possible">possible</a> e c)
-       (forall (e1)
-         (if (<a href="../not'">not'</a> e1 e)
-             (not (<a href="../imply">imply</a> c e1))))))
-</pre>
-</div>
-<div class="axiom">
-<p>An eventuality <code>e</code> is necessary with respect to a set of constraints <code>c</code> iff <code>c</code> implies <code>e</code>.</p>
-<pre>
-(forall (e c)
-  (iff (<a href="../necessary">necessary</a> e c)
-       (<a href="../imply">imply</a> c e)))
-</pre>
-</div>
-<div class="axiom">
-<p>If the likelihood of an eventuality <code>e</code> is <code>d</code>, we can say that <code>e</code> is at <code>d</code> on the likelihood scale, if <code>c</code> holds.</p>
-<pre>
-(forall (d e c s e1)
-  (if (and (<a href="../likelihood">likelihood</a> d e c) (<a href="../likelihoodScale">likelihoodScale</a> s) (<a href="../at">at</a>' e1 e d s))
-      (<a href="../imply">imply</a> c e1)))
-</pre>
-</div>
 </section>
 
 </body>

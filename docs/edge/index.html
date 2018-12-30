@@ -33,53 +33,6 @@
             (exists (f) (and (<a href="../face">face</a> f p) (<a href="../sideOf">sideOf</a> c f))))))
 </pre>
 </div>
-<div class="axiom">
-<p>A vertex of a polyhedron is an endpoint of one of the edges. We will call this relation <code>vertex3</code> (vertex of a 3-dimensional entity) since we already have a predicate <code>vertex</code>.</p>
-<pre>
-(forall (x p s)
-   (if (<a href="../polyhedron">polyhedron</a> p s)
-       (iff (<a href="../vertex3">vertex3</a> x p)
-            (exists (c) (and (<a href="../edge">edge</a> c p) (<a href="../endpoint">endpoint</a> x c)))))
-</pre>
-</div>
-<div class="axiom">
-<p>For a given bounding box we can define the primary, secondary, and tertiary dimensions of the physical object. In this axiom c1, c2, and c3 are three non-parallel sides in decreasing order of length, and d1, d2 and d3 are their respective lengths, measured in units u. The predicate &ldquo;dimi&rdquo; picks out the ith longest side.</p>
-<pre>
-(forall (c1 c2 c3 d1 d2 d3 u b x)
-   (if (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../edge">edge</a> c1 b) (<a href="../edge">edge</a> c2 b) (<a href="../edge">edge</a> c3 b)
-            (not (<a href="../parallel">parallel</a> c1 c2)) (not (<a href="../parallel">parallel</a> c2 c3))
-            (not (<a href="../parallel">parallel</a> c1 c3))
-            (<a href="../length">length</a> d1 c1 u) (<a href="../length">length</a> d2 c2 u) (<a href="../length">length</a> d3 c3 u))
-       (and (iff (<a href="../dim1">dim1</a> c1 b x)
-                 (and (<a href="../lt">lt</a> d2 d1) (<a href="../lt">lt</a> d3 d1)))
-            (iff (<a href="../dim2">dim2</a> c2 b x)
-                 (and (<a href="../leq">leq</a> d2 d1) (<a href="../leq">leq</a> d3 d2)))
-            (iff (<a href="../dim3">dim3</a> c3 b x)
-                 (and (<a href="../lt">lt</a> d3 d1) (<a href="../lt">lt</a> d3 d2))))))
-</pre>
-</div>
-<div class="axiom">
-<p>Length, width and thickness depend only on the relative dimensions of the object. Height depends also on a framework that fixes a particular direction as up. That vertical dimension is the height.</p>
-<pre>
-(forall (n x u f)
-   (iff (<a href="../height">height</a> n x u f)
-        (exists (b c d)
-           (and (<a href="../bounding">bounding</a> box b x) (<a href="../edge">edge</a> c b) (<a href="../directionOf">directionOf</a> d c)
-                (<a href="../posZAxis">posZAxis</a> d f) (<a href="../length">length</a> n c u)))))
-</pre>
-</div>
-<div class="axiom">
-<p>Depth may seem also to specify a vertical dimension, as in &ldquo;the depth of the lake&rdquo;. But one can also talk about &ldquo;the depth of the safe&rdquo; referring to how far back one can reach into it. On the other hand, one wouldn't talk about the depth of a floor, referring to the distance from the carpet to the ceiling of the room below. The condition for &ldquo;depth&rdquo; probably involves a real or imagined movement into the object. Moreover, the entry into the object can be through the top, as in the lake example, or through the front or one of the sides, as in the safe example. But apparently the movement can't be through the bottom of the object. Here r is the face of physical object x through which entry is effected in real or imagined motion e of something y from z1 to z2. Ray c is a &ldquo;quill&rdquo; from a central point in x through a central point in r, and it is parallel to an edge c1 of a bounding box b of x. The length of that edge is the depth of the object.</p>
-<pre>
-(forall (n x u)
-   (iff (<a href="../depth">depth</a> n x u)
-        (exists (c r e y z1 z2 b c1)
-           (and (<a href="../quill">quill</a> c x r) (not (<a href="../bottom">bottom</a> r x))
-                (<a href="../move">move</a>' e y z1 z2) (<a href="../into">into</a> e x) (<a href="../through">through</a> e r)
-                (<a href="../boundingBox">boundingBox</a> b x) (<a href="../edge">edge</a> c1 b) (<a href="../parallel">parallel</a> c c1)
-                (<a href="../length">length</a> n c1 u)))))
-</pre>
-</div>
 </section>
 
 </body>

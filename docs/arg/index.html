@@ -47,25 +47,6 @@
              (and (<a href="../arg">arg</a> e2 e1) (<a href="../arg*">arg*</a> x e2))))))
 </pre>
 </div>
-<div class="axiom">
-<pre>
-(forall (y e)
-  (iff (<a href="../onlyarg*">onlyarg*</a> y e)
-       (and (<a href="../eventuality">eventuality</a> e) (<a href="../nequal">nequal</a> y e)
-            (forall (y1)
-              (if (<a href="../arg">arg</a> y1 e)
-                  (or (equal y1 y)
-                      (<a href="../onlyarg*">onlyarg*</a> y y1)))))))
-</pre>
-</div>
-<div class="axiom">
-<p>We could extend the concept of &ldquo;occupy&rdquo; from physical objects in 3-dimensional space to events in space x time (or 4-dimensional space-time), by defining a mapping from times in the interval during which the event occurs, to the aggregate of the volumes the arguments of the event occupy at that time, and introduce a predicate &ldquo;occupy4D&rdquo; that takes such a mapping as its argument. A weaker but simpler approach is to say that at any given (implicit) time, an event occupies the volume its arguments occupy.</p>
-<pre>
-(forall (x e v)
-   (if (and (<a href="../arg">arg</a> x e) (<a href="../occupy">occupy</a> x v))
-       (exists (v1) (and (<a href="../subfigure">subfigure</a> v v1) (<a href="../occupy">occupy</a> e v1)))))
-</pre>
-</div>
 </section>
 
 </body>

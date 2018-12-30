@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: adversary</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>adversary</code></h1>
+</header>
+<section>
+<h2>Summary</h2>
+<pre>(adversary e x y c)</pre><p>x and y are adversaries in the conflict c.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The adversary relation is symmetric.</p>
+<pre>
+(forall (e x y c)
+  (if (<a href="../adversary">adversary</a> e x y c)
+      (exists (e1)
+        (<a href="../adversary">adversary</a> e1 y x c))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e e1 x y)
+  (if (<a href="../adversary">adversary</a> e1 x y e)
+      (exists (e2 u g h)
+        (and (<a href="../conflict">conflict</a> e x u g h) (<a href="../with-in">with-in</a> e2 e y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e e1 x y)
+  (if (<a href="../adversary">adversary</a> e1 x y e)
+      (exists (e2 u g h)
+        (and (<a href="../conflict">conflict</a> e x u g h) (<a href="../against-in">against-in</a> e2 e y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e e1 x y)
+  (if (<a href="../adversary">adversary</a> e1 x y e)
+      (exists (e2 e3 u1 u2 g h)
+        (and (<a href="../conflict">conflict</a> e u1 u2 g h) (<a href="../between-in">between-in</a> e2 e x) (<a href="../between-in">between-in</a> e3 e y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e e1 x y)
+  (if (<a href="../adversary">adversary</a> e1 x y e)
+      (exists (e2 u h)
+        (and (<a href="../conflict">conflict</a> e x y u h) (<a href="../for-in">for-in</a> e2 e g)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e e1 x y)
+  (if (<a href="../adversary">adversary</a> e1 x y e)
+      (exists (e2 u h)
+        (and (<a href="../conflict">conflict</a> e x y u h) (<a href="../over-in">over-in</a> e2 e g)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e e1 x y)
+  (if (<a href="../adversary">adversary</a> e1 x y e)
+      (exists (e2 u h)
+        (and (<a href="../conflict">conflict</a> e x y u h) (<a href="../of-in">of-in</a> e2 e g)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e e1 x y)
+  (if (<a href="../adversary">adversary</a> e1 x y e)
+      (exists (e2)
+        (<a href="../flank-nn">flank-nn</a> e2 x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e e1 e2 x y u)
+  (if (<a href="../adversary">adversary</a> e1 x y e)
+      (and (<a href="../adversary">adversary</a> e1 x u e) (<a href="../of-in">of-in</a> e2 x y))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e e1 e2 x y u)
+  (if (<a href="../adversary">adversary</a> e1 x y e)
+      (and (<a href="../adversary">adversary</a> e1 x y u) (<a href="../in-in">in-in</a> e2 x e))))
+</pre>
+</div></section>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>A conflict has two adversaries.</p>
+<pre>
+(forall (c x y g h)
+  (if (<a href="../conflict">conflict</a> c x y g h)
+      (exists (e)
+        (<a href="../adversary">adversary</a> e x y c))))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

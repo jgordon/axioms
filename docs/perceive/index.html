@@ -47,15 +47,6 @@
       (and (<a href="../agent">agent</a> a) (<a href="../externalTo">externalTo</a> x m))))
 </pre>
 </div>
-<div class="axiom">
-<p>When something is perceived, there is a sense organ whose intact-ness enables the perception.</p>
-<pre>
-(forall (p x e2)
-  (if (and (<a href="../person">person</a> p) (<a href="../perceive">perceive</a>' e2 p x))
-      (exists (o e1)
-        (and (<a href="../senseOrgan">senseOrgan</a> o p) (<a href="../intact">intact</a>' e1 o) (<a href="../enable">enable</a> e1 e2)))))
-</pre>
-</div>
 </section>
 
 </body>

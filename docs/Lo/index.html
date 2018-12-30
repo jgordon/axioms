@@ -49,24 +49,6 @@
        (<a href="../lts">lts</a> y x s)))
 </pre>
 </div>
-<div class="axiom">
-<p><code>near</code> is defined as the <code>Lo</code> region of the nearness scale.</p>
-<pre>
-(forall (x z)
-   (iff (<a href="../near">near</a> x z)
-        (exists (s s1)
-           (and (<a href="../nearnessScale">nearnessScale</a> s z) (<a href="../Lo">Lo</a> s1 s) (<a href="../onScale">onScale</a> x s1)))))
-</pre>
-</div>
-<div class="axiom">
-<p>The adjective &ldquo;narrow&rdquo; picks out the <code>Lo</code> region of a width scale, just as &ldquo;wide&rdquo; picks out the <code>Hi</code> region.</p>
-<pre>
-(forall (x)
-   (iff (<a href="../narrow">narrow</a> x)
-        (exists (s s0 s1)
-           (and (<a href="../widthScale">widthScale</a> s s1 e) (<a href="../Lo">Lo</a> s0 s) (<a href="../inScale">inScale</a> x s0)))))
-</pre>
-</div>
 </section>
 
 </body>

@@ -35,16 +35,6 @@
                     (<a href="../lt">lt</a> d1 d2))))))
 </pre>
 </div>
-<div class="axiom">
-<p>For a curve to go toward something is for it to be the path of a motion toward it.</p>
-<pre>
-(forall (c z)
-   (if (<a href="../curve">curve</a> c)
-       (iff (<a href="../toward">toward</a> c z)
-            (exists (e x y1 y2)
-               (and (<a href="../move">move</a>' e x y1 y2) (<a href="../toward">toward</a> e z)))))))
-</pre>
-</div>
 </section>
 
 </body>

@@ -46,55 +46,6 @@
                  (<a href="../subfigure">subfigure</a> x r))))))
 </pre>
 </div>
-<div class="axiom">
-<p>A planar region is concave if it is not convex.</p>
-<pre>
-(forall (r)
-  (if (and (<a href="../region">region</a> r) (<a href="../planar">planar</a> r))
-      (iff (<a href="../concave">concave</a> r)
-           (not (<a href="../convex">convex</a> r)))))
-</pre>
-</div>
-<div class="axiom">
-<p>A polygon is a closed curve that is made up of n sides. Lines 4-5 say that the set s is the set of sides of the polygon. Lines 6-10 say that every point in the polygon is either in a side or is a vertex. Line 11 says the polygon is a closed planar curve, and line 12 says n is the cardinality of the set of sides.</p>
-<pre>
-(forall (p n)
-  (iff (<a href="../polygon">polygon</a> p n)
-       (exists (s)
-         (and (forall (c)
-                (iff (<a href="../member">member</a> c s) (<a href="../sideOf">sideOf</a> c p)))
-              (forall (x)
-                (if (<a href="../inside">inside</a> x p)
-                    (exists (c)
-                      (and (<a href="../member">member</a> c s)
-                        (or (<a href="../inside">inside</a> x c) (<a href="../endpoint">endpoint</a> x l))))))
-              (<a href="../closed">closed</a> p) (<a href="../planar">planar</a> p)
-              (<a href="../card">card</a> n s)))))
-</pre>
-</div>
-<div class="axiom">
-<p>A circle c around a center x is a figure in which every line segment from the center to a point inside the circle is constant.</p>
-<pre>
-(forall (c r x u)
-   (iff (<a href="../circle">circle</a> c x)
-        (exists (r d)
-           (and (<a href="../border">border</a> c r) (<a href="../planar">planar</a> r) (<a href="../inside">inside</a> x r)
-                (forall (c1 x1)
-                   (if (and (<a href="../inside">inside</a> x1 c) (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c1 x x1))
-                       (<a href="../length">length</a> d c1 u)))))))
-</pre>
-</div>
-<div class="axiom">
-<p>A closed planar curve has no endpoints and can be covered by a large enough circle.</p>
-<pre>
-(forall (c)
-   (if (and (<a href="../curve">curve</a> c)(<a href="../planar">planar</a> c))
-       (iff (<a href="../closed">closed</a> c)
-            (and (not (exists (x) (<a href="../endpoint">endpoint</a> x c)))
-                 (exists (r x1)
-                    (and (<a href="../circle2">circle2</a> r x1) (<a href="../subfigure">subfigure</a> c r)))))))
-</pre>
-</div>
 </section>
 
 </body>

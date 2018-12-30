@@ -36,39 +36,6 @@
                        (<a href="../length">length</a> d c1 u)))))))
 </pre>
 </div>
-<div class="axiom">
-<p>We use the predicate <code>sphere3</code> for the three-dimensional volume whose surface is a sphere.</p>
-<pre>
-(forall (v x)
-   (iff (<a href="../sphere3">sphere3</a> v x)
-        (exists (r)
-           (and (<a href="../boundary">boundary</a> r v) (<a href="../sphere">sphere</a> r x)))))
-</pre>
-</div>
-<div class="axiom">
-<p>We introduce a loose notion of &ldquo;central&rdquo; based on half orders of magnitude. We will say that a point in a region or volume is central if whenever a straight line is drawn through the point and intersects the boundary in two points, the distances from the central point to the two boundary points are of the same half order of magnitude. In this axiom, c is any line segment from p1 to p2, points on the boundary of f, passing through p. Line 7 says that p divides the line segment into roughly equal parts.  We use &ldquo;if&rdquo; rather than &ldquo;iff&rdquo; because this is a strong sufficient condition, not a necessary condition for centrality. There will surely be odd-shaped figures where this condition won't hold and yet we'll want to call the point central.</p>
-<pre>
-(forall (p f)
-   (if (<a href="../point">point</a> p)
-       (if (forall (c p1 p2 b d1 d2)
-              (if (and (<a href="../lineSegmentFromTo">lineSegmentFromTo</a> c p1 p2) (<a href="../inside">inside</a> p c)
-                       (<a href="../boundary">boundary</a> b f) (<a href="../inside">inside</a> p1 b) (<a href="../inside">inside</a> p2 b)
-                       (<a href="../distance">distance</a> d1 p1 p) (<a href="../distance">distance</a> d2 p2 p))
-                  (<a href="../sameHOM">sameHOM</a> d1 d2)))
-           (<a href="../centralIn0">centralIn0</a> p f))
-</pre>
-</div>
-<div class="axiom">
-<p>If the path of a moving event is a closed curve, the event is &ldquo;around&rdquo; the points (and other figures) enclosed by the path.</p>
-<pre>
-(forall (e x y1 y2 c)
-   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
-       (iff (<a href="../around">around</a> c z)
-            (exists (r)
-               (and (<a href="../region">region</a> r) (<a href="../boundary">boundary</a> c r)
-                    (<a href="../inside">inside</a> z r))))))
-</pre>
-</div>
 </section>
 
 </body>

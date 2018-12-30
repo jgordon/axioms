@@ -49,17 +49,6 @@
                   (<a href="../fraction">fraction</a> f n1 n2))))))
 </pre>
 </div>
-<div class="axiom">
-<p>Are two entites the same half order of magnitude? (Is the proportion of the smaller to the larger less than the square root of 10?)</p>
-<pre>
-(forall (x y s1 m)
-  (if (and (<a href="../leqs">leqs</a> x y s1) (<a href="../measure">measure</a> m s1))
-      (iff (<a href="../sameHOM">sameHOM</a> x y s1 m)
-           (exists (f f2)
-             (and (<a href="../proportion">proportion</a> f y x m) (<a href="../product">product</a> f2 f f)
-                  (<a href="../leq">leq</a> f2 10))))))
-</pre>
-</div>
 </section>
 
 </body>

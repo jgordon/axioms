@@ -30,43 +30,6 @@
 (forall (x) (if (<a href="../point">point</a> x) (<a href="../figure">figure</a> x)))
 </pre>
 </div>
-<div class="axiom">
-<p>A curve is a figure.</p>
-<pre>
-(forall (c) (if (<a href="../curve">curve</a> c) (<a href="../figure">figure</a> c)))
-</pre>
-</div>
-<div class="axiom">
-<p>A region is a figure.</p>
-<pre>
-(forall (r) (if (<a href="../region">region</a> r) (<a href="../figure">figure</a> r)))
-</pre>
-</div>
-<div class="axiom">
-<p>A volume is a figure.</p>
-<pre>
-(forall (v) (if (<a href="../volume">volume</a> v) (<a href="../figure">figure</a> v)))
-</pre>
-</div>
-<div class="axiom">
-<p><code>centralIn</code> extends the concept of <code>centralIn0</code> to higher-dimensional figures.</p>
-<pre>
-(forall (f1 f2)
-   (iff (<a href="../centralIn">centralIn</a> f1 f2)
-        (or (and (<a href="../point">point</a> f1) (<a href="../centralIn0">centralIn0</a> f1 f2))
-            (and (<a href="../figure">figure</a> f1) (<a href="../figure">figure</a> f2)
-                 (forall (p) (if (<a href="../inside">inside</a> p f1)
-                                 (<a href="../centralIn0">centralIn0</a> p f2)))))))
-</pre>
-</div>
-<div class="axiom">
-<p>If the components of s are all figures (possibly physical objects, since volumes are figures), then s is called a <code>spatialSystem</code>.</p>
-<pre>
-(forall (x)
-   (iff (<a href="../spatialSystem">spatialSystem</a> s)
-        (forall (x) (if (<a href="../componentOf">componentOf</a> x s) (<a href="../figure">figure</a> x)))))
-</pre>
-</div>
 </section>
 
 </body>

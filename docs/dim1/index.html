@@ -40,35 +40,6 @@
                  (and (<a href="../lt">lt</a> d3 d1) (<a href="../lt">lt</a> d3 d2))))))
 </pre>
 </div>
-<div class="axiom">
-<p>We are already using the predicate <code>length</code> for the length of a line segment, so for the length of a 3-dimensional physical object, we'll use the predicate <code>length3</code>. The length of a physical object is the length of the longest side of its bounding box.</p>
-<pre>
-(forall (n x u)
-   (iff (<a href="../length3">length3</a> n x u)
-        (exists (b)
-           (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim1">dim1</a> c b x) (<a href="../length">length</a> n c u)))))
-</pre>
-</div>
-<div class="axiom">
-<p>If a book is standing on a table, its greatest dimension is vertical.</p>
-<pre>
-(forall (x p)
-   (if (<a href="../stand">stand</a> x p)
-       (exists (c b x d f)
-          (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim1">dim1</a> c b x)
-               (<a href="../posZAxis">posZAxis</a> d f) (<a href="../directionOf">directionOf</a> d c)))))
-</pre>
-</div>
-<div class="axiom">
-<p>If a book is lying or resting on a table, its greatest dimension is not vertical.</p>
-<pre>
-(forall (x p)
-   (if (<a href="../lie">lie</a> x p)
-       (exists (c b x d f)
-          (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim1">dim1</a> c b x)
-               (<a href="../posZAxis">posZAxis</a> d f) (not (<a href="../directionOf">directionOf</a> d c))))))
-</pre>
-</div>
 </section>
 
 </body>

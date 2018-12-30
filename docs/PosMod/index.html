@@ -42,30 +42,6 @@
 (forall (e) (if (<a href="../Rexist">Rexist</a> e) (<a href="../PosMod">PosMod</a> e Rexist)))
 </pre>
 </div>
-<div class="axiom">
-<p>The principal property of positive modalities is that Modus Ponens can be applied within the modality.</p>
-<pre>
-(forall (e1 e2 m)
-  (if (and (<a href="../PosMod">PosMod</a> e1 m) (<a href="../imply">imply</a> e1 e2))
-      (<a href="../PosMod">PosMod</a> e2 m)))
-</pre>
-</div>
-<div class="axiom">
-<p>Possibility is a positive modality.</p>
-<pre>
-(forall (e c)
-  (if (<a href="../possible">possible</a> e c)
-      (<a href="../PosMod">PosMod</a> e possible)))
-</pre>
-</div>
-<div class="axiom">
-<p>Necessity is a positive modality because of the transitivity of <code>imply</code>.</p>
-<pre>
-(forall (e c)
-  (if (<a href="../necessary">necessary</a> e c)
-      (<a href="../PosMod">PosMod</a> e necessary)))
-</pre>
-</div>
 </section>
 
 </body>

@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: goalNot</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>goalNot</code></h1>
+</header>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (e1 e2 x y c g)
+  (if (and (<a href="../adversary">adversary</a> e1 x y c) (<a href="../goalNot">goalNot</a> e2 g y))
+      (exists (e3)
+        (<a href="../goal">goal</a> e3 g x))))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

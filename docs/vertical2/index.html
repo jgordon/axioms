@@ -47,24 +47,6 @@
       (and (<a href="../framework">framework</a> f) (<a href="../vertical2">vertical2</a> a2 f))))
 </pre>
 </div>
-<div class="axiom">
-<p>An element of the domain has an x-coordinate if there is a vertical subset that contains both the element and an element of the x-axis.</p>
-<pre>
-(forall (x1 x f)
-  (iff (<a href="../xCoordinate">xCoordinate</a> x1 x f)
-       (exists (v a1)
-         (and (<a href="../vertical2">vertical2</a> v f) (<a href="../member">member</a> x v) (<a href="../xAxis">xAxis</a> a1 f)
-              (<a href="../member">member</a> x1 v) (<a href="../member">member</a> x1 a1)))))
-</pre>
-</div>
-<div class="axiom">
-<p>A subset of the domain is <code>horizontal3</code> if it is either <code>horizontal</code> or <code>vertical2</code>.</p>
-<pre>
-(forall (s f)
-   (iff (<a href="../horizontal3">horizontal3</a> s f)
-        (or (<a href="../horizontal">horizontal</a> s f) (<a href="../vertical2">vertical2</a> s f))))
-</pre>
-</div>
 </section>
 
 </body>

@@ -35,59 +35,6 @@
       (and (<a href="../first">first</a> x p) (<a href="../second">second</a> y p))))
 </pre>
 </div>
-<div class="axiom">
-<pre>
-(forall (f s1 s2)
-  (iff (<a href="../function0">function0</a> f s1 s2)
-       (and (<a href="../set">set</a> s1) (<a href="../set">set</a> s2) (<a href="../set">set</a> f)
-            ;; A function is a set of pairs where the first elements
-            ;; come from s1 and the second elements come from s2.
-            (forall (p)
-              (if (<a href="../member">member</a> p f)
-                  (exists (x y)
-                    (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> y s2)
-                         (<a href="../pair">pair</a> p x y)))))
-            ;; There is a value of the function for every element of
-            ;; s1.
-            (forall (x)
-              (if (<a href="../member">member</a> x s1)
-                  (exists (p)
-                    (and (<a href="../member">member</a> p f) (<a href="../first">first</a> x p)))))
-            ;; The value is unique.
-            (forall (p1 p2 x)
-              (if (and (<a href="../first">first</a> x p1) (<a href="../first">first</a> x p2)
-                       (<a href="../member">member</a> p1 f) (<a href="../member">member</a> p2 f))
-                  (equal p1 p2)))
-            ;; Every element of s2 is the value of a member of s1 under
-            ;; the function f.
-            (forall (y)
-              (if (<a href="../member">member</a> y s2)
-                  (exists (p)
-                    (and (<a href="../member">member</a> p f) (<a href="../second">second</a> y p))))))))
-</pre>
-</div>
-<div class="axiom">
-<p><code>f</code>.</p>
-<pre>
-(forall (f x y)
-  (iff (<a href="../map">map</a> f x y)
-       (exists (s1 s2 p)
-         (and (<a href="../function0">function0</a> f s1 s2) (<a href="../member">member</a> p f)
-              (<a href="../first">first</a> x p) (<a href="../second">second</a> y p)))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (p x y e1 e2 e3)
-  (if (and (<a href="../pair0">pair0</a>' e1 p) (<a href="../first">first</a>' e2 x p) (<a href="../second">second</a>' e3 y p)
-           (<a href="../Rexist">Rexist</a> e1) (<a href="../Rexist">Rexist</a> e2) (<a href="../Rexist">Rexist</a> e3))
-      (exists (s1 s2 s3)
-        (and (<a href="../compositeEntity">compositeEntity</a> p)
-             (<a href="../doubleton">doubleton</a> s1 x y) (<a href="../componentsOf">componentsOf</a> s1 p)
-             (<a href="../singleton">singleton</a> s2 e1) (<a href="../propertiesOf">propertiesOf</a> s2 p)
-             (<a href="../doubleton">doubleton</a> s3 e2 e3) (<a href="../relationsOf">relationsOf</a> s3 p)))))
-</pre>
-</div>
 </section>
 
 </body>

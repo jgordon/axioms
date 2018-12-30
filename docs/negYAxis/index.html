@@ -50,22 +50,6 @@
                 (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../negYAxis">negYAxis</a> a f)))))
 </pre>
 </div>
-<div class="axiom">
-<p>South is the negative half of the y-axis in the N-E-S-W framework.</p>
-<pre>
-(forall (d)
-   (iff (<a href="../south">south</a> d)
-        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../negYAxis">negYAxis</a> d f)))))
-</pre>
-</div>
-<div class="axiom">
-<p>Backward is the negative half of the y-axis in a self-anchored framework.</p>
-<pre>
-(forall (d)
-   (iff (<a href="../backward">backward</a> d)
-        (exists (f) (and (<a href="../selfAnchoredFramework">selfAnchoredFramework</a> f) (<a href="../negYAxis">negYAxis</a> d f)))))
-</pre>
-</div>
 </section>
 
 </body>

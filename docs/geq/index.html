@@ -49,19 +49,6 @@
         (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)))))
 </pre>
 </div>
-<div class="axiom">
-<pre>
-(forall (s)
-  (if (<a href="../nonNegNumericScale">nonNegNumericScale</a> s)
-      (exists (s1 e x y)
-        (and (<a href="../lt">lt</a>' e x y)
-             (forall (n)
-               (if (<a href="../member">member</a> n s1)
-                   (and (<a href="../geq">geq</a> n 0) (<a href="../number">number</a> n))))
-             (<a href="../member">member</a> 0 s1)
-             (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e)))))
-</pre>
-</div>
 </section>
 
 </body>

@@ -24,9 +24,17 @@ axiom_files = [
     '13 Event Structure.md',
     '14 Space.md',
     '15 Persons.md',
-    '16 Modality.md']
+    '16 Modality.md',
+    'DFCEs.md',
+    'Conflict.md']
 
 bad_preds = ['forall', 'exists', 'iff', 'if', 'and', 'equal', 'not', 'or']
+
+
+def is_lexical(s):
+    return s.endswith('-in') or s.endswith('-vb') or s.endswith('-nn') \
+        or s.endswith('-adj')
+
 
 # Read all definitions first.
 for fname in axiom_files:
@@ -127,7 +135,7 @@ for fname in axiom_files:
                         if formatted_axiom not in preds[pred].get('characterizing', []):
                             if 'all axioms' not in preds[pred]:
                                 preds[pred]['all axioms'] = []
-                            preds[pred]['all axioms'].append(formatted_axiom)
+                                preds[pred]['all axioms'].append(formatted_axiom)
                 else:
                     in_axiom = True
                     axiom = ''
@@ -199,10 +207,19 @@ html_footer = """
 ensure_dir('docs/index.html')
 with open('docs/index.html', 'w') as fout:
     fout.write(html_header_index)
+    fout.write('<h2>General</h2>\n')
     fout.write('<ul>\n')
     for pred in sorted(preds):
-        fout.write('<li><a href="' + pred + '"><code>' + pred +
-                   '</code></a></li>\n')
+        if not is_lexical(pred):
+            fout.write('<li><a href="' + pred + '"><code>' + pred +
+                       '</code></a></li>\n')
+    fout.write('</ul>\n')
+    fout.write('<h2>Lexical</h2>\n')
+    fout.write('<ul>\n')
+    for pred in sorted(preds):
+        if is_lexical(pred):
+            fout.write('<li><a href="' + pred + '"><code>' + pred +
+                       '</code></a></li>\n')
     fout.write('</ul>\n')
     fout.write(html_footer)
 

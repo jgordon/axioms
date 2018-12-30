@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: lose</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>lose</code></h1>
+</header>
+<section>
+<h2>Summary</h2>
+<pre>(lose e y x c)</pre><p>y loses to x in conflict c.</p>
+</section>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>To lose is for your adversary to win.</p>
+<pre>
+(forall (e x y c)
+  (if (<a href="../win">win</a> e x y c)
+      (<a href="../lose">lose</a> e y x c)))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

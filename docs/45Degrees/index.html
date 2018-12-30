@@ -45,18 +45,6 @@
        (<a href="../45Degrees">45Degrees</a> v)))
 </pre>
 </div>
-<div class="axiom">
-<p>Directions like &ldquo;northeast&rdquo; are a little more complicated to define.</p>
-<pre>
-(forall (d)
-   (iff (<a href="../northeast">northeast</a> d)
-        (exists (f o d1 d2 v1 v2)
-           (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../origin">origin</a> o f)
-                (<a href="../posYAxis">posYAxis</a> d1 f) (<a href="../posXAxis">posXAxis</a> d2 f)
-                (<a href="../vertex">vertex</a> v1 d1 d o) (<a href="../vertex">vertex</a> v2 d d2 o)
-                (<a href="../45Degrees">45Degrees</a> v1) (<a href="../45Degrees">45Degrees</a> v2)))))
-</pre>
-</div>
 </section>
 
 </body>

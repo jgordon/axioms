@@ -48,15 +48,6 @@
          (if (<a href="../causalComplex">causalComplex</a> s e2) (<a href="../enable0">enable0</a> e1 e2 s)))))
 </pre>
 </div>
-<div class="axiom">
-<p>We will say that a causal complex for an eventuality is enabled at time t if all its preconditions hold at time t.</p>
-<pre>
-(forall (s e t)
-  (iff (<a href="../enabled">enabled</a> s e t)
-       (forall (e1)
-         (if (<a href="../enable0">enable0</a> e1 e s) (<a href="../atTime">atTime</a> e1 t)))))
-</pre>
-</div>
 </section>
 
 </body>

@@ -47,50 +47,6 @@
        (or (<a href="../line">line</a> c) (<a href="../ray">ray</a> c) (<a href="../lineSegment">lineSegment</a> c))))
 </pre>
 </div>
-<div class="axiom">
-<p>Any linear entity has a line it is a subfigure of.</p>
-<pre>
-(forall (c)
-  (if (<a href="../linear">linear</a> c)
-      (and (exists (c1) (and (<a href="../line">line</a> c1) (<a href="../subfigure">subfigure</a> c c1)))
-           (forall (c1 c2)
-             (if (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2)
-                      (<a href="../subfigure">subfigure</a> c c1) (<a href="../subfigure">subfigure</a> c c2))
-                  (equal c1 c2))))))
-</pre>
-</div>
-<div class="axiom">
-<p>A plane is a region such that if a line passes through any two points in the region, it is inside the region.</p>
-<pre>
-(forall (r)
-  (iff (<a href="../plane">plane</a> r)
-       (forall (c x1 x2)
-         (if (and (<a href="../line">line</a> c) (<a href="../inside">inside</a> x1 c) (<a href="../inside">inside</a> x2 c)
-                  (<a href="../inside">inside</a> x1 r) (<a href="../inside">inside</a> x2 r))
-             (<a href="../inside">inside</a> c r)))))
-</pre>
-</div>
-<div class="axiom">
-<p>Two lines are parallel if they are coplanar and they have no points in common.</p>
-<pre>
-(forall (c1 c2)
-  (if (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2))
-      (iff (<a href="../parallel">parallel</a> c1 c2)
-           (and (<a href="../coplanar">coplanar</a> c1 c2)
-                (not (exists (f)
-                       (and (<a href="../inside">inside</a> f c1) (<a href="../inside">inside</a> f c2))))))))
-</pre>
-</div>
-<div class="axiom">
-<p>Two figures are parallel if they are inside two parallel lines.</p>
-<pre>
-(forall (f1 f2)
-  (iff (<a href="../parallel">parallel</a> f1 f2)
-       (exists (c1 c2)
-         (and (<a href="../line">line</a> c1) (<a href="../line">line</a> c2) (<a href="../parallel">parallel</a> c1 c2)
-              (<a href="../inside">inside</a> f1 c1) (<a href="../inside">inside</a> f2 c2)))))
-</pre>
-</div>
 </section>
 
 </body>

@@ -50,16 +50,6 @@
                                 (<a href="../intersection">intersection</a> s a2 a3)
 </pre>
 </div>
-<div class="axiom">
-<p>The expression <code>(tangent t c x)</code> says that linear entity t is tangent to circle c at point x.</p>
-<pre>
-(forall (t c x)
-   (iff (<a href="../tangent">tangent</a> t c x)
-        (and (<a href="../point">point</a> x) (<a href="../circle">circle</a> c) (<a href="../linear">linear</a> t) (<a href="../coplanar">coplanar</a> c t)
-             (exists (s)
-                (and (<a href="../singleton">singleton</a> s x) (<a href="../intersection">intersection</a> s c t))))))
-</pre>
-</div>
 </section>
 
 </body>

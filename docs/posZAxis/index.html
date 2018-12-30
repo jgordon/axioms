@@ -50,44 +50,6 @@
                 (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../posZAxis">posZAxis</a> a f)))))
 </pre>
 </div>
-<div class="axiom">
-<p>Up is the positive half of the z-axis in the N-E-S-W framework.</p>
-<pre>
-(forall (d)
-   (iff (<a href="../up">up</a> d)
-        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../posZAxis">posZAxis</a> d f)))))
-</pre>
-</div>
-<div class="axiom">
-<p>Length, width and thickness depend only on the relative dimensions of the object. Height depends also on a framework that fixes a particular direction as up. That vertical dimension is the height.</p>
-<pre>
-(forall (n x u f)
-   (iff (<a href="../height">height</a> n x u f)
-        (exists (b c d)
-           (and (<a href="../bounding">bounding</a> box b x) (<a href="../edge">edge</a> c b) (<a href="../directionOf">directionOf</a> d c)
-                (<a href="../posZAxis">posZAxis</a> d f) (<a href="../length">length</a> n c u)))))
-</pre>
-</div>
-<div class="axiom">
-<p>If a book is standing on a table, its greatest dimension is vertical.</p>
-<pre>
-(forall (x p)
-   (if (<a href="../stand">stand</a> x p)
-       (exists (c b x d f)
-          (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim1">dim1</a> c b x)
-               (<a href="../posZAxis">posZAxis</a> d f) (<a href="../directionOf">directionOf</a> d c)))))
-</pre>
-</div>
-<div class="axiom">
-<p>If a book is lying or resting on a table, its greatest dimension is not vertical.</p>
-<pre>
-(forall (x p)
-   (if (<a href="../lie">lie</a> x p)
-       (exists (c b x d f)
-          (and (<a href="../boundingBox">boundingBox</a> b x) (<a href="../dim1">dim1</a> c b x)
-               (<a href="../posZAxis">posZAxis</a> d f) (not (<a href="../directionOf">directionOf</a> d c))))))
-</pre>
-</div>
 </section>
 
 </body>

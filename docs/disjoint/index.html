@@ -37,32 +37,6 @@
                   (and (<a href="../member">member</a> x s1) (<a href="../member">member</a> x s2)))))))
 </pre>
 </div>
-<div class="axiom">
-<pre>
-(forall (s1 s2)
-   (if (and (<a href="../scale">scale</a> s1) (<a href="../scale">scale</a> s2))
-       (iff (<a href="../disjoint">disjoint</a> s1 s2)
-            (exists (s3 s4)
-               (and (<a href="../componentsOf">componentsOf</a> s3 s1) (<a href="../componentsOf">componentsOf</a> s4 s2)
-                    (<a href="../disjoint">disjoint</a> s3 s4))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (m s1 s2 x y)
-  (if (and (<a href="../measure">measure</a> m s1) (<a href="../function">function</a> m s1 s2) (<a href="../disjoint">disjoint</a> s1 s2)
-           (<a href="../map">map</a> m x y))
-      (<a href="../at">at</a> x y s2)))
-</pre>
-</div>
-<div class="axiom">
-<p>Fronts are defeasibly unique.</p>
-<pre>
-(forall (r1 r2 v)
-   (if (and (<a href="../front">front</a> r1 v) (<a href="../disjoint">disjoint</a> r1 r2) (etc))
-       (not (<a href="../front">front</a> r2 v))))
-</pre>
-</div>
 </section>
 
 </body>

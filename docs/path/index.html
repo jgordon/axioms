@@ -37,43 +37,6 @@
                            (<a href="../subevent">subevent</a> e1 e) (<a href="../subevent">subevent</a> e2 e))))))))
 </pre>
 </div>
-<div class="axiom">
-<p>Every moving of a physical object has a path.</p>
-<pre>
-(forall (e x a b)
-   (if (and (<a href="../move">move</a>' e x a b) (<a href="../physobj">physobj</a> x))
-       (exists (c) (<a href="../path">path</a> c e))))
-</pre>
-</div>
-<div class="axiom">
-<p>If c is the path of a moving event e, then e is &ldquo;along&rdquo; c.</p>
-<pre>
-(forall (e x y1 y2 c)
-   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
-       (<a href="../along">along</a> e c)))
-</pre>
-</div>
-<div class="axiom">
-<p>If the path of a moving event is a closed curve, the event is &ldquo;around&rdquo; the points (and other figures) enclosed by the path.</p>
-<pre>
-(forall (e x y1 y2 c)
-   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
-       (iff (<a href="../around">around</a> c z)
-            (exists (r)
-               (and (<a href="../region">region</a> r) (<a href="../boundary">boundary</a> c r)
-                    (<a href="../inside">inside</a> z r))))))
-</pre>
-</div>
-<div class="axiom">
-<p>To move through a figure is for point in the figure to be between the source and destination on the path of the motion.</p>
-<pre>
-(forall (e x y1 y2 c z)
-   (if (and (<a href="../move">move</a>' e x y1 y2) (<a href="../path">path</a> c e))
-       (iff (<a href="../through">through</a> e z)
-            (exists (p)
-               (and (<a href="../subfigure">subfigure</a> p z) (<a href="../between">between</a> p y1 y2 c))))))
-</pre>
-</div>
 </section>
 
 </body>

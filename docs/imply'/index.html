@@ -52,25 +52,6 @@
       (<a href="../Rexist">Rexist</a> e2)))
 </pre>
 </div>
-<div class="axiom">
-<pre>
-(forall (e1 e2 e3 i1 i2 i3)
-  (if (and (<a href="../imply'">imply'</a> i1 e1 e2) (<a href="../imply'">imply'</a> i2 e2 e3) (<a href="../imply'">imply'</a> i3 e1 e3)
-           (<a href="../Rexist">Rexist</a> i1) (<a href="../Rexist">Rexist</a> i2))
-      (<a href="../Rexist">Rexist</a> i3)))
-</pre>
-</div>
-<div class="axiom">
-<p>We will take a conditional event to be the implicational relation between some eventuality &ndash; a state or an event &ndash; and an event, with a further relation that the first eventuality must obtain at the beginning of the second.</p>
-<pre>
-(forall (e e1 e2)
-  (iff (<a href="../cond">cond</a> e e1 e2)
-       (and (<a href="../imply'">imply'</a> e e1 e2) (<a href="../event">event</a> e2)
-            (forall (t)
-              (if (<a href="../begins">begins</a> t e2)
-                  (<a href="../atTime">atTime</a> e1 t))))))
-</pre>
-</div>
 </section>
 
 </body>

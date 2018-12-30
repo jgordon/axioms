@@ -51,47 +51,6 @@
              (<a href="../intervalBetween">intervalBetween</a> t t3 t4)))))
 </pre>
 </div>
-<div class="axiom">
-<p>A temporal sequence is periodic if there is a constant duration between any two successive temporal entities in the temporal sequence.</p>
-<pre>
-(forall (s)
-  (iff (<a href="../periodicTseq">periodicTseq</a> s)
-       (and (<a href="../tseq">tseq</a> s)
-            (exists (d u)
-              (forall (t1 t2)
-                (if (<a href="../successiveElts">successiveElts</a> t1 t2 s)
-                    (exists (t)
-                      (and (<a href="../intervalBetween">intervalBetween</a> t t1 t2)
-                           (<a href="../durationOf">durationOf</a> d t u)))))))))
-</pre>
-</div>
-<div class="axiom">
-<p>The constant duration in a periodic temporal sequence can be called the gap duration.</p>
-<pre>
-(forall (s d t1 t2 t n1 n2 u)
-  (if (and (<a href="../periodicTseq">periodicTseq</a> s) (<a href="../successiveElts">successiveElts</a> t1 t2 s)
-           (<a href="../temporalUnit">temporalUnit</a> u) (<a href="../intervalBetween">intervalBetween</a> t t1 t2))
-      (iff (<a href="../gapDuration">gapDuration</a> d s u) (<a href="../durationOf">durationOf</a> d t u))))
-</pre>
-</div>
-<div class="axiom">
-<p>If the gap between two elements is roughly equal, the temporal sequence is roughly periodic.</p>
-<pre>
-(forall (s)
-  (iff (<a href="../roughlyPeriodicTseq">roughlyPeriodicTseq</a> s u)
-       (and (<a href="../tseq">tseq</a> s) (<a href="../temporalUnit">temporalUnit</a> u)
-            (exists (s0 d)
-              (and (<a href="../scaleOrderedByDuration">scaleOrderedByDuration</a> s0)
-                   (forall (t1 t2 t3 t4)
-                     (if (and (<a href="../successiveElts">successiveElts</a> t1 t2 s)
-                              (<a href="../successiveElts">successiveElts</a> t3 t4 s))
-                         (exists (t12 t34 e d)
-                           (and (<a href="../intervalBetween">intervalBetween</a> t12 t1 t2)
-                                (<a href="../intervalBetween">intervalBetween</a> t34 t3 t4)
-                                (<a href="../durationOf">durationOf</a>' e d t12 u)
-                                (<a href="../sameHOM">sameHOM</a> t12 t34 s0 e))))))))))
-</pre>
-</div>
 </section>
 
 </body>

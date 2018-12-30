@@ -50,34 +50,6 @@
                 (<a href="../posYAxis">posYAxis</a> a1 f) (<a href="../posXAxis">posXAxis</a> a f)))))
 </pre>
 </div>
-<div class="axiom">
-<p>East is the positive half of the x-axis in the N-E-S-W framework.</p>
-<pre>
-(forall (d)
-   (iff (<a href="../east">east</a> d)
-        (exists (f) (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../posXAxis">posXAxis</a> d f)))))
-</pre>
-</div>
-<div class="axiom">
-<p>Directions like &ldquo;northeast&rdquo; are a little more complicated to define.</p>
-<pre>
-(forall (d)
-   (iff (<a href="../northeast">northeast</a> d)
-        (exists (f o d1 d2 v1 v2)
-           (and (<a href="../neswFramework">neswFramework</a> f) (<a href="../origin">origin</a> o f)
-                (<a href="../posYAxis">posYAxis</a> d1 f) (<a href="../posXAxis">posXAxis</a> d2 f)
-                (<a href="../vertex">vertex</a> v1 d1 d o) (<a href="../vertex">vertex</a> v2 d d2 o)
-                (<a href="../45Degrees">45Degrees</a> v1) (<a href="../45Degrees">45Degrees</a> v2)))))
-</pre>
-</div>
-<div class="axiom">
-<p>Rightward is the positive half of the x-axis in a self-anchored framework.</p>
-<pre>
-(forall (d)
-   (iff (<a href="../rightward">rightward</a> d)
-        (exists (f) (and (<a href="../selfAnchoredFramework">selfAnchoredFramework</a> f) (<a href="../posXAxis">posXAxis</a> d f)))))
-</pre>
-</div>
 </section>
 
 </body>

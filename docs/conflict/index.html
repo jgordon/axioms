@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: conflict</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>conflict</code></h1>
+</header>
+<section>
+<h2>Summary</h2>
+<pre>(conflict c x y g h)</pre><p>c is a conflict between x and y with goals g  and h respectively.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A conflict has two adversaries.</p>
+<pre>
+(forall (c x y g h)
+  (if (<a href="../conflict">conflict</a> c x y g h)
+      (exists (e)
+        (<a href="../adversary">adversary</a> e x y c))))
+</pre>
+</div><div class="axiom">
+<p>TODO: Political parties:</p>
+<pre>
+(forall (e x y g1 g2)
+  (if (<a href="../conflict">conflict</a> e x y g1 g2)
+      (<a href="../politicalParty">politicalParty</a> x)))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (e1)
+        (<a href="../conflict-nn">conflict-nn</a> e1 e))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (e1)
+        (<a href="../struggle-nn">struggle-nn</a> e1 e))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (e1)
+        (<a href="../battle-nn">battle-nn</a> e1 e))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (e1)
+        (<a href="../fight-nn">fight-nn</a> e1 e))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (e1)
+        (<a href="../dispute-nn">dispute-nn</a> e1 e))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (e1)
+        (<a href="../war-nn">war-nn</a> e1 e))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (e1)
+        (<a href="../combat-nn">combat-nn</a> e1 e))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (e1)
+        (<a href="../quarrel-nn">quarrel-nn</a> e1 e))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (e1)
+        (<a href="../competition-nn">competition-nn</a> e1 e))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (e1)
+        (<a href="../race-nn">race-nn</a> e1 e))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (e1)
+        (<a href="../revolt-nn">revolt-nn</a> e1 e))))
+</pre>
+</div><div class="axiom">
+<p>G and H are goals that conflict.</p>
+<pre>
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (u1 u2)
+        (<a href="../conflict-vb">conflict-vb</a> e g u1 u2))))
+(forall (e x y g h)
+  (if (<a href="../conflict">conflict</a> e x y g h)
+      (exists (e1 u1 u2)
+        (and (<a href="../conflict-vb">conflict-vb</a> e g u1 u2) (<a href="../with-in">with-in</a> e1 e y)))))
+</pre>
+</div></section>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>In conflict, adversaries attack each other.</p>
+<pre>
+(forall (c x y g h e)
+  (if (and (<a href="../conflict">conflict</a> c x y g h) (<a href="../adversary">adversary</a> e x y c))
+      (<a href="../attack">attack</a> e x y)))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

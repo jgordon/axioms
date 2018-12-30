@@ -48,31 +48,6 @@
                    (equal y1 x1))))))
 </pre>
 </div>
-<div class="axiom">
-<p><code>onlyarg*</code> that is either a component of the composite entity or the whole.</p>
-<pre>
-(forall (s2 x)
-  (if (<a href="../propertiesOf">propertiesOf</a> s2 x)
-      (and (<a href="../set">set</a> s2) (<a href="../compositeEntity">compositeEntity</a> x)
-           (forall (e)
-             (if (<a href="../member">member</a> e s2)
-                 (exists (y)
-                   (and (<a href="../componentOrWhole">componentOrWhole</a> y x)
-                        (<a href="../onlyarg*">onlyarg*</a> y e))))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (s3 x)
-  (if (<a href="../relationsOf">relationsOf</a> s3 x)
-      (and (<a href="../set">set</a> s3) (<a href="../compositeEntity">compositeEntity</a> x)
-           (forall (e)
-             (if (<a href="../member">member</a> e s3)
-                 (exists (y z)
-                   (and (<a href="../componentOrWhole">componentOrWhole</a> y x) (<a href="../arg*">arg*</a> y e)
-                        (<a href="../nequal">nequal</a> z y) (<a href="../arg*">arg*</a> z e))))))))
-</pre>
-</div>
 </section>
 
 </body>

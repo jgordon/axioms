@@ -54,16 +54,6 @@
        (<a href="../45Degrees">45Degrees</a> v)))
 </pre>
 </div>
-<div class="axiom">
-<p>A cube is a polyhedron all of whose faces are squares.</p>
-<pre>
-(forall (p s)
-   (iff (<a href="../cube">cube</a> p s)
-        (and (<a href="../polyhedron">polyhedron</a> p s)
-             (forall (f)
-                (if (<a href="../member">member</a> f s) (<a href="../square">square</a> f))))))
-</pre>
-</div>
 </section>
 
 </body>

@@ -23,6 +23,52 @@
 <h1>Predicate: <code>goal</code></h1>
 </header>
 <section>
+<h2>Summary</h2>
+<pre>(goal e g x)</pre><p>g is a goal of x.</p>
+</section>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Adversaries have contradictory goals.</p>
+<pre>
+(forall (e g x)
+  (if (<a href="../goal">goal</a> e g x)
+      (exists (y h)
+        (<a href="../conflict">conflict</a> c x y g h))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 g x)
+  (if (<a href="../goal">goal</a> e1 g x)
+      (<a href="../goal-nn">goal-nn</a> e1 g)))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x g u)
+  (if (<a href="../goal">goal</a> e1 g x)
+      (<a href="../want-vb">want-vb</a> e1 x g u)))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 e2 g x)
+  (if (<a href="../goal">goal</a> e1 g x)
+      (and (<a href="../goal-nn">goal-nn</a> e1 g) (<a href="../of-in">of-in</a> e2 g x))))
+</pre>
+</div><div class="axiom">
+<p>An adversary has a strategy The relationship between the plan and the goals is unclear, but one is evidence for the other.</p>
+<pre>
+(forall (e e1 g x u1)
+  (if (<a href="../goal">goal</a> e1 g x)
+      (<a href="../plan-nn">plan-nn</a> e u1)))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 g x u1)
+  (if (<a href="../goal">goal</a> e1 g x)
+      (<a href="../strategy-nn">strategy-nn</a> e u1)))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>

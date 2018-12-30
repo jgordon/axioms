@@ -36,16 +36,6 @@
       (<a href="../subsetConsistent">subsetConsistent</a> s e1)))
 </pre>
 </div>
-<div class="axiom">
-<p>Something is difficult if it is in the <code>Hi</code> region of a difficulty scale.</p>
-<pre>
-(forall (e1 e a)
-  (iff (<a href="../difficult">difficult</a>' e1 e a)
-       (and (<a href="../agent">agent</a> a) (<a href="../agentOf">agentOf</a> a e)
-            (exists (s)
-              (and (<a href="../difficultyScale">difficultyScale</a> s e) (<a href="../scaleFor">scaleFor</a> s e1))))))
-</pre>
-</div>
 </section>
 
 </body>

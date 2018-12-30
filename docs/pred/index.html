@@ -50,34 +50,6 @@
                       (<a href="../argn">argn</a> x i e))))))))
 </pre>
 </div>
-<div class="axiom">
-<pre>
-(forall (e x y z)
-  (if (<a href="../give">give</a>' e x y z)
-      (<a href="../pred">pred</a> give e)))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (x e1 y e2)
-  (iff (<a href="../subst">subst</a> x e1 y e2)
-       (exists (p n)
-         (and (<a href="../pred">pred</a> p e1) (<a href="../pred">pred</a> p e2) (<a href="../arity">arity</a> n e1) (<a href="../arity">arity</a> n e2)
-              (<a href="../noSubstTypelt">noSubstTypelt</a> x e1 y e2)
-              (forall (i z1 z2)
-                (if (and (<a href="../posInteger">posInteger</a> i) (<a href="../leq">leq</a> i n)
-                         (<a href="../argn">argn</a> z1 i e1) (<a href="../argn">argn</a> z2 i e2))
-                    (and (iff (<a href="../eventuality">eventuality</a> z1)
-                              (<a href="../eventuality">eventuality</a> z2))
-                         (if (not (<a href="../eventuality">eventuality</a> z1))
-                             (and (if (<a href="../nequal">nequal</a> z1 x)
-                                      (equal z2 z1))
-                                  (if (equal z1 x)
-                                      (equal z2 y))))
-                         (if (<a href="../eventuality">eventuality</a> z1)
-                             (<a href="../subst">subst</a> x z1 y z2)))))))))
-</pre>
-</div>
 </section>
 
 </body>

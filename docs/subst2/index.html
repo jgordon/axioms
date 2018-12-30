@@ -47,49 +47,6 @@
         (and (<a href="../subst2">subst2</a> x y e x1 y1 e1) (<a href="../Rexist">Rexist</a> e1)))))
 </pre>
 </div>
-<div class="axiom">
-<pre>
-(forall (x x1 y y1 e)
-  (iff (<a href="../skfct">skfct</a> y1 y x1 x e)
-       (and (<a href="../fd">fd</a> y x e)
-            (exists (e1)
-              (and (<a href="../subst2">subst2</a> x y e x1 y1 e1)
-                   (if (<a href="../Rexist">Rexist</a> e) (<a href="../Rexist">Rexist</a> e1)))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (c1 c x1 x y e e1)
-  (if (and (<a href="../skfct">skfct</a> c1 c x1 x e) (<a href="../fd">fd</a> c y e) (<a href="../nequal">nequal</a> x y)
-           (<a href="../subst2">subst2</a> c1 x1 e1 c x e))
-      (<a href="../fd">fd</a> c1 y e1)))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (s)
-   (if (<a href="../scale">scale</a> s)
-       (and (<a href="../compositeEntity">compositeEntity</a> s)
-            (exists (s1 e x y s2 s3)
-               (and (<a href="../componentsOf">componentsOf</a> s1 s)
-                    (<a href="../partialOrdering">partialOrdering</a> e x y s)
-                    (<a href="../subset">subset</a> s2 s3) (<a href="../relationsOf">relationsOf</a> s3 s)
-                    (forall (e1)
-                       (if (<a href="../member">member</a> e1 s2)
-                           (exists (x1 y1)
-                              (and (<a href="../member">member</a> x1 s1) (<a href="../member">member</a> y1 s1)
-                                   (<a href="../subst2">subst2</a> x1 y1 e1 x y e))))))))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (e x1 y1 s)
-   (iff (<a href="../lts">lts</a>' e1 x1 y1 s)
-        (exists (e x y e1)
-           (and (<a href="../partialOrdering">partialOrdering</a> e x y s)
-                (<a href="../subst2">subst2</a> x y e x1 y1 e1)))))
-</pre>
-</div>
 </section>
 
 </body>
