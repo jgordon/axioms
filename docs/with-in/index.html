@@ -45,6 +45,14 @@
         (and (<a href="../conflict">conflict</a> e x u g h) (<a href="../with-in">with-in</a> e2 e y)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e1 w x y z)
+  (if (<a href="../use-weapon">use-weapon</a> e1 x w y z)
+      (exists (e2 u)
+        (and (<a href="../use-weapon">use-weapon</a> e1 x u y z) (<a href="../with-in">with-in</a> e2 e1 w)))))
+</pre>
+</div>
 </section>
 
 </body>

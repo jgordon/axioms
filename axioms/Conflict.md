@@ -935,3 +935,169 @@ x blows y away
         (slap-nn e1 e))))
 ```
 
+
+### Use a Weapon
+
+X uses W (generally)
+```
+(forall (e1 x w y z)
+  (if (use e1 x w y z)
+      (exists (u)
+        (use-vb e1 x w u))))
+```
+
+
+#### Weapon Nouns
+
+E1 is a shot by X with W
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists (e0)
+        (shot-nn e0 e1))))
+```
+
+E1 is a stroke by X with W
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists (e0)
+        (stroke-nn e0 e1))))
+```
+
+E1 is a blast
+```
+(forall (e1 x y)
+  (if (attack e1 x y)
+      (exists (e0)
+        (blast-nn e0 e1))))
+```
+
+E1 is an explosion
+```
+(forall (e1 x y)
+  (if (attack e1 x y)
+      (exists (e0)
+        (explosion-nn e0 e1))))
+```
+
+E1 is gunfire
+```
+(forall (e1 x y)
+  (if (attack e1 x y)
+      (exists (e0)
+        (gunfire-nn e0 e1))))
+```
+
+
+#### Weapon Verbs
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists u2)
+        (shoot-vb e1 x y u2)))
+```
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists u2)
+        (hit-vb e1 x y u2)))
+```
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists u2)
+        (bomb-vb e1 x y u2)))
+```
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists u2)
+        (fire-vb e1 x y u2)))
+```
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists u2)
+        (blast-vb e1 x y u2)))
+```
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists u2)
+        (explode-vb e1 x y u2)))
+```
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists u2)
+        (slaughter-vb e1 x y u2)))
+```
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists u2)
+        (knife-vb e1 x y u2)))
+```
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists u2)
+        (stab-vb e1 x y u2)))
+```
+
+
+#### Weapon Prepositional Phrases
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists (e2 u)
+        (and (use-weapon e1 x u y z) (with-in e2 e1 w)))))
+```
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists (e2 u)
+        (and (use-weapon e1 x u y z) (by-in e2 e1 w)))))
+```
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists (e2 u)
+        (and (use-weapon e1 x u y z) (of-in e2 e1 w)))))
+```
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists (e2 u)
+        (and (use-weapon e1 x u y z) (at-in e2 e1 w)))))
+```
+
+
+#### Weapon Expansion Axioms
+
+```
+(forall (e1 w x y z)
+  (if (and (use e1 x w y z) (weapon w))
+      (use-weapon e1 x w y z)))
+```
+
+```
+(forall (e1 w x y z)
+  (if (use-weapon e1 x w y z)
+      (exists (u)
+        (and (use-weapon e1 w u y z) (weapon w)))))
+```

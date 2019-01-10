@@ -204,6 +204,30 @@
       (exists (e2 e1)
         (<a href="../lethal-adj">lethal-adj</a> e2 e1))))
 </pre>
+</div><div class="axiom">
+<p>E1 is a blast</p>
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0)
+        (<a href="../blast-nn">blast-nn</a> e0 e1))))
+</pre>
+</div><div class="axiom">
+<p>E1 is an explosion</p>
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0)
+        (<a href="../explosion-nn">explosion-nn</a> e0 e1))))
+</pre>
+</div><div class="axiom">
+<p>E1 is gunfire</p>
+<pre>
+(forall (e1 x y)
+  (if (<a href="../attack">attack</a> e1 x y)
+      (exists (e0)
+        (<a href="../gunfire-nn">gunfire-nn</a> e0 e1))))
+</pre>
 </div></section>
 <section>
 <h2>Additional Axioms</h2>

@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: use</title>
+<title>Predicate: use-vb</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,10 +20,10 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>use</code></h1>
+<h1>Predicate: <code>use-vb</code></h1>
 </header>
 <section>
-<h2>Characterizing Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <p>X uses W (generally)</p>
 <pre>
@@ -31,24 +31,6 @@
   (if (<a href="../use">use</a> e1 x w y z)
       (exists (u)
         (<a href="../use-vb">use-vb</a> e1 x w u))))
-</pre>
-</div></section>
-<section>
-<h2>Additional Axioms</h2>
-<div class="axiom">
-<p>Adversaries use weapons in attacks.</p>
-<pre>
-(forall (e1 x y)
-  (if (<a href="../attack">attack</a> e1 x y)
-      (exists (w z)
-        (and (<a href="../use">use</a> e1 x w y z) (<a href="../weapon">weapon</a> w)))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (e1 w x y z)
-  (if (and (<a href="../use">use</a> e1 x w y z) (<a href="../weapon">weapon</a> w))
-      (<a href="../use-weapon">use-weapon</a> e1 x w y z)))
 </pre>
 </div>
 </section>

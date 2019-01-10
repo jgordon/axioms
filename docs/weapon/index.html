@@ -37,6 +37,21 @@
         (and (<a href="../use">use</a> e1 x w y z) (<a href="../weapon">weapon</a> w)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e1 w x y z)
+  (if (and (<a href="../use">use</a> e1 x w y z) (<a href="../weapon">weapon</a> w))
+      (<a href="../use-weapon">use-weapon</a> e1 x w y z)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e1 w x y z)
+  (if (<a href="../use-weapon">use-weapon</a> e1 x w y z)
+      (exists (u)
+        (and (<a href="../use-weapon">use-weapon</a> e1 w u y z) (<a href="../weapon">weapon</a> w)))))
+</pre>
+</div>
 </section>
 
 </body>
