@@ -37,9 +37,37 @@
               (<a href="../relationsOf">relationsOf</a> s3 x)))))
 </pre>
 </div><div class="axiom">
-<p>Make <code>compEnt</code> a synonym for <code>compositeEntity</code> since it is used in the previous treatment of composite entities for use in Henry.</p>
+<p>A composite entity has a set of components.</p>
 <pre>
-(forall (x) (iff (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../compEnt">compEnt</a> x)))
+(forall (x)
+   (if (<a href="../compositeEntity">compositeEntity</a> x)
+       (exists (s y)
+         (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../typelt">typelt</a> y s) (<a href="../componentOf">componentOf</a> y x)))))
+</pre>
+</div><div class="axiom">
+<p>A composite entity has a component.</p>
+<pre>
+(forall (x)
+  (if (<a href="../compositeEntity">compositeEntity</a> x)
+      (exists (y)
+        (<a href="../componentOf">componentOf</a> y x))))
+</pre>
+</div><div class="axiom">
+<p>A composite entity has a set of structural relations among its components.</p>
+<pre>
+(forall (x)
+   (if (<a href="../compositeEntity">compositeEntity</a> x)
+       (and (<a href="../relationsOf">relationsOf</a> s1 x) (<a href="../typelt">typelt</a> r s1)
+            (<a href="../componentOf">componentOf</a> y1 x) (<a href="../componentOf">componentOf</a> y2 x)
+            (<a href="../arg*">arg*</a> y1 r) (<a href="../arg*">arg*</a> y2 r))))
+</pre>
+</div><div class="axiom">
+<p>A composite entity has relations/structure.</p>
+<pre>
+(forall (x)
+  (if (<a href="../compositeEntity">compositeEntity</a> x)
+      (exists (s1)
+        (<a href="../relationsOf">relationsOf</a> s1 x))))
 </pre>
 </div></section>
 <section>
@@ -156,6 +184,40 @@
             (exists (e y s1)
               (and (<a href="../componentsOf">componentsOf</a> s1 s) (<a href="../typelt">typelt</a> y s1) (<a href="../arg*">arg*</a> y e)
                    (if (<a href="../Rexist">Rexist</a> s) (<a href="../Rexist">Rexist</a> e)))))))
+</pre>
+</div>
+<div class="axiom">
+<p>One way to be <code>in</code> a composite entity is to be a component.</p>
+<pre>
+(forall (x y)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../componentOf">componentOf</a> y x))
+      (<a href="../in">in</a> y x)))
+</pre>
+</div>
+<div class="axiom">
+<p>One way to be <code>in</code> a composite entity is to be <code>at</code> a component.</p>
+<pre>
+(forall (x y z)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../componentOf">componentOf</a> z x) (<a href="../at">at</a> y z x))
+      (<a href="../in">in</a> y x)))
+</pre>
+</div>
+<div class="axiom">
+<p>One composite entity can have less structure than another. This relation cannot be defined precisely, but it is consistent with the subset relation.</p>
+<pre>
+(forall (s1 s2 x1 x2)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x1) (<a href="../compositeEntity">compositeEntity</a> x2) (<a href="../relationsOf">relationsOf</a> s1 x1)
+           (<a href="../relationsOf">relationsOf</a> s2 x2) (<a href="../subset">subset</a> s1 s2))
+      (<a href="../lessStruct">lessStruct</a> x1 x2)))
+</pre>
+</div>
+<div class="axiom">
+<p>We can say the structure of x1 has less structure than the structure of x2.</p>
+<pre>
+(forall (s1 s2 x1 x2)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x1) (<a href="../compositeEntity">compositeEntity</a> x2) (<a href="../relationsOf">relationsOf</a> s1 x1)
+           (<a href="../relationsOf">relationsOf</a> s1 x1) (<a href="../subset">subset</a> s1 s2))
+      (<a href="../lessStruct">lessStruct</a> s1 s2)))
 </pre>
 </div>
 <div class="axiom">

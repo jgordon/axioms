@@ -7,7 +7,7 @@
 - `(gen e1 e2)`: e1 generates or entails the existence of e2.
 - `(argn x n e)`: x is the nth argument of e.
 - `(arg x e)`: x is an argument of e.
-- `(arg* x e)`: x is an argument of e or an arg* of an argument of e.
+- `(arg* x e)`: x is an argument of e or an `arg*` of an argument of e.
 - `(pred p e)`: p is the predicate of e.
 - `(predicate p)`: p is a predicate.
 - `(arity n e)`: n is the arity or the number of arguments of e.

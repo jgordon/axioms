@@ -47,13 +47,13 @@
            (forall (y s1)
              (if (and (<a href="../member">member</a> y s) (<a href="../typelt">typelt</a> y s1))
                  (exists (y1)
-                        (and (<a href="../member">member</a> y1 s1) (<a href="../componentOf">componentOf</a> y1 x1)
-                             (forall (p)
-                               (if (and (<a href="../propOrRelOf">propOrRelOf</a> p x)
-                                        (<a href="../arg*">arg*</a> y p))
-                                   (exists (p1)
-                                          (and (<a href="../subst">subst</a> y1 p1 y p)
-                                               (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))))
+                   (and (<a href="../member">member</a> y1 s1) (<a href="../componentOf">componentOf</a> y1 x1)
+                        (forall (p)
+                          (if (and (<a href="../propOrRelOf">propOrRelOf</a> p x)
+                                   (<a href="../arg*">arg*</a> y p))
+                              (exists (p1)
+                                (and (<a href="../subst">subst</a> y1 p1 y p)
+                                     (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))))
 </pre>
 </div>
 <div class="axiom">

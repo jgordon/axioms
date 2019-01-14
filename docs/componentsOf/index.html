@@ -114,6 +114,15 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A composite entity has a set of components.</p>
+<pre>
+(forall (x)
+   (if (<a href="../compositeEntity">compositeEntity</a> x)
+       (exists (s y)
+         (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../typelt">typelt</a> y s) (<a href="../componentOf">componentOf</a> y x)))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (s)
    (if (<a href="../scale">scale</a> s)

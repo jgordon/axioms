@@ -228,6 +228,38 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The primed version of <code>relationsOf</code>. (This would be automatically generated.)</p>
+<pre>
+(forall (e s x)
+  (if (and (<a href="../relationsOf">relationsOf</a>' e s x) (<a href="../Rexist">Rexist</a> e))
+      (<a href="../relationsOf">relationsOf</a> s1 x)))
+</pre>
+</div>
+<div class="axiom">
+<p>The primed version of <code>in</code>. (This would be automatically generated.)</p>
+<pre>
+(forall (e x y)
+  (if (and (<a href="../in">in</a>' e x y) (<a href="../Rexist">Rexist</a> e))
+      (<a href="../in">in</a> x y)))
+</pre>
+</div>
+<div class="axiom">
+<p>The primed version of <code>decreaseStruct</code>. (This would be automatically generated.)</p>
+<pre>
+(forall (e x)
+  (if (and (<a href="../decreaseStruct">decreaseStruct</a>' e x) (<a href="../Rexist">Rexist</a> e))
+      (<a href="../decreaseStruct">decreaseStruct</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<p>The primed version of <code>change</code>. (This would be automatically generated.)</p>
+<pre>
+(forall (e e1 e2)
+  (if (and (<a href="../change">change</a>' e e1 e2) (<a href="../Rexist">Rexist</a> e))
+      (<a href="../change">change</a> e1 e2)))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (s e)
    (iff (<a href="../scaleFor">scaleFor</a> s e)

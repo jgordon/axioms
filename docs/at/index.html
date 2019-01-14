@@ -44,6 +44,14 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>One way to be <code>in</code> a composite entity is to be <code>at</code> a component.</p>
+<pre>
+(forall (x y z)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../componentOf">componentOf</a> z x) (<a href="../at">at</a> y z x))
+      (<a href="../in">in</a> y x)))
+</pre>
+</div>
+<div class="axiom">
 <p>We can apply <code>lts</code> and <code>gts</code> either to points on the scale or to entities that are at those points.</p>
 <pre>
 (forall (x y s)

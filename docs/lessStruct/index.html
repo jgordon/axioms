@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: lessStruct</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>lessStruct</code></h1>
+</header>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>One composite entity can have less structure than another. This relation cannot be defined precisely, but it is consistent with the subset relation.</p>
+<pre>
+(forall (s1 s2 x1 x2)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x1) (<a href="../compositeEntity">compositeEntity</a> x2) (<a href="../relationsOf">relationsOf</a> s1 x1)
+           (<a href="../relationsOf">relationsOf</a> s2 x2) (<a href="../subset">subset</a> s1 s2))
+      (<a href="../lessStruct">lessStruct</a> x1 x2)))
+</pre>
+</div>
+<div class="axiom">
+<p>We can say the structure of x1 has less structure than the structure of x2.</p>
+<pre>
+(forall (s1 s2 x1 x2)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x1) (<a href="../compositeEntity">compositeEntity</a> x2) (<a href="../relationsOf">relationsOf</a> s1 x1)
+           (<a href="../relationsOf">relationsOf</a> s1 x1) (<a href="../subset">subset</a> s1 s2))
+      (<a href="../lessStruct">lessStruct</a> s1 s2)))
+</pre>
+</div>
+<div class="axiom">
+<p>A change from having less structure to having more structure is an increase in structure.</p>
+<pre>
+(forall (e e1 e2 s1 s2 x)
+  (if (and (<a href="../change">change</a> e e1 e2)
+           (<a href="../relationsOf">relationsOf</a>' e1 s1 x) (<a href="../relationsOf">relationsOf</a>' e1 s2 x)
+           (<a href="../lessStruct">lessStruct</a> s1 s2))
+      (<a href="../increaseStruct">increaseStruct</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<p>A change from having more structure to having less structure is a decrease in structure.</p>
+<pre>
+(forall (e e1 e2 s1 s2 x)
+  (if (and (<a href="../change">change</a> e e1 e2)
+           (<a href="../relationsOf">relationsOf</a>' e1 s1 x) (<a href="../relationsOf">relationsOf</a>' e2 s2 x)
+           (<a href="../lessStruct">lessStruct</a> s2 s1))
+      (<a href="../decreaseStruct">decreaseStruct</a> x)))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

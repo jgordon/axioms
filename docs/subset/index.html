@@ -80,6 +80,24 @@
 </pre>
 </div>
 <div class="axiom">
+<p>One composite entity can have less structure than another. This relation cannot be defined precisely, but it is consistent with the subset relation.</p>
+<pre>
+(forall (s1 s2 x1 x2)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x1) (<a href="../compositeEntity">compositeEntity</a> x2) (<a href="../relationsOf">relationsOf</a> s1 x1)
+           (<a href="../relationsOf">relationsOf</a> s2 x2) (<a href="../subset">subset</a> s1 s2))
+      (<a href="../lessStruct">lessStruct</a> x1 x2)))
+</pre>
+</div>
+<div class="axiom">
+<p>We can say the structure of x1 has less structure than the structure of x2.</p>
+<pre>
+(forall (s1 s2 x1 x2)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x1) (<a href="../compositeEntity">compositeEntity</a> x2) (<a href="../relationsOf">relationsOf</a> s1 x1)
+           (<a href="../relationsOf">relationsOf</a> s1 x1) (<a href="../subset">subset</a> s1 s2))
+      (<a href="../lessStruct">lessStruct</a> s1 s2)))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (s)
    (if (<a href="../scale">scale</a> s)

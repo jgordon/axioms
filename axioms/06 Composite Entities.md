@@ -28,6 +28,7 @@
 - `(incompleteInstance x1 x)`: Composite entity x1 is a partial instance
   of pattern x in which not all parameters of x are instantiated.
 
+
 ## Axioms
 
 6.1 A composite entity is characterized by a set of components, a set of
@@ -39,13 +40,6 @@ properties, and a set of relations.
        (exists (s1 s2 s3)
          (and (componentsOf s1 x) (propertiesOf s2 x)
               (relationsOf s3 x)))))
-```
-
-Make `compEnt` a synonym for compositeEntity since it is used in the
-previous treatment of composite entities for use in Henry.
-
-```
-(forall (x) (iff (compositeEntity x) (compEnt x)))
 ```
 
 6.2 The set of components of a composite entity is nonempty.
@@ -262,7 +256,7 @@ its components.
 (forall (x)
   (iff (pattern x)
        (exists (y s1)
-              (and (componentOf y x) (typelt y s1)))))
+         (and (componentOf y x) (typelt y s1)))))
 ```
 
 6.20 The parameters of a pattern are the components that are type elements.
@@ -274,8 +268,8 @@ its components.
            (forall (y)
              (iff (member y s)
                   (exists (s1)
-                         (and (componentOf y x)
-                              (typelt y s1))))))))
+                    (and (componentOf y x)
+                         (typelt y s1))))))))
 ```
 
 6.21 An instance of a pattern is a composite entity in which all
@@ -289,13 +283,13 @@ the parameter is the type element of.
            (forall (y s1)
              (if (and (member y s) (typelt y s1))
                  (exists (y1)
-                        (and (member y1 s1) (componentOf y1 x1)
-                             (forall (p)
-                               (if (and (propOrRelOf p x)
-                                        (arg* y p))
-                                   (exists (p1)
-                                          (and (subst y1 p1 y p)
-                                               (propOrRelOf p1 x1))))))))))))
+                   (and (member y1 s1) (componentOf y1 x1)
+                        (forall (p)
+                          (if (and (propOrRelOf p x)
+                                   (arg* y p))
+                              (exists (p1)
+                                (and (subst y1 p1 y p)
+                                     (propOrRelOf p1 x1))))))))))))
 ```
 
 6.21 We can define an incomplete instance to be a composite entity in
@@ -318,51 +312,152 @@ properties and relations are instantiated.
                              (not (propOrRelOf p1 x1))))))))))
 ```
 
-Henry axioms:
+
+## Additional Axioms
+
+These are axioms that were used for reasoning in Henry about composite
+entities. In some cases they're entailed by the above; in other cases they
+elaborate them.
 
 A composite entity has a set of components.
 
-(B (name compEnt1)
-   (=> (compEnt x :1.2)
-       (^ (componentsOf s x) (typelt y s)
-          (componentOf y x))))
+```
+(forall (x)
+   (if (compositeEntity x)
+       (exists (s y)
+         (and (componentsOf s x) (typelt y s) (componentOf y x)))))
+```
+
 
 A composite entity has a component.
 
-(B (name compEnt1a) (=> (compEnt x :1.2) (componentOf y x)))
+```
+(forall (x)
+  (if (compositeEntity x)
+      (exists (y)
+        (componentOf y x))))
+```
 
-A composite entity has a set of structural relations among its
-components.
 
-(B (name compEnt2)
-   (=> (compEnt x :1.2)
-       (^ (relationsOf s1 x) (typelt r s1)
-          (componentOf y1 x) (componentOf y2 x)
-          (argstar y1 r) (argstar y2 r))))
+A composite entity has a set of structural relations among its components.
+
+```
+(forall (x)
+   (if (compositeEntity x)
+       (and (relationsOf s1 x) (typelt r s1)
+            (componentOf y1 x) (componentOf y2 x)
+            (arg* y1 r) (arg* y2 r))))
+```
+
 
 A composite entity has relations/structure.
 
-(B (name compEnt2a)
-   (=> (compEnt x :1.2) (relationsOf s1 x)))
+```
+(forall (x)
+  (if (compositeEntity x)
+      (exists (s1)
+        (relationsOf s1 x))))
+```
 
-The primed version of relationsOf.
 
-(B (name compEnt2b)
-   (=> (^ (relationsOfP e s x :0.6) (Rexist e :0.6)) (relationsOf s1 x)))
+The primed version of `relationsOf`. (This would be automatically
+generated.)
 
-To be in a composite entity is to be a component or to be at a
-component.
+```
+(forall (e s x)
+  (if (and (relationsOf' e s x) (Rexist e))
+      (relationsOf s1 x)))
+```
 
-(B (name compEnt6a)
-   (=> (^ (compEnt x :0.6) (componentOf y x :0.6))
-       (in y x)))
 
-(B (name compEnt6b)
-   (=> (^ (compEnt x :0.4) (componentOf z x :0.4) (at y z x :0.4))
-       (in y x)))
+One way to be `in` a composite entity is to be a component.
 
-The primed version of in.
+```
+(forall (x y)
+  (if (and (compositeEntity x) (componentOf y x))
+      (in y x)))
+```
 
-(B (name compEnt6c)
-   (=> (^ (inP e x y :0.6) (Rexist e :0.6))
-       (in x y)))
+
+One way to be `in` a composite entity is to be `at` a component.
+
+```
+(forall (x y z)
+  (if (and (compositeEntity x) (componentOf z x) (at y z x))
+      (in y x)))
+```
+
+
+The primed version of `in`. (This would be automatically generated.)
+
+```
+(forall (e x y)
+  (if (and (in' e x y) (Rexist e))
+      (in x y)))
+```
+
+
+One composite entity can have less structure than another. This relation
+cannot be defined precisely, but it is consistent with the subset
+relation.
+
+```
+(forall (s1 s2 x1 x2)
+  (if (and (compositeEntity x1) (compositeEntity x2) (relationsOf s1 x1)
+           (relationsOf s2 x2) (subset s1 s2))
+      (lessStruct x1 x2)))
+```
+
+
+We can say the structure of x1 has less structure than the structure of
+x2.
+
+```
+(forall (s1 s2 x1 x2)
+  (if (and (compositeEntity x1) (compositeEntity x2) (relationsOf s1 x1)
+           (relationsOf s1 x1) (subset s1 s2))
+      (lessStruct s1 s2)))
+```
+
+
+A change from having less structure to having more structure is an
+increase in structure.
+
+```
+(forall (e e1 e2 s1 s2 x)
+  (if (and (change e e1 e2)
+           (relationsOf' e1 s1 x) (relationsOf' e1 s2 x)
+           (lessStruct s1 s2))
+      (increaseStruct x)))
+```
+
+
+A change from having more structure to having less structure is a decrease
+in structure.
+
+```
+(forall (e e1 e2 s1 s2 x)
+  (if (and (change e e1 e2)
+           (relationsOf' e1 s1 x) (relationsOf' e2 s2 x)
+           (lessStruct s2 s1))
+      (decreaseStruct x)))
+```
+
+
+The primed version of `decreaseStruct`. (This would be automatically
+generated.)
+
+```
+(forall (e x)
+  (if (and (decreaseStruct' e x) (Rexist e))
+      (decreaseStruct x)))
+```
+
+
+The primed version of `change`. (This would be automatically generated.)
+
+```
+(forall (e e1 e2)
+  (if (and (change' e e1 e2) (Rexist e))
+      (change e1 e2)))
+```

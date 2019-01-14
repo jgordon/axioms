@@ -68,6 +68,24 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A change from having more structure to having less structure is a decrease in structure.</p>
+<pre>
+(forall (e e1 e2 s1 s2 x)
+  (if (and (<a href="../change">change</a> e e1 e2)
+           (<a href="../relationsOf">relationsOf</a>' e1 s1 x) (<a href="../relationsOf">relationsOf</a>' e2 s2 x)
+           (<a href="../lessStruct">lessStruct</a> s2 s1))
+      (<a href="../decreaseStruct">decreaseStruct</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<p>The primed version of <code>decreaseStruct</code>. (This would be automatically generated.)</p>
+<pre>
+(forall (e x)
+  (if (and (<a href="../decreaseStruct">decreaseStruct</a>' e x) (<a href="../Rexist">Rexist</a> e))
+      (<a href="../decreaseStruct">decreaseStruct</a> x)))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (x y f)
   (if (and (<a href="../decreaseFct">decreaseFct</a> y) (<a href="../functionality">functionality</a> f x))

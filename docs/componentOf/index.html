@@ -74,7 +74,7 @@
 (forall (x)
   (iff (<a href="../pattern">pattern</a> x)
        (exists (y s1)
-              (and (<a href="../componentOf">componentOf</a> y x) (<a href="../typelt">typelt</a> y s1)))))
+         (and (<a href="../componentOf">componentOf</a> y x) (<a href="../typelt">typelt</a> y s1)))))
 </pre>
 </div>
 <div class="axiom">
@@ -85,8 +85,8 @@
            (forall (y)
              (iff (<a href="../member">member</a> y s)
                   (exists (s1)
-                         (and (<a href="../componentOf">componentOf</a> y x)
-                              (<a href="../typelt">typelt</a> y s1))))))))
+                    (and (<a href="../componentOf">componentOf</a> y x)
+                         (<a href="../typelt">typelt</a> y s1))))))))
 </pre>
 </div>
 <div class="axiom">
@@ -97,13 +97,13 @@
            (forall (y s1)
              (if (and (<a href="../member">member</a> y s) (<a href="../typelt">typelt</a> y s1))
                  (exists (y1)
-                        (and (<a href="../member">member</a> y1 s1) (<a href="../componentOf">componentOf</a> y1 x1)
-                             (forall (p)
-                               (if (and (<a href="../propOrRelOf">propOrRelOf</a> p x)
-                                        (<a href="../arg*">arg*</a> y p))
-                                   (exists (p1)
-                                          (and (<a href="../subst">subst</a> y1 p1 y p)
-                                               (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))))
+                   (and (<a href="../member">member</a> y1 s1) (<a href="../componentOf">componentOf</a> y1 x1)
+                        (forall (p)
+                          (if (and (<a href="../propOrRelOf">propOrRelOf</a> p x)
+                                   (<a href="../arg*">arg*</a> y p))
+                              (exists (p1)
+                                (and (<a href="../subst">subst</a> y1 p1 y p)
+                                     (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))))
 </pre>
 </div>
 <div class="axiom">
@@ -121,6 +121,50 @@
                        (forall (y1 p1)
                          (if (<a href="../subst">subst</a> y1 p1 y p)
                              (not (<a href="../propOrRelOf">propOrRelOf</a> p1 x1))))))))))
+</pre>
+</div>
+<div class="axiom">
+<p>A composite entity has a set of components.</p>
+<pre>
+(forall (x)
+   (if (<a href="../compositeEntity">compositeEntity</a> x)
+       (exists (s y)
+         (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../typelt">typelt</a> y s) (<a href="../componentOf">componentOf</a> y x)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A composite entity has a component.</p>
+<pre>
+(forall (x)
+  (if (<a href="../compositeEntity">compositeEntity</a> x)
+      (exists (y)
+        (<a href="../componentOf">componentOf</a> y x))))
+</pre>
+</div>
+<div class="axiom">
+<p>A composite entity has a set of structural relations among its components.</p>
+<pre>
+(forall (x)
+   (if (<a href="../compositeEntity">compositeEntity</a> x)
+       (and (<a href="../relationsOf">relationsOf</a> s1 x) (<a href="../typelt">typelt</a> r s1)
+            (<a href="../componentOf">componentOf</a> y1 x) (<a href="../componentOf">componentOf</a> y2 x)
+            (<a href="../arg*">arg*</a> y1 r) (<a href="../arg*">arg*</a> y2 r))))
+</pre>
+</div>
+<div class="axiom">
+<p>One way to be <code>in</code> a composite entity is to be a component.</p>
+<pre>
+(forall (x y)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../componentOf">componentOf</a> y x))
+      (<a href="../in">in</a> y x)))
+</pre>
+</div>
+<div class="axiom">
+<p>One way to be <code>in</code> a composite entity is to be <code>at</code> a component.</p>
+<pre>
+(forall (x y z)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../componentOf">componentOf</a> z x) (<a href="../at">at</a> y z x))
+      (<a href="../in">in</a> y x)))
 </pre>
 </div>
 <div class="axiom">
