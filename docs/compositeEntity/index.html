@@ -290,6 +290,14 @@
       (<a href="../compositeEntity">compositeEntity</a> m)))
 </pre>
 </div>
+<div class="axiom">
+<p>A functional composite entity is a composite entity with a functionality.</p>
+<pre>
+(forall (f x)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../function">function</a> f x))
+      (<a href="../fCompEnt">fCompEnt</a> x)))
+</pre>
+</div>
 </section>
 
 </body>

@@ -183,6 +183,14 @@
               (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 r)))))
 </pre>
 </div>
+<div class="axiom">
+<p>The next two axioms adumbrate the concept of one entity being more functional than another.</p>
+<pre>
+(forall (e f s s1 x)
+  (if (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../functional">functional</a>' e x f))
+      (<a href="../functionScale">functionScale</a> s f)))
+</pre>
+</div>
 </section>
 
 </body>

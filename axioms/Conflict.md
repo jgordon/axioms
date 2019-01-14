@@ -204,7 +204,7 @@ having its citizens thrive.
 
 ```
 (forall (x f s)
-  (if (and (dFCompEnt x) (functionality f x) (thrive f s)
+  (if (and (dFCompEnt x) (function f x) (thrive f s)
            (citizens s x))
       (nation x)))
 ```
@@ -229,7 +229,7 @@ TODO: Political parties:
 
 ```
 (forall (x y f)
-  (if (and (dFCompEnt x) (functionality f x) (lead' f x y))
+  (if (and (dFCompEnt x) (function f x) (lead' f x y))
       (politicalParty x)))
 ```
 
@@ -1571,7 +1571,7 @@ scorched x
 
 ```
 (forall (f s x)
-  (if (and (dFCompEnt x) (functionality f x) (thrive f s) (citizens s x))
+  (if (and (dFCompEnt x) (function f x) (thrive f s) (citizens s x))
       (exists (e)
         (country-nn e x))))
 ```
@@ -1579,7 +1579,7 @@ scorched x
 
 ```
 (forall (f s x)
-  (if (and (dFCompEnt x) (functionality f x) (thrive f s) (citizens s x))
+  (if (and (dFCompEnt x) (function f x) (thrive f s) (citizens s x))
       (exists (e)
         (state-nn e x))))
 ```
@@ -1587,7 +1587,7 @@ scorched x
 
 ```
 (forall (f s x)
-  (if (and (dFCompEnt x) (functionality f x) (thrive f s) (citizens s x))
+  (if (and (dFCompEnt x) (function f x) (thrive f s) (citizens s x))
       (exists (e)
         (government-nn e x))))
 ```
@@ -1595,7 +1595,7 @@ scorched x
 
 ```
 (forall (f s x)
-  (if (and (dFCompEnt x) (functionality f x) (thrive f s) (citizens s x))
+  (if (and (dFCompEnt x) (function f x) (thrive f s) (citizens s x))
       (exists (e)
         (administration-nn e x))))
 ```
@@ -1603,7 +1603,7 @@ scorched x
 
 ```
 (forall (f s x z)
-  (if (and (dFCompEnt x) (functionality f x) (control f x s) (citizens s z))
+  (if (and (dFCompEnt x) (function f x) (control f x s) (citizens s z))
       (exists (e)
         (law-nn e x))))
 ```
@@ -1611,7 +1611,7 @@ scorched x
 
 ```
 (forall (f s x)
-  (if (and (dFCompEnt x) (functionality f x) (lead' f s x) (citizens s x))
+  (if (and (dFCompEnt x) (function f x) (lead' f s x) (citizens s x))
       (exists (e)
         (democracy-nn e x))))
 ```
@@ -1619,7 +1619,7 @@ scorched x
 
 ```
 (forall (f s x)
-  (if (and (dFCompEnt x) (functionality f x) (control f x s) (citizens s z))
+  (if (and (dFCompEnt x) (function f x) (control f x s) (citizens s z))
       (exists (e)
         (authoritarianism-nn e x))))
 ```
@@ -1627,7 +1627,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+  (if (and (dFCompEnt x) (function f x) (commerce f))
       (exists (e)
         (economy-nn e x))))
 ```
@@ -1635,7 +1635,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+  (if (and (dFCompEnt x) (function f x) (commerce f))
       (exists (e)
         (economic-adj e x))))
 ```
@@ -1643,7 +1643,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+  (if (and (dFCompEnt x) (function f x) (commerce f))
       (exists (e)
         (sector-nn e x))))
 ```
@@ -1651,7 +1651,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+  (if (and (dFCompEnt x) (function f x) (commerce f))
       (exists (e)
         (transportation-nn e x))))
 ```
@@ -1659,7 +1659,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+  (if (and (dFCompEnt x) (function f x) (commerce f))
       (exists (e)
         (financial-adj e x))))
 ```
@@ -1667,7 +1667,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+  (if (and (dFCompEnt x) (function f x) (commerce f))
       (exists (e)
         (fiscal-adj e x))))
 ```
@@ -1675,7 +1675,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+  (if (and (dFCompEnt x) (function f x) (commerce f))
       (exists (e)
         (business-nn e x))))
 ```
@@ -1683,7 +1683,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+  (if (and (dFCompEnt x) (function f x) (commerce f))
       (exists (e)
         (market-nn e x))))
 ```
@@ -1691,7 +1691,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x))
+  (if (and (dFCompEnt x) (function f x))
       (exists (e)
         (system-nn e x))))
 ```
@@ -1699,7 +1699,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x))
+  (if (and (dFCompEnt x) (function f x))
       (exists (e)
         (body-nn e x))))
 ```
@@ -1707,7 +1707,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x) (sharedPlan f x))
+  (if (and (dFCompEnt x) (function f x) (sharedPlan f x))
       (exists (e)
         (organization-nn e x))))
 ```
@@ -1715,7 +1715,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x))
+  (if (and (dFCompEnt x) (function f x))
       (exists (e)
         (program-nn e x))))
 ```
@@ -1723,7 +1723,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x))
+  (if (and (dFCompEnt x) (function f x))
       (exists (e)
         (class-nn e x))))
 ```
@@ -1731,7 +1731,7 @@ scorched x
 
 ```
 (forall (f x)
-  (if (and (dFCompEnt x) (functionality f x))
+  (if (and (dFCompEnt x) (function f x))
       (exists (e)
         (progress-nn e x))))
 ```
@@ -1739,7 +1739,7 @@ scorched x
 
 ```
 (forall (f x y z)
-  (if (and (dFCompEnt x) (functionality f x) (respect' f y z x))
+  (if (and (dFCompEnt x) (function f x) (respect' f y z x))
       (exists (e)
         (reputation-nn e x))))
 ```

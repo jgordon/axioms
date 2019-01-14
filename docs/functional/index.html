@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: functional</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>functional</code></h1>
+</header>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>If f is the functionality of x and x is &ldquo;functional&rdquo; (with respect to f), there is some event e involving x that causes f.</p>
+<pre>
+(forall (f x)
+  (if (and (<a href="../function">function</a> f x) (<a href="../functional">functional</a> x f))
+      (exists (e)
+        (and (<a href="../cause">cause</a> e f) (<a href="../arg*">arg*</a> x e)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The primed version of <code>functional</code>. (This would be automatically generated.)</p>
+<pre>
+(forall (e f x)
+  (if (and (<a href="../functional">functional</a>' e x f) (<a href="../Rexist">Rexist</a> e))
+      (<a href="../functional">functional</a> x f)))
+</pre>
+</div>
+<div class="axiom">
+<p>The next two axioms adumbrate the concept of one entity being more functional than another.</p>
+<pre>
+(forall (e f s s1 x)
+  (if (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../functional">functional</a>' e x f))
+      (<a href="../functionScale">functionScale</a> s f)))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

@@ -336,6 +336,22 @@
       (iff (<a href="../Rexist">Rexist</a> e) (<a href="../atTime">atTime</a> e t))))
 </pre>
 </div>
+<div class="axiom">
+<p>The primed version of <code>functional</code>. (This would be automatically generated.)</p>
+<pre>
+(forall (e f x)
+  (if (and (<a href="../functional">functional</a>' e x f) (<a href="../Rexist">Rexist</a> e))
+      (<a href="../functional">functional</a> x f)))
+</pre>
+</div>
+<div class="axiom">
+<p>The primed version of <code>lessFct</code>. (This would be automatically generated.)</p>
+<pre>
+(forall (e f x y)
+  (if (and (<a href="../lessFct">lessFct</a>' e x y f) (<a href="../Rexist">Rexist</a> e))
+      (<a href="../lessFct">lessFct</a> x y f)))
+</pre>
+</div>
 </section>
 
 </body>

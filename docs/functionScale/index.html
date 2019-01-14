@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: functionScale</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>functionScale</code></h1>
+</header>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>The next two axioms adumbrate the concept of one entity being more functional than another.</p>
+<pre>
+(forall (e f s s1 x)
+  (if (and (<a href="../scaleDefinedBy">scaleDefinedBy</a> s s1 e) (<a href="../functional">functional</a>' e x f))
+      (<a href="../functionScale">functionScale</a> s f)))
+</pre>
+</div>
+<div class="axiom">
+<p>Essentially, x is more functional than y if x is higher on the functionality scale, where being in the <code>Hi</code> region of the functionality scale means something is functional (which means there is an event involving it that brings about its functionality).</p>
+<pre>
+(forall (e f s x y)
+  (if (and (<a href="../partialOrdering">partialOrdering</a> e x y s) (<a href="../functionScale">functionScale</a> s f))
+      (<a href="../lessFct">lessFct</a>' e x y f)))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

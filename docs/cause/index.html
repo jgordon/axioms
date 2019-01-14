@@ -257,6 +257,15 @@
            (and (<a href="../cause">cause</a> a e) (<a href="../turn">turn</a>' e x d1 d2)))))
 </pre>
 </div>
+<div class="axiom">
+<p>If f is the functionality of x and x is &ldquo;functional&rdquo; (with respect to f), there is some event e involving x that causes f.</p>
+<pre>
+(forall (f x)
+  (if (and (<a href="../function">function</a> f x) (<a href="../functional">functional</a> x f))
+      (exists (e)
+        (and (<a href="../cause">cause</a> e f) (<a href="../arg*">arg*</a> x e)))))
+</pre>
+</div>
 </section>
 
 </body>

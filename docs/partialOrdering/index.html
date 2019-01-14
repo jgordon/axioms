@@ -79,6 +79,14 @@
       (<a href="../partialOrdering">partialOrdering</a> e t1 t2 s)))
 </pre>
 </div>
+<div class="axiom">
+<p>Essentially, x is more functional than y if x is higher on the functionality scale, where being in the <code>Hi</code> region of the functionality scale means something is functional (which means there is an event involving it that brings about its functionality).</p>
+<pre>
+(forall (e f s x y)
+  (if (and (<a href="../partialOrdering">partialOrdering</a> e x y s) (<a href="../functionScale">functionScale</a> s f))
+      (<a href="../lessFct">lessFct</a>' e x y f)))
+</pre>
+</div>
 </section>
 
 </body>
