@@ -38,7 +38,7 @@ with 'OWL-T:').
 - `(nontemporal e)`: e is not a temporal property.
 - `(before t1 t2)`: t1 is before t2.
 - `(intMeets t1 t2)`: Interval t1 meets interval t2.
-- `(intOverlaps t1 t2)`: Intervals t1 and t2 overlap.
+- `(intOverlap t1 t2)`: Intervals t1 and t2 overlap.
 - `(intFinishes t1 t2)`: Interval t1 begins inside interval t2, and
   their ends are the same.
 - `(intDuring t1 t2)`: Interval t1 begins after and ends before
