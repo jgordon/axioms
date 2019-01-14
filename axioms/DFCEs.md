@@ -75,20 +75,76 @@ generated.)
 ```
 
 
+A weak constraint on `lessFct`: If f is the function of both x1 and
+x2, and using x1 to achieve f succeeds while using x2 fails, then x2
+is less functional than x1.
+
+```
+(forall (e1 e2 e3 f x1 x2)
+  (if (and (function f x1) (function f x2) (cause e1 f)
+           (not' e3 e2) (cause e2 f :0.2) (Subst x1 e1 x2 e2 :0.2))
+      (exists (x y)
+        (lessFct y x f))))
+```
 
 
+A change from being less functional to being more functional is an
+increase in function.
 
-### Dynamic Functional Composite Entities
+```
+(forall (e e1 e2 f s x y1 y2)
+  (if (and (change e e1 e2) (at' e1 x y1 s) (at' e2 x y2 s)
+           (functionScale s f) (lessFct y1 y2 f))
+      (increaseFct x f)))
+```
+
+
+A change from being more functional to being less functional is a
+decrease in function.
+
+```
+(forall (e e1 e2 f s x y1 y2)
+  (if (and (change e e1 e2) (at' e1 x y1 s) (at' e2 x y2 s)
+           (functionScale s f) (lessFct y2 y1 f))
+      (decreaseFct x f)))
+```
+
+
+If the structure of x increases, its function increases.
+
+```
+(forall (f x)
+  (if (and (increaseStruct x) (function f x))
+      (increaseFct x f)))
+```
+
+
+If the structure of x decreases, its function decreases.
+
+```
+(forall (f x)
+  (if (and (decreaseStruct x) (function f x))
+      (decreaseFct x f)))
+```
+
+
+If the function of x increases, its structure has increased.
 
 ```
 (forall (x y f)
-  (if (and (decreaseFct y) (function f x))
+  (if (and (increaseFct x f) (function f x))
+      (increaseStruct x)))
+```
+
+
+If the function of x decreases, its structure has decreased.
+
+```
+(forall (x y f)
+  (if (and (decreaseFct x f) (function f x))
       (decreaseStruct x)))
 ```
 
-```
-(forall (x y f)
-  (if (and (increaseFct y) (function f x))
-      (increaseStruct x)))
-```
+
+### Dynamic Functional Composite Entities
 

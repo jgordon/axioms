@@ -40,6 +40,34 @@
       (<a href="../lessFct">lessFct</a> x y f)))
 </pre>
 </div>
+<div class="axiom">
+<p>A weak constraint on <code>lessFct</code>: If f is the function of both x1 and x2, and using x1 to achieve f succeeds while using x2 fails, then x2 is less functional than x1.</p>
+<pre>
+(forall (e1 e2 e3 f x1 x2)
+  (if (and (<a href="../function">function</a> f x1) (<a href="../function">function</a> f x2) (<a href="../cause">cause</a> e1 f)
+           (<a href="../not'">not'</a> e3 e2) (<a href="../cause">cause</a> e2 f :0.2) (<a href="../Subst">Subst</a> x1 e1 x2 e2 :0.2))
+      (exists (x y)
+        (<a href="../lessFct">lessFct</a> y x f))))
+</pre>
+</div>
+<div class="axiom">
+<p>A change from being less functional to being more functional is an increase in function.</p>
+<pre>
+(forall (e e1 e2 f s x y1 y2)
+  (if (and (<a href="../change">change</a> e e1 e2) (<a href="../at">at</a>' e1 x y1 s) (<a href="../at">at</a>' e2 x y2 s)
+           (<a href="../functionScale">functionScale</a> s f) (<a href="../lessFct">lessFct</a> y1 y2 f))
+      (<a href="../increaseFct">increaseFct</a> x f)))
+</pre>
+</div>
+<div class="axiom">
+<p>A change from being more functional to being less functional is a decrease in function.</p>
+<pre>
+(forall (e e1 e2 f s x y1 y2)
+  (if (and (<a href="../change">change</a> e e1 e2) (<a href="../at">at</a>' e1 x y1 s) (<a href="../at">at</a>' e2 x y2 s)
+           (<a href="../functionScale">functionScale</a> s f) (<a href="../lessFct">lessFct</a> y2 y1 f))
+      (<a href="../decreaseFct">decreaseFct</a> x f)))
+</pre>
+</div>
 </section>
 
 </body>

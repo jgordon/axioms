@@ -86,9 +86,18 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If the structure of x decreases, its function decreases.</p>
+<pre>
+(forall (f x)
+  (if (and (<a href="../decreaseStruct">decreaseStruct</a> x) (<a href="../function">function</a> f x))
+      (<a href="../decreaseFct">decreaseFct</a> x f)))
+</pre>
+</div>
+<div class="axiom">
+<p>If the function of x decreases, its structure has decreased.</p>
 <pre>
 (forall (x y f)
-  (if (and (<a href="../decreaseFct">decreaseFct</a> y) (<a href="../function">function</a> f x))
+  (if (and (<a href="../decreaseFct">decreaseFct</a> x f) (<a href="../function">function</a> f x))
       (<a href="../decreaseStruct">decreaseStruct</a> x)))
 </pre>
 </div>

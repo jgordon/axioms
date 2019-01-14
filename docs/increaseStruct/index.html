@@ -46,9 +46,18 @@
 </pre>
 </div>
 <div class="axiom">
+<p>If the structure of x increases, its function increases.</p>
+<pre>
+(forall (f x)
+  (if (and (<a href="../increaseStruct">increaseStruct</a> x) (<a href="../function">function</a> f x))
+      (<a href="../increaseFct">increaseFct</a> x f)))
+</pre>
+</div>
+<div class="axiom">
+<p>If the function of x increases, its structure has increased.</p>
 <pre>
 (forall (x y f)
-  (if (and (<a href="../increaseFct">increaseFct</a> y) (<a href="../function">function</a> f x))
+  (if (and (<a href="../increaseFct">increaseFct</a> x f) (<a href="../function">function</a> f x))
       (<a href="../increaseStruct">increaseStruct</a> x)))
 </pre>
 </div>

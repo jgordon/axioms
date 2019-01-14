@@ -251,6 +251,24 @@
       (<a href="../imply">imply</a> c e1)))
 </pre>
 </div>
+<div class="axiom">
+<p>A change from being less functional to being more functional is an increase in function.</p>
+<pre>
+(forall (e e1 e2 f s x y1 y2)
+  (if (and (<a href="../change">change</a> e e1 e2) (<a href="../at">at</a>' e1 x y1 s) (<a href="../at">at</a>' e2 x y2 s)
+           (<a href="../functionScale">functionScale</a> s f) (<a href="../lessFct">lessFct</a> y1 y2 f))
+      (<a href="../increaseFct">increaseFct</a> x f)))
+</pre>
+</div>
+<div class="axiom">
+<p>A change from being more functional to being less functional is a decrease in function.</p>
+<pre>
+(forall (e e1 e2 f s x y1 y2)
+  (if (and (<a href="../change">change</a> e e1 e2) (<a href="../at">at</a>' e1 x y1 s) (<a href="../at">at</a>' e2 x y2 s)
+           (<a href="../functionScale">functionScale</a> s f) (<a href="../lessFct">lessFct</a> y2 y1 f))
+      (<a href="../decreaseFct">decreaseFct</a> x f)))
+</pre>
+</div>
 </section>
 
 </body>

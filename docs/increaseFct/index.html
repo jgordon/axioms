@@ -25,9 +25,27 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>A change from being less functional to being more functional is an increase in function.</p>
+<pre>
+(forall (e e1 e2 f s x y1 y2)
+  (if (and (<a href="../change">change</a> e e1 e2) (<a href="../at">at</a>' e1 x y1 s) (<a href="../at">at</a>' e2 x y2 s)
+           (<a href="../functionScale">functionScale</a> s f) (<a href="../lessFct">lessFct</a> y1 y2 f))
+      (<a href="../increaseFct">increaseFct</a> x f)))
+</pre>
+</div>
+<div class="axiom">
+<p>If the structure of x increases, its function increases.</p>
+<pre>
+(forall (f x)
+  (if (and (<a href="../increaseStruct">increaseStruct</a> x) (<a href="../function">function</a> f x))
+      (<a href="../increaseFct">increaseFct</a> x f)))
+</pre>
+</div>
+<div class="axiom">
+<p>If the function of x increases, its structure has increased.</p>
 <pre>
 (forall (x y f)
-  (if (and (<a href="../increaseFct">increaseFct</a> y) (<a href="../function">function</a> f x))
+  (if (and (<a href="../increaseFct">increaseFct</a> x f) (<a href="../function">function</a> f x))
       (<a href="../increaseStruct">increaseStruct</a> x)))
 </pre>
 </div>
