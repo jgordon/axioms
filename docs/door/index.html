@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: in</title>
+<title>Predicate: door</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,41 +20,27 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>in</code></h1>
+<h1>Predicate: <code>door</code></h1>
 </header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (y)
+  (if (<a href="../door">door</a> y)
+      (exists (x)
+        (and (<a href="../building">building</a> x) (<a href="../componentOf">componentOf</a> y x)))))
+</pre>
+</div></section>
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>One way to be <code>in</code> a composite entity is to be a component.</p>
+<p>A door is a component of a building.</p>
 <pre>
-(forall (x y)
-  (if (and (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../componentOf">componentOf</a> y x))
-      (<a href="../in">in</a> y x)))
-</pre>
-</div>
-<div class="axiom">
-<p>One way to be <code>in</code> a composite entity is to be <code>at</code> a component.</p>
-<pre>
-(forall (x y z)
-  (if (and (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../componentOf">componentOf</a> z x) (<a href="../at">at</a> y z x))
-      (<a href="../in">in</a> y x)))
-</pre>
-</div>
-<div class="axiom">
-<p>The primed version of <code>in</code>. (This would be automatically generated.)</p>
-<pre>
-(forall (e x y)
-  (if (and (<a href="../in">in</a>' e x y) (<a href="../Rexist">Rexist</a> e))
-      (<a href="../in">in</a> x y)))
-</pre>
-</div>
-<div class="axiom">
-<p>To penetrate is to change to being in.</p>
-<pre>
-(forall (e1 e2 x y)
-  (if (and (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../change">change</a> e1 e2) (<a href="../in">in</a>' e2 y x))
-      (exists (e u v)
-        (<a href="../penetrate-vb1">penetrate-vb1</a> e y x u v))))
+(forall (x)
+  (if (<a href="../building">building</a> x)
+      (exists (y)
+        (and (<a href="../door">door</a> y) (<a href="../componentOf">componentOf</a> y x)))))
 </pre>
 </div>
 <div class="axiom">

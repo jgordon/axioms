@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: foundation</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>foundation</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>A foundation is a component of a building.</p>
+<pre>
+(forall (x y)
+  (if (<a href="../foundation">foundation</a> y x)
+    (and (<a href="../building">building</a> x) (<a href="../componentOf">componentOf</a> y x))))
+</pre>
+</div></section>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>Buildings have foundations.</p>
+<pre>
+(forall (x)
+  (if (<a href="../building">building</a> x)
+      (exists (y)
+        (<a href="../foundation">foundation</a> y x))))
+</pre>
+</div>
+<div class="axiom">
+<p>Building the foundation enables building the building.</p>
+<pre>
+(forall (e1 x y z1)
+  (if (and (<a href="../build">build</a>' e1 z1 y) (<a href="../foundation">foundation</a> y x))
+      (exists (e e1 z2)
+        (and (<a href="../enable">enable</a> e1 e) (<a href="../build">build</a>' e z2 x)))))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

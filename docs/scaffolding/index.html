@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: build</title>
+<title>Predicate: scaffolding</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,38 +20,10 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>build</code></h1>
+<h1>Predicate: <code>scaffolding</code></h1>
 </header>
 <section>
 <h2>Characterizing Axioms</h2>
-<div class="axiom">
-<p>Building can be described by the verb &ldquo;build&rdquo;.</p>
-<pre>
-(forall (x z)
-  (if (<a href="../build">build</a> z x)
-      (exists (e u v)
-        (<a href="../build-vb">build-vb</a> e z x u v))))
-</pre>
-</div></section>
-<section>
-<h2>Additional Axioms</h2>
-<div class="axiom">
-<p>The primed version of <code>build</code>. (This would be automatically generated.)</p>
-<pre>
-(forall (e x z)
-  (if (and (<a href="../build">build</a>' e z x) (<a href="../Rexist">Rexist</a> e))
-      (<a href="../build">build</a> z x)))
-</pre>
-</div>
-<div class="axiom">
-<p>Building the foundation enables building the building.</p>
-<pre>
-(forall (e1 x y z1)
-  (if (and (<a href="../build">build</a>' e1 z1 y) (<a href="../foundation">foundation</a> y x))
-      (exists (e e1 z2)
-        (and (<a href="../enable">enable</a> e1 e) (<a href="../build">build</a>' e z2 x)))))
-</pre>
-</div>
 <div class="axiom">
 <p>Scaffolding enables building a building.</p>
 <pre>
@@ -59,7 +31,9 @@
   (if (<a href="../scaffolding">scaffolding</a> y)
       (and (<a href="../building">building</a> x) (<a href="../enable">enable</a> y e) (<a href="../build">build</a>' e z x))))
 </pre>
-</div>
+</div></section>
+<section>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (e x y z)

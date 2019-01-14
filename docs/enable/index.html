@@ -86,6 +86,49 @@
         (and (<a href="../senseOrgan">senseOrgan</a> o p) (<a href="../intact">intact</a>' e1 o) (<a href="../enable">enable</a> e1 e2)))))
 </pre>
 </div>
+<div class="axiom">
+<p>A door enables a change to being in, which is its function.</p>
+<pre>
+(forall (x y)
+  (if (and (<a href="../door">door</a> y) (<a href="../componentOf">componentOf</a> y x))
+      (exists (e e1 e2 z)
+        (and (<a href="../enable">enable</a> y e) (<a href="../change">change</a>' e e1 e2) (<a href="../in">in</a>' e2 z x)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 e2 x y z)
+(if (and (<a href="../enable">enable</a> y e) (<a href="../change">change</a>' e e1 e2) (<a href="../in">in</a>' e2 z x)
+         (<a href="../componentOf">componentOf</a> y x)
+         (etc-door2a y e e1 e2 z x))
+    (<a href="../door">door</a> y)))
+</pre>
+</div>
+<div class="axiom">
+<p>Building the foundation enables building the building.</p>
+<pre>
+(forall (e1 x y z1)
+  (if (and (<a href="../build">build</a>' e1 z1 y) (<a href="../foundation">foundation</a> y x))
+      (exists (e e1 z2)
+        (and (<a href="../enable">enable</a> e1 e) (<a href="../build">build</a>' e z2 x)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Scaffolding enables building a building.</p>
+<pre>
+(forall (y)
+  (if (<a href="../scaffolding">scaffolding</a> y)
+      (and (<a href="../building">building</a> x) (<a href="../enable">enable</a> y e) (<a href="../build">build</a>' e z x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e x y z)
+  (if (and (<a href="../building">building</a> x) (<a href="../enable">enable</a> y e) (<a href="../build">build</a>' e z x)
+           (etc-scaffolding1b x y e z))
+       (<a href="../scaffolding">scaffolding</a> y)))
+</pre>
+</div>
 </section>
 
 </body>

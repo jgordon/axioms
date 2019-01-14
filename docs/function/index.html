@@ -175,6 +175,30 @@
 </pre>
 </div>
 <div class="axiom">
+<p>The function of a building is to protect entities inside it.</p>
+<pre>
+(forall (x)
+  (if (<a href="../building">building</a> x)
+      (exists (f y)
+        (and (<a href="../function">function</a> f x) (<a href="../protect">protect</a>' f x y)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x y)
+  (if (and (<a href="../function">function</a> f x) (<a href="../protect">protect</a>' f x y) (etc f x y))
+      (<a href="../building">building</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x y)
+  (if (and (<a href="../door">door</a> y) (<a href="../componentOf">componentOf</a> y x) (<a href="../function">function</a> f y))
+      (exists (e1 e2 z)
+        (and (<a href="../change">change</a>' f e1 e2) (<a href="../in">in</a>' e2 z x)))))
+</pre>
+</div>
+<div class="axiom">
 <p>A nation is a dynamic functional composite entity with the goal of having its citizens thrive.</p>
 <pre>
 (forall (x f s)

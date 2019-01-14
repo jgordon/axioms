@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Predicate: building</title>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" media="all" href="../style.css">
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="../">&laquo; Index of Predicates</a></li>
+</ul>
+</nav>
+<h1>Predicate: <code>building</code></h1>
+</header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>The function of a building is to protect entities inside it.</p>
+<pre>
+(forall (x)
+  (if (<a href="../building">building</a> x)
+      (exists (f y)
+        (and (<a href="../function">function</a> f x) (<a href="../protect">protect</a>' f x y)))))
+</pre>
+</div><div class="axiom">
+<p>A door is a component of a building.</p>
+<pre>
+(forall (x)
+  (if (<a href="../building">building</a> x)
+      (exists (y)
+        (and (<a href="../door">door</a> y) (<a href="../componentOf">componentOf</a> y x)))))
+</pre>
+</div><div class="axiom">
+<p>Buildings have foundations.</p>
+<pre>
+(forall (x)
+  (if (<a href="../building">building</a> x)
+      (exists (y)
+        (<a href="../foundation">foundation</a> y x))))
+</pre>
+</div></section>
+<section>
+<h2>Additional Axioms</h2>
+<div class="axiom">
+<p>A building is a functional composite entity.</p>
+<pre>
+(forall (x)
+  (if (and (<a href="../fCompEnt">fCompEnt</a> x) (etc-building1 x))
+      (exists (e)
+        (<a href="../building">building</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x y)
+  (if (and (<a href="../function">function</a> f x) (<a href="../protect">protect</a>' f x y) (etc f x y))
+      (<a href="../building">building</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (y)
+  (if (<a href="../door">door</a> y)
+      (exists (x)
+        (and (<a href="../building">building</a> x) (<a href="../componentOf">componentOf</a> y x)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A foundation is a component of a building.</p>
+<pre>
+(forall (x y)
+  (if (<a href="../foundation">foundation</a> y x)
+    (and (<a href="../building">building</a> x) (<a href="../componentOf">componentOf</a> y x))))
+</pre>
+</div>
+<div class="axiom">
+<p>Scaffolding enables building a building.</p>
+<pre>
+(forall (y)
+  (if (<a href="../scaffolding">scaffolding</a> y)
+      (and (<a href="../building">building</a> x) (<a href="../enable">enable</a> y e) (<a href="../build">build</a>' e z x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e x y z)
+  (if (and (<a href="../building">building</a> x) (<a href="../enable">enable</a> y e) (<a href="../build">build</a>' e z x)
+           (etc-scaffolding1b x y e z))
+       (<a href="../scaffolding">scaffolding</a> y)))
+</pre>
+</div>
+</section>
+
+</body>
+
+</html>

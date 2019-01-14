@@ -216,6 +216,57 @@
                        (and (<a href="../inside">inside</a> y r) (<a href="../at">at</a> x y s))))))))
 </pre>
 </div>
+<div class="axiom">
+<p>A door is a component of a building.</p>
+<pre>
+(forall (x)
+  (if (<a href="../building">building</a> x)
+      (exists (y)
+        (and (<a href="../door">door</a> y) (<a href="../componentOf">componentOf</a> y x)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (y)
+  (if (<a href="../door">door</a> y)
+      (exists (x)
+        (and (<a href="../building">building</a> x) (<a href="../componentOf">componentOf</a> y x)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A door enables a change to being in, which is its function.</p>
+<pre>
+(forall (x y)
+  (if (and (<a href="../door">door</a> y) (<a href="../componentOf">componentOf</a> y x))
+      (exists (e e1 e2 z)
+        (and (<a href="../enable">enable</a> y e) (<a href="../change">change</a>' e e1 e2) (<a href="../in">in</a>' e2 z x)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 e2 x y z)
+(if (and (<a href="../enable">enable</a> y e) (<a href="../change">change</a>' e e1 e2) (<a href="../in">in</a>' e2 z x)
+         (<a href="../componentOf">componentOf</a> y x)
+         (etc-door2a y e e1 e2 z x))
+    (<a href="../door">door</a> y)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x y)
+  (if (and (<a href="../door">door</a> y) (<a href="../componentOf">componentOf</a> y x) (<a href="../function">function</a> f y))
+      (exists (e1 e2 z)
+        (and (<a href="../change">change</a>' f e1 e2) (<a href="../in">in</a>' e2 z x)))))
+</pre>
+</div>
+<div class="axiom">
+<p>A foundation is a component of a building.</p>
+<pre>
+(forall (x y)
+  (if (<a href="../foundation">foundation</a> y x)
+    (and (<a href="../building">building</a> x) (<a href="../componentOf">componentOf</a> y x))))
+</pre>
+</div>
 </section>
 
 </body>

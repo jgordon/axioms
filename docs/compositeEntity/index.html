@@ -298,6 +298,15 @@
       (<a href="../fCompEnt">fCompEnt</a> x)))
 </pre>
 </div>
+<div class="axiom">
+<p>To penetrate is to change to being in.</p>
+<pre>
+(forall (e1 e2 x y)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../change">change</a> e1 e2) (<a href="../in">in</a>' e2 y x))
+      (exists (e u v)
+        (<a href="../penetrate-vb1">penetrate-vb1</a> e y x u v))))
+</pre>
+</div>
 </section>
 
 </body>

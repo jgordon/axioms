@@ -113,7 +113,7 @@
 <p>One way of decreasing structure is to destroy.</p>
 <pre>
 (forall (x)
-  (if (and (<a href="../decreaseStruct">decreaseStruct</a> x) (<a href="../etc-destroy-vb1">etc-destroy-vb1</a> x))
+  (if (and (<a href="../decreaseStruct">decreaseStruct</a> x) (etc-destroy-vb1 x))
       (exists (e u v y)
         (<a href="../destroy-vb">destroy-vb</a> e y x u v))))
 </pre>
@@ -122,7 +122,7 @@
 <p>One way of decreasing structure is to demolish.</p>
 <pre>
 (forall (x)
-  (if (and (<a href="../decreaseStruct">decreaseStruct</a> x) (<a href="../etc-demolish-vb1">etc-demolish-vb1</a> x))
+  (if (and (<a href="../decreaseStruct">decreaseStruct</a> x) (etc-demolish-vb1 x))
       (exists (e u v y)
         (<a href="../demolish-vb">demolish-vb</a> e y x u v))))
 </pre>
@@ -131,7 +131,7 @@
 <p>One way of decreasing structure is to be a cataclysm.</p>
 <pre>
 (forall (e1 x)
-  (if (and (<a href="../decreaseStruct">decreaseStruct</a>' e1 x) (<a href="../etc-cataclysmic-adj1">etc-cataclysmic-adj1</a> e1 x))
+  (if (and (<a href="../decreaseStruct">decreaseStruct</a>' e1 x) (etc-cataclysmic-adj1 e1 x))
      (exists (e)
        (<a href="../cataclysmic-adj">cataclysmic-adj</a> e e1))))
 </pre>

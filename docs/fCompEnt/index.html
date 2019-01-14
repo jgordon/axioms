@@ -41,6 +41,15 @@
       (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../processOf">processOf</a> s x))))
 </pre>
 </div>
+<div class="axiom">
+<p>A building is a functional composite entity.</p>
+<pre>
+(forall (x)
+  (if (and (<a href="../fCompEnt">fCompEnt</a> x) (etc-building1 x))
+      (exists (e)
+        (<a href="../building">building</a> e x))))
+</pre>
+</div>
 </section>
 
 </body>

@@ -101,6 +101,8 @@ for fname in axiom_files:
                             pred = pred.replace("'", "")
                         if pred in bad_preds:
                             continue
+                        if pred.startswith('etc'):
+                            continue
                         to_index.add(pred)
                         formatted_axiom = formatted_axiom.replace(
                             '(' + pred + ' ',

@@ -250,6 +250,41 @@
        (<a href="../process">process</a> s x)))
 </pre>
 </div>
+<div class="axiom">
+<p>To penetrate is to change to being in.</p>
+<pre>
+(forall (e1 e2 x y)
+  (if (and (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../change">change</a> e1 e2) (<a href="../in">in</a>' e2 y x))
+      (exists (e u v)
+        (<a href="../penetrate-vb1">penetrate-vb1</a> e y x u v))))
+</pre>
+</div>
+<div class="axiom">
+<p>A door enables a change to being in, which is its function.</p>
+<pre>
+(forall (x y)
+  (if (and (<a href="../door">door</a> y) (<a href="../componentOf">componentOf</a> y x))
+      (exists (e e1 e2 z)
+        (and (<a href="../enable">enable</a> y e) (<a href="../change">change</a>' e e1 e2) (<a href="../in">in</a>' e2 z x)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 e2 x y z)
+(if (and (<a href="../enable">enable</a> y e) (<a href="../change">change</a>' e e1 e2) (<a href="../in">in</a>' e2 z x)
+         (<a href="../componentOf">componentOf</a> y x)
+         (etc-door2a y e e1 e2 z x))
+    (<a href="../door">door</a> y)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x y)
+  (if (and (<a href="../door">door</a> y) (<a href="../componentOf">componentOf</a> y x) (<a href="../function">function</a> f y))
+      (exists (e1 e2 z)
+        (and (<a href="../change">change</a>' f e1 e2) (<a href="../in">in</a>' e2 z x)))))
+</pre>
+</div>
 </section>
 
 </body>
