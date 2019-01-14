@@ -25,6 +25,15 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>The verb phrase &ldquo;x strips z from y&rdquo;.</p>
+<pre>
+(forall (e x y z)
+  (if (<a href="../strip">strip</a> e x y z)
+      (exists (e1 u)
+        (and (<a href="../strip-vb">strip-vb</a> e x y u) (<a href="../for-in">for-in</a> e1 e z)))))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (e e1 x y)
   (if (<a href="../adversary">adversary</a> e1 x y e)

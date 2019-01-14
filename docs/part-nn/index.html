@@ -25,6 +25,21 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>The noun &ldquo;part&rdquo;.</p>
+<pre>
+(forall (e1 e2 y z)
+  (if (<a href="../part">part</a> z y)
+      (and (<a href="../part-nn">part-nn</a> e1 z) (<a href="../of-in">of-in</a> e2 z y))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (y z)
+  (if (<a href="../part">part</a> z y)
+      (<a href="../part-nn">part-nn</a> e1 z)))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (u w)
   (if (<a href="../part">part</a> u w)

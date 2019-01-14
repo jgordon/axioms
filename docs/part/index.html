@@ -25,6 +25,19 @@
 <section>
 <h2>Characterizing Axioms</h2>
 <div class="axiom">
+<p>The noun &ldquo;part&rdquo;.</p>
+<pre>
+(forall (e1 e2 y z)
+  (if (<a href="../part">part</a> z y)
+      (and (<a href="../part-nn">part-nn</a> e1 z) (<a href="../of-in">of-in</a> e2 z y))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (y z)
+  (if (<a href="../part">part</a> z y)
+      (<a href="../part-nn">part-nn</a> e1 z)))
+</pre>
+</div><div class="axiom">
 <pre>
 (forall (u w)
   (if (<a href="../part">part</a> u w)
@@ -53,6 +66,33 @@
 (forall (x y v1)
    (if (and (<a href="../physobj">physobj</a> x) (<a href="../occupy">occupy</a> x v1) (<a href="../part">part</a> y x))
        (exists (v2) (and (<a href="../occupy">occupy</a> y v2) (<a href="../subfigure">subfigure</a> v2 v1)))))
+</pre>
+</div>
+<div class="axiom">
+<p>The scenario for stripping cars.</p>
+<pre>
+(forall (e x y z)
+  (if (<a href="../strip-cars-schema">strip-cars-schema</a> e x y z)
+      (exists (e1 e2 e3 e4 w)
+        (and (<a href="../then">then</a> e e1 e2) (<a href="../steal">steal</a> e1 x y) (<a href="../car">car</a> y)
+             (<a href="../then">then</a> e2 e3 e4) (<a href="../strip">strip</a> e3 x z y) (<a href="../part">part</a> z y) (<a href="../sell">sell</a> e4 x z w)))))
+</pre>
+</div>
+<div class="axiom">
+<p>Short version of the scenario for stripping cars.</p>
+<pre>
+(forall (e x y z)
+  (if (and (<a href="../strip-cars-schema">strip-cars-schema</a> e x y z) (<a href="../part">part</a> z y) (<a href="../car">car</a> y))
+      (exists (e3)
+        (<a href="../strip">strip</a> e3 x y z))))
+</pre>
+</div>
+<div class="axiom">
+<p>A part is a component of a composite entity.</p>
+<pre>
+(forall (x y)
+  (if (<a href="../componentOf">componentOf</a> y x)
+      (<a href="../part">part</a> y x)))
 </pre>
 </div>
 </section>

@@ -262,7 +262,9 @@ To penetrate is to change to being in.
 ```
 
 
-## DFCE Domain: Buildings
+## DFCE Domains
+
+### Buildings
 
 A building is a functional composite entity.
 
@@ -378,7 +380,7 @@ Scaffolding enables building a building.
 ```
 
 
-## DFCE Domain: Cars & Engines
+### Cars & Engines
 
 A car is a dynamic functional composite entity.
 
@@ -437,7 +439,7 @@ A lubricant enables the process of an engine.
 ```
 
 
-## DFCE Domain: Nuclear power
+### Nuclear power
 
 ```
 (forall (x)
@@ -456,3 +458,123 @@ One way a nuclear reactor loses structure is a meltdown.
 ```
 
 
+## The future
+
+The future is a functional composite entity made up of events.
+
+```
+(forall (e e1 s)
+  (if (and (fCompEnt e) (componentsOf s e) (typelt e1 e)
+           (event e1) (etc-future-nn1 e s e1))
+      (future e)))
+```
+
+
+Destiny is a functional composite entity made up of events.
+
+```
+(forall (e e1 s)
+  (if (and (fCompEnt e) (componentsOf s e) (typelt e1 e)
+           (event e1) (etc-destiny-nn1 e s e1))
+      (destiny e)))
+```
+
+
+## Economy
+
+One way of being a dynamic functional composite entity is by being
+an economy.
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (etc-economy-nn1))
+      (exists (e)
+        (economy-nn e x))))
+```
+
+
+"financial" is a noun-like adjective derived from "finance".
+
+```
+(forall (f m)
+  (if (and (finance f) (nn f m))
+      (exists (e)
+        (financial-adj e m))))
+```
+
+
+One way of being a dynamic functional composite entity is by being
+finance.
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (etc-finance1 x))
+      (finance x)))
+```
+
+
+One way of being a dynamic functional composite entity is by being
+a business.
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (etc-business1 x))
+      (business x)))
+```
+
+
+### Stripping cars
+
+The scenario for stripping cars.
+
+```
+(forall (e x y z)
+  (if (strip-cars-schema e x y z)
+      (exists (e1 e2 e3 e4 w)
+        (and (then e e1 e2) (steal e1 x y) (car y)
+             (then e2 e3 e4) (strip e3 x z y) (part z y) (sell e4 x z w)))))
+```
+
+Short version of the scenario for stripping cars.
+
+```
+(forall (e x y z)
+  (if (and (strip-cars-schema e x y z) (part z y) (car y))
+      (exists (e3)
+        (strip e3 x y z))))
+```
+
+
+The verb phrase "x strips z from y".
+
+```
+(forall (e x y z)
+  (if (strip e x y z)
+      (exists (e1 u)
+        (and (strip-vb e x y u) (for-in e1 e z)))))
+```
+
+
+A part is a component of a composite entity.
+
+```
+(forall (x y)
+  (if (componentOf y x)
+      (part y x)))
+```
+
+
+The noun "part".
+
+```
+(forall (e1 e2 y z)
+  (if (part z y)
+      (and (part-nn e1 z) (of-in e2 z y))))
+```
+
+
+```
+(forall (y z)
+  (if (part z y)
+      (part-nn e1 z)))
+```

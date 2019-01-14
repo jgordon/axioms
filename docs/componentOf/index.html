@@ -36,6 +36,13 @@
             (exists (s)
               (and (<a href="../componentsOf">componentsOf</a> s x) (<a href="../member">member</a> y s))))))
 </pre>
+</div><div class="axiom">
+<p>A part is a component of a composite entity.</p>
+<pre>
+(forall (x y)
+  (if (<a href="../componentOf">componentOf</a> y x)
+      (<a href="../part">part</a> y x)))
+</pre>
 </div></section>
 <section>
 <h2>Additional Axioms</h2>

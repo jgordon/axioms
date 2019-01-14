@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: nn</title>
+<title>Predicate: finance</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,7 +20,7 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>nn</code></h1>
+<h1>Predicate: <code>finance</code></h1>
 </header>
 <section>
 <h2>Additional Axioms</h2>
@@ -33,19 +33,11 @@
 </pre>
 </div>
 <div class="axiom">
-<pre>
-(forall (e p p5 x5)
-  (if (and (<a href="../politics-nn">politics-nn</a> e p5) (<a href="../nn">nn</a> p x5))
-      (exists (e1)
-        (<a href="../political-adj">political-adj</a> e1 x))))
-</pre>
-</div>
-<div class="axiom">
+<p>One way of being a dynamic functional composite entity is by being finance.</p>
 <pre>
 (forall (x)
-  (if (<a href="../politicalParty">politicalParty</a> x)
-      (exists (e e1 e2 y)
-        (and (<a href="../tea-nn">tea-nn</a> e1 y) (<a href="../nn">nn</a> e2 y x) (<a href="../party-nn">party-nn</a> e x)))))
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (etc-finance1 x))
+      (<a href="../finance">finance</a> x)))
 </pre>
 </div>
 </section>

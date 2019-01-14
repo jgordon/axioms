@@ -64,6 +64,31 @@
 </pre>
 </div>
 <div class="axiom">
+<p>One way of being a dynamic functional composite entity is by being an economy.</p>
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (etc-economy-nn1))
+      (exists (e)
+        (<a href="../economy-nn">economy-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<p>One way of being a dynamic functional composite entity is by being finance.</p>
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (etc-finance1 x))
+      (<a href="../finance">finance</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<p>One way of being a dynamic functional composite entity is by being a business.</p>
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (etc-business1 x))
+      (<a href="../business">business</a> x)))
+</pre>
+</div>
+<div class="axiom">
 <p>A nation is a dynamic functional composite entity with the goal of having its citizens thrive.</p>
 <pre>
 (forall (x f s)

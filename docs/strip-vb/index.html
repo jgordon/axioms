@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: financial-adj</title>
+<title>Predicate: strip-vb</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,24 +20,17 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>financial-adj</code></h1>
+<h1>Predicate: <code>strip-vb</code></h1>
 </header>
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>The verb phrase &ldquo;x strips z from y&rdquo;.</p>
 <pre>
-(forall (f m)
-  (if (and (<a href="../finance">finance</a> f) (<a href="../nn">nn</a> f m))
-      (exists (e)
-        (<a href="../financial-adj">financial-adj</a> e m))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
-(forall (f x)
-  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../function">function</a> f x) (<a href="../commerce">commerce</a> f))
-      (exists (e)
-        (<a href="../financial-adj">financial-adj</a> e x))))
+(forall (e x y z)
+  (if (<a href="../strip">strip</a> e x y z)
+      (exists (e1 u)
+        (and (<a href="../strip-vb">strip-vb</a> e x y u) (<a href="../for-in">for-in</a> e1 e z)))))
 </pre>
 </div>
 </section>

@@ -226,6 +226,24 @@
        (<a href="../process">process</a> s x)))
 </pre>
 </div>
+<div class="axiom">
+<p>The future is a functional composite entity made up of events.</p>
+<pre>
+(forall (e e1 s)
+  (if (and (<a href="../fCompEnt">fCompEnt</a> e) (<a href="../componentsOf">componentsOf</a> s e) (<a href="../typelt">typelt</a> e1 e)
+           (<a href="../event">event</a> e1) (etc-future-nn1 e s e1))
+      (<a href="../future">future</a> e)))
+</pre>
+</div>
+<div class="axiom">
+<p>Destiny is a functional composite entity made up of events.</p>
+<pre>
+(forall (e e1 s)
+  (if (and (<a href="../fCompEnt">fCompEnt</a> e) (<a href="../componentsOf">componentsOf</a> s e) (<a href="../typelt">typelt</a> e1 e)
+           (<a href="../event">event</a> e1) (etc-destiny-nn1 e s e1))
+      (<a href="../destiny">destiny</a> e)))
+</pre>
+</div>
 </section>
 
 </body>
