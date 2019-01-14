@@ -241,6 +241,15 @@
       (<a href="../decreaseFct">decreaseFct</a> x f)))
 </pre>
 </div>
+<div class="axiom">
+<p>A process of x is a set of changes in x.</p>
+<pre>
+(forall (e e1 e2 s x)
+  (if (and (<a href="../changes">changes</a> s) (<a href="../typelt">typelt</a> e s) (<a href="../change">change</a> e e1 e2)
+           (<a href="../arg*">arg*</a> x e))
+       (<a href="../process">process</a> s x)))
+</pre>
+</div>
 </section>
 
 </body>

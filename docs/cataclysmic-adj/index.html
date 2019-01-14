@@ -25,6 +25,15 @@
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
+<p>One way of decreasing structure is to be a cataclysm.</p>
+<pre>
+(forall (e1 x)
+  (if (and (<a href="../decreaseStruct">decreaseStruct</a>' e1 x) (<a href="../etc-cataclysmic-adj1">etc-cataclysmic-adj1</a> e1 x))
+     (exists (e)
+       (<a href="../cataclysmic-adj">cataclysmic-adj</a> e e1))))
+</pre>
+</div>
+<div class="axiom">
 <p>One way of decreasing structure is to be a cataclysm. x is cataclysmic.</p>
 <pre>
 (forall (e1 x)

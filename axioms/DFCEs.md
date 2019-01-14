@@ -148,3 +148,95 @@ If the function of x decreases, its structure has decreased.
 
 ### Dynamic Functional Composite Entities
 
+A process of x is a set of changes in x.
+
+```
+(forall (e e1 e2 s x)
+  (if (and (changes s) (typelt e s) (change e e1 e2)
+           (arg* x e))
+       (process s x)))
+```
+
+
+A dynamic functional composite entity is a functional composite entity for
+which there is a process e that causes its function f.
+
+```
+(forall (f s x)
+  (if (and (fCompEnt x) (function f x) (process s x)
+           (cause s f))
+      (and (dFCompEnt x) (processOf s x))))
+```
+
+
+## Lexical Axioms
+
+### Doing things with DFCEs
+
+To decrease structure is to damage.
+
+```
+(forall (x)
+  (if (decreaseStruct x)
+      (exists (e u v x y)
+        (damage-vb e y x u v))))
+```
+
+
+One way of decreasing structure is to destroy.
+
+```
+(forall (x)
+  (if (and (decreaseStruct x) (etc-destroy-vb1 x))
+      (exists (e u v y)
+        (destroy-vb e y x u v))))
+```
+
+
+One way of decreasing structure is to demolish.
+
+```
+(forall (x)
+  (if (and (decreaseStruct x) (etc-demolish-vb1 x))
+      (exists (e u v y)
+        (demolish-vb e y x u v))))
+```
+
+
+One way of decreasing structure is to be a cataclysm.
+
+```
+(forall (e1 x)
+  (if (and (decreaseStruct' e1 x) (etc-cataclysmic-adj1 e1 x))
+     (exists (e)
+       (cataclysmic-adj e e1))))
+```
+
+
+One way of increasing structure is to build.
+
+```
+(forall (x)
+  (if (and (increaseStruct x) (etc-build-vb1 x))
+      (exists (e u v z)
+        (build-vb e z x u v))))
+```
+
+
+The primed version of `build`. (This would be automatically generated.)
+
+```
+(forall (e x z)
+  (if (and (build' e z x) (Rexist e))
+      (build z x)))
+```
+
+
+Building can be described by the verb "build".
+
+```
+(forall (x z)
+  (if (build z x)
+      (exists (e u v)
+        (build-vb e z x u v))))
+```

@@ -166,6 +166,15 @@
 </pre>
 </div>
 <div class="axiom">
+<p>A dynamic functional composite entity is a functional composite entity for which there is a process e that causes its function f.</p>
+<pre>
+(forall (f s x)
+  (if (and (<a href="../fCompEnt">fCompEnt</a> x) (<a href="../function">function</a> f x) (<a href="../process">process</a> s x)
+           (<a href="../cause">cause</a> s f))
+      (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../processOf">processOf</a> s x))))
+</pre>
+</div>
+<div class="axiom">
 <p>A nation is a dynamic functional composite entity with the goal of having its citizens thrive.</p>
 <pre>
 (forall (x f s)
