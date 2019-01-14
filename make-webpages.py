@@ -51,6 +51,8 @@ for fname in axiom_files:
                     continue
                 predication = m.group(1)
                 predname = m.group(2)
+                if predname == "imply'":
+                    predname = "imply"
                 gloss = m.group(3)
                 preds[predname]['predication'] = predication
                 preds[predname]['gloss'] = gloss
@@ -132,7 +134,8 @@ for fname in axiom_files:
                                 formatted_axiom)
 
                     for pred in to_index:
-                        if formatted_axiom not in preds[pred].get('characterizing', []):
+                        if (formatted_axiom not in
+                            preds[pred].get('characterizing', [])):
                             if 'all axioms' not in preds[pred]:
                                 preds[pred]['all axioms'] = []
                             preds[pred]['all axioms'].append(formatted_axiom)

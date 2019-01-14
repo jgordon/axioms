@@ -270,7 +270,7 @@
 <pre>
 (forall (e e1 e2)
   (iff (<a href="../cond">cond</a> e e1 e2)
-       (and (<a href="../imply'">imply'</a> e e1 e2) (<a href="../event">event</a> e2)
+       (and (<a href="../imply">imply</a>' e e1 e2) (<a href="../event">event</a> e2)
             (forall (t)
               (if (<a href="../begins">begins</a> t e2)
                   (<a href="../atTime">atTime</a> e1 t))))))
