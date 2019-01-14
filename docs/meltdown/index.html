@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: etc-demolish-vb1</title>
+<title>Predicate: meltdown</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,17 +20,17 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>etc-demolish-vb1</code></h1>
+<h1>Predicate: <code>meltdown</code></h1>
 </header>
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>One way of decreasing structure is to demolish.</p>
+<p>One way a nuclear reactor loses structure is a meltdown.</p>
 <pre>
-(forall (x)
-  (if (and (<a href="../decreaseStruct">decreaseStruct</a> x) (<a href="../etc-demolish-vb1">etc-demolish-vb1</a> x))
-      (exists (e u v y)
-        (<a href="../demolish-vb">demolish-vb</a> e y x u v))))
+(forall (e x)
+  (if (and (<a href="../nuclearReactor">nuclearReactor</a> x) (<a href="../decreaseStruct">decreaseStruct</a>' e x)
+           (etc-nuclearReactor2))
+      (<a href="../meltdown">meltdown</a> e)))
 </pre>
 </div>
 </section>

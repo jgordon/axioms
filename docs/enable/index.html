@@ -129,6 +129,22 @@
        (<a href="../scaffolding">scaffolding</a> y)))
 </pre>
 </div>
+<div class="axiom">
+<p>A lubricant enables the process of an engine.</p>
+<pre>
+(forall (e x y)
+  (if (and (<a href="../lubricant">lubricant</a> y) (<a href="../engine">engine</a> x) (<a href="../processOf">processOf</a> e x))
+      (<a href="../enable">enable</a> y e)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e x y)
+  (if (and (<a href="../engine">engine</a> x) (<a href="../processOf">processOf</a> e x) (<a href="../enable">enable</a> y e)
+           (etc-lubricant1b x e y))
+      (<a href="../lubricant">lubricant</a> y)))
+</pre>
+</div>
 </section>
 
 </body>

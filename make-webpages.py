@@ -129,7 +129,8 @@ for fname in axiom_files:
                         pred = m.group(1)
                         if pred not in preds:
                             pred = pred.replace("'", "")
-                        if pred not in bad_preds:
+                        if (pred not in bad_preds and
+                            not pred.startswith('etc')):
                             if 'characterizing' not in preds[pred]:
                                 preds[pred]['characterizing'] = []
                             preds[pred]['characterizing'].append(

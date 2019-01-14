@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: etc-cataclysmic-adj1</title>
+<title>Predicate: wheel</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,17 +20,25 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>etc-cataclysmic-adj1</code></h1>
+<h1>Predicate: <code>wheel</code></h1>
 </header>
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>One way of decreasing structure is to be a cataclysm.</p>
+<p>Wheels can be part of an engine.</p>
 <pre>
-(forall (e1 x)
-  (if (and (<a href="../decreaseStruct">decreaseStruct</a>' e1 x) (<a href="../etc-cataclysmic-adj1">etc-cataclysmic-adj1</a> e1 x))
-     (exists (e)
-       (<a href="../cataclysmic-adj">cataclysmic-adj</a> e e1))))
+(forall (y)
+  (if (and (<a href="../wheel">wheel</a> y) (etc-wheel1a y))
+      (exists (x)
+        (and (<a href="../engine">engine</a> x) (<a href="../componentOf">componentOf</a> y x)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../engine">engine</a> x) (etc-wheel1b x))
+      (exists (y)
+        (and (<a href="../wheel">wheel</a> y) (<a href="../componentOf">componentOf</a> y x)))))
 </pre>
 </div>
 </section>

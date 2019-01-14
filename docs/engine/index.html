@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: processOf</title>
+<title>Predicate: engine</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,17 +20,42 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>processOf</code></h1>
+<h1>Predicate: <code>engine</code></h1>
 </header>
+<section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>An engine is a dynamic functional composite entity.</p>
+<pre>
+(forall (x)
+  (if (<a href="../engine">engine</a> x)
+      (<a href="../dFCompEnt">dFCompEnt</a> x)))
+</pre>
+</div></section>
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>A dynamic functional composite entity is a functional composite entity for which there is a process e that causes its function f.</p>
 <pre>
-(forall (f s x)
-  (if (and (<a href="../fCompEnt">fCompEnt</a> x) (<a href="../function">function</a> f x) (<a href="../process">process</a> s x)
-           (<a href="../cause">cause</a> s f))
-      (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../processOf">processOf</a> s x))))
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (etc-engine1b x))
+      (<a href="../engine">engine</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<p>Wheels can be part of an engine.</p>
+<pre>
+(forall (y)
+  (if (and (<a href="../wheel">wheel</a> y) (etc-wheel1a y))
+      (exists (x)
+        (and (<a href="../engine">engine</a> x) (<a href="../componentOf">componentOf</a> y x)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../engine">engine</a> x) (etc-wheel1b x))
+      (exists (y)
+        (and (<a href="../wheel">wheel</a> y) (<a href="../componentOf">componentOf</a> y x)))))
 </pre>
 </div>
 <div class="axiom">

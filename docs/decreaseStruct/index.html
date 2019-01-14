@@ -137,6 +137,15 @@
 </pre>
 </div>
 <div class="axiom">
+<p>One way a nuclear reactor loses structure is a meltdown.</p>
+<pre>
+(forall (e x)
+  (if (and (<a href="../nuclearReactor">nuclearReactor</a> x) (<a href="../decreaseStruct">decreaseStruct</a>' e x)
+           (etc-nuclearReactor2))
+      (<a href="../meltdown">meltdown</a> e)))
+</pre>
+</div>
+<div class="axiom">
 <pre>
 (forall (x)
   (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseStruct">decreaseStruct</a> x))

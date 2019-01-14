@@ -82,7 +82,7 @@ is less functional than x1.
 ```
 (forall (e1 e2 e3 f x1 x2)
   (if (and (function f x1) (function f x2) (cause e1 f)
-           (not' e3 e2) (cause e2 f :0.2) (Subst x1 e1 x2 e2 :0.2))
+           (not' e3 e2) (cause e2 f) (Subst x1 e1 x2 e2))
       (exists (x y)
         (lessFct y x f))))
 ```
@@ -240,3 +240,219 @@ Building can be described by the verb "build".
       (exists (e u v)
         (build-vb e z x u v))))
 ```
+
+
+One way of increasing structure is to forge.
+
+```
+(forall (x)
+  (if (and (increaseStruct x) (etc-forge-vb1 x))
+      (exists (e u v y)
+        (forge-vb e y x u v))))
+```
+
+
+To penetrate is to change to being in.
+
+```
+(forall (e1 e2 x y)
+  (if (and (compositeEntity x) (change e1 e2) (in' e2 y x))
+      (exists (e u v)
+        (penetrate-vb1 e y x u v))))
+```
+
+
+## DFCE Domain: Buildings
+
+A building is a functional composite entity.
+
+```
+(forall (x)
+  (if (and (fCompEnt x) (etc-building1 x))
+      (exists (e)
+        (building e x))))
+```
+
+
+The function of a building is to protect entities inside it.
+
+```
+(forall (x)
+  (if (building x)
+      (exists (f y)
+        (and (function f x) (protect' f x y)))))
+```
+
+
+```
+(forall (f x y)
+  (if (and (function f x) (protect' f x y) (etc f x y))
+      (building x)))
+```
+
+
+A door is a component of a building.
+
+```
+(forall (x)
+  (if (building x)
+      (exists (y)
+        (and (door y) (componentOf y x)))))
+```
+
+```
+(forall (y)
+  (if (door y)
+      (exists (x)
+        (and (building x) (componentOf y x)))))
+```
+
+
+A door enables a change to being in, which is its function.
+
+```
+(forall (x y)
+  (if (and (door y) (componentOf y x))
+      (exists (e e1 e2 z)
+        (and (enable y e) (change' e e1 e2) (in' e2 z x)))))
+```
+
+```
+(forall (e e1 e2 x y z)
+(if (and (enable y e) (change' e e1 e2) (in' e2 z x)
+         (componentOf y x)
+         (etc-door2a y e e1 e2 z x))
+    (door y)))
+```
+
+```
+(forall (f x y)
+  (if (and (door y) (componentOf y x) (function f y))
+      (exists (e1 e2 z)
+        (and (change' f e1 e2) (in' e2 z x)))))
+```
+
+
+A foundation is a component of a building.
+
+```
+(forall (x y)
+  (if (foundation y x)
+    (and (building x) (componentOf y x))))
+```
+
+
+Buildings have foundations.
+
+```
+(forall (x)
+  (if (building x)
+      (exists (y)
+        (foundation y x))))
+```
+
+
+Building the foundation enables building the building.
+
+```
+(forall (e1 x y z1)
+  (if (and (build' e1 z1 y) (foundation y x))
+      (exists (e e1 z2)
+        (and (enable e1 e) (build' e z2 x)))))
+```
+
+
+Scaffolding enables building a building.
+
+```
+(forall (y)
+  (if (scaffolding y)
+      (and (building x) (enable y e) (build' e z x))))
+```
+
+```
+(forall (e x y z)
+  (if (and (building x) (enable y e) (build' e z x)
+           (etc-scaffolding1b x y e z))
+       (scaffolding y)))
+```
+
+
+## DFCE Domain: Cars & Engines
+
+A car is a dynamic functional composite entity.
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (etc-car1 x))
+      (car x)))
+```
+
+
+An engine is a dynamic functional composite entity.
+
+```
+(forall (x)
+  (if (engine x)
+      (dFCompEnt x)))
+```
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (etc-engine1b x))
+      (engine x)))
+```
+
+
+Wheels can be part of an engine.
+
+```
+(forall (y)
+  (if (and (wheel y) (etc-wheel1a y))
+      (exists (x)
+        (and (engine x) (componentOf y x)))))
+```
+
+```
+(forall (x)
+  (if (and (engine x) (etc-wheel1b x))
+      (exists (y)
+        (and (wheel y) (componentOf y x)))))
+```
+
+
+A lubricant enables the process of an engine.
+
+```
+(forall (e x y)
+  (if (and (lubricant y) (engine x) (processOf e x))
+      (enable y e)))
+```
+
+```
+(forall (e x y)
+  (if (and (engine x) (processOf e x) (enable y e)
+           (etc-lubricant1b x e y))
+      (lubricant y)))
+```
+
+
+## DFCE Domain: Nuclear power
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (etc-nuclearReactor1b x))
+      (nuclearReactor x)))
+```
+
+
+One way a nuclear reactor loses structure is a meltdown.
+
+```
+(forall (e x)
+  (if (and (nuclearReactor x) (decreaseStruct' e x)
+           (etc-nuclearReactor2))
+      (meltdown e)))
+```
+
+
