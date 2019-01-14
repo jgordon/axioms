@@ -105,6 +105,30 @@
       (<a href="../union">union</a> u)))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e e1 g x y)
+  (if (and (<a href="../persuade">persuade</a> e x y g) (<a href="../goal">goal</a> e1 g x))
+      (exists (e0 u1)
+        (<a href="../lobby-vb">lobby-vb</a> e0 x y u1))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 g x y)
+  (if (and (<a href="../persuade">persuade</a> e x y g) (<a href="../goal">goal</a> e1 g x))
+      (exists (e0)
+        (<a href="../lobbying-nn">lobbying-nn</a> e0 e))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (e e1 g x y)
+  (if (and (<a href="../persuade">persuade</a> e x y g) (<a href="../goal">goal</a> e1 g x))
+      (exists (e0)
+        (<a href="../lobby-nn">lobby-nn</a> e0 x))))
+</pre>
+</div>
 </section>
 
 </body>

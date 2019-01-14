@@ -36,7 +36,7 @@
 <div class="axiom">
 <pre>
 (forall (x y f)
-  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../leadP">leadP</a> f x y))
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../lead">lead</a>' f x y))
       (<a href="../politicalParty">politicalParty</a> x)))
 </pre>
 </div>
@@ -73,6 +73,319 @@
   (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../conflict">conflict</a> e x y g h) (<a href="../adversary">adversary</a> e1 x y e))
       (exists (e2 u)
         (<a href="../defection-nn">defection-nn</a> e2 u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseStruct">decreaseStruct</a> x))
+      (exists (e e1)
+        (<a href="../meltdown-nn">meltdown-nn</a> e e1))))
+</pre>
+</div>
+<div class="axiom">
+<p>One way of increasing structure is to forge.</p>
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../increaseStruct">increaseStruct</a> x))
+      (exists (e y u)
+        (<a href="../forge-vb">forge-vb</a> e y x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseFct">decreaseFct</a> x))
+      (exists (e z u)
+        (<a href="../paralyze-vb">paralyze-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseFct">decreaseFct</a> x))
+      (exists (e z u)
+        (<a href="../incapacitate-vb">incapacitate-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (y)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> y) (<a href="../increaseFct">increaseFct</a> y))
+      (exists (e x z u)
+        (<a href="../facilitate-vb">facilitate-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../increaseFct">increaseFct</a> x))
+      (exists (e z u)
+        (<a href="../facilitate-vb">facilitate-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../increaseFct">increaseFct</a> x))
+      (exists (e u1 u2)
+        (<a href="../hum-vb">hum-vb</a> e x u1 u2))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (y)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> y) (<a href="../increaseFct">increaseFct</a> y))
+      (exists (e x)
+        (<a href="../hum-nn">hum-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../increaseStruct">increaseStruct</a> x))
+      (exists (e u z)
+        (<a href="../rebuild-vb">rebuild-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseFct">decreaseFct</a> x))
+      (exists (e u z)
+        (<a href="../detonate-vb">detonate-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseFct">decreaseFct</a> x))
+      (exists (e u z)
+        (<a href="../injure-vb">injure-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseStruct">decreaseStruct</a> x))
+      (exists (e e1 y u)
+        (and (<a href="../fall-vb">fall-vb</a> e x y u) (<a href="../apart-adv">apart-adv</a> e1 e)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseStruct">decreaseStruct</a> x))
+      (exists (e u z)
+        (<a href="../crack-vb">crack-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../increaseStruct">increaseStruct</a> x))
+      (exists (e u y)
+        (<a href="../grow-vb">grow-vb</a> e x y u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x y)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../increaseStruct">increaseStruct</a> y))
+      (exists (e u)
+        (<a href="../grow-vb">grow-vb</a> e x y u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../increaseStruct">increaseStruct</a> x))
+      (exists (e u z)
+        (<a href="../strengthen-vb">strengthen-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseStruct">decreaseStruct</a> x))
+      (exists (e)
+        (<a href="../scorched-adj">scorched-adj</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../country-nn">country-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../state-nn">state-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../government-nn">government-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../administration-nn">administration-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x z)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../control">control</a> f x s) (<a href="../citizens">citizens</a> s z))
+      (exists (e)
+        (<a href="../law-nn">law-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../lead">lead</a>' f s x) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../democracy-nn">democracy-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../control">control</a> f x s) (<a href="../citizens">citizens</a> s z))
+      (exists (e)
+        (<a href="../authoritarianism-nn">authoritarianism-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../commerce">commerce</a> f))
+      (exists (e)
+        (<a href="../economy-nn">economy-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../commerce">commerce</a> f))
+      (exists (e)
+        (<a href="../economic-adj">economic-adj</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../commerce">commerce</a> f))
+      (exists (e)
+        (<a href="../sector-nn">sector-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../commerce">commerce</a> f))
+      (exists (e)
+        (<a href="../transportation-nn">transportation-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../commerce">commerce</a> f))
+      (exists (e)
+        (<a href="../financial-adj">financial-adj</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../commerce">commerce</a> f))
+      (exists (e)
+        (<a href="../fiscal-adj">fiscal-adj</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../commerce">commerce</a> f))
+      (exists (e)
+        (<a href="../business-nn">business-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../commerce">commerce</a> f))
+      (exists (e)
+        (<a href="../market-nn">market-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x))
+      (exists (e)
+        (<a href="../system-nn">system-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x))
+      (exists (e)
+        (<a href="../body-nn">body-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../sharedPlan">sharedPlan</a> f x))
+      (exists (e)
+        (<a href="../organization-nn">organization-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x))
+      (exists (e)
+        (<a href="../program-nn">program-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x))
+      (exists (e)
+        (<a href="../class-nn">class-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x))
+      (exists (e)
+        (<a href="../progress-nn">progress-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f x y z)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../respect">respect</a>' f y z x))
+      (exists (e)
+        (<a href="../reputation-nn">reputation-nn</a> e x))))
 </pre>
 </div>
 </section>

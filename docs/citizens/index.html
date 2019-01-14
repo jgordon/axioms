@@ -33,6 +33,62 @@
       (<a href="../nation">nation</a> x)))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../country-nn">country-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../state-nn">state-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../government-nn">government-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../administration-nn">administration-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x z)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../control">control</a> f x s) (<a href="../citizens">citizens</a> s z))
+      (exists (e)
+        (<a href="../law-nn">law-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../lead">lead</a>' f s x) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../democracy-nn">democracy-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../control">control</a> f x s) (<a href="../citizens">citizens</a> s z))
+      (exists (e)
+        (<a href="../authoritarianism-nn">authoritarianism-nn</a> e x))))
+</pre>
+</div>
 </section>
 
 </body>

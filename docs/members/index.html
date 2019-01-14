@@ -23,6 +23,23 @@
 <h1>Predicate: <code>members</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (g m)
+  (if (<a href="../members">members</a> m g)
+      (exists (e1)
+        (<a href="../member-nn">member-nn</a> e1 m))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (g m)
+  (if (<a href="../members">members</a> m g)
+      (exists (e1 e2)
+        (and (<a href="../member-nn">member-nn</a> e1 m) (<a href="../of-in">of-in</a> e2 m g)))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A union is an organization with the goal of having its members thrive.</p>
@@ -30,6 +47,22 @@
 (forall (e1 e2 m1 u)
   (if (and (<a href="../thrive">thrive</a> e1 m1) (<a href="../members">members</a> m1 u) (<a href="../goal">goal</a> e2 e1 u))
       (<a href="../union">union</a> u)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (a b e1 g1 g2 x)
+  (if (and (<a href="../conflict">conflict</a> e1 a b g1 g2) (<a href="../members">members</a> x a))
+      (exists (e u)
+        (<a href="../vote-vb">vote-vb</a> e x a u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (a b e1 g1 g2 x)
+  (if (and (<a href="../conflict">conflict</a> e1 a b g1 g2) (<a href="../members">members</a> x a))
+      (exists (e e2 u)
+        (and (<a href="../vote-vb">vote-vb</a> e x a u) (<a href="../for-in">for-in</a> e2 e g1)))))
 </pre>
 </div>
 </section>

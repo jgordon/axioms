@@ -62,6 +62,30 @@
         (and (<a href="../use-weapon">use-weapon</a> e1 x u y z) (<a href="../of-in">of-in</a> e2 e1 w)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e6 x y)
+  (if (<a href="../lead">lead</a>' e6 x y)
+      (exists (e u y)
+        (and (<a href="../lead">lead</a>' e x u) (<a href="../of-in">of-in</a> e1 e y)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (g m)
+  (if (<a href="../members">members</a> m g)
+      (exists (e1 e2)
+        (and (<a href="../member-nn">member-nn</a> e1 m) (<a href="../of-in">of-in</a> e2 m g)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (u w)
+  (if (<a href="../part">part</a> u w)
+      (exists (e1 e2 x)
+        (and (<a href="../part-nn">part-nn</a> e1 x) (<a href="../of-in">of-in</a> e2 x w)))))
+</pre>
+</div>
 </section>
 
 </body>

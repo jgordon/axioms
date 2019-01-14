@@ -23,6 +23,16 @@
 <h1>Predicate: <code>part</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (u w)
+  (if (<a href="../part">part</a> u w)
+      (exists (e1 e2 x)
+        (and (<a href="../part-nn">part-nn</a> e1 x) (<a href="../of-in">of-in</a> e2 x w)))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <p>If a face of an entity has a part whose function is to enable motion into and/or out of the entity, then defeasibly the face is a front of the entity. Lines 3-4 says that part x of face r has the function of enabling motion e2 of something a. Eventuality e1 is the property of x that enables e2. Lines 5-6 say the motion is either into or out of v. Line 7 indicates defeasibility. Thus, a door x in the face r of a building v has the function of its being open (e1) enabling people (a) to move into or out of the building. Of course, many times there will be more than one such face, but the defeasible uniqueness of fronts in the previous rule will usually force us to choose the primary one.</p>

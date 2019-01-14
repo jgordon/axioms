@@ -23,6 +23,44 @@
 <h1>Predicate: <code>nation</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../nation">nation</a> x)
+      (exists (e)
+        (<a href="../nation-nn">nation-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../nation">nation</a> x)
+      (exists (e)
+        (<a href="../mexico-nn">mexico-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../nation">nation</a> x)
+      (exists (e)
+        (<a href="../russia-nn">russia-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../nation">nation</a> x)
+      (exists (e)
+        (<a href="../iran-nn">iran-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../nation">nation</a> x)
+      (exists (e)
+        (<a href="../america-nn">america-nn</a> e x))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A nation is a dynamic functional composite entity with the goal of having its citizens thrive.</p>
@@ -30,6 +68,13 @@
 (forall (x f s)
   (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s)
            (<a href="../citizens">citizens</a> s x))
+      (<a href="../nation">nation</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (c g1 g2 x y)
+  (if (<a href="../conflict">conflict</a> c x y g1 g2)
       (<a href="../nation">nation</a> x)))
 </pre>
 </div>

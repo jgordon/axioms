@@ -229,7 +229,7 @@ TODO: Political parties:
 
 ```
 (forall (x y f)
-  (if (and (dFCompEnt x) (functionality f x) (leadP f x y))
+  (if (and (dFCompEnt x) (functionality f x) (lead' f x y))
       (politicalParty x)))
 ```
 
@@ -1292,3 +1292,988 @@ x trains w on y
 
 
 ### Build-Destroy
+
+To decrease structure is to damage.
+
+```
+(forall (x)
+  (if (decreaseStruct x)
+      (exists (e y u)
+        (damage-vb e y x u))))
+```
+
+
+One way of decreasing structure is to destroy.
+
+```
+(forall (x)
+  (if (decreaseStruct x)
+      (exists (e y u)
+        (destroy-vb e y x u))))
+```
+
+
+One way of decreasing structure is to demolish.
+
+```
+(forall (x)
+  (if (decreaseStruct x)
+      (exists (e y u)
+        (demolish-vb e y x u))))
+```
+
+
+One way of decreasing structure is to be a cataclysm.
+x is cataclysmic.
+
+```
+(forall (e1 x)
+  (if (decreaseStruct' e1 x)
+      (exists (e)
+        (cataclysmic-adj e e1))))
+```
+
+
+One way of decreasing structure is to be a cataclysm.
+e1 is a cataclysm that harms x
+
+```
+(forall (x)
+  (if (decreaseStruct x)
+      (exists (e e1)
+        (cataclysm-nn e e1))))
+```
+
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (decreaseStruct x))
+      (exists (e e1)
+        (meltdown-nn e e1))))
+```
+
+
+One way of increasing structure is to build.
+
+```
+(forall (x)
+  (if (increaseStruct x)
+    (exists (e z u)
+      (build-vb e z x u))))
+```
+
+
+One way of increasing structure is to forge.
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (increaseStruct x))
+      (exists (e y u)
+        (forge-vb e y x u))))
+```
+
+
+z paralyzes x
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (decreaseFct x))
+      (exists (e z u)
+        (paralyze-vb e z x u))))
+```
+
+
+z incapacitates x
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (decreaseFct x))
+      (exists (e z u)
+        (incapacitate-vb e z x u))))
+```
+
+
+z facilitates x
+
+```
+(forall (y)
+  (if (and (dFCompEnt y) (increaseFct y))
+      (exists (e x z u)
+        (facilitate-vb e z x u))))
+```
+
+
+z assists x
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (increaseFct x))
+      (exists (e z u)
+        (facilitate-vb e z x u))))
+```
+
+
+z hums
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (increaseFct x))
+      (exists (e u1 u2)
+        (hum-vb e x u1 u2))))
+```
+
+```
+(forall (y)
+  (if (and (dFCompEnt y) (increaseFct y))
+      (exists (e x)
+        (hum-nn e x))))
+```
+
+
+z rebuilds x
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (increaseStruct x))
+      (exists (e u z)
+        (rebuild-vb e z x u))))
+```
+
+
+z detonates x
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (decreaseFct x))
+      (exists (e u z)
+        (detonate-vb e z x u))))
+```
+
+
+z injures x
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (decreaseFct x))
+      (exists (e u z)
+        (injure-vb e z x u))))
+```
+
+
+x falls apart
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (decreaseStruct x))
+      (exists (e e1 y u)
+        (and (fall-vb e x y u) (apart-adv e1 e)))))
+```
+
+
+z cracks x
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (decreaseStruct x))
+      (exists (e u z)
+        (crack-vb e z x u))))
+```
+
+
+x grows
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (increaseStruct x))
+      (exists (e u y)
+        (grow-vb e x y u))))
+```
+
+
+x grows y
+
+```
+(forall (x y)
+  (if (and (dFCompEnt x) (increaseStruct y))
+      (exists (e u)
+        (grow-vb e x y u))))
+```
+
+
+z strengthens x
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (increaseStruct x))
+      (exists (e u z)
+        (strengthen-vb e z x u))))
+```
+
+
+scorched x
+
+```
+(forall (x)
+  (if (and (dFCompEnt x) (decreaseStruct x))
+      (exists (e)
+        (scorched-adj e x))))
+```
+
+
+### Governance DFCEs
+
+```
+(forall (x)
+  (if (nation x)
+      (exists (e)
+        (nation-nn e x))))
+```
+
+
+```
+(forall (c g1 g2 x y)
+  (if (conflict c x y g1 g2)
+      (nation x)))
+```
+
+
+```
+(forall (x)
+  (if (nation x)
+      (exists (e)
+        (mexico-nn e x))))
+```
+
+
+```
+(forall (x)
+  (if (nation x)
+      (exists (e)
+        (russia-nn e x))))
+```
+
+
+```
+(forall (x)
+  (if (nation x)
+      (exists (e)
+        (iran-nn e x))))
+```
+
+
+```
+(forall (x)
+  (if (nation x)
+      (exists (e)
+        (america-nn e x))))
+```
+
+
+```
+(forall (f s x)
+  (if (and (dFCompEnt x) (functionality f x) (thrive f s) (citizens s x))
+      (exists (e)
+        (country-nn e x))))
+```
+
+
+```
+(forall (f s x)
+  (if (and (dFCompEnt x) (functionality f x) (thrive f s) (citizens s x))
+      (exists (e)
+        (state-nn e x))))
+```
+
+
+```
+(forall (f s x)
+  (if (and (dFCompEnt x) (functionality f x) (thrive f s) (citizens s x))
+      (exists (e)
+        (government-nn e x))))
+```
+
+
+```
+(forall (f s x)
+  (if (and (dFCompEnt x) (functionality f x) (thrive f s) (citizens s x))
+      (exists (e)
+        (administration-nn e x))))
+```
+
+
+```
+(forall (f s x z)
+  (if (and (dFCompEnt x) (functionality f x) (control f x s) (citizens s z))
+      (exists (e)
+        (law-nn e x))))
+```
+
+
+```
+(forall (f s x)
+  (if (and (dFCompEnt x) (functionality f x) (lead' f s x) (citizens s x))
+      (exists (e)
+        (democracy-nn e x))))
+```
+
+
+```
+(forall (f s x)
+  (if (and (dFCompEnt x) (functionality f x) (control f x s) (citizens s z))
+      (exists (e)
+        (authoritarianism-nn e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+      (exists (e)
+        (economy-nn e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+      (exists (e)
+        (economic-adj e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+      (exists (e)
+        (sector-nn e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+      (exists (e)
+        (transportation-nn e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+      (exists (e)
+        (financial-adj e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+      (exists (e)
+        (fiscal-adj e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+      (exists (e)
+        (business-nn e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x) (commerce f))
+      (exists (e)
+        (market-nn e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x))
+      (exists (e)
+        (system-nn e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x))
+      (exists (e)
+        (body-nn e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x) (sharedPlan f x))
+      (exists (e)
+        (organization-nn e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x))
+      (exists (e)
+        (program-nn e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x))
+      (exists (e)
+        (class-nn e x))))
+```
+
+
+```
+(forall (f x)
+  (if (and (dFCompEnt x) (functionality f x))
+      (exists (e)
+        (progress-nn e x))))
+```
+
+
+```
+(forall (f x y z)
+  (if (and (dFCompEnt x) (functionality f x) (respect' f y z x))
+      (exists (e)
+        (reputation-nn e x))))
+```
+
+
+### Politics
+
+```
+(forall (e e1 g x y)
+  (if (and (persuade e x y g) (goal e1 g x))
+      (exists (e0 u1)
+        (lobby-vb e0 x y u1))))
+```
+
+```
+(forall (e e1 g x y)
+  (if (and (persuade e x y g) (goal e1 g x))
+      (exists (e0)
+        (lobbying-nn e0 e))))
+```
+
+
+```
+(forall (e e1 g x y)
+  (if (and (persuade e x y g) (goal e1 g x))
+      (exists (e0)
+        (lobby-nn e0 x))))
+```
+
+
+```
+(forall (x)
+  (if (voter x)
+      (exists (e y)
+        (voter-nn e y))))
+```
+
+
+```
+(forall (a b g1 g2 x)
+  (if (conflict x a b g1 g2)
+      (exists (e)
+        (election-nn e x))))
+```
+
+
+```
+(forall (a b g1 g2 x)
+  (if (conflict x a b g1 g2)
+      (exists (e y)
+        (elect-vb e x y g1))))
+```
+
+
+x votes
+
+```
+(forall (a b e1 g1 g2 x)
+  (if (and (conflict e1 a b g1 g2) (members x a))
+      (exists (e u)
+        (vote-vb e x a u))))
+```
+
+
+x votes for y
+
+```
+(forall (a b e1 g1 g2 x)
+  (if (and (conflict e1 a b g1 g2) (members x a))
+      (exists (e e2 u)
+        (and (vote-vb e x a u) (for-in e2 e g1)))))
+```
+
+
+```
+(forall (c g h x y z)
+  (if (and (conflict c x y g h) (lead' g z c))
+      (exists (e)
+        (politics-nn e c))))
+```
+
+
+```
+(forall (c g h x y z)
+  (if (and (conflict c x y g h) (lead' g z c))
+      (exists (e)
+        (politician-nn e x))))
+```
+
+
+```
+(forall (e p p5 x5)
+  (if (and (politics-nn e p5) (nn p x5))
+      (exists (e1)
+        (political-adj e1 x))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e)
+        (contributor-nn e x))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e)
+        (democratic-adj e x))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e)
+        (democrat-nn e x))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e)
+        (republican-nn e x))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e)
+        (republican-adj e x))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e)
+        (gop-nn e x))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e)
+        (right-winger-nn e x))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e e1 e2 y)
+        (and (tea-nn e1 y) (nn e2 y x) (party-nn e x)))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e)
+        (pri-nn e x))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e)
+        (movement-nn e x))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e)
+        (effort-nn e x))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e e1)
+        (and (political-adj e1 x) (party-nn e x)))))
+```
+
+
+```
+(forall (x)
+  (if (politicalParty x)
+      (exists (e)
+        (party-nn e x))))
+```
+
+
+```
+(forall (c g1 g2 x y)
+  (if (conflict c x y g1 g2)
+      (exists (e)
+        (and (democratic-adj e x) (attack c x y)))))
+```
+
+
+```
+(forall (c g1 g2 x y)
+  (if (conflict c x y g1 g2)
+      (exists (e)
+        (and (republican-adj e x) (attack c x y)))))
+```
+
+
+y is vulnerable
+
+```
+(forall (c g1 g2 x y)
+  (if (conflict c x y g1 g2)
+      (exists (e)
+        (vulnerable-adj e y))))
+```
+
+
+```
+(forall (c e1 g1 g2 x y)
+  (if (and (conflict c x y g1 g2) (adversary e1 x y c))
+      (exists (e)
+        (side-nn e x))))
+```
+
+
+### Lead
+
+#### Lead Nouns
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (president-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (leader-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (governor-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (mayor-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (speaker-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (chairman-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (king-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (queen-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (emir-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e e0)
+        (and (prime-adj e0 x) (minister-nn e x)))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (minister-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (chief-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (boss-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (captain-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (commander-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (general-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (ruler-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (head-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (manager-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (shah-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (sheikh-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (principal-nn e x))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e)
+        (ringleader-nn e x))))
+```
+
+
+leader of y
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e u y)
+        (and (lead' e x u) (of-in e1 e y)))))
+```
+
+
+#### Lead Verbs
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e u2)
+        (lead-vb e x y u2))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e u2)
+        (drive-vb e x y u2))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e u2)
+        (guide-vb e x y u2))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e u2)
+        (manage-vb e x y u2))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e u2)
+        (rule-vb e x y u2))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e u2)
+        (head-vb e x y u2))))
+```
+
+
+```
+(forall (e6 x y)
+  (if (lead' e6 x y)
+      (exists (e u2)
+        (direct-vb e x y u2))))
+```
+
+
+### Other English Lexical Axioms
+
+```
+(forall (x)
+  (if (union x)
+      (exists w)
+        (union-nn w x)))
+```
+
+
+```
+(forall (g m)
+  (if (members m g)
+      (exists (e1)
+        (member-nn e1 m))))
+```
+
+
+m is a member of g
+
+```
+(forall (g m)
+  (if (members m g)
+      (exists (e1 e2)
+        (and (member-nn e1 m) (of-in e2 m g)))))
+```
+
+
+u is part of w
+
+```
+(forall (u w)
+  (if (part u w)
+      (exists (e1 e2 x)
+        (and (part-nn e1 x) (of-in e2 x w)))))
+```
+
+
+m thrives
+
+```
+(forall (e1 m)
+  (if (thrive e1 m)
+      (exists (e2 u y)
+        (thrive-vb e2 m y u))))
+```

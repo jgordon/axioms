@@ -23,12 +23,64 @@
 <h1>Predicate: <code>increaseStruct</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>One way of increasing structure is to build.</p>
+<pre>
+(forall (x)
+  (if (<a href="../increaseStruct">increaseStruct</a> x)
+    (exists (e z u)
+      (<a href="../build-vb">build-vb</a> e z x u))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (x y f)
   (if (and (<a href="../increaseFct">increaseFct</a> y) (<a href="../functionality">functionality</a> f x))
       (<a href="../increaseStruct">increaseStruct</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<p>One way of increasing structure is to forge.</p>
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../increaseStruct">increaseStruct</a> x))
+      (exists (e y u)
+        (<a href="../forge-vb">forge-vb</a> e y x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../increaseStruct">increaseStruct</a> x))
+      (exists (e u z)
+        (<a href="../rebuild-vb">rebuild-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../increaseStruct">increaseStruct</a> x))
+      (exists (e u y)
+        (<a href="../grow-vb">grow-vb</a> e x y u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x y)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../increaseStruct">increaseStruct</a> y))
+      (exists (e u)
+        (<a href="../grow-vb">grow-vb</a> e x y u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../increaseStruct">increaseStruct</a> x))
+      (exists (e u z)
+        (<a href="../strengthen-vb">strengthen-vb</a> e z x u))))
 </pre>
 </div>
 </section>

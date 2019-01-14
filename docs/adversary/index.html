@@ -362,6 +362,14 @@
          (<a href="../heavyweight-adj">heavyweight-adj</a> e1 x))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (c e1 g1 g2 x y)
+  (if (and (<a href="../conflict">conflict</a> c x y g1 g2) (<a href="../adversary">adversary</a> e1 x y c))
+      (exists (e)
+        (<a href="../side-nn">side-nn</a> e x))))
+</pre>
+</div>
 </section>
 
 </body>

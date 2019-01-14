@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: leadP</title>
+<title>Predicate: lobby-vb</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,15 +20,16 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>leadP</code></h1>
+<h1>Predicate: <code>lobby-vb</code></h1>
 </header>
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
-(forall (x y f)
-  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../leadP">leadP</a> f x y))
-      (<a href="../politicalParty">politicalParty</a> x)))
+(forall (e e1 g x y)
+  (if (and (<a href="../persuade">persuade</a> e x y g) (<a href="../goal">goal</a> e1 g x))
+      (exists (e0 u1)
+        (<a href="../lobby-vb">lobby-vb</a> e0 x y u1))))
 </pre>
 </div>
 </section>

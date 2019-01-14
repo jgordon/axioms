@@ -132,6 +132,47 @@
       (exists (e1 u1 u2)
         (and (<a href="../conflict-vb">conflict-vb</a> e g u1 u2) (<a href="../with-in">with-in</a> e1 e y)))))
 </pre>
+</div><div class="axiom">
+<pre>
+(forall (c g1 g2 x y)
+  (if (<a href="../conflict">conflict</a> c x y g1 g2)
+      (<a href="../nation">nation</a> x)))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (a b g1 g2 x)
+  (if (<a href="../conflict">conflict</a> x a b g1 g2)
+      (exists (e)
+        (<a href="../election-nn">election-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (a b g1 g2 x)
+  (if (<a href="../conflict">conflict</a> x a b g1 g2)
+      (exists (e y)
+        (<a href="../elect-vb">elect-vb</a> e x y g1))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (c g1 g2 x y)
+  (if (<a href="../conflict">conflict</a> c x y g1 g2)
+      (exists (e)
+        (and (<a href="../democratic-adj">democratic-adj</a> e x) (<a href="../attack">attack</a> c x y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (c g1 g2 x y)
+  (if (<a href="../conflict">conflict</a> c x y g1 g2)
+      (exists (e)
+        (and (<a href="../republican-adj">republican-adj</a> e x) (<a href="../attack">attack</a> c x y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (c g1 g2 x y)
+  (if (<a href="../conflict">conflict</a> c x y g1 g2)
+      (exists (e)
+        (<a href="../vulnerable-adj">vulnerable-adj</a> e y))))
+</pre>
 </div></section>
 <section>
 <h2>Additional Axioms</h2>
@@ -460,6 +501,46 @@
   (if (and (<a href="../subevent">subevent</a> r c) (<a href="../conflict">conflict</a> c x y g h))
       (exists (e1)
         (<a href="../stage-nn">stage-nn</a> e1 r))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (a b e1 g1 g2 x)
+  (if (and (<a href="../conflict">conflict</a> e1 a b g1 g2) (<a href="../members">members</a> x a))
+      (exists (e u)
+        (<a href="../vote-vb">vote-vb</a> e x a u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (a b e1 g1 g2 x)
+  (if (and (<a href="../conflict">conflict</a> e1 a b g1 g2) (<a href="../members">members</a> x a))
+      (exists (e e2 u)
+        (and (<a href="../vote-vb">vote-vb</a> e x a u) (<a href="../for-in">for-in</a> e2 e g1)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (c g h x y z)
+  (if (and (<a href="../conflict">conflict</a> c x y g h) (<a href="../lead">lead</a>' g z c))
+      (exists (e)
+        (<a href="../politics-nn">politics-nn</a> e c))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (c g h x y z)
+  (if (and (<a href="../conflict">conflict</a> c x y g h) (<a href="../lead">lead</a>' g z c))
+      (exists (e)
+        (<a href="../politician-nn">politician-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (c e1 g1 g2 x y)
+  (if (and (<a href="../conflict">conflict</a> c x y g1 g2) (<a href="../adversary">adversary</a> e1 x y c))
+      (exists (e)
+        (<a href="../side-nn">side-nn</a> e x))))
 </pre>
 </div>
 </section>

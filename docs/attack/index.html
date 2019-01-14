@@ -266,6 +266,22 @@
         (and (<a href="../blow-nn">blow-nn</a> e0 e1) (<a href="../low-adj">low-adj</a> e4 e1)))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (c g1 g2 x y)
+  (if (<a href="../conflict">conflict</a> c x y g1 g2)
+      (exists (e)
+        (and (<a href="../democratic-adj">democratic-adj</a> e x) (<a href="../attack">attack</a> c x y)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (c g1 g2 x y)
+  (if (<a href="../conflict">conflict</a> c x y g1 g2)
+      (exists (e)
+        (and (<a href="../republican-adj">republican-adj</a> e x) (<a href="../attack">attack</a> c x y)))))
+</pre>
+</div>
 </section>
 
 </body>

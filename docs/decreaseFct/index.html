@@ -31,6 +31,38 @@
       (<a href="../decreaseStruct">decreaseStruct</a> x)))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseFct">decreaseFct</a> x))
+      (exists (e z u)
+        (<a href="../paralyze-vb">paralyze-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseFct">decreaseFct</a> x))
+      (exists (e z u)
+        (<a href="../incapacitate-vb">incapacitate-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseFct">decreaseFct</a> x))
+      (exists (e u z)
+        (<a href="../detonate-vb">detonate-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseFct">decreaseFct</a> x))
+      (exists (e u z)
+        (<a href="../injure-vb">injure-vb</a> e z x u))))
+</pre>
+</div>
 </section>
 
 </body>

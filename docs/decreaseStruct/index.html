@@ -23,12 +23,87 @@
 <h1>Predicate: <code>decreaseStruct</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>To decrease structure is to damage.</p>
+<pre>
+(forall (x)
+  (if (<a href="../decreaseStruct">decreaseStruct</a> x)
+      (exists (e y u)
+        (<a href="../damage-vb">damage-vb</a> e y x u))))
+</pre>
+</div><div class="axiom">
+<p>One way of decreasing structure is to destroy.</p>
+<pre>
+(forall (x)
+  (if (<a href="../decreaseStruct">decreaseStruct</a> x)
+      (exists (e y u)
+        (<a href="../destroy-vb">destroy-vb</a> e y x u))))
+</pre>
+</div><div class="axiom">
+<p>One way of decreasing structure is to demolish.</p>
+<pre>
+(forall (x)
+  (if (<a href="../decreaseStruct">decreaseStruct</a> x)
+      (exists (e y u)
+        (<a href="../demolish-vb">demolish-vb</a> e y x u))))
+</pre>
+</div><div class="axiom">
+<p>One way of decreasing structure is to be a cataclysm. x is cataclysmic.</p>
+<pre>
+(forall (e1 x)
+  (if (<a href="../decreaseStruct">decreaseStruct</a>' e1 x)
+      (exists (e)
+        (<a href="../cataclysmic-adj">cataclysmic-adj</a> e e1))))
+</pre>
+</div><div class="axiom">
+<p>One way of decreasing structure is to be a cataclysm. e1 is a cataclysm that harms x</p>
+<pre>
+(forall (x)
+  (if (<a href="../decreaseStruct">decreaseStruct</a> x)
+      (exists (e e1)
+        (<a href="../cataclysm-nn">cataclysm-nn</a> e e1))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (x y f)
   (if (and (<a href="../decreaseFct">decreaseFct</a> y) (<a href="../functionality">functionality</a> f x))
       (<a href="../decreaseStruct">decreaseStruct</a> x)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseStruct">decreaseStruct</a> x))
+      (exists (e e1)
+        (<a href="../meltdown-nn">meltdown-nn</a> e e1))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseStruct">decreaseStruct</a> x))
+      (exists (e e1 y u)
+        (and (<a href="../fall-vb">fall-vb</a> e x y u) (<a href="../apart-adv">apart-adv</a> e1 e)))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseStruct">decreaseStruct</a> x))
+      (exists (e u z)
+        (<a href="../crack-vb">crack-vb</a> e z x u))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../decreaseStruct">decreaseStruct</a> x))
+      (exists (e)
+        (<a href="../scorched-adj">scorched-adj</a> e x))))
 </pre>
 </div>
 </section>

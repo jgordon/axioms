@@ -23,6 +23,16 @@
 <h1>Predicate: <code>thrive</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (e1 m)
+  (if (<a href="../thrive">thrive</a> e1 m)
+      (exists (e2 u y)
+        (<a href="../thrive-vb">thrive-vb</a> e2 m y u))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A nation is a dynamic functional composite entity with the goal of having its citizens thrive.</p>
@@ -39,6 +49,38 @@
 (forall (e1 e2 m1 u)
   (if (and (<a href="../thrive">thrive</a> e1 m1) (<a href="../members">members</a> m1 u) (<a href="../goal">goal</a> e2 e1 u))
       (<a href="../union">union</a> u)))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../country-nn">country-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../state-nn">state-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../government-nn">government-nn</a> e x))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (f s x)
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../thrive">thrive</a> f s) (<a href="../citizens">citizens</a> s x))
+      (exists (e)
+        (<a href="../administration-nn">administration-nn</a> e x))))
 </pre>
 </div>
 </section>

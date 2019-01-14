@@ -23,6 +23,100 @@
 <h1>Predicate: <code>politicalParty</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e)
+        (<a href="../contributor-nn">contributor-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e)
+        (<a href="../democratic-adj">democratic-adj</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e)
+        (<a href="../democrat-nn">democrat-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e)
+        (<a href="../republican-nn">republican-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e)
+        (<a href="../republican-adj">republican-adj</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e)
+        (<a href="../gop-nn">gop-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e)
+        (<a href="../right-winger-nn">right-winger-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e e1 e2 y)
+        (and (<a href="../tea-nn">tea-nn</a> e1 y) (<a href="../nn">nn</a> e2 y x) (<a href="../party-nn">party-nn</a> e x)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e)
+        (<a href="../pri-nn">pri-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e)
+        (<a href="../movement-nn">movement-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e)
+        (<a href="../effort-nn">effort-nn</a> e x))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e e1)
+        (and (<a href="../political-adj">political-adj</a> e1 x) (<a href="../party-nn">party-nn</a> e x)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../politicalParty">politicalParty</a> x)
+      (exists (e)
+        (<a href="../party-nn">party-nn</a> e x))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <p>TODO: Political parties:</p>
@@ -35,7 +129,7 @@
 <div class="axiom">
 <pre>
 (forall (x y f)
-  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../leadP">leadP</a> f x y))
+  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../functionality">functionality</a> f x) (<a href="../lead">lead</a>' f x y))
       (<a href="../politicalParty">politicalParty</a> x)))
 </pre>
 </div>
