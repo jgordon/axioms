@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: compEnt</title>
+<title>Predicate: crosshairs-nn</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,14 +20,15 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>compEnt</code></h1>
+<h1>Predicate: <code>crosshairs-nn</code></h1>
 </header>
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
-<p>Make <code>compEnt</code> a synonym for <code>compositeEntity</code> since it is used in the previous treatment of composite entities for use in Henry.</p>
 <pre>
-(forall (x) (iff (<a href="../compositeEntity">compositeEntity</a> x) (<a href="../compEnt">compEnt</a> x)))
+(forall (e1 w x y)
+  (if (<a href="../aim">aim</a> e1 x w y)
+      (<a href="../crosshairs-nn">crosshairs-nn</a> e1 w)))
 </pre>
 </div>
 </section>

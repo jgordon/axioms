@@ -446,6 +446,22 @@
         (<a href="../defect-vb">defect-vb</a> e2 x u1 u2))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (c g h r x y)
+  (if (and (<a href="../subevent">subevent</a> r c) (<a href="../conflict">conflict</a> c x y g h))
+      (exists (e1)
+        (<a href="../round-nn">round-nn</a> e1 r))))
+</pre>
+</div>
+<div class="axiom">
+<pre>
+(forall (c g h r x y)
+  (if (and (<a href="../subevent">subevent</a> r c) (<a href="../conflict">conflict</a> c x y g h))
+      (exists (e1)
+        (<a href="../stage-nn">stage-nn</a> e1 r))))
+</pre>
+</div>
 </section>
 
 </body>

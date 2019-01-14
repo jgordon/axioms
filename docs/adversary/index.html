@@ -354,6 +354,14 @@
         (<a href="../defect-vb">defect-vb</a> e2 x u1 u2))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (c e x y)
+  (if (and (<a href="../boxing-match">boxing-match</a> c) (<a href="../adversary">adversary</a> e x y c))
+      (exists (e1)
+         (<a href="../heavyweight-adj">heavyweight-adj</a> e1 x))))
+</pre>
+</div>
 </section>
 
 </body>

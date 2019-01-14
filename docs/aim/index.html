@@ -27,6 +27,44 @@
 <pre>(aim e x w y)</pre><p>x aims weapon w at y</p>
 </section>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<p>Aim a weapon at a target.</p>
+<pre>
+(forall (e1 w x y)
+  (if (<a href="../aim">aim</a> e1 x w y)
+      (exists (u)
+        (<a href="../aim-vb">aim-vb</a> e1 x w u))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 w x y)
+  (if (<a href="../aim">aim</a> e1 x w y)
+      (<a href="../target-vb">target-vb</a> e1 x y w)))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 w x y)
+  (if (<a href="../aim">aim</a> e1 x w y)
+      (<a href="../crosshairs-nn">crosshairs-nn</a> e1 w)))
+</pre>
+</div><div class="axiom">
+<p>To train a weapon on a target is to aim at the target.</p>
+<pre>
+(forall (e1 w x y)
+  (if (<a href="../aim">aim</a> e1 x w y)
+      (exists (e2 u)
+        (and (<a href="../train-vb">train-vb</a> e1 x w u) (<a href="../on-in">on-in</a> e2 e1 y)))))
+</pre>
+</div><div class="axiom">
+<pre>
+(forall (e1 x w y)
+  (if (<a href="../aim">aim</a> e1 x w y)
+      (exists (e2 u)
+        (and (<a href="../aim-vb">aim-vb</a> e1 x w u) (<a href="../at-in">at-in</a> e2 e1 y)))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <p>Aiming is preparation for attack.</p>

@@ -1101,3 +1101,194 @@ E1 is gunfire
       (exists (u)
         (and (use-weapon e1 w u y z) (weapon w)))))
 ```
+
+
+### Aim
+
+Aim a weapon at a target.
+
+x aims w at y
+
+```
+(forall (e1 w x y)
+  (if (aim e1 x w y)
+      (exists (u)
+        (aim-vb e1 x w u))))
+```
+
+
+x targets y
+
+```
+(forall (e1 w x y)
+  (if (aim e1 x w y)
+      (target-vb e1 x y w)))
+```
+
+
+```
+(forall (e1 w x y)
+  (if (aim e1 x w y)
+      (crosshairs-nn e1 w)))
+```
+
+
+To train a weapon on a target is to aim at the target.
+
+x trains w on y
+
+```
+(forall (e1 w x y)
+  (if (aim e1 x w y)
+      (exists (e2 u)
+        (and (train-vb e1 x w u) (on-in e2 e1 y)))))
+```
+
+```
+(forall (e1 x w y)
+  (if (aim e1 x w y)
+      (exists (e2 u)
+        (and (aim-vb e1 x w u) (at-in e2 e1 y)))))
+```
+
+
+### Weapon
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (weapon-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (arm-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (gun-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (knife-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (missile-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (stick-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (pike-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (projectile-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (spear-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (bomb-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (sword-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (artillery-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (revolver-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (pistol-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (shotgun-nn e1 w))))
+```
+
+```
+(forall (w)
+  (if (weapon w)
+      (exists (e1)
+        (firearm-nn e1 w))))
+```
+
+
+### Sports
+
+```
+(forall (c e x y)
+  (if (and (boxing-match c) (adversary e x y c))
+      (exists (e1)
+         (heavyweight-adj e1 x))))
+```
+
+```
+(forall (c g h r x y)
+  (if (and (subevent r c) (conflict c x y g h))
+      (exists (e1)
+        (round-nn e1 r))))
+```
+
+```
+(forall (c g h r x y)
+  (if (and (subevent r c) (conflict c x y g h))
+      (exists (e1)
+        (stage-nn e1 r))))
+```
+
+
+### Build-Destroy
