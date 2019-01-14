@@ -33,7 +33,7 @@ bad_preds = ['forall', 'exists', 'iff', 'if', 'and', 'equal', 'not', 'or']
 
 def is_lexical(s):
     return s.endswith('-in') or s.endswith('-vb') or s.endswith('-nn') \
-        or s.endswith('-adj')
+        or s.endswith('-adj') or s.endswith('-adv')
 
 
 # Read all definitions first.
