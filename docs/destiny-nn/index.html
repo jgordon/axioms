@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: destiny</title>
+<title>Predicate: destiny-nn</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,27 +20,16 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>destiny</code></h1>
+<h1>Predicate: <code>destiny-nn</code></h1>
 </header>
 <section>
-<h2>Characterizing Axioms</h2>
+<h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
 (forall (e)
   (if (<a href="../destiny">destiny</a> e)
       (exists (e1)
         (<a href="../destiny-nn">destiny-nn</a> e1 e))))
-</pre>
-</div></section>
-<section>
-<h2>Additional Axioms</h2>
-<div class="axiom">
-<p>Destiny is a functional composite entity made up of events.</p>
-<pre>
-(forall (e e1 s)
-  (if (and (<a href="../fCompEnt">fCompEnt</a> e) (<a href="../componentsOf">componentsOf</a> s e) (<a href="../typelt">typelt</a> e1 e)
-           (<a href="../event">event</a> e1) (etc-destiny-nn1 e s e1))
-      (<a href="../destiny">destiny</a> e)))
 </pre>
 </div>
 </section>

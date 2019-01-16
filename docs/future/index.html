@@ -23,6 +23,16 @@
 <h1>Predicate: <code>future</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (e)
+  (if (<a href="../future">future</a> e)
+      (exists (e1)
+        (<a href="../future-nn">future-nn</a> e1 e))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <p>The future is a functional composite entity made up of events.</p>

@@ -26,7 +26,8 @@ axiom_files = [
     '15 Persons.md',
     '16 Modality.md',
     'DFCEs.md',
-    'Conflict.md']
+    'Conflict.md',
+    'Lexical.md']
 
 bad_preds = ['forall', 'exists', 'iff', 'if', 'and', 'equal', 'not', 'or']
 

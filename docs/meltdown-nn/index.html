@@ -32,6 +32,14 @@
         (<a href="../meltdown-nn">meltdown-nn</a> e e1))))
 </pre>
 </div>
+<div class="axiom">
+<pre>
+(forall (e)
+  (if (<a href="../meltdown">meltdown</a> e)
+      (exists (e1)
+        (<a href="../meltdown-nn">meltdown-nn</a> e1 e))))
+</pre>
+</div>
 </section>
 
 </body>

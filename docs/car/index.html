@@ -23,6 +23,16 @@
 <h1>Predicate: <code>car</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../car">car</a> x)
+      (exists (e)
+        (<a href="../car-nn">car-nn</a> e x))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <p>A car is a dynamic functional composite entity.</p>

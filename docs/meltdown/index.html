@@ -23,6 +23,16 @@
 <h1>Predicate: <code>meltdown</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (e)
+  (if (<a href="../meltdown">meltdown</a> e)
+      (exists (e1)
+        (<a href="../meltdown-nn">meltdown-nn</a> e1 e))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <p>One way a nuclear reactor loses structure is a meltdown.</p>

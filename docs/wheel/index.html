@@ -23,6 +23,16 @@
 <h1>Predicate: <code>wheel</code></h1>
 </header>
 <section>
+<h2>Characterizing Axioms</h2>
+<div class="axiom">
+<pre>
+(forall (x)
+  (if (<a href="../wheel">wheel</a> x)
+      (exists (e)
+        (<a href="../wheel-nn">wheel-nn</a> e x))))
+</pre>
+</div></section>
+<section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <p>Wheels can be part of an engine.</p>

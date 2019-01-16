@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Predicate: business-nn</title>
+<title>Predicate: door-nn</title>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:400">
 <link rel="stylesheet"
@@ -20,24 +20,16 @@
 <li><a href="../">&laquo; Index of Predicates</a></li>
 </ul>
 </nav>
-<h1>Predicate: <code>business-nn</code></h1>
+<h1>Predicate: <code>door-nn</code></h1>
 </header>
 <section>
 <h2>Additional Axioms</h2>
 <div class="axiom">
 <pre>
-(forall (f x)
-  (if (and (<a href="../dFCompEnt">dFCompEnt</a> x) (<a href="../function">function</a> f x) (<a href="../commerce">commerce</a> f))
-      (exists (e)
-        (<a href="../business-nn">business-nn</a> e x))))
-</pre>
-</div>
-<div class="axiom">
-<pre>
 (forall (x)
-  (if (<a href="../business">business</a> x)
+  (if (<a href="../door">door</a> x)
       (exists (e)
-        (<a href="../business-nn">business-nn</a> e x))))
+        (<a href="../door-nn">door-nn</a> e x))))
 </pre>
 </div>
 </section>
