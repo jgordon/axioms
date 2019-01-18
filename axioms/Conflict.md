@@ -2238,8 +2238,8 @@ leader of y
 ```
 (forall (x)
   (if (union x)
-      (exists w)
-        (union-nn w x)))
+      (exists (w)
+        (union-nn w x))))
 ```
 
 
