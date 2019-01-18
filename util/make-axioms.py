@@ -11,6 +11,8 @@ def main(fname):
         md = fin.read()
 
     for axiom in re.findall('```([^`]+)```', md):
+        # Remove comments
+        axiom = re.sub(r';.+\n', '', axiom)
         oneline = re.sub(r'[\n ]+', ' ', axiom).strip()
         if oneline.count('(') != oneline.count(')'):
             print('Error: Mismatched parentheses', oneline, file=sys.stderr)
