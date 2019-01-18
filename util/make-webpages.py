@@ -41,7 +41,7 @@ def is_lexical(s):
 for fname in axiom_files:
     in_gloss = False
     predname = ''
-    with open('axioms/' + fname, 'r') as fin:
+    with open('../axioms/' + fname, 'r') as fin:
         for line in fin:
             line = line.rstrip()
             if not line:
@@ -64,7 +64,7 @@ for fname in axiom_files:
                 in_gloss = False
 
 for fname in axiom_files:
-    with open('axioms/' + fname, 'r') as fin:
+    with open('../axioms/' + fname, 'r') as fin:
         in_gloss = False
         gloss = ''
 
@@ -211,8 +211,8 @@ html_footer = """
 </html>
 """
 
-ensure_dir('docs/index.html')
-with open('docs/index.html', 'w') as fout:
+ensure_dir('../docs/index.html')
+with open('../docs/index.html', 'w') as fout:
     fout.write(html_header_index)
     fout.write('<h2>General</h2>\n')
     fout.write('<ul>\n')
@@ -231,7 +231,7 @@ with open('docs/index.html', 'w') as fout:
     fout.write(html_footer)
 
 for pred in preds:
-    fname = 'docs/' + pred + '/index.html'
+    fname = '../docs/' + pred + '/index.html'
     ensure_dir(fname)
     with open(fname, 'w') as fout:
         fout.write(html_header % (pred, pred))
