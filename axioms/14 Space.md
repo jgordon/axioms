@@ -670,7 +670,7 @@ the `origin`.
                     (forall (a3)
                        (if (zAxis a3 f)
                            (and (intersection s a1 a3)
-                                (intersection s a2 a3)
+                                (intersection s a2 a3))))))))
 ```
 
 
