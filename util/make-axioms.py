@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import re
 import click
 
@@ -10,7 +11,12 @@ def main(fname):
         md = fin.read()
 
     for axiom in re.findall('```([^`]+)```', md):
-        print(re.sub(r'[\n ]+', ' ', axiom).strip())
+        oneline = re.sub(r'[\n ]+', ' ', axiom).strip()
+        if oneline.count('(') != oneline.count(')'):
+            print('Error: Mismatched parentheses', oneline, file=sys.stderr)
+            sys.exit()
+        print(oneline)
+
 
 if __name__ == '__main__':
     main()
