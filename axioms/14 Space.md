@@ -1608,7 +1608,7 @@ this condition won't hold and yet we'll want to call the point central.
                        (boundary b f) (inside p1 b) (inside p2 b)
                        (distance d1 p1 p) (distance d2 p2 p))
                   (sameHOM d1 d2)))
-           (centralIn0 p f))
+           (centralIn0 p f))))
 ```
 
 
