@@ -997,64 +997,64 @@ E1 is gunfire
 ```
 (forall (e1 w x y z)
   (if (use-weapon e1 x w y z)
-      (exists u2)
-        (shoot-vb e1 x y u2)))
+      (exists (u2)
+        (shoot-vb e1 x y u2))))
 ```
 
 ```
 (forall (e1 w x y z)
   (if (use-weapon e1 x w y z)
-      (exists u2)
-        (hit-vb e1 x y u2)))
+      (exists (u2)
+        (hit-vb e1 x y u2))))
 ```
 
 ```
 (forall (e1 w x y z)
   (if (use-weapon e1 x w y z)
-      (exists u2)
-        (bomb-vb e1 x y u2)))
+      (exists (u2)
+        (bomb-vb e1 x y u2))))
 ```
 
 ```
 (forall (e1 w x y z)
   (if (use-weapon e1 x w y z)
-      (exists u2)
-        (fire-vb e1 x y u2)))
+      (exists (u2)
+        (fire-vb e1 x y u2))))
 ```
 
 ```
 (forall (e1 w x y z)
   (if (use-weapon e1 x w y z)
-      (exists u2)
-        (blast-vb e1 x y u2)))
+      (exists (u2)
+        (blast-vb e1 x y u2))))
 ```
 
 ```
 (forall (e1 w x y z)
   (if (use-weapon e1 x w y z)
-      (exists u2)
-        (explode-vb e1 x y u2)))
+      (exists (u2)
+        (explode-vb e1 x y u2))))
 ```
 
 ```
 (forall (e1 w x y z)
   (if (use-weapon e1 x w y z)
-      (exists u2)
-        (slaughter-vb e1 x y u2)))
+      (exists (u2)
+        (slaughter-vb e1 x y u2))))
 ```
 
 ```
 (forall (e1 w x y z)
   (if (use-weapon e1 x w y z)
-      (exists u2)
-        (knife-vb e1 x y u2)))
+      (exists (u2)
+        (knife-vb e1 x y u2))))
 ```
 
 ```
 (forall (e1 w x y z)
   (if (use-weapon e1 x w y z)
-      (exists u2)
-        (stab-vb e1 x y u2)))
+      (exists (u2)
+        (stab-vb e1 x y u2))))
 ```
 
 
