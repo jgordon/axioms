@@ -1655,7 +1655,7 @@ We will call this a "quill", after the quills of porcupines.
         (exists (p0 p1 p)
            (and (volume v) (face r v p) (ray c) (inside p c)
                 (endpoint p0 c) (centralIn p0 v)
-                (centralIn p1 r) (inside p1 c))))))
+                (centralIn p1 r) (inside p1 c)))))
 ```
 
 
@@ -1715,8 +1715,8 @@ choose the primary one.
                (enable' e e1 e2) (move' e2 a b c)
                (or (and (inside c v) (externalTo b v))
                    (and (inside b v) (externalTo c v)))
-               (etc))
-       (front r v))
+               (etc)))
+       (front r v)))
 ```
 
 
@@ -2367,7 +2367,7 @@ a motion toward it.
    (if (curve c)
        (iff (toward c z)
             (exists (e x y1 y2)
-               (and (move' e x y1 y2) (toward e z)))))))
+               (and (move' e x y1 y2) (toward e z))))))
 ```
 
 The words "inbound" and "incoming" mean that the motion is toward
@@ -2515,7 +2515,7 @@ relation.
            (and (scaleDefinedBy s s1 e)
                 (forall (n)
                    (if (member n s1) (exists (x) (width n x u)))
-                       (wider' e x1 x2)))))
+                       (wider' e x1 x2))))))
 ```
 
 
