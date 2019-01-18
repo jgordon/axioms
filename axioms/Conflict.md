@@ -345,7 +345,9 @@ G and H are goals that conflict.
   (if (conflict e x y g h)
       (exists (u1 u2)
         (conflict-vb e g u1 u2))))
+```
 
+```
 (forall (e x y g h)
   (if (conflict e x y g h)
       (exists (e1 u1 u2)
