@@ -1473,7 +1473,7 @@ since we already have a predicate `vertex`.
 (forall (x p s)
    (if (polyhedron p s)
        (iff (vertex3 x p)
-            (exists (c) (and (edge c p) (endpoint x c)))))
+            (exists (c) (and (edge c p) (endpoint x c))))))
 ```
 
 
