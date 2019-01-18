@@ -1521,7 +1521,7 @@ two points on its surface is inside the volume.
             (forall (c x x1 x2)
                (if (and (onBorder x1 p) (onBorder x2 p)
                         (lineSegmentFromTo c x1 x2) (inside x c)
-                   (subfigure x p))))))
+                   (subfigure x p)))))))
 ```
 
 
