@@ -684,7 +684,7 @@ two-dimensional case; lines 4-7 the three-dimensional case.
             (forall (a3)
                (if (zAxis a3 f)
                    (and (independentScales a1 a3)
-                        (independentScales a2 a3))))))))
+                        (independentScales a2 a3)))))))
 ```
 
 
