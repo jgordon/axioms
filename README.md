@@ -5,8 +5,6 @@ first-order logic, including Jerry Hobbs's [base theories][1] and more
 recent elaborations motivated by DARPA's Communicating with Computers
 program.
 
-Browse: https://jgordon.github.io/axioms
-
 [1]: https://isi.edu/~hobbs/csk.html
 
 
